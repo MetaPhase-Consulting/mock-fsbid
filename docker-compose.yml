@@ -1,0 +1,12 @@
+version: '2'
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - 3333:3333
+    command: npm start
+    volumes:
+      - .:/home/node/app
+    environment:
+      - PORT=3333
