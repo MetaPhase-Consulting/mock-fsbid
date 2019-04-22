@@ -1,5 +1,6 @@
 const bidding = require('./bids')
 const projectedVacancies = require('./projectedVacancies')
+const bidSeasons = require('./bidSeasons')
 
 var appRouter = function (app) {
   app.get("/", function(req, res) {
@@ -20,6 +21,10 @@ var appRouter = function (app) {
 
   app.get('/projectedVacancies', function(req, res) {
     res.status(200).send(projectedVacancies.get_projected_vacancies(req.query))
+  });
+
+  app.get('/bidSeasons', function(req, res) {
+    res.status(200).send(bidSeasons.get_bid_seasons(req.query));
   });
 };
 
