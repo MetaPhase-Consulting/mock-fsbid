@@ -1,4 +1,5 @@
 const bidding = require('./bids')
+const projectedVacancies = require('./projectedVacancies')
 
 var appRouter = function (app) {
   app.get("/", function(req, res) {
@@ -15,6 +16,10 @@ var appRouter = function (app) {
 
   app.delete('/bids', function(req, res) {
     res.status(201).send(bidding.remove_bid(req.query))
+  });
+
+  app.get('/projectedVacancies', function(req, res) {
+    res.status(200).send(projectedVacancies.get_projected_vacancies(req.query))
   });
 };
 
