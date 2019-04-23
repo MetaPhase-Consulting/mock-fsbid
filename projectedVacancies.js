@@ -96,7 +96,10 @@ const FILTERS = {
 }
 
 function get_projected_vacancies(query) {
-  return projectedVacancies.filter(item => {
+  const limit = query.limit || 10
+  const offset = query.offset || 0
+  const page_number = Math.floor(offset / limit)
+  const positions =  projectedVacancies.filter(item => {
     for (let key in query) {
       const field = FILTERS[key]
       // Ignore fields not in filter list (like pagination)
@@ -105,6 +108,9 @@ function get_projected_vacancies(query) {
     }
     return true;
   })
+  return { 
+    positions: positions.slice(page_number * limit, (page_number + 1) * limit),
+    pagination: { count: positions.length, limit, offset }}
 }
 
 module.exports = { get_projected_vacancies }
