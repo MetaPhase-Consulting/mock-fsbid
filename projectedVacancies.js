@@ -103,8 +103,13 @@ function get_projected_vacancies(query) {
     for (let key in query) {
       const field = FILTERS[key]
       // Ignore fields not in filter list (like pagination)
-      if (field && (item[field] === undefined || item[field] != query[key]))
-        return false;
+      if (field) {
+        const filters = query[key].split(',')
+        console.log(filters)
+        if (item[field] === undefined || !filters.includes(`${item[field]}`)) {
+          return false;
+        }
+      }
     }
     return true;
   })
