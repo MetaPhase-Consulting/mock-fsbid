@@ -1,6 +1,6 @@
 const projectedVacancies = [
   {
-    "bsn_id":1,
+    "bsn_id":12,
     "bsn_descr_text": "Summer 2020",
     "pos_id": 1,
     "grade": "MC",
@@ -40,7 +40,7 @@ const projectedVacancies = [
     "ted": "06/2020",
   },
   {
-    "bsn_id":2,
+    "bsn_id":13,
     "bsn_descr_text": "Winter 2020",
     "pos_id": 1,
     "grade": "MC",
