@@ -89,7 +89,7 @@ const FILTERS = {
   "gradeCode": "grade",
   "languageCode":"language_code_1",
   "organizationCode": "org_code",
-  "positionNumber": "position_number",
+  "positionNumber": "pos_id",
   "postDifferential": "differential_rate",
   "skillCode": "skill_code",
   "tourOfDutyCode": "tod_code"
@@ -105,7 +105,7 @@ function get_projected_vacancies(query) {
       // Ignore fields not in filter list (like pagination)
       if (field) {
         const filters = query[key].split(',')
-        console.log(filters)
+        console.log(`Search on ${field} with filters ${filters}`)
         if (item[field] === undefined || !filters.includes(`${item[field]}`)) {
           return false;
         }
