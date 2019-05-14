@@ -12,7 +12,7 @@ const cycles = [
   { id: 1, status: 'A', postViewable: 'Y', description: 'Cycle 1' },
 ]
 
-const STATUS_CODES = ['A']
+const STATUS_CODES = ['W', 'A']
 const HANDSHAKE_CODES = ['N']
 
 const cyclePositions = [
@@ -48,7 +48,7 @@ const bids = [
     submittedDate
   },
   {
-    statusCode: STATUS_CODES[0],
+    statusCode: STATUS_CODES[1],
     handshakeCode: HANDSHAKE_CODES[0],
     employee: employees[1],
     cycle: cycles[0],
@@ -104,11 +104,11 @@ function get_bids(query) {
 }
 
 function add_bid(data) {
-  const { cp_id, perdet_seq_num } = data
+  const { cp_id, perdet_seq_num, status } = data
   const date = new Date()
   bids.push({
     id: bids.length,
-    statusCode: STATUS_CODES[0],
+    statusCode: status || STATUS_CODES[0],
     handshakeCode: HANDSHAKE_CODES[0],
     employee: get_employee(perdet_seq_num),
     cycle: cycles[0],
