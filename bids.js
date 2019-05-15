@@ -81,16 +81,7 @@ function get_position(pos_seq_num) {
 function get_cycle_position(cp_id) {
   let cycle_position = cyclePositions.filter(cp => cp.cp_id == cp_id)[0]
   if (!cycle_position) {
-    cycle_position = {
-      cp_id,
-      status: STATUS_CODES[0],
-      pos_seq_num: get_position(cp_id).pos_seq_num,
-      totalBidders: 0,
-      atGradeBidders: 0,
-      inConeBidders: 0,
-      inBothBidders: 0
-    }
-    cyclePositions.push(cycle_position)
+    throw `No position match for ${cp_id}`
   }
   return cycle_position
 }

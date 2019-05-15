@@ -12,7 +12,11 @@ var appRouter = function (app) {
   });
 
   app.post('/bids', function(req, res) {
-    res.status(201).send(bidding.add_bid(req.body)) 
+    try {
+      res.status(201).send(bidding.add_bid(req.body))
+    } catch (err) {
+      res.status(500).send(err)
+    }
   });
 
   app.delete('/bids', function(req, res) {
