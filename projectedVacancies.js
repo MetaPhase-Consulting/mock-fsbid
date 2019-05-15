@@ -42,7 +42,7 @@ const projectedVacancies = [
   {
     "bsn_id":13,
     "bsn_descr_text": "Winter 2020",
-    "pos_id": 1,
+    "pos_id": 2,
     "grade": "MC",
     "skill_code": "0020",
     "skill": "Executive (Career) (0020)",
