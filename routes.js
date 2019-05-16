@@ -15,7 +15,7 @@ var appRouter = function (app) {
     try {
       res.status(201).send(bidding.add_bid(req.body))
     } catch (err) {
-      res.status(500).send(err)
+      res.status(422).send(err)
     }
   });
 
