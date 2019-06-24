@@ -23,8 +23,12 @@ var appRouter = function (app) {
     res.status(201).send(bidding.remove_bid(req.query))
   });
 
-  app.get('/projectedVacancies', function(req, res) {
+  app.get('/futureVacancies', function(req, res) {
     res.status(200).send(projectedVacancies.get_projected_vacancies(req.query))
+  });
+
+  app.get('/futureVacanciesCount', function(req, res) {
+    res.status(200).send(projectedVacancies.get_projected_vacancies_count(req.query))
   });
 
   app.get('/bidSeasons', function(req, res) {
