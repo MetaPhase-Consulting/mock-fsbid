@@ -47,6 +47,30 @@ const projectedVacancies = [
     "ppos_capsule_descr_txt": "ON SPEC.  This is the description for the other position",
     "rnum": 2
   },
+  {
+    "fv_seq_number": 89369,
+    "post_title_desc": "Even Another Position",
+    "pos_location_code": "110010001",
+    "post_org_country_state": "WASHINGTON, DISTRICT OF COLUMBIA",
+    "ted": "2020-10-02T00:00:00",
+    "fv_override_ted_date": null,
+    "bsn_id": 13,
+    "bureau_code": "130000",
+    "bsn_descr_text": "Winter 2020",
+    "pos_skill_desc":  "MANAGEMENT OFFICER",
+    "pos_job_category_desc":  "Management",
+    "pos_crade_code": "OC",
+    "bureau_desc": "(EAP) BUREAU EAST ASIAN AND PACIFIC AFFAIRS",
+    "lang1": null,
+    "lang2": null,
+    "tod": null,
+    "bt_differential_rate_num": null,
+    "bt_danger_pay_num": null,
+    "incumbent": "Siegner",
+    "position": "D0994902",
+    "ppos_capsule_descr_txt": "ON SPEC.  This is the description for the even other position",
+    "rnum": 3
+  },
 ]
 
 // Maps filter values to data values
