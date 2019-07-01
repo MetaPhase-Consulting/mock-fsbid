@@ -11,7 +11,7 @@ const projectedVacancies = [
     "bsn_descr_text": "Summer 2020",
     "pos_skill_desc":  "MANAGEMENT OFFICER",
     "pos_job_category_desc":  "Management",
-    "pos_crade_code": "OC",
+    "pos_grade_code": "OC",
     "bureau_desc": "(A)BUREAU OF ADMINISTRATION",
     "lang1": null,
     "lang2": null,
@@ -35,7 +35,7 @@ const projectedVacancies = [
     "bsn_descr_text": "Summer 2020",
     "pos_skill_desc":  "MANAGEMENT OFFICER",
     "pos_job_category_desc":  "Management",
-    "pos_crade_code": "OC",
+    "pos_grade_code": "OC",
     "bureau_desc": "(A)BUREAU OF ADMINISTRATION",
     "lang1": null,
     "lang2": null,
@@ -59,13 +59,13 @@ const projectedVacancies = [
     "bsn_descr_text": "Winter 2020",
     "pos_skill_desc":  "MANAGEMENT OFFICER",
     "pos_job_category_desc":  "Management",
-    "pos_crade_code": "OC",
+    "pos_grade_code": "OC",
     "bureau_desc": "(EAP) BUREAU EAST ASIAN AND PACIFIC AFFAIRS",
-    "lang1": null,
+    "lang1": "Spanish(QB) 3/3",
     "lang2": null,
-    "tod": null,
-    "bt_differential_rate_num": null,
-    "bt_danger_pay_num": null,
+    "tod": "2 YRS (2 R & R)",
+    "bt_differential_rate_num": 20,
+    "bt_danger_pay_num": 35,
     "incumbent": "Siegner",
     "position": "D0994902",
     "ppos_capsule_descr_txt": "ON SPEC.  This is the description for the even other position",
@@ -98,7 +98,7 @@ const FILTERS = {
 function get_projected_vacancies(query) {
   const limit = query["fv_request_params.page_size"] || 25
   const page_number = query["fv_request_params.page_index"] || 1
-  const positions =  projectedVacancies.filter(item => {
+  const positions = projectedVacancies.filter(item => {
     for (let key in query) {
       const field = FILTERS[key].field
       // Ignore fields not in filter list (like pagination)
