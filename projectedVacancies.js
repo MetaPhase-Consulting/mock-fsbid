@@ -7,12 +7,12 @@ const projectedVacancies = [
     "ted": "2020-08-02T00:00:00",
     "fv_override_ted_date": null,
     "bsn_id": 12,
-    "bureau_code": "OC",
+    "bureau_code": "016000",
     "bsn_descr_text": "Summer 2020",
     "pos_skill_desc":  "MANAGEMENT OFFICER",
     "pos_job_category_desc":  "Management",
     "pos_grade_code": "OC",
-    "bureau_desc": "(A)BUREAU OF ADMINISTRATION",
+    "bureau_desc": "(MED) BUREAU OF MEDICAL SERVICES",
     "lang1": null,
     "lang2": null,
     "tod": null,
@@ -81,7 +81,7 @@ const FILTERS = {
   "fv_request_params.ordery_by": {},
   "fv_request_params.pos_numbers": { field: "position" },
   "fv_request_params.skills": { field: "" },
-  "fv_request_params.grades": { field: "pos_crade_code" }, //THIS IS SPELLED WRONG???!!!!!!
+  "fv_request_params.grades": { field: "pos_grade_code" },
   "fv_request_params.languages": { field: "lang1" },
   "fv_request_params.bureaus": { field: "bureau_code" },
   "fv_request_params.danger_pays": { field: "bt_danger_pay_num" },
@@ -91,7 +91,6 @@ const FILTERS = {
   "fv_request_params.freeText": { field: "" },
   "fv_request_params.differential_pays": { field: "differential_rate" },
   "fv_request_params.skills": { field: "skill_code" },
-  // "organizationCode": "org_code",,
   
 }
 
@@ -103,7 +102,7 @@ function get_projected_vacancies(query) {
       const field = FILTERS[key].field
       // Ignore fields not in filter list (like pagination)
       if (field) {
-        const filters = Array.isArray(query[key]) ? query[key] : [query[key]]
+        const filters = Array.isArray(query[key]) ? query[key] : query[key].split(',')
         console.log(`Search on ${field} with filters ${filters}`)
         if (item[field] === undefined || !filters.includes(`${item[field]}`)) {
           return false;
