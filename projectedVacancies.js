@@ -91,6 +91,7 @@ const FILTERS = {
   "fv_request_params.freeText": { field: "" },
   "fv_request_params.differential_pays": { field: "differential_rate" },
   "fv_request_params.skills": { field: "skill_code" },
+  "fv_request_params.fv_seq_number": { field: "fv_seq_number" },
   
 }
 
@@ -99,7 +100,7 @@ function get_projected_vacancies(query) {
   const page_number = query["fv_request_params.page_index"] || 1
   const positions = projectedVacancies.filter(item => {
     for (let key in query) {
-      const field = FILTERS[key].field
+      const field = FILTERS[key] ? FILTERS[key].field : null
       // Ignore fields not in filter list (like pagination)
       if (field) {
         const filters = Array.isArray(query[key]) ? query[key] : query[key].split(',')
