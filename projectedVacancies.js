@@ -86,7 +86,7 @@ const FILTERS = {
   "fv_request_params.bureaus": { field: "bureau_code" },
   "fv_request_params.danger_pays": { field: "bt_danger_pay_num" },
   "fv_request_params.bid_seasons": { field: "bsn_id" },
-  "fv_request_params.location_codes": { field: "" },
+  "fv_request_params.location_codes": { field: "pos_location_code" },
   "fv_request_params.tod_codes": { field: "tod" }, //?? Need sample data for this field
   "fv_request_params.freeText": { field: "" },
   "fv_request_params.differential_pays": { field: "differential_rate" },
