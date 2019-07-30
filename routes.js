@@ -1,10 +1,21 @@
+const { PRIVATE_KEY } = require('./constants')
 const bidding = require('./bids')
 const projectedVacancies = require('./projectedVacancies')
 const bidSeasons = require('./bidSeasons')
+const jwt = require('jsonwebtoken');
 
 var appRouter = function (app) {
   app.get("/", function(req, res) {
     res.status(200).send("Welcome to our restful API");
+  });
+
+  app.get("/token", function (req, res) {
+    const { sAppCircuitID } = req.query
+    if (!sAppCircuitID) {
+      res.status(401).send("You must provide a sAppCircuitID value")
+      return
+    }
+    res.status(200).send({ token: jwt.sign({ sAppCircuitID: sAppCircuitID }, PRIVATE_KEY) });
   });
 
   app.get("/bids", function (req, res) {
