@@ -15,7 +15,7 @@ var appRouter = function (app) {
       res.status(401).send("You must provide a sAppCircuitID value")
       return
     }
-    res.status(200).send({ token: jwt.sign({ sAppCircuitID: sAppCircuitID }, PRIVATE_KEY) });
+    res.status(200).send(jwt.sign({ sAppCircuitID: sAppCircuitID }, PRIVATE_KEY));
   });
 
   app.get("/bids", function (req, res) {
