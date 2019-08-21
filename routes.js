@@ -9,7 +9,7 @@ var appRouter = function (app) {
     res.status(200).send("Welcome to our restful API");
   });
 
-  app.get("/token", function (req, res) {
+  app.get("/Authorize", function (req, res) {
     const { sAppCircuitID } = req.query
     if (!sAppCircuitID) {
       res.status(401).send("You must provide a sAppCircuitID value")

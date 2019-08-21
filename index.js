@@ -8,27 +8,23 @@ var routes = require("./routes.js");
 
 var app = express();
 
-const tokenValidator = function (req, res, next) {
-  if (req.path === '/' || req.path === '/token') {
+const validateRequest = function (req, res, next) {
+  if (req.path === '/' || req.path === '/Authorize') {
     next()
   } else {
-    const { authorization } = req.headers
-    if (authorization) {
-      const tokenParts = authorization.split(" ")
-      if (tokenParts[1] && tokenParts[0].indexOf("Bearer") >= 0) {
+    if (req.headers.jwtauthorization && req.query["fv_request_params.ad_id"]) {
         next()
-        return
-      }
+    } else {
+      res.status(401).send('JWTAuthorization header and fv_request_params.ad_id are required')
     }
-    res.status(401).send('Get a token')
-  }
+  };
 };
 
 app.use(cors())
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(tokenValidator);
+app.use(validateRequest);
 
 morganBody(app);
 
