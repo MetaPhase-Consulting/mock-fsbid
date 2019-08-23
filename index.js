@@ -12,10 +12,10 @@ const validateRequest = function (req, res, next) {
   if (req.path === '/' || req.path === '/Authorize') {
     next()
   } else {
-    if (req.headers.jwtauthorization && req.query["fv_request_params.ad_id"]) {
-        next()
+    if (req.headers.jwtauthorization) {
+      next()
     } else {
-      res.status(401).send('JWTAuthorization header and fv_request_params.ad_id are required')
+      res.status(401).send('JWTAuthorization header are required')
     }
   };
 };
