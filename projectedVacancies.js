@@ -1,7 +1,7 @@
 const projectedVacancies = [
   {
-    "fv_seq_number": 89367,
-    "post_title_desc": "CHIEF OF STAFF",
+    "fv_seq_num": 89367,
+    "pos_title_desc": "CHIEF OF STAFF",
     "pos_location_code": "110010001",
     "post_org_country_state": "WASHINGTON, DISTRICT OF COLUMBIA",
     "ted": "2020-08-02T00:00:00",
@@ -24,8 +24,8 @@ const projectedVacancies = [
     "rnum": 1
   },
   {
-    "fv_seq_number": 89368,
-    "post_title_desc": "Another Position",
+    "fv_seq_num": 89368,
+    "pos_title_desc": "Another Position",
     "pos_location_code": "110010001",
     "post_org_country_state": "WASHINGTON, DISTRICT OF COLUMBIA",
     "ted": "2020-08-02T00:00:00",
@@ -48,8 +48,8 @@ const projectedVacancies = [
     "rnum": 2
   },
   {
-    "fv_seq_number": 89369,
-    "post_title_desc": "Even Another Position",
+    "fv_seq_num": 89369,
+    "pos_title_desc": "Even Another Position",
     "pos_location_code": "110010001",
     "post_org_country_state": "WASHINGTON, DISTRICT OF COLUMBIA",
     "ted": "2020-10-02T00:00:00",
@@ -129,7 +129,7 @@ const FILTERS = {
   "fv_request_params.freeText": { field: "" },
   "fv_request_params.differential_pays": { field: "bt_differential_rate_num" },
   "fv_request_params.skills": { field: "skill_code" },
-  "fv_request_params.fv_seq_number": { field: "fv_seq_number" },
+  "fv_request_params.fv_seq_num": { field: "fv_seq_num" },
 }
 
 function get_projected_vacancies(query) {
