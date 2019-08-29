@@ -135,6 +135,7 @@ const FILTERS = {
 function get_projected_vacancies(query) {
   const limit = query["fv_request_params.page_size"] || 25
   const page_number = query["fv_request_params.page_index"] || 1
+  const sort = query["fv_request_params.order_by"]
   const positions = projectedVacancies.filter(item => {
     for (let key in query) {
       const fields = FILTERS[key] ? FILTERS[key].field : null
@@ -161,6 +162,15 @@ function get_projected_vacancies(query) {
     }
     return true;
   })
+  if (sort) {
+    positions.sort(function(a, b) {
+      var x = `${a[sort]}`.toLowerCase();
+      var y = `${b[sort]}`.toLowerCase();
+      if (x < y) {return -1;}
+      if (x > y) {return 1;}
+      return 0;
+    });
+  }
   return { 
     "Data": positions.slice(page_number - 1 * limit, (page_number) * limit),
     "usl_id": 44999637,
