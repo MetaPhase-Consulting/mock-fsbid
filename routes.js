@@ -2,6 +2,7 @@ const { PRIVATE_KEY } = require('./constants')
 const bidding = require('./bids')
 const projectedVacancies = require('./projectedVacancies')
 const bidSeasons = require('./bidSeasons')
+const availablePositions = require('./availablePositions')
 const jwt = require('jsonwebtoken');
 
 var appRouter = function (app) {
@@ -40,6 +41,14 @@ var appRouter = function (app) {
 
   app.get('/futureVacanciesCount', function(req, res) {
     res.status(200).send(projectedVacancies.get_projected_vacancies_count(req.query))
+  });
+
+  app.get('/availablePositions', function(req, res) {
+    res.status(200).send(availablePositions.get_available_positions(req.query))
+  });
+
+  app.get('/availablePositionsCount', function(req, res) {
+    res.status(200).send(availablePositions.get_available_positions_count(req.query))
   });
 
   app.get('/bidSeasons', function(req, res) {
