@@ -97,8 +97,16 @@ const LANGUAGES = [
 
 // Custom filter function for Languages
 const languageFilter = (filter, field, item) => customFilter(LANGUAGES, filter, field, item)
+
+const OVERSEAS = [
+  { code: "O", value: "" },
+  { code: "D", value: "110010001" }
+]
+// Custom filter function for overseas positions
+const overseasFilter = (filter, field, item) => customFilter(OVERSEAS, filter, field, item)
 /* 
   Custom filter since we show the value but filter on the code
+  mapping - the mapping of code to value
   filter - The filter value(s).
   field - the field on the FILTERS mapping
   item - The items to check for the presence of the filter
@@ -118,7 +126,6 @@ const FILTERS = {
   "fv_request_params.page_index": { required: true },
   "fv_request_params.ordery_by": {},
   "fv_request_params.pos_numbers": { field: "position" },
-  "fv_request_params.skills": { field: "" },
   "fv_request_params.grades": { field: "pos_grade_code" },
   "fv_request_params.languages": { filter: languageFilter, field: ["lang1", "lang2"] },
   "fv_request_params.bureaus": { field: "bureau_code" },
@@ -130,6 +137,7 @@ const FILTERS = {
   "fv_request_params.differential_pays": { field: "bt_differential_rate_num" },
   "fv_request_params.skills": { field: "skill_code" },
   "fv_request_params.seq_nums": { field: "fv_seq_num" },
+  "fv_request_params.overseas_ind": { filter: overseasFilter, field: "pos_location_code" }
 }
 
 function get_projected_vacancies(query) {
