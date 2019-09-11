@@ -88,7 +88,7 @@ const FILTERS = {
   "fv_request_params.freeText": { field: "" },
   "fv_request_params.differential_pays": { field: "bt_differential_rate_num" },
   "fv_request_params.skills": { field: "skill_code" },
-  "fv_request_params.seq_nums": { field: "fv_seq_num" },
+  "fv_request_params.cp_id": { field: "cp_id" },
 }
 
 function get_available_positions(query) {
