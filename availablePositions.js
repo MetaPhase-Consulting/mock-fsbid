@@ -134,29 +134,29 @@ const customFilter = (mapping, filter, field, item) => {
 
 // Maps filter values to data values
 const FILTERS = {
-  "fv_request_params.ad_id": { required: true },
-  "fv_request_params.page_size": { required: true },
-  "fv_request_params.page_index": { required: true },
-  "fv_request_params.ordery_by": {},
-  "fv_request_params.pos_numbers": { field: "position" },
-  "fv_request_params.skills": { field: "" },
-  "fv_request_params.grades": { field: "pos_grade_code" },
-  "fv_request_params.languages": { filter: languageFilter, field: ["lang1", "lang2"] },
-  "fv_request_params.bureaus": { field: "bureau_code" },
-  "fv_request_params.danger_pays": { field: "bt_danger_pay_num" },
-  "fv_request_params.bid_seasons": { field: "bsn_id" },
-  "fv_request_params.location_codes": { field: "pos_location_code" },
-  "fv_request_params.tod_codes": { filter: todFilter, field: "tod" }, //?? Need sample data for this field
-  "fv_request_params.freeText": { field: "" },
-  "fv_request_params.differential_pays": { field: "bt_differential_rate_num" },
-  "fv_request_params.skills": { field: "skill_code" },
-  "fv_request_params.cp_ids": { field: "cp_id" },
+  "request_params.ad_id": { required: true },
+  "request_params.page_size": { required: true },
+  "request_params.page_index": { required: true },
+  "request_params.ordery_by": {},
+  "request_params.pos_numbers": { field: "position" },
+  "request_params.skills": { field: "" },
+  "request_params.grades": { field: "pos_grade_code" },
+  "request_params.languages": { filter: languageFilter, field: ["lang1", "lang2"] },
+  "request_params.bureaus": { field: "bureau_code" },
+  "request_params.danger_pays": { field: "bt_danger_pay_num" },
+  "request_params.bid_seasons": { field: "bsn_id" },
+  "request_params.location_codes": { field: "pos_location_code" },
+  "request_params.tod_codes": { filter: todFilter, field: "tod" }, //?? Need sample data for this field
+  "request_params.freeText": { field: "" },
+  "request_params.differential_pays": { field: "bt_differential_rate_num" },
+  "request_params.skills": { field: "skill_code" },
+  "request_params.cp_ids": { field: "cp_id" },
 }
 
 function get_available_positions(query) {
-  const limit = query["fv_request_params.page_size"] || 25
-  const page_number = query["fv_request_params.page_index"] || 1
-  const sort = query["fv_request_params.order_by"]
+  const limit = query["request_params.page_size"] || 25
+  const page_number = query["request_params.page_index"] || 1
+  const sort = query["request_params.order_by"]
   const positions = availablePositions.filter(item => {
     for (let key in query) {
       const fields = FILTERS[key] ? FILTERS[key].field : null
