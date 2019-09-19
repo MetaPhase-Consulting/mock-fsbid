@@ -132,6 +132,10 @@ const customFilter = (mapping, filter, field, item) => {
   return false;
 }
 
+const freeTextFilter = (filter, field, item) => {
+  return item[field] !== undefined && filter.map(i => i.toLowerCase()).some(i => `${item[field]}`.toLowerCase().indexOf(i) > -1)
+}
+
 // Maps filter values to data values
 const FILTERS = {
   "request_params.ad_id": { required: true },
@@ -147,7 +151,7 @@ const FILTERS = {
   "request_params.bid_seasons": { field: "bsn_id" },
   "request_params.location_codes": { field: "pos_location_code" },
   "request_params.tod_codes": { filter: todFilter, field: "tod" }, //?? Need sample data for this field
-  "request_params.freeText": { field: "" },
+  "request_params.freeText": { filter: freeTextFilter, field: ["pos_title_desc", "pos_skill_desc", "pos_job_category_desc", "ppos_capsule_descr_txt"] },
   "request_params.differential_pays": { field: "bt_differential_rate_num" },
   "request_params.skills": { field: "skill_code" },
   "request_params.cp_ids": { field: "cp_id" },
