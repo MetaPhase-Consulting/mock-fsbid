@@ -1,3 +1,5 @@
+const { sortList, freeTextFilter, todFilter, languageFilter, overseasFilter } = require('./common')
+
 const availablePositions = [
   {
     cp_id: 1,
@@ -93,48 +95,6 @@ const availablePositions = [
     pos_skill_code: "2010"
   }
 ]
-// TOD filter mappings
-const TODS = [
-  {code: "O", value: "1 YR ( 2 R & R)"},
-  {code: "1", value: "1 YR (3 R & R)"},
-  {code: "D", value: "2 YRS (1 R & R )"},
-  {code: "Q", value: "2 YRS (4 R & R)"},
-  {code: "E", value: "2 YRS/TRANSFER"},
-  {code: "F", value: "2 YRS (2 R & R)"},
-  {code: "R", value: "2 YRS (3R&R)"},
-  {code: "I", value: "3 YRS ( 2 R & R )"},
-  {code: "J", value: "3 YRS/TRANSFER"},
-];
-
-// Custom filter function for TOD
-const todFilter = (filter, field, item) => customFilter(TODS, filter, field, item)
-
-// Language filter mappings
-const LANGUAGES = [
-  {code: "QB", value: "Spanish(QB) 3/3"},
-  {code: "FR", value: "French(FR) 1/1"},
-  {code: "NONE", value: "null"},
-]
-
-// Custom filter function for Languages
-const languageFilter = (filter, field, item) => customFilter(LANGUAGES, filter, field, item)
-/* 
-  Custom filter since we show the value but filter on the code
-  filter - The filter value(s).
-  field - the field on the FILTERS mapping
-  item - The items to check for the presence of the filter
-*/
-const customFilter = (mapping, filter, field, item) => {
-  const filters = mapping.filter(i => filter.includes(i.code)).map(i => i.value)
-  if (item[field] !== undefined && filters.includes(`${item[field]}`)) {
-    return true;
-  }
-  return false;
-}
-
-const freeTextFilter = (filter, field, item) => {
-  return item[field] !== undefined && filter.map(i => i.toLowerCase()).some(i => `${item[field]}`.toLowerCase().indexOf(i) > -1)
-}
 
 // Maps filter values to data values
 const FILTERS = {
@@ -155,13 +115,14 @@ const FILTERS = {
   "request_params.differential_pays": { field: "bt_differential_rate_num" },
   "request_params.skills": { field: "skill_code" },
   "request_params.cp_ids": { field: "cp_id" },
+  "fv_request_params.overseas_ind": { filter: overseasFilter, field: "pos_location_code" }
 }
 
 function get_available_positions(query) {
   const limit = query["request_params.page_size"] || 25
   const page_number = query["request_params.page_index"] || 1
   const sort = query["request_params.order_by"]
-  const positions = availablePositions.filter(item => {
+  let positions = availablePositions.filter(item => {
     for (let key in query) {
       const fields = FILTERS[key] ? FILTERS[key].field : null
       let found = false
@@ -187,15 +148,9 @@ function get_available_positions(query) {
     }
     return true;
   })
-  if (sort) {
-    positions.sort(function(a, b) {
-      var x = `${a[sort]}`.toLowerCase();
-      var y = `${b[sort]}`.toLowerCase();
-      if (x < y) {return -1;}
-      if (x > y) {return 1;}
-      return 0;
-    });
-  }
+  
+  positions = sortList(positions, sort)
+
   return { 
     "Data": positions.slice(page_number - 1 * limit, (page_number) * limit),
     "usl_id": 44999637,
