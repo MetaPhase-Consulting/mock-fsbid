@@ -9,7 +9,7 @@ const sortList = (list, sort, customSortFieldMapping = {}) => {
   if (sort) {
     // pull off the asc/desc
     let [field, direction] = sort.split(' ');
-    const dirVal = direction === 'asc' ? -1 : 1
+    const dirVal = direction && direction === 'asc' ? -1 : 1
     if (fieldMapping[field]) {
       field = fieldMapping[field]
     }
