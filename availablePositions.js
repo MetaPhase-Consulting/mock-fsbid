@@ -1,4 +1,4 @@
-const { sortList, freeTextFilter, todFilter, languageFilter, overseasFilter } = require('./common')
+const { sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter } = require('./common')
 
 const availablePositions = [
   {
@@ -148,11 +148,9 @@ function get_available_positions(query) {
     }
     return true;
   })
-  
-  positions = sortList(positions, sort)
 
   return { 
-    "Data": positions.slice(page_number - 1 * limit, (page_number) * limit),
+    "Data": paginateList(sortList(positions, sort), page_number, limit),
     "usl_id": 44999637,
     "return_code:": 0
   }

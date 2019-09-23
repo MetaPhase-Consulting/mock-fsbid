@@ -23,6 +23,9 @@ const sortList = (list, sort, customSortFieldMapping = {}) => {
   }
   return results
 }
+// Paginates the list
+const paginateList = (list, page, limit) => list.slice((page - 1) * limit, (page) * limit);
+
 // TOD filter mappings
 const TODS = [
   {code: "O", value: "1 YR ( 2 R & R)"},
@@ -76,4 +79,4 @@ const freeTextFilter = (filter, field, item) => {
   return item[field] !== undefined && filter.map(i => i.toLowerCase()).some(i => `${item[field]}`.toLowerCase().indexOf(i) > -1)
 }
 
-module.exports = { sortList, freeTextFilter, todFilter, languageFilter, overseasFilter }
+module.exports = { sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter }
