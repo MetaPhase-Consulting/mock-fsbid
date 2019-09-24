@@ -1,9 +1,9 @@
 const { PRIVATE_KEY } = require('./constants')
-const bidding = require('./bids')
-const projectedVacancies = require('./projectedVacancies')
-const bidSeasons = require('./bidSeasons')
-const availablePositions = require('./availablePositions')
-const employees = require('./employees')
+const bidding = require('./services/bids')
+const projectedVacancies = require('./services/projectedVacancies')
+const bidSeasons = require('./services/bidSeasons')
+const availablePositions = require('./services/availablePositions')
+const employees = require('./services/employees')
 const jwt = require('jsonwebtoken');
 
 var appRouter = function (app) {

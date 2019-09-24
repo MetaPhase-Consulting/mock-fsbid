@@ -1,3 +1,5 @@
+const fs = require('fs')
+const readJson = path => JSON.parse(fs.readFileSync(require.resolve(path)))
 
 // Mapping of sort params (keys) to field to sort on (value)
 const sortFieldMapping = {
@@ -87,11 +89,12 @@ const freeTextFilter = (filter, field, item) => {
 const filterList = (list, FILTERS, query) => {
   return list.filter(item => {
     let found = false
+    let noFilters = true
     for (let key in query) {
-      console.log(`Checking key ${key}`)
       const fields = FILTERS[key] ? FILTERS[key].field : null
       // Ignore fields not in filter list (like pagination)
       if (fields) {
+        noFilters = false
         const field = Array.isArray(fields) ? fields : [fields]
         for (let index = 0; index < field.length; index++) {
           const element = field[index];
@@ -109,8 +112,8 @@ const filterList = (list, FILTERS, query) => {
         }
       }
     }
-    return found;
+    return found || noFilters;
   })
 }
 
-module.exports = { filterList, sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter }
+module.exports = { readJson, filterList, sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter }
