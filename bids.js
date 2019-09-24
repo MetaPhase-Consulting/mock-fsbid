@@ -1,105 +1,71 @@
-const { employees, get_employee_by_ad_id, get_employee_by_perdet_seq_num} = require('./employees')
-
-const positions = [
-  { name: 'Position 1', pos_seq_num: '1'},
-  { name: 'Position 2', pos_seq_num: '2'},
-]
-
-const cycles = [
-  { id: 1, status: 'A', postViewable: 'Y', description: 'Cycle 1' },
-]
-
-const STATUS_CODES = ['W', 'A']
-const HANDSHAKE_CODES = ['N']
-
-const cyclePositions = [
-  { cp_id: 1, pos_seq_num: positions[0].pos_seq_num, status: STATUS_CODES[0], totalBidders: 0, atGradeBidders: 0, inConeBidders: 0, inBothBidders: 0 },
-  { cp_id: 2, pos_seq_num: positions[1].pos_seq_num, status: STATUS_CODES[0], totalBidders: 0, atGradeBidders: 0, inConeBidders: 0, inBothBidders: 0 },
-]
-const date = new Date()
-const submittedDate = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`
-
 const bids = [
   {
-    statusCode: STATUS_CODES[0],
-    handshakeCode: HANDSHAKE_CODES[0],
-    employee: employees[0],
-    cycle: cycles[0],
-    cyclePosition: cyclePositions[0],
-    submittedDate
-  },
-  {
-    statusCode: STATUS_CODES[0],
-    handshakeCode: HANDSHAKE_CODES[0],
-    employee: employees[0],
-    cycle: cycles[0],
-    cyclePosition: cyclePositions[1],
-    submittedDate
-  },
-  {
-    statusCode: STATUS_CODES[0],
-    handshakeCode: HANDSHAKE_CODES[0],
-    employee: employees[1],
-    cycle: cycles[0],
-    cyclePosition: cyclePositions[0],
-    submittedDate
-  },
-  {
-    statusCode: STATUS_CODES[1],
-    handshakeCode: HANDSHAKE_CODES[0],
-    employee: employees[1],
-    cycle: cycles[0],
-    cyclePosition: cyclePositions[1],
-    submittedDate
-  },
-];
-
-function get_position(pos_seq_num) {
-  let position = positions.filter(p => p.pos_seq_num == pos_seq_num)[0]
-  if (!position) {
-    position = {
-      name: `Position ${pos_seq_num}`,
-      pos_seq_num,
-    }
-    positions.push(position)
+    check_ind: false,
+    delete_ind: false,
+    per_seq_num: 2,
+    per_full_name: "EBERLY-HARNICAR,RIOVON-CZORNY NMN",
+    cycle_nm_txt: "Now & Winter 2018/2019",
+    cs_cd: "A",
+    cs_descr_txt: "Active",
+    cc_cd: "O",
+    cc_descr_txt: "Other",
+    cp_id: 151608,
+    pos_seq_num: 53960,
+    pos_bureau_code: "130000",
+    pos_bureau_short_desc: "EAP",
+    pos_org_code: "330501",
+    pos_org_short_desc: "BEIJING",
+    pos_num_text: "10231180",
+    ptitle: "Political Officer",
+    pos_skill_code: "5505",
+    pos_skill_desc: "POLITICAL AFFAIRS",
+    pos_grade_code: "02",
+    ted: null,
+    ubw_core_bid_ind: 'N',
+    ubw_core_bid_desc: "No",
+    bp_code: "M",
+    bp_descr_txt: "Medium",
+    ubw_rank_num: null,
+    ubw_submit_dt: "2019-02-04T09:44:31",
+    hs_code: null,
+    ubw_hndshk_offrd_flg: "N",
+    ubw_hndshk_offrd_dt: null,
+    bs_cd: "A",
+    bs_descr_txt: "Active",
+    cps_descr_txt: "Open",
+    bid_count: "<span data-ct=\"001\">1(0/0)0</span>",
+    pos_lang_code: null,
+    pos_lang_desc: null,
+    acp_hard_to_fill_ind: "N",
+    cp_critical_need_ind: "N",
+    pct_short_desc_text: " ",
+    pct_desc_text: " ",
+    ubw_comment: null,
+    bid_unavailable_ind: "N",
+    jo_pos_ind: "N",
+    bid_due_date_passed: "Y",
+    capsule_position_desc: "<a title=\"The East Asia and Pacific Hub director plans and implements to engage...\" href=\"#\">60822100</a>",
+    famer_link: "<a title=\"Click to view Famer Page\" href=\"#\">fmr</a>",
+    bidding_tool: "<a data-pn=\"10231180\" title=\"Click to view Capsule Description and Bidding Tool\" href=\"#\">10231180</a>",
+    cycle_bidders: "<a title=\"Click to view Cycle Bidder\" href=\"#\">cb</a>",
+    tp_codes: null
   }
-  return position
-}
-
-function get_cycle_position(cp_id) {
-  let cycle_position = cyclePositions.filter(cp => cp.cp_id == cp_id)[0]
-  if (!cycle_position) {
-    throw `No position match for ${cp_id}`
-  }
-  return cycle_position
-}
+]
 
 function get_bids(query) {
   const { perdet_seq_num } = query
-  return bids.filter(bid => {
-    return bid.employee.perdet_seq_num == perdet_seq_num
-  });
+  return bids.filter(bid => bid.perdet_seq_num == perdet_seq_num);
 }
 
 function add_bid(data) {
   const { cp_id, perdet_seq_num, status } = data
-  const date = new Date()
-  bids.push({
-    id: bids.length,
-    statusCode: status || STATUS_CODES[0],
-    handshakeCode: HANDSHAKE_CODES[0],
-    employee: get_employee_by_perdet_seq_num(perdet_seq_num),
-    cycle: cycles[0],
-    cyclePosition: get_cycle_position(cp_id),
-    submittedDate: `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`
-  });
   return get_bids({perdet_seq_num})
 }
 
 function remove_bid(query) {
   const { perdet_seq_num, cp_id } = query
   for (var i = bids.length - 1; i >= 0; --i) {
-    if (bids[i].employee.perdet_seq_num == perdet_seq_num && bids[i].cyclePosition.cp_id == cp_id) {
+    if (bids[i].perdet_seq_num == perdet_seq_num && bids[i].cp_id == cp_id) {
         bids.splice(i,1);
     }
   }
