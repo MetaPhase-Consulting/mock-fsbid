@@ -1,5 +1,5 @@
 
-const { sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter } = require('./common')
+const { filterList, sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter } = require('./common')
 
 const projectedVacancies = [
   {
@@ -98,38 +98,12 @@ const FILTERS = {
 }
 
 function get_projected_vacancies(query) {
-  const limit = query["fv_request_params.page_size"] || 25
-  const page_number = query["fv_request_params.page_index"] || 1
+  const limit = query["fv_request_params.page_size"]
+  const page_number = query["fv_request_params.page_index"]
   const sort = query["fv_request_params.order_by"]
-  let positions = projectedVacancies.filter(item => {
-    for (let key in query) {
-      const fields = FILTERS[key] ? FILTERS[key].field : null
-      let found = false
-      // Ignore fields not in filter list (like pagination)
-      if (fields) {
-        const field = Array.isArray(fields) ? fields : [fields]
-        for (let index = 0; index < field.length; index++) {
-          const element = field[index];
-          const filters = Array.isArray(query[key]) ? query[key] : query[key].split(',')
-          console.log(`Search on ${element} with filters ${filters}`)
-          // Check to see if there is a filter function
-          const customFilter = FILTERS[key].filter
-          if (customFilter) {
-            found = found || customFilter(filters, element, item)
-          } else {
-            if (item[element] !== undefined && filters.includes(`${item[element]}`)) {
-              found = found || true;
-            }
-          }
-        }
-        return found
-      }
-    }
-    return true;
-  })
   
   return { 
-    "Data": paginateList(sortList(positions, sort), page_number, limit),
+    "Data": paginateList(sortList(filterList(projectedVacancies, FILTERS, query), sort), page_number, limit),
     "usl_id": 44999637,
     "return_code:": 0
   }

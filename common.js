@@ -24,7 +24,7 @@ const sortList = (list, sort, customSortFieldMapping = {}) => {
   return results
 }
 // Paginates the list
-const paginateList = (list, page, limit) => list.slice((page - 1) * limit, (page) * limit);
+const paginateList = (list, page = 1, limit = 25) => list.slice((page - 1) * limit, (page) * limit);
 
 // TOD filter mappings
 const TODS = [
@@ -78,5 +78,39 @@ const customFilter = (mapping, filter, field, item) => {
 const freeTextFilter = (filter, field, item) => {
   return item[field] !== undefined && filter.map(i => i.toLowerCase()).some(i => `${item[field]}`.toLowerCase().indexOf(i) > -1)
 }
+/*
+  Filters the list
+  list - the list to filter
+  FILTERS - the filters mapping (request_param: { fiield: <field to apply value to>, filter: <function for custom filtering> })
+  query - the request query
+*/ 
+const filterList = (list, FILTERS, query) => {
+  return list.filter(item => {
+    let found = false
+    for (let key in query) {
+      console.log(`Checking key ${key}`)
+      const fields = FILTERS[key] ? FILTERS[key].field : null
+      // Ignore fields not in filter list (like pagination)
+      if (fields) {
+        const field = Array.isArray(fields) ? fields : [fields]
+        for (let index = 0; index < field.length; index++) {
+          const element = field[index];
+          const filters = Array.isArray(query[key]) ? query[key] : query[key].split(',')
+          console.log(`Search on ${element} with filters ${filters}`)
+          // Check to see if there is a filter function
+          const customFilter = FILTERS[key].filter
+          if (customFilter) {
+            found = found || customFilter(filters, element, item)
+          } else {
+            if (item[element] !== undefined && filters.includes(`${item[element]}`)) {
+              found = found || true;
+            }
+          }
+        }
+      }
+    }
+    return found;
+  })
+}
 
-module.exports = { sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter }
+module.exports = { filterList, sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter }
