@@ -1,11 +1,8 @@
+const { employees, get_employee_by_ad_id, get_employee_by_perdet_seq_num} = require('./employees')
+
 const positions = [
   { name: 'Position 1', pos_seq_num: '1'},
   { name: 'Position 2', pos_seq_num: '2'},
-]
-
-const employees = [
-  { emp_seq_num: 1, perdet_seq_num: 1 },
-  { emp_seq_num: 2, perdet_seq_num: 2 },
 ]
 
 const cycles = [
@@ -57,15 +54,6 @@ const bids = [
   },
 ];
 
-function get_employee(perdet_seq_num) {
-  let employee = employees.filter(e => e.perdet_seq_num == perdet_seq_num)[0]
-  if (!employee) {
-    employee = { emp_seq_num: perdet_seq_num, perdet_seq_num }
-    employees.push(employee)
-  }
-  return employee
-}
-
 function get_position(pos_seq_num) {
   let position = positions.filter(p => p.pos_seq_num == pos_seq_num)[0]
   if (!position) {
@@ -87,10 +75,9 @@ function get_cycle_position(cp_id) {
 }
 
 function get_bids(query) {
-  const { positionId, employeeId } = query
+  const { perdet_seq_num } = query
   return bids.filter(bid => {
-    const hasPosition = !positionId || positionId == bid.cyclePosition.cp_id
-    return bid.employee.perdet_seq_num == employeeId && hasPosition
+    return bid.employee.perdet_seq_num == perdet_seq_num
   });
 }
 
@@ -101,12 +88,12 @@ function add_bid(data) {
     id: bids.length,
     statusCode: status || STATUS_CODES[0],
     handshakeCode: HANDSHAKE_CODES[0],
-    employee: get_employee(perdet_seq_num),
+    employee: get_employee_by_perdet_seq_num(perdet_seq_num),
     cycle: cycles[0],
     cyclePosition: get_cycle_position(cp_id),
     submittedDate: `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`
   });
-  return get_bids({employeeId: perdet_seq_num})
+  return get_bids({perdet_seq_num})
 }
 
 function remove_bid(query) {
@@ -116,7 +103,7 @@ function remove_bid(query) {
         bids.splice(i,1);
     }
   }
-  return get_bids({employeeId: perdet_seq_num})
+  return get_bids({perdet_seq_num})
 }
 
 module.exports = { get_bids, add_bid, remove_bid }

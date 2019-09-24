@@ -3,6 +3,7 @@ const bidding = require('./bids')
 const projectedVacancies = require('./projectedVacancies')
 const bidSeasons = require('./bidSeasons')
 const availablePositions = require('./availablePositions')
+const employees = require('./employees')
 const jwt = require('jsonwebtoken');
 
 var appRouter = function (app) {
@@ -54,6 +55,21 @@ var appRouter = function (app) {
   app.get('/bidSeasons', function(req, res) {
     res.status(200).send(bidSeasons.get_bid_seasons(req.query));
   });
+
+  app.get('/Employees/userInfo', function(req, res) {
+    const employee = employees.get_employee_by_ad_id(req.query)
+    if (!employee) {
+      res.status(404).send(`No employee with ad_id = ${req.query.ad_id} was found`)
+      return
+    }
+    res.status(200).send({
+      Data: [
+        {
+          perdet_seq_num: `${employee.perdet_seq_num}`
+        }
+      ]
+    })
+  })
 };
 
 module.exports = appRouter;
