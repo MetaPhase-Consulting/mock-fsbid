@@ -80,6 +80,11 @@ var appRouter = function (app) {
   app.get('/grades', function(req, res) {
     res.status(200).send(lookups.get_grades())
   })
+
+  app.get('/languages', function(req, res) {
+    res.status(200).send(lookups.get_languages())
+  })
+
 };
 
 module.exports = appRouter;

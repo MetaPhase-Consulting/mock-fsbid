@@ -1,0 +1,376 @@
+[
+  {
+    "language_code": "AB",
+    "language_short_desc": "Albanian",
+    "language_long_desc": "Albanian"
+  },
+  {
+    "language_code": "AC",
+    "language_short_desc": "Amharic",
+    "language_long_desc": "Amharic"
+  },
+  {
+    "language_code": "AE",
+    "language_short_desc": "Arabic Egy",
+    "language_long_desc": "Arabic Egyptian"
+  },
+  {
+    "language_code": "AD",
+    "language_short_desc": "Arabic-Mod",
+    "language_long_desc": "Arabic Modern"
+  },
+  {
+    "language_code": "RE",
+    "language_short_desc": "Armenian-E",
+    "language_long_desc": "Armenian-East"
+  },
+  {
+    "language_code": "AX",
+    "language_short_desc": "Azerbaijan",
+    "language_long_desc": "Azerbaijani"
+  },
+  {
+    "language_code": "BN",
+    "language_short_desc": "Bengali",
+    "language_long_desc": "Bengali"
+  },
+  {
+    "language_code": "BU",
+    "language_short_desc": "Bulgarian",
+    "language_long_desc": "Bulgarian"
+  },
+  {
+    "language_code": "BY",
+    "language_short_desc": "Burmese",
+    "language_long_desc": "Burmese"
+  },
+  {
+    "language_code": "CA",
+    "language_short_desc": "Cambodian-",
+    "language_long_desc": "Cambodian-Khmer"
+  },
+  {
+    "language_code": "CC",
+    "language_short_desc": "Chinese-Ca",
+    "language_long_desc": "Chinese-Canton"
+  },
+  {
+    "language_code": "CM",
+    "language_short_desc": "Chinese-Ma",
+    "language_long_desc": "Chinese-Mandar"
+  },
+  {
+    "language_code": "CX",
+    "language_short_desc": "Czech",
+    "language_long_desc": "Czech"
+  },
+  {
+    "language_code": "DA",
+    "language_short_desc": "Danish",
+    "language_long_desc": "Danish"
+  },
+  {
+    "language_code": "DU",
+    "language_short_desc": "Dutch",
+    "language_long_desc": "Dutch"
+  },
+  {
+    "language_code": "ES",
+    "language_short_desc": "Estonian",
+    "language_long_desc": "Estonian"
+  },
+  {
+    "language_code": "FJ",
+    "language_short_desc": "Finnish",
+    "language_long_desc": "Finnish"
+  },
+  {
+    "language_code": "FR",
+    "language_short_desc": "French",
+    "language_long_desc": "French"
+  },
+  {
+    "language_code": "GG",
+    "language_short_desc": "Georgian",
+    "language_long_desc": "Georgian"
+  },
+  {
+    "language_code": "GM",
+    "language_short_desc": "German",
+    "language_long_desc": "German"
+  },
+  {
+    "language_code": "GR",
+    "language_short_desc": "Greek",
+    "language_long_desc": "Greek"
+  },
+  {
+    "language_code": "HC",
+    "language_short_desc": "Haitian Cr",
+    "language_long_desc": "Haitian Creole"
+  },
+  {
+    "language_code": "HE",
+    "language_short_desc": "Hebrew",
+    "language_long_desc": "Hebrew"
+  },
+  {
+    "language_code": "HJ",
+    "language_short_desc": "Hindi",
+    "language_long_desc": "Hindi"
+  },
+  {
+    "language_code": "HU",
+    "language_short_desc": "Hungarian",
+    "language_long_desc": "Hungarian"
+  },
+  {
+    "language_code": "JC",
+    "language_short_desc": "Icelandic",
+    "language_long_desc": "Icelandic"
+  },
+  {
+    "language_code": "JN",
+    "language_short_desc": "Indonesian",
+    "language_long_desc": "Indonesian"
+  },
+  {
+    "language_code": "JT",
+    "language_short_desc": "Italian",
+    "language_long_desc": "Italian"
+  },
+  {
+    "language_code": "JA",
+    "language_short_desc": "Japanese",
+    "language_long_desc": "Japanese"
+  },
+  {
+    "language_code": "KA",
+    "language_short_desc": "Kannada",
+    "language_long_desc": "Kanadda"
+  },
+  {
+    "language_code": "KE",
+    "language_short_desc": "Kazakh",
+    "language_long_desc": "Kazakh"
+  },
+  {
+    "language_code": "KL",
+    "language_short_desc": "Kinyarwand",
+    "language_long_desc": "Kinyarwanda/Rwanda"
+  },
+  {
+    "language_code": "KM",
+    "language_short_desc": "Kirghiz",
+    "language_long_desc": "Kirghiz"
+  },{
+    "language_code": "KP",
+    "language_short_desc": "Korean",
+    "language_long_desc": "Korean"
+  },
+  {
+    "language_code": "KU",
+    "language_short_desc": "Kurdish",
+    "language_long_desc": "Kurdish"
+  },
+  {
+    "language_code": "LC",
+    "language_short_desc": "Lao",
+    "language_long_desc": "Lao"
+  },
+  {
+    "language_code": "LE",
+    "language_short_desc": "Latvian",
+    "language_long_desc": "Latvian"
+  },
+  {
+    "language_code": "LT",
+    "language_short_desc": "Lithuanian",
+    "language_long_desc": "Lithuanian"
+  },
+  {
+    "language_code": "MA",
+    "language_short_desc": "Macedonian",
+    "language_long_desc": "Macedonian"
+  },
+  {
+    "language_code": "ML",
+    "language_short_desc": "Malay",
+    "language_long_desc": "Malay"
+  },
+  {
+    "language_code": "MN",
+    "language_short_desc": "Malayalam",
+    "language_long_desc": "Malayalam"
+  },
+  {
+    "language_code": "MV",
+    "language_short_desc": "Mongolian",
+    "language_long_desc": "Mongolian"
+  },
+  {
+    "language_code": "NE",
+    "language_short_desc": "Nepali/Nep",
+    "language_long_desc": "Nepali/Nepalese"
+  },
+  {
+    "language_code": "NR",
+    "language_short_desc": "Norwegian",
+    "language_long_desc": "Norwegian"
+  },
+  {
+    "language_code": "PJ",
+    "language_short_desc": "Punjab/Pu",
+    "language_long_desc": "Punjab/Punjabi"
+  },
+  {
+    "language_code": "PU",
+    "language_short_desc": "Pashto",
+    "language_long_desc": "Pashto"
+  },
+  {
+    "language_code": "TB",
+    "language_short_desc": "Persian -",
+    "language_long_desc": "Persian - Tajiki"
+  },
+  {
+    "language_code": "PG",
+    "language_short_desc": "Persian-Af",
+    "language_long_desc": "Persian-Afgan"
+  },
+  {
+    "language_code": "PF",
+    "language_short_desc": "Persian-Ir",
+    "language_long_desc": "Persian-Iranian"
+  },
+  {
+    "language_code": "TA",
+    "language_short_desc": "Pilipino/T",
+    "language_long_desc": "Philipino/Tagalog"
+  },
+  {
+    "language_code": "PL",
+    "language_short_desc": "Polish",
+    "language_long_desc": "Polish"
+  },
+  {
+    "language_code": "PY",
+    "language_short_desc": "Portuguese",
+    "language_long_desc": "Portuguese"
+  },
+  {
+    "language_code": "RQ",
+    "language_short_desc": "Romanian",
+    "language_long_desc": "Romanian"
+  },
+  {
+    "language_code": "RU",
+    "language_short_desc": "Russian",
+    "language_long_desc": "Russian"
+  },
+  {
+    "language_code": "SC",
+    "language_short_desc": "Serbo-Croa",
+    "language_long_desc": "Serbo-Croatian"
+  },
+  {
+    "language_code": "SD",
+    "language_short_desc": "Sindhi",
+    "language_long_desc": "Sindhi"
+  },
+  {
+    "language_code": "SJ",
+    "language_short_desc": "Singhalese",
+    "language_long_desc": "Singhalese"
+  },
+  {
+    "language_code": "SK",
+    "language_short_desc": "Slovak",
+    "language_long_desc": "Slovak"
+  },
+  {
+    "language_code": "SL",
+    "language_short_desc": "Slovenian",
+    "language_long_desc": "Slovenian"
+  },
+  {
+    "language_code": "SM",
+    "language_short_desc": "Somali",
+    "language_long_desc": "Somali"
+  },
+  {
+    "language_code": "QB",
+    "language_short_desc": "Spanish",
+    "language_long_desc": "Spanish"
+  },
+  {
+    "language_code": "SW",
+    "language_short_desc": "Swahili/Ki",
+    "language_long_desc": "Swahili/Kiswahili"
+  },
+  {
+    "language_code": "SX",
+    "language_short_desc": "Swati",
+    "language_long_desc": "Swati"
+  },
+  {
+    "language_code": "SY",
+    "language_short_desc": "Swedish",
+    "language_long_desc": "Swedish"
+  },
+  {
+    "language_code": "TC",
+    "language_short_desc": "Tamil",
+    "language_long_desc": "Tamil"
+  },
+  {
+    "language_code": "TE",
+    "language_short_desc": "Telugu",
+    "language_long_desc": "Telugu"
+  },
+  {
+    "language_code": "TH",
+    "language_short_desc": "Thai",
+    "language_long_desc": "Thai"
+  },
+  {
+    "language_code": "TJ",
+    "language_short_desc": "Tibetan",
+    "language_long_desc": "Tibetan"
+  },
+  {
+    "language_code": "TU",
+    "language_short_desc": "Turkish",
+    "language_long_desc": "Turkish"
+  },
+  {
+    "language_code": "UB",
+    "language_short_desc": "Turkmen",
+    "language_long_desc": "Turkmen"
+  },
+  {
+    "language_code": "UK",
+    "language_short_desc": "Ukrainian",
+    "language_long_desc": "Ukrainian"
+  },
+  {
+    "language_code": "UR",
+    "language_short_desc": "Urdu",
+    "language_long_desc": "Urdu"
+  },
+  {
+    "language_code": "UX",
+    "language_short_desc": "Uzbek",
+    "language_long_desc": "Uzbek"
+  },
+  {
+    "language_code": "VS",
+    "language_short_desc": "Vietnamese",
+    "language_long_desc": "Vietnamese-Std"
+  },
+  {
+    "language_code": "NLR",
+    "language_short_desc": "No Language",
+    "language_long_desc": "No Language Requirement"
+  }
+]
