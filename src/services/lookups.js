@@ -30,4 +30,10 @@ function get_differentialrates() {
   return { "Data": differentialrates }
 }
 
-module.exports = { get_cycles, get_grades, get_languages, get_dangerpays, get_differentialrates }
+const tourofduties = readJson('../data/tourofduties.json')
+
+function get_tourofduties() {
+  return { "Data": tourofduties }
+}
+
+module.exports = { get_cycles, get_grades, get_languages, get_dangerpays, get_differentialrates, get_tourofduties }

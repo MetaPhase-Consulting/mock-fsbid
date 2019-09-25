@@ -93,6 +93,10 @@ var appRouter = function (app) {
     res.status(200).send(lookups.get_differentialrates())
   })
 
+  app.get('/tourofduties', function(req, res) {
+    res.status(200).send(lookups.get_tourofduties())
+  })
+
 };
 
 module.exports = appRouter;
