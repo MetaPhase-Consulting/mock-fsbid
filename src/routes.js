@@ -97,6 +97,10 @@ var appRouter = function (app) {
     res.status(200).send(lookups.get_tourofduties())
   })
 
+  app.get('/bureaus', function(req, res) {
+    res.status(200).send(lookups.get_bureaus())
+  })
+
 };
 
 module.exports = appRouter;

@@ -36,4 +36,10 @@ function get_tourofduties() {
   return { "Data": tourofduties }
 }
 
-module.exports = { get_cycles, get_grades, get_languages, get_dangerpays, get_differentialrates, get_tourofduties }
+const bureaus = readJson('../data/bureaus.json')
+
+function get_bureaus() {
+  return { "Data": bureaus }
+}
+
+module.exports = { get_cycles, get_grades, get_languages, get_dangerpays, get_differentialrates, get_tourofduties, get_bureaus }
