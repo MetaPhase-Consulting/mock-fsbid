@@ -89,6 +89,10 @@ var appRouter = function (app) {
     res.status(200).send(lookups.get_dangerpays())
   })
 
+  app.get('/differentialrates', function(req, res) {
+    res.status(200).send(lookups.get_differentialrates())
+  })
+
 };
 
 module.exports = appRouter;

@@ -24,5 +24,10 @@ function get_dangerpays() {
   return { "Data": dangerpays }
 }
 
+const differentialrates = readJson('../data/differentialrates.json')
 
-module.exports = { get_cycles, get_grades, get_languages, get_dangerpays }
+function get_differentialrates() {
+  return { "Data": differentialrates }
+}
+
+module.exports = { get_cycles, get_grades, get_languages, get_dangerpays, get_differentialrates }
