@@ -1,0 +1,23 @@
+name: Deploy
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses = "appleboy/ssh-action@master"
+      secrets = [
+        "HOST",
+        "PORT",
+        "USERNAME",
+        "PASSWORD",
+        "KEY",
+        "SCRIPT"
+      ]
+      args = []
