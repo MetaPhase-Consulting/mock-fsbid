@@ -4,6 +4,8 @@ const projectedVacancies = require('./services/projectedVacancies')
 const bidSeasons = require('./services/bidSeasons')
 const availablePositions = require('./services/availablePositions')
 const employees = require('./services/employees')
+const cycles = require('./services/cycles')
+
 const jwt = require('jsonwebtoken');
 
 var appRouter = function (app) {
@@ -69,6 +71,10 @@ var appRouter = function (app) {
         }
       ]
     })
+  })
+
+  app.get('/cycles', function(req, res) {
+    res.status(200).send(cycles.get_cycles())
   })
 };
 
