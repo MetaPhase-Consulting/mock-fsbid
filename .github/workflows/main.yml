@@ -5,21 +5,13 @@ on:
     branches:
       - master
 
-jobs:
-  build:
-
+deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-      action "Executing remote ssh commands" {
-        - uses = "appleboy/ssh-action@master"
-        secrets = [
-          "HOST",
-          "PORT",
-          "USERNAME",
-          "PASSWORD",
-          "KEY",
-          "SCRIPT"
-        ]
-        args = []
-      }
+    - name: SSH and deploy node app
+      uses: appleboy/ssh-action@v0.0.2
+      with:
+        args: > 
+          --host ${{ HOST }} --user ${{ USERNAME }}
+          --script 'whoami'  
