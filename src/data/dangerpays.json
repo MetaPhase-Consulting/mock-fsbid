@@ -1,0 +1,22 @@
+[
+  {
+    "pay_percent_num": 0,
+    "pay_percentage_text": "No danger pay"
+  },
+  {
+    "pay_percent_num": 15,
+    "pay_percentage_text": "15%"
+  },
+  {
+    "pay_percent_num": 20,
+    "pay_percentage_text": "20%"
+  },
+  {
+    "pay_percent_num": 25,
+    "pay_percentage_text": "25%"
+  },
+  {
+    "pay_percent_num": 35,
+    "pay_percentage_text": "35%"
+  }
+]

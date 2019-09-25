@@ -18,4 +18,11 @@ function get_languages() {
   return { "Data": languages }
 }
 
-module.exports = { get_cycles, get_grades, get_languages }
+const dangerpays = readJson('../data/dangerpays.json')
+
+function get_dangerpays() {
+  return { "Data": dangerpays }
+}
+
+
+module.exports = { get_cycles, get_grades, get_languages, get_dangerpays }

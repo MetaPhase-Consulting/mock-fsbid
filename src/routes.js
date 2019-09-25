@@ -85,6 +85,10 @@ var appRouter = function (app) {
     res.status(200).send(lookups.get_languages())
   })
 
+  app.get('/dangerpays', function(req, res) {
+    res.status(200).send(lookups.get_dangerpays())
+  })
+
 };
 
 module.exports = appRouter;
