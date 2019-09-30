@@ -28,14 +28,26 @@ var appRouter = function (app) {
 
   app.post('/bids', function(req, res) {
     try {
-      res.status(201).send(bidding.add_bid(req.body))
+      res.status(200).send(bidding.add_bid(req.query))
     } catch (err) {
-      res.status(422).send(err)
+      console.error('Error occurred creating bid')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  });
+
+  app.put('/bids', function(req, res) {
+    try {
+      res.status(200).send(bidding.submit_bid(req.query))
+    } catch (err) {
+      console.error('Error occurred submitting bid')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
     }
   });
 
   app.delete('/bids', function(req, res) {
-    res.status(201).send(bidding.remove_bid(req.query))
+    res.status(200).send(bidding.remove_bid(req.query))
   });
 
   app.get('/futureVacancies', function(req, res) {
