@@ -87,8 +87,8 @@ function submit_bid(query) {
     if (bid.cp_id == cp_id && bid.per_seq_num == perdet_seq_num) {
       console.log(`Submitting bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
       // Update the status
-      bid.cs_cd = "A"
-      bid.cs_descr_txt =  "Active"
+      bid.bs_cd = "A"
+      bid.bs_descr_txt =  "Active"
       bid.ubw_submit_dt = new Date().toISOString()
       bids[i] = bid
     }
