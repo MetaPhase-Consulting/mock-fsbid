@@ -47,4 +47,7 @@ function get_available_positions_count(query) {
     "return_code":  0
  }
 }
-module.exports = { get_available_positions, get_available_positions_count }
+
+const get_available_position_by_id = id => availablePositions.find(ap => ap.cp_id == id)
+
+module.exports = { get_available_positions, get_available_positions_count, get_available_position_by_id }
