@@ -4,7 +4,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var morganBody = require("morgan-body");
 var cors = require('cors')
-var routes = require("./routes.js");
+var routes = require("./src/routes.js");
 
 var app = express();
 
