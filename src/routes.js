@@ -19,7 +19,13 @@ var appRouter = function (app) {
       res.status(401).send("You must provide a sAppCircuitID value")
       return
     }
-    res.status(200).send(jwt.sign({ sAppCircuitID: sAppCircuitID }, PRIVATE_KEY));
+    const username = req.get('tm_usrname')
+    const employee = employees.get_employee_by_username(username)
+    if (!employee) {
+      res.status(403).send(`No user with userId ${userId} was found`)
+      return
+    }
+    res.status(200).send(jwt.sign({ unique_name: employee.ad_id }, PRIVATE_KEY));
   });
 
   app.get("/bids", function (req, res) {
