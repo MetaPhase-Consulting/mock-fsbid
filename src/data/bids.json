@@ -1,6 +1,10 @@
 [
   {
+    "delete_id": true,
     "perdet_seq_num": 2,
+    "pos_num_text": "D01010101",
+    "pos_bureau_short_desc": "S",
+    "pos_bureau_long_desc": "OFFICE OF THE SECRETARY",
     "cycle_nm_txt": "Now & Winter 2018/2019",
     "cp_id": 151608,
     "ptitle": "Political Officer",

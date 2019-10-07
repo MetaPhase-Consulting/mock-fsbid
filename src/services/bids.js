@@ -24,6 +24,7 @@ function add_bid(query) {
   if (!get_bid(cp_id, perdet_seq_num)) {
     let [city, state] = ap.post_org_country_state.split(',')
     const bid = {
+      "delete_id": true,
       "perdet_seq_num": perdet_seq_num,
       "cycle_nm_txt": ap.cycle_nm_txt,
       "cp_id": cp_id,
