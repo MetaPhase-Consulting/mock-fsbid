@@ -22,7 +22,7 @@ function add_bid(query) {
   }
   // Cannot bid on the same position more than once
   if (!get_bid(cp_id, perdet_seq_num)) {
-    let [city, state] = ap.post_org_country_state.split(',').trim()
+    let [city, state] = ap.post_org_country_state.split(',')
     const bid = {
       "perdet_seq_num": perdet_seq_num,
       "cycle_nm_txt": ap.cycle_nm_txt,
