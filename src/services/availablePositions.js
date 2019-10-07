@@ -21,7 +21,7 @@ const FILTERS = {
   "request_params.differential_pays": { field: "bt_differential_rate_num" },
   "request_params.skills": { field: "skill_code" },
   "request_params.cp_ids": { field: "cp_id" },
-  "fv_request_params.overseas_ind": { filter: overseasFilter, field: "pos_location_code" }
+  "request_params.overseas_ind": { filter: overseasFilter, field: "pos_location_code" }
 }
 
 function get_available_positions(query) {

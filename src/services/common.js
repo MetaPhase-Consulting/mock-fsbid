@@ -93,7 +93,7 @@ const filterList = (list, FILTERS, query) => {
     for (let key in query) {
       const fields = FILTERS[key] ? FILTERS[key].field : null
       // Ignore fields not in filter list (like pagination)
-      if (fields) {
+      if (fields && query[key]) {
         noFilters = false
         const field = Array.isArray(fields) ? fields : [fields]
         for (let index = 0; index < field.length; index++) {
