@@ -22,7 +22,7 @@ var appRouter = function (app) {
     const username = req.get('tm_usrname')
     const employee = employees.get_employee_by_username(username)
     if (!employee) {
-      res.status(403).send(`No user with userId ${userId} was found`)
+      res.status(403).send(`No user with userId ${username} was found`)
       return
     }
     res.status(200).send(jwt.sign({ unique_name: employee.ad_id }, PRIVATE_KEY));
