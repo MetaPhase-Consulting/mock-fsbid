@@ -14,7 +14,7 @@ const FILTERS = {
   "request_params.languages": { filter: languageFilter, field: ["lang1", "lang2"] },
   "request_params.bureaus": { field: "bureau_code" },
   "request_params.danger_pays": { field: "bt_danger_pay_num" },
-  "request_params.bid_seasons": { field: "bsn_id" },
+  "request_params.assign_cycles": { field: "cycle_id" },
   "request_params.location_codes": { field: "pos_location_code" },
   "request_params.tod_codes": { filter: todFilter, field: "tod" }, //?? Need sample data for this field
   "request_params.freeText": { filter: freeTextFilter, field: ["pos_title_desc", "pos_skill_desc", "pos_job_category_desc", "ppos_capsule_descr_txt"] },
