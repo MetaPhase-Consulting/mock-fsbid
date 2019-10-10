@@ -1,0 +1,110 @@
+[
+    {
+        "jc_id": "1",
+        "jc_nm_txt": "Contruction Engineers",
+        "skl_code": "6218",
+        "skill_descr": "CONSTRUCTIONS ENGINEERING"
+    },
+    {
+        "jc_id": "2",
+        "jc_nm_txt": "Consular",
+        "skl_code": "3001",
+        "skill_descr": "CONSULAR AFFAIRS"
+    },
+    {
+        "jc_id": "3",
+        "jc_nm_txt": "Consular",
+        "skl_code": "3020",
+        "skill_descr": "PASSPORT AFFAIRS"
+    },
+    {
+        "jc_id": "4",
+        "jc_nm_txt": "Consular",
+        "skl_code": "3055",
+        "skill_descr": "U.S. CITIZEN SERVICES"
+    },
+    {
+        "jc_id": "5",
+        "jc_nm_txt": "Consular",
+        "skl_code": "3030",
+        "skill_descr": "VISA AFFAIRS"
+    },
+    {
+        "jc_id": "6",
+        "jc_nm_txt": "DCM-PO",
+        "skl_code": "0020",
+        "skill_descr": "EXECUTIVE (CAREER)"
+    },
+    {
+        "jc_id": "7",
+        "jc_nm_txt": "Diplomatic Courier",
+        "skl_code": "2580",
+        "skill_descr": "DIPLOMATIC COURIER"
+    },
+    {
+        "jc_id": "8",
+        "jc_nm_txt": "Economic",
+        "skl_code": "5050",
+        "skill_descr": "ECON RESOURCES & COMMODITIES"
+    },
+    {
+        "jc_id": "9",
+        "jc_nm_txt": "Economic",
+        "skl_code": "5015",
+        "skill_descr": "ECONOMICS"
+    },
+    {
+        "jc_id": "10",
+        "jc_nm_txt": "Economic",
+        "skl_code": "5025",
+        "skill_descr": "FINANCE & ECONOMIC DEVELOPMENT"
+    },
+    {
+        "jc_id": "11",
+        "jc_nm_txt": "Economic",
+        "skl_code": "5030",
+        "skill_descr": "INTERNATIONAL TRANS & COMM"
+    },
+    {
+        "jc_id": "12",
+        "jc_nm_txt": "Facilities Manager",
+        "skl_code": "6217",
+        "skill_descr": "FACILITY MAINTENANCE"
+    },
+    {
+        "jc_id": "13",
+        "jc_nm_txt": "Financial Management",
+        "skl_code": "2112",
+        "skill_descr": "FISCAL ADMINISTRATION"
+    },
+    {
+        "jc_id": "14",
+        "jc_nm_txt": "General Services",
+        "skl_code": "2345",
+        "skill_descr": "SUPPLY AND PROCUREMENT"
+    },
+    {
+        "jc_id": "15",
+        "jc_nm_txt": "General Services",
+        "skl_code": "2335",
+        "skill_descr": "TRANSPORTATION AND FREIGHT"
+    },
+    {
+        "jc_id": "16",
+        "jc_nm_txt": "Info Mgt Specialist",
+        "skl_code": "2880",
+        "skill_descr": "INFORMATION MANAGEMENT"
+    },
+    {
+        "jc_id": "17",
+        "jc_nm_txt": "Info Mgt Specialist",
+        "skl_code": "2881",
+        "skill_descr": "INFORMATION PROGRAMS ADMIN"
+    },
+    {
+        "jc_id": "18",
+        "jc_nm_txt": "Info Mgt Tech Spec",
+        "skl_code": "2882",
+        "skill_descr": "INFORMATION MANAGEMENT-TECH"
+    }
+]
