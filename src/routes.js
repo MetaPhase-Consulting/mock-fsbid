@@ -19,7 +19,7 @@ var appRouter = function (app) {
       res.status(401).send("You must provide a sAppCircuitID value")
       return
     }
-    const username = req.get('tm_usrname')
+    const username = req.get('tmusrname')
     const employee = employees.get_employee_by_username(username)
     if (!employee) {
       res.status(403).send(`No user with username ${username} was found`)
