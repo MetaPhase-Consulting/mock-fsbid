@@ -119,6 +119,10 @@ var appRouter = function (app) {
     res.status(200).send(lookups.get_bureaus())
   })
 
+  app.get('/codes', function(req, res) {
+    res.status(200).send(lookups.get_codes())
+  })
+
 };
 
 module.exports = appRouter;
