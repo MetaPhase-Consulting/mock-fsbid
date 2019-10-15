@@ -1,6 +1,6 @@
-const { readJson, filterList, sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter } = require('./common')
+const { filterList, sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter } = require('./common')
 
-const availablePositions = readJson('../data/availablePositions.json')
+const availablePositions = []
 
 // Maps filter values to data values
 const FILTERS = {

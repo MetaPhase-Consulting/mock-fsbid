@@ -1,6 +1,3 @@
-const fs = require('fs')
-const readJson = path => JSON.parse(fs.readFileSync(require.resolve(path)))
-
 // Mapping of sort params (keys) to field to sort on (value)
 const sortFieldMapping = {
   "pos_num_text": 'position',
@@ -116,4 +113,4 @@ const filterList = (list, FILTERS, query) => {
   })
 }
 
-module.exports = { readJson, filterList, sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter }
+module.exports = { filterList, sortList, paginateList, freeTextFilter, todFilter, languageFilter, overseasFilter }

@@ -1,7 +1,6 @@
 const { PRIVATE_KEY } = require('./constants')
 const bidding = require('./services/bids')
 const projectedVacancies = require('./services/projectedVacancies')
-const bidSeasons = require('./services/bidSeasons')
 const availablePositions = require('./services/availablePositions')
 const employees = require('./services/employees')
 const lookups = require('./services/lookups')
@@ -13,14 +12,14 @@ var appRouter = function (app) {
     res.status(200).send("Welcome to our restful API");
   });
 
-  app.get("/Authorize", function (req, res) {
+  app.get("/Authorize", async function (req, res) {
     const { sAppCircuitID } = req.query
     if (!sAppCircuitID) {
       res.status(401).send("You must provide a sAppCircuitID value")
       return
     }
     const username = req.get('tmusrname')
-    const employee = employees.get_employee_by_username(username)
+    const employee = await employees.get_employee_by_username(username)
     if (!employee) {
       res.status(403).send(`No user with username ${username} was found`)
       return
@@ -72,12 +71,8 @@ var appRouter = function (app) {
     res.status(200).send(availablePositions.get_available_positions_count(req.query))
   });
 
-  app.get('/bidSeasons', function(req, res) {
-    res.status(200).send(bidSeasons.get_bid_seasons(req.query));
-  });
-
-  app.get('/Employees/userInfo', function(req, res) {
-    const employee = employees.get_employee_by_ad_id(req.query)
+  app.get('/Employees/userInfo', async function(req, res) {
+    const employee = await employees.get_employee_by_ad_id(req.query)
     if (!employee) {
       res.status(404).send(`No employee with ad_id = ${req.query.ad_id} was found`)
       return
@@ -91,38 +86,18 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/cycles', function(req, res) {
-    res.status(200).send(lookups.get_cycles())
-  })
-
-  app.get('/grades', function(req, res) {
-    res.status(200).send(lookups.get_grades())
-  })
-
-  app.get('/languages', function(req, res) {
-    res.status(200).send(lookups.get_languages())
-  })
-
-  app.get('/dangerpays', function(req, res) {
-    res.status(200).send(lookups.get_dangerpays())
-  })
-
-  app.get('/differentialrates', function(req, res) {
-    res.status(200).send(lookups.get_differentialrates())
-  })
-
-  app.get('/tourofduties', function(req, res) {
-    res.status(200).send(lookups.get_tourofduties())
-  })
-
-  app.get('/bureaus', function(req, res) {
-    res.status(200).send(lookups.get_bureaus())
-  })
-
-  app.get('/codes', function(req, res) {
-    res.status(200).send(lookups.get_codes())
-  })
-
+  // Common look up function
+  const lookup = fn => async (req, res) => res.status(200).send(await fn())
+  
+  app.get('/bidSeasons', lookup(lookups.get_seasons))
+  app.get('/cycles', lookup(lookups.get_cycles))
+  app.get('/grades', lookup(lookups.get_grades))
+  app.get('/languages', lookup(lookups.get_languages))
+  app.get('/dangerpays', lookup(lookups.dangerpays))
+  app.get('/differentialrates', lookup(lookups.get_differentialrates))
+  app.get('/tourofduties', lookup(lookups.get_tourofduties))
+  app.get('/bureaus', lookup(lookups.get_bureaus))
+  app.get('/codes', lookup(lookups.get_codes))
 };
 
 module.exports = appRouter;

@@ -1,6 +1,4 @@
-const { readJson } = require('./common')
-
-const bids = readJson('../data/bids.json')
+const bids = {}
 
 const { get_available_position_by_id } = require('./availablePositions')
 

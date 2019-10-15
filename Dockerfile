@@ -23,4 +23,4 @@ COPY --chown=node . .
 ENV HOST=0.0.0.0 PORT=3333
 
 EXPOSE ${PORT}
-CMD [ "node", "." ]
+CMD [ "npm", "run", "dev" ]
