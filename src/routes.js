@@ -93,7 +93,7 @@ var appRouter = function (app) {
   app.get('/cycles', lookup(lookups.get_cycles))
   app.get('/grades', lookup(lookups.get_grades))
   app.get('/languages', lookup(lookups.get_languages))
-  app.get('/dangerpays', lookup(lookups.dangerpays))
+  app.get('/dangerpays', lookup(lookups.get_dangerpays))
   app.get('/differentialrates', lookup(lookups.get_differentialrates))
   app.get('/tourofduties', lookup(lookups.get_tourofduties))
   app.get('/bureaus', lookup(lookups.get_bureaus))
