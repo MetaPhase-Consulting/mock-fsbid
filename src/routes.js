@@ -1,7 +1,7 @@
 const { PRIVATE_KEY } = require('./constants')
 const bidding = require('./services/bids')
 const futureVacancies = require('./services/futurevacancies')
-const availablePositions = require('./services/availablePositions')
+const availablePositions = require('./services/availablepositions')
 const employees = require('./services/employees')
 const lookups = require('./services/lookups')
 
@@ -63,12 +63,12 @@ var appRouter = function (app) {
     res.status(200).send(await futureVacancies.get_future_vacancies_count(req.query))
   });
 
-  app.get('/availablePositions', function(req, res) {
-    res.status(200).send(availablePositions.get_available_positions(req.query))
+  app.get('/availablePositions', async function(req, res) {
+    res.status(200).send(await availablePositions.get_available_positions(req.query))
   });
 
-  app.get('/availablePositionsCount', function(req, res) {
-    res.status(200).send(availablePositions.get_available_positions_count(req.query))
+  app.get('/availablePositionsCount', async function(req, res) {
+    res.status(200).send(await availablePositions.get_available_positions_count(req.query))
   });
 
   app.get('/Employees/userInfo', async function(req, res) {

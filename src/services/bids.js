@@ -1,6 +1,6 @@
 const bids = {}
 
-const { get_available_position_by_id } = require('./availablePositions')
+const { get_available_position_by_id } = require('./availablepositions')
 
 function get_bid(cp_id, perdet_seq_num) {
   console.log(`Trying to get bid for cp_id=${cp_id} and perdet_seq_num=${perdet_seq_num}`)

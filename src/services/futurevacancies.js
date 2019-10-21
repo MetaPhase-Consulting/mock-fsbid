@@ -1,4 +1,5 @@
 const { FutureVacancies } = require('../models')
+const common = require('./common')
 
 // Maps filter values to data values
 const FILTERS = {
@@ -15,49 +16,6 @@ const FILTERS = {
   "fv_request_params.seq_nums": { field: "fv_seq_num" },
 }
 
-// Adds a filter to the qb for the field and value
-const addFilter = (qb, field, value) => {
-  if (Array.isArray(value)) {
-    // If there are more than one value for a field, handle that
-    qb.where(`${field}`, "in", value)
-  } else {
-    qb.where({ [field]: value })
-  }
-}
-// Free text filter does an ilike/contains type filter
-const addFreeTextFilter = (qb, query) => {
-  const freeText = query["fv_request_params.freeText"]
-  if (freeText) {
-    const operator = 'ilike'
-    const value = `%${freeText}%`
-    qb.where(function() {
-      this.where("pos_title_desc", operator, value)
-          .orWhere('pos_skill_desc', 'ilike', value)
-          .orWhere('pos_job_category_desc', 'ilike', value)
-          .orWhere('ppos_capsule_descr_txt', 'ilike', value)
-    })
-  }
-}
-
-const addOverseasFilter = (qb, query) => {
-  const overseas = query["fv_request_params.overseas_ind"]
-  if (overseas) {
-    let operator = '='
-    if (overseas === 'D') {
-      operator = '<>'
-    }
-    qb.where('pos_location_code', operator, '110010001')
-  }
-}
-
-const addOrderBy = (qb, query) => {
-  const orderBy = query['fv_request_params.order_by']
-  if (orderBy) {
-    const [field, direction="asc"] = orderBy.split(' ')
-    qb.orderBy(field, direction)
-  }
-}
-
 const create_query = query => {
   return FutureVacancies.query(qb => {
     Object.keys(query).map(q => {
@@ -66,29 +24,27 @@ const create_query = query => {
       if (filter && filter.field && value) {
         // Handle multiple fields on the same param
         if (Array.isArray(filter.field)) {
-          filter.field.map(f => addFilter(qb, f, value))
+          filter.field.map(f => common.addFilter(qb, f, value))
         } else {
-          addFilter(qb, filter.field, value)
+          common.addFilter(qb, filter.field, value)
         }
       }
     })
     // Free Text filter is special
-    addFreeTextFilter(qb, query)
+    common.addFreeTextFilter(qb, query["fv_request_params.freeText"])
     // Overseas filter is also special
-    addOverseasFilter(qb, query)
+    common.addOverseasFilter(qb, query["fv_request_params.overseas_ind"])
     // Order by
-    addOrderBy(qb, query)
+    common.addOrderBy(qb, query['fv_request_params.order_by'])
   })
 }
-
-const formatLanguage = lang => lang && `${lang.language_long_desc}(${lang.language_code}) 1/1`
 
 const formatData = data => {
   return data.map(d => {
     const { tod, lang1, lang2 } = d
     d.tod = tod && tod.long_desc
-    d.lang1 = formatLanguage(lang1)
-    d.lang2 = formatLanguage(lang2)
+    d.lang1 = common.formatLanguage(lang1)
+    d.lang2 = common.formatLanguage(lang2)
     return d
   })
 }
