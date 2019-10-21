@@ -13,7 +13,7 @@ const {
 // Call getAll on the provided model
 const getAll = model => async () => {
   try {
-    const data = await model.fetchAll({debug:true})
+    const data = await model.fetchAll()
     return { "Data": data.serialize(), return_code: 0 }
   } catch (Error) {
     console.error(Error)

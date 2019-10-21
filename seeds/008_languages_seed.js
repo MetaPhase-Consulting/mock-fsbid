@@ -1,12 +1,12 @@
 const { readJson } = require('./data/helpers')
 
-const bureaus = readJson('./bureaus.json')
+const languages = readJson('./languages.json')
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('bureaus').del()
+  return knex.raw('TRUNCATE TABLE languages CASCADE')
     .then(function () {
       // Inserts seed entries
-      return knex('bureaus').insert(bureaus);
+      return knex('languages').insert(languages);
     });
 };

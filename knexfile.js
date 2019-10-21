@@ -2,6 +2,7 @@ require("dotenv-safe").config();
 
 // Database setup
 module.exports = {
+  debug: true,
   client: 'pg',
   connection: {
     host     : process.env.DB_HOST,

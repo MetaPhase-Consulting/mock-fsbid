@@ -1,12 +1,12 @@
 const { readJson } = require('./data/helpers')
 
-const cycles = readJson('./cycles.json')
+const tourofduties = readJson('./tourofduties.json')
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('cycles').del()
+  return knex.raw('TRUNCATE TABLE tourofduties CASCADE')
     .then(function () {
       // Inserts seed entries
-      return knex('cycles').insert(cycles);
+      return knex('tourofduties').insert(tourofduties);
     });
 };

@@ -8,6 +8,7 @@ const Bureaus = require('./bureaus.js')
 const Codes = require('./codes.js')
 const Seasons = require('./seasons.js')
 const Employees = require('./employees.js')
+const FutureVacancies  = require('./futurevacancies.js')
 
 module.exports = {
   Seasons,
@@ -19,5 +20,6 @@ module.exports = {
   TourOfDuties,
   Bureaus,
   Codes,
-  Employees
+  Employees,
+  FutureVacancies
 }

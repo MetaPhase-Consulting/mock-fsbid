@@ -1,12 +1,12 @@
 const { readJson } = require('./data/helpers')
 
-const codes = readJson('./codes.json')
+const employees = readJson('./employees.json')
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('codes').del()
+  return knex.raw('TRUNCATE TABLE employees CASCADE')
     .then(function () {
       // Inserts seed entries
-      return knex('codes').insert(codes);
+      return knex('employees').insert(employees);
     });
 };
