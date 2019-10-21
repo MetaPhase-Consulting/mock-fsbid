@@ -1,4 +1,4 @@
-require("dotenv-safe").config();
+require("dotenv-safe").config({ allowEmptyValues: true });
 
 var express = require("express");
 var bodyParser = require("body-parser");
