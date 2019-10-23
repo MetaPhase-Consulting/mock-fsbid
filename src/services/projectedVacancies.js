@@ -32,7 +32,7 @@ function get_projected_vacancies(query) {
   return { 
     "Data": paginateList(sortList(filterList(projectedVacancies, FILTERS, query), sort), page_number, limit),
     "usl_id": 44999637,
-    "return_code:": 0
+    "return_code": 0
   }
 }
 

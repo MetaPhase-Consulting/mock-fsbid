@@ -32,7 +32,7 @@ function get_available_positions(query) {
   return { 
     "Data": paginateList(sortList(filterList(availablePositions, FILTERS, query), sort), page_number, limit),
     "usl_id": 44999637,
-    "return_code:": 0
+    "return_code": 0
   }
 }
 
