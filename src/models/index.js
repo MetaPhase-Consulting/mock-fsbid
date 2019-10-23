@@ -10,6 +10,7 @@ const Seasons = require('./seasons.js')
 const Employees = require('./employees.js')
 const FutureVacancies  = require('./futurevacancies.js')
 const AvailablePositions  = require('./availablepositions.js')
+const Bids = require('./bids.js')
 
 module.exports = {
   Seasons,
@@ -23,5 +24,6 @@ module.exports = {
   Codes,
   Employees,
   FutureVacancies,
-  AvailablePositions
+  AvailablePositions,
+  Bids,
 }

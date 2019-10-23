@@ -1,89 +1,108 @@
-const bids = {}
-
+const { Bids } = require('../models')
 const { get_available_position_by_id } = require('./availablepositions')
 
-function get_bid(cp_id, perdet_seq_num) {
+async function get_bid(cp_id, perdet_seq_num) {
   console.log(`Trying to get bid for cp_id=${cp_id} and perdet_seq_num=${perdet_seq_num}`)
-  return bids.find(b => b.cp_id == cp_id && b.perdet_seq_num == perdet_seq_num)
+  const bid = await Bids
+    .where('cp_id', cp_id)
+    .where('perdet_seq_num', perdet_seq_num)
+    .fetch({ withRelated: ['position'], require: false })
+  if (bid) {
+    return bid
+  } else {
+    console.log(`No bid on cp_id=${cp_id} for perdet_seq_num=${perdet_seq_num}`)
+  }
 }
 
-function get_bids(query) {
+async function get_bids(query) {
   const { perdet_seq_num } = query
-  return bids.filter(bid => bid.perdet_seq_num == perdet_seq_num);
+  const bids = await Bids.where('perdet_seq_num', perdet_seq_num).fetchAll({
+    withRelated: ['position'],
+    require: false,
+  })
+
+  return bids.map(bid => formatData(bid.serialize()))
+}
+// get the bid stats
+const get_bid_stats = id => (
+  {
+    cp_ttl_bidder_qty: 0,
+    cp_at_grd_qty: 0,
+    cp_in_cone_qty: 0,
+    cp_at_grd_in_cone_qty: 0,
+  }
+)
+// calculate the delete_id value
+const get_delete_id = id => (
+  {
+    delete_id: true
+  }
+)
+
+const formatData = data => {
+  if (data && data.position) {
+    const { cycle_nm_txt, pos_title_desc:ptitle, pos_skill_code, pos_skill_desc, pos_grade_code } = data.position
+    delete data.position
+    const position = {
+      cycle_nm_txt, ptitle, pos_skill_code, pos_skill_desc, pos_grade_code
+    }
+    return { ...data, ...position, ...get_bid_stats(data.id), ...get_delete_id(data.id) }
+  }
 }
 
-function add_bid(query) {
+async function add_bid(query) {
   const { cp_id, ad_id, perdet_seq_num } = query
-  const ap = get_available_position_by_id(cp_id)
+  const ap = await get_available_position_by_id(cp_id)
   if (!ap) {
     throw Error(`No ap with cp_id = ${cp_id} was found`)
   }
   // Cannot bid on the same position more than once
-  if (!get_bid(cp_id, perdet_seq_num)) {
-    let [city, state] = ap.post_org_country_state.split(',')
-    const bid = {
-      "delete_id": true,
-      "perdet_seq_num": perdet_seq_num,
-      "cycle_nm_txt": ap.cycle_nm_txt,
-      "cp_id": cp_id,
-      "ptitle": ap.pos_title_desc,
-      "pos_skill_code": ap.pos_skill_code,
-      "pos_skill_desc": ap.pos_skill_desc,
-      "pos_grade_code": ap.pos_grade_code,
-      "ubw_hndshk_offrd_flg": "N",
-      "ubw_hndshk_offrd_dt": "",
-      "ubw_create_dt": new Date().toISOString(),
-      "ubw_submit_dt": "",
-      "bs_cd": "W",
-      "bs_descr_txt": "Not Submitted",
-      "cp_ttl_bidder_qty": 0,
-      "cp_at_grd_qty": 0,
-      "cp_in_cone_qty": 0,
-      "cp_at_grd_in_cone_qty": 0,
-      "location_city": city,
-      "location_state": state,
-      "location_country": "USA"
-    }
+  if (!await get_bid(cp_id, perdet_seq_num)) {
     console.log(`Adding bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
-    bids.push(bid)
+    await Bids.forge(
+      {
+        perdet_seq_num,
+        cp_id,
+      }
+    ).save()
   }
   return { Data: null, usl_id: 45066084, return_code: 0 }
 }
 
-function submit_bid(query) {
+async function submit_bid(query) {
   const { cp_id, ad_id, perdet_seq_num } = query
-  // Get the bid
-  for (var i = bids.length - 1; i >= 0; --i) {
-    const bid = bids[i]
-    if (bid.cp_id == cp_id && bid.perdet_seq_num == perdet_seq_num) {
-      console.log(`Submitting bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
-      // Update the status
-      bid.bs_cd = "A"
-      bid.bs_descr_txt =  "Active"
-      bid.ubw_submit_dt = new Date().toISOString()
-      bids[i] = bid
-    }
+  const bid = await get_bid(cp_id, perdet_seq_num)
+  if (bid) {
+    console.log(`Submitting bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
+    await bid.save(
+      {
+        bs_cd: 'A',
+        bs_descr_txt: 'Active',
+        ubw_submit_dt: new Date().toISOString(),
+      }
+    )
+  } else {
+    console.log(`No bid on ${cp_id} for ${perdet_seq_num} was found`)
   }
-
   return { Data: null, usl_id: 45066084, return_code: 0 } 
 }
 
-function remove_bid(query) {
+async function remove_bid(query) {
   const { cp_id, ad_id, perdet_seq_num } = query
   // The error code, returned if no bid could be found
   let return_code = -1
-  for (var i = bids.length - 1; i >= 0; --i) {
-    const bid = bids[i]
-    if (bid.cp_id == cp_id && bid.perdet_seq_num == perdet_seq_num) {
+  const bid = await get_bid(cp_id, perdet_seq_num)
+  if (bid) {
+    console.log(`Removing bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
+    try {
+      await new Bids({id: bid.id}).destroy()
       return_code = 0
-      console.log(`Removing bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
-      bids.splice(i,1);
+    } catch (Error) {
+      console.log(`An error occurred removing the bid... ${Error}`)
     }
   }
-  
   // Even if the bid doesn't exist, it succeeds
   return { Data: null, usl_id: 45066084, return_code }
-
 }
 
 module.exports = { get_bids, add_bid, submit_bid, remove_bid }

@@ -40,16 +40,21 @@ const create_query = query => {
 }
 
 const formatData = data => {
-  return data.map(d => {
-    const { tod, lang1, lang2, cycle } = d
-    d.tod = tod && tod.long_desc
-    d.lang1 = common.formatLanguage(lang1)
-    d.lang2 = common.formatLanguage(lang2)
-    d.cycle_status = cycle.cycle_status_code
-    d.cycle_nm_txt = cycle.cycle_name
-    delete d.cycle
-    return d
-  })
+  if (data) {
+    if (!Array.isArray(data)) {
+      data = [data]
+    }
+    return data.map(d => {
+      const { tod, lang1, lang2, cycle } = d
+      d.tod = tod && tod.long_desc
+      d.lang1 = common.formatLanguage(lang1)
+      d.lang2 = common.formatLanguage(lang2)
+      d.cycle_status = cycle.cycle_status_code
+      d.cycle_nm_txt = cycle.cycle_name
+      delete d.cycle
+      return d
+    })
+  }
 }
 
 async function get_available_positions(query) {
@@ -57,6 +62,7 @@ async function get_available_positions(query) {
     withRelated: ['tod', 'lang1', 'lang2', 'cycle'],
     pageSize: query["request_params.page_size"] || 25,
     page: query["request_params.page_index"] || 1,
+    require: false,
   })
 
   return { 
@@ -80,10 +86,14 @@ async function get_available_positions_count(query) {
 }
 
 async function get_available_position_by_id(id) {
-  const data = await new AvailablePositions({ cycle_id: id }).fetch({
-    withRelated: ['tod', 'lang1', 'lang2', 'cycle'],
-  })
-  return formatData(data.serialize())
+  const data = await new AvailablePositions({ cp_id: id })
+    .fetch({
+      withRelated: ['tod', 'lang1', 'lang2', 'cycle'],
+      require: false,
+    })
+  if (data) {
+    return formatData(data.serialize())
+  }
 }
 
 module.exports = { get_available_positions, get_available_positions_count, get_available_position_by_id }

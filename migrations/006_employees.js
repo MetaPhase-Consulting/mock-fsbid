@@ -1,10 +1,9 @@
 exports.up = function(knex) {
   return knex.schema
     .createTable('employees', function(table) {
-      table.increments('id').primary();
+      table.increments('perdet_seq_num').primary();
       table.string('username');
       table.string('ad_id');
-      table.string('perdet_seq_num');
     });
 };
 exports.down = function(knex) {

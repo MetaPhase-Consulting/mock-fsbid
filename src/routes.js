@@ -27,13 +27,13 @@ var appRouter = function (app) {
     res.status(200).send(jwt.sign({ unique_name: employee.ad_id }, PRIVATE_KEY));
   });
 
-  app.get("/bids", function (req, res) {
-    res.status(200).send(bidding.get_bids(req.query));
+  app.get("/bids", async function (req, res) {
+    res.status(200).send(await bidding.get_bids(req.query));
   });
 
-  app.post('/bids', function(req, res) {
+  app.post('/bids', async function(req, res) {
     try {
-      res.status(200).send(bidding.add_bid(req.query))
+      res.status(200).send(await bidding.add_bid(req.query))
     } catch (err) {
       console.error('Error occurred creating bid')
       console.error(`${err}`)
@@ -41,9 +41,9 @@ var appRouter = function (app) {
     }
   });
 
-  app.put('/bids', function(req, res) {
+  app.put('/bids', async function(req, res) {
     try {
-      res.status(200).send(bidding.submit_bid(req.query))
+      res.status(200).send(await bidding.submit_bid(req.query))
     } catch (err) {
       console.error('Error occurred submitting bid')
       console.error(`${err}`)
@@ -51,8 +51,8 @@ var appRouter = function (app) {
     }
   });
 
-  app.delete('/bids', function(req, res) {
-    res.status(200).send(bidding.remove_bid(req.query))
+  app.delete('/bids', async function(req, res) {
+    res.status(200).send(await bidding.remove_bid(req.query))
   });
 
   app.get('/futureVacancies', async function(req, res) {

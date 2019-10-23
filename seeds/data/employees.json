@@ -1,7 +1,7 @@
 [
-  { "id": 2, "username": "admin", "ad_id": "washdc\\admin", "perdet_seq_num": 2 },
-  { "id": 4, "username": "townpostj", "ad_id": "washdc\\townpostj", "perdet_seq_num": 4 },
-  { "id": 7, "username": "shadtrachl", "ad_id": "washdc\\shadtrachl", "perdet_seq_num": 7 },
-  { "id": 6, "username": "rehmant", "ad_id": "washdc\\rehmant", "perdet_seq_num": 6 },
-  { "id": 8, "username": "woodwardw", "ad_id": "washdc\\woodwardw", "perdet_seq_num": 8 }
+  { "username": "admin", "ad_id": "washdc\\admin", "perdet_seq_num": 2 },
+  { "username": "townpostj", "ad_id": "washdc\\townpostj", "perdet_seq_num": 4 },
+  { "username": "shadtrachl", "ad_id": "washdc\\shadtrachl", "perdet_seq_num": 7 },
+  { "username": "rehmant", "ad_id": "washdc\\rehmant", "perdet_seq_num": 6 },
+  { "username": "woodwardw", "ad_id": "washdc\\woodwardw", "perdet_seq_num": 8 }
 ]
