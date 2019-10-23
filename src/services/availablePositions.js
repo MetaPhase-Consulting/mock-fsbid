@@ -68,7 +68,7 @@ async function get_available_positions(query) {
   return { 
     "Data": formatData(data.serialize()),
     "usl_id": 44999637,
-    "return_code:": 0
+    "return_code": 0
   }
 }
 

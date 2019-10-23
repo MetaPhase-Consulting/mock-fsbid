@@ -59,7 +59,7 @@ async function get_future_vacancies(query) {
   return { 
     "Data": formatData(data.serialize()),
     "usl_id": 44999637,
-    "return_code:": 0
+    "return_code": 0
   }
 }
 
