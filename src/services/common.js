@@ -17,9 +17,9 @@ const addFreeTextFilter = (qb, value) => {
     const val = `%${value}%`
     qb.where(function() {
       this.where("pos_title_desc", operator, val)
-          .orWhere('pos_skill_desc', 'ilike', val)
-          .orWhere('pos_job_category_desc', 'ilike', val)
-          .orWhere('ppos_capsule_descr_txt', 'ilike', val)
+          .orWhere('pos_skill_desc', operator, val)
+          .orWhere('pos_job_category_desc', operator, val)
+          .orWhere('ppos_capsule_descr_txt', operator, val)
     })
   }
 }
