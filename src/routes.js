@@ -25,7 +25,25 @@ var appRouter = function (app) {
       res.status(403).send(`No user with username ${username} was found`)
       return
     }
-    res.status(200).send(jwt.sign({ unique_name: employee.ad_id }, PRIVATE_KEY));
+    // Token payload
+    const payload = {
+      role: employee.role,
+      unique_name: employee.ad_id,
+      display_name: username,
+      email: `${username}@state.gov`,
+      sub: employee.perdet_seq_num,
+      system: "32",
+      iss: "HR/EX/SDD",
+    }
+    res.status(200).send(jwt.sign(
+      payload,
+      PRIVATE_KEY,
+      {
+        expiresIn: 900000,
+        notBefore: 100,
+        audience: req.headers.host,
+        jwtid: 'test-12345',
+      }));
   });
 
   app.get("/bids", function (req, res) {
