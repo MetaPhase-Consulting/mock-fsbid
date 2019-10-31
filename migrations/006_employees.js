@@ -4,6 +4,7 @@ exports.up = function(knex) {
       table.increments('perdet_seq_num').primary();
       table.string('username');
       table.string('ad_id');
+      table.string('role');
     });
 };
 exports.down = function(knex) {
