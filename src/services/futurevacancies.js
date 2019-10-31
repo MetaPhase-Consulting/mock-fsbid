@@ -16,7 +16,7 @@ const FILTERS = {
   "fv_request_params.seq_nums": { field: "fv_seq_num" },
 }
 
-const create_query = query => {
+const create_query = (query, isCount=false) => {
   return FutureVacancies.query(qb => {
     Object.keys(query).map(q => {
       const filter = FILTERS[q]
@@ -34,8 +34,10 @@ const create_query = query => {
     common.addFreeTextFilter(qb, query["fv_request_params.freeText"])
     // Overseas filter is also special
     common.addOverseasFilter(qb, query["fv_request_params.overseas_ind"])
-    // Order by
-    common.addOrderBy(qb, query['fv_request_params.order_by'])
+    if (!isCount) {
+      // Order by
+      common.addOrderBy(qb, query['fv_request_params.order_by'])
+    }
   })
 }
 
@@ -64,7 +66,7 @@ async function get_future_vacancies(query) {
 }
 
 async function get_future_vacancies_count(query) {
-  const count = await create_query(query).count()
+  const count = await create_query(query, true).count()
   return {
     "Data": [
         {

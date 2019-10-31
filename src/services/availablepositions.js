@@ -16,7 +16,7 @@ const FILTERS = {
   "request_params.cp_ids": { field: "cp_id" },
 }
 
-const create_query = query => {
+const create_query = (query, isCount=false) => {
   return AvailablePositions.query(qb => {
     Object.keys(query).map(q => {
       const filter = FILTERS[q]
@@ -34,8 +34,10 @@ const create_query = query => {
     common.addFreeTextFilter(qb, query["request_params.freeText"])
     // Overseas filter is also special
     common.addOverseasFilter(qb, query["request_params.overseas_ind"])
-    // Order by
-    common.addOrderBy(qb, query['request_params.order_by'])
+    if (!isCount) {
+      // Order by
+      common.addOrderBy(qb, query['request_params.order_by'])
+    }
   })
 }
 
@@ -73,7 +75,7 @@ async function get_available_positions(query) {
 }
 
 async function get_available_positions_count(query) {
-  const count = await create_query(query).count()
+  const count = await create_query(query, true).count()
   return {
     "Data": [
         {
