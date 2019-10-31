@@ -1,0 +1,7 @@
+[
+  { "username": "admin", "ad_id": "washdc\\admin", "perdet_seq_num": 2, "role": "FSBidCycleAdministrator" },
+  { "username": "townpostj", "ad_id": "washdc\\townpostj", "perdet_seq_num": 4, "role": "fsofficer" },
+  { "username": "shadtrachl", "ad_id": "washdc\\shadtrachl", "perdet_seq_num": 7, "role": "CDO" },
+  { "username": "rehmant", "ad_id": "washdc\\rehmant", "perdet_seq_num": 6, "role": "fsofficer" },
+  { "username": "woodwardw", "ad_id": "washdc\\woodwardw", "perdet_seq_num": 8, "role": "CDO3" }
+]

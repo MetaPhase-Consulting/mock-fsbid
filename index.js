@@ -1,10 +1,11 @@
-require("dotenv-safe").config();
+require("dotenv-safe").config({ allowEmptyValues: true });
 
 var express = require("express");
 var bodyParser = require("body-parser");
 var morganBody = require("morgan-body");
 var cors = require('cors')
 var routes = require("./src/routes.js");
+require('./src/bookshelf.js')
 
 var app = express();
 

@@ -5,8 +5,28 @@ services:
       context: .
     ports:
       - 3333:3333
-    command: npm start
+    links:
+      - db
+    command: npm run dev
     volumes:
       - .:/home/node/app
     environment:
       - PORT=3333
+      - DB_HOST=db
+      - DB_NAME=mockfsbid
+      - DB_USER=mockfsbid-user
+      - DB_PASSWORD=fsbid_pwd
+      - DB_PORT=5432
+      - DB_CHARSET=utf8
+  db:
+    image: postgres:9.6.3
+    ports:
+      - "35432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=mockfsbid
+      - POSTGRES_USER=mockfsbid-user
+      - POSTGRES_PASSWORD=fsbid_pwd
+volumes:
+  pgdata:
