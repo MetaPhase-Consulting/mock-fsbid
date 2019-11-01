@@ -15,6 +15,9 @@ const AvailablePositions = bookshelf.model('AvailablePositions', {
   },
   lang2() {
     return this.belongsTo('Languages', 'lang2')
+  },
+  org() {
+    return this.belongsTo('Organizations', 'org_code')
   }
 })
 

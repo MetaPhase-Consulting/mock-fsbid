@@ -47,13 +47,17 @@ const formatData = data => {
       data = [data]
     }
     return data.map(d => {
-      const { tod, lang1, lang2, cycle } = d
+      const { tod, lang1, lang2, cycle, org } = d
       d.tod = tod && tod.long_desc
       d.lang1 = common.formatLanguage(lang1)
       d.lang2 = common.formatLanguage(lang2)
       d.cycle_status = cycle.cycle_status_code
       d.cycle_nm_txt = cycle.cycle_name
       delete d.cycle
+      d.org_code = org.code
+      d.org_long_desc = org.long_desc
+      d.org_short_desc = org.short_desc
+      delete d.org
       return d
     })
   }
@@ -61,7 +65,7 @@ const formatData = data => {
 
 async function get_available_positions(query) {
   const data = await create_query(query).fetchPage({
-    withRelated: ['tod', 'lang1', 'lang2', 'cycle'],
+    withRelated: ['tod', 'lang1', 'lang2', 'cycle', 'org'],
     pageSize: query["request_params.page_size"] || 25,
     page: query["request_params.page_index"] || 1,
     require: false,
