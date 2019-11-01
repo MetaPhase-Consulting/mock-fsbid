@@ -12,7 +12,7 @@ const FILTERS = {
   "fv_request_params.location_codes": { field: "pos_location_code" },
   "fv_request_params.tod_codes": { field: "tod" },
   "fv_request_params.differential_pays": { field: "bt_differential_rate_num" },
-  "fv_request_params.skills": { field: "skill_code" },
+  "fv_request_params.skills": { field: "pos_skill_code" },
   "fv_request_params.seq_nums": { field: "fv_seq_num" },
 }
 

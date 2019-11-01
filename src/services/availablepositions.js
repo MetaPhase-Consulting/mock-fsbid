@@ -12,7 +12,7 @@ const FILTERS = {
   "request_params.location_codes": { field: "pos_location_code" },
   "request_params.tod_codes": { field: "tod" },
   "request_params.differential_pays": { field: "bt_differential_rate_num" },
-  "request_params.skills": { field: "skill_code" },
+  "request_params.skills": { field: "pos_skill_code" },
   "request_params.cp_ids": { field: "cp_id" },
 }
 
@@ -47,7 +47,7 @@ const formatData = data => {
       data = [data]
     }
     return data.map(d => {
-      const { tod, lang1, lang2, cycle, org } = d
+      const { tod, lang1, lang2, cycle, org, location } = d
       d.tod = tod && tod.long_desc
       d.lang1 = common.formatLanguage(lang1)
       d.lang2 = common.formatLanguage(lang2)
@@ -58,6 +58,10 @@ const formatData = data => {
       d.org_long_desc = org.long_desc
       d.org_short_desc = org.short_desc
       delete d.org
+      d.location_city = location.city
+      d.location_state = location.state
+      d.location_country = location.country
+      delete d.location
       return d
     })
   }
@@ -65,7 +69,7 @@ const formatData = data => {
 
 async function get_available_positions(query) {
   const data = await create_query(query).fetchPage({
-    withRelated: ['tod', 'lang1', 'lang2', 'cycle', 'org'],
+    withRelated: ['tod', 'lang1', 'lang2', 'cycle', 'org', 'location'],
     pageSize: query["request_params.page_size"] || 25,
     page: query["request_params.page_index"] || 1,
     require: false,

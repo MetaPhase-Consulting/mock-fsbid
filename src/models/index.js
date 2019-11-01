@@ -12,6 +12,8 @@ const FutureVacancies  = require('./futurevacancies.js')
 const AvailablePositions  = require('./availablepositions.js')
 const Bids = require('./bids.js')
 const Organizations = require('./organizations.js')
+const Locations = require('./locations.js')
+
 
 module.exports = {
   Seasons,
@@ -28,4 +30,5 @@ module.exports = {
   AvailablePositions,
   Bids,
   Organizations,
+  Locations,
 }

@@ -18,6 +18,9 @@ const AvailablePositions = bookshelf.model('AvailablePositions', {
   },
   org() {
     return this.belongsTo('Organizations', 'org_code')
+  },
+  location() {
+    return this.belongsTo('Locations', 'pos_location_code')
   }
 })
 

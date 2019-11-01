@@ -11,17 +11,17 @@ const lookups = [
   'languages', 
   'seasons', 
   'tourofduties', 
-  'organizations'
+  'organizations',
+  "locations",
 ]
 exports.seed = async function(knex) {
-  return await lookups.forEach(lookup => {
-     // Deletes ALL existing entries
-    return knex.raw(`TRUNCATE TABLE ${lookup} CASCADE`)
-    .then(function () {
-      const data = readJson(`./${lookup}.json`)
-      // Inserts seed entries
-      return knex(lookup).insert(data);
-    });
-  })
-  
+  // return lookups.forEach(lookup => {
+  for (let index = 0; index < lookups.length; index++) {
+    const lookup = lookups[index];
+    // Deletes ALL existing entries
+    await knex.raw(`TRUNCATE TABLE ${lookup} CASCADE`)
+    const data = readJson(`./${lookup}.json`)
+    // Inserts seed entries
+    await knex(lookup).insert(data);
+  };
 };
