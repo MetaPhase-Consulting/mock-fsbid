@@ -43,17 +43,25 @@ const create_query = (query, isCount=false) => {
 
 const formatData = data => {
   return data.map(d => {
-    const { tod, lang1, lang2 } = d
+    const { tod, lang1, lang2, org, location } = d
     d.tod = tod && tod.long_desc
     d.lang1 = common.formatLanguage(lang1)
     d.lang2 = common.formatLanguage(lang2)
+    d.org_code = org.code
+    d.org_long_desc = org.long_desc
+    d.org_short_desc = org.short_desc
+    delete d.org
+    d.location_city = location.city
+    d.location_state = location.state
+    d.location_country = location.country
+    delete d.location
     return d
   })
 }
 
 async function get_future_vacancies(query) {
   const data = await create_query(query).fetchPage({
-    withRelated: ['tod', 'lang1', 'lang2'],
+    withRelated: ['tod', 'lang1', 'lang2', 'org', 'location'],
     pageSize: query["fv_request_params.page_size"] || 25,
     page: query["fv_request_params.page_index"] || 1
   })

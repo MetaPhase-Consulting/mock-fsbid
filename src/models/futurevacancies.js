@@ -12,6 +12,12 @@ const FutureVacancies = bookshelf.model('FutureVacancies', {
   },
   lang2() {
     return this.belongsTo('Languages', 'lang2')
+  },
+  org() {
+    return this.belongsTo('Organizations', 'org_code')
+  },
+  location() {
+    return this.belongsTo('Locations', 'pos_location_code')
   }
 })
 
