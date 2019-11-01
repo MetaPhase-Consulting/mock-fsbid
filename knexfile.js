@@ -2,7 +2,7 @@ require("dotenv-safe").config({ allowEmptyValues: true });
 
 // Database setup
 module.exports = {
-  debug: true,
+  debug: process.env.DEBUG,
   client: 'pg',
   connection: {
     host     : process.env.DB_HOST,
