@@ -7,7 +7,8 @@ const {
   TourOfDuties, 
   Bureaus, 
   Codes,
-  Seasons
+  Seasons,
+  Locations
 } = require('../models')
 
 // Call getAll on the provided model
@@ -30,6 +31,7 @@ const get_differentialrates = getAll(DifferentialRates)
 const get_tourofduties = getAll(TourOfDuties)
 const get_bureaus = getAll(Bureaus)
 const get_codes = getAll(Codes)
+const get_locations = getAll(Locations)
 
 module.exports = {
   get_seasons,
@@ -40,5 +42,6 @@ module.exports = {
   get_differentialrates,
   get_tourofduties,
   get_bureaus,
-  get_codes
+  get_codes,
+  get_locations
 }
