@@ -20,7 +20,8 @@
     "bt_danger_pay_num": null,
     "incumbent": "Siegner",
     "position": "D0994900",
-    "ppos_capsule_descr_txt": "ON SPEC.  The Bureau of Admnistration (A) is the back bone of all  dafdafafdadfadfadsfadfadfjfauoiukjigqur ijf iajfdpoiaudf afdoijafdiuwpei poiu foiafdjfd oau0jj;kj"
+    "ppos_capsule_descr_txt": "ON SPEC.  The Bureau of Admnistration (A) is the back bone of all  dafdafafdadfadfadsfadfadfjfauoiukjigqur ijf iajfdpoiaudf afdoijafdiuwpei poiu foiafdjfd oau0jj;kj",
+    "ppos_capsule_modify_dt": "2019-10-15T15:39:33"
   },
   {
     "fv_seq_num": 89368,
@@ -43,7 +44,8 @@
     "bt_danger_pay_num": null,
     "incumbent": "Siegner",
     "position": "D0994901",
-    "ppos_capsule_descr_txt": "ON SPEC.  This is the description for the other position"
+    "ppos_capsule_descr_txt": "ON SPEC.  This is the description for the other position",
+    "ppos_capsule_modify_dt": "2019-01-22T15:08:33"
   },
   {
     "fv_seq_num": 89369,
@@ -66,6 +68,7 @@
     "bt_danger_pay_num": 35,
     "incumbent": "Siegner",
     "position": "D0994902",
-    "ppos_capsule_descr_txt": "ON SPEC.  This is the description for the even other position"
+    "ppos_capsule_descr_txt": "ON SPEC.  This is the description for the even other position",
+    "ppos_capsule_modify_dt": "2016-12-01T15:08:33"
   }
 ]
