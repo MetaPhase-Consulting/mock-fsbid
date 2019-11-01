@@ -3,14 +3,14 @@
     "code": "010000101",
     "city": "Montgomery",
     "state": "AL",
-    "country": null,
+    "country": "United States",
     "is_domestic": 1
   },
   {
     "code": "110010001",
     "city": "Washington",
     "state": "DC",
-    "country": null,
+    "country": "United States",
     "is_domestic": 1
   },
   {
