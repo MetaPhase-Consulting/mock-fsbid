@@ -106,5 +106,17 @@
         "jc_nm_txt": "Info Mgt Tech Spec",
         "skl_code": "2882",
         "skill_descr": "INFORMATION MANAGEMENT-TECH"
+    },
+    {
+        "jc_id": "19",
+        "jc_nm_txt": "Interfunctional",
+        "skl_code": "6090",
+        "skill_descr": "REFUGEE AFFAIRS"
+    },
+    {
+        "jc_id": "20",
+        "jc_nm_txt": "Refugee Affiars",
+        "skl_code": "6090",
+        "skill_descr": "REFUGEE AFFAIRS"
     }
 ]
