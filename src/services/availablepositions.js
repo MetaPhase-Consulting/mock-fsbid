@@ -47,7 +47,7 @@ const formatData = data => {
       data = [data]
     }
     return data.map(d => {
-      const { tod, lang1, lang2, cycle, org, location } = d
+      const { tod, lang1, lang2, cycle, org, location, bureau } = d
       d.tod = tod && tod.long_desc
       d.lang1 = common.formatLanguage(lang1)
       d.lang2 = common.formatLanguage(lang2)
@@ -62,6 +62,9 @@ const formatData = data => {
       d.location_state = location.state
       d.location_country = location.country
       delete d.location
+      d.pos_bureau_short_desc = bureau.bureau_short_desc
+      d.pos_bureau_long_desc = bureau.bureau_long_desc
+      delete d.bureau
       return d
     })
   }
@@ -69,7 +72,7 @@ const formatData = data => {
 
 async function get_available_positions(query) {
   const data = await create_query(query).fetchPage({
-    withRelated: ['tod', 'lang1', 'lang2', 'cycle', 'org', 'location'],
+    withRelated: ['tod', 'lang1', 'lang2', 'cycle', 'org', 'location', 'bureau'],
     pageSize: query["request_params.page_size"] || 25,
     page: query["request_params.page_index"] || 1,
     require: false,

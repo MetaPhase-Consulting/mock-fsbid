@@ -18,7 +18,10 @@ const FutureVacancies = bookshelf.model('FutureVacancies', {
   },
   location() {
     return this.belongsTo('Locations', 'pos_location_code')
-  }
+  },
+  bureau() {
+    return this.belongsTo('Bureaus', 'bureau')
+  },
 })
 
 module.exports = FutureVacancies

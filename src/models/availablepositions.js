@@ -21,7 +21,10 @@ const AvailablePositions = bookshelf.model('AvailablePositions', {
   },
   location() {
     return this.belongsTo('Locations', 'pos_location_code')
-  }
+  },
+  bureau() {
+    return this.belongsTo('Bureaus', 'bureau')
+  },
 })
 
 module.exports = AvailablePositions
