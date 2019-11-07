@@ -117,6 +117,7 @@ var appRouter = function (app) {
   app.get('/bureaus', lookup(lookups.get_bureaus))
   app.get('/codes', lookup(lookups.get_codes))
   app.get('/locations', lookup(lookups.get_locations))
+  app.get('/cones', lookup(lookups.get_cones))
 };
 
 module.exports = appRouter;
