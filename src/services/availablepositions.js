@@ -102,7 +102,7 @@ async function get_available_positions_count(query) {
 async function get_available_position_by_id(id) {
   const data = await new AvailablePositions({ cp_id: id })
     .fetch({
-      withRelated: ['tod', 'lang1', 'lang2', 'cycle'],
+      withRelated: ['tod', 'lang1', 'lang2', 'cycle', 'org', 'location', 'bureau'],
       require: false,
     })
   if (data) {
