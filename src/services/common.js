@@ -30,7 +30,7 @@ const addOverseasFilter = (qb, value) => {
     if (value === 'D') {
       operator = '<>'
     }
-    qb.where('pos_location_code', operator, '110010001')
+    qb.where('locations.is_domestic', operator, 0)
   }
 }
 
