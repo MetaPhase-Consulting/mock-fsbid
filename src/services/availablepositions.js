@@ -19,7 +19,7 @@ const FILTERS = {
 const create_query = (query, isCount=false) => {
   return AvailablePositions.query(qb => {
     qb.join('locations', 'availablepositions.pos_location_code', 'locations.code')
-    qb.join('bureaus', 'availablepositions.bureau', 'bureaus.bur')
+    qb.join('bureaus', 'availablepositions.bureau_code', 'bureaus.bur')
     Object.keys(query).map(q => {
       const filter = FILTERS[q]
       const value = query[q]
