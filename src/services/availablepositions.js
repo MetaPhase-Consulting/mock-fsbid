@@ -25,7 +25,13 @@ const create_query = (query, isCount=false) => {
       if (filter && filter.field && value) {
         // Handle multiple fields on the same param
         if (Array.isArray(filter.field)) {
-          filter.field.map(f => common.addFilter(qb, f, value))
+          qb.where(function() {
+            const operator = Array.isArray(value) ? 'in' : '='
+            w = this.where(filter.field[0], operator, value)
+            for (let i = 1; i < filter.field.length; i++) {
+              w.orWhere(filter.field[i], operator, value)
+            }
+          })
         } else {
           common.addFilter(qb, filter.field, value)
         }
