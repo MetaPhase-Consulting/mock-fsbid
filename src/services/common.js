@@ -36,9 +36,14 @@ const addOverseasFilter = (qb, value) => {
 
 const addOrderBy = (qb, value) => {
   if (value) {
-    const [field, direction="asc"] = value.split(' ')
+    let [field, direction="asc"] = value.split(' ')
+    field = SORT_MAPPING[field] || field
     qb.orderBy(field, direction)
   }
+}
+
+const SORT_MAPPING = {
+  "pos_bureau_short_desc": "bureaus.bureau_short_desc",
 }
 
 const formatLanguage = lang => lang && `${lang.language_long_desc}(${lang.language_code}) 1/1`

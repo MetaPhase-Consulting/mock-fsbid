@@ -19,6 +19,7 @@ const FILTERS = {
 const create_query = (query, isCount=false) => {
   return FutureVacancies.query(qb => {
     qb.join('locations', 'futurevacancies.pos_location_code', 'locations.code')
+    qb.join('bureaus', 'futurevacancies.bureau', 'bureaus.bur')
     Object.keys(query).map(q => {
       const filter = FILTERS[q]
       const value = query[q]
