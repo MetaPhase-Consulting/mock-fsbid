@@ -3,9 +3,9 @@ exports.up = function(knex) {
     .alterTable('employees', function(table) {
       table.string('email')
       table.string('fullname')
+      table.integer('hru_id')
 
       table.foreign('role').references('roles.code')
-
     });
 };
 exports.down = function(knex) {
@@ -14,5 +14,6 @@ exports.down = function(knex) {
       table.dropForeign('role')
       table.dropColumn('email')
       table.dropColumn('fullname')
+      table.dropColumn('hru_id')
   });
 };

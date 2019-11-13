@@ -19,7 +19,7 @@ var appRouter = function (app) {
       return
     }
     const username = req.get('tmusrname')
-    const employee = await employees.get_employee_by_username(username)
+    const [employee] = await employees.get_employee_by_username(username)
     if (!employee) {
       res.status(403).send(`No user with username ${username} was found`)
       return
@@ -117,6 +117,16 @@ var appRouter = function (app) {
   app.get('/bureaus', lookup(lookups.get_bureaus))
   app.get('/skillCodes', lookup(lookups.get_codes))
   app.get('/locations', lookup(lookups.get_locations))
+
+  app.get('/Client/Agents', async function(req, res) {
+    const agents = await employees.get_agents(req.query)
+
+    res.status(200).send({
+      Data: agents,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
 };
 
 module.exports = appRouter;

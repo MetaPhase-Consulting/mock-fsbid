@@ -5,7 +5,8 @@
     "perdet_seq_num": 2,
     "role": "FSBidCycleAdministrator",
     "fullname": "System administrator",
-    "email": "admin@talentmapmock.test"
+    "email": "admin@talentmapmock.test",
+    "hru_id": 1
   },
   {
     "username": "townpostj",
@@ -13,7 +14,8 @@
     "perdet_seq_num": 4,
     "role": "fsofficer",
     "fullname": "Jenny Townpost",
-    "email": "jtownpost@talentmapmock.test"
+    "email": "jtownpost@talentmapmock.test",
+    "hru_id": 2
   },
   {
     "username": "shadtrachl",
@@ -21,7 +23,8 @@
     "perdet_seq_num": 7,
     "role": "CDO",
     "fullname": "Leah Shadtrach",
-    "email": "lshadtrach@talentmapmock.test"
+    "email": "lshadtrach@talentmapmock.test",
+    "hru_id": 3
   },
   {
     "username": "rehmant",
@@ -29,7 +32,8 @@
     "perdet_seq_num": 6,
     "role": "fsofficer",
     "fullname": "Tarek Rehman",
-    "email": "trehman@talentmapmock.test"
+    "email": "trehman@talentmapmock.test",
+    "hru_id": 4
   },
   {
     "username": "woodwardw",
@@ -37,6 +41,7 @@
     "perdet_seq_num": 8,
     "role": "CDO3",
     "fullname": "Wendy Woodward",
-    "email": "wwoodward@talentmapmock.test"
+    "email": "wwoodward@talentmapmock.test",
+    "hru_id": 5
   }
 ]

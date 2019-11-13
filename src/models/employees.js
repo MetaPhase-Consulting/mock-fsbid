@@ -2,7 +2,7 @@ const bookshelf = require('../bookshelf.js')
 
 const Employees = bookshelf.model('Employees', {
   tableName: 'employees',
-  idAttribute: 'perdet_seq_num',
+  idAttribute: 'hru_id',
   role() {
     return this.belongsTo('Roles', 'role')
 
