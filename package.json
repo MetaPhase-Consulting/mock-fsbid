@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "description": "a mock fsbid implementation",
   "main": "index.js",
+  "repository": "https://github.com/MetaPhase-Consulting/mock-fsbid",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon --watch ./src \"npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "node_modules/.bin/knex migrate:latest",
+    "rollback": "node_modules/.bin/knex migrate:rollback",
     "seed": "node_modules/.bin/knex seed:run"
   },
-  "author": "",
+  "author": "Metaphase Consulting",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
