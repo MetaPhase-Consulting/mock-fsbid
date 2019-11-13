@@ -6,13 +6,13 @@ const lookups = [
   'cycles', 
   'dangerpays', 
   'differentialrates', 
-  'employees', 
   'grades', 
   'languages', 
   'seasons', 
   'tourofduties', 
   'organizations',
   "locations",
+  "roles",
 ]
 exports.seed = async function(knex) {
   // return lookups.forEach(lookup => {

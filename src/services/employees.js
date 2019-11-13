@@ -8,7 +8,7 @@ const get_employee_by_perdet_seq_num = perdet_seq_num => get_employee_by_field('
 
 const get_employee_by_field = async (field, value) => {
   try {
-    const data = await Employees.where(field, value).fetch()
+    const data = await Employees.where(field, value).fetch({ withRelated: ['role']})
     return data.serialize()
   } catch (Error) {
     console.error(Error)
