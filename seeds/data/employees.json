@@ -1,7 +1,42 @@
 [
-  { "username": "admin", "ad_id": "washdc\\admin", "perdet_seq_num": 2, "role": "FSBidCycleAdministrator" },
-  { "username": "townpostj", "ad_id": "washdc\\townpostj", "perdet_seq_num": 4, "role": "fsofficer" },
-  { "username": "shadtrachl", "ad_id": "washdc\\shadtrachl", "perdet_seq_num": 7, "role": "CDO" },
-  { "username": "rehmant", "ad_id": "washdc\\rehmant", "perdet_seq_num": 6, "role": "fsofficer" },
-  { "username": "woodwardw", "ad_id": "washdc\\woodwardw", "perdet_seq_num": 8, "role": "CDO3" }
+  {
+    "username": "admin",
+    "ad_id": "washdc\\admin",
+    "perdet_seq_num": 2,
+    "role": "FSBidCycleAdministrator",
+    "fullname": "System administrator",
+    "email": "admin@talentmapmock.test"
+  },
+  {
+    "username": "townpostj",
+    "ad_id": "washdc\\townpostj",
+    "perdet_seq_num": 4,
+    "role": "fsofficer",
+    "fullname": "Jenny Townpost",
+    "email": "jtownpost@talentmapmock.test"
+  },
+  {
+    "username": "shadtrachl",
+    "ad_id": "washdc\\shadtrachl",
+    "perdet_seq_num": 7,
+    "role": "CDO",
+    "fullname": "Leah Shadtrach",
+    "email": "lshadtrach@talentmapmock.test"
+  },
+  {
+    "username": "rehmant",
+    "ad_id": "washdc\\rehmant",
+    "perdet_seq_num": 6,
+    "role": "fsofficer",
+    "fullname": "Tarek Rehman",
+    "email": "trehman@talentmapmock.test"
+  },
+  {
+    "username": "woodwardw",
+    "ad_id": "washdc\\woodwardw",
+    "perdet_seq_num": 8,
+    "role": "CDO3",
+    "fullname": "Wendy Woodward",
+    "email": "wwoodward@talentmapmock.test"
+  }
 ]
