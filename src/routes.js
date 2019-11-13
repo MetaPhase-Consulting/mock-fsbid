@@ -26,7 +26,7 @@ var appRouter = function (app) {
     }
     // Token payload
     const payload = {
-      role: employee.role,
+      role: employee.role.code,
       unique_name: employee.ad_id,
       display_name: username,
       email: `${username}@state.gov`,

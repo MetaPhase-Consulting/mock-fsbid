@@ -13,7 +13,7 @@ const AvailablePositions  = require('./availablepositions.js')
 const Bids = require('./bids.js')
 const Organizations = require('./organizations.js')
 const Locations = require('./locations.js')
-
+const Roles = require('./roles.js')
 
 module.exports = {
   Seasons,
@@ -31,4 +31,5 @@ module.exports = {
   Bids,
   Organizations,
   Locations,
+  Roles,
 }
