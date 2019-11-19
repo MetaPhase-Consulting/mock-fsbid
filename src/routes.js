@@ -91,14 +91,18 @@ var appRouter = function (app) {
 
   app.get('/Employees/userInfo', async function(req, res) {
     const employee = await employees.get_employee_by_ad_id(req.query)
-    if (!employee) {
+    let employee$ = employee;
+    if (Array.isArray(employee$)) {
+      employee$ = employee$[0];
+    }
+    if (!employee$ || !employee$.perdet_seq_num) {
       res.status(404).send(`No employee with ad_id = ${req.query.ad_id} was found`)
       return
     }
     res.status(200).send({
       Data: [
         {
-          perdet_seq_num: `${employee.perdet_seq_num}`
+          perdet_seq_num: `${employee$.perdet_seq_num}`
         }
       ]
     })
@@ -106,7 +110,7 @@ var appRouter = function (app) {
 
   // Common look up function
   const lookup = fn => async (req, res) => res.status(200).send(await fn())
-  
+
   app.get('/bidSeasons', lookup(lookups.get_seasons))
   app.get('/cycles', lookup(lookups.get_cycles))
   app.get('/grades', lookup(lookups.get_grades))
