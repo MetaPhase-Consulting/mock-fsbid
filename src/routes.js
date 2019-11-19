@@ -2,6 +2,7 @@ const { PRIVATE_KEY } = require('./constants')
 const bidding = require('./services/bids')
 const futureVacancies = require('./services/futurevacancies')
 const availablePositions = require('./services/availablepositions')
+const locations = require('./services/locations')
 const employees = require('./services/employees')
 const lookups = require('./services/lookups')
 
@@ -116,7 +117,10 @@ var appRouter = function (app) {
   app.get('/tourofduties', lookup(lookups.get_tourofduties))
   app.get('/bureaus', lookup(lookups.get_bureaus))
   app.get('/skillCodes', lookup(lookups.get_codes))
-  app.get('/Locations', lookup(lookups.get_locations))
+
+  app.get('/Locations', async function(req, res) {
+    res.status(200).send(await locations.get_locations())
+  });
 
   app.get('/Client/Agents', async function(req, res) {
     const agents = await employees.get_agents(req.query)

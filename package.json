@@ -23,6 +23,7 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.19.5",
+    "lodash": "^4.17.15",
     "morgan-body": "^2.4.6",
     "pg": "^7.12.1"
   },
