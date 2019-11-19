@@ -18,7 +18,7 @@ const FILTERS = {
 
 const create_query = (query, isCount=false) => {
   return FutureVacancies.query(qb => {
-    qb.join('locations', 'futurevacancies.pos_location_code', 'locations.code')
+    qb.join('locations', 'futurevacancies.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'futurevacancies.bureau_code', 'bureaus.bur')
     Object.keys(query).map(q => {
       const filter = FILTERS[q]
@@ -77,7 +77,7 @@ async function get_future_vacancies(query) {
     page: query["fv_request_params.page_index"] || 1
   })
 
-  return { 
+  return {
     "Data": formatData(data.serialize()),
     "usl_id": 44999637,
     "return_code": 0
