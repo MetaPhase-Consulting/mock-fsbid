@@ -1,10 +1,10 @@
 exports.up = function(knex) {
   return knex.schema
     .createTable('locations', function(table) {
-      table.string('code').primary();
-      table.string('city');
-      table.string('state');
-      table.string('country');
+      table.string('location_code').primary();
+      table.string('location_city');
+      table.string('location_state');
+      table.string('location_country');
       table.integer('is_domestic')
     });
 };

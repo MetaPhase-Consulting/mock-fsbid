@@ -3,7 +3,7 @@ exports.up = function(knex) {
     .alterTable('futurevacancies', function(table) {
       table.dropColumn('post_org_country_state')
 
-      table.foreign('pos_location_code').references('locations.code')
+      table.foreign('pos_location_code').references('locations.location_code')
 
     });
 };

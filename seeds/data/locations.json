@@ -1,23 +1,23 @@
 [
   {
-    "code": "010000101",
-    "city": "Montgomery",
-    "state": "AL",
-    "country": "USA",
+    "location_code": "010000101",
+    "location_city": "Montgomery",
+    "location_state": "AL",
+    "location_country": "USA",
     "is_domestic": 1
   },
   {
-    "code": "110010001",
-    "city": "Washington",
-    "state": "DC",
-    "country": "USA",
+    "location_code": "110010001",
+    "location_city": "Washington",
+    "location_state": "DC",
+    "location_country": "USA",
     "is_domestic": 1
   },
   {
-    "code": "FR630000",
-    "city": "Paris",
-    "state": null,
-    "country": "France",
+    "location_code": "FR630000",
+    "location_city": "Paris",
+    "location_state": null,
+    "location_country": "France",
     "is_domestic": 0
   }
 ]

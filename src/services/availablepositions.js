@@ -18,7 +18,7 @@ const FILTERS = {
 
 const create_query = (query, isCount=false) => {
   return AvailablePositions.query(qb => {
-    qb.join('locations', 'availablepositions.pos_location_code', 'locations.code')
+    qb.join('locations', 'availablepositions.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'availablepositions.bureau_code', 'bureaus.bur')
     Object.keys(query).map(q => {
       const filter = FILTERS[q]
@@ -66,9 +66,9 @@ const formatData = data => {
       d.org_long_desc = org.long_desc
       d.org_short_desc = org.short_desc
       delete d.org
-      d.location_city = location.city
-      d.location_state = location.state
-      d.location_country = location.country
+      d.location_city = location.location_city
+      d.location_state = location.location_state
+      d.location_country = location.location_country
       delete d.location
       d.pos_bureau_short_desc = bureau.bureau_short_desc
       d.pos_bureau_long_desc = bureau.bureau_long_desc
@@ -86,7 +86,7 @@ async function get_available_positions(query) {
     require: false,
   })
 
-  return { 
+  return {
     "Data": formatData(data.serialize()),
     "usl_id": 44999637,
     "return_code": 0
