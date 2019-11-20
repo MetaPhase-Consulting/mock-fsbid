@@ -21,7 +21,11 @@ async function get_bids(query) {
     require: false,
   })
 
-  return bids.map(bid => formatData(bid.serialize()))
+  return {
+    Data: bids.map(bid => formatData(bid.serialize())),
+    usl_id: 0,
+    return_code: 0
+  }
 }
 // get the bid stats
 const get_bid_stats = id => (
