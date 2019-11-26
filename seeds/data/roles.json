@@ -50,5 +50,9 @@
   {
     "code": "FSBidCycleAdministrator",
     "description": "FSBid Cycle Admin"
+  },
+  {
+    "code": "AO",
+    "description": "AO Administrator"
   }
 ]
