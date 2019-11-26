@@ -43,5 +43,68 @@
     "fullname": "Wendy Woodward",
     "email": "wwoodward@talentmapmock.test",
     "hru_id": 5
+  },
+  {
+    "username": "finleyj",
+    "ad_id": "washdc\\finleyj",
+    "perdet_seq_num": 9,
+    "role": "CDO",
+    "fullname": "FINLEY,JOSEPH",
+    "email": "finleyj@state.gov",
+    "hru_id": 246
+  },
+  {
+    "username": "huxleye",
+    "ad_id": "washdc\\huxleye",
+    "perdet_seq_num": 10,
+    "role": "fsofficer",
+    "fullname": "HUXLEY,ELIZABETH",
+    "email": "huxleye@state.gov",
+    "hru_id": 856
+  },
+  {
+    "username": "johnsonm",
+    "ad_id": "washdc\\johnsonm",
+    "perdet_seq_num": 11,
+    "role": "AO",
+    "fullname": "JOHNSON,MARQUISE",
+    "email": "johnsonm@state.gov",
+    "hru_id": 249
+  },
+  {
+    "username": "kimj",
+    "ad_id": "washdc\\kimj",
+    "perdet_seq_num": 12,
+    "role": "PT",
+    "fullname": "KIM,JOHN",
+    "email": "kimj@state.gov",
+    "hru_id": 100
+  },
+  {
+    "username": "lincolna",
+    "ad_id": "washdc\\lincolna",
+    "perdet_seq_num": 13,
+    "role": "BMTSOD",
+    "fullname": "LINCOLN,ABIGAIL",
+    "email": "lincolna@state.gov",
+    "hru_id": 5001
+  },
+  {
+    "username": "nunesa",
+    "ad_id": "washdc\\nunesa",
+    "perdet_seq_num": 14,
+    "role": "EMP",
+    "fullname": "NUNES,ADELLE",
+    "email": "nunesa@state.gov",
+    "hru_id": 1776
+  },
+  {
+    "username": "petersj",
+    "ad_id": "washdc\\petersj",
+    "perdet_seq_num": 16,
+    "role": "CDO",
+    "fullname": "PETERS,JEREMY",
+    "email": "petersj@state.gov",
+    "hru_id": 9001
   }
 ]
