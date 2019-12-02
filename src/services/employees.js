@@ -1,16 +1,16 @@
 const { Employees } = require('../models')
 
-const get_employee_by_ad_id = async query => await get_employee_by_query({'ad_id': query.ad_id})
+const get_employee_by_ad_id = async query => await get_employee_by_query({'employees.ad_id': query.ad_id})
 
-const get_employee_by_username = async username => await get_employee_by_query({'username': username})
+const get_employee_by_username = async username => await get_employee_by_query({'employees.username': username})
 
-const get_employee_by_perdet_seq_num = async perdet_seq_num => await get_employee_by_query({'perdet_seq_num': perdet_seq_num})
+const get_employee_by_perdet_seq_num = async perdet_seq_num => await get_employee_by_query({'employees.perdet_seq_num': perdet_seq_num})
 
 const get_agents = async (query) => {
   const { rl_cd, perdet_seq_num } = query
   const q = {}
   if (rl_cd) q['roles.code'] = rl_cd
-  if (perdet_seq_num) q.perdet_seq_num = perdet_seq_num
+  if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
   const data = await get_employee_by_query(q)
   return data.map(emp => {
     delete emp.perdet_seq_num
@@ -58,7 +58,7 @@ const get_clients = async (query) => {
 const get_employee_by_query = async query => {
   try {
     const data = await Employees.query(qb => {
-      qb.join('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
+      qb.leftOuterJoin('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
       qb.where(query)
     }).fetchAll({ require: false, withRelated: ['role', 'skills', 'manager']})
     return data.serialize()
