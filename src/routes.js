@@ -131,6 +131,16 @@ var appRouter = function (app) {
       return_code: 0
     })
   })
+
+  app.get('/Client/Clients', async function(req, res) {
+    const clients = await employees.get_clients(req.query)
+
+    res.status(200).send({
+      Data: clients,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
 };
 
 module.exports = appRouter;
