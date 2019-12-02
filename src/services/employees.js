@@ -19,6 +19,7 @@ const get_agents = async (query) => {
     delete emp.grade_code
     delete emp.skills
     delete emp.manager
+    delete emp.manager_id
     const { code: rolecode, description: rl_descr_txt } = emp.role
     delete emp.role
     return { 
@@ -39,6 +40,7 @@ const get_clients = async (query) => {
     const { role, location = {}} = emp
     return {
       rnum: index + 1,
+      hru_id: emp.hru_id,
       per_full_name: emp.fullname,
       perdet_seq_num: emp.perdet_seq_num,
       grade_code: emp.grade_code,
