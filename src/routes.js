@@ -122,7 +122,7 @@ var appRouter = function (app) {
   app.get('/skillCodes', lookup(lookups.get_codes))
   app.get('/Locations', lookup(lookups.get_locations))
 
-  app.get('/Client/Agents', async function(req, res) {
+  app.get('/Agents', async function(req, res) {
     const agents = await employees.get_agents(req.query)
 
     res.status(200).send({
@@ -132,7 +132,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/Client/Clients', async function(req, res) {
+  app.get('/Clients', async function(req, res) {
     const clients = await employees.get_clients(req.query)
 
     res.status(200).send({
