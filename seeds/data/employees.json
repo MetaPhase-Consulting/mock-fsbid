@@ -15,7 +15,9 @@
     "role": "fsofficer",
     "fullname": "Jenny Townpost",
     "email": "jtownpost@talentmapmock.test",
-    "hru_id": 2
+    "hru_id": 2,
+    "grade_code": "00",
+    "manager_id": 7
   },
   {
     "username": "shadtrachl",
@@ -24,7 +26,8 @@
     "role": "CDO",
     "fullname": "Leah Shadtrach",
     "email": "lshadtrach@talentmapmock.test",
-    "hru_id": 3
+    "hru_id": 3,
+    "grade_code": "01"
   },
   {
     "username": "rehmant",
@@ -33,7 +36,9 @@
     "role": "fsofficer",
     "fullname": "Tarek Rehman",
     "email": "trehman@talentmapmock.test",
-    "hru_id": 4
+    "hru_id": 4,
+    "grade_code": "02",
+    "manager_id": 7
   },
   {
     "username": "woodwardw",
@@ -42,7 +47,8 @@
     "role": "CDO3",
     "fullname": "Wendy Woodward",
     "email": "wwoodward@talentmapmock.test",
-    "hru_id": 5
+    "hru_id": 5,
+    "grade_code": "03"
   },
   {
     "username": "finleyj",
@@ -51,7 +57,8 @@
     "role": "CDO",
     "fullname": "FINLEY,JOSEPH",
     "email": "finleyj@state.gov",
-    "hru_id": 246
+    "hru_id": 246,
+    "grade_code": "04"
   },
   {
     "username": "huxleye",
@@ -60,7 +67,9 @@
     "role": "fsofficer",
     "fullname": "HUXLEY,ELIZABETH",
     "email": "huxleye@state.gov",
-    "hru_id": 856
+    "hru_id": 856,
+    "grade_code": "05",
+    "manager_id": 9
   },
   {
     "username": "johnsonm",
@@ -69,7 +78,8 @@
     "role": "AO",
     "fullname": "JOHNSON,MARQUISE",
     "email": "johnsonm@state.gov",
-    "hru_id": 249
+    "hru_id": 249,
+    "grade_code": "OM"
   },
   {
     "username": "kimj",
@@ -78,7 +88,8 @@
     "role": "PT",
     "fullname": "KIM,JOHN",
     "email": "kimj@state.gov",
-    "hru_id": 100
+    "hru_id": 100,
+    "grade_code": "08"
   },
   {
     "username": "lincolna",
@@ -87,7 +98,8 @@
     "role": "BMTSOD",
     "fullname": "LINCOLN,ABIGAIL",
     "email": "lincolna@state.gov",
-    "hru_id": 5001
+    "hru_id": 5001,
+    "grade_code": "08"
   },
   {
     "username": "nunesa",
@@ -96,7 +108,8 @@
     "role": "EMP",
     "fullname": "NUNES,ADELLE",
     "email": "nunesa@state.gov",
-    "hru_id": 1776
+    "hru_id": 1776,
+    "grade_code": "MC"
   },
   {
     "username": "petersj",
@@ -105,6 +118,7 @@
     "role": "CDO",
     "fullname": "PETERS,JEREMY",
     "email": "petersj@state.gov",
-    "hru_id": 9001
+    "hru_id": 9001,
+    "grade_code": "OC"
   }
 ]
