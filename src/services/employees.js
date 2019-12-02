@@ -60,6 +60,7 @@ const get_clients = async (query) => {
 const get_employee_by_query = async query => {
   try {
     const data = await Employees.query(qb => {
+      qb.join('roles', 'employees.role', 'roles.code')
       qb.leftOuterJoin('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
       qb.where(query)
     }).fetchAll({ require: false, withRelated: ['role', 'skills', 'manager']})
