@@ -11,6 +11,9 @@ const Employees = bookshelf.model('Employees', {
   },
   skills() {
     return this.belongsToMany('Codes', 'employees_skills', 'perdet_seq_num', 'jc_id')
+  },
+  manager() {
+    return this.belongsTo('Employees', 'manager_id')
   }
 })
 

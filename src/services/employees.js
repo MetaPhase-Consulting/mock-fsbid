@@ -29,7 +29,9 @@ const get_agents = async (query) => {
 }
 
 const get_clients = async (query) => {
+  const { ad_id } = query
   const q = {}
+  if (ad_id) q['manager.ad_id'] = ad_id
   const data = await get_employee_by_query(q)
   return data.map((emp, index) => {
     const [skill1 = {}, skill2 = {}, skill3 = {}] = emp.skills
@@ -55,8 +57,9 @@ const get_clients = async (query) => {
 const get_employee_by_query = async query => {
   try {
     const data = await Employees.query(qb => {
+      qb.join('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
       qb.where(query)
-    }).fetchAll({ require: false, withRelated: ['role', 'skills']})
+    }).fetchAll({ require: false, withRelated: ['role', 'skills', 'manager']})
     return data.serialize()
   } catch (Error) {
     console.error(Error)

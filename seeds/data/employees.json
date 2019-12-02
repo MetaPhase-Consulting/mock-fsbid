@@ -16,7 +16,8 @@
     "fullname": "Jenny Townpost",
     "email": "jtownpost@talentmapmock.test",
     "hru_id": 2,
-    "grade_code": "00"
+    "grade_code": "00",
+    "manager_id": 7
   },
   {
     "username": "shadtrachl",
@@ -36,7 +37,8 @@
     "fullname": "Tarek Rehman",
     "email": "trehman@talentmapmock.test",
     "hru_id": 4,
-    "grade_code": "02"
+    "grade_code": "02",
+    "manager_id": 7
   },
   {
     "username": "woodwardw",
@@ -66,7 +68,8 @@
     "fullname": "HUXLEY,ELIZABETH",
     "email": "huxleye@state.gov",
     "hru_id": 856,
-    "grade_code": "05"
+    "grade_code": "05",
+    "manager_id": 9
   },
   {
     "username": "johnsonm",
