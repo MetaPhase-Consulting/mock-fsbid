@@ -34,7 +34,7 @@ const get_clients = async (query) => {
   const { ad_id, perdet_seq_num } = query
   const q = {}
   if (ad_id) q['manager.ad_id'] = ad_id
-  if (perdet_seq_num) q['employee.perdet_seq_num'] = perdet_seq_num
+  if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
   const data = await get_employee_by_query(q)
   return data.map((emp, index) => {
     const [skill1 = {}, skill2 = {}, skill3 = {}] = emp.skills
