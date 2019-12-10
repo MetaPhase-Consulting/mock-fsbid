@@ -31,10 +31,7 @@ const get_agents = async (query) => {
 }
 
 const get_clients = async (query) => {
-  const { ad_id, perdet_seq_num } = query
-  const q = {}
-  if (ad_id) q['manager.ad_id'] = ad_id
-  if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
+  const q = get_clients_filters(query)
   const data = await get_employee_by_query(q)
   return data.map((emp, index) => {
     const [skill1 = {}, skill2 = {}, skill3 = {}] = emp.skills
@@ -56,6 +53,24 @@ const get_clients = async (query) => {
       pos_location_code: location.code
     }
   })
+}
+
+const get_clients_filters = (params = {}) => {
+  const ad_id = params['request_params.ad_id']
+  const perdet_seq_num = params['request_params.perdet_seq_num']
+  const hru_id = params['request_params.hru_id']
+  const rl_cd = params['request_params.rl_cd']
+  // TODO - add these filters if needed
+  // const freeText = params['request_params.freeText']
+  // const grades = params['request_params.grades']
+  // const skills = params['request_params.skills']
+  const q = {}
+  if (ad_id) q['manager.ad_id'] = ad_id
+  if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
+  if (hru_id) q['manager.hru_id'] = hru_id
+  if (rl_cd) q['employees.role'] = rl_cd
+
+  return q
 }
 
 const get_employee_by_query = async query => {
