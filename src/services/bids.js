@@ -6,7 +6,7 @@ async function get_bid(cp_id, perdet_seq_num) {
   const bid = await Bids
     .where('cp_id', cp_id)
     .where('perdet_seq_num', perdet_seq_num)
-    .fetch({ withRelated: ['position'], require: false })
+    .fetch({ withRelated: ['position', 'position.cycle'], require: false })
   if (bid) {
     return bid
   } else {
@@ -17,7 +17,7 @@ async function get_bid(cp_id, perdet_seq_num) {
 async function get_bids(query) {
   const { perdet_seq_num } = query
   const bids = await Bids.where('perdet_seq_num', perdet_seq_num).fetchAll({
-    withRelated: ['position', 'position.location'],
+    withRelated: ['position', 'position.location', 'position.cycle'],
     require: false,
   })
 
@@ -43,18 +43,19 @@ const get_delete_id = id => (
     delete_id: true
   }
 )
+// Whether or not a CDO bid on the position
+const get_cdo_bid = id => ( { cdo_bid: 'N' } )
 
 const formatData = data => {
   if (data && data.position) {
-    const { cycle_nm_txt, pos_title_desc:ptitle, pos_skill_code, pos_skill_desc, pos_grade_code, location } = data.position
-    console.log(location)
+    const { pos_seq_num, pos_title_desc:ptitle, position:pos_num_text, pos_skill_code, pos_skill_desc, pos_grade_code, location, cycle } = data.position
     delete location.is_domestic
     delete location.location_code,
     delete data.position
     const position = {
-      cycle_nm_txt, ptitle, pos_skill_code, pos_skill_desc, pos_grade_code,
+      pos_seq_num, ptitle, pos_skill_code, pos_skill_desc, pos_grade_code, pos_num_text
     }
-    return { ...data, ...position, ...location, ...get_bid_stats(data.id), ...get_delete_id(data.id) }
+    return { ...data, ...position, ...location, cycle_nm_txt:cycle.cycle_name, ...get_bid_stats(data.id), ...get_delete_id(data.id), ...get_cdo_bid(data.id) }
   }
 }
 
