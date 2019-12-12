@@ -14,6 +14,8 @@ const Bids = require('./bids.js')
 const Organizations = require('./organizations.js')
 const Locations = require('./locations.js')
 const Roles = require('./roles.js')
+const BidStats = require('./bidstats.js')
+
 
 module.exports = {
   Seasons,
@@ -32,4 +34,5 @@ module.exports = {
   Organizations,
   Locations,
   Roles,
+  BidStats,
 }
