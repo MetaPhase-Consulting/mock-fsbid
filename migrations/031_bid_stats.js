@@ -9,9 +9,21 @@ exports.up = function(knex) {
       table.integer('cp_at_grd_in_cone_qty').defaultTo(0);
        
       table.foreign('cp_id').references('availablepositions.cp_id');
+    })
+    .alterTable('availablepositions', function(table) {
+      table.dropColumn('cp_ttl_bidder_qty');
+      table.dropColumn('cp_at_grd_qty');
+      table.dropColumn('cp_in_cone_qty');
+      table.dropColumn('cp_at_grd_in_cone_qty');
     });
 };
 exports.down = function(knex) {
   return knex.schema
-    .dropTable('bidstats');
+    .dropTable('bidstats')
+    .alterTable('availablepositions', function(table) {
+      table.integer('cp_ttl_bidder_qty');
+      table.integer('cp_at_grd_qty');
+      table.integer('cp_in_cone_qty');
+      table.integer('cp_at_grd_in_cone_qty');
+    });
 };

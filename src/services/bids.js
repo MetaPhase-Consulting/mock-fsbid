@@ -94,7 +94,13 @@ async function remove_bid(query) {
   if (bid) {
     console.log(`Removing bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
     try {
-      await new Bids({id: bid.id}).destroy()
+      await bid.save(
+        {
+          bs_cd: 'D',
+          bs_descr_txt: 'Deleted',
+          ubw_submit_dt: new Date().toISOString(),
+        }
+      )
       return_code = 0
     } catch (Error) {
       console.log(`An error occurred removing the bid... ${Error}`)
