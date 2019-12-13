@@ -3,6 +3,11 @@ const bookshelf = require('../bookshelf.js')
 const Employees = bookshelf.model('Employees', {
   tableName: 'employees',
   idAttribute: 'perdet_seq_num',
+
+  _has_skill_code(code) {
+    return this.related('skills').pluck('skl_code').some(s => s === code)
+  },
+
   role() {
     return this.belongsTo('Roles', 'role')
   },

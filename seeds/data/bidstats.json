@@ -1,0 +1,23 @@
+[
+  {
+    "cp_id": 1,
+    "cp_ttl_bidder_qty": 0,
+    "cp_at_grd_qty": 0,
+    "cp_in_cone_qty": 0,
+    "cp_at_grd_in_cone_qty": 0
+  },
+  {
+    "cp_id": 2,
+    "cp_ttl_bidder_qty": 0,
+    "cp_at_grd_qty": 0,
+    "cp_in_cone_qty": 0,
+    "cp_at_grd_in_cone_qty": 0
+  },
+  {
+    "cp_id": 3,
+    "cp_ttl_bidder_qty": 0,
+    "cp_at_grd_qty": 0,
+    "cp_in_cone_qty": 0,
+    "cp_at_grd_in_cone_qty": 0
+  }
+]
