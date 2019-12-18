@@ -52,11 +52,27 @@ const formatData = data => {
 async function add_bid(query) {
   const { cp_id, ad_id, perdet_seq_num } = query
   const ap = await get_available_position_by_id(cp_id)
+  let return_code = 0
   if (!ap) {
     throw Error(`No ap with cp_id = ${cp_id} was found`)
   }
-  // Cannot bid on the same position more than once
-  if (!await get_bid(cp_id, perdet_seq_num)) {
+
+  const bid = await get_bid(cp_id, perdet_seq_num)
+  if (bid && bid.attributes.bs_cd === 'D') {
+    console.log(`Updating deleted bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
+    try {
+      await bid.save(
+        {
+          bs_cd: 'W',
+          bs_descr_txt: 'Not Submitted',
+          ubw_submit_dt: null,
+        }
+      )
+    } catch (Error) {
+      return_code = -1
+      console.log(`An error occurred adding the bid... ${Error}`)
+    }
+  } else {
     console.log(`Adding bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
     await Bids.forge(
       {
@@ -65,7 +81,7 @@ async function add_bid(query) {
       }
     ).save()
   }
-  return { Data: null, usl_id: 45066084, return_code: 0 }
+  return { Data: null, usl_id: 45066084, return_code }
 }
 
 async function submit_bid(query) {
@@ -83,7 +99,7 @@ async function submit_bid(query) {
   } else {
     console.log(`No bid on ${cp_id} for ${perdet_seq_num} was found`)
   }
-  return { Data: null, usl_id: 45066084, return_code: 0 } 
+  return { Data: null, usl_id: 45066084, return_code: 0 }
 }
 
 async function remove_bid(query) {
