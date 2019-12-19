@@ -30,7 +30,7 @@ async function get_bids(query) {
 // calculate the delete_id value
 const get_delete_id = id => (
   {
-    delete_id: true
+    delete_id: 'Y'
   }
 )
 // Whether or not a CDO bid on the position
