@@ -27,10 +27,10 @@ async function get_bids(query) {
     return_code: 0
   }
 }
-// calculate the delete_id value
-const get_delete_id = id => (
+// calculate the delete_ind value
+const get_delete_ind = id => (
   {
-    delete_id: 'Y'
+    delete_ind: 'Y'
   }
 )
 // Whether or not a CDO bid on the position
@@ -45,7 +45,7 @@ const formatData = data => {
     const position = {
       pos_seq_num, ptitle, pos_skill_code, pos_skill_desc, pos_grade_code, pos_num_text
     }
-    return { ...data, ...position, ...location, cycle_nm_txt:cycle.cycle_name, ...bidstats, ...get_delete_id(data.id), ...get_cdo_bid(data.id) }
+    return { ...data, ...position, ...location, cycle_nm_txt:cycle.cycle_name, ...bidstats, ...get_delete_ind(data.id), ...get_cdo_bid(data.id) }
   }
 }
 
