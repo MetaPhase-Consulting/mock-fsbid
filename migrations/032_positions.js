@@ -122,34 +122,34 @@ exports.down = function(knex) {
       table.foreign('lang2').references('languages.language_code')
       table.foreign('bureau').references('bureaus.bur')
 
-    // }).alterTable('futurevacancies', function(table) {
-      // table.dropForeign('position')
+    }).alterTable('futurevacancies', function(table) {
+      table.dropForeign('position')
 
-    //   table.string('pos_title_desc');
-    //   table.string('pos_location_code');
-    //   table.string('ted');
-    //   table.string('lang1');
-    //   table.string('lang2');
-    //   table.string('tod');
-    //   table.string('pos_skill_desc');
-    //   table.string('pos_job_category_desc');
-    //   table.string('pos_grade_code');
-    //   table.string('bt_differential_rate_num');
-    //   table.string('bt_danger_pay_num');
-    //   table.string('incumbent')
-    //   table.string('ppos_capsule_descr_txt');
-    //   table.timestamp('ppos_capsule_modify_dt')
-    //   table.string("pos_skill_code")
-    //   table.string('bureau')
-    //   table.string('org_code')
-    // table.string('pos_seq_num')
+      table.string('pos_title_desc');
+      table.string('pos_location_code');
+      table.string('ted');
+      table.string('lang1');
+      table.string('lang2');
+      table.string('tod');
+      table.string('pos_skill_desc');
+      table.string('pos_job_category_desc');
+      table.string('pos_grade_code');
+      table.string('bt_differential_rate_num');
+      table.string('bt_danger_pay_num');
+      table.string('incumbent')
+      table.string('ppos_capsule_descr_txt');
+      table.timestamp('ppos_capsule_modify_dt')
+      table.string("pos_skill_code")
+      table.string('bureau')
+      table.string('org_code')
+    table.string('pos_seq_num')
 
 
-    //   table.foreign('pos_location_code').references('locations.location_code')
-    //   table.foreign('org_code').references('organizations.code')
-    //   table.foreign('tod').references('tourofduties.code')
-    //   table.foreign('lang1').references('languages.language_code')
-    //   table.foreign('lang2').references('languages.language_code')
-    //   table.foreign('bureau').references('bureaus.bur')
+      table.foreign('pos_location_code').references('locations.location_code')
+      table.foreign('org_code').references('organizations.code')
+      table.foreign('tod').references('tourofduties.code')
+      table.foreign('lang1').references('languages.language_code')
+      table.foreign('lang2').references('languages.language_code')
+      table.foreign('bureau').references('bureaus.bur')
     }).dropTable('positions')
 };
