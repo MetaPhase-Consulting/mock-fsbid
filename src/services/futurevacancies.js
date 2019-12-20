@@ -4,22 +4,23 @@ const common = require('./common')
 // Maps filter values to data values
 const FILTERS = {
   "fv_request_params.pos_numbers": { field: "position" },
-  "fv_request_params.grades": { field: "pos_grade_code" },
-  "fv_request_params.languages": {field: ["lang1", "lang2"] },
-  "fv_request_params.bureaus": { field: "bureau_code" },
-  "fv_request_params.danger_pays": { field: "bt_danger_pay_num" },
+  "fv_request_params.grades": { field: "positions.pos_grade_code" },
+  "fv_request_params.languages": {field: ["positions.lang1", "positions.lang2"] },
+  "fv_request_params.bureaus": { field: "positions.bureau" },
+  "fv_request_params.danger_pays": { field: "positions.bt_danger_pay_num" },
   "fv_request_params.bid_seasons": { field: "bsn_id" },
-  "fv_request_params.location_codes": { field: "pos_location_code" },
-  "fv_request_params.tod_codes": { field: "tod" },
-  "fv_request_params.differential_pays": { field: "bt_differential_rate_num" },
-  "fv_request_params.skills": { field: "pos_skill_code" },
+  "fv_request_params.location_codes": { field: "positions.pos_location_code" },
+  "fv_request_params.tod_codes": { field: "positions.tod" },
+  "fv_request_params.differential_pays": { field: "positions.bt_differential_rate_num" },
+  "fv_request_params.skills": { field: "positions.pos_skill_code" },
   "fv_request_params.seq_nums": { field: "fv_seq_num" },
 }
 
 const create_query = (query, isCount=false) => {
   return FutureVacancies.query(qb => {
-    qb.join('locations', 'futurevacancies.pos_location_code', 'locations.location_code')
-    qb.join('bureaus', 'futurevacancies.bureau_code', 'bureaus.bur')
+    qb.join('positions', 'futurevacancies.position', 'positions.position')
+    qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
+    qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
     Object.keys(query).map(q => {
       const filter = FILTERS[q]
       const value = query[q]
@@ -51,28 +52,39 @@ const create_query = (query, isCount=false) => {
 
 const formatData = data => {
   return data.map(d => {
-    const { tod, lang1, lang2, org, location, bureau } = d
+    const { position } = d
+    const { tod, lang1, lang2, org, location, bureau } = position
     d.tod = tod && tod.long_desc
     d.lang1 = common.formatLanguage(lang1)
     d.lang2 = common.formatLanguage(lang2)
     d.org_code = org.code
     d.org_long_desc = org.long_desc
     d.org_short_desc = org.short_desc
-    delete d.org
+    delete position.org
     d.location_city = location.city
     d.location_state = location.state
     d.location_country = location.country
-    delete d.location
+    delete position.location
     d.pos_bureau_short_desc = bureau.bureau_short_desc
     d.pos_bureau_long_desc = bureau.bureau_long_desc
-    delete d.bureau
-    return d
+    d.bureau_code = bureau.bur
+    delete position.bureau
+    delete position.pos_seq_num
+    return { ...d, ...position }
   })
 }
 
 async function get_future_vacancies(query) {
   const data = await create_query(query).fetchPage({
-    withRelated: ['tod', 'lang1', 'lang2', 'org', 'location', 'bureau'],
+    withRelated: [
+      'position',
+      'position.tod',
+      'position.lang1',
+      'position.lang2',
+      'position.org',
+      'position.location', 
+      'position.bureau'
+    ],
     pageSize: query["fv_request_params.page_size"] || 25,
     page: query["fv_request_params.page_index"] || 1
   })
