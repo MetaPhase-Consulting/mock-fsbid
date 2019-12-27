@@ -4,22 +4,23 @@ const common = require('./common')
 // Maps filter values to data values
 const FILTERS = {
   "request_params.pos_numbers": { field: "position" },
-  "request_params.grades": { field: "pos_grade_code" },
-  "request_params.languages": {field: ["lang1", "lang2"] },
-  "request_params.bureaus": { field: "bureau_code" },
-  "request_params.danger_pays": { field: "bt_danger_pay_num" },
+  "request_params.grades": { field: "positions.pos_grade_code" },
+  "request_params.languages": {field: ["positions.lang1", "positions.lang2"] },
+  "request_params.bureaus": { field: "positions.bureau" },
+  "request_params.danger_pays": { field: "positions.bt_danger_pay_num" },
   "request_params.assign_cycles": { field: "cycle_id" },
-  "request_params.location_codes": { field: "pos_location_code" },
-  "request_params.tod_codes": { field: "tod" },
-  "request_params.differential_pays": { field: "bt_differential_rate_num" },
-  "request_params.skills": { field: "pos_skill_code" },
+  "request_params.location_codes": { field: "positions.pos_location_code" },
+  "request_params.tod_codes": { field: "positions.tod" },
+  "request_params.differential_pays": { field: "positions.bt_differential_rate_num" },
+  "request_params.skills": { field: "positions.pos_skill_code" },
   "request_params.cp_ids": { field: "cp_id" },
 }
 
 const create_query = (query, isCount=false) => {
   return AvailablePositions.query(qb => {
-    qb.join('locations', 'availablepositions.pos_location_code', 'locations.location_code')
-    qb.join('bureaus', 'availablepositions.bureau_code', 'bureaus.bur')
+    qb.join('positions', 'availablepositions.position', 'positions.position')
+    qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
+    qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
     Object.keys(query).map(q => {
       const filter = FILTERS[q]
       const value = query[q]
@@ -55,7 +56,8 @@ const formatData = data => {
       data = [data]
     }
     return data.map(d => {
-      const { tod, lang1, lang2, cycle, org, location, bureau } = d
+      const { cycle, position } = d
+      const { tod, lang1, lang2, org, location, bureau } = position
       d.tod = tod && tod.long_desc
       d.lang1 = common.formatLanguage(lang1)
       d.lang2 = common.formatLanguage(lang2)
@@ -65,22 +67,34 @@ const formatData = data => {
       d.org_code = org.code
       d.org_long_desc = org.long_desc
       d.org_short_desc = org.short_desc
-      delete d.org
+      delete position.org
       d.location_city = location.location_city
       d.location_state = location.location_state
       d.location_country = location.location_country
-      delete d.location
+      delete position.location
       d.pos_bureau_short_desc = bureau.bureau_short_desc
       d.pos_bureau_long_desc = bureau.bureau_long_desc
-      delete d.bureau
-      return d
+      d.bureau_code = bureau.bur
+      delete position.bureau
+      return { ...d, ...position }
     })
   }
 }
 
+const RELATED = [
+  'cycle', 
+  'position', 
+  'position.tod', 
+  'position.lang1', 
+  'position.lang2', 
+  'position.org', 
+  'position.location', 
+  'position.bureau'
+]
+
 async function get_available_positions(query) {
   const data = await create_query(query).fetchPage({
-    withRelated: ['tod', 'lang1', 'lang2', 'cycle', 'org', 'location', 'bureau'],
+    withRelated: RELATED,
     pageSize: query["request_params.page_size"] || 25,
     page: query["request_params.page_index"] || 1,
     require: false,
@@ -109,7 +123,7 @@ async function get_available_positions_count(query) {
 async function get_available_position_by_id(id) {
   const data = await new AvailablePositions({ cp_id: id })
     .fetch({
-      withRelated: ['tod', 'lang1', 'lang2', 'cycle', 'org', 'location', 'bureau'],
+      withRelated: RELATED,
       require: false,
     })
   if (data) {

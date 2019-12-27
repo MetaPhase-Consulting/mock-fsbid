@@ -7,6 +7,8 @@ exports.up = function(knex) {
 exports.down = function(knex) {
   return knex.schema
     .alterTable('availablepositions', function(table) {
-      table.dropColumn('pos_seq_num')
+      knex.schema.hasColumn('availablepositions', 'pos_seq_num').then(flag => {
+        return flag && table.dropColumn('pos_seq_num')
+      });
   });
 };
