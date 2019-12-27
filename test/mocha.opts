@@ -1,0 +1,4 @@
+--file ./test/setup.js
+--require ./test/globals.js 
+--globals global
+--recursive

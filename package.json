@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon --watch ./src \"npm start\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc mocha --exit",
     "migrate": "node_modules/.bin/knex migrate:latest",
     "rollback": "node_modules/.bin/knex migrate:rollback",
     "seed": "node_modules/.bin/knex seed:run"
@@ -27,6 +27,14 @@
     "pg": "^7.12.1"
   },
   "devDependencies": {
-    "nodemon": "^1.19.3"
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^1.19.3",
+    "nyc": "^15.0.0",
+    "sqlite3": "^4.1.1"
+  },
+  "nyc": {
+    "reporter": ["text","html"]
   }
 }
