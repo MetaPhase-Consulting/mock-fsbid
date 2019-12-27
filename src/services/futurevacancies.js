@@ -89,7 +89,7 @@ async function get_future_vacancies_count(query) {
   return {
     "Data": [
         {
-           "count(1)": count
+           "count(1)": parseInt(count)
         }
      ],
     "usl_id":  44999615,

@@ -98,7 +98,7 @@ async function get_available_positions_count(query) {
   return {
     "Data": [
         {
-           "count(1)": count
+           "count(1)": parseInt(count)
         }
      ],
     "usl_id":  44999615,
