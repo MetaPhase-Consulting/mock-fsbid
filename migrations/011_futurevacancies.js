@@ -17,8 +17,8 @@ exports.up = function(knex) {
       table.string('lang1');
       table.string('lang2');
       table.string('tod');
-      table.string('bt_differential_rate_num');
-      table.string('bt_danger_pay_num');
+      table.integer('bt_differential_rate_num');
+      table.integer('bt_danger_pay_num');
       table.string('incumbent');
       table.string('position');
       table.string('ppos_capsule_descr_txt');
