@@ -10,3 +10,6 @@ Mocks functions provided by FSBid for external testing
 ## Run
 * `docker-compose up`
 * http://localhost:3333
+
+## Test
+* `docker-compose run app test`

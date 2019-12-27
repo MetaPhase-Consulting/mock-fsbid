@@ -1,5 +1,3 @@
-require("dotenv-safe").config({ allowEmptyValues: true });
-
 // Database setup
 module.exports = {
   debug: process.env.DEBUG,

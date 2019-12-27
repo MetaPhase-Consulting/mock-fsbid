@@ -97,7 +97,7 @@ const verify = (path, keys, cb) => {
       if (!Array.isArray(data)) {
         data = [data]
       }
-      data.map(d => {
+      data.forEach(d => {
         d.should.contain.keys(keys)
       })
       res.body.return_code.should.eq(0)
