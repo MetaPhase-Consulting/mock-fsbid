@@ -11,8 +11,8 @@ exports.up = function(knex) {
       table.string('pos_skill_desc');
       table.string('pos_job_category_desc');
       table.string('pos_grade_code');
-      table.string('bt_differential_rate_num');
-      table.string('bt_danger_pay_num');
+      table.integer('bt_differential_rate_num');
+      table.integer('bt_danger_pay_num');
       table.string('incumbent')
       table.string('position');
       table.string('ppos_capsule_descr_txt');
@@ -105,8 +105,8 @@ exports.down = function(knex) {
       table.string('pos_skill_desc');
       table.string('pos_job_category_desc');
       table.string('pos_grade_code');
-      table.string('bt_differential_rate_num');
-      table.string('bt_danger_pay_num');
+      table.integer('bt_differential_rate_num');
+      table.integer('bt_danger_pay_num');
       table.string('incumbent')
       table.string('ppos_capsule_descr_txt');
       table.timestamp('ppos_capsule_modify_dt')
@@ -134,8 +134,8 @@ exports.down = function(knex) {
       table.string('pos_skill_desc');
       table.string('pos_job_category_desc');
       table.string('pos_grade_code');
-      table.string('bt_differential_rate_num');
-      table.string('bt_danger_pay_num');
+      table.integer('bt_differential_rate_num');
+      table.integer('bt_danger_pay_num');
       table.string('incumbent')
       table.string('ppos_capsule_descr_txt');
       table.timestamp('ppos_capsule_modify_dt')
