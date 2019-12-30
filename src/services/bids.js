@@ -17,7 +17,7 @@ async function get_bid(cp_id, perdet_seq_num) {
 async function get_bids(query) {
   const { perdet_seq_num } = query
   const bids = await Bids.where('perdet_seq_num', perdet_seq_num).fetchAll({
-    withRelated: ['position', 'position.location', 'position.cycle', 'position.bidstats'],
+    withRelated: ['position', 'position.position.location', 'position.cycle', 'position.bidstats'],
     require: false,
   })
 
@@ -38,7 +38,8 @@ const get_cdo_bid = id => ( { cdo_bid: 'N' } )
 
 const formatData = data => {
   if (data && data.position) {
-    const { pos_seq_num, pos_title_desc:ptitle, position:pos_num_text, pos_skill_code, pos_skill_desc, pos_grade_code, location, cycle, bidstats } = data.position
+    const { cycle, bidstats } = data.position
+    const { pos_seq_num, pos_title_desc:ptitle, position:pos_num_text, pos_skill_code, pos_skill_desc, pos_grade_code, location } = data.position.position
     delete location.is_domestic
     delete location.location_code,
     delete data.position

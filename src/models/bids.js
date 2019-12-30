@@ -23,17 +23,18 @@ const Bids = bookshelf.model('Bids', {
     if (status !== 'W') {
       // Update the bid stats for the position
       Promise.all([
-        model.position().fetch({ withRelated: ['bidstats']}),
+        model.position().fetch({ withRelated: ['bidstats', 'position']}),
         model.employee().fetch({ withRelated: ['skills']})
       ])
       .then(values => {
-        const position = values[0]
+        const available_position = values[0]
         const employee = values[1]
+        const position = available_position.related('position')
         const at_grade = position.get('pos_grade_code') === employee.get('grade_code')
         const in_skill = employee._has_skill_code(position.get('pos_skill_code'))
         const at_grade_in_skill = at_grade && in_skill
 
-        const bidstats = position.related('bidstats')
+        const bidstats = available_position.related('bidstats')
         let cp_ttl_bidder_qty = bidstats.get('cp_ttl_bidder_qty')
         let cp_at_grd_qty = bidstats.get('cp_at_grd_qty')
         let cp_in_cone_qty = bidstats.get('cp_in_cone_qty')
