@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image and run tests
-      run: docker-compose run app npm run test:ci
+      run: docker-compose run app npm test
