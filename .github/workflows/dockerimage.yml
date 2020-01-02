@@ -11,4 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image and run tests
-      run: docker-compose run app npm test
+      run: |
+        docker-compose run app npm install nyc mocha --save-dev
+        docker-compose run app npm test
