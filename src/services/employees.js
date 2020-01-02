@@ -11,11 +11,7 @@ const get_employee_by_perdet_seq_num = async perdet_seq_num => await get_employe
 
 // Gets agents
 const get_agents = async query => {
-  const { rl_cd, perdet_seq_num } = query
-  const q = {}
-  if (rl_cd) q['roles.code'] = rl_cd
-  if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
-  const data = await get_employees_by_query(q)
+  const data = await get_employees_by_query(query, get_agents_filters)
   return data.map(emp => {
     delete emp.perdet_seq_num
     delete emp.username
@@ -36,7 +32,7 @@ const get_agents = async query => {
 
 // Gets clients for an Agent
 const get_clients = async query => {
-  const data = await get_paged_employees_by_query(query)
+  const data = await get_paged_employees_by_query(query, get_clients_filters)
   return data.map((emp, index) => {
     const [skill1 = {}, skill2 = {}, skill3 = {}] = emp.skills
     const { role, location = {}, manager = {}} = emp
@@ -60,12 +56,21 @@ const get_clients = async query => {
 }
 
 // Maps request params to employee fields for filtering
+const get_agents_filters = (params = {}) => {
+  const { rl_cd, perdet_seq_num } = params
+  const q = {}
+  if (rl_cd) q['roles.code'] = rl_cd
+  if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
+  
+  return q
+}
+
+// Maps request params to employee fields for filtering
 const get_clients_filters = (params = {}) => {
   const perdet_seq_num = params['request_params.perdet_seq_num']
   const hru_id = params['request_params.hru_id']
   const rl_cd = params['request_params.rl_cd']
   // TODO - add these filters if needed
-  // const freeText = params['request_params.freeText']
   // const grades = params['request_params.grades']
   // const skills = params['request_params.skills']
   const q = {}
@@ -77,12 +82,32 @@ const get_clients_filters = (params = {}) => {
 }
 
 // Query for fetching employees
-const get_employees_query = query => {
+const get_employees_query = (params, mapping) => {
   return Employees.query(qb => {
     qb.join('roles', 'employees.role', 'roles.code')
     qb.leftOuterJoin('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
-    qb.where(query)
+    let q = params
+    if (mapping) {
+      q = mapping(params)
+    }
+    qb.where(q)
+
+    addFreeTextFilter(qb, params['request_params.freeText'])
   })
+}
+
+// Free text filter does an ilike/contains type filter
+const addFreeTextFilter = (qb, value) => {
+  if (value) {
+    const operator = 'ilike'
+    const val = `%${value}%`
+    qb.where(function() {
+      this.where("employees.username", operator, val)
+          .orWhere('employees.fullname', operator, val)
+          .orWhere('employees.role', operator, val)
+          .orWhere('employees.ad_id', operator, val)
+    })
+  }
 }
 
 // Default fetch options
@@ -92,9 +117,9 @@ const FETCH_OPTIONS = {
 }
 
 // Fetch employees for the query params
-const get_employees_by_query = async query => {
+const get_employees_by_query = async (query, mapping) => {
   try {
-    const data = await get_employees_query(query).fetchAll(FETCH_OPTIONS)
+    const data = await get_employees_query(query, mapping).fetchAll(FETCH_OPTIONS)
     return data.serialize()
   } catch (Error) {
     console.error(Error)
@@ -103,9 +128,9 @@ const get_employees_by_query = async query => {
 }
 
 // Fetch employees for the query params with paging
-const get_paged_employees_by_query = async query => {
+const get_paged_employees_by_query = async (query, mapping) => {
   try {
-    const data = await get_employees_query(get_clients_filters(query)).fetchPage({
+    const data = await get_employees_query(query, mapping).fetchPage({
       ...FETCH_OPTIONS,
       pageSize: query["request_params.page_size"] || 25,
       page: query["request_params.page_index"] || 1
