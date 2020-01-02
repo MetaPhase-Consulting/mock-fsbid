@@ -10,5 +10,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build the Docker image and run tests
-      run: docker-compose run app npm run test:ci
+    - name: Build the Docker image
+      run: docker-compose up -d
+    - name: Run Tests
+      env:
+        PORT: 3333
+        DB_HOST: localhost
+        DB_CLIENT: pg
+        DB_NAME: mockfsbid
+        DB_USER: mockfsbid-user
+        DB_PASSWORD: fsbid_pwd
+        DB_PORT: 35432
+        DB_CHARSET: utf8
+        DEBUG: false
+      run: |
+        npm i
+        npm test
