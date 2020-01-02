@@ -92,7 +92,7 @@ const get_employees_query = (params, mapping) => {
     }
     qb.where(q)
 
-    addFreeTextFilter(qb, params['request_params.fullText'])
+    addFreeTextFilter(qb, params['request_params.freeText'])
   })
 }
 
