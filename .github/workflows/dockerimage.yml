@@ -10,7 +10,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build the Docker image and run tests
+    - name: Build the Docker image
+      run: docker-compose up
+    - name: Run Tests
       run: |
-        docker-compose run app npm install nyc mocha --save-dev
-        docker-compose run app npm test
+        npm i
+        npm test
