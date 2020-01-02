@@ -12,4 +12,4 @@ Mocks functions provided by FSBid for external testing
 * http://localhost:3333
 
 ## Test
-* `docker-compose run app test`
+* `docker-compose run app npm test`
