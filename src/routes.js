@@ -132,7 +132,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/Clients', async function(req, res) {
+  app.get('/CDOClients', async function(req, res) {
     const clients = await employees.get_clients(req.query)
 
     res.status(200).send({
