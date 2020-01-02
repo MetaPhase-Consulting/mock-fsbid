@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Test
 
 on: [push]
 
@@ -10,5 +10,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build the Docker image
-      run: docker-compose run app npm test
+    - name: Build the Docker image and run tests
+      run: docker-compose run app npm run test:ci
