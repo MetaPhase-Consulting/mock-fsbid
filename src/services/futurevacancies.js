@@ -12,7 +12,7 @@ const FILTERS = {
   "fv_request_params.location_codes": { field: "positions.pos_location_code" },
   "fv_request_params.tod_codes": { field: "positions.tod" },
   "fv_request_params.differential_pays": { field: "positions.bt_differential_rate_num" },
-  "fv_request_params.skills": { field: "positions.pos_skill_code" },
+  "fv_request_params.skills": { field: "codes.skl_code" },
   "fv_request_params.seq_nums": { field: "fv_seq_num" },
 }
 
@@ -21,6 +21,7 @@ const create_query = (query, isCount=false) => {
     qb.join('positions', 'futurevacancies.position', 'positions.position')
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
+    qb.join('codes', 'positions.jc_id', 'codes.jc_id')
     Object.keys(query).map(q => {
       const filter = FILTERS[q]
       const value = query[q]
@@ -53,7 +54,7 @@ const create_query = (query, isCount=false) => {
 const formatData = data => {
   return data.map(d => {
     const { position } = d
-    const { tod, lang1, lang2, org, location, bureau } = position
+    const { tod, lang1, lang2, org, location, bureau, skill } = position
     d.tod = tod && tod.long_desc
     d.lang1 = common.formatLanguage(lang1)
     d.lang2 = common.formatLanguage(lang2)
@@ -70,6 +71,9 @@ const formatData = data => {
     d.bureau_code = bureau.bur
     delete position.bureau
     delete position.pos_seq_num
+    d.pos_skill_desc = skill.skill_descr
+    d.pos_skill_code = skill.skl_code
+    delete position.skill
     return { ...d, ...position }
   })
 }
@@ -83,7 +87,8 @@ async function get_future_vacancies(query) {
       'position.lang2',
       'position.org',
       'position.location', 
-      'position.bureau'
+      'position.bureau',
+      'position.skill',
     ],
     pageSize: query["fv_request_params.page_size"] || 25,
     page: query["fv_request_params.page_index"] || 1

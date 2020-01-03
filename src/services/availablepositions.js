@@ -12,7 +12,7 @@ const FILTERS = {
   "request_params.location_codes": { field: "positions.pos_location_code" },
   "request_params.tod_codes": { field: "positions.tod" },
   "request_params.differential_pays": { field: "positions.bt_differential_rate_num" },
-  "request_params.skills": { field: "positions.pos_skill_code" },
+  "request_params.skills": { field: "codes.skl_code" },
   "request_params.cp_ids": { field: "cp_id" },
 }
 
@@ -21,6 +21,7 @@ const create_query = (query, isCount=false) => {
     qb.join('positions', 'availablepositions.position', 'positions.position')
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
+    qb.join('codes', 'positions.jc_id', 'codes.jc_id')
     Object.keys(query).map(q => {
       const filter = FILTERS[q]
       const value = query[q]
@@ -57,7 +58,7 @@ const formatData = data => {
     }
     return data.map(d => {
       const { cycle, position } = d
-      const { tod, lang1, lang2, org, location, bureau } = position
+      const { tod, lang1, lang2, org, location, bureau, skill } = position
       d.tod = tod && tod.long_desc
       d.lang1 = common.formatLanguage(lang1)
       d.lang2 = common.formatLanguage(lang2)
@@ -76,6 +77,9 @@ const formatData = data => {
       d.pos_bureau_long_desc = bureau.bureau_long_desc
       d.bureau_code = bureau.bur
       delete position.bureau
+      d.pos_skill_desc = skill.skill_descr
+      d.pos_skill_code = skill.skl_code
+      delete position.skill
       return { ...d, ...position }
     })
   }
@@ -89,7 +93,8 @@ const RELATED = [
   'position.lang2', 
   'position.org', 
   'position.location', 
-  'position.bureau'
+  'position.bureau',
+  'position.skill',
 ]
 
 async function get_available_positions(query) {

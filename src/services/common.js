@@ -17,7 +17,7 @@ const addFreeTextFilter = (qb, value) => {
     const val = `%${value}%`
     qb.where(function() {
       this.where("positions.pos_title_desc", operator, val)
-          .orWhere('pos_skill_desc', operator, val)
+          .orWhere('codes.skill_descr', operator, val)
           .orWhere('positions.pos_job_category_desc', operator, val)
           .orWhere('positions.ppos_capsule_descr_txt', operator, val)
     })
@@ -44,6 +44,7 @@ const addOrderBy = (qb, value) => {
 
 const SORT_MAPPING = {
   "pos_bureau_short_desc": "bureaus.bureau_short_desc",
+  "pos_skill_code": "codes.skl_code",
 }
 
 const formatLanguage = lang => lang && `${lang.language_long_desc}(${lang.language_code}) 1/1`
