@@ -31,7 +31,8 @@ const Bids = bookshelf.model('Bids', {
         const employee = values[1]
         const position = available_position.related('position')
         const at_grade = position.get('pos_grade_code') === employee.get('grade_code')
-        const in_skill = employee._has_skill_code(position.get('pos_skill_code'))
+        const skill = position.related('skill')
+        const in_skill = employee._has_skill_code(skill.get('skl_code'))
         const at_grade_in_skill = at_grade && in_skill
 
         const bidstats = available_position.related('bidstats')
