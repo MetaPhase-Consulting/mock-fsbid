@@ -24,6 +24,41 @@ const addFreeTextFilter = (qb, value) => {
   }
 }
 
+const createPositionQuery = (model, tableName, paramPrefix, filters, query, isCount) => {
+  return model.query(qb => {
+    qb.join('positions', `${tableName}.position`, 'positions.position')
+    qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
+    qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
+    qb.join('codes', 'positions.jc_id', 'codes.jc_id')
+    Object.keys(query).map(q => {
+      const filter = filters[q]
+      const value = query[q]
+      if (filter && filter.field && value) {
+        // Handle multiple fields on the same param
+        if (Array.isArray(filter.field)) {
+          qb.where(function() {
+            const operator = Array.isArray(value) ? 'in' : '='
+            w = this.where(filter.field[0], operator, value)
+            for (let i = 1; i < filter.field.length; i++) {
+              w.orWhere(filter.field[i], operator, value)
+            }
+          })
+        } else {
+          addFilter(qb, filter.field, value)
+        }
+      }
+    })
+    // Free Text filter is special
+    addFreeTextFilter(qb, query[`${paramPrefix}.freeText`])
+    // Overseas filter is also special
+    addOverseasFilter(qb, query[`${paramPrefix}.overseas_ind`])
+    if (!isCount) {
+      // Order by
+      addOrderBy(qb, query[`${paramPrefix}.order_by`])
+    }
+  })
+}
+
 const addOverseasFilter = (qb, value) => {
   if (value) {
     let operator = '='
@@ -49,4 +84,4 @@ const SORT_MAPPING = {
 
 const formatLanguage = lang => lang && `${lang.language_long_desc}(${lang.language_code}) 1/1`
 
-module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, formatLanguage }
+module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, formatLanguage, createPositionQuery }

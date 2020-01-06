@@ -16,40 +16,7 @@ const FILTERS = {
   "fv_request_params.seq_nums": { field: "fv_seq_num" },
 }
 
-const create_query = (query, isCount=false) => {
-  return FutureVacancies.query(qb => {
-    qb.join('positions', 'futurevacancies.position', 'positions.position')
-    qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
-    qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
-    qb.join('codes', 'positions.jc_id', 'codes.jc_id')
-    Object.keys(query).map(q => {
-      const filter = FILTERS[q]
-      const value = query[q]
-      if (filter && filter.field && value) {
-        // Handle multiple fields on the same param
-        if (Array.isArray(filter.field)) {
-          qb.where(function() {
-            const operator = Array.isArray(value) ? 'in' : '='
-            w = this.where(filter.field[0], operator, value)
-            for (let i = 1; i < filter.field.length; i++) {
-              w.orWhere(filter.field[i], operator, value)
-            }
-          })
-        } else {
-          common.addFilter(qb, filter.field, value)
-        }
-      }
-    })
-    // Free Text filter is special
-    common.addFreeTextFilter(qb, query["fv_request_params.freeText"])
-    // Overseas filter is also special
-    common.addOverseasFilter(qb, query["fv_request_params.overseas_ind"])
-    if (!isCount) {
-      // Order by
-      common.addOrderBy(qb, query['fv_request_params.order_by'])
-    }
-  })
-}
+const create_query = (query, isCount=false) => common.createPositionQuery(FutureVacancies, 'futurevacancies', 'fv_request_params', FILTERS, query, isCount)
 
 const formatData = data => {
   return data.map(d => {
