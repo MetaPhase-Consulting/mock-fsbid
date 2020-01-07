@@ -1,22 +1,7 @@
 const { AvailablePositions } = require('../models')
-const common = require('./common')
+const { createPositionQuery, formatLanguage} = require('./common')
 
-// Maps filter values to data values
-const FILTERS = {
-  "request_params.pos_numbers": { field: "position" },
-  "request_params.grades": { field: "positions.pos_grade_code" },
-  "request_params.languages": {field: ["positions.lang1", "positions.lang2"] },
-  "request_params.bureaus": { field: "positions.bureau" },
-  "request_params.danger_pays": { field: "positions.bt_danger_pay_num" },
-  "request_params.assign_cycles": { field: "cycle_id" },
-  "request_params.location_codes": { field: "positions.pos_location_code" },
-  "request_params.tod_codes": { field: "positions.tod" },
-  "request_params.differential_pays": { field: "positions.bt_differential_rate_num" },
-  "request_params.skills": { field: "codes.skl_code" },
-  "request_params.cp_ids": { field: "cp_id" },
-}
-
-const create_query = (query, isCount=false) => common.createPositionQuery(AvailablePositions, 'availablepositions', 'request_params', FILTERS, query, isCount)
+const create_query = (query, isCount=false) => createPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount)
 
 const formatData = data => {
   if (data) {
@@ -27,8 +12,8 @@ const formatData = data => {
       const { cycle, position } = d
       const { tod, lang1, lang2, org, location, bureau, skill } = position
       d.tod = tod && tod.long_desc
-      d.lang1 = common.formatLanguage(lang1)
-      d.lang2 = common.formatLanguage(lang2)
+      d.lang1 = formatLanguage(lang1)
+      d.lang2 = formatLanguage(lang2)
       d.cycle_status = cycle.cycle_status_code
       d.cycle_nm_txt = cycle.cycle_name
       delete d.cycle

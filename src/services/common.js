@@ -1,3 +1,22 @@
+// Maps filter values to data values
+const FILTERS = {
+  "pos_numbers": { field: "position" },
+  "grades": { field: "positions.pos_grade_code" },
+  "languages": {field: ["positions.lang1", "positions.lang2"] },
+  "bureaus": { field: "positions.bureau" },
+  "danger_pays": { field: "positions.bt_danger_pay_num" },
+  "assign_cycles": { field: "cycle_id" },
+  "location_codes": { field: "positions.pos_location_code" },
+  "tod_codes": { field: "positions.tod" },
+  "differential_pays": { field: "positions.bt_differential_rate_num" },
+  "skills": { field: "codes.skl_code" },
+  "cp_ids": { field: "cp_id" },
+  "bid_seasons": { field: "bsn_id" },
+  "seq_nums": { field: "fv_seq_num" },
+}
+
+// Get field for the provided filter.
+const getFilter = param => FILTERS[param.split('.').slice(-1)[0]]
 
 // Custom filter function for overseas positions
 // Adds a filter to the qb for the field and value
@@ -24,14 +43,14 @@ const addFreeTextFilter = (qb, value) => {
   }
 }
 
-const createPositionQuery = (model, tableName, paramPrefix, filters, query, isCount) => {
+const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
   return model.query(qb => {
     qb.join('positions', `${tableName}.position`, 'positions.position')
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
     qb.join('codes', 'positions.jc_id', 'codes.jc_id')
     Object.keys(query).map(q => {
-      const filter = filters[q]
+      const filter = getFilter(q)
       const value = query[q]
       if (filter && filter.field && value) {
         // Handle multiple fields on the same param

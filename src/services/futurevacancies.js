@@ -1,30 +1,15 @@
 const { FutureVacancies } = require('../models')
-const common = require('./common')
+const { createPositionQuery, formatLanguage} = require('./common')
 
-// Maps filter values to data values
-const FILTERS = {
-  "fv_request_params.pos_numbers": { field: "position" },
-  "fv_request_params.grades": { field: "positions.pos_grade_code" },
-  "fv_request_params.languages": {field: ["positions.lang1", "positions.lang2"] },
-  "fv_request_params.bureaus": { field: "positions.bureau" },
-  "fv_request_params.danger_pays": { field: "positions.bt_danger_pay_num" },
-  "fv_request_params.bid_seasons": { field: "bsn_id" },
-  "fv_request_params.location_codes": { field: "positions.pos_location_code" },
-  "fv_request_params.tod_codes": { field: "positions.tod" },
-  "fv_request_params.differential_pays": { field: "positions.bt_differential_rate_num" },
-  "fv_request_params.skills": { field: "codes.skl_code" },
-  "fv_request_params.seq_nums": { field: "fv_seq_num" },
-}
-
-const create_query = (query, isCount=false) => common.createPositionQuery(FutureVacancies, 'futurevacancies', 'fv_request_params', FILTERS, query, isCount)
+const create_query = (query, isCount=false) => createPositionQuery(FutureVacancies, 'futurevacancies', 'fv_request_params', query, isCount)
 
 const formatData = data => {
   return data.map(d => {
     const { position } = d
     const { tod, lang1, lang2, org, location, bureau, skill } = position
     d.tod = tod && tod.long_desc
-    d.lang1 = common.formatLanguage(lang1)
-    d.lang2 = common.formatLanguage(lang2)
+    d.lang1 = formatLanguage(lang1)
+    d.lang2 = formatLanguage(lang2)
     d.org_code = org.code
     d.org_long_desc = org.long_desc
     d.org_short_desc = org.short_desc
