@@ -27,7 +27,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(validateRequest);
 
-morganBody(app);
+if (process.env.NODE_ENV === 'development') {
+  morganBody(app);
+}
 
 routes(app);
 
