@@ -35,6 +35,6 @@
     "sqlite3": "^4.1.1"
   },
   "nyc": {
-    "reporter": ["text","html"]
+    "reporter": ["text","html","lcov"]
   }
 }
