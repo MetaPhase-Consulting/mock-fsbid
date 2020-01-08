@@ -12,7 +12,10 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the Docker image
       run: docker-compose up -d
-    - name: Run Tests
+    - name: Install dependencies
+      run: |
+        npm i
+    - uses: paambaati/codeclimate-action@v2.3.0
       env:
         PORT: 3333
         DB_HOST: localhost
@@ -23,11 +26,6 @@ jobs:
         DB_PORT: 35432
         DB_CHARSET: utf8
         DEBUG: false
-        CC_TEST_REPORTER_ID: 77e82d227bb6e2815d24e2337a7988b6044fa66357c0a33f605eb37cf2dc5008
-      run: |
-        npm i
-    - uses: paambaati/codeclimate-action@v2.3.0
-      env:
         CC_TEST_REPORTER_ID: 945dfb58a832d233a3caeb84e3e6d3be212e8c7abcb48117fce63b9adcb43647
       with:
         coverageCommand: npm test
