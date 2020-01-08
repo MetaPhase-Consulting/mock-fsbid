@@ -10,7 +10,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - uses: paambaati/codeclimate-action@v2.2.4
+    - uses: paambaati/codeclimate-action@v2.2.4 
+      with:
+        coverageCommand: npm test
     - name: Build the Docker image
       run: docker-compose up -d
     - name: Run Tests
@@ -28,5 +30,3 @@ jobs:
       run: |
         npm i
         npm test
-      with:
-        coverageCommand: npm test
