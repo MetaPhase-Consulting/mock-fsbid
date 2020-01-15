@@ -1,0 +1,54 @@
+[
+  {
+    "perdet_seq_num": 2,
+    "code": "FSBidCycleAdministrator"
+  },
+  {
+    "perdet_seq_num": 2,
+    "code": "CDO"
+  },
+  {
+    "perdet_seq_num": 4,
+    "code": "fsofficer"
+  },
+  {
+    "perdet_seq_num": 7,
+    "code": "CDO"
+  },
+  {
+    "perdet_seq_num": 6,
+    "code": "fsofficer"
+  },
+  {
+    "perdet_seq_num": 8,
+    "code": "CDO3"
+  },
+  {
+    "perdet_seq_num": 9,
+    "code": "CDO"
+  },
+  {
+    "perdet_seq_num": 10,
+    "code": "fsofficer"
+  },
+  {
+    "perdet_seq_num": 11,
+    "code": "AO"
+  },
+  {
+    "perdet_seq_num": 12,
+    "code": "PT"
+  },
+  {
+    "perdet_seq_num": 13,
+    "code": "BMTSOD"
+  },
+  {
+    "perdet_seq_num": 14,
+    "code": "EMP"
+  },
+  {
+    "perdet_seq_num": 16,
+    "code": "CDO"
+  }
+]

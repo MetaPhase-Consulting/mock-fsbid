@@ -20,8 +20,8 @@ const get_agents = async query => {
     delete emp.skills
     delete emp.manager
     delete emp.manager_id
-    const { code: rolecode, description: rl_descr_txt } = emp.role
-    delete emp.role
+    const { code: rolecode, description: rl_descr_txt } = emp.roles[0]
+    delete emp.roles
     return { 
       ...emp,
       rolecode,
@@ -35,7 +35,7 @@ const get_clients = async query => {
   const data = await get_paged_employees_by_query(query, get_clients_filters)
   return data.map((emp, index) => {
     const [skill1 = {}, skill2 = {}, skill3 = {}] = emp.skills
-    const { role, location = {}, manager = {}} = emp
+    const { roles, location = {}, manager = {}} = emp
     return {
       rnum: index + 1,
       hru_id: manager.hru_id,
@@ -49,7 +49,7 @@ const get_clients = async query => {
       skill3_code: skill3.skl_code,
       skill3_code_desc: skill3.skill_descr,
       emplid: emp.username,
-      role_code: role.code,
+      role_code: roles.map(r => r.code),
       pos_location_code: location.code
     }
   })
@@ -59,7 +59,7 @@ const get_clients = async query => {
 const get_agents_filters = (params = {}) => {
   const { rl_cd, perdet_seq_num } = params
   const q = {}
-  if (rl_cd) q['roles.code'] = rl_cd
+  if (rl_cd) q['employees_roles.code'] = rl_cd
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
   
   return q
@@ -76,7 +76,7 @@ const get_clients_filters = (params = {}) => {
   const q = {}
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
   if (hru_id) q['manager.hru_id'] = hru_id
-  if (rl_cd) q['employees.role'] = rl_cd
+  if (rl_cd) q['employees_roles.code'] = rl_cd
 
   return q
 }
@@ -84,7 +84,7 @@ const get_clients_filters = (params = {}) => {
 // Query for fetching employees
 const get_employees_query = (params, mapping) => {
   return Employees.query(qb => {
-    qb.join('roles', 'employees.role', 'roles.code')
+    qb.join('employees_roles', 'employees.perdet_seq_num', 'employees_roles.perdet_seq_num')
     qb.leftOuterJoin('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
     let q = params
     if (mapping) {
@@ -104,7 +104,7 @@ const addFreeTextFilter = (qb, value) => {
     qb.where(function() {
       this.where("employees.username", operator, val)
           .orWhere('employees.fullname', operator, val)
-          .orWhere('employees.role', operator, val)
+          .orWhere('employees_roles.code', operator, val)
           .orWhere('employees.ad_id', operator, val)
     })
   }
@@ -113,7 +113,7 @@ const addFreeTextFilter = (qb, value) => {
 // Default fetch options
 const FETCH_OPTIONS = {
   require: false, 
-  withRelated: ['role', 'skills', 'manager']
+  withRelated: ['roles', 'skills', 'manager']
 }
 
 // Fetch employees for the query params
