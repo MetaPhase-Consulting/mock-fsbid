@@ -8,8 +8,8 @@ const Employees = bookshelf.model('Employees', {
     return this.related('skills').pluck('skl_code').some(s => s === code)
   },
 
-  role() {
-    return this.belongsTo('Roles', 'role')
+  roles() {
+    return this.belongsToMany('Roles', 'employees_roles', 'perdet_seq_num', 'code')
   },
   grade() {
     return this.belongsTo('Grades', 'grade')
