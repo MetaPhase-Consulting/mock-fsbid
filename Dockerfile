@@ -38,4 +38,4 @@ COPY --chown=node . .
 ENV HOST=0.0.0.0
 
 EXPOSE ${PORT} 80
-CMD [ "nginx", "&&", "npm", "start" ]
+CMD nginx ; npm start
