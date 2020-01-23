@@ -7,14 +7,14 @@ const Employees = bookshelf.model('Employees', {
   initialize() {
     this.constructor.__super__.initialize.apply(this, arguments)
 
-    this.on('fetched', this._has_handshake())
+    this.on('fetched', this._update_handshake)
   },
 
   _has_skill_code(code) {
     return this.related('skills').pluck('skl_code').some(s => s === code)
   },
 
-  _has_handshake() {
+  _update_handshake() {
     if(this.related('bids').pluck('assignment_date').some(b => b != null)) {
       this.save('hs_cd', 'Y')
     } else {
