@@ -8,6 +8,14 @@ const Employees = bookshelf.model('Employees', {
     return this.related('skills').pluck('skl_code').some(s => s === code)
   },
 
+  _has_handshake() {
+    if(this.related('bids').pluck('assignment_date').some(b => b != null)) {
+      return "Y"
+    } else {
+      return "N"
+    }
+  },
+
   roles() {
     return this.belongsToMany('Roles', 'employees_roles', 'perdet_seq_num', 'code')
   },
@@ -19,6 +27,9 @@ const Employees = bookshelf.model('Employees', {
   },
   manager() {
     return this.belongsTo('Employees', 'manager_id')
+  },
+  bids() {
+    return this.belongsTo('Bids', 'emplid')
   }
 })
 
