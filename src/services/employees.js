@@ -51,7 +51,7 @@ const get_clients = async query => {
       emplid: emp.username,
       role_code: roles.map(r => r.code),
       pos_location_code: location.code,
-      hs_cd: emp._has_handshake(),
+      hs_cd: emp.hs_cd
     }
   })
 }

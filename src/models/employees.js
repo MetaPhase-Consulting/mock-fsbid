@@ -4,15 +4,21 @@ const Employees = bookshelf.model('Employees', {
   tableName: 'employees',
   idAttribute: 'perdet_seq_num',
 
+  initialize() {
+    this.constructor.__super__.initialize.apply(this, arguments)
+
+    this.on('fetched', this._has_handshake())
+  },
+
   _has_skill_code(code) {
     return this.related('skills').pluck('skl_code').some(s => s === code)
   },
 
   _has_handshake() {
     if(this.related('bids').pluck('assignment_date').some(b => b != null)) {
-      return "Y"
+      this.save('hs_cd', 'Y')
     } else {
-      return "N"
+      this.save('hs_cd', 'N')
     }
   },
 
@@ -29,7 +35,7 @@ const Employees = bookshelf.model('Employees', {
     return this.belongsTo('Employees', 'manager_id')
   },
   bids() {
-    return this.belongsTo('Bids', 'emplid')
+    return this.hasMany('Bids', 'emplid')
   }
 })
 
