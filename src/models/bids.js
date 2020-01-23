@@ -15,6 +15,9 @@ const Bids = bookshelf.model('Bids', {
   employee() {
     return this.belongsTo('Employees', 'perdet_seq_num')
   },
+  cycle() {
+    return this.belongsTo('Cycles').through('position')
+  },
 
   _update_bid_stats(model) {
     // Updates the bid stats based on the user for whom the bid is for
