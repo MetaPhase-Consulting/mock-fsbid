@@ -116,7 +116,7 @@ const addFreeTextFilter = (qb, value) => {
 // Default fetch options
 const FETCH_OPTIONS = {
   require: false, 
-  withRelated: ['roles', 'skills', 'manager']
+  withRelated: ['roles', 'skills', 'manager', 'bids']
 }
 
 // Fetch employees for the query params
