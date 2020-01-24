@@ -3,6 +3,15 @@ const bookshelf = require('../bookshelf.js')
 const Employees = bookshelf.model('Employees', {
   tableName: 'employees',
   idAttribute: 'perdet_seq_num',
+  virtuals: {
+    hs_cd: function() {
+      if (this.related('bids').pluck('assignment_date').some(b => b !== null)) {
+        return 'Y'
+      } else {
+        return 'N'
+      }
+   }
+  },
 
   _has_skill_code(code) {
     return this.related('skills').pluck('skl_code').some(s => s === code)
@@ -19,6 +28,9 @@ const Employees = bookshelf.model('Employees', {
   },
   manager() {
     return this.belongsTo('Employees', 'manager_id')
+  },
+  bids() {
+    return this.hasMany('Bids', 'perdet_seq_num')
   }
 })
 
