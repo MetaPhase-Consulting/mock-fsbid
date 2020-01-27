@@ -4,7 +4,7 @@ exports.up = function(knex) {
       table.increments('id').primary();
       table.integer('pos_seq_num');
       table.text('description');
-      table.timestamp('last_modified')
+      table.timestamp('last_modified').default(knex.fn.now())
 
       table.unique('pos_seq_num')
 
