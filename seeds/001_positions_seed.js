@@ -4,6 +4,7 @@ const positions = readJson('./positions.json')
 const locations = readJson('./locations.json')
 const orgs = readJson('./organizations')
 const languages = readJson('./languages.json')
+const bureaus = readJson('./bureaus.json')
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
@@ -15,6 +16,7 @@ exports.seed = function(knex) {
         position.org_code = findRandom(orgs)['code']
         position.lang1 = findRandom(languages)['language_code']
         position.lang2 = findRandom(languages)['language_code']
+        position.bureau = findRandom(bureaus)['bur']
         return position
 
       })
