@@ -16,6 +16,7 @@ const Locations = require('./locations.js')
 const Roles = require('./roles.js')
 const BidStats = require('./bidstats.js')
 const Positions = require('./positions.js')
+const CapsuleDescription = require('./capsuledescriptions.js')
 
 module.exports = {
   Seasons,
@@ -36,4 +37,5 @@ module.exports = {
   Roles,
   BidStats,
   Positions,
+  CapsuleDescription,
 }

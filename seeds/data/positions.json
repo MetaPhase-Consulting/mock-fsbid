@@ -1,26 +1,1508 @@
 [
   {
-    "pos_title_desc": "CHIEF OF STAFF",
-    "ted": "2020-07-02T00:00:00",
-    "position": "D0994900",
-    "pos_seq_num": "12345",
-    "ppos_capsule_descr_txt": "ON SPEC. The Bureau of Administration (A) is the backbone of all Department management operations.",
-    "ppos_capsule_modify_dt": "2019-10-15T15:39:33"
+    "pos_seq_num": 206,
+    "position": "00003026",
+    "pos_title_desc": "OMS (COM)",
+    "ted": "2012-10-22"
   },
   {
-    "pos_title_desc": "CHIEF OF STAFF",
-    "ted": "2020-07-02T00:00:00",
-    "position": "D0994901",
-    "pos_seq_num": "23456",
-    "ppos_capsule_descr_txt": "ON SPEC. The Bureau of Administration (A) is the backbone of all Department management operations.",
-    "ppos_capsule_modify_dt": "2019-01-22T15:08:33"
+    "pos_seq_num": 218,
+    "position": "00004013",
+    "pos_title_desc": "OMS (COM)",
+    "ted": "2014-10-18"
   },
   {
-    "pos_title_desc": "ADMINISTRATOR",
-    "ted": "2020-07-02T00:00:00",
-    "position": "Q0994900",
-    "pos_seq_num": "34567",
-    "ppos_capsule_descr_txt": "ON SPEC. The Bureau of Administration (A) is the backbone of all Department management operations.",
-    "ppos_capsule_modify_dt": "2016-12-01T15:08:33"
+    "pos_seq_num": 345,
+    "position": "00025003",
+    "pos_title_desc": "OMS (DCM)",
+    "ted": "2013-09-09"
+  },
+  {
+    "pos_seq_num": 454,
+    "position": "00180000",
+    "pos_title_desc": "OMS (DCM)",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 692,
+    "position": "10010002",
+    "pos_title_desc": "ECONOMIC OFFICER",
+    "ted": "2013-09-01"
+  },
+  {
+    "pos_seq_num": 756,
+    "position": "10034001",
+    "pos_title_desc": "OMS (DCM)",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 795,
+    "position": "10059003",
+    "pos_title_desc": "POLITICAL OFFICER",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 906,
+    "position": "10157002",
+    "pos_title_desc": "SEC (POL)",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 1052,
+    "position": "10521000",
+    "pos_title_desc": "OFFICE MANAGEMENT SPECIALIST (",
+    "ted": "2015-08-11"
+  },
+  {
+    "pos_seq_num": 1536,
+    "position": "20261000",
+    "pos_title_desc": "ECONOMIC OFFICER",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 2107,
+    "position": "31051000",
+    "pos_title_desc": "CONSULAR OFFICER VISA",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 2238,
+    "position": "33341000",
+    "pos_title_desc": "CONS OFF SPEC CONS SERVICES",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 2392,
+    "position": "52011003",
+    "pos_title_desc": "GENERAL SERVICES OFFICER",
+    "ted": "2013-09-01"
+  },
+  {
+    "pos_seq_num": 2406,
+    "position": "52018004",
+    "pos_title_desc": "GENERAL SERVICES OFFICER",
+    "ted": "2014-01-16"
+  },
+  {
+    "pos_seq_num": 2500,
+    "position": "52124001",
+    "pos_title_desc": "FACILITY MANAGER",
+    "ted": "2014-03-12"
+  },
+  {
+    "pos_seq_num": 2546,
+    "position": "52240001",
+    "pos_title_desc": "GENERAL SERVICES OFFICER",
+    "ted": "2013-09-01"
+  },
+  {
+    "pos_seq_num": 2651,
+    "position": "55007010",
+    "pos_title_desc": "INFORMATION PROGRAMS OFFICER",
+    "ted": "2012-02-02"
+  },
+  {
+    "pos_seq_num": 2693,
+    "position": "55022003",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2016-01-06"
+  },
+  {
+    "pos_seq_num": 2703,
+    "position": "55027000",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2014-04-14"
+  },
+  {
+    "pos_seq_num": 2719,
+    "position": "55037004",
+    "pos_title_desc": "INFORMATION MANAGEMENT OFFICER",
+    "ted": "2012-12-10"
+  },
+  {
+    "pos_seq_num": 2830,
+    "position": "55135000",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 2851,
+    "position": "55170001",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 2865,
+    "position": "55226000",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2016-04-08"
+  },
+  {
+    "pos_seq_num": 2870,
+    "position": "55239000",
+    "pos_title_desc": "INFORMATION MANAGEMENT OFFICER",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 2930,
+    "position": "55578000",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2016-05-24"
+  },
+  {
+    "pos_seq_num": 3027,
+    "position": "57021000",
+    "pos_title_desc": "FINANCIAL MANAGEMENT OFCR",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 3068,
+    "position": "57114001",
+    "pos_title_desc": "FINANCIAL MANAGEMENT OFCR",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 3142,
+    "position": "57436000",
+    "pos_title_desc": "INFO MANAGEMENT TECH SPEC/DIGI",
+    "ted": "2016-01-13"
+  },
+  {
+    "pos_seq_num": 3188,
+    "position": "59023000",
+    "pos_title_desc": "MEDICAL PROVIDER",
+    "ted": "2016-09-27"
+  },
+  {
+    "pos_seq_num": 5503,
+    "position": "S5146300",
+    "pos_title_desc": "CONSULAR OFFICER VISA",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 5770,
+    "position": "S5836901",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 5849,
+    "position": "S6052300",
+    "pos_title_desc": "OFFICE MANAGER",
+    "ted": "2015-11-02"
+  },
+  {
+    "pos_seq_num": 6182,
+    "position": "S6601900",
+    "pos_title_desc": "COMMUNICATIONS PROGRAMS OFF",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 6477,
+    "position": "S6985404",
+    "pos_title_desc": "FOREIGN AFFAIRS ANALYST",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 6480,
+    "position": "S6985408",
+    "pos_title_desc": "FOREIGN AFFAIRS ANALYST",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 6764,
+    "position": "S7323802",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 7038,
+    "position": "S7552001",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 7350,
+    "position": "S7686806",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 7363,
+    "position": "S7688200",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 7412,
+    "position": "S7713900",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPECIAL",
+    "ted": "2015-02-09"
+  },
+  {
+    "pos_seq_num": 7997,
+    "position": "S8024411",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 9449,
+    "position": "60003000",
+    "pos_title_desc": "ASSISTANT PUBLIC AFFAIRS OFFIC",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 9837,
+    "position": "60888118",
+    "pos_title_desc": "PUBLIC AFFAIRS OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 10026,
+    "position": "59034000",
+    "pos_title_desc": "MEDICAL PROVIDER",
+    "ted": "2016-09-27"
+  },
+  {
+    "pos_seq_num": 10245,
+    "position": "57002999",
+    "pos_title_desc": "INFO MANAGEMENT TECH SPEC/RADI",
+    "ted": "2016-03-23"
+  },
+  {
+    "pos_seq_num": 11304,
+    "position": "57019000",
+    "pos_title_desc": "REGIONAL SECURITY OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 11702,
+    "position": "55360000",
+    "pos_title_desc": "INFO MANAGEMENT TECH SPEC/DIGI",
+    "ted": "2014-10-15"
+  },
+  {
+    "pos_seq_num": 12194,
+    "position": "55006004",
+    "pos_title_desc": "INFORMATION PROGRAMS OFFICER",
+    "ted": "2012-01-05"
+  },
+  {
+    "pos_seq_num": 13572,
+    "position": "31322000",
+    "pos_title_desc": "FRAUD PREVENTION MANAGER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 14310,
+    "position": "S7997700",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 17177,
+    "position": "55207000",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2016-10-17"
+  },
+  {
+    "pos_seq_num": 17233,
+    "position": "S6985411",
+    "pos_title_desc": "FOREIGN AFFAIRS ANALYST",
+    "ted": "2011-06-23"
+  },
+  {
+    "pos_seq_num": 17759,
+    "position": "55364111",
+    "pos_title_desc": "INFORMATION SYSTEMS OFFICER",
+    "ted": "2010-10-27"
+  },
+  {
+    "pos_seq_num": 18781,
+    "position": "55009012",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2014-08-13"
+  },
+  {
+    "pos_seq_num": 18965,
+    "position": "20049001",
+    "pos_title_desc": "OMS (POL)",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 19273,
+    "position": "S5836908",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 19397,
+    "position": "S7687410",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 19818,
+    "position": "56132000",
+    "pos_title_desc": "DEPUTY REGIONAL SECURITY OFFIC",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 19821,
+    "position": "56078000",
+    "pos_title_desc": "REGIONAL SECURITY OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 19822,
+    "position": "56082000",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 19978,
+    "position": "56108000",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 19979,
+    "position": "56150000",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 19981,
+    "position": "56144000",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2012-09-02"
+  },
+  {
+    "pos_seq_num": 20183,
+    "position": "56777017",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 20194,
+    "position": "56405000",
+    "pos_title_desc": "SPECIAL AGENT",
+   "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 20218,
+    "position": "56631000",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 20224,
+    "position": "56777009",
+    "pos_title_desc": "REGIONAL SECURITY OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 20268,
+    "position": "56093000",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-28"
+  },
+  {
+    "pos_seq_num": 20394,
+    "position": "57008000",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 20432,
+    "position": "57159000",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 22426,
+    "position": "S8196301",
+    "pos_title_desc": "OFFICE MANAGEMENT SPECIALIST",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 22900,
+    "position": "59185134",
+    "pos_title_desc": "MEDICAL PROVIDER",
+    "ted": "2016-10-06"
+  },
+  {
+    "pos_seq_num": 23050,
+    "position": "60888150",
+    "pos_title_desc": "CULTURAL AFFAIRS OFFICER",
+    "ted": "2017-03-02"
+  },
+  {
+    "pos_seq_num": 23163,
+    "position": "55096001",
+    "pos_title_desc": "INFORMATION SYSTEMS OFFICER",
+    "ted": "2014-08-08"
+  },
+  {
+    "pos_seq_num": 23394,
+    "position": "S6451301",
+    "pos_title_desc": "FOREIGN BUILDINGS OFFICER",
+    "ted": "2016-03-31"
+  },
+  {
+    "pos_seq_num": 23955,
+    "position": "56132002",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 24101,
+    "position": "55115002",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 24232,
+    "position": "56269000",
+    "pos_title_desc": "ASSISTANT REGIONAL SECURITY OF",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 25305,
+    "position": "55029127",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 25339,
+    "position": "55020007",
+    "pos_title_desc": "INFORMATION SYSTEMS OFFICER",
+    "ted": "2015-11-17"
+  },
+  {
+    "pos_seq_num": 25341,
+    "position": "55001004",
+    "pos_title_desc": "INFORMATION SYSTEMS OFFICER",
+    "ted": "2013-05-31"
+  },
+  {
+    "pos_seq_num": 25368,
+    "position": "52028012",
+    "pos_title_desc": "GENERAL SERVICES OFFICER",
+    "ted": "2014-10-30"
+  },
+  {
+    "pos_seq_num": 26109,
+    "position": "56249003",
+    "pos_title_desc": "ASSISTANT REGIONAL SECURITY OF",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 27673,
+    "position": "56001600",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 27674,
+    "position": "56001700",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 27682,
+    "position": "57180000",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 29564,
+    "position": "59630001",
+    "pos_title_desc": "MEDICAL PROVIDER",
+    "ted": "2016-09-28"
+  },
+  {
+    "pos_seq_num": 30657,
+    "position": "51104000",
+    "pos_title_desc": "HUMAN RESOURCES OFFICER",
+    "ted": "2014-05-23"
+  },
+  {
+    "pos_seq_num": 30778,
+    "position": "60009000",
+    "pos_title_desc": "PUBLIC AFFAIRS OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 31792,
+    "position": "55017000",
+    "pos_title_desc": "INFORMATION PROGRAMS OFFICER",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 31865,
+    "position": "56121002",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-12-20"
+  },
+  {
+    "pos_seq_num": 32087,
+    "position": "51274000",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2017-01-09"
+  },
+  {
+    "pos_seq_num": 34187,
+    "position": "56066001",
+    "pos_title_desc": "ASST REG SECURITY OFF-I",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 34304,
+    "position": "S7964900",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 34389,
+    "position": "S7964907",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 36718,
+    "position": "S7973200",
+    "pos_title_desc": "INFORMATION TECHNOLOGY MANAGEM",
+    "ted": "2015-07-30"
+  },
+  {
+    "pos_seq_num": 36990,
+    "position": "S6687603",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 36998,
+    "position": "S8540603",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 37002,
+    "position": "S8540609",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 38242,
+    "position": "00059000",
+    "pos_title_desc": "OM (COM)",
+    "ted": "2014-10-09"
+  },
+  {
+    "pos_seq_num": 38843,
+    "position": "S7250404",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 40192,
+    "position": "S6451313",
+    "pos_title_desc": "FOREIGN BUILDINGS OFFICER",
+    "ted": "2014-10-15"
+  },
+  {
+    "pos_seq_num": 40947,
+    "position": "55143004",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2015-02-10"
+  },
+  {
+    "pos_seq_num": 42526,
+    "position": "U0191900",
+    "pos_title_desc": "HUMAN RESOURCES OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 42642,
+    "position": "57256015",
+    "pos_title_desc": "SECURITY TECHNICAL SPECIALIST",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 42933,
+    "position": "S5764000",
+    "pos_title_desc": "HR OFF CAREER MANAGEMENT",
+    "ted": "2016-10-25"
+  },
+  {
+    "pos_seq_num": 43271,
+    "position": "54039000",
+    "pos_title_desc": "HUMAN RESOURCES OFFICER",
+    "ted": "2015-04-29"
+  },
+  {
+    "pos_seq_num": 43662,
+    "position": "S8825400",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 45188,
+    "position": "56916002",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-01-23"
+  },
+  {
+    "pos_seq_num": 45551,
+    "position": "S8935402",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-18"
+  },
+  {
+    "pos_seq_num": 46132,
+    "position": "57400008",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-01-30"
+  },
+  {
+    "pos_seq_num": 46393,
+    "position": "53173001",
+    "pos_title_desc": "FINANCIAL MANAGEMENT OFCR",
+    "ted": "2016-09-14"
+  },
+  {
+    "pos_seq_num": 46420,
+    "position": "59035001",
+    "pos_title_desc": "MEDICAL PROVIDER",
+    "ted": "2016-09-27"
+  },
+  {
+    "pos_seq_num": 46593,
+    "position": "59001010",
+    "pos_title_desc": "MEDICAL PROVIDER",
+    "ted": "2016-09-27"
+  },
+  {
+    "pos_seq_num": 46809,
+    "position": "30133009",
+    "pos_title_desc": "CONSULAR OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 49269,
+    "position": "S8940800",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 50008,
+    "position": "57256047",
+    "pos_title_desc": "SECURITY TECHNICAL SPECIALIST",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 50943,
+    "position": "30133020",
+    "pos_title_desc": "CONSULAR OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 50972,
+    "position": "56029001",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 54005,
+    "position": "10116004",
+    "pos_title_desc": "POLITICAL OFFICER",
+    "ted": "2014-02-03"
+  },
+  {
+    "pos_seq_num": 55474,
+    "position": "59016128",
+    "pos_title_desc": "MEDICAL PROVIDER",
+    "ted": "2016-09-30"
+  },
+  {
+    "pos_seq_num": 56239,
+    "position": "10059100",
+    "pos_title_desc": "POLITICAL OFFICER",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 56687,
+    "position": "55020020",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2015-09-28"
+  },
+  {
+    "pos_seq_num": 56867,
+    "position": "10007010",
+    "pos_title_desc": "ECONOMIC/CONSULAR OFFICER",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 57665,
+    "position": "00003033",
+    "pos_title_desc": "OMS (COM)",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 58026,
+    "position": "59015000",
+    "pos_title_desc": "MEDICAL PROVIDER",
+    "ted": "2016-12-19"
+  },
+  {
+    "pos_seq_num": 60255,
+    "position": "10059870",
+    "pos_title_desc": "POLITICAL OFFICER",
+    "ted": "2013-09-01"
+  },
+  {
+    "pos_seq_num": 61888,
+    "position": "61111216",
+    "pos_title_desc": "INFORMATION RESOURCE OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 63013,
+    "position": "S9800300",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2014-01-01"
+  },
+  {
+    "pos_seq_num": 64327,
+    "position": "56700027",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 65513,
+    "position": "S9968700",
+    "pos_title_desc": "STAFF ASSISTANT",
+    "ted": "2013-02-09"
+  },
+  {
+    "pos_seq_num": 66023,
+    "position": "56169999",
+    "pos_title_desc": "ASSISTANT REGIONAL SECURITY OF",
+    "ted": "2014-09-08"
+  },
+  {
+    "pos_seq_num": 66137,
+    "position": "56800012",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 66340,
+    "position": "56666666",
+    "pos_title_desc": "ASSISTANT REGIONAL SECURITY OF",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 66479,
+    "position": "56222222",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 66745,
+    "position": "56210824",
+    "pos_title_desc": "DEPUTY REGIONAL SECURITY OFFIC",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 66817,
+    "position": "55102864",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 67358,
+    "position": "56359860",
+    "pos_title_desc": "REGIONAL SECURITY OFFICER",
+    "ted": "2016-12-16"
+  },
+  {
+    "pos_seq_num": 67524,
+    "position": "S7687802",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 67738,
+    "position": "S7689003",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 67840,
+    "position": "S7687806",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 67851,
+    "position": "S7687422",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 72726,
+    "position": "56176001",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 75305,
+    "position": "56256138",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 75878,
+    "position": "57150010",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 77325,
+    "position": "D0144910",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-02-24"
+  },
+  {
+    "pos_seq_num": 77631,
+    "position": "S7538802",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 78458,
+    "position": "56019231",
+    "pos_title_desc": "ASST REG SECURITY OFF-I",
+    "ted": "2016-10-17"
+  },
+  {
+    "pos_seq_num": 78520,
+    "position": "56561116",
+    "pos_title_desc": "ASST REG SECURITY OFF-I",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 78839,
+    "position": "56148001",
+    "pos_title_desc": "OMS (RSO)",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 79350,
+    "position": "56209001",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-11-03"
+  },
+  {
+    "pos_seq_num": 79802,
+    "position": "56214001",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-01-18"
+  },
+  {
+    "pos_seq_num": 79838,
+    "position": "D0361701",
+    "pos_title_desc": "CITIZENS SERVICES SPECIALIST",
+    "ted": "2017-02-10"
+  },
+  {
+    "pos_seq_num": 80161,
+    "position": "S7689012",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 84094,
+    "position": "14162002",
+    "pos_title_desc": "POLITICAL OFFICER",
+    "ted": "2016-07-19"
+  },
+  {
+    "pos_seq_num": 84126,
+    "position": "55013008",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2016-01-15"
+  },
+  {
+    "pos_seq_num": 84141,
+    "position": "51118007",
+    "pos_title_desc": "ASSISTANT GENERAL SERVICES OFF",
+    "ted": "2016-09-11"
+  },
+  {
+    "pos_seq_num": 84169,
+    "position": "10037002",
+    "pos_title_desc": "POLITICAL OFFICER",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 84186,
+    "position": "55010012",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2015-08-12"
+  },
+  {
+    "pos_seq_num": 84642,
+    "position": "59380000",
+    "pos_title_desc": "MEDICAL PROVIDER",
+    "ted": "2016-09-27"
+  },
+  {
+    "pos_seq_num": 86313,
+    "position": "D0430800",
+    "pos_title_desc": "PUBLIC  DIPLOMACY OFFICER",
+    "ted": "2012-10-22"
+  },
+  {
+    "pos_seq_num": 86320,
+    "position": "56237001",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-01-10"
+  },
+  {
+    "pos_seq_num": 86674,
+    "position": "56030015",
+    "pos_title_desc": "OFFICE MGT SPEC",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 86849,
+    "position": "56562005",
+    "pos_title_desc": "ASST REGIONAL SECURITY OFCR",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 86866,
+    "position": "56562006",
+    "pos_title_desc": "ASST REGIONAL SECURITY OFCR",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 86905,
+    "position": "56562002",
+    "pos_title_desc": "ASST REGIONAL SECURITY OFCR",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 87081,
+    "position": "10112136",
+    "pos_title_desc": "POLITICAL OFFICER",
+    "ted": "2014-04-16"
+  },
+  {
+    "pos_seq_num": 87608,
+    "position": "56042002",
+    "pos_title_desc": "OMS (RSO)",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 87790,
+    "position": "S7323828",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 88689,
+    "position": "55254001",
+    "pos_title_desc": "INFORMATION MANAGEMENT TECH SP",
+    "ted": "2014-02-26"
+  },
+  {
+    "pos_seq_num": 89413,
+    "position": "56100035",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 91566,
+    "position": "D0706902",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 91637,
+    "position": "D0707102",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 94466,
+    "position": "D0695000",
+    "pos_title_desc": "OFFICE MANAGEMENT PRACTICE SPE",
+    "ted": "2014-04-09"
+  },
+  {
+    "pos_seq_num": 95611,
+    "position": "D0694800",
+    "pos_title_desc": "OPERATIONS OFFICER",
+    "ted": "2016-07-16"
+  },
+  {
+    "pos_seq_num": 95613,
+    "position": "D0694802",
+    "pos_title_desc": "OPERATIONS OFFICER",
+    "ted": "2017-02-06"
+  },
+  {
+    "pos_seq_num": 95614,
+    "position": "D0694803",
+    "pos_title_desc": "OPERATIONS OFFICER",
+    "ted": "2016-07-01"
+  },
+  {
+    "pos_seq_num": 95627,
+    "position": "D0694815",
+    "pos_title_desc": "OPERATIONS OFFICER",
+    "ted": "2016-09-01"
+  },
+  {
+    "pos_seq_num": 95635,
+    "position": "D0694823",
+    "pos_title_desc": "OPERATIONS OFFICER",
+    "ted": "2017-02-19"
+  },
+  {
+    "pos_seq_num": 96350,
+    "position": "D0728000",
+    "pos_title_desc": "MANAGEMENT ANALYSIS OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 97149,
+    "position": "59010625",
+    "pos_title_desc": "MEDICAL PROVIDER",
+    "ted": "2016-09-27"
+  },
+  {
+    "pos_seq_num": 99526,
+    "position": "56723011",
+    "pos_title_desc": "ASST REG SECURITY OFF-I",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 101582,
+    "position": "58328470",
+    "pos_title_desc": "CONSTRUCTION ENGINEER",
+    "ted": "2012-11-08"
+  },
+  {
+    "pos_seq_num": 102931,
+    "position": "S7964923",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 103989,
+    "position": "55256204",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2012-07-02"
+  },
+  {
+    "pos_seq_num": 104186,
+    "position": "D0950900",
+    "pos_title_desc": "INFO MANAGEMENT TECHNICAL SPEC",
+    "ted": "2014-09-15"
+  },
+  {
+    "pos_seq_num": 104607,
+    "position": "D1017700",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 104658,
+    "position": "D0705801",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-01-11"
+  },
+  {
+    "pos_seq_num": 105344,
+    "position": "D0950904",
+    "pos_title_desc": "INFO MANAGEMENT TECHNICAL SPEC",
+    "ted": "2016-05-10"
+  },
+  {
+    "pos_seq_num": 105470,
+    "position": "S7686215",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 110148,
+    "position": "D1223700",
+    "pos_title_desc": "OFFICE MANAGEMENT SPECIALIST",
+    "ted": "2015-10-26"
+  },
+  {
+    "pos_seq_num": 110708,
+    "position": "58310603",
+    "pos_title_desc": "PROJECT DIRECTOR",
+    "ted": "2016-04-01"
+  },
+  {
+    "pos_seq_num": 111930,
+    "position": "56018430",
+    "pos_title_desc": "ASST REGIONAL SECURITY OFCR",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 111957,
+    "position": "56036920",
+    "pos_title_desc": "ASST REGIONAL SECURITY OFCR",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 112067,
+    "position": "56013011",
+    "pos_title_desc": "DEPUTY REGIONAL SECURITY OFFIC",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 112078,
+    "position": "56135022",
+    "pos_title_desc": "ASST REGIONAL SECURITY OFCR",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 112232,
+    "position": "56777160",
+    "pos_title_desc": "REGIONAL SECURITY OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 114297,
+    "position": "S6687614",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 114603,
+    "position": "D0173518",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 115024,
+    "position": "55426046",
+    "pos_title_desc": "INFO MANAGEMENT TECHNICAL SPEC",
+    "ted": "2016-03-23"
+  },
+  {
+    "pos_seq_num": 115048,
+    "position": "55426054",
+    "pos_title_desc": "INFO MANAGEMENT TECHNICAL SPEC",
+    "ted": "2016-03-24"
+  },
+  {
+    "pos_seq_num": 115074,
+    "position": "55153004",
+    "pos_title_desc": "INFORMATION SYSTEMS OFFICER",
+    "ted": "2013-10-10"
+  },
+  {
+    "pos_seq_num": 115313,
+    "position": "55108009",
+    "pos_title_desc": "INFORMATION SYSTEMS SECURITY O",
+    "ted": "2013-10-25"
+  },
+  {
+    "pos_seq_num": 116538,
+    "position": "S7686814",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 117566,
+    "position": "D1283723",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 117840,
+    "position": "D0705810",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-01-24"
+  },
+  {
+    "pos_seq_num": 118314,
+    "position": "56092008",
+    "pos_title_desc": "SECURITY TECHNICAL SPECIALIST",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 118354,
+    "position": "D0998800",
+    "pos_title_desc": "MANAGING DIRECTOR",
+    "ted": "2015-04-18"
+  },
+  {
+    "pos_seq_num": 118593,
+    "position": "D0876100",
+    "pos_title_desc": "OFFICE MGT SPEC",
+    "ted": "2016-03-29"
+  },
+  {
+    "pos_seq_num": 118848,
+    "position": "D1284415",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 118891,
+    "position": "D1284412",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-01-11"
+  },
+  {
+    "pos_seq_num": 118894,
+    "position": "D1284408",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 119509,
+    "position": "D1186900",
+    "pos_title_desc": "PUBLIC DIPLOMACY ADVISOR",
+    "ted": "2014-05-20"
+  },
+  {
+    "pos_seq_num": 120716,
+    "position": "30014027",
+    "pos_title_desc": "CONSULAR OFFICER",
+    "ted": "2017-01-08"
+  },
+  {
+    "pos_seq_num": 122312,
+    "position": "55004008",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2015-04-29"
+  },
+  {
+    "pos_seq_num": 122313,
+    "position": "55152007",
+    "pos_title_desc": "INFORMATION SYSTEMS OFFICER",
+    "ted": "2016-01-19"
+  },
+  {
+    "pos_seq_num": 122517,
+    "position": "56131300",
+    "pos_title_desc": "ASST REG SECURITY OFF-I",
+    "ted": "2016-03-28"
+  },
+  {
+    "pos_seq_num": 124230,
+    "position": "D1500100",
+    "pos_title_desc": "BUDGET ANALYST",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 125365,
+    "position": "61420907",
+    "pos_title_desc": "INFORMATION RESOURCE OFFICER",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 125606,
+    "position": "55123007",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2016-08-15"
+  },
+  {
+    "pos_seq_num": 126476,
+    "position": "55152009",
+    "pos_title_desc": "INFORMATION SYSTEMS OFFICER",
+    "ted": "2016-01-14"
+  },
+  {
+    "pos_seq_num": 126484,
+    "position": "55152011",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2016-07-20"
+  },
+  {
+    "pos_seq_num": 127272,
+    "position": "55015008",
+    "pos_title_desc": "INFORMATION MANAGEMENT SPEC",
+    "ted": "2015-06-11"
+  },
+  {
+    "pos_seq_num": 128420,
+    "position": "14002200",
+    "pos_title_desc": "POLITICAL/ECONOMIC OFFICER",
+    "ted": "2016-08-31"
+  },
+  {
+    "pos_seq_num": 128606,
+    "position": "20182100",
+    "pos_title_desc": "ECONOMIC OFFICER",
+    "ted": "2015-07-28"
+  },
+  {
+    "pos_seq_num": 128828,
+    "position": "10035561",
+    "pos_title_desc": "POLITICAL/ECONOMIC OFFICER",
+    "ted": "2015-08-04"
+  },
+  {
+    "pos_seq_num": 129236,
+    "position": "60888240",
+    "pos_title_desc": "ASSISTANT INFORMATION OFFICER",
+    "ted": "2015-08-18"
+  },
+  {
+    "pos_seq_num": 129650,
+    "position": "60196100",
+    "pos_title_desc": "ASSISTANT PUBLIC DIPLOMACY OFF",
+    "ted": "2015-09-02"
+  },
+  {
+    "pos_seq_num": 129941,
+    "position": "S8828901",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 130073,
+    "position": "D1282502",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-03-03"
+  },
+  {
+    "pos_seq_num": 130283,
+    "position": "56134005",
+    "pos_title_desc": "ASST REG SECURITY OFF-I",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 131795,
+    "position": "D1461400",
+    "pos_title_desc": "SENIOR ADVISOR",
+    "ted": "2015-11-12"
+  },
+  {
+    "pos_seq_num": 132004,
+    "position": "56087020",
+    "pos_title_desc": "ASST REGIONAL SECURITY OFCR",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 132222,
+    "position": "D1640900",
+    "pos_title_desc": "CONSULAR OFFICER VISA",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 132337,
+    "position": "D1660200",
+    "pos_title_desc": "MANAGEMENT OFFICER",
+    "ted": "2015-12-16"
+  },
+  {
+    "pos_seq_num": 132668,
+    "position": "S8030206",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2016-12-01"
+  },
+  {
+    "pos_seq_num": 134067,
+    "position": "D1667200",
+    "pos_title_desc": "MANAGEMENT OFFICER",
+    "ted": "2016-03-06"
+  },
+  {
+    "pos_seq_num": 135130,
+    "position": "58348065",
+    "pos_title_desc": "PROJECT DIRECTOR",
+    "ted": "2017-01-27"
+  },
+  {
+    "pos_seq_num": 136062,
+    "position": "D1674900",
+    "pos_title_desc": "SPECIAL ENVOY AND COORDINATOR",
+    "ted": "2016-10-02"
+  },
+  {
+    "pos_seq_num": 136150,
+    "position": "56457009",
+    "pos_title_desc": "ASST REGIONAL SECURITY OFCR",
+    "ted": "2016-06-08"
+  },
+  {
+    "pos_seq_num": 138128,
+    "position": "S7686201",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-01-31"
+  },
+  {
+    "pos_seq_num": 139334,
+    "position": "58312265",
+    "pos_title_desc": "PROJECT DIRECTOR",
+    "ted": "2016-10-12"
+  },
+  {
+    "pos_seq_num": 139949,
+    "position": "58354200",
+    "pos_title_desc": "CONSTRUCTION MANAGER",
+    "ted": "2017-03-01"
+  },
+  {
+    "pos_seq_num": 141475,
+    "position": "10026129",
+    "pos_title_desc": "INTERNATIONAL RELATIONS OFF",
+    "ted": "2017-01-10"
+  },
+  {
+    "pos_seq_num": 141564,
+    "position": "58362868",
+    "pos_title_desc": "PROJECT DIRECTOR",
+    "ted": "2017-01-17"
+  },
+  {
+    "pos_seq_num": 141569,
+    "position": "58362869",
+    "pos_title_desc": "CONSTRUCTION MANAGER",
+    "ted": "2017-01-17"
+  },
+  {
+    "pos_seq_num": 141581,
+    "position": "D1447300",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-01-17"
+  },
+  {
+    "pos_seq_num": 141723,
+    "position": "10181012",
+    "pos_title_desc": "INTERNATIONAL RELATIONS OFF",
+    "ted": "2017-01-24"
+  },
+  {
+    "pos_seq_num": 142275,
+    "position": "58312869",
+    "pos_title_desc": "PROJECT DIRECTOR",
+    "ted": "2017-02-21"
+  },
+  {
+    "pos_seq_num": 142309,
+    "position": "58312870",
+    "pos_title_desc": "CONSTRUCTION MANAGER",
+    "ted": "2017-02-22"
+  },
+  {
+    "pos_seq_num": 142340,
+    "position": "D0145311",
+    "pos_title_desc": "SPECIAL AGENT",
+    "ted": "2017-02-24"
   }
 ]
