@@ -1,7 +1,6 @@
 [
   {
     "pos_title_desc": "CHIEF OF STAFF",
-    "pos_location_code": "110010001",
     "ted": "2020-07-02T00:00:00",
     "pos_job_category_desc": "Management",
     "pos_grade_code": "OC",
@@ -15,12 +14,10 @@
     "ppos_capsule_descr_txt": "ON SPEC. The Bureau of Administration (A) is the backbone of all Department management operations.",
     "bureau": "200000",
     "jc_id": 1,
-    "org_code": "222210",
     "ppos_capsule_modify_dt": "2019-10-15T15:39:33"
   },
   {
     "pos_title_desc": "CHIEF OF STAFF",
-    "pos_location_code": "110010001",
     "ted": "2020-07-02T00:00:00",
     "pos_job_category_desc": "Management",
     "pos_grade_code": "OC",
@@ -34,12 +31,10 @@
     "ppos_capsule_descr_txt": "ON SPEC. The Bureau of Administration (A) is the backbone of all Department management operations.",
     "bureau": "200000",
     "jc_id": 13,
-    "org_code": "201000",
     "ppos_capsule_modify_dt": "2019-01-22T15:08:33"
   },
   {
     "pos_title_desc": "ADMINISTRATOR",
-    "pos_location_code": "110010001",
     "ted": "2020-07-02T00:00:00",
     "pos_job_category_desc": "Management",
     "pos_grade_code": "01",
@@ -54,7 +49,6 @@
     "ppos_capsule_descr_txt": "ON SPEC. The Bureau of Administration (A) is the backbone of all Department management operations.",
     "bureau": "200000",
     "jc_id": 2,
-    "org_code": "201000",
     "ppos_capsule_modify_dt": "2016-12-01T15:08:33"
   }
 ]
