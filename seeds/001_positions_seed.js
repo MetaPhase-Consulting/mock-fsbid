@@ -3,6 +3,7 @@ const { readJson, findRandom } = require('./data/helpers')
 const positions = readJson('./positions.json')
 const locations = readJson('./locations.json')
 const orgs = readJson('./organizations')
+const languages = readJson('./languages.json')
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
@@ -12,6 +13,8 @@ exports.seed = function(knex) {
       const full_positions = positions.map(position => {
         position.pos_location_code = findRandom(locations)['location_code']
         position.org_code = findRandom(orgs)['code']
+        position.lang1 = findRandom(languages)['language_code']
+        position.lang2 = findRandom(languages)['language_code']
         return position
 
       })
