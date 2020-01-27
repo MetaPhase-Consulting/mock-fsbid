@@ -7,6 +7,7 @@ const languages = readJson('./languages.json')
 const bureaus = readJson('./bureaus.json')
 const grades = readJson('./grades.json')
 const codes = readJson('./codes.json')
+const differentialrates = readJson('./differentialrates.json')
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
@@ -21,6 +22,7 @@ exports.seed = function(knex) {
         position.bureau = findRandom(bureaus)['bur']
         position.pos_grade_code = findRandom(grades)['grade_code']
         position.jc_id = findRandom(codes)['jc_id']
+        position.bt_differential_rate_num = findRandom(differentialrates)['pay_percent_num']
         return position
 
       })
