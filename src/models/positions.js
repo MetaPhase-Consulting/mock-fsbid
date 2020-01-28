@@ -24,6 +24,9 @@ const Positions = bookshelf.model('Positions', {
   },
   skill() {
     return this.belongsTo('Codes', 'jc_id')
+  },
+  capsuledescription() {
+    return this.hasOne('CapsuleDescriptions', 'pos_seq_num')
   }
 })
 

@@ -6,10 +6,13 @@ const create_query = (query, isCount=false) => createPositionQuery(FutureVacanci
 const formatData = data => {
   return data.map(d => {
     const { position } = d
-    const { tod, lang1, lang2, org, location, bureau, skill } = position
+    const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription } = position
     d.tod = tod && tod.long_desc
+    delete position.tod
     d.lang1 = formatLanguage(lang1)
+    delete position.lang1
     d.lang2 = formatLanguage(lang2)
+    delete position.lang2
     d.org_code = org.code
     d.org_long_desc = org.long_desc
     d.org_short_desc = org.short_desc
@@ -26,6 +29,9 @@ const formatData = data => {
     d.pos_skill_desc = skill.skill_descr
     d.pos_skill_code = skill.skl_code
     delete position.skill
+    d.ppos_capsule_descr_txt = capsuledescription.description
+    d.ppos_capsule_modify_dt = capsuledescription.last_modified
+    delete position.capsuledescription
     return { ...d, ...position }
   })
 }
@@ -41,6 +47,7 @@ async function get_future_vacancies(query) {
       'position.location', 
       'position.bureau',
       'position.skill',
+      'position.capsuledescription'
     ],
     pageSize: query["fv_request_params.page_size"] || 25,
     page: query["fv_request_params.page_index"] || 1

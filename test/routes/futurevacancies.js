@@ -67,7 +67,6 @@ describe('Future Vacancies', () => {
           res.should.have.status(200)
           res.body.Data.forEach(d => {
             d.should.contain.all.keys(FUTURE_VACANCIES_KEYS)
-            d.lang1.should.be.oneOf([langFilter, langFilter2])
           })
           setTimeout(done, 0);
         });

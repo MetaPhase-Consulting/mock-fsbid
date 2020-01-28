@@ -1,6 +1,16 @@
 const { Bids } = require('../models')
 const { get_available_position_by_id } = require('./availablepositions')
 
+// Enumeration of Statuses for Bids
+const BID_STATUSES = {
+  DRAFT: { bs_cd: 'W', bs_descr_txt: 'Not Submitted' },
+  SUBMITTED: { bs_cd: 'A', bs_descr_txt: 'Active' },
+  DELETED: { bs_cd: 'D', bs_descr_txt: 'Deleted' },
+  PANELED: { bs_cd: 'P', bs_descr_txt: 'Paneled' },
+  CLOSED: { bs_cd: 'C', bs_descr_txt: 'Closed' },
+  UNAVAILABLE: { bs_cd: 'U', bs_descr_txt: 'Unavailable' },
+}
+
 async function get_bid(cp_id, perdet_seq_num) {
   console.log(`Trying to get bid for cp_id=${cp_id} and perdet_seq_num=${perdet_seq_num}`)
   const bid = await Bids
@@ -70,8 +80,7 @@ async function add_bid(query) {
     try {
       await bid.save(
         {
-          bs_cd: 'W',
-          bs_descr_txt: 'Not Submitted',
+          ...BID_STATUSES.DRAFT,
           ubw_submit_dt: null,
         }
       )
@@ -92,45 +101,74 @@ async function add_bid(query) {
 }
 
 async function submit_bid(query) {
-  const { cp_id, ad_id, perdet_seq_num } = query
-  const bid = await get_bid(cp_id, perdet_seq_num)
-  if (bid) {
-    console.log(`Submitting bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
-    await bid.save(
-      {
-        bs_cd: 'A',
-        bs_descr_txt: 'Active',
-        ubw_submit_dt: new Date().toISOString(),
-      }
-    )
-  } else {
-    console.log(`No bid on ${cp_id} for ${perdet_seq_num} was found`)
-  }
-  return { Data: null, usl_id: 45066084, return_code: 0 }
+  return await update_bid(
+    query,
+    {
+      ...BID_STATUSES.SUBMITTED,
+      ubw_submit_dt: new Date().toISOString(),
+    }
+  )
 }
 
 async function remove_bid(query) {
+  return await update_bid(
+    query,
+    {
+      ...BID_STATUSES.DELETED,
+      ubw_submit_dt: new Date().toISOString(),
+    }
+  )
+}
+
+async function offer_handshake(query) {
+  return await update_bid(
+    query,
+    {
+      ubw_hndshk_offrd_flg: 'Y',
+      ubw_hndshk_offrd_dt: new Date().toISOString(),
+    }
+  )
+}
+
+async function panel_bid(query) {
+  return await update_bid(
+    query,
+    {
+      ...BID_STATUSES.PANELED
+    }
+  )
+}
+
+async function assign_bid(query) {
+  return await update_bid(
+    query,
+    {
+      assignment_date: new Date().toISOString(),
+    }
+  )
+}
+
+// Helper to update the bid on all the actions taken
+async function update_bid(query, data) {
   const { cp_id, ad_id, perdet_seq_num } = query
   // The error code, returned if no bid could be found
   let return_code = -1
   const bid = await get_bid(cp_id, perdet_seq_num)
   if (bid) {
-    console.log(`Removing bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
+    console.log(`Updating bid on ${cp_id} for ${perdet_seq_num} by ${ad_id} with data ${data}`)
     try {
       await bid.save(
         {
-          bs_cd: 'D',
-          bs_descr_txt: 'Deleted',
-          ubw_submit_dt: new Date().toISOString(),
+          ...data
         }
       )
       return_code = 0
     } catch (Error) {
-      console.log(`An error occurred removing the bid... ${Error}`)
+      console.log(`An error occurred updating the bid... ${Error}`)
     }
   }
   // Even if the bid doesn't exist, it succeeds
   return { Data: null, usl_id: 45066084, return_code }
 }
 
-module.exports = { get_bids, add_bid, submit_bid, remove_bid }
+module.exports = { get_bids, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid }

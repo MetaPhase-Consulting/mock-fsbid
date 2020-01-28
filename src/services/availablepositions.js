@@ -10,10 +10,13 @@ const formatData = data => {
     }
     return data.map(d => {
       const { cycle, position } = d
-      const { tod, lang1, lang2, org, location, bureau, skill } = position
+      const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription } = position
       d.tod = tod && tod.long_desc
+      delete position.tod
       d.lang1 = formatLanguage(lang1)
+      delete position.lang1
       d.lang2 = formatLanguage(lang2)
+      delete position.lang2
       d.cycle_status = cycle.cycle_status_code
       d.cycle_nm_txt = cycle.cycle_name
       delete d.cycle
@@ -32,6 +35,9 @@ const formatData = data => {
       d.pos_skill_desc = skill.skill_descr
       d.pos_skill_code = skill.skl_code
       delete position.skill
+      d.ppos_capsule_descr_txt = capsuledescription.description
+      d.ppos_capsule_modify_dt = capsuledescription.last_modified
+      delete position.capsuledescription
       return { ...d, ...position }
     })
   }
@@ -47,6 +53,7 @@ const RELATED = [
   'position.location', 
   'position.bureau',
   'position.skill',
+  'position.capsuledescription',
 ]
 
 async function get_available_positions(query) {

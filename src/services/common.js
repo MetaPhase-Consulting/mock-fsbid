@@ -38,7 +38,7 @@ const addFreeTextFilter = (qb, value) => {
       this.where("positions.pos_title_desc", operator, val)
           .orWhere('codes.skill_descr', operator, val)
           .orWhere('positions.pos_job_category_desc', operator, val)
-          .orWhere('positions.ppos_capsule_descr_txt', operator, val)
+          .orWhere('capsuledescriptions.description', operator, val)
     })
   }
 }
@@ -49,6 +49,7 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
     qb.join('codes', 'positions.jc_id', 'codes.jc_id')
+    qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
     Object.keys(query).map(q => {
       const filter = getFilter(q)
       const value = query[q]

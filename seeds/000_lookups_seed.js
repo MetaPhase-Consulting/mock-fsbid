@@ -13,7 +13,6 @@ const lookups = [
   'organizations',
   "locations",
   "roles",
-  "positions",
 ]
 exports.seed = async function(knex) {
   // return lookups.forEach(lookup => {
