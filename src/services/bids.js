@@ -1,6 +1,13 @@
 const { Bids } = require('../models')
 const { get_available_position_by_id } = require('./availablepositions')
 
+// Enumeration of Statuses for Bids
+const BID_STATUSES = {
+  DRAFT: { bs_cd: 'W', bs_descr_txt: 'Not Submitted' },
+  SUBMITTED: { bs_cd: 'A', bs_descr_txt: 'Active' },
+  DELETED: { bs_cd: 'D', bs_descr_txt: 'Deleted' },
+}
+
 async function get_bid(cp_id, perdet_seq_num) {
   console.log(`Trying to get bid for cp_id=${cp_id} and perdet_seq_num=${perdet_seq_num}`)
   const bid = await Bids
@@ -70,8 +77,7 @@ async function add_bid(query) {
     try {
       await bid.save(
         {
-          bs_cd: 'W',
-          bs_descr_txt: 'Not Submitted',
+          ...BID_STATUSES.DRAFT,
           ubw_submit_dt: null,
         }
       )
@@ -98,8 +104,7 @@ async function submit_bid(query) {
     console.log(`Submitting bid on ${cp_id} for ${perdet_seq_num} by ${ad_id}`)
     await bid.save(
       {
-        bs_cd: 'A',
-        bs_descr_txt: 'Active',
+        ...BID_STATUSES.SUBMITTED,
         ubw_submit_dt: new Date().toISOString(),
       }
     )
@@ -119,8 +124,7 @@ async function remove_bid(query) {
     try {
       await bid.save(
         {
-          bs_cd: 'D',
-          bs_descr_txt: 'Deleted',
+          ...BID_STATUSES.DELETED,
           ubw_submit_dt: new Date().toISOString(),
         }
       )
