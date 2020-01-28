@@ -73,6 +73,36 @@ var appRouter = function (app) {
     res.status(200).send(await bidding.remove_bid(req.query))
   });
 
+  app.put('/bids/offerHandshake', async function(req, res) {
+    try {
+      res.status(200).send(await bidding.offer_handshake(req.query))
+    } catch (err) {
+      console.error('Error occurred offering handshake on bid')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.put('/bids/panel', async function(req, res) {
+    try {
+      res.status(200).send(await bidding.panel_bid(req.query))
+    } catch (err) {
+      console.error('Error occurred paneling bid')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.put('/bids/assign', async function(req, res) {
+    try {
+      res.status(200).send(await bidding.assign_bid(req.query))
+    } catch (err) {
+      console.error('Error occurred assigning bid')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
   app.get('/futureVacancies', async function(req, res) {
     res.status(200).send(await futureVacancies.get_future_vacancies(req.query))
   });
