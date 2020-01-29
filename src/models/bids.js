@@ -7,6 +7,7 @@ const Bids = bookshelf.model('Bids', {
     this.constructor.__super__.initialize.apply(this, arguments)
 
     this.on('saved', this._update_bid_stats)
+    this.on('saved', this._update_position_status)
   },
 
   position() {
@@ -62,6 +63,23 @@ const Bids = bookshelf.model('Bids', {
         return bidstats.save()
       })
     }
+  },
+
+  _update_position_status(model) {
+     return model.position().fetch().then(available_position => {
+      const bs_cd = model.get('bs_cd')
+      const handshakeOffered = model.get('ubw_hndshk_offrd_flg')
+      const assignment_date = model.get('assignment_date')
+      if (assignment_date) {
+        // Position has been filled
+        available_position.set('cp_status', 'FP')
+        available_position.save()
+      } else if (bs_cd === 'A' && handshakeOffered === 'Y') {
+        // Handshake has been offered on the position
+        available_position.set('cp_status', 'HS')
+        available_position.save()
+      } 
+    })
   }
 })
 
