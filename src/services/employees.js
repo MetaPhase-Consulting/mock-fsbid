@@ -71,7 +71,7 @@ const get_clients_filters = (params = {}) => {
   const perdet_seq_num = params['request_params.perdet_seq_num']
   const hru_id = params['request_params.hru_id']
   const rl_cd = params['request_params.rl_cd']
-  const hs_cd = params['request_params.hs_cd']
+  // const hs_cd = params['request_params.hs_cd']
   // TODO - add these filters if needed
   // const grades = params['request_params.grades']
   // const skills = params['request_params.skills']
@@ -79,7 +79,7 @@ const get_clients_filters = (params = {}) => {
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
   if (hru_id) q['manager.hru_id'] = hru_id
   if (rl_cd) q['employees_roles.code'] = rl_cd
-  if (hs_cd) q['hs_cd'] = hs_cd
+  // if (hs_cd) q['hs_cd'] = hs_cd
 
   return q
 }
@@ -94,7 +94,8 @@ const get_employees_query = (params, mapping) => {
       q = mapping(params)
     }
     qb.where(q)
-
+    
+    addHSFilter(qb, params['request_params.hs_cd'])
     addFreeTextFilter(qb, params['request_params.freeText'])
   })
 }
@@ -110,6 +111,13 @@ const addFreeTextFilter = (qb, value) => {
           .orWhere('employees_roles.code', operator, val)
           .orWhere('employees.ad_id', operator, val)
     })
+  }
+}
+
+const addHSFilter = (qb, value) => {
+  if (value) {
+    qb.join('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
+    qb.where('assignment_date', value)
   }
 }
 
