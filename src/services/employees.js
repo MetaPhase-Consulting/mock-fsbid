@@ -118,7 +118,10 @@ const addHSFilter = (qb, value) => {
     if (value === 'Y') {
       qb.where('bids.ubw_hndshk_offrd_flg', value)
     } else {
-      qb.where('bids.ubw_hndshk_offrd_flg', '!=', 'Y')
+      qb.where(function() {
+        this.whereNot('bids.ubw_hndshk_offrd_flg', 'Y')
+            .orWhereNull('bids.ubw_hndshk_offrd_flg')
+      })
     }
   }
 }
