@@ -1,6 +1,6 @@
 // Database setup
 module.exports = {
-  debug: process.env.NODE_ENV === 'development',
+  debug: true,
   client: process.env.DB_CLIENT,
   connection: {
     host     : process.env.DB_HOST,
