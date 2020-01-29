@@ -13,6 +13,7 @@ const FILTERS = {
   "cp_ids": { field: "cp_id" },
   "bid_seasons": { field: "bsn_id" },
   "seq_nums": { field: "fv_seq_num" },
+  "cps_codes": { field: "cp_status" },
 }
 
 // Get field for the provided filter.
