@@ -33,25 +33,102 @@ const get_agents = async query => {
 // Gets clients for an Agent
 const get_clients = async query => {
   const data = await get_paged_employees_by_query(query, get_clients_filters)
-  return data.map((emp, index) => {
-    const [skill1 = {}, skill2 = {}, skill3 = {}] = emp.skills
-    const { roles, location = {}, manager = {}} = emp
+  return data.map(emp => {
+    const [skill1 = {}, skill2 = {} ] = emp.skills
+    const { roles, location = {}, currentassignment = {} } = emp
+    const { position = {} } = currentassignment || {}
+    delete currentassignment.position
     return {
-      rnum: index + 1,
-      hru_id: manager.hru_id,
-      per_full_name: emp.fullname,
       perdet_seq_num: emp.perdet_seq_num,
-      grade_code: emp.grade_code,
-      skill_code: skill1.skl_code,
-      skill_code_desc: skill1.skill_descr,
-      skill2_code: skill2.skl_code,
-      skill2_code_desc: skill2.skill_descr,
-      skill3_code: skill3.skl_code,
-      skill3_code_desc: skill3.skill_descr,
-      emplid: emp.username,
-      role_code: roles.map(r => r.code),
-      pos_location_code: location.code,
-      hs_cd: emp.hs_cd
+      rl_cd: roles.map(r => r.code),
+      employee: {
+        per_seq_num: emp.per_seq_num,
+        per_full_name: emp.fullname,
+        per_first_name: emp.first_name,
+        per_last_name: emp.last_name,
+        per_middle_name: emp.middle_name,
+        per_prefix_name: emp.prefix_name,
+        per_birth_date: emp.dob,
+        per_org_code: "",
+        per_skill_code: skill1.skl_code,
+        per_skill_2_code: skill2.skl_code,
+        per_pay_plan_code: "",
+        per_grade_code: emp.grade_code,
+        per_tenure_code: "",
+        pers_code: "",
+        per_create_id: "",
+        per_create_date: "",
+        per_retirement_code: "",
+        per_concurrent_appts_flg: "N",
+        'per_empl_rcd#': "",
+        pert_external_id: "",
+        extt_code: "",
+        per_service_type_code: "",
+        per_service_type_desc: "",
+        'min_act_empl_rcd#_ind': 'Y',
+        pert_current_ind: 'Y'
+      },
+      currentAssignment: {...currentassignment},
+      currentPosition: {
+        pos_seq_num: position.pos_seq_num,
+        pos_num_text: position.position,
+        pos_title_code: '',
+        pos_title_desc: position.pos_title_desc,
+        pos_org_code: position.org_code,
+        pos_org_short_desc: '',
+        pos_org_long_desc: '',
+        pos_bureau_code: position.bureau,
+        pos_bureau_short_desc: '',
+        pos_bureau_long_desc: '',
+        pos_skill_code: '',
+        pos_skill_desc: '',
+        pos_staff_ptrn_skill_code: '',
+        pos_staff_ptrn_skill_desc: '',
+        pos_overseas_ind: '',
+        pos_pay_plan_code: '',
+        pos_pay_plan_desc: '',
+        pos_status_code: '',
+        pos_status_desc: '',
+        pos_service_type_code: '',
+        pos_service_type_desc: '',
+        pos_grade_code: position.pos_grade_code,
+        pos_grade_desc: '',
+        pos_post_code: '',
+        pos_language_1_code: position.lang1,
+        pos_language_1_desc: '',
+        pos_location_code: '',
+        pos_lang_req_1_code: '',
+        pos_lang_req_1_desc: '',
+        pos_lang_req_2_desc: '',
+        pos_speak_proficiency_1_code: "",
+        pos_read_proficiency_1_code: "",
+        pos_job_category_desc: position.pos_job_category_desc,
+        pos_position_lang_prof_code: 'QB 3/3',
+        pos_position_lang_prof_desc: 'Spanish 3/3',
+        pos_create_id: '',
+        pos_create_date: '',
+        pos_update_id: '',
+        pos_update_date: '',
+        pos_effective_date: '',
+        pos_jobcode_code: '',
+        pos_occ_series_code: '',
+      },
+      currentLocation: {
+        gvt_geoloc_cd: '',
+        effdt: '',
+        err_status: '',
+        gvt_st_cntry_descr: location.location_country,
+        city: location.location_city,
+        state: location.location_state,
+        county: "",
+        country: location.location_country,
+        gvt_msa: '',
+        gvt_cmsa: '',
+        gvt_leopay_area: "",
+        gvt_locality_area: "",
+      },
+      classifications: emp.classifications,
+      hs_cd: emp.hs_cd,
     }
   })
 }
@@ -106,7 +183,9 @@ const addFreeTextFilter = (qb, value) => {
     const val = `%${value}%`
     qb.where(function() {
       this.where("employees.username", operator, val)
-          .orWhere('employees.fullname', operator, val)
+          .orWhere('employees.first_name', operator, val)
+          .orWhere('employees.middle_name', operator, val)
+          .orWhere('employees.last_name', operator, val)
           .orWhere('employees_roles.code', operator, val)
           .orWhere('employees.ad_id', operator, val)
     })
@@ -116,7 +195,7 @@ const addFreeTextFilter = (qb, value) => {
 // Default fetch options
 const FETCH_OPTIONS = {
   require: false, 
-  withRelated: ['roles', 'skills', 'manager', 'bids']
+  withRelated: ['roles', 'skills', 'manager', 'bids', 'classifications', 'currentassignment', 'currentassignment.position']
 }
 
 // Fetch employees for the query params
