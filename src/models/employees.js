@@ -5,7 +5,7 @@ const Employees = bookshelf.model('Employees', {
   idAttribute: 'perdet_seq_num',
   virtuals: {
     hs_cd: function() {
-      if (this.related('bids').pluck('assignment_date').some(b => b !== null)) {
+      if (this.related('bids').pluck('ubw_hndshk_offrd_flg').some(b => b === 'Y')) {
         return 'Y'
       } else {
         return 'N'

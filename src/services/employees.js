@@ -116,13 +116,13 @@ const addHSFilter = (qb, value) => {
   if (value) {
     qb.leftOuterJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
     if (value === 'Y') {
-      qb.where('bids.ubw_hndshk_offrd_flg', value)
+      qb.where('bids.ubw_hndshk_offrd_flg', 'Y')
     } else {
       qb.whereNotIn('employees.perdet_seq_num', function() {
-        this.where('bids.ubw_hndshk_offrd_flg', 'Y')
-        // Notice that this isn't looking at the entire query and joins tables, but rather just at bids 
-        // If you use qb inside of this, then it creates a loop 
-        // I think I need to somehow store the qb so that I can reference it inside of the function() without modifying original qb
+        this.select('employees.perdet_seq_num')
+            .from('employees')
+            .leftOuterJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
+            .where('bids.ubw_hndshk_offrd_flg', 'Y')
       })
     }
   }
