@@ -15,7 +15,9 @@ exports.seed = function(knex) {
             for (let index = 0; index < count; index++) {
               assignments.push({
                 emp_seq_nbr: per_seq_num,
-                pos_seq_num: findRandom(positions)['pos_seq_num']
+                pos_seq_num: findRandom(positions)['pos_seq_num'],
+                eta_date: knex.fn.now(),
+                etd_ted_date: knex.fn.now(),
               })
             }
           })
