@@ -41,7 +41,9 @@ describe('Models - Bids', function() {
       }
     ).save()
 
-    await ap.refresh()
-    ap.get('cp_status').should.equal('HS')
+    const new_ap = await AvailablePositions.query(qb => {
+      qb.where('cp_id', cp_id)
+    }).fetch()
+    new_ap.get('cp_status').should.equal('HS')
   })
 })
