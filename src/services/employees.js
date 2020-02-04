@@ -45,7 +45,7 @@ const get_clients = async query => {
       perdet_seq_num: emp.perdet_seq_num,
       rl_cd: roles.length > 0 ? roles[0]['code'] : '', // FSBid only returns one role
       employee: {
-        pert_external_id: emp.per_seq_num,
+        pert_external_id: `${emp.per_seq_num}`,
         per_first_name: emp.first_name,
         per_last_name: emp.last_name,
         per_grade_code: emp.grade_code,
@@ -58,12 +58,12 @@ const get_clients = async query => {
         per_tenure_code: "",
         currentAssignment: {
           ags_seq_num: currentassignment.ags_seq_num,
-          pos_seq_num: position.pos_seq_num,
+          pos_seq_num: `${position.pos_seq_num}`,
           asgd_revision_num: currentassignment.asgd_revision_num,
           asgd_eta_date: currentassignment.eta_date,
           asgd_etd_ted_date: currentassignment.etd_ted_date,
           currentPosition: {
-            pos_seq_num: position.pos_seq_num,
+            pos_seq_num: `${position.pos_seq_num}`,
             pos_location_code: position.pos_location_code,
             pos_num_text: position.position,
             pos_grade_code: position.pos_grade_code,
