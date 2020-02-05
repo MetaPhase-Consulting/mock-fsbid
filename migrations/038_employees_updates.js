@@ -44,6 +44,9 @@ exports.up = function(knex) {
 };
 exports.down = function(knex) {
   return knex.schema
+    .alterTable('assignments', function(table) {
+      table.dropForeign('emp_seq_nbr')
+    })
     .alterTable('employees', function(table) {
       table.string('fullname');
       
