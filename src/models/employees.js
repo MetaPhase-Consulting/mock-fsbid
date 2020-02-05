@@ -10,6 +10,9 @@ const Employees = bookshelf.model('Employees', {
       } else {
         return 'N'
       }
+   },
+   fullname: function() {
+     return `${this.get('last_name')}, ${this.get('first_name')}`
    }
   },
 
@@ -31,6 +34,15 @@ const Employees = bookshelf.model('Employees', {
   },
   bids() {
     return this.hasMany('Bids', 'perdet_seq_num')
+  },
+  classifications() {
+    return this.belongsToMany('Classifications', 'employees_classifications', 'perdet_seq_num', 'td_id')
+  },
+  assignments() {
+    return this.hasMany('Assignments', 'emp_seq_nbr', 'per_seq_num')
+  },
+  currentassignment() {
+    return this.hasOne('Assignments', 'emp_seq_nbr', 'per_seq_num')
   }
 })
 

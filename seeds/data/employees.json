@@ -3,110 +3,134 @@
     "username": "admin",
     "ad_id": "washdc\\admin",
     "perdet_seq_num": 2,
-    "fullname": "System administrator",
+    "first_name": "System",
+    "last_name": "Administrator",
     "email": "admin@talentmapmock.test",
-    "hru_id": 1
+    "hru_id": 1,
+    "dob": "1940-10-31T00:00:00"
   },
   {
     "username": "townpostj",
     "ad_id": "washdc\\townpostj",
     "perdet_seq_num": 4,
-    "fullname": "Jenny Townpost",
+    "first_name": "Jenny",
+    "last_name": "Townpost",
     "email": "jtownpost@talentmapmock.test",
     "hru_id": 2,
     "grade_code": "00",
-    "manager_id": 7
+    "manager_id": 7,
+    "dob": "1996-03-31T00:00:00"
   },
   {
     "username": "shadtrachl",
     "ad_id": "washdc\\shadtrachl",
     "perdet_seq_num": 7,
-    "fullname": "Leah Shadtrach",
+    "first_name": "Leah",
+    "last_name": "Shadtrach",
     "email": "shadtrachl@state.gov",
     "hru_id": 3,
-    "grade_code": "01"
+    "grade_code": "01",
+    "dob": "1946-03-17T00:00:00"
   },
   {
     "username": "rehmant",
     "ad_id": "washdc\\rehmant",
     "perdet_seq_num": 6,
-    "fullname": "Tarek Rehman",
+    "first_name": "Tarek",
+    "last_name": "Rehman",
     "email": "trehman@talentmapmock.test",
     "hru_id": 4,
     "grade_code": "02",
-    "manager_id": 7
+    "manager_id": 7,
+    "dob": "1955-11-05T00:00:00"
   },
   {
     "username": "woodwardw",
     "ad_id": "washdc\\woodwardw",
     "perdet_seq_num": 8,
-    "fullname": "Wendy Woodward",
+    "first_name": "Wendy",
+    "last_name": "Woodward",
     "email": "wwoodward@talentmapmock.test",
     "hru_id": 5,
-    "grade_code": "03"
+    "grade_code": "03",
+    "dob": "1988-11-22T00:00:00"
   },
   {
     "username": "finleyj",
     "ad_id": "washdc\\finleyj",
     "perdet_seq_num": 9,
-    "fullname": "FINLEY,JOSEPH",
+    "first_name": "JOSEPH",
+    "last_name": "FINLEY",
     "email": "finleyj@state.gov",
     "hru_id": 246,
-    "grade_code": "04"
+    "grade_code": "04",
+    "dob": "1949-04-12T00:00:00"
   },
   {
     "username": "huxleye",
     "ad_id": "washdc\\huxleye",
     "perdet_seq_num": 10,
-    "fullname": "HUXLEY,ELIZABETH",
+    "first_name": "ELIZABETH",
+    "last_name": "HUXLEY",
     "email": "huxleye@state.gov",
     "hru_id": 856,
     "grade_code": "05",
-    "manager_id": 9
+    "manager_id": 9,
+    "dob": "1977-09-13T00:00:00"
   },
   {
     "username": "johnsonm",
     "ad_id": "washdc\\johnsonm",
     "perdet_seq_num": 11,
-    "fullname": "JOHNSON,MARQUISE",
+    "first_name": "MARQUISE",
+    "last_name": "JOHNSON",
     "email": "johnsonm@state.gov",
     "hru_id": 249,
-    "grade_code": "OM"
+    "grade_code": "OM",
+    "dob": "1999-08-09T00:00:00"
   },
   {
     "username": "kimj",
     "ad_id": "washdc\\kimj",
     "perdet_seq_num": 12,
-    "fullname": "KIM,JOHN",
+    "first_name": "JOHN",
+    "last_name": "KIM",
     "email": "kimj@state.gov",
     "hru_id": 100,
-    "grade_code": "08"
+    "grade_code": "08",
+    "dob": "1945-11-12T00:00:00"
   },
   {
     "username": "lincolna",
     "ad_id": "washdc\\lincolna",
     "perdet_seq_num": 13,
-    "fullname": "LINCOLN,ABIGAIL",
+    "first_name": "ABIGAIL",
+    "last_name": "LINCOLN",
     "email": "lincolna@state.gov",
     "hru_id": 5001,
-    "grade_code": "08"
+    "grade_code": "08",
+    "dob": "1966-09-25T00:00:00"
   },
   {
     "username": "nunesa",
     "ad_id": "washdc\\nunesa",
     "perdet_seq_num": 14,
-    "fullname": "NUNES,ADELLE",
+    "first_name": "ADELLE",
+    "last_name": "NUNES",
     "email": "nunesa@state.gov",
     "hru_id": 1776,
-    "grade_code": "MC"
+    "grade_code": "MC",
+    "dob": "2000-04-12T00:00:00"
   },
   {
     "username": "petersj",
     "ad_id": "washdc\\petersj",
     "perdet_seq_num": 16,
-    "fullname": "PETERS,JEREMY",
+    "first_name": "JEREMY",
+    "last_name": "PETERS",
     "email": "petersj@state.gov",
     "hru_id": 9001,
-    "grade_code": "OC"
+    "grade_code": "OC",
+    "dob": "1987-09-10T00:00:00"
   }
 ]

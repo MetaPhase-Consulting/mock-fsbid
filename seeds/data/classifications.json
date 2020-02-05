@@ -1,0 +1,77 @@
+[
+  {
+    "tp_code": "3",
+    "tp_descr_txt": "3rd Tour Bidders", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "4",
+    "tp_descr_txt": "Tenured 4", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "D",
+    "tp_descr_txt": "Differential Bidder", 
+    "disabled_ind" : "Y"
+  },
+  {
+    "tp_code": "T",
+    "tp_descr_txt": "Tandem Bidder", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "M",
+    "tp_descr_txt": "Meritorious Step Increases", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "6",
+    "tp_descr_txt": "6/8 Rule", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "F",
+    "tp_descr_txt": "Fair Share Bidders", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "C",
+    "tp_descr_txt": "Critical Need Language", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "C1",
+    "tp_descr_txt": "Critical Need Language 1st Tour Complete", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "CC",
+    "tp_descr_txt": "Critical Need Language Final Tour Complete", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "R",
+    "tp_descr_txt": "Recommended for Tenure", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "A",
+    "tp_descr_txt": "Ambassador or Deputy Assistant Secretary", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "F1",
+    "tp_descr_txt": "Pickering Fellows", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "F2",
+    "tp_descr_txt": "Rangel Fellows", 
+    "disabled_ind" : "N"
+  },
+  {
+    "tp_code": "P",
+    "tp_descr_txt": "Pickering/Rangel Fellows", 
+    "disabled_ind" : "N"
+  }
+]

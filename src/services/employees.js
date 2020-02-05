@@ -34,24 +34,52 @@ const get_agents = async query => {
 const get_clients = async query => {
   const data = await get_paged_employees_by_query(query, get_clients_filters)
   return data.map((emp, index) => {
-    const [skill1 = {}, skill2 = {}, skill3 = {}] = emp.skills
-    const { roles, location = {}, manager = {}} = emp
+    const [skill1 = {}, skill2 = {} ] = emp.skills
+    const { roles = [],  manager = {}, currentassignment = {} } = emp
+    const { position = {} } = currentassignment || {}
+    const { location = {}, bureau = {} } = position
+    delete currentassignment.position
     return {
       rnum: index + 1,
       hru_id: manager.hru_id,
-      per_full_name: emp.fullname,
       perdet_seq_num: emp.perdet_seq_num,
-      grade_code: emp.grade_code,
-      skill_code: skill1.skl_code,
-      skill_code_desc: skill1.skill_descr,
-      skill2_code: skill2.skl_code,
-      skill2_code_desc: skill2.skill_descr,
-      skill3_code: skill3.skl_code,
-      skill3_code_desc: skill3.skill_descr,
-      emplid: emp.username,
-      role_code: roles.map(r => r.code),
-      pos_location_code: location.code,
-      hs_cd: emp.hs_cd
+      rl_cd: roles.length > 0 ? roles[0]['code'] : '', // FSBid only returns one role
+      employee: {
+        pert_external_id: `${emp.per_seq_num}`,
+        per_first_name: emp.first_name,
+        per_last_name: emp.last_name,
+        per_grade_code: emp.grade_code,
+        per_middle_name: emp.middle_name,
+        per_skill_code: skill1.skl_code,
+        per_skill_code_desc: skill1.skill_descr,
+        per_skill_2_code: skill2.skl_code,
+        per_skill_2_code_desc: skill2.skill_descr,
+        per_pay_plan_code: "",
+        per_tenure_code: "",
+        currentAssignment: {
+          ags_seq_num: currentassignment.ags_seq_num,
+          pos_seq_num: `${position.pos_seq_num}`,
+          asgd_revision_num: currentassignment.asgd_revision_num,
+          asgd_eta_date: currentassignment.eta_date,
+          asgd_etd_ted_date: currentassignment.etd_ted_date,
+          currentPosition: {
+            pos_seq_num: `${position.pos_seq_num}`,
+            pos_location_code: position.pos_location_code,
+            pos_num_text: position.position,
+            pos_grade_code: position.pos_grade_code,
+            pos_skill_code: position.skill.skl_code,
+            pos_skill_desc: position.skill.skill_descr,
+            pos_bureau_short_desc: bureau.bureau_short_desc,
+            pos_bureau_long_desc: bureau.bureau_long_desc,
+            pos_title_desc: position.pos_title_desc,
+            currentLocation: {
+              gvt_geoloc_cd: "",
+              city: location.location_city,
+              country: location.location_country,
+            },
+          },
+        },
+      }
     }
   })
 }
@@ -105,7 +133,9 @@ const addFreeTextFilter = (qb, value) => {
     const val = `%${value}%`
     qb.where(function() {
       this.where("employees.username", operator, val)
-          .orWhere('employees.fullname', operator, val)
+          .orWhere('employees.first_name', operator, val)
+          .orWhere('employees.middle_name', operator, val)
+          .orWhere('employees.last_name', operator, val)
           .orWhere('employees_roles.code', operator, val)
           .orWhere('employees.ad_id', operator, val)
     })
@@ -131,7 +161,18 @@ const addHSFilter = (qb, value) => {
 // Default fetch options
 const FETCH_OPTIONS = {
   require: false, 
-  withRelated: ['roles', 'skills', 'manager', 'bids']
+  withRelated: [
+    'roles', 
+    'skills', 
+    'manager', 
+    'bids', 
+    'classifications', 
+    'currentassignment', 
+    'currentassignment.position', 
+    'currentassignment.position.skill',
+    'currentassignment.position.location',
+    'currentassignment.position.bureau',
+  ]
 }
 
 // Fetch employees for the query params
