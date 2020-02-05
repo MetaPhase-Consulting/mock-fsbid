@@ -3,7 +3,13 @@ const ASSIGNMENTS_KEYS = [
   'asg_seq_num',
   'asg_create_date',
   'asg_update_date',
-  'pos_seq_num'
+  'pos_seq_num',
+  'perdet_seq_num',
+  'emp_seq_nbr',
+  'asg_create_id',
+  'asg_update_id',
+  'asgd_revision_num',
+  'asgs_code',
 ]
 
 describe('Assignments', () => {

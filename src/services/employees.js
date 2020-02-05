@@ -196,11 +196,22 @@ const get_assignments = async query => {
         }
       }).fetchPage({
         require: false,
+        withRelated: ['employee'],
         pageSize: query["request_params.page_size"] || 25,
         page: query["request_params.page_index"] || 1,
       })
     
-    return data.serialize()
+    return data.serialize().map((asg, i) => {
+      delete asg.eta_date
+      delete asg.etd_ted_date
+      const { perdet_seq_num } = asg.employee
+      delete asg.employee
+      return {
+        asg_seq_num: i,
+        perdet_seq_num,
+        ...asg
+      }
+    })
   } catch (Error) {
     console.error(Error)
     return null
