@@ -73,11 +73,11 @@ const Bids = bookshelf.model('Bids', {
       if (assignment_date) {
         // Position has been filled
         available_position.set('cp_status', 'FP')
-        available_position.save()
+        return available_position.save()
       } else if (bs_cd === 'A' && handshakeOffered === 'Y') {
         // Handshake has been offered on the position
         available_position.set('cp_status', 'HS')
-        available_position.save()
+        return available_position.save()
       } 
     })
   }
