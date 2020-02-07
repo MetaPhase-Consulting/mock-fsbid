@@ -8,7 +8,7 @@ const Assignments = bookshelf.model('Assignments', {
     return this.belongsTo('Positions', 'pos_seq_num')
   },
   employee() {
-    return this.belongsTo('Employees', 'per_seq_num')
+    return this.belongsTo('Employees', 'emp_seq_nbr', 'per_seq_num')
   },
 })
 

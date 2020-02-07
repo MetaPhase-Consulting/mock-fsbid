@@ -1,4 +1,4 @@
-const { Employees } = require('../models')
+const { Employees, Assignments } = require('../models')
 
 // Fetch an employee for an ad_id value
 const get_employee_by_ad_id = async query => await get_employees_by_query({'employees.ad_id': query.ad_id})
@@ -201,4 +201,36 @@ const get_paged_employees_by_query = async (query, mapping) => {
   }
 }
 
-module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients }
+const get_assignments = async query => {
+  try {
+    const data = await Assignments.query(qb => {
+        const perdet_seq_num = query['request_params.perdet_seq_num']
+        if (perdet_seq_num) {
+          qb.join('employees', 'employees.per_seq_num', 'assignments.emp_seq_nbr')
+          qb.where('employees.perdet_seq_num', perdet_seq_num)
+        }
+      }).fetchPage({
+        require: false,
+        withRelated: ['employee'],
+        pageSize: query["request_params.page_size"] || 25,
+        page: query["request_params.page_index"] || 1,
+      })
+    
+    return data.serialize().map((asg, i) => {
+      delete asg.eta_date
+      delete asg.etd_ted_date
+      const { perdet_seq_num } = asg.employee
+      delete asg.employee
+      return {
+        asg_seq_num: i,
+        perdet_seq_num,
+        ...asg
+      }
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments }

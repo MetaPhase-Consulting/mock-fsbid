@@ -138,6 +138,15 @@ var appRouter = function (app) {
     })
   })
 
+  app.get('/Assignments', async function(req, res) {
+    const data = await employees.get_assignments(req.query)
+    res.status(200).send({
+      Data: data,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
+
   // Common look up function
   const lookup = fn => async (req, res) => res.status(200).send(await fn())
 
