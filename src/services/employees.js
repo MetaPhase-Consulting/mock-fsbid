@@ -1,4 +1,11 @@
 const { Employees, Assignments } = require('../models')
+const { addOrderBy } = require('./common.js')
+
+// Mapping of provided sort fields to matching query fields
+const SORT_MAPPING = {
+  grade: 'employees.grade_code',
+  skill: 'codes.skill_descr'
+}
 
 // Fetch an employee for an ad_id value
 const get_employee_by_ad_id = async query => await get_employees_by_query({'employees.ad_id': query.ad_id})
@@ -114,6 +121,8 @@ const get_clients_filters = (params = {}) => {
 const get_employees_query = (params, mapping) => {
   return Employees.query(qb => {
     qb.join('employees_roles', 'employees.perdet_seq_num', 'employees_roles.perdet_seq_num')
+    qb.join('employees_skills', 'employees.perdet_seq_num', 'employees_skills.perdet_seq_num')
+    qb.join('codes', 'employees_skills.jc_id', 'codes.jc_id')
     qb.leftOuterJoin('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
     let q = params
     if (mapping) {
@@ -123,6 +132,9 @@ const get_employees_query = (params, mapping) => {
     
     addHSFilter(qb, params['request_params.hs_cd'])
     addFreeTextFilter(qb, params['request_params.freeText'])
+    addOrderBy(qb, params['request_params.order_by'], SORT_MAPPING)
+    // Default sort
+    qb.orderBy('employees.last_name')
   })
 }
 

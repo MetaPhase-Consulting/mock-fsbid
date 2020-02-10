@@ -1,4 +1,12 @@
-[
+[ 
+  {
+    "perdet_seq_num": 2,
+    "jc_id": 20
+  },
+  {
+    "perdet_seq_num": 4,
+    "jc_id": 6
+  },
   {
     "perdet_seq_num": 6,
     "jc_id": 2
@@ -8,19 +16,51 @@
     "jc_id": 4
   },
   {
-    "perdet_seq_num": 4,
-    "jc_id": 6
+    "perdet_seq_num": 6,
+    "jc_id": 1
   },
   {
     "perdet_seq_num": 7,
     "jc_id": 2
   },
   {
-    "perdet_seq_num": 6,
-    "jc_id": 1
+    "perdet_seq_num": 8,
+    "jc_id": 6
   },
   {
     "perdet_seq_num": 8,
+    "jc_id": 9
+  },
+  {
+    "perdet_seq_num": 9,
+    "jc_id": 16
+  },
+  {
+    "perdet_seq_num": 9,
+    "jc_id": 17
+  },
+  {
+    "perdet_seq_num": 10,
+    "jc_id": 11
+  },
+  {
+    "perdet_seq_num": 11,
+    "jc_id": 11
+  },
+  {
+    "perdet_seq_num": 12,
+    "jc_id": 18
+  },
+  {
+    "perdet_seq_num": 13,
+    "jc_id": 5
+  },
+  {
+    "perdet_seq_num": 13,
+    "jc_id": 1
+  },
+  {
+    "perdet_seq_num": 13,
     "jc_id": 6
   },
   {
@@ -36,7 +76,11 @@
     "jc_id": 11
   },
   {
-    "perdet_seq_num": 8,
-    "jc_id": 9
+    "perdet_seq_num": 16,
+    "jc_id": 20
+  },
+  {
+    "perdet_seq_num": 16,
+    "jc_id": 11
   }
 ]
