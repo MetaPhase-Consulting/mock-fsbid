@@ -92,9 +92,15 @@ const addOverseasFilter = (qb, value) => {
 
 const addOrderBy = (qb, value, mapping=SORT_MAPPING) => {
   if (value) {
-    let [field, direction="asc"] = value.split(' ')
-    field = mapping[field] || field
-    qb.orderBy(field, direction)
+    let sortParams = value
+    if (!Array.isArray(value)) {
+      sortParams = [value]
+    }
+    sortParams.forEach(v => {
+      let [field, direction="asc"] = v.split(' ')
+      field = mapping[field] || field
+      qb.orderBy(field, direction)
+    })
   }
 }
 
