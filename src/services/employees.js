@@ -27,6 +27,7 @@ const get_agents = async query => {
     delete emp.skills
     delete emp.manager
     delete emp.manager_id
+    delete emp.dob
     const { code: rolecode, description: rl_descr_txt } = emp.roles[0]
     delete emp.roles
     return { 
@@ -93,10 +94,11 @@ const get_clients = async query => {
 
 // Maps request params to employee fields for filtering
 const get_agents_filters = (params = {}) => {
-  const { rl_cd, perdet_seq_num } = params
+  const { rl_cd, perdet_seq_num, hru_id } = params
   const q = {}
   if (rl_cd) q['employees_roles.code'] = rl_cd
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
+  if (hru_id) q['employees.perdet_seq_num'] = hru_id
   
   return q
 }
