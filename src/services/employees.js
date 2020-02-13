@@ -98,7 +98,7 @@ const get_agents_filters = (params = {}) => {
   const q = {}
   if (rl_cd) q['employees_roles.code'] = rl_cd
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
-  if (hru_id) q['employees.perdet_seq_num'] = hru_id
+  if (hru_id) q['employees.hru_id'] = hru_id
   
   return q
 }
@@ -106,14 +106,11 @@ const get_agents_filters = (params = {}) => {
 // Maps request params to employee fields for filtering
 const get_clients_filters = (params = {}) => {
   const perdet_seq_num = params['request_params.perdet_seq_num']
-  const hru_id = params['request_params.hru_id']
   const rl_cd = params['request_params.rl_cd']
   // TODO - add these filters if needed
   // const grades = params['request_params.grades']
   // const skills = params['request_params.skills']
   const q = {}
-  if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
-  if (hru_id) q['manager.hru_id'] = hru_id
   if (rl_cd) q['employees_roles.code'] = rl_cd
 
   return q
@@ -131,7 +128,9 @@ const get_employees_query = (params, mapping) => {
       q = mapping(params)
     }
     qb.where(q)
-    
+
+    hru_idFilter(qb, params['request_params.hru_id'])
+    perdet_seq_numFilter(qb, params['request_params.perdet_seq_num'])
     addHSFilter(qb, params['request_params.hs_cd'])
     addFreeTextFilter(qb, params['request_params.freeText'])
     addOrderBy(qb, params['request_params.order_by'], SORT_MAPPING)
@@ -168,6 +167,19 @@ const addHSFilter = (qb, value) => {
             .leftOuterJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
             .where('bids.ubw_hndshk_offrd_flg', 'Y')
       })
+    }
+  }
+}
+
+const hru_idFilter = (qb, value) => addMultiValueFilter(qb, value, 'manager.hru_id')
+const perdet_seq_numFilter = (qb, value) => addMultiValueFilter(qb, value, 'employees.perdet_seq_num')
+
+const addMultiValueFilter = (qb, value, field) => {
+  if (value) {
+    if (Array.isArray(value)) {
+      qb.whereIn(field, value)
+    } else {
+      qb.where(field, value)
     }
   }
 }
