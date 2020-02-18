@@ -261,4 +261,24 @@ const get_assignments = async query => {
   }
 }
 
+const get_classifications = async query => {
+  try {
+    const data = await Classifications.query(qb => {
+      const perdet_seq_num = query['request_params.perdet_seq_num']
+      if (perdet_seq_num) {
+        qb.join('employee_classifications', 'employee_classifications.td_id', 'classifications.td_id')
+        qb.where('employee_classifications.perdet_seq_num', perdet_seq_num)
+      }
+    })
+
+    return data.serialize().map(classification => {
+      delete classification._pivot_perdet_seq_num
+      delete classification._pivot_td_id
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments }
