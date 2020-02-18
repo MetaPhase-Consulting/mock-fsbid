@@ -1,4 +1,4 @@
-const { Employees, Assignments } = require('../models')
+const { Employees, Assignments, Classifications } = require('../models')
 const { addOrderBy } = require('./common.js')
 
 // Mapping of provided sort fields to matching query fields
@@ -266,19 +266,20 @@ const get_classifications = async query => {
     const data = await Classifications.query(qb => {
       const perdet_seq_num = query['request_params.perdet_seq_num']
       if (perdet_seq_num) {
-        qb.join('employee_classifications', 'employee_classifications.td_id', 'classifications.td_id')
-        qb.where('employee_classifications.perdet_seq_num', perdet_seq_num)
+        qb.join('employees_classifications', 'employees_classifications.td_id', 'classifications.td_id')
+        qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
       }
-    })
+    }).fetchPage()
+    
 
     return data.serialize().map(classification => {
       delete classification._pivot_perdet_seq_num
       delete classification._pivot_td_id
+      return {...classification}
     })
   } catch (Error) {
-    console.error(Error)
     return null
   }
 }
 
-module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments }
+module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications }
