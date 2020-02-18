@@ -278,6 +278,7 @@ const get_classifications = async query => {
       return classification
     })
   } catch (Error) {
+    console.error(Error)
     return null
   }
 }
