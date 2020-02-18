@@ -38,11 +38,24 @@ const get_agents = async query => {
   })
 }
 
+const personSkills = skills => {
+  const result = {}
+  skills.forEach((skill, i) => {
+    let index = ''
+    if (i !== 0) {
+      index = `_${i+1}`
+    }
+    const code_field = `per_skill${index}_code`
+    result[code_field] = skill.skl_code
+    result[`${code_field}_desc`] = skill.skill_descr
+  })
+  return result
+}
+
 // Gets clients for an Agent
 const get_clients = async query => {
   const data = await get_paged_employees_by_query(query, get_clients_filters)
   return data.map((emp, index) => {
-    const [skill1 = {}, skill2 = {} ] = emp.skills
     const { roles = [],  manager = {}, currentassignment = {} } = emp
     const { position = {} } = currentassignment || {}
     const { location = {}, bureau = {} } = position
@@ -58,10 +71,7 @@ const get_clients = async query => {
         per_last_name: emp.last_name,
         per_grade_code: emp.grade_code,
         per_middle_name: emp.middle_name,
-        per_skill_code: skill1.skl_code,
-        per_skill_code_desc: skill1.skill_descr,
-        per_skill_2_code: skill2.skl_code,
-        per_skill_2_code_desc: skill2.skill_descr,
+        ...personSkills(emp.skills),
         per_pay_plan_code: "",
         per_tenure_code: "",
         currentAssignment: {
