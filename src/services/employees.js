@@ -43,7 +43,7 @@ const get_clients = async query => {
   const data = await get_paged_employees_by_query(query, get_clients_filters)
   return data.map((emp, index) => {
     const [skill1 = {}, skill2 = {} ] = emp.skills
-    const { roles = [],  manager = {}, currentassignment = {} } = emp
+    const { roles = [],  manager = {}, currentassignment = {}, classifications = [] } = emp
     const { position = {} } = currentassignment || {}
     const { location = {}, bureau = {} } = position
     delete currentassignment.position
@@ -64,6 +64,7 @@ const get_clients = async query => {
         per_skill_2_code_desc: skill2.skill_descr,
         per_pay_plan_code: "",
         per_tenure_code: "",
+        classifications,
         currentAssignment: {
           ags_seq_num: currentassignment.ags_seq_num,
           pos_seq_num: `${position.pos_seq_num}`,
