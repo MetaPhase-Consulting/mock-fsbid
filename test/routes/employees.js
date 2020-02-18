@@ -5,7 +5,6 @@ const AGENTS_KEYS = [
   'middle_name',
   'fullname',
   'bids',
-  'classifications',
   'currentassignment',
   'email',
   'hru_id',
@@ -48,6 +47,13 @@ const CDO_CLIENTS_KEYS = [
   "employee.pert_external_id",
 ]
 
+CLASSIFICATIONS_KEYS = [
+  "td_id",
+  "tp_code",
+  "tp_descr_txt",
+  "disabled_ind",
+]
+
 describe('Employees', () => {
   describe('/Agents', () => {
     it('should return 200 with correct shape', done => {
@@ -72,6 +78,20 @@ describe('Employees', () => {
           res.should.have.status(200)
           res.body.Data.forEach(d => {
             flattenObject(d).should.contain.all.keys(CDO_CLIENTS_KEYS)
+          })
+          setTimeout(done, 0);
+        });
+    });
+  });
+  describe('/bidderTrackingPrograms', () => {
+    it('should return 200 with correct shape', done => {
+      chai.request(server)
+        .get('/bidderTrackingPrograms')
+        .set('jwtauthorization', 'test')
+        .end((err,res) => {
+          res.should.have.status(200)
+          res.body.Data.forEach(d => {
+            flattenObject(d).should.contain.all.keys(CLASSIFICATIONS_KEYS)
           })
           setTimeout(done, 0);
         });
