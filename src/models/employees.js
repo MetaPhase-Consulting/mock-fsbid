@@ -27,7 +27,7 @@ const Employees = bookshelf.model('Employees', {
     return this.belongsTo('Grades', 'grade')
   },
   skills() {
-    return this.belongsToMany('Codes', 'employees_skills', 'perdet_seq_num', 'jc_id')
+    return this.belongsToMany('Codes', 'employees_skills', 'perdet_seq_num', 'jc_id').orderBy('codes.skill_descr')
   },
   manager() {
     return this.belongsTo('Employees', 'manager_id')
