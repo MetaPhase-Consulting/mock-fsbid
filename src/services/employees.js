@@ -271,7 +271,6 @@ const get_classifications = async query => {
       }
     }).fetchPage()
     
-
     return data.serialize().map(classification => {
       delete classification._pivot_perdet_seq_num
       delete classification._pivot_td_id
