@@ -28,6 +28,7 @@ const get_agents = async query => {
     delete emp.manager
     delete emp.manager_id
     delete emp.dob
+    delete emp.classifications
     const { code: rolecode, description: rl_descr_txt } = emp.roles[0]
     delete emp.roles
     return { 
