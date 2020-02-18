@@ -3,8 +3,8 @@ const { addOrderBy } = require('./common.js')
 
 // Mapping of provided sort fields to matching query fields
 const SORT_MAPPING = {
-  grade: 'employees.grade_code',
-  skill: 'codes.skill_descr'
+  per_grade_code: 'employees.grade_code',
+  per_skill_code: 'codes.skl_code'
 }
 
 // Fetch an employee for an ad_id value
@@ -115,7 +115,6 @@ const get_agents_filters = (params = {}) => {
 
 // Maps request params to employee fields for filtering
 const get_clients_filters = (params = {}) => {
-  const perdet_seq_num = params['request_params.perdet_seq_num']
   const rl_cd = params['request_params.rl_cd']
   // TODO - add these filters if needed
   // const grades = params['request_params.grades']
