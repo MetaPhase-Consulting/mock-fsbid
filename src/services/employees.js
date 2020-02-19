@@ -91,13 +91,11 @@ const get_clients = async query => {
         },
       }
     }
-    // This returns the payload without any classifications field when the client has none to mimic fsbid
+    // This returns the payload without any classifications field when the client has none (models fsbid behavior)
     if (res.employee.classifications.length < 1) {
       delete res.employee.classifications
-      return res 
-    } else {
-      return res
-    }
+    } 
+    return res
   })
 }
 
