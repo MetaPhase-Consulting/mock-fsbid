@@ -21,6 +21,18 @@ const CDO_CLIENTS_KEYS = [
   "perdet_seq_num",
   "rl_cd",
   'rnum', 
+  "employee.per_first_name",
+  "employee.per_grade_code",
+  "employee.per_last_name",
+  "employee.per_middle_name",
+  "employee.per_pay_plan_code",
+  "employee.per_skill_code",
+  "employee.per_skill_code_desc",
+  "employee.per_tenure_code",
+  "employee.pert_external_id",
+]
+
+const CDO_CLIENT_CURRENT_ASSIGNMENT_KEYS = [
   "employee.currentAssignment.asgd_eta_date",
   "employee.currentAssignment.asgd_etd_ted_date",
   "employee.currentAssignment.asgd_revision_num",
@@ -37,15 +49,10 @@ const CDO_CLIENTS_KEYS = [
   "employee.currentAssignment.currentPosition.pos_skill_desc",
   "employee.currentAssignment.currentPosition.pos_title_desc",
   "employee.currentAssignment.pos_seq_num",
-  "employee.per_first_name",
-  "employee.per_grade_code",
-  "employee.per_last_name",
-  "employee.per_middle_name",
-  "employee.per_pay_plan_code",
-  "employee.per_skill_code",
-  "employee.per_skill_code_desc",
-  "employee.per_tenure_code",
-  "employee.pert_external_id",
+]
+
+const CDO_CLIENT_ASSIGNMENTS_KEYS = [
+  "employee.assignment"
 ]
 
 describe('Employees', () => {
@@ -71,7 +78,19 @@ describe('Employees', () => {
         .end((err, res) => {
           res.should.have.status(200)
           res.body.Data.forEach(d => {
-            flattenObject(d).should.contain.all.keys(CDO_CLIENTS_KEYS)
+            flattenObject(d).should.contain.all.keys([...CDO_CLIENTS_KEYS, ...CDO_CLIENT_CURRENT_ASSIGNMENT_KEYS])
+          })
+          setTimeout(done, 0);
+        });
+    });
+    it('should return 200 with correct shape with no current assignment', done => {
+      chai.request(server)
+        .get('/CDOClients?request_params.currentAssignmentOnly=false')
+        .set('jwtauthorization', 'test')
+        .end((err, res) => {
+          res.should.have.status(200)
+          res.body.Data.forEach(d => {
+            flattenObject(d).should.contain.all.keys([...CDO_CLIENTS_KEYS, CDO_CLIENT_ASSIGNMENTS_KEYS])
           })
           setTimeout(done, 0);
         });
