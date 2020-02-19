@@ -4,7 +4,7 @@ const { createPositionQuery, formatLanguage} = require('./common')
 const create_query = (query, isCount=false) => createPositionQuery(FutureVacancies, 'futurevacancies', 'fv_request_params', query, isCount)
 
 const formatData = data => {
-  return data.map(d => {
+  return data.map((d, i)=> {
     const { position } = d
     const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription } = position
     d.tod = tod && tod.long_desc
@@ -17,9 +17,11 @@ const formatData = data => {
     d.org_long_desc = org.long_desc
     d.org_short_desc = org.short_desc
     delete position.org
-    d.location_city = location.city
-    d.location_state = location.state
-    d.location_country = location.country
+    d.location_city = location.location_city
+    d.location_state = location.location_state
+    d.location_country = location.location_country
+    d.state_country_desc = location.location_country
+    d.post_org_country_state = `${location.location_city}, ${location.location_state || location.location_country}`
     delete position.location
     d.pos_bureau_short_desc = bureau.bureau_short_desc
     d.pos_bureau_long_desc = bureau.bureau_long_desc
@@ -32,7 +34,7 @@ const formatData = data => {
     d.ppos_capsule_descr_txt = capsuledescription.description
     d.ppos_capsule_modify_dt = capsuledescription.last_modified
     delete position.capsuledescription
-    return { ...d, ...position }
+    return { rnum: i, ...d, ...position }
   })
 }
 

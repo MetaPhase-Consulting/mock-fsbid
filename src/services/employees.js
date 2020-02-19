@@ -3,8 +3,8 @@ const { addOrderBy } = require('./common.js')
 
 // Mapping of provided sort fields to matching query fields
 const SORT_MAPPING = {
-  grade: 'employees.grade_code',
-  skill: 'codes.skill_descr'
+  per_grade_code: 'employees.grade_code',
+  per_skill_code: 'codes.skl_code'
 }
 
 // Fetch an employee for an ad_id value
@@ -39,6 +39,20 @@ const get_agents = async query => {
   })
 }
 
+const personSkills = skills => {
+  const result = {}
+  skills.forEach((skill, i) => {
+    let index = ''
+    if (i !== 0) {
+      index = `_${i+1}`
+    }
+    const code_field = `per_skill${index}_code`
+    result[code_field] = skill.skl_code
+    result[`${code_field}_desc`] = skill.skill_descr
+  })
+  return result
+}
+
 // Gets clients for an Agent
 const get_clients = async query => {
   const data = await get_paged_employees_by_query(query, get_clients_filters)
@@ -59,10 +73,7 @@ const get_clients = async query => {
         per_last_name: emp.last_name,
         per_grade_code: emp.grade_code,
         per_middle_name: emp.middle_name,
-        per_skill_code: skill1.skl_code,
-        per_skill_code_desc: skill1.skill_descr,
-        per_skill_2_code: skill2.skl_code,
-        per_skill_2_code_desc: skill2.skill_descr,
+        ...personSkills(emp.skills),
         per_pay_plan_code: "",
         per_tenure_code: "",
         classifications: classifications.length === 1 ? classifications[0] : classifications,
@@ -112,7 +123,6 @@ const get_agents_filters = (params = {}) => {
 
 // Maps request params to employee fields for filtering
 const get_clients_filters = (params = {}) => {
-  const perdet_seq_num = params['request_params.perdet_seq_num']
   const rl_cd = params['request_params.rl_cd']
   // TODO - add these filters if needed
   // const grades = params['request_params.grades']
