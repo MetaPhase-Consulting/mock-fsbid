@@ -295,7 +295,11 @@ const get_classifications = async query => {
         qb.join('employees_classifications', 'employees_classifications.td_id', 'classifications.td_id')
         qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
       }
-    }).fetchPage()
+    }).fetchPage({
+      require: false,
+      pageSize: query["request_params.page_size"] || 25,
+      page: query["request_params.page_index"] || 1,
+    })
     
     return await data.serialize().map(classification => {
       const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
