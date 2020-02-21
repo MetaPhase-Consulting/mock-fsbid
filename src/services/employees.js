@@ -102,10 +102,21 @@ const get_clients = async query => {
         },
       }
     }
-    // This returns the payload without any classifications field when the client has none (models fsbid behavior)
+    // Deletes pivot_td_id and pivot_perdet_seq_num field used in our mock db to randomly assign to employees
     if (res.employee.classifications.length < 1) {
+      // No classifications exist, returning nothing
       delete res.employee.classifications
-    } 
+    } else if (res.employee.classifications.length > 1) {
+      // Classifications as array
+      res.employee.classifications.forEach((classification, i) => {
+        const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
+        res.employee.classifications[i] = filteredClassification
+      })
+    } else {
+      // Single classification as object
+      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassifications } = classifications
+      res.employee.classifications = filteredClassifications
+    }
     return res
   })
 }
@@ -286,10 +297,9 @@ const get_classifications = async query => {
       }
     }).fetchPage()
     
-    return data.serialize().map(classification => {
-      delete classification._pivot_perdet_seq_num
-      delete classification._pivot_td_id
-      return classification
+    return await data.serialize().map(classification => {
+      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
+      return filteredClassification
     })
   } catch (Error) {
     console.error(Error)
