@@ -108,9 +108,9 @@ const get_clients = async query => {
       delete res.employee.classifications
     } else if (res.employee.classifications.length > 1) {
       // Classifications as array
-      res.employee.classifications.forEach((classification, i) => {
+      res.employee.classifications = res.employee.classifications.map((classification) => {
         const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
-        res.employee.classifications[i] = filteredClassification
+        return filteredClassification
       })
     } else {
       // Single classification as object
