@@ -114,7 +114,7 @@ const get_clients = async query => {
       })
     } else {
       // Single classification as object
-      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassifications } = classifications
+      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassifications } = res.employee.classifications
       res.employee.classifications = filteredClassifications
     }
     return res
