@@ -11,7 +11,7 @@ global.server = server
 global.flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
     const pre = prefix.length ? prefix + '.' : '';
-    if (obj[k] && typeof obj[k] === 'object') Object.assign(acc, flattenObject(obj[k], pre + k));
+    if (obj[k] && typeof obj[k] === 'object' && !Array.isArray(obj[k])) Object.assign(acc, flattenObject(obj[k], pre + k));
     else acc[pre + k] = obj[k];
     return acc;
   }, {});

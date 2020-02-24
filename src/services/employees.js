@@ -53,15 +53,50 @@ const personSkills = skills => {
   return result
 }
 
+const getAssignment = currentassignment => {
+  const { position = {} } = currentassignment || {}
+  const { location = {}, bureau = {} } = position
+  return {
+    currentAssignment: {
+      ags_seq_num: currentassignment.ags_seq_num,
+      pos_seq_num: `${position.pos_seq_num}`,
+      asgd_revision_num: currentassignment.asgd_revision_num,
+      asgd_eta_date: currentassignment.eta_date,
+      asgd_etd_ted_date: currentassignment.etd_ted_date,
+      currentPosition: {
+        pos_seq_num: `${position.pos_seq_num}`,
+        pos_location_code: position.pos_location_code,
+        pos_num_text: position.position,
+        pos_grade_code: position.pos_grade_code,
+        pos_skill_code: position.skill.skl_code,
+        pos_skill_desc: position.skill.skill_descr,
+        pos_bureau_short_desc: bureau.bureau_short_desc,
+        pos_bureau_long_desc: bureau.bureau_long_desc,
+        pos_title_desc: position.pos_title_desc,
+        currentLocation: {
+          gvt_geoloc_cd: "",
+          city: location.location_city,
+          country: location.location_country,
+        },
+      },
+    },
+  }
+}
+
 // Gets clients for an Agent
 const get_clients = async query => {
   const data = await get_paged_employees_by_query(query, get_clients_filters)
+  const currentAssignmentOnly = query["request_params.currentAssignmentOnly"]
   return data.map((emp, index) => {
-    const [skill1 = {}, skill2 = {} ] = emp.skills
-    const { roles = [],  manager = {}, currentassignment = {}, classifications } = emp
-    const { position = {} } = currentassignment || {}
-    const { location = {}, bureau = {} } = position
-    delete currentassignment.position
+    const { roles = [],  manager = {}, currentassignment = {}, assignments = [], classifications = [] } = emp
+    let assignmentInfo = getAssignment(currentassignment)
+    // Have to specifically check for false as null will return currentAssignment
+    if (currentAssignmentOnly === 'false') {
+       // FSBid returns an object if there is only 1 assignment ¯\_(ツ)_/¯
+       assignmentInfo = {
+        assignment: assignments.length === 1 ? assignments[0] : assignments
+      }
+    }
     const res =  {
       rnum: index + 1,
       hru_id: manager.hru_id,
@@ -76,30 +111,8 @@ const get_clients = async query => {
         ...personSkills(emp.skills),
         per_pay_plan_code: "",
         per_tenure_code: "",
+        ...assignmentInfo,
         classifications: classifications.length === 1 ? classifications[0] : classifications,
-        currentAssignment: {
-          ags_seq_num: currentassignment.ags_seq_num,
-          pos_seq_num: `${position.pos_seq_num}`,
-          asgd_revision_num: currentassignment.asgd_revision_num,
-          asgd_eta_date: currentassignment.eta_date,
-          asgd_etd_ted_date: currentassignment.etd_ted_date,
-          currentPosition: {
-            pos_seq_num: `${position.pos_seq_num}`,
-            pos_location_code: position.pos_location_code,
-            pos_num_text: position.position,
-            pos_grade_code: position.pos_grade_code,
-            pos_skill_code: position.skill.skl_code,
-            pos_skill_desc: position.skill.skill_descr,
-            pos_bureau_short_desc: bureau.bureau_short_desc,
-            pos_bureau_long_desc: bureau.bureau_long_desc,
-            pos_title_desc: position.pos_title_desc,
-            currentLocation: {
-              gvt_geoloc_cd: "",
-              city: location.location_city,
-              country: location.location_country,
-            },
-          },
-        },
       }
     }
     // Deletes pivot_td_id and pivot_perdet_seq_num field used in our mock db to randomly assign to employees
@@ -221,6 +234,7 @@ const FETCH_OPTIONS = {
     'manager', 
     'bids', 
     'classifications', 
+    'assignments',
     'currentassignment', 
     'currentassignment.position', 
     'currentassignment.position.skill',
