@@ -180,6 +180,16 @@ var appRouter = function (app) {
       return_code: 0
     })
   })
+
+  app.get('/bidderTrackingPrograms', async function(req, res) {
+    const classifications = await employees.get_classifications(req.query)
+
+    res.status(200).send({
+      Data: classifications,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
 };
 
 module.exports = appRouter;

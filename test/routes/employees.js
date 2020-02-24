@@ -5,7 +5,6 @@ const AGENTS_KEYS = [
   'middle_name',
   'fullname',
   'bids',
-  'classifications',
   'currentassignment',
   'email',
   'hru_id',
@@ -20,7 +19,6 @@ const CDO_CLIENTS_KEYS = [
   "rnum",
   "perdet_seq_num",
   "rl_cd",
-  'rnum', 
   "employee.per_first_name",
   "employee.per_grade_code",
   "employee.per_last_name",
@@ -52,7 +50,32 @@ const CDO_CLIENT_CURRENT_ASSIGNMENT_KEYS = [
 ]
 
 const CDO_CLIENT_ASSIGNMENTS_KEYS = [
-  "employee.assignment"
+  "employee.assignment",
+  "employee.assignment.asg_create_date",
+  "employee.assignment.asg_create_id",
+  "employee.assignment.asg_seq_num",
+  "employee.assignment.asg_update_date",
+  "employee.assignment.asg_update_id",
+  "employee.assignment.asgd_revision_num",
+  "employee.assignment.asgs_code",
+  "employee.assignment.emp_seq_nbr",
+  "employee.assignment.eta_date",
+  "employee.assignment.etd_ted_date",
+  "employee.assignment.pos_seq_num",
+]
+
+const CDO_CLIENT_CLASSIFICATION_KEYS = [
+  "employee.classifications.disabled_ind",
+  "employee.classifications.td_id",
+  "employee.classifications.tp_code",
+  "employee.classifications.tp_descr_txt",
+]
+
+CLASSIFICATIONS_KEYS = [
+  "td_id",
+  "tp_code",
+  "tp_descr_txt",
+  "disabled_ind",
 ]
 
 describe('Employees', () => {
@@ -90,7 +113,21 @@ describe('Employees', () => {
         .end((err, res) => {
           res.should.have.status(200)
           res.body.Data.forEach(d => {
-            flattenObject(d).should.contain.all.keys([...CDO_CLIENTS_KEYS, CDO_CLIENT_ASSIGNMENTS_KEYS])
+            flattenObject(d).should.contain.all.keys(CDO_CLIENTS_KEYS)
+          })
+          setTimeout(done, 0);
+        });
+    });
+  });
+  describe('/bidderTrackingPrograms', () => {
+    it('should return 200 with correct shape', done => {
+      chai.request(server)
+        .get('/bidderTrackingPrograms')
+        .set('jwtauthorization', 'test')
+        .end((err,res) => {
+          res.should.have.status(200)
+          res.body.Data.forEach(d => {
+            flattenObject(d).should.contain.all.keys(CLASSIFICATIONS_KEYS)
           })
           setTimeout(done, 0);
         });

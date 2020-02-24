@@ -1,4 +1,4 @@
-const { Employees, Assignments } = require('../models')
+const { Employees, Assignments, Classifications } = require('../models')
 const { addOrderBy } = require('./common.js')
 
 // Mapping of provided sort fields to matching query fields
@@ -28,6 +28,7 @@ const get_agents = async query => {
     delete emp.manager
     delete emp.manager_id
     delete emp.dob
+    delete emp.classifications
     const { code: rolecode, description: rl_descr_txt } = emp.roles[0]
     delete emp.roles
     return { 
@@ -87,22 +88,16 @@ const get_clients = async query => {
   const data = await get_paged_employees_by_query(query, get_clients_filters)
   const currentAssignmentOnly = query["request_params.currentAssignmentOnly"]
   return data.map((emp, index) => {
-    const { roles = [],  manager = {}, currentassignment = {}, assignments = [] } = emp
+    const { roles = [],  manager = {}, currentassignment = {}, assignments = [], classifications = [] } = emp
     let assignmentInfo = getAssignment(currentassignment)
     // Have to specifically check for false as null will return currentAssignment
     if (currentAssignmentOnly === 'false') {
-      // FSBid returns an object if there is only 1 assignment ¯\_(ツ)_/¯
-      if (assignments.length === 1) {
-        assignmentInfo = {
-          assignment: assignments[0]
-        }  
-      } else {
-        assignmentInfo = {
-          assignment: assignments
-        }
+       // FSBid returns an object if there is only 1 assignment ¯\_(ツ)_/¯
+       assignmentInfo = {
+        assignment: assignments.length === 1 ? assignments[0] : assignments
       }
     }
-    return {
+    const res =  {
       rnum: index + 1,
       hru_id: manager.hru_id,
       perdet_seq_num: emp.perdet_seq_num,
@@ -116,9 +111,26 @@ const get_clients = async query => {
         ...personSkills(emp.skills),
         per_pay_plan_code: "",
         per_tenure_code: "",
-        ...assignmentInfo
+        ...assignmentInfo,
+        classifications: classifications.length === 1 ? classifications[0] : classifications,
       }
     }
+    // Deletes pivot_td_id and pivot_perdet_seq_num field used in our mock db to randomly assign to employees
+    if (res.employee.classifications.length < 1) {
+      // No classifications exist, returning nothing
+      delete res.employee.classifications
+    } else if (res.employee.classifications.length > 1) {
+      // Classifications as array
+      res.employee.classifications = res.employee.classifications.map((classification) => {
+        const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
+        return filteredClassification
+      })
+    } else {
+      // Single classification as object
+      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassifications } = res.employee.classifications
+      res.employee.classifications = filteredClassifications
+    }
+    return res
   })
 }
 
@@ -289,4 +301,28 @@ const get_assignments = async query => {
   }
 }
 
-module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments }
+const get_classifications = async query => {
+  try {
+    const data = await Classifications.query(qb => {
+      const perdet_seq_num = query['request_params.perdet_seq_num']
+      if (perdet_seq_num) {
+        qb.join('employees_classifications', 'employees_classifications.td_id', 'classifications.td_id')
+        qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
+      }
+    }).fetchPage({
+      require: false,
+      pageSize: query["request_params.page_size"] || 25,
+      page: query["request_params.page_index"] || 1,
+    })
+    
+    return await data.serialize().map(classification => {
+      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
+      return filteredClassification
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications }
