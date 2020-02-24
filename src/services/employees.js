@@ -91,8 +91,15 @@ const get_clients = async query => {
     let assignmentInfo = getAssignment(currentassignment)
     // Have to specifically check for false as null will return currentAssignment
     if (currentAssignmentOnly === 'false') {
-      assignmentInfo = {
-        assignment: assignments
+      // FSBid returns an object if there is only 1 assignment ¯\_(ツ)_/¯
+      if (assignments.length === 1) {
+        assignmentInfo = {
+          assignment: assignments[0]
+        }  
+      } else {
+        assignmentInfo = {
+          assignment: assignments
+        }
       }
     }
     return {
