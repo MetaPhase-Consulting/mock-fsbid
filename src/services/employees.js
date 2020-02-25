@@ -77,6 +77,7 @@ const getAssignment = currentassignment => {
           gvt_geoloc_cd: "",
           city: location.location_city,
           country: location.location_country,
+          state: location.location_state,
         },
       },
     },
