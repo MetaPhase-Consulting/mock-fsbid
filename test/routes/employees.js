@@ -17,8 +17,8 @@ const AGENTS_KEYS = [
 
 const CDO_CLIENTS_KEYS = [
   "rnum",
-  "perdet_seq_num",
   "rl_cd",
+  "employee.perdet_seq_num",
   "employee.per_first_name",
   "employee.per_grade_code",
   "employee.per_last_name",
