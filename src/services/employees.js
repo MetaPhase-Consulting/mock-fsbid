@@ -100,9 +100,9 @@ const get_clients = async query => {
     const res =  {
       rnum: index + 1,
       hru_id: manager.hru_id,
-      perdet_seq_num: emp.perdet_seq_num,
       rl_cd: roles.length > 0 ? roles[0]['code'] : '', // FSBid only returns one role
       employee: {
+        perdet_seq_num: emp.perdet_seq_num,
         pert_external_id: `${emp.per_seq_num}`,
         per_first_name: emp.first_name,
         per_last_name: emp.last_name,
