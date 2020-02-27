@@ -31,7 +31,7 @@ const get_agents = async query => {
     delete emp.classifications
     const { code: rolecode, description: rl_descr_txt } = emp.roles[0]
     delete emp.roles
-    return { 
+    return {
       ...emp,
       rolecode,
       rl_descr_txt,
@@ -53,49 +53,52 @@ const personSkills = skills => {
   return result
 }
 
-const getAssignment = currentassignment => {
-  const { position = {} } = currentassignment || {}
+const getAssignment = (assignment = {}, isCurrent = false) => {
+  const { position = {} } = assignment || {}
   const { location = {}, bureau = {} } = position
-  return {
-    currentAssignment: {
-      ags_seq_num: currentassignment.ags_seq_num,
+  const response = {
+    ags_seq_num: assignment.ags_seq_num,
+    pos_seq_num: `${position.pos_seq_num}`,
+    asgd_revision_num: assignment.asgd_revision_num,
+    asgd_eta_date: assignment.eta_date,
+    asgd_etd_ted_date: assignment.etd_ted_date,
+    [isCurrent ? 'currentPosition' : 'position']: {
       pos_seq_num: `${position.pos_seq_num}`,
-      asgd_revision_num: currentassignment.asgd_revision_num,
-      asgd_eta_date: currentassignment.eta_date,
-      asgd_etd_ted_date: currentassignment.etd_ted_date,
-      currentPosition: {
-        pos_seq_num: `${position.pos_seq_num}`,
-        pos_location_code: position.pos_location_code,
-        pos_num_text: position.position,
-        pos_grade_code: position.pos_grade_code,
-        pos_skill_code: position.skill.skl_code,
-        pos_skill_desc: position.skill.skill_descr,
-        pos_bureau_short_desc: bureau.bureau_short_desc,
-        pos_bureau_long_desc: bureau.bureau_long_desc,
-        pos_title_desc: position.pos_title_desc,
-        currentLocation: {
-          gvt_geoloc_cd: "",
-          city: location.location_city,
-          country: location.location_country,
-          state: location.location_state,
-        },
+      pos_location_code: position.pos_location_code,
+      pos_num_text: position.position,
+      pos_grade_code: position.pos_grade_code,
+      pos_skill_code: position.skill ? position.skill.skl_code : null,
+      pos_skill_desc: position.skill ? position.skill.skill_descr : null,
+      pos_bureau_short_desc: bureau.bureau_short_desc,
+      pos_bureau_long_desc: bureau.bureau_long_desc,
+      pos_title_desc: position.pos_title_desc,
+      pos_language_1_code: "QB", // TODO - use real data
+      pos_language_1_desc: "Spanish", // TODO - use real data
+      pos_position_lang_prof_desc: "Spanish 3/3", // TODO - use real data
+      [isCurrent ? 'currentLocation' : 'location']: {
+        gvt_geoloc_cd: position.pos_location_code,
+        city: location.location_city,
+        country: location.location_country,
+        state: location.location_state,
       },
     },
-  }
+  };
+  return isCurrent ? { currentAssignment: response } : response;
 }
 
 // Gets clients for an Agent
 const get_clients = async query => {
   const data = await get_paged_employees_by_query(query, get_clients_filters)
   const currentAssignmentOnly = query["request_params.currentAssignmentOnly"]
-  return data.map((emp, index) => {
+  return (data || []).map((emp, index) => {
     const { roles = [],  manager = {}, currentassignment = {}, assignments = [], classifications = [] } = emp
-    let assignmentInfo = getAssignment(currentassignment)
+    let assignmentInfo = getAssignment(currentassignment, true)
     // Have to specifically check for false as null will return currentAssignment
     if (currentAssignmentOnly === 'false') {
        // FSBid returns an object if there is only 1 assignment ¯\_(ツ)_/¯
+       const assignments$ = (assignments || []).map(m => getAssignment(m));
        assignmentInfo = {
-        assignment: assignments.length === 1 ? assignments[0] : assignments
+        assignment: assignments$.length === 1 ? assignments$[0] : assignments$
       }
     }
     const res =  {
@@ -142,7 +145,7 @@ const get_agents_filters = (params = {}) => {
   if (rl_cd) q['employees_roles.code'] = rl_cd
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
   if (hru_id) q['employees.hru_id'] = hru_id
-  
+
   return q
 }
 
@@ -228,16 +231,21 @@ const addMultiValueFilter = (qb, value, field) => {
 
 // Default fetch options
 const FETCH_OPTIONS = {
-  require: false, 
+  require: false,
   withRelated: [
-    'roles', 
-    'skills', 
-    'manager', 
-    'bids', 
-    'classifications', 
+    'roles',
+    'skills',
+    'manager',
+    'bids',
+    'classifications',
     'assignments',
-    'currentassignment', 
-    'currentassignment.position', 
+    'assignments.position',
+    'assignments.position.skill',
+    'assignments.position.location',
+    'assignments.position.bureau',
+    'assignments.position.lang1',
+    'currentassignment',
+    'currentassignment.position',
     'currentassignment.position.skill',
     'currentassignment.position.location',
     'currentassignment.position.bureau',
@@ -284,7 +292,7 @@ const get_assignments = async query => {
         pageSize: query["request_params.page_size"] || 25,
         page: query["request_params.page_index"] || 1,
       })
-    
+
     return data.serialize().map((asg, i) => {
       delete asg.eta_date
       delete asg.etd_ted_date
@@ -315,7 +323,7 @@ const get_classifications = async query => {
       pageSize: query["request_params.page_size"] || 25,
       page: query["request_params.page_index"] || 1,
     })
-    
+
     return await data.serialize().map(classification => {
       const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
       return filteredClassification
