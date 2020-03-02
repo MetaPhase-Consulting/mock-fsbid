@@ -272,8 +272,8 @@ const get_employees_by_query = async (query, mapping) => {
 
 const get_employees_count_by_query = async (query, mapping) => {
   try {
-    const data = await get_employees_query(query, mapping).count()
-    return [{ count: parseInt(data) }]
+    const data = await get_employees_query(query, mapping).fetchAll()
+    return [{ count: parseInt(data.length) }]
   } catch (Error) {
     console.error(Error)
     return null
