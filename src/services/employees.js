@@ -4,7 +4,9 @@ const { addOrderBy } = require('./common.js')
 // Mapping of provided sort fields to matching query fields
 const SORT_MAPPING = {
   per_grade_code: 'employees.grade_code',
-  per_skill_code: 'codes.skl_code'
+  per_skill_code: 'codes.skl_code',
+  per_last_name: 'employees.last_name',
+  per_first_name: 'employees.first_name',
 }
 
 // Fetch an employee for an ad_id value
@@ -178,9 +180,16 @@ const get_employees_query = (params, mapping) => {
     perdet_seq_numFilter(qb, params['request_params.perdet_seq_num'])
     addHSFilter(qb, params['request_params.hs_cd'])
     addFreeTextFilter(qb, params['request_params.freeText'])
-    addOrderBy(qb, params['request_params.order_by'], SORT_MAPPING)
-    // Default sort
-    qb.orderBy('employees.last_name')
+    const isCount = params['request_params.get_count'] === 'true'
+    if (!isCount) {
+      const orderByField = params['request_params.order_by']
+      if (orderByField) {
+        addOrderBy(qb, orderByField, SORT_MAPPING)
+      } else {
+        // Default sort
+        qb.orderBy('employees.last_name')
+      }
+    }
   })
 }
 
