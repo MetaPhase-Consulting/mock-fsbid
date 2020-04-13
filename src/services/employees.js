@@ -369,7 +369,6 @@ const get_persons = async query => {
   try {
     const data = await get_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
-      console.log(emp)
       const res = {
           per_seq_num: emp.per_seq_num,
           per_full_name: emp.fullname,

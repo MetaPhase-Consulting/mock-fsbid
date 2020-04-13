@@ -71,11 +71,45 @@ const CDO_CLIENT_CLASSIFICATION_KEYS = [
   "employee.classifications.tp_descr_txt",
 ]
 
-CLASSIFICATIONS_KEYS = [
+const CLASSIFICATIONS_KEYS = [
   "td_id",
   "tp_code",
   "tp_descr_txt",
   "disabled_ind",
+]
+
+const PERSONS_KEYS = [
+  'per_seq_num',
+  'per_full_name',
+  'per_last_name',
+  'per_first_name',
+  'per_middle_name',
+  'per_suffix_name',
+  'per_prefix_name',
+  'per_ssn_id',
+  'per_birth_date',
+  'per_org_code',
+  'per_skill_code',
+  'per_pay_plan_code',
+  'per_grade_code',
+  'per_tenure_code',
+  'pers_code',
+  'per_create_id',
+  'per_create_date',
+  'per_update_id',
+  'per_update_date',
+  'per_middle_initial_name',
+  'per_retirement_code',
+  'per_concurrent_appts_flg',
+  'per_empl_rcd#',
+  'pert_external_id',
+  'extt_code',
+  'perdet_seq_num',
+  'per_service_type_code',
+  'per_service_type_desc',
+  'min_act_empl_rcd#_ind',
+  'pert_current_ind',
+  'rnum',
 ]
 
 describe('Employees', () => {
@@ -128,6 +162,21 @@ describe('Employees', () => {
           res.should.have.status(200)
           res.body.Data.forEach(d => {
             flattenObject(d).should.contain.all.keys(CLASSIFICATIONS_KEYS)
+          })
+          setTimeout(done, 0);
+        });
+    });
+  });
+
+  describe('/Persons', () => {
+    it('should return 200 with correct shape', done => {
+      chai.request(server)
+        .get('/Persons')
+        .set('jwtauthorization', 'test')
+        .end((err,res) => {
+          res.should.have.status(200)
+          res.body.Data.forEach(d => {
+            flattenObject(d).should.contain.all.keys(PERSONS_KEYS)
           })
           setTimeout(done, 0);
         });
