@@ -167,6 +167,14 @@ const get_clients_filters = (params = {}) => {
   return q
 }
 
+const get_persons_filters = (params = {}) => {
+  const { perdet_seq_num } = params
+  const q = {}
+  if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
+
+  return q
+}
+
 // Query for fetching employees
 const get_employees_query = (params, mapping) => {
   return Employees.query(qb => {
@@ -357,4 +365,53 @@ const get_classifications = async query => {
   }
 }
 
-module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications }
+const get_persons = async query => {
+  try {
+    const data = await get_employees_by_query(query, get_persons_filters)
+    return data.map(emp => {
+      console.log(emp)
+      const res = {
+          per_seq_num: emp.per_seq_num,
+          per_full_name: emp.fullname,
+          per_last_name: emp.last_name,
+          per_first_name: emp.first_name,
+          per_middle_name: emp.middle_name || '',
+          per_suffix_name: emp.per_suffix_name || '',
+          per_prefix_name: emp.prefix_name || '',
+          per_ssn_id: emp.per_ssn_id || '',
+          per_birth_date: emp.dob || '',
+          per_org_code: emp.currentassignment.position.org_code || '',
+          ...personSkills(emp.skills),
+          per_pay_plan_code: emp.per_pay_plan_code || '',
+          per_grade_code: emp.grade_code || '',
+          per_tenure_code: emp.tenure_code || '',
+          pers_code: emp.pers_code || '',
+          per_create_id: emp.per_create_id || '',
+          per_create_date: emp.per_create_date || '',
+          per_update_id: emp.per_update_id || '',
+          per_update_date: emp.per_updated_date || '',
+          per_middle_initial_name: '',
+          per_retirement_code: emp.per_retirement_code || '',
+          per_concurrent_appts_flg: emp.per_concurrent_appts_flg || '',
+          'per_empl_rcd#': '',
+          pert_external_id: emp.pert_external_id || '',
+          extt_code: emp.extt_code || '',
+          perdet_seq_num: emp.perdet_seq_num || '',
+          per_service_type_code: emp.per_service_type_code || '',
+          per_service_type_desc: emp.per_service_type_desc || '',
+          'min_act_empl_rcd#_ind': '',
+          pert_current_ind: emp.pert_current_ind || '',
+          rnum: emp.rnum || '',
+        }
+        delete res.per_skill_code_desc
+        delete res.per_skill_2_code_desc
+        delete res.per_skill_3_code_desc
+      return res
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons }
