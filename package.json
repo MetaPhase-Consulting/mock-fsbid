@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "bookshelf": "^1.0.1",
+    "bookshelf": "^1.1.1",
     "bookshelf-virtuals-plugin": "^0.1.1",
     "cors": "^2.8.5",
     "dotenv-safe": "^6.1.0",
