@@ -15,7 +15,7 @@
   "author": "Metaphase Consulting",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "bookshelf": "^1.0.1",
     "bookshelf-virtuals-plugin": "^0.1.1",
     "cors": "^2.8.5",
