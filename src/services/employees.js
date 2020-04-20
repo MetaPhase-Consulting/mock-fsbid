@@ -168,10 +168,14 @@ const get_clients_filters = (params = {}) => {
 }
 
 const get_persons_filters = (params = {}) => {
-  const { perdet_seq_num } = params
+  const per_seq_num = params['request_params.per_seq_num']
   const q = {}
-  if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
-
+  if (per_seq_num) {
+    q['employees.perdet_seq_num'] = per_seq_num
+  } else {
+    return null
+  }
+  
   return q
 }
 
