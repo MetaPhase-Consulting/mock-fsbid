@@ -9,8 +9,13 @@ const formatData = data => {
       data = [data]
     }
     return data.map(d => {
-      const { cycle, position } = d
+      const { cycle, position, bidstats } = d
       const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription } = position
+      d.cp_ttl_bidder_qty = bidstats.cp_ttl_bidder_qty
+      d.cp_at_grd_qty = bidstats.cp_at_grd_qty
+      d.cp_in_cone_qty = bidstats.cp_in_cone_qty
+      d.cp_at_grd_in_cone_qty = bidstats.cp_at_grd_in_cone_qty
+      delete d.bidstats
       d.tod = tod && tod.long_desc
       delete position.tod
       d.lang1 = formatLanguage(lang1)
@@ -44,6 +49,7 @@ const formatData = data => {
 }
 
 const RELATED = [
+  'bidstats',
   'cycle', 
   'position', 
   'position.tod', 
