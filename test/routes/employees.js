@@ -171,7 +171,7 @@ describe('Employees', () => {
   describe('/Persons', () => {
     it('should return 200 with correct shape', done => {
       chai.request(server)
-        .get('/Persons')
+        .get('/Persons?request_params.per_seq_num=8')
         .set('jwtauthorization', 'test')
         .end((err,res) => {
           res.should.have.status(200)
