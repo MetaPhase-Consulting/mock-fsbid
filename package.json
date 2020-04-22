@@ -23,6 +23,7 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.19.5",
+    "lodash": "^4.17.15",
     "morgan-body": "^2.4.8",
     "pg": "^7.12.1"
   },
@@ -35,6 +36,10 @@
     "sqlite3": "^4.1.1"
   },
   "nyc": {
-    "reporter": ["text","html","lcov"]
+    "reporter": [
+      "text",
+      "html",
+      "lcov"
+    ]
   }
 }

@@ -1,6 +1,8 @@
 const { Bids } = require('../models')
 const { get_available_position_by_id } = require('./availablepositions')
 
+const _ = require('lodash');
+
 // Enumeration of Statuses for Bids
 const BID_STATUSES = {
   DRAFT: { bs_cd: 'W', bs_descr_txt: 'Not Submitted' },
@@ -24,21 +26,21 @@ async function get_bid(cp_id, perdet_seq_num) {
   }
 }
 
-async function get_bids(query) {
+async function get_bids(query, isCDO) {
   const { perdet_seq_num } = query
   const bids = await Bids.where('perdet_seq_num', perdet_seq_num).fetchAll({
     withRelated: [
-      'position', 
-      'position.position.location', 
-      'position.position.skill', 
-      'position.cycle', 
+      'position',
+      'position.position.location',
+      'position.position.skill',
+      'position.cycle',
       'position.bidstats'
     ],
     require: false,
   })
 
   return {
-    Data: bids.map(bid => formatData(bid.serialize())),
+    Data: bids.map(bid => formatData(bid.serialize(), isCDO)),
     usl_id: 0,
     return_code: 0
   }
@@ -52,7 +54,7 @@ const get_delete_ind = id => (
 // Whether or not a CDO bid on the position
 const get_cdo_bid = id => ( { cdo_bid: 'N' } )
 
-const formatData = data => {
+const formatData = (data, isCDO = true) => {
   if (data && data.position) {
     const { cycle, bidstats } = data.position
     const { pos_seq_num, pos_title_desc:ptitle, position:pos_num_text, pos_skill_code, pos_skill_desc, pos_grade_code, location, skill } = data.position.position
@@ -62,7 +64,21 @@ const formatData = data => {
     const position = {
       pos_seq_num, ptitle, pos_skill_code:skill.skl_code, pos_skill_desc:skill.skill_descr, pos_grade_code, pos_num_text
     }
-    return { ...data, ...position, ...location, cycle_nm_txt:cycle.cycle_name, ...bidstats, ...get_delete_ind(data.id), ...get_cdo_bid(data.id) }
+    if (!isCDO) {
+      data.handshake_allowed_ind = null;
+    };
+    if (isCDO && !data.handshake_allowed_ind) {
+      data.handshake_allowed_ind = 'N';
+    };
+    return {
+      ...data,
+      ...position,
+      ...location,
+      cycle_nm_txt:cycle.cycle_name,
+      ...bidstats,
+      ...get_delete_ind(data.id),
+      ...get_cdo_bid(data.id)
+    }
   }
 }
 
@@ -105,9 +121,24 @@ async function submit_bid(query) {
     query,
     {
       ...BID_STATUSES.SUBMITTED,
+      handshake_allowed_ind: 'Y',
       ubw_submit_dt: new Date().toISOString(),
     }
   )
+}
+
+async function register_bid(query) {
+  const bid = await get_bid(query.cp_id, query.perdet_seq_num)
+  if (bid && bid.attributes.bs_cd === 'A' && bid.attributes.handshake_allowed_ind === 'Y') {
+    return await update_bid(
+      { ..._.pick(query, ['perdet_seq_num', 'cp_id'] ) },
+      {
+        ubw_hndshk_offrd_flg: 'Y',
+      }
+    )
+  } else {
+    return { Data: null, usl_id: 4000001, return_code: -2 }
+  }
 }
 
 async function remove_bid(query) {
@@ -124,6 +155,7 @@ async function offer_handshake(query) {
   return await update_bid(
     query,
     {
+      // This will need to be updated, as it describes what takes place in a "register bid"
       ubw_hndshk_offrd_flg: 'Y',
       ubw_hndshk_offrd_dt: new Date().toISOString(),
     }
@@ -171,4 +203,4 @@ async function update_bid(query, data) {
   return { Data: null, usl_id: 45066084, return_code }
 }
 
-module.exports = { get_bids, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid }
+module.exports = { get_bids, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid, register_bid }
