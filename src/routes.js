@@ -6,6 +6,7 @@ const employees = require('./services/employees')
 const lookups = require('./services/lookups')
 
 const jwt = require('jsonwebtoken');
+const _ = require('lodash');
 
 var appRouter = function (app) {
   app.get("/", function(req, res) {
@@ -46,7 +47,15 @@ var appRouter = function (app) {
   });
 
   app.get("/bids", async function (req, res) {
-    res.status(200).send(await bidding.get_bids(req.query));
+    let isCDO = false;
+    if (!req.headers.jwtauthorization) {
+      res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
+    } else {
+      const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
+      const found = _.get(decoded, 'payload.role', []).some(r => ['CDO', 'CDO3'].includes(r));
+      isCDO = found;
+    }
+    res.status(200).send(await bidding.get_bids(req.query, isCDO));
   });
 
   app.post('/bids', async function(req, res) {
@@ -66,6 +75,19 @@ var appRouter = function (app) {
       console.error('Error occurred submitting bid')
       console.error(`${err}`)
       res.status(200).send({ Data: null, return_code: -1 })
+    }
+  });
+
+  app.patch('/bids/handshake', async function(req, res) {
+    if (req.query.hs_cd !== "HS" || !req.query.perdet_seq_num || !req.query.cp_id) {
+      res.status(200).send({ Data: null, usl_id: 4000003, return_code: -2 })
+    };
+    try {
+      res.status(200).send(await bidding.register_bid(req.query))
+    } catch (err) {
+      console.error('Error registering handshake')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, usl_id: 4000002, return_code: -2 })
     }
   });
 
