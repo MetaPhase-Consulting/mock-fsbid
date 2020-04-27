@@ -141,6 +141,20 @@ async function register_bid(query) {
   }
 }
 
+async function unregister_bid(query) {
+  const bid = await get_bid(query.cp_id, query.perdet_seq_num)
+  if (bid && bid.attributes.bs_cd === 'A' && bid.attributes.handshake_allowed_ind === 'Y') {
+    return await update_bid(
+      { ..._.pick(query, ['perdet_seq_num', 'cp_id'] ) },
+      {
+        ubw_hndshk_offrd_flg: 'N',
+      }
+    )
+  } else {
+    return { Data: null, usl_id: 4000031, return_code: -2 }
+  }
+}
+
 async function remove_bid(query) {
   return await update_bid(
     query,
@@ -203,4 +217,4 @@ async function update_bid(query, data) {
   return { Data: null, usl_id: 45066084, return_code }
 }
 
-module.exports = { get_bids, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid, register_bid }
+module.exports = { get_bids, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid, register_bid, unregister_bid }
