@@ -212,6 +212,16 @@ var appRouter = function (app) {
       return_code: 0
     })
   })
+
+  app.get('/Persons', async function(req,res) {
+    const persons = await employees.get_persons(req.query)
+
+    res.status(200).send({
+      Data: persons,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
 };
 
 module.exports = appRouter;
