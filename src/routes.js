@@ -79,13 +79,23 @@ var appRouter = function (app) {
   });
 
   app.patch('/bids/handshake', async function(req, res) {
-    if (req.query.hs_cd !== "HS" || !req.query.perdet_seq_num || !req.query.cp_id) {
+    if (!req.query.perdet_seq_num || !req.query.cp_id) {
       res.status(200).send({ Data: null, usl_id: 4000003, return_code: -2 })
     };
     try {
-      res.status(200).send(await bidding.register_bid(req.query))
+      if (req.query.perdet_seq_num && req.query.cp_id) {
+        if (req.query.hs_cd === "HS") {
+          res.status(200).send(await bidding.register_bid(req.query))
+        } else if (!req.query.hs_cd) {
+          res.status(200).send(await bidding.unregister_bid(req.query))
+        } else {
+          res.status(200).send({ Data: null, usl_id: 4000013, return_code: -2 })
+        }
+      } else {
+        res.status(200).send({ Data: null, usl_id: 4000033, return_code: -2 })
+      }
     } catch (err) {
-      console.error('Error registering handshake')
+      console.error('Error registering/unregistering handshake')
       console.error(`${err}`)
       res.status(200).send({ Data: null, usl_id: 4000002, return_code: -2 })
     }
