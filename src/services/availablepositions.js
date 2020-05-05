@@ -2,7 +2,7 @@ const { AvailablePositions } = require('../models')
 const { createPositionQuery, createTandemPositionQuery, formatLanguage} = require('./common')
 
 const create_query = (query, isCount=false) => createPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount)
-const create_tandem_query = (query, isCount=false) => createTandemPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount)
+const create_tandem_query = (query, isCount=false, isTandemOne=false) => createTandemPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount, isTandemOne)
 
 const formatData = (data => {
   if (data) {
@@ -150,14 +150,14 @@ async function get_available_position_by_id(id) {
 }
 
 async function get_available_positions_tandem(query) {
-  const dataTandemOne = await create_query(query).fetchPage({
+  const dataTandemOne = await create_tandem_query(query, false, true).fetchPage({
     withRelated: RELATED,
     pageSize: query["request_params.page_size"] || 25,
     page: query["request_params.page_index"] || 1,
     require: false,
   })
 
-  const dataTandemTwo = await create_tandem_query(query).fetchPage({
+  const dataTandemTwo = await create_tandem_query(query, false, false).fetchPage({
     withRelated: RELATED,
     pageSize: query["request_params.page_size"] || 25,
     page: query["request_params.page_index"] || 1,

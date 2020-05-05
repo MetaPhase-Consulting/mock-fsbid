@@ -16,7 +16,7 @@ const FILTERS = {
   "cps_codes": { field: "cp_status" },
 }
 
-const TANDEM_FILTERS = {
+const TANDEM_ONE_FILTERS = {
   "pos_numbers": { field: "position" },
   "grades": { field: "positions.pos_grade_code" },
   "languages": {field: ["positions.lang1", "positions.lang2"] },
@@ -28,16 +28,40 @@ const TANDEM_FILTERS = {
   "differential_pays": { field: "positions.bt_differential_rate_num" },
   "skills": { field: "codes.skl_code" },
   "cp_ids": { field: "cp_id" },
-  "bid_seasons": { field: "bsn_id" },
-  "seq_nums": { field: "fv_seq_num" },
   "cps_codes": { field: "cp_status" },
+  // "bid_seasons": { field: "bsn_id" },  -- NOT IN FSBID SWAGGER -- 
+  // "seq_nums": { field: "fv_seq_num" }, -- NOT IN FSBID SWAGGER -- 
+  // "us_codes": { field: us_code },      -- TO-DO -- 
+  // "cpn_codes": { field: cpn_code },    -- TO-DO --
+}
+
+const TANDEM_TWO_FILTERS = {
+  "pos_numbers2": { field: "position" },
+  "grades2": { field: "positions.pos_grade_code" },
+  "languages2": {field: ["positions.lang1", "positions.lang2"] },
+  "bureaus2": { field: "positions.bureau" },
+  "danger_pays2": { field: "positions.bt_danger_pay_num" },
+  "assign_cycles2": { field: "cycle_id" },
+  "location_codes2": { field: "positions.pos_location_code" },
+  "tod_codes2": { field: "positions.tod" },
+  "differential_pays2": { field: "positions.bt_differential_rate_num" },
+  "skills2": { field: "codes.skl_code" },
+  "cp_ids2": { field: "cp_id" },
+  "cps_codes2": { field: "cp_status" },
+  // "bid_seasons": { field: "bsn_id" },  -- NOT IN FSBID SWAGGER -- 
+  // "seq_nums": { field: "fv_seq_num" }, -- NOT IN FSBID SWAGGER -- 
+  // "us_codes2": { field: us_code },     -- TO-DO -- 
+  // "cpn_codes2": { field: cpn_code },   -- TO-DO --
 }
 
 // Get field for the provided filter.
 const getFilter = param => FILTERS[param.split('.').slice(-1)[0]]
 
 // Get field for the tandem filters.
-const getTandemFilter = param => TANDEM_FILTERS[param.split('.').slice(-1)[0]]
+const getTandemFilter = (param, isTandemOne) => {
+  const tandem_filters = isTandemOne ? TANDEM_ONE_FILTERS : TANDEM_TWO_FILTERS
+  return tandem_filters[param.split('.').slice(-1)[0]]
+}
 
 // Custom filter function for overseas positions
 // Adds a filter to the qb for the field and value
@@ -100,7 +124,7 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
   })
 }
 
-const createTandemPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
+const createTandemPositionQuery = (model, tableName, paramPrefix, query, isCount, isTandemOne) => {
   return model.query(qb => {
     qb.join('positions', `${tableName}.position`, 'positions.position')
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
@@ -108,7 +132,7 @@ const createTandemPositionQuery = (model, tableName, paramPrefix, query, isCount
     qb.join('codes', 'positions.jc_id', 'codes.jc_id')
     qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
     Object.keys(query).map(q => {
-      const tandemFilter = getTandemFilter(q)
+      const tandemFilter = getTandemFilter(q, isTandemOne)
       const value = query[q]
       if (tandemFilter && tandemFilter.field && value) {
         // Handle multiple fields on the same param
