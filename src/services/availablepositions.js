@@ -4,7 +4,7 @@ const { createPositionQuery, createTandemPositionQuery, formatLanguage} = requir
 const create_query = (query, isCount=false) => createPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount)
 const create_tandem_query = (query, isCount=false, isTandemOne=false) => createTandemPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount, isTandemOne)
 
-const formatData = (data => {
+const formatData = data => {
   if (data) {
     if (!Array.isArray(data)) {
       data = [data]
@@ -47,7 +47,7 @@ const formatData = (data => {
       return { ...d, ...position }
     })
   }
-})
+}
 
 const formatTandemData = (data, isTandemOne=false) => {
   if (data) {
