@@ -153,7 +153,11 @@ var appRouter = function (app) {
 
   app.get('/positions/available/tandem', async function(req, res) {
     res.status(200).send(await availablePositions.get_available_positions_tandem(req.query))
-  }); 
+  });
+
+  app.get('/positions/futureVacancies/tandem', async function(req, res) {
+    res.status(200).send(await futureVacancies.get_future_vacancies_tandem(req.query))
+  });
 
   app.get('/Employees/userInfo', async function(req, res) {
     const employee = await employees.get_employee_by_ad_id(req.query)
