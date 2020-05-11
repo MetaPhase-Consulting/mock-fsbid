@@ -177,17 +177,11 @@ async function get_available_positions_tandem(query) {
 }
 
 async function get_ap_tandem_count(query, isCount) {
-  const dataTandemOne = await create_tandem_query(query, isCount, true).fetchAll({
-    withRelated: RELATED,
-    require: false,
-  })
-  const dataTandemTwo = await create_tandem_query(query, isCount, false).fetchAll({
-    withRelated: RELATED,
-    require: false,
-  })
-  const combinedCount = dataTandemOne.length + dataTandemTwo.length
+  const dataTandemOne = await create_tandem_query(query, isCount, true).count()
+  const dataTandemTwo = await create_tandem_query(query, isCount, false).count()
+  const combinedCount = parseInt(dataTandemOne) + parseInt(dataTandemTwo)
   return {
-    "Data": [{ count: parseInt(combinedCount) }],
+    "Data": [{ "count(1)": combinedCount }],
     "usl_id": 44999637,
     "return_code": 0
   }

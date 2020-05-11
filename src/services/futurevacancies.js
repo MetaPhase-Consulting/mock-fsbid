@@ -115,20 +115,37 @@ async function get_future_vacancies_count(query) {
 }
 
 async function get_future_vacancies_tandem(query) {
-  const dataTandemOne = await create_tandem_query(query, false, true).fetchPage({
-    withRelated: RELATED,
-    pageSize: query["fv_request_params.page_size"] || 25,
-    page: query["fv_request_params.page_index"] || 1
-  })
+  const isCount = query['request_params.get_count'] === 'true'
 
-  const dataTandemTwo = await create_tandem_query(query, false, false).fetchPage({
-    withRelated: RELATED,
-    pageSize: query["fv_request_params.page_size"] || 25,
-    page: query["fv_request_params.page_index"] || 1
-  })
+  if (isCount) {
+    return await get_fv_tandem_count(query, isCount)
+  } else {
+    const dataTandemOne = await create_tandem_query(query, false, true).fetchPage({
+      withRelated: RELATED,
+      pageSize: query["fv_request_params.page_size"] || 25,
+      page: query["fv_request_params.page_index"] || 1
+    })
+  
+    const dataTandemTwo = await create_tandem_query(query, false, false).fetchPage({
+      withRelated: RELATED,
+      pageSize: query["fv_request_params.page_size"] || 25,
+      page: query["fv_request_params.page_index"] || 1
+    })
+  
+    return {
+      "Data": formatTandemData(dataTandemOne.serialize(), true).concat(formatTandemData(dataTandemTwo.serialize(), false)),
+      "usl_id": 44999637,
+      "return_code": 0
+    }
+  }
+}
 
+async function get_fv_tandem_count(query, isCount) {
+  const dataTandemOne = await create_tandem_query(query, isCount, true).count()
+  const dataTandemTwo = await create_tandem_query(query, isCount, false).count()
+  const combinedCount = parseInt(dataTandemOne) + parseInt(dataTandemTwo)
   return {
-    "Data": formatTandemData(dataTandemOne.serialize(), true).concat(formatTandemData(dataTandemTwo.serialize(), false)),
+    "Data": [{ "count(1)": combinedCount }],
     "usl_id": 44999637,
     "return_code": 0
   }
