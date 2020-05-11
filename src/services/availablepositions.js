@@ -150,22 +150,38 @@ async function get_available_position_by_id(id) {
 }
 
 async function get_available_positions_tandem(query) {
-  const dataTandemOne = await create_tandem_query(query, false, true).fetchPage({
-    withRelated: RELATED,
-    pageSize: query["request_params.page_size"] || 25,
-    page: query["request_params.page_index"] || 1,
-    require: false,
-  })
+  const isCount =  query['request_params.get_count'] === 'true'
 
-  const dataTandemTwo = await create_tandem_query(query, false, false).fetchPage({
-    withRelated: RELATED,
-    pageSize: query["request_params.page_size"] || 25,
-    page: query["request_params.page_index"] || 1,
-    require: false,
-  })
+  const dataTandemOne = isCount ?
+    await create_tandem_query(query, isCount, true).fetchAll({
+      withRelated: RELATED,
+      require: false,
+    }) :
+    await create_tandem_query(query, isCount, true).fetchPage({
+      withRelated: RELATED,
+      pageSize: query["request_params.page_size"] || 25,
+      page: query["request_params.page_index"] || 1,
+      require: false,
+    })
+  
+  const dataTandemTwo = isCount ?
+    await create_tandem_query(query, isCount, false).fetchAll({
+      withRelated: RELATED,
+      require: false,
+    }) :
+    await create_tandem_query(query, isCount, false).fetchPage({
+      withRelated: RELATED,
+      pageSize: query["request_params.page_size"] || 25,
+      page: query["request_params.page_index"] || 1,
+      require: false,
+    })
+
+  const data = isCount ? 
+    [{ count: parseInt(dataTandemOne.length + dataTandemTwo.length) }] :
+    formatTandemData(dataTandemOne.serialize(), true).concat(formatTandemData(dataTandemTwo.serialize(), false))
 
   return {
-    "Data": formatTandemData(dataTandemOne.serialize(), true).concat(formatTandemData(dataTandemTwo.serialize(), false)),
+    "Data": data,
     "usl_id": 44999637,
     "return_code": 0
   }
