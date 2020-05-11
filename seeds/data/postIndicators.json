@@ -1,0 +1,22 @@
+[
+  {
+    "bt_column_name": "BT_CONSUMABLE_ALLOWNCE_FLG",
+    "bt_column_desc": "Consumables Allowance"
+  },
+  {
+    "bt_column_name": "BT_INSIDE_EFM_EMPLOYMENT_FLG",
+    "bt_column_desc": "EFM Employ Inside"
+  },
+  {
+    "bt_column_name": "BT_OUTSIDE_EFM_EMPLOYMENT_FLG",
+    "bt_column_desc": "EFM Employ Outside"
+  },
+  {
+    "bt_column_name": "BT_MOST_DIFFICULT_TO_STAFF_FLG",
+    "bt_column_desc": "Historic Diff. to Staff"
+  },
+  {
+    "bt_column_name": "BT_SERVICE_NEEDS_DIFF_FLG",
+    "bt_column_desc": "Service Need Differential"
+  }
+]
