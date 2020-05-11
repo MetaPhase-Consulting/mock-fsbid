@@ -69,6 +69,7 @@ const formatTandemData = (data, isTandemOne) => {
     delete position.skill
     d.ppos_capsule_descr_txt = capsuledescription.description
     d.ppos_capsule_modify_dt = capsuledescription.last_modified
+    d.cpn_desc = "EAP-Singapore/Kuala Lumpur"
     delete position.capsuledescription
     d.tandem_nbr = isTandemOne ? 1 : 2
     return { rnum: i, ...d, ...position }

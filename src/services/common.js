@@ -29,8 +29,8 @@ const TANDEM_ONE_FILTERS = {
   "skills": { field: "codes.skl_code" },
   "cp_ids": { field: "cp_id" },
   "cps_codes": { field: "cp_status" },
-  // "bid_seasons": { field: "bsn_id" },  -- NOT IN FSBID SWAGGER -- 
-  // "seq_nums": { field: "fv_seq_num" }, -- NOT IN FSBID SWAGGER -- 
+  "bid_seasons": { field: "bsn_id" }, 
+  "seq_nums": { field: "fv_seq_num" },
   // "us_codes": { field: us_code },      -- TO-DO -- 
   // "cpn_codes": { field: cpn_code },    -- TO-DO --
 }

@@ -43,6 +43,7 @@ const formatData = data => {
       delete position.skill
       d.ppos_capsule_descr_txt = capsuledescription.description
       d.ppos_capsule_modify_dt = capsuledescription.last_modified
+      d.cpn_desc = "EAP-Singapore/Kuala Lumpur"
       delete position.capsuledescription
       return { ...d, ...position }
     })
