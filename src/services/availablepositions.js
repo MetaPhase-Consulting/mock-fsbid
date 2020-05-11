@@ -150,38 +150,44 @@ async function get_available_position_by_id(id) {
 }
 
 async function get_available_positions_tandem(query) {
-  const isCount =  query['request_params.get_count'] === 'true'
+  const isCount = query['request_params.get_count'] === 'true'
 
-  const dataTandemOne = isCount ?
-    await create_tandem_query(query, isCount, true).fetchAll({
-      withRelated: RELATED,
-      require: false,
-    }) :
-    await create_tandem_query(query, isCount, true).fetchPage({
+  if (isCount) {
+    return await get_ap_tandem_count(query, isCount)
+  } else {
+    const dataTandemOne = await create_tandem_query(query, isCount, true).fetchPage({
       withRelated: RELATED,
       pageSize: query["request_params.page_size"] || 25,
       page: query["request_params.page_index"] || 1,
       require: false,
     })
-  
-  const dataTandemTwo = isCount ?
-    await create_tandem_query(query, isCount, false).fetchAll({
-      withRelated: RELATED,
-      require: false,
-    }) :
-    await create_tandem_query(query, isCount, false).fetchPage({
+    const dataTandemTwo = await create_tandem_query(query, isCount, false).fetchPage({
       withRelated: RELATED,
       pageSize: query["request_params.page_size"] || 25,
       page: query["request_params.page_index"] || 1,
       require: false,
     })
+    const data = formatTandemData(dataTandemOne.serialize(), true).concat(formatTandemData(dataTandemTwo.serialize(), false))
+    return {
+      "Data": data,
+      "usl_id": 44999637,
+      "return_code": 0
+    }
+  }
+}
 
-  const data = isCount ? 
-    [{ count: parseInt(dataTandemOne.length + dataTandemTwo.length) }] :
-    formatTandemData(dataTandemOne.serialize(), true).concat(formatTandemData(dataTandemTwo.serialize(), false))
-
+async function get_ap_tandem_count(query, isCount) {
+  const dataTandemOne = await create_tandem_query(query, isCount, true).fetchAll({
+    withRelated: RELATED,
+    require: false,
+  })
+  const dataTandemTwo = await create_tandem_query(query, isCount, false).fetchAll({
+    withRelated: RELATED,
+    require: false,
+  })
+  const combinedCount = dataTandemOne.length + dataTandemTwo.length
   return {
-    "Data": data,
+    "Data": [{ count: parseInt(combinedCount) }],
     "usl_id": 44999637,
     "return_code": 0
   }
