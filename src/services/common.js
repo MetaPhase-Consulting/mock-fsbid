@@ -48,8 +48,8 @@ const TANDEM_TWO_FILTERS = {
   "skills2": { field: "codes.skl_code" },
   "cp_ids2": { field: "cp_id" },
   "cps_codes2": { field: "cp_status" },
-  // "bid_seasons": { field: "bsn_id" },  -- NOT IN FSBID SWAGGER -- 
-  // "seq_nums": { field: "fv_seq_num" }, -- NOT IN FSBID SWAGGER -- 
+  "bid_seasons": { field: "bsn_id" },
+  "seq_nums": { field: "fv_seq_num" },
   // "us_codes2": { field: us_code },     -- TO-DO -- 
   // "cpn_codes2": { field: cpn_code },   -- TO-DO --
 }
