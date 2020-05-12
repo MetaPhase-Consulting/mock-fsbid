@@ -1,2 +1,11 @@
+# NPM and Node modules
 node_modules
 npm-debug.log
+
+# Git and GitHub files
+.git
+.github
+
+# Code coverage reports
+.nyc_output
+coverage
