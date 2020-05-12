@@ -14,7 +14,7 @@ const FILTERS = {
   "bid_seasons": { field: "bsn_id" },
   "seq_nums": { field: "fv_seq_num" },
   "cps_codes": { field: "cp_status" },
-  "bt_inside_efm_employment_flg": { field: "bt_inside_efm_employment_flg" },
+  "bt_consumable_allowance_flg": { field: "bt_consumable_allowance_flg" },
   "bt_service_needs_diff_flg": { field: "bt_service_needs_diff_flg" },
   "bt_most_difficult_to_staff_flg": { field: "bt_most_difficult_to_staff_flg" },
   "bt_inside_efm_employment_flg": { field: "bt_inside_efm_employment_flg" },
