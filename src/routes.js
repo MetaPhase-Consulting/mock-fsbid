@@ -3,6 +3,7 @@ const bidding = require('./services/bids')
 const futureVacancies = require('./services/futurevacancies')
 const availablePositions = require('./services/availablepositions')
 const employees = require('./services/employees')
+const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
 
 const jwt = require('jsonwebtoken');
@@ -192,6 +193,12 @@ var appRouter = function (app) {
   app.get('/bureaus', lookup(lookups.get_bureaus))
   app.get('/skillCodes', lookup(lookups.get_codes))
   app.get('/Locations', lookup(lookups.get_locations))
+
+  app.get('/references/postAttributes', async function(req, res) {
+    // TODO - add all post attributes tables by query param
+    const data = await postattributes.get_postattributes(req.query)
+    res.status(200).send(data)
+  })
 
   app.get('/Agents', async function(req, res) {
     const agents = await employees.get_agents(req.query)

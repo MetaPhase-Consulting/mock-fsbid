@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const { readJson } = require('./data/helpers')
 
 const cycles = readJson('./cycles.json')
@@ -9,6 +10,7 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       const availablepositions = []
+      const flags = ["Y", "N", null];
       cycles.forEach(cycle => {
         positions.forEach(position => {
           availablepositions.push({
@@ -16,7 +18,12 @@ exports.seed = function(knex) {
             cp_status: 'OP',
             cp_post_dt: knex.fn.now(),
             cp_ted_ovrrd_dt: knex.fn.now(),
-            position: position['position']
+            position: position['position'],
+            bt_consumable_allowance_flg: _.sample(flags),
+            bt_service_needs_diff_flg: _.sample(flags),
+            bt_most_difficult_to_staff_flg: _.sample(flags),
+            bt_inside_efm_employment_flg: _.sample(flags),
+            bt_outside_efm_employment_flg: _.sample(flags),
           })
         })
       });
