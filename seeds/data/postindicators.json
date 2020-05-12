@@ -1,6 +1,6 @@
 [
   {
-    "bt_column_name": "BT_CONSUMABLE_ALLOWNCE_FLG",
+    "bt_column_name": "BT_CONSUMABLE_ALLOWANCE_FLG",
     "bt_column_desc": "Consumables Allowance"
   },
   {
