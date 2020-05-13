@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 // Maps filter values to data values
 const FILTERS = {
   "pos_numbers": { field: "position" },
@@ -14,12 +16,17 @@ const FILTERS = {
   "bid_seasons": { field: "bsn_id" },
   "seq_nums": { field: "fv_seq_num" },
   "cps_codes": { field: "cp_status" },
-  "bt_consumable_allowance_flg": { field: "bt_consumable_allowance_flg" },
-  "bt_service_needs_diff_flg": { field: "bt_service_needs_diff_flg" },
-  "bt_most_difficult_to_staff_flg": { field: "bt_most_difficult_to_staff_flg" },
-  "bt_inside_efm_employment_flg": { field: "bt_inside_efm_employment_flg" },
-  "bt_outside_efm_employment_flg": { field: "bt_outside_efm_employment_flg" },
   "us_codes": { field: "unaccompaniedstatuses.us_code" },
+  "post_ind": {
+    fields: [
+      "bt_consumable_allowance_flg",
+      "bt_service_needs_diff_flg",
+      "bt_most_difficult_to_staff_flg",
+      "bt_inside_efm_employment_flg",
+      "bt_outside_efm_employment_flg",
+    ],
+    value: 'Y',
+  }
 }
 
 const TANDEM_ONE_FILTERS = {
@@ -38,6 +45,16 @@ const TANDEM_ONE_FILTERS = {
   "bid_seasons": { field: "bsn_id" },
   "seq_nums": { field: "fv_seq_num" },
   "us_codes": { field: "unaccompaniedstatuses.us_code" },
+  "post_ind": {
+    fields: [
+      "bt_consumable_allowance_flg",
+      "bt_service_needs_diff_flg",
+      "bt_most_difficult_to_staff_flg",
+      "bt_inside_efm_employment_flg",
+      "bt_outside_efm_employment_flg",
+    ],
+    value: 'Y',
+  }
   // "cpn_codes": { field: cpn_code },    -- TO-DO --
 }
 
@@ -55,8 +72,18 @@ const TANDEM_TWO_FILTERS = {
   "cp_ids2": { field: "cp_id" },
   "cps_codes2": { field: "cp_status" },
   "bid_seasons": { field: "bsn_id" },
-  "seq_nums": { field: "fv_seq_num" },
-  "us_codes": { field: "unaccompaniedstatuses.us_code" },
+  "seq_nums2": { field: "fv_seq_num" },
+  "us_codes2": { field: "unaccompaniedstatuses.us_code" },
+  "post_ind2": {
+    fields: [
+      "bt_consumable_allowance_flg",
+      "bt_service_needs_diff_flg",
+      "bt_most_difficult_to_staff_flg",
+      "bt_inside_efm_employment_flg",
+      "bt_outside_efm_employment_flg",
+    ],
+    value: 'Y',
+  }
   // "cpn_codes2": { field: cpn_code },   -- TO-DO --
 }
 
@@ -105,7 +132,7 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
     Object.keys(query).map(q => {
       const filter = getFilter(q)
       const value = query[q]
-      if (filter && filter.field && value) {
+      if (filter && (filter.field || filter.fields) && value) {
         // Handle multiple fields on the same param
         if (Array.isArray(filter.field)) {
           qb.where(function() {
@@ -113,6 +140,20 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
             w = this.where(filter.field[0], operator, value)
             for (let i = 1; i < filter.field.length; i++) {
               w.orWhere(filter.field[i], operator, value)
+            }
+          })
+        } else if (Array.isArray(filter.fields)) {
+          // For when we want a single query array to map to multiple
+          // fields, as listed by the query array, using a predefined
+          // value defined in FILTERS.
+          qb.where(function() {
+            const value$ = filter.value || 'Y';
+            let values$ = Array.isArray(value) ? value : [value];
+            values$ = values$.map(m => m.toLowerCase());
+            const fields$ = _.intersection(filter.fields, values$);
+            w = this.where(fields$[0], '=', value$)
+            for (let i = 1; i < fields$.length; i++) {
+              w.orWhere(fields$[i], '=', value$)
             }
           })
         } else {
@@ -142,7 +183,7 @@ const createTandemPositionQuery = (model, tableName, paramPrefix, query, isCount
     Object.keys(query).map(q => {
       const tandemFilter = getTandemFilter(q, isTandemOne)
       const value = query[q]
-      if (tandemFilter && tandemFilter.field && value) {
+      if (tandemFilter && (tandemFilter.field || tandemFilter.fields) && value) {
         // Handle multiple fields on the same param
         if (Array.isArray(tandemFilter.field)) {
           qb.where(function() {
@@ -150,6 +191,20 @@ const createTandemPositionQuery = (model, tableName, paramPrefix, query, isCount
             w = this.where(tandemFilter.field[0], operator, value)
             for (let i = 1; i < tandemFilter.field.length; i++) {
               w.orWhere(tandemFilter.field[i], operator, value)
+            }
+          })
+        } else if (Array.isArray(tandemFilter.fields)) {
+          // For when we want a single query array to map to multiple
+          // fields, as listed by the query array, using a predefined
+          // value defined in FILTERS.
+          qb.where(function() {
+            const value$ = tandemFilter.value || 'Y';
+            let values$ = Array.isArray(value) ? value : [value];
+            values$ = values$.map(m => m.toLowerCase());
+            const fields$ = _.intersection(tandemFilter.fields, values$);
+            w = this.where(fields$[0], '=', value$)
+            for (let i = 1; i < fields$.length; i++) {
+              w.orWhere(fields$[i], '=', value$)
             }
           })
         } else {
