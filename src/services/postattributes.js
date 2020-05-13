@@ -1,4 +1,4 @@
-const { get_postindicators } = require('./lookups.js');
+const { get_postindicators, get_unaccompaniedstatuses } = require('./lookups.js');
 
 const get_postattributes = async query => {
   let data = {
@@ -9,6 +9,8 @@ const get_postattributes = async query => {
   // TODO - add other post attribute models
   if (query.codeTableName === 'PostIndicatorTable') {
     data = await get_postindicators();
+  } else if (query.codeTableName === 'UnaccompaniedStatuses') {
+    data = await get_unaccompaniedstatuses();
   }
   return data
 }

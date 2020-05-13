@@ -1,18 +1,19 @@
 const { readJson } = require('./data/helpers')
 
 const lookups = [
-  'bureaus', 
-  'codes', 
-  'cycles', 
-  'dangerpays', 
-  'differentialrates', 
-  'grades', 
-  'languages', 
-  'seasons', 
-  'tourofduties', 
+  'unaccompaniedstatuses',
+  'bureaus',
+  'codes',
+  'cycles',
+  'dangerpays',
+  'differentialrates',
+  'grades',
+  'languages',
+  'seasons',
+  'tourofduties',
   'organizations',
-  "locations",
-  "roles",
+  'locations',
+  'roles',
   'classifications'
 ]
 exports.seed = async function(knex) {
