@@ -16,7 +16,7 @@ const FILTERS = {
   "bid_seasons": { field: "bsn_id" },
   "seq_nums": { field: "fv_seq_num" },
   "cps_codes": { field: "cp_status" },
-
+  "us_codes": { field: "unaccompaniedstatuses.us_code" },
   "post_ind": {
     fields: [
       "bt_consumable_allowance_flg",
@@ -44,6 +44,7 @@ const TANDEM_ONE_FILTERS = {
   "cps_codes": { field: "cp_status" },
   "bid_seasons": { field: "bsn_id" },
   "seq_nums": { field: "fv_seq_num" },
+  "us_codes": { field: "unaccompaniedstatuses.us_code" },
   "post_ind": {
     fields: [
       "bt_consumable_allowance_flg",
@@ -54,7 +55,6 @@ const TANDEM_ONE_FILTERS = {
     ],
     value: 'Y',
   }
-  // "us_codes": { field: us_code },      -- TO-DO --
   // "cpn_codes": { field: cpn_code },    -- TO-DO --
 }
 
@@ -72,7 +72,8 @@ const TANDEM_TWO_FILTERS = {
   "cp_ids2": { field: "cp_id" },
   "cps_codes2": { field: "cp_status" },
   "bid_seasons": { field: "bsn_id" },
-  "seq_nums": { field: "fv_seq_num" },
+  "seq_nums2": { field: "fv_seq_num" },
+  "us_codes2": { field: "unaccompaniedstatuses.us_code" },
   "post_ind2": {
     fields: [
       "bt_consumable_allowance_flg",
@@ -83,7 +84,6 @@ const TANDEM_TWO_FILTERS = {
     ],
     value: 'Y',
   }
-  // "us_codes2": { field: us_code },     -- TO-DO --
   // "cpn_codes2": { field: cpn_code },   -- TO-DO --
 }
 
@@ -127,6 +127,7 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
     qb.join('codes', 'positions.jc_id', 'codes.jc_id')
+    qb.join('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
     qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
     Object.keys(query).map(q => {
       const filter = getFilter(q)
@@ -177,6 +178,7 @@ const createTandemPositionQuery = (model, tableName, paramPrefix, query, isCount
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
     qb.join('codes', 'positions.jc_id', 'codes.jc_id')
+    qb.join('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
     qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
     Object.keys(query).map(q => {
       const tandemFilter = getTandemFilter(q, isTandemOne)

@@ -1,3 +1,5 @@
+const _ = require('lodash')
+
 const { AvailablePositions } = require('../models')
 const { createPositionQuery, createTandemPositionQuery, formatLanguage} = require('./common')
 
@@ -33,6 +35,7 @@ const formatData = data => {
       d.location_city = location.location_city
       d.location_state = location.location_state
       d.location_country = location.location_country
+      d.us_desc_text = _.get(location, 'unaccompaniedstatus.us_desc_text', '')
       delete position.location
       d.pos_bureau_short_desc = bureau.bureau_short_desc
       d.pos_bureau_long_desc = bureau.bureau_long_desc
@@ -80,6 +83,7 @@ const formatTandemData = (data, isTandemOne=false) => {
       d.location_city = location.location_city
       d.location_state = location.location_state
       d.location_country = location.location_country
+      d.us_desc_text = _.get(location, 'unaccompaniedstatus.us_desc_text', '')
       delete position.location
       d.pos_bureau_short_desc = bureau.bureau_short_desc
       d.pos_bureau_long_desc = bureau.bureau_long_desc
@@ -99,16 +103,17 @@ const formatTandemData = (data, isTandemOne=false) => {
 
 const RELATED = [
   'bidstats',
-  'cycle', 
-  'position', 
-  'position.tod', 
-  'position.lang1', 
-  'position.lang2', 
-  'position.org', 
-  'position.location', 
+  'cycle',
+  'position',
+  'position.tod',
+  'position.lang1',
+  'position.lang2',
+  'position.org',
+  'position.location',
   'position.bureau',
   'position.skill',
   'position.capsuledescription',
+  'position.location.unaccompaniedstatus'
 ]
 
 async function get_available_positions(query) {

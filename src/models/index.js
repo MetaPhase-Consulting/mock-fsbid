@@ -20,6 +20,7 @@ const CapsuleDescription = require('./capsuledescriptions.js')
 const Classifications = require('./classifications.js')
 const Assignments = require('./assignments.js')
 const PostIndicators = require('./postindicators.js')
+const UnaccompaniedStatuses = require('./unaccompaniedstatuses.js')
 
 module.exports = {
   Seasons,
@@ -44,4 +45,5 @@ module.exports = {
   Classifications,
   Assignments,
   PostIndicators,
+  UnaccompaniedStatuses,
 }

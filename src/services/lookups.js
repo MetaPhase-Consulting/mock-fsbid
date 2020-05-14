@@ -9,7 +9,8 @@ const {
   Codes,
   Seasons,
   Locations,
-  PostIndicators
+  PostIndicators,
+  UnaccompaniedStatuses
 } = require('../models')
 
 // Call getAll on the provided model
@@ -34,6 +35,7 @@ const get_bureaus = getAll(Bureaus)
 const get_codes = getAll(Codes)
 const get_locations = getAll(Locations)
 const get_postindicators = getAll(PostIndicators)
+const get_unaccompaniedstatuses = getAll(UnaccompaniedStatuses)
 
 module.exports = {
   get_seasons,
@@ -47,4 +49,5 @@ module.exports = {
   get_codes,
   get_locations,
   get_postindicators,
+  get_unaccompaniedstatuses
 }
