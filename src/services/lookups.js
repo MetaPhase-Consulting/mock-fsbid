@@ -13,11 +13,30 @@ const {
   UnaccompaniedStatuses
 } = require('../models')
 
+const _ = require('lodash')
+
 // Call getAll on the provided model
 const getAll = model => async () => {
   try {
     const data = await model.fetchAll()
     return { "Data": data.serialize(), return_code: 0 }
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+// We have extra columns on locations for unaccompanied status functionality
+// We need to omit this data since it doesn't reflect FSBid response accurately
+// Do not remove us_code from table since it's used to create relationship 
+// between post/locations & positions for unaccompanied statuses elsewhere
+const getLocations = Locations => async () => {
+  try {
+    const data = await Locations.fetchAll()
+    const results = data.serialize().map(d => (
+      _.omit(d, ['us_code'])
+    ))
+    return { "Data": results, return_code: 0 }
   } catch (Error) {
     console.error(Error)
     return null
@@ -33,7 +52,7 @@ const get_differentialrates = getAll(DifferentialRates)
 const get_tourofduties = getAll(TourOfDuties)
 const get_bureaus = getAll(Bureaus)
 const get_codes = getAll(Codes)
-const get_locations = getAll(Locations)
+const get_locations = getLocations(Locations)
 const get_postindicators = getAll(PostIndicators)
 const get_unaccompaniedstatuses = getAll(UnaccompaniedStatuses)
 
