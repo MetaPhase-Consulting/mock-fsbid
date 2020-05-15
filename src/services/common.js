@@ -127,7 +127,7 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
     qb.join('codes', 'positions.jc_id', 'codes.jc_id')
-    qb.join('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
+    qb.fullOuterJoin('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
     qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
     Object.keys(query).map(q => {
       const filter = getFilter(q)
@@ -178,7 +178,7 @@ const createTandemPositionQuery = (model, tableName, paramPrefix, query, isCount
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
     qb.join('codes', 'positions.jc_id', 'codes.jc_id')
-    qb.join('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
+    qb.fullOuterJoin('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
     qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
     Object.keys(query).map(q => {
       const tandemFilter = getTandemFilter(q, isTandemOne)
