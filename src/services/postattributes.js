@@ -9,7 +9,7 @@ const get_postattributes = async query => {
   // TODO - add other post attribute models
   if (query.codeTableName === 'PostIndicatorTable') {
     data = await get_postindicators();
-  } else if (query.codeTableName === 'UnaccompaniedStatuses') {
+  } else if (query.codeTableName === 'UnaccompaniedTable') {
     data = await get_unaccompaniedstatuses();
   }
   return data
