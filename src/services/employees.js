@@ -373,6 +373,7 @@ const get_persons = async query => {
   try {
     const data = await get_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
+    emp["employee_profile_url"] = `www.talentmap/profile/public/${emp.first_name}_${emp.last_name}.com`;
       const res = {
           per_seq_num: emp.per_seq_num,
           per_full_name: emp.fullname,
@@ -405,6 +406,7 @@ const get_persons = async query => {
           'min_act_empl_rcd#_ind': '',
           pert_current_ind: emp.pert_current_ind || '',
           rnum: emp.rnum || '',
+          per_profile_url: emp.employee_profile_url || '',
         }
         delete res.per_skill_code_desc
         delete res.per_skill_2_code_desc
