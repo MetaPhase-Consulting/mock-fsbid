@@ -116,7 +116,7 @@ async function get_future_vacancies_count(query) {
 }
 
 async function get_future_vacancies_tandem(query) {
-  const isCount = query['request_params.get_count'] === 'true'
+  const isCount = query['fv_request_params.get_count'] === 'true'
 
   if (isCount) {
     return await get_fv_tandem_count(query, isCount)
