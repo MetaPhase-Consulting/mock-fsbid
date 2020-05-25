@@ -30,7 +30,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^7.1.2",
+    "mocha": "^7.2.0",
     "nodemon": "^2.0.4",
     "nyc": "^15.0.1",
     "sqlite3": "^4.1.1"
