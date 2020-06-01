@@ -376,14 +376,6 @@ const get_persons = async query => {
     return data.map(emp => {
     emp["employee_profile_url"] = `www.talentmap/profile/public/${emp.first_name}_${emp.last_name}.com`;
 
-    if(!_.isNil(emp.grade_code)) {
-        const re = /\s+/gi;
-        const found = emp.grade_code.match(re);
-        if(found) {
-        console.error('Employee grade an empty string.')
-        }
-    }
-
       const res = {
           per_seq_num: emp.per_seq_num,
           per_full_name: emp.fullname,
