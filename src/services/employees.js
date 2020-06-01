@@ -1,5 +1,6 @@
 const { Employees, Assignments, Classifications } = require('../models')
 const { addOrderBy } = require('./common.js')
+//const _ = require('lodash');
 
 // Mapping of provided sort fields to matching query fields
 const SORT_MAPPING = {
@@ -374,6 +375,14 @@ const get_persons = async query => {
     const data = await get_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
     emp["employee_profile_url"] = `www.talentmap/profile/public/${emp.first_name}_${emp.last_name}.com`;
+    if(!((emp.grade_code === null) || (emp.grade_code === undefined))) {
+        const re = /\s+/gi;
+        const found = emp.grade_code.match(re);
+        if(found) {
+        console.error('Employee grade an empty string.')
+        }
+    }
+
       const res = {
           per_seq_num: emp.per_seq_num,
           per_full_name: emp.fullname,
@@ -387,7 +396,7 @@ const get_persons = async query => {
           per_org_code: emp.currentassignment.position.org_code || '',
           ...personSkills(emp.skills),
           per_pay_plan_code: emp.per_pay_plan_code || '',
-          per_grade_code: emp.grade_code || '',
+          per_grade_code: emp.grade_code || ' ',
           per_tenure_code: emp.tenure_code || '',
           pers_code: emp.pers_code || '',
           per_create_id: emp.per_create_id || '',
