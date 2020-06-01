@@ -1,0 +1,132 @@
+[
+  {
+    "cpn_code": "3",
+    "cpn_desc": "NEA-Tel Aviv/Amman ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "4",
+    "cpn_desc": "NEA-Casablanca/Rabat ",
+    "cpn_freq_desc": "Daily"
+  },
+  {
+    "cpn_code": "5",
+    "cpn_desc": "NEA-Cairo/Alexandria ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "6",
+    "cpn_desc": "NEA-Abu Dhabi/Dubai",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "7",
+    "cpn_desc": "AF-Joburg/Pretoria",
+    "cpn_freq_desc": "Daily"
+  },
+  {
+    "cpn_code": "8",
+    "cpn_desc": "AF-Cotonou/Lome ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "9",
+    "cpn_desc": "AF-Cotonou/Logos ",
+    "cpn_freq_desc": "Weekends (if no travel restrictions)"
+  },
+  {
+    "cpn_code": "10",
+    "cpn_desc": "WHA-San Salvador/Guatemala ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "19",
+    "cpn_desc": "EUR-Vienna/Bratislava",
+    "cpn_freq_desc": "Daily"
+  },
+  {
+    "cpn_code": "20",
+    "cpn_desc": "EUR-Vienna /Budapest ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "21",
+    "cpn_desc": "EUR-Almaty/Astana ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "22",
+    "cpn_desc": "EUR-Rome/Vatican",
+    "cpn_freq_desc": "Daily"
+  },
+  {
+    "cpn_code": "23",
+    "cpn_desc": "EUR-Geneva/Bern",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "24",
+    "cpn_desc": "EUR-Pristina/Skopje",
+    "cpn_freq_desc": "Daily"
+  },
+  {
+    "cpn_code": "25",
+    "cpn_desc": "EUR-Vienna /Ljubljana ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "1",
+    "cpn_desc": "NEA-Jerusalem/Tel Aviv ",
+    "cpn_freq_desc": "Daily"
+  },
+  {
+    "cpn_code": "11",
+    "cpn_desc": "WHA-Montreal/Ottawa ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "12",
+    "cpn_desc": "WHA-Montevideo/Buenos Aires",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "13",
+    "cpn_desc": "EAP-Sydney/Canberra ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "16",
+    "cpn_desc": "EUR-Amsterdam/The Hague",
+    "cpn_freq_desc": "Daily"
+  },
+  {
+    "cpn_code": "17",
+    "cpn_desc": "EUR-Helsinki-St. Petersburg",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "18",
+    "cpn_desc": "EUR-Helsinki-Tallinn",
+    "cpn_freq_desc": "Weekly (Daily possible)"
+  },
+  {
+    "cpn_code": "2",
+    "cpn_desc": "NEA-Jerusalem/Amman ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "14",
+    "cpn_desc": "EAP-Singapore/Kuala Lumpur ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "15",
+    "cpn_desc": "EUR-Almaty/Bishkek ",
+    "cpn_freq_desc": "Weekends"
+  },
+  {
+    "cpn_code": "26",
+    "cpn_desc": "AF-Accra/Lome",
+    "cpn_freq_desc": "Weekends"
+  }
+]
