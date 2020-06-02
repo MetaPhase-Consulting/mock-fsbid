@@ -21,6 +21,7 @@ const Classifications = require('./classifications.js')
 const Assignments = require('./assignments.js')
 const PostIndicators = require('./postindicators.js')
 const UnaccompaniedStatuses = require('./unaccompaniedstatuses.js')
+const CommuterPosts = require('./commuterposts.js')
 
 module.exports = {
   Seasons,
@@ -46,4 +47,5 @@ module.exports = {
   Assignments,
   PostIndicators,
   UnaccompaniedStatuses,
+  CommuterPosts
 }
