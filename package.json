@@ -10,6 +10,7 @@
     "test": "NODE_ENV=test node_modules/.bin/nyc mocha --exit --timeout 20000",
     "migrate": "node_modules/.bin/knex migrate:latest",
     "rollback": "node_modules/.bin/knex migrate:rollback",
+    "migrationList": "node_modules/.bin/knex migrate:list",
     "seed": "node_modules/.bin/knex seed:run"
   },
   "author": "Metaphase Consulting",
