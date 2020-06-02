@@ -132,14 +132,12 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
     Object.keys(query).map(q => {
       const filter = getFilter(q)
       const value = query[q]
-    console.error('--------------------------------------------')
-    console.error('filter.field:', filter.field)
-    console.error('value:', value)
-    console.error('--------------------------------------------')
-      if (filter.field === 'positions.pos_grade_code' && value === '00') {
-        console.error('1. :)')
-        throw null
+      if (filter.field === 'positions.pos_grade_code') {
+        const rE = /^\s+$/g;
+        const allSpaceChars = value.match(rE);
+        if (allSpaceChars) throw 'Error: pos_grade_code contains all whitespace characters'
       }
+
       if (filter && (filter.field || filter.fields) && value) {
         // Handle multiple fields on the same param
         if (Array.isArray(filter.field)) {

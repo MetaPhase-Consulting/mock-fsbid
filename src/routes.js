@@ -147,8 +147,8 @@ var appRouter = function (app) {
   app.get('/availablePositions', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query))
-    } catch (err) {
-      console.error('2. :)')
+    } catch (errMsg) {
+      console.error(errMsg)
       res.status(500).send({ "Message": "An error has occurred." });
     }
   });
