@@ -1,6 +1,5 @@
 const { Employees, Assignments, Classifications } = require('../models')
 const { addOrderBy } = require('./common.js')
-const _ = require('lodash');
 
 // Mapping of provided sort fields to matching query fields
 const SORT_MAPPING = {
@@ -375,7 +374,6 @@ const get_persons = async query => {
     const data = await get_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
     emp["employee_profile_url"] = `www.talentmap/profile/public/${emp.first_name}_${emp.last_name}.com`;
-
       const res = {
           per_seq_num: emp.per_seq_num,
           per_full_name: emp.fullname,
