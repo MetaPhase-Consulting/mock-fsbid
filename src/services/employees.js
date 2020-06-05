@@ -387,7 +387,7 @@ const get_persons = async query => {
           per_org_code: emp.currentassignment.position.org_code || '',
           ...personSkills(emp.skills),
           per_pay_plan_code: emp.per_pay_plan_code || '',
-          per_grade_code: emp.grade_code || '',
+          per_grade_code: emp.grade_code || ' ',
           per_tenure_code: emp.tenure_code || '',
           pers_code: emp.pers_code || '',
           per_create_id: emp.per_create_id || '',

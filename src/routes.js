@@ -145,7 +145,12 @@ var appRouter = function (app) {
   });
 
   app.get('/availablePositions', async function(req, res) {
-    res.status(200).send(await availablePositions.get_available_positions(req.query))
+    try {
+      res.status(200).send(await availablePositions.get_available_positions(req.query))
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
   });
 
   app.get('/availablePositionsCount', async function(req, res) {
