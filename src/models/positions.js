@@ -27,6 +27,9 @@ const Positions = bookshelf.model('Positions', {
   },
   capsuledescription() {
     return this.hasOne('CapsuleDescriptions', 'pos_seq_num')
+  },
+  commuterpost() {
+    return this.hasMany('CommuterPosts').through('LocationsCommuterPosts', 'cpn_code', 'location_code', 'cpn_code', 'pos_location_code')
   }
 })
 

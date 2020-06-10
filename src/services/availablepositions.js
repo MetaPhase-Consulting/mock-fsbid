@@ -1,7 +1,7 @@
 const _ = require('lodash')
 
 const { AvailablePositions } = require('../models')
-const { createPositionQuery, createTandemPositionQuery, formatLanguage} = require('./common')
+const { createPositionQuery, createTandemPositionQuery, formatLanguage, formatCommuterPost} = require('./common')
 
 const create_query = (query, isCount=false) => createPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount)
 const create_tandem_query = (query, isCount=false, isTandemOne=false) => createTandemPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount, isTandemOne)
@@ -18,7 +18,6 @@ const formatData = data => {
       d.cp_at_grd_qty = bidstats.cp_at_grd_qty
       d.cp_in_cone_qty = bidstats.cp_in_cone_qty
       d.cp_at_grd_in_cone_qty = bidstats.cp_at_grd_in_cone_qty
-      delete d.bidstats
       d.tod = tod && tod.long_desc
       delete position.tod
       d.lang1 = formatLanguage(lang1)
@@ -27,41 +26,52 @@ const formatData = data => {
       delete position.lang2
       d.cycle_status = cycle.cycle_status_code
       d.cycle_nm_txt = cycle.cycle_name
-      delete d.cycle
       d.org_code = org.code
       d.org_long_desc = org.long_desc
       d.org_short_desc = org.short_desc
-      delete position.org
       d.location_city = location.location_city
       d.location_state = location.location_state
       d.location_country = location.location_country
       d.us_desc_text = _.get(location, 'unaccompaniedstatus.us_desc_text', '')
-      delete position.location
       d.pos_bureau_short_desc = bureau.bureau_short_desc
       d.pos_bureau_long_desc = bureau.bureau_long_desc
       d.bureau_code = bureau.bur
-      delete position.bureau
       d.pos_skill_desc = skill.skill_descr
       d.pos_skill_code = skill.skl_code
-      delete position.skill
       d.ppos_capsule_descr_txt = capsuledescription.description
       d.ppos_capsule_modify_dt = capsuledescription.last_modified
-      d.cpn_desc = "EAP-Singapore/Kuala Lumpur"
-      delete position.capsuledescription
-      return { ...d, ...position }
+      // Omit includes an array of fields to be excluded from given 1st arg object
+      return _.omit({...d, ...position}, 
+        [
+          'capsuledescription',
+          'skill',
+          'bureau',
+          'location',
+          'org',
+          'bidstats',
+          'cycle',
+          'commuterpost'
+        ]
+      )
     })
   }
 }
 
 const formatTandemData = (data, isTandemOne=false) => {
   if (data) {
-    console.log(data)
     if (!Array.isArray(data)) {
       data = [data]
     }
+    // Counter for determing commuter posts on identical id positions
+    const counter = {}
     return data.map(d => {
       const { cycle, position, bidstats } = d
-      const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription } = position
+      const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription, commuterpost } = position
+      // Sets up a counter for duplicate cp_ids to determine which commuter post to use
+      const cp_id = d.cp_id
+      counter.hasOwnProperty(cp_id) ? counter[cp_id] += 1 : counter[cp_id] = 0
+      const cpn = formatCommuterPost(commuterpost, counter, d.cp_id)
+
       d.cp_ttl_bidder_qty = bidstats.cp_ttl_bidder_qty
       d.cp_at_grd_qty = bidstats.cp_at_grd_qty
       d.cp_in_cone_qty = bidstats.cp_in_cone_qty
@@ -75,28 +85,32 @@ const formatTandemData = (data, isTandemOne=false) => {
       delete position.lang2
       d.cycle_status = cycle.cycle_status_code
       d.cycle_nm_txt = cycle.cycle_name
-      delete d.cycle
       d.org_code = org.code
       d.org_long_desc = org.long_desc
       d.org_short_desc = org.short_desc
-      delete position.org
       d.location_city = location.location_city
       d.location_state = location.location_state
       d.location_country = location.location_country
-      d.us_desc_text = _.get(location, 'unaccompaniedstatus.us_desc_text', '')
-      delete position.location
       d.pos_bureau_short_desc = bureau.bureau_short_desc
       d.pos_bureau_long_desc = bureau.bureau_long_desc
       d.bureau_code = bureau.bur
-      delete position.bureau
       d.pos_skill_desc = skill.skill_descr
       d.pos_skill_code = skill.skl_code
-      delete position.skill
       d.ppos_capsule_descr_txt = capsuledescription.description
       d.ppos_capsule_modify_dt = capsuledescription.last_modified
-      delete position.capsuledescription
       d.tandem_nbr = isTandemOne ? 1 : 2
-      return { ...d, ...position }
+      return _.omit({...d, ...cpn, ...position}, 
+        [
+          'commuterpost',
+          'capsuledescription',
+          'skill',
+          'bureau',
+          'location',
+          'org',
+          'bidstats',
+          'cycle'
+        ]
+      )
     })
   }
 }
@@ -113,7 +127,8 @@ const RELATED = [
   'position.bureau',
   'position.skill',
   'position.capsuledescription',
-  'position.location.unaccompaniedstatus'
+  'position.location.unaccompaniedstatus',
+  'position.commuterpost'
 ]
 
 async function get_available_positions(query) {
@@ -122,6 +137,8 @@ async function get_available_positions(query) {
     pageSize: query["request_params.page_size"] || 25,
     page: query["request_params.page_index"] || 1,
     require: false,
+    merge: false, 
+    remove: false
   })
 
   return {
@@ -166,12 +183,16 @@ async function get_available_positions_tandem(query) {
       pageSize: query["request_params.page_size"] || 25,
       page: query["request_params.page_index"] || 1,
       require: false,
+      merge: false, 
+      remove: false
     })
     const dataTandemTwo = await create_tandem_query(query, isCount, false).fetchPage({
       withRelated: RELATED,
       pageSize: query["request_params.page_size"] || 25,
       page: query["request_params.page_index"] || 1,
       require: false,
+      merge: false, 
+      remove: false
     })
     const data = formatTandemData(dataTandemOne.serialize(), true).concat(formatTandemData(dataTandemTwo.serialize(), false))
     return {

@@ -26,7 +26,7 @@ const FILTERS = {
       "bt_outside_efm_employment_flg",
     ],
     value: 'Y',
-  }
+  },
 }
 
 const TANDEM_ONE_FILTERS = {
@@ -54,8 +54,8 @@ const TANDEM_ONE_FILTERS = {
       "bt_outside_efm_employment_flg",
     ],
     value: 'Y',
-  }
-  // "cpn_codes": { field: cpn_code },    -- TO-DO --
+  },
+  "cpn_codes": { field: "locations_commuterposts.cpn_code" }
 }
 
 const TANDEM_TWO_FILTERS = {
@@ -83,8 +83,8 @@ const TANDEM_TWO_FILTERS = {
       "bt_outside_efm_employment_flg",
     ],
     value: 'Y',
-  }
-  // "cpn_codes2": { field: cpn_code },   -- TO-DO --
+  },
+  "cpn_codes2": { field: "locations_commuterposts.cpn_code" }
 }
 
 // Get field for the provided filter.
@@ -186,6 +186,7 @@ const createTandemPositionQuery = (model, tableName, paramPrefix, query, isCount
     qb.join('codes', 'positions.jc_id', 'codes.jc_id')
     qb.fullOuterJoin('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
     qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
+    qb.fullOuterJoin('locations_commuterposts', 'locations.location_code', 'locations_commuterposts.location_code')
     Object.keys(query).map(q => {
       const tandemFilter = getTandemFilter(q, isTandemOne)
       const value = query[q]
@@ -260,4 +261,13 @@ const SORT_MAPPING = {
 
 const formatLanguage = lang => lang && `${lang.language_long_desc}(${lang.language_code}) 1/1`
 
-module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, formatLanguage, createPositionQuery, createTandemPositionQuery }
+const formatCommuterPost = (postsArr, counterObj, id) => {
+  const idx = counterObj[id]
+  const target_post = postsArr[idx]
+  return {
+    cpn_desc: _.get(target_post, 'cpn_desc', ''),
+    cpn_freq_desc: _.get(target_post, 'cpn_freq_desc', '')
+  }
+}
+
+module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, formatLanguage, createPositionQuery, createTandemPositionQuery, formatCommuterPost }
