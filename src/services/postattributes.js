@@ -11,7 +11,7 @@ const get_postattributes = async query => {
     data = await get_postindicators();
   } else if (query.codeTableName === 'UnaccompaniedTable') {
     data = await get_unaccompaniedstatuses();
-  } else if (query.codeTableName === 'CommuterPosts') {
+  } else if (query.codeTableName === 'CommuterPostTable') {
     data = await get_commuterposts();
   }
   return data
