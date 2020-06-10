@@ -1,5 +1,5 @@
 const { FutureVacancies } = require('../models')
-const { createPositionQuery, createTandemPositionQuery, formatLanguage} = require('./common')
+const { createPositionQuery, createTandemPositionQuery, formatLanguage, formatCommuterPost} = require('./common')
 
 const create_query = (query, isCount=false) => createPositionQuery(FutureVacancies, 'futurevacancies', 'fv_request_params', query, isCount)
 const create_tandem_query = (query, isCount=false, isTandemOne=false) => createTandemPositionQuery(FutureVacancies, 'futurevacancies', 'fv_request_params', query, isCount, isTandemOne)
@@ -40,9 +40,17 @@ const formatData = data => {
 }
 
 const formatTandemData = (data, isTandemOne) => {
+  // Counter for determing commuter posts on identical id positions
+  const counter = {}
   return data.map((d, i)=> {
+    console.log(d)
     const { position } = d
-    const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription } = position
+    const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription, commuterpost } = position
+    // Sets up a counter for duplicate cp_ids to determine which commuter post to use
+    const fv_seq_num = d.fv_seq_num
+    counter.hasOwnProperty(fv_seq_num) ? counter[fv_seq_num] += 1 : counter[fv_seq_num] = 0
+    const cpn = formatCommuterPost(commuterpost, counter, d.fv_seq_num)
+
     d.tod = tod && tod.long_desc
     delete position.tod
     d.lang1 = formatLanguage(lang1)
@@ -69,10 +77,9 @@ const formatTandemData = (data, isTandemOne) => {
     delete position.skill
     d.ppos_capsule_descr_txt = capsuledescription.description
     d.ppos_capsule_modify_dt = capsuledescription.last_modified
-    d.cpn_desc = "EAP-Singapore/Kuala Lumpur"
     delete position.capsuledescription
     d.tandem_nbr = isTandemOne ? 1 : 2
-    return { rnum: i, ...d, ...position }
+    return { rnum: i, ...d, ...cpn, ...position }
   })
 }
 
@@ -85,7 +92,8 @@ const RELATED = [
   'position.location', 
   'position.bureau',
   'position.skill',
-  'position.capsuledescription'
+  'position.capsuledescription',
+  'position.commuterpost'
 ]
 
 async function get_future_vacancies(query) {
@@ -124,13 +132,19 @@ async function get_future_vacancies_tandem(query) {
     const dataTandemOne = await create_tandem_query(query, false, true).fetchPage({
       withRelated: RELATED,
       pageSize: query["fv_request_params.page_size"] || 25,
-      page: query["fv_request_params.page_index"] || 1
+      page: query["fv_request_params.page_index"] || 1,
+      require: false,
+      merge: false, 
+      remove: false
     })
   
     const dataTandemTwo = await create_tandem_query(query, false, false).fetchPage({
       withRelated: RELATED,
       pageSize: query["fv_request_params.page_size"] || 25,
-      page: query["fv_request_params.page_index"] || 1
+      page: query["fv_request_params.page_index"] || 1,
+      require: false,
+      merge: false, 
+      remove: false
     })
   
     return {

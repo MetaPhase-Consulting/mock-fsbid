@@ -6,6 +6,9 @@ const Locations = bookshelf.model('Locations', {
 
   unaccompaniedstatus() {
     return this.belongsTo('UnaccompaniedStatuses', 'us_code')
+  },
+  commuterpost(){
+    return this.hasMany('LocationCommuterPosts', 'location_code')
   }
 })
 
