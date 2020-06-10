@@ -50,6 +50,7 @@ const formatTandemData = (data, isTandemOne) => {
     const fv_seq_num = d.fv_seq_num
     counter.hasOwnProperty(fv_seq_num) ? counter[fv_seq_num] += 1 : counter[fv_seq_num] = 0
     const cpn = formatCommuterPost(commuterpost, counter, d.fv_seq_num)
+    delete position.commuterpost
 
     d.tod = tod && tod.long_desc
     delete position.tod
