@@ -130,7 +130,7 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
     qb.fullOuterJoin('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
     qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
     Object.keys(query).map(q => {
-      const filter = getFilter(q) 
+      const filter = getFilter(q)
       const value = query[q]
       if (filter && (filter.field || filter.fields) && value) {
         // Handle multiple fields on the same param
