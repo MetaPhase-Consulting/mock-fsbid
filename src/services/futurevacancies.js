@@ -43,7 +43,6 @@ const formatTandemData = (data, isTandemOne) => {
   // Counter for determing commuter posts on identical id positions
   const counter = {}
   return data.map((d, i)=> {
-    console.log(d)
     const { position } = d
     const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription, commuterpost } = position
     // Sets up a counter for duplicate cp_ids to determine which commuter post to use
