@@ -257,6 +257,7 @@ const addOrderBy = (qb, value, mapping=SORT_MAPPING) => {
 const SORT_MAPPING = {
   "pos_bureau_short_desc": "bureaus.bureau_short_desc",
   "pos_skill_code": "codes.skl_code",
+  "cpn_desc": "positions.pos_location_code", // Fake, just allows to sort using cpn_desc without an error
 }
 
 const formatLanguage = lang => lang && `${lang.language_long_desc}(${lang.language_code}) 1/1`
