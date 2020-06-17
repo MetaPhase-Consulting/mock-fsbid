@@ -173,7 +173,7 @@ async function get_available_position_by_id(id) {
 }
 
 async function get_available_positions_tandem(query) {
-  const isCount = query['request_params.get_count'] === 'true'
+  const isCount = query['request_params.count'] === 'true'
 
   if (isCount) {
     return await get_ap_tandem_count(query, isCount)
@@ -208,7 +208,7 @@ async function get_ap_tandem_count(query, isCount) {
   const dataTandemTwo = await create_tandem_query(query, isCount, false).count()
   const combinedCount = parseInt(dataTandemOne) + parseInt(dataTandemTwo)
   return {
-    "Data": [{ "count(1)": combinedCount }],
+    "Data": [{ "cnt": combinedCount }],
     "usl_id": 44999637,
     "return_code": 0
   }
