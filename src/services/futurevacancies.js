@@ -2,7 +2,7 @@ const { FutureVacancies } = require('../models')
 const { createPositionQuery, createTandemPositionQuery, formatLanguage, formatCommuterPost} = require('./common')
 
 const create_query = (query, isCount=false) => createPositionQuery(FutureVacancies, 'futurevacancies', 'fv_request_params', query, isCount)
-const create_tandem_query = (query, isCount=false, isTandemOne=false) => createTandemPositionQuery(FutureVacancies, 'futurevacancies', 'fv_request_params', query, isCount, isTandemOne)
+const create_tandem_query = (query, isCount=false, isTandemOne=false) => createTandemPositionQuery(FutureVacancies, 'futurevacancies', 'request_params', query, isCount, isTandemOne)
 
 const formatData = data => {
   return data.map((d, i)=> {
@@ -124,15 +124,15 @@ async function get_future_vacancies_count(query) {
 }
 
 async function get_future_vacancies_tandem(query) {
-  const isCount = query['fv_request_params.get_count'] === 'true'
+  const isCount = query['request_params.get_count'] === 'true'
 
   if (isCount) {
     return await get_fv_tandem_count(query, isCount)
   } else {
     const dataTandemOne = await create_tandem_query(query, false, true).fetchPage({
       withRelated: RELATED,
-      pageSize: query["fv_request_params.page_size"] || 25,
-      page: query["fv_request_params.page_index"] || 1,
+      pageSize: query["request_params.page_size"] || 25,
+      page: query["request_params.page_index"] || 1,
       require: false,
       merge: false, 
       remove: false
@@ -140,8 +140,8 @@ async function get_future_vacancies_tandem(query) {
   
     const dataTandemTwo = await create_tandem_query(query, false, false).fetchPage({
       withRelated: RELATED,
-      pageSize: query["fv_request_params.page_size"] || 25,
-      page: query["fv_request_params.page_index"] || 1,
+      pageSize: query["request_params.page_size"] || 25,
+      page: query["request_params.page_index"] || 1,
       require: false,
       merge: false, 
       remove: false
