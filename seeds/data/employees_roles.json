@@ -8,6 +8,10 @@
     "code": "CDO"
   },
   {
+    "perdet_seq_num": 2,
+    "code": "Bureau"
+  },
+  {
     "perdet_seq_num": 4,
     "code": "fsofficer"
   },
@@ -22,6 +26,10 @@
   {
     "perdet_seq_num": 8,
     "code": "CDO3"
+  },
+  {
+    "perdet_seq_num": 8,
+    "code": "Bureau"
   },
   {
     "perdet_seq_num": 9,
