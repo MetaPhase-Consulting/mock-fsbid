@@ -20,7 +20,14 @@ const get_employee_by_perdet_seq_num = async perdet_seq_num => await get_employe
 
 // Gets agents
 const get_agents = async query => {
-  const data = await get_employees_by_query(query, get_agents_filters)
+  let data;
+  if (_.get(query, 'request_params.perdet_seq_num')) {
+   const client = await get_employee_by_perdet_seq_num(_.get(query, 'request_params.perdet_seq_num'))
+   const managerId = client[0].manager_id;
+   data = await get_employee_by_perdet_seq_num(managerId)
+  } else {
+    data = await get_employees_by_query(query, get_agents_filters)
+  }
   return data.map(emp => {
     delete emp.perdet_seq_num
     delete emp.username
