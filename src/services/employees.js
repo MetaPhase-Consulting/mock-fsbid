@@ -1,3 +1,4 @@
+const _ = require('lodash');
 const { Employees, Assignments, Classifications } = require('../models')
 const { addOrderBy } = require('./common.js')
 
