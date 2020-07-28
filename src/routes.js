@@ -8,6 +8,8 @@ const lookups = require('./services/lookups')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
+const PDFDocument = require('pdfkit');
+const getStream = require('get-stream')
 
 var appRouter = function (app) {
   app.get("/", function(req, res) {
@@ -45,6 +47,21 @@ var appRouter = function (app) {
         audience: req.headers.host,
         jwtid: 'test-12345',
       }));
+  });
+
+  app.get('/HR/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
+    async function pdf() {
+      const doc = new PDFDocument()
+      doc.text(`Here is a client profile PDF for ${req.params.id}. Enjoy!`)
+      doc.end()
+      return await getStream.buffer(doc)
+    }
+    const pdfBuffer = await pdf()
+    res.writeHead(200, {
+      'Content-Type': 'application/pdf',
+    });
+    const download = Buffer.from(pdfBuffer);
+    res.end(download)
   });
 
   app.get("/bids", async function (req, res) {
