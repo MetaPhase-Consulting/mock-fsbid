@@ -21,11 +21,20 @@ const validateRequest = function (req, res, next) {
   };
 };
 
+const limitRequestLength = function (req, res, next) {
+  if (req.originalUrl.length <= 2500) {
+    next()
+  } else {
+    res.status(500).send('Request URL too long')
+  };
+};
+
 app.use(cors())
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(validateRequest);
+app.use(limitRequestLength);
 
 if (process.env.NODE_ENV === 'development') {
   morganBody(app);
