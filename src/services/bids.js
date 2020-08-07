@@ -1,5 +1,6 @@
 const { Bids } = require('../models')
 const { get_available_position_by_id } = require('./availablepositions')
+const { personSkills, personLanguages } = require('./employees')
 
 const _ = require('lodash');
 
@@ -38,10 +39,19 @@ async function get_bids_by_cp(query) {
       'position.cycle',
       'position.bidstats',
       'employee',
+      'employee.skills',
+      'employee.languages',
+      'employee.currentassignment'
     ], require: false })
 
+  let bids$ = bids.map(bid => formatData(bid.serialize()))
+  const orderBy = _.get(query, 'order_by');
+  if (orderBy) {
+    bids$ = _.orderBy(bids$, orderBy);
+  }
+
   return {
-    Data: bids.map(bid => formatData(bid.serialize())),
+    Data: bids$,
     usl_id: 0,
     return_code: 0
   }
@@ -75,7 +85,7 @@ const get_delete_ind = id => (
 // Whether or not a CDO bid on the position
 const get_cdo_bid = id => ( { cdo_bid: 'N' } )
 
-const formatData = (data, isCDO = true) => {s
+const formatData = (data, isCDO = true) => {
   if (data && data.position) {
     const { cycle, bidstats } = data.position
     const { pos_seq_num, pos_title_desc:ptitle, position:pos_num_text, pos_skill_code, pos_skill_desc, pos_grade_code, location, skill } = data.position.position
@@ -92,9 +102,26 @@ const formatData = (data, isCDO = true) => {s
     if (isCDO && !data.handshake_allowed_ind) {
       data.handshake_allowed_ind = 'N';
     };
+    const skills = _.get(data, 'employee.skills');
+    const languages = _.get(data, 'employee.languages');
     let employeeProps = {
       per_first_name: _.get(data, 'employee.first_name'),
       per_last_name: _.get(data, 'employee.last_name'),
+      per_grade_code: _.get(data, 'employee.grade_code'),
+      per_grade_code: _.get(data, 'employee.grade_code'),
+      per_ted: _.get(data, 'employee.currentassignment.etd_ted_date'),
+    }
+    if (skills) {
+      employeeProps = {
+        ...employeeProps,
+        ...personSkills(skills),
+      }
+    }
+    if (languages) {
+      employeeProps = {
+        ...employeeProps,
+        ...personLanguages(languages),
+      }
     }
     employeeProps = _.pickBy(employeeProps, _.identity);
     delete data.employee;
