@@ -269,6 +269,15 @@ var appRouter = function (app) {
       return_code: 0
     })
   })
+
+  app.get('/cyclePositions', async function(req, res) {
+    try {
+      res.status(200).send(await availablePositions.get_available_positions(req.query, true))
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  })
 };
 
 module.exports = appRouter;
