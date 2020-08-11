@@ -138,6 +138,10 @@ const RELATED = [
 ]
 
 async function get_available_positions(query, isCyclePositions=false) {
+  const isCount = query['request_params.count'] === 'true'
+  if (isCount && isCyclePositions) {
+    return get_available_positions_count(query)
+  }
   const data = await create_query(query).fetchPage({
     withRelated: RELATED,
     pageSize: query["request_params.page_size"] || 25,
