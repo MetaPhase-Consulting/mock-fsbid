@@ -64,7 +64,7 @@ var appRouter = function (app) {
     res.end(download)
   });
 
-  app.get("/cyclepositions/bidders", async function (req, res) {
+  app.get("/cyclePositions/bidders", async function (req, res) {
     let isCDO = false;
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
