@@ -75,7 +75,7 @@ const get_delete_ind = id => (
 // Whether or not a CDO bid on the position
 const get_cdo_bid = id => ( { cdo_bid: 'N' } )
 
-const formatData = (data, isCDO = true) => {s
+const formatData = (data, isCDO = true) => {
   if (data && data.position) {
     const { cycle, bidstats } = data.position
     const { pos_seq_num, pos_title_desc:ptitle, position:pos_num_text, pos_skill_code, pos_skill_desc, pos_grade_code, location, skill } = data.position.position
