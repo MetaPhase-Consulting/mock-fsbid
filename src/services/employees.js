@@ -63,6 +63,22 @@ const personSkills = skills => {
   return result
 }
 
+const personLanguages = languages => {
+  const result = {}
+  languages.forEach((language, i) => {
+    let index = ''
+    if (i !== 0) {
+      index = `_${i+1}`
+    }
+    const code_field = `per_language${index}_code`
+    result[code_field] = language.language_code
+    result[`${code_field}_desc`] = language.language_short_desc
+    result[`${code_field}_reading_proficiency`] = '1'
+    result[`${code_field}_spoken_proficiency`] = '1'
+  })
+  return result
+}
+
 const getAssignment = (assignment = {}, isCurrent = false) => {
   const { position = {} } = assignment || {}
   const { location = {}, bureau = {} } = position
@@ -179,7 +195,7 @@ const get_persons_filters = (params = {}) => {
   const { perdet_seq_num } = params
   const q = {}
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
-  
+
   return q
 }
 
@@ -423,4 +439,4 @@ const get_persons = async query => {
   }
 }
 
-module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons }
+module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons, personSkills, personLanguages }

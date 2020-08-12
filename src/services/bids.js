@@ -1,5 +1,6 @@
 const { Bids } = require('../models')
 const { get_available_position_by_id } = require('./availablepositions')
+const { personSkills, personLanguages } = require('./employees')
 
 const _ = require('lodash');
 
@@ -23,6 +24,54 @@ async function get_bid(cp_id, perdet_seq_num) {
     return bid
   } else {
     console.log(`No bid on cp_id=${cp_id} for perdet_seq_num=${perdet_seq_num}`)
+  }
+}
+
+async function get_bids_by_cp(query) {
+  const cp_id = _.get(query, 'cp_id');
+  console.log(`Trying to get bid for cp_id=${cp_id}`)
+  const bids = await Bids
+    .where('cp_id', cp_id)
+    .fetchAll({ withRelated: [
+      'position',
+      'position.position.location',
+      'position.position.skill',
+      'position.cycle',
+      'position.bidstats',
+      'employee',
+      'employee.skills',
+      'employee.languages',
+      'employee.currentassignment',
+      'employee.classifications',
+    ], require: false })
+
+  let bids$ = bids.map(bid => formatData(bid.serialize()))
+  // fsbid mapping, with some static data
+  bids$ = bids$.map(m => ({
+    "per_seq_num": null,
+    "perdet_seq_num": m.perdet_seq_num,
+    "full_name": `${m.per_last_name}, ${m.per_first_name}`,
+    "org_short_desc": "ABIDJAN",
+    "grade_code": m.per_grade_code,
+    "skill_code": m.per_skill_code,
+    "skill_desc": m.per_skill_code_desc,
+    "language_txt": `${m.per_language_code} ${m.per_language_code_reading_proficiency}/${m.per_language_code_spoken_proficiency} (01/10/2017)`,
+    "handshake_code": m.ubw_hndshk_offrd_flg === 'Y' ? "HS" : null,
+    "tp_codes_txt": m.per_classifications_tp_codes_txt,
+    "tp_descs_txt": m.per_classifications_tp_descs_txt,
+    "ubw_submit_dt": m.ubw_submit_dt,
+    "assignment_status": "EF",
+    "TED": m.per_ted,
+  }))
+  const orderBy = _.get(query, 'order_by');
+  if (orderBy) {
+    bids$ = _.orderBy(bids$, orderBy);
+  }
+
+  return {
+    Data: bids$,
+    usl_id: 0,
+    return_code: 0
   }
 }
 
@@ -58,11 +107,12 @@ const formatData = (data, isCDO = true) => {
   if (data && data.position) {
     const { cycle, bidstats } = data.position
     const { pos_seq_num, pos_title_desc:ptitle, position:pos_num_text, pos_skill_code, pos_skill_desc, pos_grade_code, location, skill } = data.position.position
-    delete location.is_domestic
-    delete location.location_code,
-    delete data.position
+    if (location) {
+      delete location.is_domestic;
+      delete location.location_code;
+    }
     const position = {
-      pos_seq_num, ptitle, pos_skill_code:skill.skl_code, pos_skill_desc:skill.skill_descr, pos_grade_code, pos_num_text
+      pos_seq_num, ptitle, pos_skill_code: _.get(skill, 'skl_code'), pos_skill_desc: _.get(skill, 'skill_descr'), pos_grade_code, pos_num_text
     }
     if (!isCDO) {
       data.handshake_allowed_ind = null;
@@ -70,6 +120,33 @@ const formatData = (data, isCDO = true) => {
     if (isCDO && !data.handshake_allowed_ind) {
       data.handshake_allowed_ind = 'N';
     };
+    const skills = _.get(data, 'employee.skills');
+    const languages = _.get(data, 'employee.languages');
+    const classifications = _.get(data, 'employee.classifications');
+    let employeeProps = {
+      per_first_name: _.get(data, 'employee.first_name'),
+      per_last_name: _.get(data, 'employee.last_name'),
+      per_grade_code: _.get(data, 'employee.grade_code'),
+      per_grade_code: _.get(data, 'employee.grade_code'),
+      per_ted: _.get(data, 'employee.currentassignment.etd_ted_date'),
+      per_classifications_tp_codes_txt: _.get(data, 'employee.classifications', []).map(m => m.tp_code).join(''),
+      per_classifications_tp_descs_txt: _.get(data, 'employee.classifications', []).map(m => m.tp_descr_txt).join('; '),
+    }
+    if (skills) {
+      employeeProps = {
+        ...employeeProps,
+        ...personSkills(skills),
+      }
+    }
+    if (languages) {
+      employeeProps = {
+        ...employeeProps,
+        ...personLanguages(languages),
+      }
+    }
+    employeeProps = _.pickBy(employeeProps, _.identity);
+    delete data.employee;
+    delete data.position;
     return {
       ...data,
       ...position,
@@ -77,7 +154,8 @@ const formatData = (data, isCDO = true) => {
       cycle_nm_txt:cycle.cycle_name,
       ...bidstats,
       ...get_delete_ind(data.id),
-      ...get_cdo_bid(data.id)
+      ...get_cdo_bid(data.id),
+      ...employeeProps,
     }
   }
 }
@@ -217,4 +295,4 @@ async function update_bid(query, data) {
   return { Data: null, usl_id: 45066084, return_code }
 }
 
-module.exports = { get_bids, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid, register_bid, unregister_bid }
+module.exports = { get_bids, get_bids_by_cp, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid, register_bid, unregister_bid }
