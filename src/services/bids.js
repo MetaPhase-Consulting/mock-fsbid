@@ -41,10 +41,28 @@ async function get_bids_by_cp(query) {
       'employee',
       'employee.skills',
       'employee.languages',
-      'employee.currentassignment'
+      'employee.currentassignment',
+      'employee.classifications',
     ], require: false })
 
   let bids$ = bids.map(bid => formatData(bid.serialize()))
+  // fsbid mapping, with some static data
+  bids$ = bids$.map(m => ({
+    "per_seq_num": null,
+    "perdet_seq_num": m.perdet_seq_num,
+    "full_name": `${m.per_last_name}, ${m.per_first_name}`,
+    "org_short_desc": "ABIDJAN",
+    "grade_code": m.per_grade_code,
+    "skill_code": m.per_skill_code,
+    "skill_desc": m.per_skill_code_desc,
+    "language_txt": `${m.per_language_code} ${m.per_language_code_reading_proficiency}/${m.per_language_code_spoken_proficiency} (01/10/2017)`,
+    "handshake_code": m.ubw_hndshk_offrd_flg === 'Y' ? "HS" : null,
+    "tp_codes_txt": m.per_classifications_tp_codes_txt,
+    "tp_descs_txt": m.per_classifications_tp_descs_txt,
+    "ubw_submit_dt": m.ubw_submit_dt,
+    "assignment_status": "EF",
+    "TED": m.per_ted,
+  }))
   const orderBy = _.get(query, 'order_by');
   if (orderBy) {
     bids$ = _.orderBy(bids$, orderBy);
@@ -104,12 +122,15 @@ const formatData = (data, isCDO = true) => {
     };
     const skills = _.get(data, 'employee.skills');
     const languages = _.get(data, 'employee.languages');
+    const classifications = _.get(data, 'employee.classifications');
     let employeeProps = {
       per_first_name: _.get(data, 'employee.first_name'),
       per_last_name: _.get(data, 'employee.last_name'),
       per_grade_code: _.get(data, 'employee.grade_code'),
       per_grade_code: _.get(data, 'employee.grade_code'),
       per_ted: _.get(data, 'employee.currentassignment.etd_ted_date'),
+      per_classifications_tp_codes_txt: _.get(data, 'employee.classifications', []).map(m => m.tp_code).join(''),
+      per_classifications_tp_descs_txt: _.get(data, 'employee.classifications', []).map(m => m.tp_descr_txt).join('; '),
     }
     if (skills) {
       employeeProps = {
