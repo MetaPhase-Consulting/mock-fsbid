@@ -35,6 +35,7 @@ const get_agents = async query => {
     delete emp.ad_id
     delete emp.grade_code
     delete emp.skills
+    delete emp.bureaus
     delete emp.manager
     delete emp.manager_id
     delete emp.dob
@@ -282,6 +283,7 @@ const FETCH_OPTIONS = {
     'skills',
     'manager',
     'bids',
+    'bureaus',
     'classifications',
     'assignments',
     'assignments.position',
@@ -295,6 +297,18 @@ const FETCH_OPTIONS = {
     'currentassignment.position.location',
     'currentassignment.position.bureau',
   ]
+}
+
+// Fetch employees for the query params
+const get_employee_bureaus_by_query = async (query, mapping) => {
+  try {
+    const data = await get_employee_by_ad_id(query, mapping);
+    const bureaus = _.get(data, '[0].bureaus', []);
+    return bureaus.map(m => _.pick(m, ['bur', 'bureau_long_desc', 'bureau_short_desc']))
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
 }
 
 // Fetch employees for the query params
@@ -439,4 +453,4 @@ const get_persons = async query => {
   }
 }
 
-module.exports = { get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons, personSkills, personLanguages }
+module.exports = { get_employee_bureaus_by_query, get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons, personSkills, personLanguages }
