@@ -63,9 +63,19 @@ async function get_bids_by_cp(query) {
     "assignment_status": "EF",
     "TED": m.per_ted,
   }))
-  const orderBy = _.get(query, 'order_by');
+  let orderBy = _.get(query, 'order_by');
+  orderBy = orderBy.split(' ');
   if (orderBy) {
-    bids$ = _.orderBy(bids$, orderBy);
+    bids$ = _.orderBy(bids$, orderBy[0], orderBy[1]);
+  }
+
+  let handshake_code = _.get(query, 'handshake_code');
+  if (handshake_code) {
+    let handshake_code$ = handshake_code;
+    if (handshake_code$ === 'OP') {
+      handshake_code$ = null;
+    }
+    bids$ = _.filter(bids$, f => f.handshake_code === handshake_code$);
   }
 
   return {
