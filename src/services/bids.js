@@ -3,6 +3,7 @@ const { get_available_position_by_id } = require('./availablepositions')
 const { personSkills, personLanguages } = require('./employees')
 
 const _ = require('lodash');
+const dateFns = require('date-fns');
 
 // Enumeration of Statuses for Bids
 const BID_STATUSES = {
@@ -12,6 +13,11 @@ const BID_STATUSES = {
   PANELED: { bs_cd: 'P', bs_descr_txt: 'Paneled' },
   CLOSED: { bs_cd: 'C', bs_descr_txt: 'Closed' },
   UNAVAILABLE: { bs_cd: 'U', bs_descr_txt: 'Unavailable' },
+}
+
+function paginate(array, page_size, page_number) {
+  // human-readable page numbers usually start with 1, so we reduce 1 in the first argument
+  return array.slice((page_number - 1) * page_size, page_number * page_size);
 }
 
 async function get_bid(cp_id, perdet_seq_num) {
@@ -28,7 +34,7 @@ async function get_bid(cp_id, perdet_seq_num) {
 }
 
 async function get_bids_by_cp(query) {
-  const cp_id = _.get(query, 'cp_id');
+  const cp_id = _.get(query, 'request_params.cp_id');
   console.log(`Trying to get bid for cp_id=${cp_id}`)
   const bids = await Bids
     .where('cp_id', cp_id)
@@ -59,23 +65,29 @@ async function get_bids_by_cp(query) {
     "handshake_code": m.ubw_hndshk_offrd_flg === 'Y' ? "HS" : null,
     "tp_codes_txt": m.per_classifications_tp_codes_txt,
     "tp_descs_txt": m.per_classifications_tp_descs_txt,
-    "ubw_submit_dt": m.ubw_submit_dt,
+    "ubw_submit_dt": m.ubw_submit_dt ? dateFns.format(m.ubw_submit_dt, 'MM/dd/yyyy') : null,
     "assignment_status": "EF",
     "TED": m.per_ted,
   }))
-  let orderBy = _.get(query, 'order_by');
+  let orderBy = _.get(query, 'request_params.order_by');
   orderBy = orderBy.split(' ');
   if (orderBy) {
     bids$ = _.orderBy(bids$, orderBy[0], orderBy[1]);
   }
 
-  let handshake_code = _.get(query, 'handshake_code');
+  let handshake_code = _.get(query, 'request_params.handshake_code');
   if (handshake_code) {
     let handshake_code$ = handshake_code;
     if (handshake_code$ === 'OP') {
       handshake_code$ = null;
     }
     bids$ = _.filter(bids$, f => f.handshake_code === handshake_code$);
+  }
+
+  const pageSize = _.get(query, 'request_params.page_size');
+  const pageIndex = _.get(query, 'request_params.page_index');
+  if (pageSize && pageIndex) {
+    bids$ = paginate(bids$, pageSize, pageIndex);
   }
 
   return {
