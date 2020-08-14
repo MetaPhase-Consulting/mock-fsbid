@@ -6,10 +6,27 @@ const { createPositionQuery, createTandemPositionQuery, formatLanguage, formatCo
 const create_query = (query, isCount=false) => createPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount)
 const create_tandem_query = (query, isCount=false, isTandemOne=false) => createTandemPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount, isTandemOne)
 
-const formatData = data => {
+const formatData = (data, isCyclePositions) => {
   if (data) {
     if (!Array.isArray(data)) {
       data = [data]
+    }
+    const omitFields = [
+      'capsuledescription',
+      'skill',
+      'bureau',
+      'location',
+      'org',
+      'bidstats',
+      'cycle',
+      'commuterpost',
+    ]
+    if (!isCyclePositions) {
+      omitFields.push(
+        'last_updated_user',
+        'last_updated_date',
+        'incumbent_perdet_seq_num'
+      )
     }
     return data.map(d => {
       const { cycle, position, bidstats } = d
@@ -41,18 +58,7 @@ const formatData = data => {
       d.ppos_capsule_descr_txt = capsuledescription.description
       d.ppos_capsule_modify_dt = capsuledescription.last_modified
       // Omit includes an array of fields to be excluded from given 1st arg object
-      return _.omit({...d, ...position}, 
-        [
-          'capsuledescription',
-          'skill',
-          'bureau',
-          'location',
-          'org',
-          'bidstats',
-          'cycle',
-          'commuterpost'
-        ]
-      )
+      return _.omit({...d, ...position}, omitFields)
     })
   }
 }
@@ -131,7 +137,11 @@ const RELATED = [
   'position.commuterpost'
 ]
 
-async function get_available_positions(query) {
+async function get_available_positions(query, isCyclePositions=false) {
+  const isCount = query['request_params.count'] === 'true'
+  if (isCount && isCyclePositions) {
+    return get_available_positions_count(query)
+  }
   const data = await create_query(query).fetchPage({
     withRelated: RELATED,
     pageSize: query["request_params.page_size"] || 25,
@@ -142,7 +152,7 @@ async function get_available_positions(query) {
   })
 
   return {
-    "Data": formatData(data.serialize()),
+    "Data": formatData(data.serialize(), isCyclePositions),
     "usl_id": 44999637,
     "return_code": 0
   }
