@@ -69,7 +69,7 @@ async function get_bids_by_cp(query) {
     "assignment_status": "EF",
     "TED": m.per_ted,
   }))
-  let orderBy = _.get(query, 'request_params.order_by');
+  let orderBy = _.get(query, 'request_params.order_by', '');
   orderBy = orderBy.split(' ');
   if (orderBy) {
     bids$ = _.orderBy(bids$, orderBy[0], orderBy[1]);
