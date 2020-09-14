@@ -170,6 +170,10 @@ var appRouter = function (app) {
   });
 
   app.get('/availablePositions', async function(req, res) {
+  print('--------------------aahsbgkjahkbs kgjhjbh gkjhjbdhjbdsdfksjbdfkjbg')
+  print('--------------------aahsbgkjahkbs kgjhjbh gkjhjbdhjbdsdfksjbdfkjbg')
+  print('--------------------aahsbgkjahkbs kgjhjbh gkjhjbdhjbdsdfksjbdfkjbg')
+  print('--------------------aahsbgkjahkbs kgjhjbh gkjhjbdhjbdsdfksjbdfkjbg')
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query))
     } catch (errMsg) {
@@ -297,6 +301,21 @@ var appRouter = function (app) {
   app.get('/cyclePositions', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query, true))
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  })
+
+   // make sure we pass the params we do in devnet
+  app.get('/SECREF/user', async function(req, res) {
+    const user = await employees.get_user(req.query)
+    try {
+      res.status(200).send({
+      Data: user,
+      usl_id: 0,
+      return_code: 0
+    })
     } catch (errMsg) {
       console.error(errMsg)
       res.status(500).send({ "Message": "An error has occurred." });
