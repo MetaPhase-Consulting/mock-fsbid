@@ -201,11 +201,9 @@ const get_persons_filters = (params = {}) => {
 }
 
 const get_user_filters = (params = {}) => {
-//emp seq num === per seq num <- we are assuming
-  const { emp_seq_num } = params
+  const { hru_id } = params
   const q = {}
-  if (emp_seq_num) q['employees.perdet_seq_num'] = emp_seq_num
-
+  if (hru_id) q['employees.perdet_seq_num'] = hru_id
   return q
 }
 
@@ -357,7 +355,6 @@ const get_paged_employees_by_query = async (query, mapping) => {
 }
 
 // Fetch user for the query params
-//have to do something in here
 const get_user_by_query = async (query, mapping) => {
   try {
     const data = await get_employees_query(query, mapping).fetchAll(FETCH_OPTIONS)
@@ -473,7 +470,7 @@ const get_persons = async query => {
     return null
   }
 }
-// need to check params sent in
+
 const get_user = async query => {
   try {
     const data = await get_user_by_query(query, get_user_filters)
