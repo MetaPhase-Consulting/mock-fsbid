@@ -303,8 +303,6 @@ var appRouter = function (app) {
     }
   })
 
-   // make sure we pass at least a few of the params we do in devnet
-   // WS what does this filter on??? include at least a few filters.
   app.get('/SECREF/user', async function(req, res) {
     const user = await employees.get_user(req.query)
     try {

@@ -203,8 +203,7 @@ const get_persons_filters = (params = {}) => {
 const get_user_filters = (params = {}) => {
   const { hru_id } = params
   const q = {}
-  if (hru_id) q['employees.perdet_seq_num'] = hru_id
-  // if (hru_id) q['employees.hru_id'] = hru_id
+  if (hru_id) q['employees.hru_id'] = hru_id
   return q
 }
 
