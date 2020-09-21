@@ -137,7 +137,6 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
         let allSpaceChars = false;
           // single grade: str; multiple grades: arr
         if (Array.isArray(value)) {
-          // if any el in value is all spaces, we will throw error
           value.forEach(a => { if(a.match(rE)) allSpaceChars = true;})
         } else {
           allSpaceChars = value.match(rE);
