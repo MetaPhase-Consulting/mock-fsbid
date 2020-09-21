@@ -134,7 +134,14 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
       const value = query[q]
       if (_.get(filter, 'field') === 'positions.pos_grade_code') {
         const rE = /^\s+$/g;
-        const allSpaceChars = value.match(rE);
+        let allSpaceChars = false;
+          // single grade: str; multiple grades: arr
+        if (Array.isArray(value)) {
+          // if any el in value is all spaces, we will throw error
+          value.forEach(a => { if(a.match(rE)) allSpaceChars = true;})
+        } else {
+          allSpaceChars = value.match(rE);
+        }
         if (allSpaceChars) throw 'Error: pos_grade_code contains all whitespace characters'
       }
 
