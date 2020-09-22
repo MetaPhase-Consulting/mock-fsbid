@@ -294,7 +294,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/cyclePositions', async function(req, res) {
+  app.get('/cyclePositions/cyclePositions', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query, true))
     } catch (errMsg) {
