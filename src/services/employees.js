@@ -200,41 +200,44 @@ const get_persons_filters = (params = {}) => {
   return q
 }
 
-const get_user_filters = (params = {}) => {
-  const { hru_id } = params
-  const q = {}
-  if (hru_id) q['employees.hru_id'] = hru_id
-  return q
-}
-
 // Query for fetching employees
 const get_employees_query = (params, mapping) => {
-  return Employees.query(qb => {
-    qb.join('employees_roles', 'employees.perdet_seq_num', 'employees_roles.perdet_seq_num')
-    qb.join('employees_skills', 'employees.perdet_seq_num', 'employees_skills.perdet_seq_num')
-    qb.join('codes', 'employees_skills.jc_id', 'codes.jc_id')
-    qb.leftOuterJoin('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
-    let q = params
-    if (mapping) {
-      q = mapping(params)
-    }
-    qb.where(q)
+    return Employees.query(qb => {
+        qb.join('employees_roles', 'employees.perdet_seq_num', 'employees_roles.perdet_seq_num')
+        qb.join('employees_skills', 'employees.perdet_seq_num', 'employees_skills.perdet_seq_num')
+        qb.join('codes', 'employees_skills.jc_id', 'codes.jc_id')
+        qb.leftOuterJoin('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
+        let q = params
+        if (mapping) {
+            q = mapping(params)
+        }
+        qb.where(q)
+        manager_idFilter(qb, params['request_params.hru_id'])
+        perdet_seq_numFilter(qb, params['request_params.perdet_seq_num'])
+        addHSFilter(qb, params['request_params.hs_cd'])
+        addFreeTextFilter(qb, params['request_params.freeText'])
+        const isCount = params['request_params.get_count'] === 'true'
+        if (!isCount) {
+            const orderByField = params['request_params.order_by']
+            if (orderByField) {
+                addOrderBy(qb, orderByField, SORT_MAPPING)
+            } else {
+                // Default sort
+                qb.orderBy('employees.last_name')
+            }
+        }
+    })
+}
 
-    hru_idFilter(qb, params['request_params.hru_id'])
-    perdet_seq_numFilter(qb, params['request_params.perdet_seq_num'])
-    addHSFilter(qb, params['request_params.hs_cd'])
-    addFreeTextFilter(qb, params['request_params.freeText'])
-    const isCount = params['request_params.get_count'] === 'true'
-    if (!isCount) {
-      const orderByField = params['request_params.order_by']
-      if (orderByField) {
-        addOrderBy(qb, orderByField, SORT_MAPPING)
-      } else {
-        // Default sort
-        qb.orderBy('employees.last_name')
-      }
-    }
-  })
+// Query for fetching users
+const get_users_query = (params, mapping) => {
+    return Employees.query(qb => {
+        qb.join('employees_roles', 'employees.perdet_seq_num', 'employees_roles.perdet_seq_num')
+        qb.join('employees_skills', 'employees.perdet_seq_num', 'employees_skills.perdet_seq_num')
+        qb.join('codes', 'employees_skills.jc_id', 'codes.jc_id')
+        hru_idFilter(qb, params['request_params.hru_id'])
+        perdet_seq_numFilter(qb, params['request_params.perdet_seq_num'])
+    })
 }
 
 // Free text filter does an ilike/contains type filter
@@ -269,7 +272,8 @@ const addHSFilter = (qb, value) => {
   }
 }
 
-const hru_idFilter = (qb, value) => addMultiValueFilter(qb, value, 'manager.hru_id')
+const hru_idFilter = (qb, value) => addMultiValueFilter(qb, value, 'employees.hru_id')
+const manager_idFilter = (qb, value) => addMultiValueFilter(qb, value, 'manager.hru_id')
 const perdet_seq_numFilter = (qb, value) => addMultiValueFilter(qb, value, 'employees.perdet_seq_num')
 
 const addMultiValueFilter = (qb, value, field) => {
@@ -347,17 +351,6 @@ const get_paged_employees_by_query = async (query, mapping) => {
       pageSize: query["request_params.page_size"] || 25,
       page: query["request_params.page_index"] || 1
     })
-    return data.serialize()
-  } catch (Error) {
-    console.error(Error)
-    return null
-  }
-}
-
-// Fetch user for the query params
-const get_user_by_query = async (query, mapping) => {
-  try {
-    const data = await get_employees_query(query, mapping).fetchAll(FETCH_OPTIONS)
     return data.serialize()
   } catch (Error) {
     console.error(Error)
@@ -473,9 +466,9 @@ const get_persons = async query => {
 
 const get_user = async query => {
   try {
-    const data = await get_user_by_query(query, get_user_filters)
-    return data.map(user => {
-      const res = {
+      const data = await get_users_query(query).fetchAll(FETCH_OPTIONS);
+      return data.serialize().map(user => {
+        return {
             hru_id: user.hru_id || '',
             hru_logon_nm: user.hru_logon_nm || '',
             hru_pswd_txt: user.hru_pswd_txt || '',
@@ -537,7 +530,6 @@ const get_user = async query => {
             gal_domain_name: user.gal_domain_name || '',
             rnum: user.rnum || ''
         }
-      return res
     })
   } catch (Error) {
     console.error(Error)
