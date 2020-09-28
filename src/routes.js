@@ -170,8 +170,6 @@ var appRouter = function (app) {
   });
 
   app.get('/availablePositions', async function(req, res) {
-    console.log('===========================')
-    console.log('===========================')
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query))
     } catch (errMsg) {
