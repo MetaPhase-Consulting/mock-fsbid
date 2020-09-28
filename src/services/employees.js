@@ -202,32 +202,33 @@ const get_persons_filters = (params = {}) => {
 
 // Query for fetching employees
 const get_employees_query = (params, mapping) => {
-  return Employees.query(qb => {
-    qb.join('employees_roles', 'employees.perdet_seq_num', 'employees_roles.perdet_seq_num')
-    qb.join('employees_skills', 'employees.perdet_seq_num', 'employees_skills.perdet_seq_num')
-    qb.join('codes', 'employees_skills.jc_id', 'codes.jc_id')
-    qb.leftOuterJoin('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
-    let q = params
-    if (mapping) {
-      q = mapping(params)
-    }
-    qb.where(q)
+    return Employees.query(qb => {
+        qb.join('employees_roles', 'employees.perdet_seq_num', 'employees_roles.perdet_seq_num')
+        qb.join('employees_skills', 'employees.perdet_seq_num', 'employees_skills.perdet_seq_num')
+        qb.join('codes', 'employees_skills.jc_id', 'codes.jc_id')
+        qb.leftOuterJoin('employees as manager', 'employees.manager_id', 'manager.perdet_seq_num')
+        let q = params
+        if (mapping) {
+            q = mapping(params)
+        }
+        qb.where(q)
 
-    manager_idFilter(qb, params['request_params.hru_id'])
-    perdet_seq_numFilter(qb, params['request_params.perdet_seq_num'])
-    addHSFilter(qb, params['request_params.hs_cd'])
-    addFreeTextFilter(qb, params['request_params.freeText'])
-    const isCount = params['request_params.get_count'] === 'true'
-    if (!isCount) {
-      const orderByField = params['request_params.order_by']
-      if (orderByField) {
-        addOrderBy(qb, orderByField, SORT_MAPPING)
-      } else {
-        // Default sort
-        qb.orderBy('employees.last_name')
-      }
-    }
-  })
+        manager_idFilter(qb, params['request_params.hru_id'])
+        perdet_seq_numFilter(qb, params['request_params.perdet_seq_num'])
+        addHSFilter(qb, params['request_params.hs_cd'])
+        addFreeTextFilter(qb, params['request_params.freeText'])
+        const isCount = params['request_params.get_count'] === 'true'
+        if (!isCount) {
+            const orderByField = params['request_params.order_by']
+            if (orderByField) {
+                addOrderBy(qb, orderByField, SORT_MAPPING)
+            } else {
+                // Default sort
+                qb.orderBy('employees.last_name')
+            }
+        }
+    })
+}
 
 // Query for fetching users
 const get_users_query = (params, mapping) => {
