@@ -537,5 +537,4 @@ const get_user = async query => {
   }
 }
 
-
 module.exports = { get_employee_bureaus_by_query, get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons, personSkills, personLanguages, get_user }
