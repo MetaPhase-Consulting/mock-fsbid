@@ -213,7 +213,7 @@ const get_employees_query = (params, mapping) => {
     }
     qb.where(q)
 
-    hru_idFilter(qb, params['request_params.hru_id'])
+    manager_idFilter(qb, params['request_params.hru_id'])
     perdet_seq_numFilter(qb, params['request_params.perdet_seq_num'])
     addHSFilter(qb, params['request_params.hs_cd'])
     addFreeTextFilter(qb, params['request_params.freeText'])
@@ -227,6 +227,17 @@ const get_employees_query = (params, mapping) => {
         qb.orderBy('employees.last_name')
       }
     }
+  })
+}
+
+// Query for fetching users
+const get_users_query = (params) => {
+  return Employees.query(qb => {
+    qb.join('employees_roles', 'employees.perdet_seq_num', 'employees_roles.perdet_seq_num')
+    qb.join('employees_skills', 'employees.perdet_seq_num', 'employees_skills.perdet_seq_num')
+    qb.join('codes', 'employees_skills.jc_id', 'codes.jc_id')
+    hru_idFilter(qb, params['request_params.hru_id'])
+    perdet_seq_numFilter(qb, params['request_params.perdet_seq_num'])
   })
 }
 
@@ -262,7 +273,8 @@ const addHSFilter = (qb, value) => {
   }
 }
 
-const hru_idFilter = (qb, value) => addMultiValueFilter(qb, value, 'manager.hru_id')
+const hru_idFilter = (qb, value) => addMultiValueFilter(qb, value, 'employees.hru_id')
+const manager_idFilter = (qb, value) => addMultiValueFilter(qb, value, 'manager.hru_id')
 const perdet_seq_numFilter = (qb, value) => addMultiValueFilter(qb, value, 'employees.perdet_seq_num')
 
 const addMultiValueFilter = (qb, value, field) => {
@@ -453,4 +465,77 @@ const get_persons = async query => {
   }
 }
 
-module.exports = { get_employee_bureaus_by_query, get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons, personSkills, personLanguages }
+const get_user = async query => {
+  try {
+    const data = await get_users_query(query).fetchAll(FETCH_OPTIONS);
+    return data.serialize().map(user => {
+      return {
+          hru_id: user.hru_id || '',
+          hru_logon_nm: user.hru_logon_nm || '',
+          hru_pswd_txt: user.hru_pswd_txt || '',
+          hru_pswd_chg_ind: user.hru_pswd_chg_ind || '',
+          hru_last_pswd_chd_dt: user.hru_last_pswd_chd_dt || '',
+          hru_log_ind: user.hru_log_ind || '',
+          hru_last_lgn_tmsmp_dt: user.hru_last_lgn_tmsmp_dt || '',
+          hru_lgn_atmps_qty: user.hru_lgn_atmps_qty || '',
+          hru_ip_adrs_txt: user.hru_ip_adrs_txt || '',
+          hru_email_ovrd_ind: user.hru_email_ovrd_ind || '',
+          emp_seq_nbr: user.emp_seq_nbr || '',
+          uls_cd: user.uls_cd || '',
+          ut_cd: user.ut_cd || '',
+          neu_id: user.neu_id || '',
+          gal_id: user.gal_id || '',
+          hru_create_tmsmp_dt: user.hru_create_tmsmp_dt || '',
+          hru_create_user_id: user.hru_create_user_id || '',
+          hru_last_updt_tmsmp_dt: user.hru_last_updt_tmsmp_dt || '',
+          hru_last_updt_user_id: user.hru_last_updt_user_id || '',
+          gal_smtp_email_adrs_text: user.email || '',
+          hru_ad_sync_tmsmp_dt: user.hru_ad_sync_tmsmp_dt || '',
+          hru_ad_sam_name_text: user.username || '',
+          hru_ad_unsync_tmsmp_dt: user.hru_ad_unsync_tmsmp_dt || '',
+          hru_ad_domain_name_text: user.hru_ad_domain_name_text || '',
+          hru_ad_lockout_tmsmp_dt: user.hru_ad_lockout_tmsmp_dt || '',
+          gal_seq_num: user.gal_seq_num || '',
+          gal_custom_attr_10_text: user.gal_custom_attr_10_text || '',
+          gal_last_name: user.last_name || '',
+          gal_first_name: user.first_name || '',
+          gal_mi_name: user.middle_name || '',
+          gal_display_name: user.fullname || '',
+          gal_alias_name: user.gal_alias_name || '',
+          gal_address_text: user.office_address || '',
+          gal_city_text: user.gal_city_text || '',
+          gal_state_text: user.gal_state_text || '',
+          gal_zip_code_text: user.gal_zip_code_text || '',
+          gal_cntry_text: user.gal_cntry_text || '',
+          gal_title_text: user.gal_title_text || '',
+          gal_company_text: user.gal_company_text || '',
+          gal_dept_text: user.gal_dept_text || '',
+          gal_office_text: user.gal_office_text || '',
+          gal_assistant_name: user.gal_assistant_name || '',
+          gal_phone_nbr_text: user.office_phone || '',
+          gal_smtp_email_address_text: user.gal_smtp_email_address_text || '',
+          gal_object_class_text: user.gal_object_class_text || '',
+          gal_nt_account_text: user.gal_nt_account_text || '',
+          gal_home_server_text: user.gal_home_server_text || '',
+          gal_directory_name: user.gal_directory_name || '',
+          gal_status_ind: user.gal_status_ind || '',
+          gal_create_id: user.gal_create_id || '',
+          gal_create_date: user.gal_create_date || '',
+          gal_update_id: user.gal_update_id || '',
+          gal_update_date: user.gal_update_date || '',
+          gal_fax_nbr_text: user.gal_fax_nbr_text || '',
+          gal_mobile_nbr_text: user.gal_mobile_nbr_text || '',
+          gal_pager_nbr_text: user.gal_pager_nbr_text || '',
+          gal_home_nbr_text: user.gal_home_nbr_text || '',
+          gal_notes_text: user.gal_notes_text || '',
+          gal_domain_name: user.gal_domain_name || '',
+          rnum: user.rnum || ''
+      }
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+module.exports = { get_employee_bureaus_by_query, get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons, personSkills, personLanguages, get_user }

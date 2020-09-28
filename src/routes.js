@@ -302,6 +302,20 @@ var appRouter = function (app) {
       res.status(500).send({ "Message": "An error has occurred." });
     }
   })
+
+  app.get('/SECREF/user', async function(req, res) {
+    const user = await employees.get_user(req.query)
+    try {
+      res.status(200).send({
+      Data: user,
+      usl_id: 0,
+      return_code: 0
+    })
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  })
 };
 
 module.exports = appRouter;

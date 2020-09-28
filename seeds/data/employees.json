@@ -7,7 +7,9 @@
     "last_name": "Administrator",
     "email": "admin@talentmapmock.test",
     "hru_id": 1,
-    "dob": "1940-10-31T00:00:00"
+    "dob": "1940-10-31T00:00:00",
+    "office_phone": "(123) 516 2458",
+    "office_address": "515 22nd ST - 231L (SA-02)"
   },
   {
     "username": "townpostj",
@@ -19,7 +21,9 @@
     "hru_id": 2,
     "grade_code": "00",
     "manager_id": 7,
-    "dob": "1996-03-31T00:00:00"
+    "dob": "1996-03-31T00:00:00",
+    "office_phone": "(123) 353 0184",
+    "office_address": "8354 Alban Rd - 696X (SA-18)"
   },
   {
     "username": "shadtrachl",
@@ -30,7 +34,9 @@
     "email": "shadtrachl@state.gov",
     "hru_id": 3,
     "grade_code": "01",
-    "dob": "1946-03-17T00:00:00"
+    "dob": "1946-03-17T00:00:00",
+    "office_phone": "(123) 805 3763",
+    "office_address": "515 22nd ST - 231L (SA-02)"
   },
   {
     "username": "rehmant",
@@ -42,7 +48,9 @@
     "hru_id": 4,
     "grade_code": "02",
     "manager_id": 7,
-    "dob": "1955-11-05T00:00:00"
+    "dob": "1955-11-05T00:00:00",
+    "office_phone": "(123) 558 1476",
+    "office_address": "2025 E St NW\r\nws - 515A (SA-09)"
   },
   {
     "username": "woodwardw",
@@ -53,7 +61,9 @@
     "email": "wwoodward@talentmapmock.test",
     "hru_id": 5,
     "grade_code": "03",
-    "dob": "1988-11-22T00:00:00"
+    "dob": "1988-11-22T00:00:00",
+    "office_phone": "(123) 460 1462",
+    "office_address": "3507 International PL NW - 925E (SA-33)"
   },
   {
     "username": "finleyj",
@@ -64,7 +74,9 @@
     "email": "finleyj@state.gov",
     "hru_id": 246,
     "grade_code": "04",
-    "dob": "1949-04-12T00:00:00"
+    "dob": "1949-04-12T00:00:00",
+    "office_phone": "(123) 278 0361",
+    "office_address": "5800 Barclay Dr - 863U (SA-24)"
   },
   {
     "username": "huxleye",
@@ -76,7 +88,9 @@
     "hru_id": 856,
     "grade_code": "05",
     "manager_id": 9,
-    "dob": "1977-09-13T00:00:00"
+    "dob": "1977-09-13T00:00:00",
+    "office_phone": "(123) 580 5311",
+    "office_address": "8354 Alban Rd - 696X (SA-18)"
   },
   {
     "username": "johnsonm",
@@ -87,7 +101,9 @@
     "email": "johnsonm@state.gov",
     "hru_id": 249,
     "grade_code": "OM",
-    "dob": "1999-08-09T00:00:00"
+    "dob": "1999-08-09T00:00:00",
+    "office_phone": "(123) 831 5444",
+    "office_address": "2121 Virginia AVE NW - 111R (SA-03)"
   },
   {
     "username": "kimj",
@@ -98,7 +114,9 @@
     "email": "kimj@state.gov",
     "hru_id": 100,
     "grade_code": "08",
-    "dob": "1945-11-12T00:00:00"
+    "dob": "1945-11-12T00:00:00",
+    "office_phone": "(123) 243 5175",
+    "office_address": "2401 E ST NW\r\nws - 820B (SA-01)"
   },
   {
     "username": "lincolna",
@@ -109,7 +127,9 @@
     "email": "lincolna@state.gov",
     "hru_id": 5001,
     "grade_code": "08",
-    "dob": "1966-09-25T00:00:00"
+    "dob": "1966-09-25T00:00:00",
+    "office_phone": "(123) 733 7350",
+    "office_address": "515 22nd ST - 231L (SA-02)"
   },
   {
     "username": "nunesa",
@@ -120,7 +140,9 @@
     "email": "nunesa@state.gov",
     "hru_id": 1776,
     "grade_code": "MC",
-    "dob": "2000-04-12T00:00:00"
+    "dob": "2000-04-12T00:00:00",
+    "office_phone": "(123) 846 4010",
+    "office_address": "2401 E ST NW\r\nws - 820B (SA-01)"
   },
   {
     "username": "petersj",
@@ -131,6 +153,8 @@
     "email": "petersj@state.gov",
     "hru_id": 9001,
     "grade_code": "OC",
-    "dob": "1987-09-10T00:00:00"
+    "dob": "1987-09-10T00:00:00",
+    "office_phone": "(123) 745 3333",
+    "office_address": "2401 E ST NW\r\nws - 820B (SA-01)"
   }
 ]
