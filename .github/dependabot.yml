@@ -1,0 +1,22 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "10:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - mjoyce91
+  ignore:
+  - dependency-name: bookshelf
+    versions:
+    - ">= 1.1.1.a"
+    - "< 1.1.2"
+  - dependency-name: dotenv-safe
+    versions:
+    - "> 6.1.0"
+  - dependency-name: sqlite3
+    versions:
+    - ">= 4.2.0.a"
+    - "< 4.2.1"
