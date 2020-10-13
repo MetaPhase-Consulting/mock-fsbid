@@ -95,8 +95,12 @@ var appRouter = function (app) {
   });
 
   app.put('/bids', async function(req, res) {
+    let isCDO = false;
+    const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
+    const roles = _.get(decoded, 'payload.role', []);
+    if (_.includes(roles, 'CDO') || _.includes(roles, 'CDO3')) { isCDO = true; }
     try {
-      res.status(200).send(await bidding.submit_bid(req.query))
+      res.status(200).send(await bidding.submit_bid(req.query, isCDO))
     } catch (err) {
       console.error('Error occurred submitting bid')
       console.error(`${err}`)
