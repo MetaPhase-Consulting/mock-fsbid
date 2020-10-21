@@ -123,7 +123,7 @@ const get_delete_ind = id => (
   }
 )
 // Whether or not a CDO bid on the position
-const get_cdo_bid = id => ( { cdo_bid: 'N' } )
+const get_cdo_bid = data => ( !data.cdo_bid || data.cdo_bid === 'N' ? { cdo_bid: 'N' } : { cdo_bid: 'Y' } )
 
 const formatData = (data, isCDO = true) => {
   if (data && data.position) {
@@ -176,7 +176,7 @@ const formatData = (data, isCDO = true) => {
       cycle_nm_txt:cycle.cycle_name,
       ...bidstats,
       ...get_delete_ind(data.id),
-      ...get_cdo_bid(data.id),
+      ...get_cdo_bid(data),
       ...employeeProps,
     }
   }
@@ -216,13 +216,16 @@ async function add_bid(query) {
   return { Data: null, usl_id: 45066084, return_code }
 }
 
-async function submit_bid(query) {
+async function submit_bid(query, isCDO = false) {
+  let cdo_bid = 'N';
+  if (isCDO) { cdo_bid = 'Y' };
   return await update_bid(
     query,
     {
       ...BID_STATUSES.SUBMITTED,
       handshake_allowed_ind: 'Y',
       ubw_submit_dt: new Date().toISOString(),
+      cdo_bid,
     }
   )
 }
