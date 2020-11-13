@@ -5,7 +5,9 @@ exports.seed = function(knex) {
 
       return knex.select('cp_id').from('availablepositions')
         .innerJoin('positions', 'positions.position', 'availablepositions.position')
-        .whereIn('bureau', ['120000', '170000'])
+        .whereIn('bureau', ['120000'])
+        .orderBy('pos_title_desc', 'asc')
+        .limit(5)
         .then(cpids => {
           return knex
             .from('employees')
