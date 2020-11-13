@@ -8,15 +8,7 @@
     "bur": "120000"
   },
   {
-    "perdet_seq_num": 8,
-    "bur": "260000"
-  },
-  {
-    "perdet_seq_num": 8,
-    "bur": "160000"
-  },
-  {
     "perdet_seq_num": 2,
-    "bur": "160000"
+    "bur": "120000"
   }
 ]
