@@ -156,5 +156,18 @@
     "dob": "1987-09-10T00:00:00",
     "office_phone": "(123) 745 3333",
     "office_address": "2401 E ST NW\r\nws - 820B (SA-01)"
+  },
+  {
+    "username": "velezp",
+    "ad_id": "washdc\\velezp",
+    "perdet_seq_num": 17,
+    "first_name": "PRESTON",
+    "last_name": "VELEZ",
+    "email": "velezp@state.gov",
+    "hru_id": 9001,
+    "grade_code": "05",
+    "dob": "1982-11-04T00:00:00",
+    "office_phone": "(123) 555 3331",
+    "office_address": "2401 E ST NW\r\nws - 820C (SA-01)"
   }
 ]

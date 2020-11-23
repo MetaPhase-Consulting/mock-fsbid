@@ -1,6 +1,6 @@
 const { readJson } = require('./data/helpers')
 
-const employees_bureaus = readJson('./employees_organizations.json')
+const employees_organizations = readJson('./employees_organizations.json')
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
