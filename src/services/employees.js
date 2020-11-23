@@ -329,7 +329,8 @@ const get_employee_organizations_by_query = async (query, mapping) => {
   try {
     const data = await get_employee_by_ad_id(query, mapping);
     const organizations = _.get(data, '[0].organizations', []);
-    return organizations.map(m => _.pick(m, ['code', 'short_desc', 'long_desc']))
+    const organizations$ = organizations.map(m => _.pick(m, ['code', 'short_desc', 'long_desc']))
+    return organizations$.map(m => ({ org_code: m.code, org_short_desc: m.short_desc, org_long_desc: m.long_desc }))
   } catch (Error) {
     console.error(Error)
     return null
