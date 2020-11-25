@@ -296,6 +296,7 @@ const FETCH_OPTIONS = {
     'manager',
     'bids',
     'bureaus',
+    'organizations',
     'classifications',
     'assignments',
     'assignments.position',
@@ -317,6 +318,19 @@ const get_employee_bureaus_by_query = async (query, mapping) => {
     const data = await get_employee_by_ad_id(query, mapping);
     const bureaus = _.get(data, '[0].bureaus', []);
     return bureaus.map(m => _.pick(m, ['bur', 'bureau_long_desc', 'bureau_short_desc']))
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+// Fetch employees for the query params
+const get_employee_organizations_by_query = async (query, mapping) => {
+  try {
+    const data = await get_employee_by_ad_id(query, mapping);
+    const organizations = _.get(data, '[0].organizations', []);
+    const organizations$ = organizations.map(m => _.pick(m, ['code', 'short_desc', 'long_desc']))
+    return organizations$.map(m => ({ org_code: m.code, org_short_desc: m.short_desc, org_long_desc: m.long_desc }))
   } catch (Error) {
     console.error(Error)
     return null
@@ -538,4 +552,4 @@ const get_user = async query => {
   }
 }
 
-module.exports = { get_employee_bureaus_by_query, get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons, personSkills, personLanguages, get_user }
+module.exports = { get_employee_bureaus_by_query, get_employee_organizations_by_query, get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons, personSkills, personLanguages, get_user }
