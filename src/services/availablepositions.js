@@ -14,6 +14,7 @@ const formatData = (data, isCyclePositions) => {
     const omitFields = [
       'capsuledescription',
       'skill',
+      'skill2',
       'bureau',
       'location',
       'org',
@@ -30,7 +31,7 @@ const formatData = (data, isCyclePositions) => {
     }
     return data.map(d => {
       const { cycle, position, bidstats } = d
-      const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription } = position
+      const { tod, lang1, lang2, org, location, bureau, skill, skill2, capsuledescription } = position
       d.cp_ttl_bidder_qty = bidstats.cp_ttl_bidder_qty
       d.cp_at_grd_qty = bidstats.cp_at_grd_qty
       d.cp_in_cone_qty = bidstats.cp_in_cone_qty
@@ -55,6 +56,8 @@ const formatData = (data, isCyclePositions) => {
       d.bureau_code = bureau.bur
       d.pos_skill_desc = skill.skill_descr
       d.pos_skill_code = skill.skl_code
+      d.pos_staff_ptrn_skill_desc = skill2.skill_descr
+      d.pos_staff_ptrn_skill_code = skill2.skl_code
       d.ppos_capsule_descr_txt = capsuledescription.description
       d.ppos_capsule_modify_dt = capsuledescription.last_modified
       // Omit includes an array of fields to be excluded from given 1st arg object
@@ -72,7 +75,7 @@ const formatTandemData = (data, isTandemOne=false) => {
     const counter = {}
     return data.map(d => {
       const { cycle, position, bidstats } = d
-      const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription, commuterpost } = position
+      const { tod, lang1, lang2, org, location, bureau, skill, skill2, capsuledescription, commuterpost } = position
       // Sets up a counter for duplicate cp_ids to determine which commuter post to use
       const cp_id = d.cp_id
       counter.hasOwnProperty(cp_id) ? counter[cp_id] += 1 : counter[cp_id] = 0
@@ -102,6 +105,8 @@ const formatTandemData = (data, isTandemOne=false) => {
       d.bureau_code = bureau.bur
       d.pos_skill_desc = skill.skill_descr
       d.pos_skill_code = skill.skl_code
+      d.pos_staff_ptrn_skill_desc = skill2.skill_descr
+      d.pos_staff_ptrn_skill_code = skill2.skl_code
       d.ppos_capsule_descr_txt = capsuledescription.description
       d.ppos_capsule_modify_dt = capsuledescription.last_modified
       d.tandem_nbr = isTandemOne ? 1 : 2
@@ -132,6 +137,7 @@ const RELATED = [
   'position.location',
   'position.bureau',
   'position.skill',
+  'position.skill2',
   'position.capsuledescription',
   'position.location.unaccompaniedstatus',
   'position.commuterpost'
