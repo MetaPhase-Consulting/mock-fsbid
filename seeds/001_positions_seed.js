@@ -24,7 +24,18 @@ exports.seed = function(knex) {
         position.lang2 = findRandom(languages)['language_code']
         position.bureau = findRandom(bureaus)['bur']
         position.pos_grade_code = findRandom(grades)['grade_code']
-        position.jc_id = findRandom(codes)['jc_id']
+
+        const jc_id = findRandom(codes)['jc_id']
+
+        position.jc_id = jc_id;
+        const odds = Math.random() * 100;
+        // set jc_id_2 to the same as jc_id 50% of the time
+        if (odds < 50) {
+          position.jc_id_2= jc_id;
+        } else {
+          position.jc_id_2= findRandom(codes)['jc_id'];
+        }
+
         position.bt_differential_rate_num = findRandom(differentialrates)['pay_percent_num']
         position.bt_danger_pay_num = findRandom(dangerpays)['pay_percent_num']
         position.pos_job_category_desc = findRandom(jobcategories)['name']

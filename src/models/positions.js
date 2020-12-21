@@ -3,7 +3,7 @@ const bookshelf = require('../bookshelf.js')
 const Positions = bookshelf.model('Positions', {
   tableName: 'positions',
   idAttribute: 'pos_seq_num',
-  
+
   tod() {
     return this.belongsTo('TourOfDuties', 'tod')
   },
@@ -24,6 +24,9 @@ const Positions = bookshelf.model('Positions', {
   },
   skill() {
     return this.belongsTo('Codes', 'jc_id')
+  },
+  skill2() {
+    return this.belongsTo('Codes', 'jc_id_2')
   },
   capsuledescription() {
     return this.hasOne('CapsuleDescriptions', 'pos_seq_num')
