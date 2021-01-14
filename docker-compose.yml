@@ -19,6 +19,9 @@ services:
       - DB_PORT=5432
       - DB_CHARSET=utf8
       - DB_CLIENT=postgres
+      - ORACLE_USER=talentmap1
+      - ORACLE_PW=talentmap1
+      - ORACLE_HOST=host.docker.internal:1521/talentmappdb
       - DEBUG=false
   db:
     image: postgres:9.6.3
