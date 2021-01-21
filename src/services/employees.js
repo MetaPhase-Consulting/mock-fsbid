@@ -216,6 +216,8 @@ const get_employees_query = (params, mapping) => {
     manager_idFilter(qb, params['request_params.hru_id'])
     perdet_seq_numFilter(qb, params['request_params.perdet_seq_num'])
     addHSFilter(qb, params['request_params.hs_cd'])
+    addNoSuccessfulPanelFilter(qb, params['request_params.no_successful_panel'])
+    addNoBidsFilter(qb, params['request_params.no_bids'])
     addFreeTextFilter(qb, params['request_params.freeText'])
     const isCount = params['request_params.get_count'] === 'true'
     if (!isCount) {
@@ -268,6 +270,32 @@ const addHSFilter = (qb, value) => {
             .from('employees')
             .leftOuterJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
             .where('bids.ubw_hndshk_offrd_flg', 'Y')
+      })
+    }
+  }
+}
+
+const addNoSuccessfulPanelFilter = (qb, value) => {
+  if (value) {
+    qb.leftJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
+    if (value === 'Y') {
+      qb.whereNot('bs_cd', 'P')
+    } else {
+      qb.where('bs_cd', 'P')
+    }
+  }
+}
+
+const addNoBidsFilter = (qb, value) => {
+  if (value) {
+    qb.leftJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
+    if (value === 'Y') {
+      qb.whereNotExists(function() {
+        this.select('employees.perdet_seq_num').from('employees').whereRaw('employees.perdet_seq_num = bids.perdet_seq_num');
+      })
+    } else {
+      qb.whereExists(function() {
+        this.select('employees.perdet_seq_num').from('employees').whereRaw('employees.perdet_seq_num = bids.perdet_seq_num');
       })
     }
   }
