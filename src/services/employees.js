@@ -279,7 +279,12 @@ const addNoSuccessfulPanelFilter = (qb, value) => {
   if (value) {
     qb.leftJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
     if (value === 'Y') {
-      qb.whereNot('bs_cd', 'P')
+      qb.whereNotIn('employees.perdet_seq_num', function() {
+        this.select('employees.perdet_seq_num')
+          .from('employees')
+          .leftJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
+          .where('bs_cd', 'P')
+      })
     } else {
       qb.where('bs_cd', 'P')
     }
