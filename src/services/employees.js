@@ -293,6 +293,7 @@ const addNoSuccessfulPanelFilter = (qb, value) => {
 
 const addNoBidsFilter = (qb, value) => {
   if (value) {
+    qb.leftJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
     if (value === 'Y') {
       qb.whereNotIn('employees.perdet_seq_num', function() {
         this.select('employees.perdet_seq_num')
