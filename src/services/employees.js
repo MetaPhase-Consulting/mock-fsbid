@@ -293,7 +293,7 @@ const addNoSuccessfulPanelFilter = (qb, value) => {
 
 const addNoBidsFilter = (qb, value) => {
   if (value) {
-    qb.leftJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
+    // qb.leftJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
     if (value === 'Y') {
       qb.whereNotIn('employees.perdet_seq_num', function() {
         this.select('employees.perdet_seq_num')
@@ -402,7 +402,7 @@ const get_paged_employees_by_query = async (query, mapping) => {
   try {
     const data = await get_employees_query(query, mapping).fetchPage({
       ...FETCH_OPTIONS,
-      pageSize: query["request_params.page_size"] || 25,
+      pageSize: query["request_params.page_size"] || 2000,
       page: query["request_params.page_index"] || 1
     })
     return data.serialize()
