@@ -295,12 +295,18 @@ const addNoBidsFilter = (qb, value) => {
   if (value) {
     qb.leftJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
     if (value === 'Y') {
-      qb.whereNotExists(function() {
-        this.select('employees.perdet_seq_num').from('employees').whereRaw('employees.perdet_seq_num = bids.perdet_seq_num');
+      qb.whereNotIn('employees.perdet_seq_num', function() {
+        this.select('employees.perdet_seq_num')
+          .from('employees')
+          .leftJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
+          .whereIn('bs_cd', ['A', 'C', 'P']);
       })
     } else {
-      qb.whereExists(function() {
-        this.select('employees.perdet_seq_num').from('employees').whereRaw('employees.perdet_seq_num = bids.perdet_seq_num');
+      qb.whereIn('employees.perdet_seq_num', function() {
+        this.select('employees.perdet_seq_num')
+          .from('employees')
+          .leftJoin('bids', 'employees.perdet_seq_num', 'bids.perdet_seq_num')
+          .whereIn('bs_cd', ['A', 'C', 'P']);
       })
     }
   }
