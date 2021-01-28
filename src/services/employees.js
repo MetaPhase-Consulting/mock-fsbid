@@ -1,5 +1,6 @@
+const { get } = require('lodash');
 const _ = require('lodash');
-const { Employees, Assignments, Classifications } = require('../models')
+const { Employees, Assignments, Classifications, EmployeesClassifications } = require('../models')
 const { addOrderBy } = require('./common.js')
 
 // Mapping of provided sort fields to matching query fields
@@ -429,6 +430,96 @@ const get_classifications = async query => {
   }
 }
 
+const get_tp_code = (code) => (
+  Classifications.where('tp_code', code).fetch({ columns: ['td_id'] })
+)
+
+const add_classification = async query => {
+  const tracking_details = query['tracking_detail']
+  const perdet_seq_num = query['perdet_seq_num']
+  
+  try {
+    if (Array.isArray(tracking_details)) {
+      tracking_details.forEach(d => {
+        const [code, bsn] = d.split(',')
+        get_tp_code(code).then(result => {
+          EmployeesClassifications.forge({
+            td_id: result.id,
+            perdet_seq_num: perdet_seq_num,
+            bsn_id: bsn
+          }).save()
+        })
+      })
+    } else {
+      const [code, bsn ] = tracking_details.split(',')
+      get_tp_code(code).then(result => {
+        EmployeesClassifications.forge({
+          td_id: result.id,
+          perdet_seq_num: perdet_seq_num,
+          bsn_id: bsn,
+        }).save()
+      })
+    }
+    
+    const data = Classifications.query(qb => {
+        qb.join('employees_classifications', 'employees_classifications.td_id', 'classifications.td_id')
+        qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
+    }).fetchPage({
+      require: false,
+      pageSize: 25,
+      page: 1,
+    })
+
+    return await data.serialize().map(classification => {
+      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
+      return filteredClassification
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+const remove_classification = async query => {
+  const tracking_details = query['tracking_detail']
+  const perdet_seq_num = query['perdet_seq_num']
+  
+  try {
+    if (Array.isArray(tracking_details)) {
+      tracking_details.forEach(d => {
+        const [td_id, code, bsn] = d.split(',')
+        EmployeesClassifications.where({
+          td_id: td_id,
+          perdet_seq_num: perdet_seq_num,
+        }).destroy()
+      })
+    } else {
+      const [td_id, code, bsn ] = tracking_details.split(',')
+      EmployeesClassifications.where({
+        td_id: td_id,
+        perdet_seq_num: perdet_seq_num,
+      }).destroy();
+    }
+    
+    const data = Classifications.query(qb => {
+        qb.join('employees_classifications', 'employees_classifications.td_id', 'classifications.td_id')
+        qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
+    }).fetchPage({
+      require: false,
+      pageSize: 25,
+      page: 1,
+    })
+
+    return await data.serialize().map(classification => {
+      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
+      return filteredClassification
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 const get_persons = async query => {
   try {
     const data = await get_employees_by_query(query, get_persons_filters)
@@ -552,4 +643,19 @@ const get_user = async query => {
   }
 }
 
-module.exports = { get_employee_bureaus_by_query, get_employee_organizations_by_query, get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons, personSkills, personLanguages, get_user }
+module.exports = { 
+  get_employee_bureaus_by_query, 
+  get_employee_organizations_by_query, 
+  get_employee_by_ad_id, 
+  get_employee_by_perdet_seq_num, 
+  get_employee_by_username, 
+  get_agents, get_clients, 
+  get_assignments, 
+  get_classifications, 
+  get_persons, 
+  personSkills, 
+  personLanguages, 
+  get_user,
+  add_classification,
+  remove_classification,
+ }

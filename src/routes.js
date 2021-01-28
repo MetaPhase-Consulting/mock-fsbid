@@ -336,6 +336,26 @@ var appRouter = function (app) {
       res.status(500).send({ "Message": "An error has occurred." });
     }
   })
+
+  app.post('/TrackingPrograms/Bidders', async function(req, res) {
+    try {
+      res.status(200).send(await employees.add_classification(req.query))
+    } catch (err) {
+      console.error('Error occurred adding classification')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  });
+
+  app.delete('/TrackingPrograms/Bidders', async function(req, res) {
+    try {
+      res.status(200).send(await employees.remove_classification(req.query))
+    } catch (err) {
+      console.error('Error occurred removing classification')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  });
 };
 
 module.exports = appRouter;
