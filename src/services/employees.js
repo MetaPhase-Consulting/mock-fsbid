@@ -498,7 +498,7 @@ const remove_classification = async query => {
       EmployeesClassifications.where({
         td_id: td_id,
         perdet_seq_num: perdet_seq_num,
-      }).destroy();
+      }).destroy()
     }
     
     const data = Classifications.query(qb => {
