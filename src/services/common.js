@@ -265,6 +265,9 @@ const SORT_MAPPING = {
   "pos_skill_code": "codes.skl_code",
   "cpn_desc": "positions.pos_location_code", // Fake, just allows to sort using cpn_desc without an error
   "tandem_nbr": "positions.pos_location_code", // Fake, just allows to sort using tandem_nbr without an error
+  "geoloc.city": "location_city",
+  "geoloc.state": "location_state",
+  "geoloc.country": "location_country",
 }
 
 const formatLanguage = lang => lang && `${lang.language_long_desc}(${lang.language_code}) 1/1`
