@@ -122,7 +122,14 @@ const get_clients = async query => {
     const data = await get_paged_employees_by_query(query, get_clients_filters)
     const currentAssignmentOnly = query["request_params.currentAssignmentOnly"]
     return (data || []).map((emp, index) => {
-      const { roles = [],  manager = {}, currentassignment = {}, assignments = [], classifications = [] } = emp
+      console.log(emp)
+      const { 
+        roles = [],  
+        manager = {}, 
+        currentassignment = {}, 
+        assignments = [], 
+        classifications = [],
+      } = emp
       let assignmentInfo = getAssignment(currentassignment, true)
       // Have to specifically check for false as null will return currentAssignment
       if (currentAssignmentOnly === 'false') {
@@ -157,13 +164,33 @@ const get_clients = async query => {
       } else if (res.employee.classifications.length > 1) {
         // Classifications as array
         res.employee.classifications = res.employee.classifications.map((classification) => {
-          const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
-          return filteredClassification
+          const { 
+            _pivot_perdet_seq_num, 
+            _pivot_td_id,
+            employees_classifications,
+            ...filteredClassification 
+          } = classification
+          return _.omit({ ...filteredClassification, ...employees_classifications[0] }, [
+            "te_id",
+            "te_descr_txt",
+            "_pivot_te_id",
+            "perdet_seq_num",
+          ])
         })
       } else {
         // Single classification as object
-        const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassifications } = res.employee.classifications
-        res.employee.classifications = filteredClassifications
+        const { 
+          _pivot_perdet_seq_num, 
+          _pivot_td_id, 
+          employees_classifications,
+          ...filteredClassification 
+        } = res.employee.classifications
+        res.employee.classifications = _.omit({ ...filteredClassification, ...employees_classifications[0] }, [
+          "te_id",
+          "te_descr_txt",
+          "_pivot_te_id",
+          "perdet_seq_num",
+        ])
       }
       return res
     })
@@ -299,6 +326,7 @@ const FETCH_OPTIONS = {
     'bureaus',
     'organizations',
     'classifications',
+    'classifications.employees_classifications',
     'assignments',
     'assignments.position',
     'assignments.position.skill',
@@ -411,7 +439,7 @@ const get_classifications = async query => {
     const data = await Classifications.query(qb => {
       const perdet_seq_num = query['request_params.perdet_seq_num']
       if (perdet_seq_num) {
-        qb.join('employees_classifications', 'employees_classifications.td_id', 'classifications.td_id')
+        qb.join('employees_classifications', 'employees_classifications.te_id', 'classifications.te_id')
         qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
       }
     }).fetchPage({
@@ -430,50 +458,26 @@ const get_classifications = async query => {
   }
 }
 
-const get_tp_code = (code) => (
-  Classifications.where('tp_code', code).fetch({ columns: ['td_id'] })
-)
-
 const add_classification = async query => {
+  // Will be renamed - update
   const tracking_details = query['tracking_detail']
   const perdet_seq_num = query['perdet_seq_num']
   
   try {
     if (Array.isArray(tracking_details)) {
-      tracking_details.forEach(d => {
-        const [code, bsn] = d.split(',')
-        get_tp_code(code).then(result => {
-          EmployeesClassifications.forge({
-            td_id: result.id,
-            perdet_seq_num: perdet_seq_num,
-            bsn_id: bsn
-          }).save()
-        })
-      })
-    } else {
-      const [code, bsn ] = tracking_details.split(',')
-      get_tp_code(code).then(result => {
+      tracking_details.forEach(tracking_event => {
         EmployeesClassifications.forge({
-          td_id: result.id,
+          te_id: tracking_event,
           perdet_seq_num: perdet_seq_num,
-          bsn_id: bsn,
         }).save()
       })
+    } else {
+      EmployeesClassifications.forge({
+        te_id: tracking_details,
+        perdet_seq_num: perdet_seq_num,
+      }).save()
     }
-    
-    const data = Classifications.query(qb => {
-        qb.join('employees_classifications', 'employees_classifications.td_id', 'classifications.td_id')
-        qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
-    }).fetchPage({
-      require: false,
-      pageSize: 25,
-      page: 1,
-    })
-
-    return await data.serialize().map(classification => {
-      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
-      return filteredClassification
-    })
+    return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
   } catch (Error) {
     console.error(Error)
     return null
@@ -481,39 +485,23 @@ const add_classification = async query => {
 }
 
 const remove_classification = async query => {
+  // Update arg name
   const tracking_details = query['tracking_detail']
   const perdet_seq_num = query['perdet_seq_num']
   
   try {
     if (Array.isArray(tracking_details)) {
-      tracking_details.forEach(d => {
-        const [td_id, code, bsn] = d.split(',')
+      tracking_details.forEach(tracking_detail => {
         EmployeesClassifications.where({
-          td_id: td_id,
-          perdet_seq_num: perdet_seq_num,
+          td_id: tracking_detail,
         }).destroy()
       })
     } else {
-      const [td_id, code, bsn ] = tracking_details.split(',')
       EmployeesClassifications.where({
-        td_id: td_id,
-        perdet_seq_num: perdet_seq_num,
+        td_id: tracking_details,
       }).destroy()
     }
-    
-    const data = Classifications.query(qb => {
-        qb.join('employees_classifications', 'employees_classifications.td_id', 'classifications.td_id')
-        qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
-    }).fetchPage({
-      require: false,
-      pageSize: 25,
-      page: 1,
-    })
-
-    return await data.serialize().map(classification => {
-      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
-      return filteredClassification
-    })
+    return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
   } catch (Error) {
     console.error(Error)
     return null
