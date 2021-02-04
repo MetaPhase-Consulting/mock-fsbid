@@ -1,4 +1,5 @@
 const { findRandom } = require('./data/helpers')
+const _ = require('lodash');
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
@@ -19,7 +20,7 @@ exports.seed = function(knex) {
                     })
                   }
                 })
-                return knex('employees_classifications').insert(emp_class);
+                return knex('employees_classifications').insert(_.uniqWith(emp_class, _.isEqual));
               })
       })
     });
