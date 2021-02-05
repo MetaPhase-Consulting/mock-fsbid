@@ -473,11 +473,10 @@ const add_classification = async query => {
         perdet_seq_num: perdet_seq_num,
       }).save()
     }
-    return get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
   } catch (Error) {
     console.error(Error)
-    return null
   }
+  return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
 }
 
 const remove_classification = async query => {
@@ -497,11 +496,10 @@ const remove_classification = async query => {
         td_id: tracking_details,
       }).destroy()
     }
-    return get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
   } catch (Error) {
     console.error(Error)
-    return null
   }
+  return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
 }
 
 const get_persons = async query => {
