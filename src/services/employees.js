@@ -122,7 +122,6 @@ const get_clients = async query => {
     const data = await get_paged_employees_by_query(query, get_clients_filters)
     const currentAssignmentOnly = query["request_params.currentAssignmentOnly"]
     return (data || []).map((emp, index) => {
-      console.log(emp)
       const { 
         roles = [],  
         manager = {}, 
