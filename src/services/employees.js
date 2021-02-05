@@ -122,7 +122,6 @@ const get_clients = async query => {
     const data = await get_paged_employees_by_query(query, get_clients_filters)
     const currentAssignmentOnly = query["request_params.currentAssignmentOnly"]
     return (data || []).map((emp, index) => {
-      console.log('emp', emp)
       const { 
         roles = [],  
         manager = {}, 
@@ -164,7 +163,6 @@ const get_clients = async query => {
       } else if (res.employee.classifications.length > 1) {
         // Classifications as array
         res.employee.classifications = res.employee.classifications.map((c) => {
-          console.log("c", c)
           const { 
             td_id,
             classification
