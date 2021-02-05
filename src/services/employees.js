@@ -169,11 +169,12 @@ const get_clients = async query => {
             employees_classifications,
             ...filteredClassification 
           } = classification
-          return _.omit({ ...filteredClassification, ...employees_classifications[0] }, [
-            "te_id",
-            "te_descr_txt",
-            "_pivot_te_id",
-            "perdet_seq_num",
+          return _.pick({ ...filteredClassification, ...employees_classifications[0] }, [
+            "tp_code",
+            "tp_descr_txt",
+            "disabled_ind",
+            "rnum",
+            "td_id",
           ])
         })
       } else {
@@ -184,11 +185,12 @@ const get_clients = async query => {
           employees_classifications,
           ...filteredClassification 
         } = res.employee.classifications
-        res.employee.classifications = _.omit({ ...filteredClassification, ...employees_classifications[0] }, [
-          "te_id",
-          "te_descr_txt",
-          "_pivot_te_id",
-          "perdet_seq_num",
+        res.employee.classifications = _.pick({ ...filteredClassification, ...employees_classifications[0] }, [
+          "tp_code",
+          "tp_descr_txt",
+          "disabled_ind",
+          "rnum",
+          "td_id",
         ])
       }
       return res
