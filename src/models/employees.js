@@ -45,9 +45,6 @@ const Employees = bookshelf.model('Employees', {
     return this.hasMany('Bids', 'perdet_seq_num')
   },
   classifications() {
-    return this.belongsToMany('Classifications', 'employees_classifications', 'perdet_seq_num', 'te_id')
-  },
-  employees_classifications() {
     return this.hasMany('EmployeesClassifications', 'perdet_seq_num')
   },
   assignments() {

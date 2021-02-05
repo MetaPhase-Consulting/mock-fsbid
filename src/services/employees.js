@@ -122,6 +122,7 @@ const get_clients = async query => {
     const data = await get_paged_employees_by_query(query, get_clients_filters)
     const currentAssignmentOnly = query["request_params.currentAssignmentOnly"]
     return (data || []).map((emp, index) => {
+      console.log('emp', emp)
       const { 
         roles = [],  
         manager = {}, 
@@ -162,14 +163,13 @@ const get_clients = async query => {
         delete res.employee.classifications
       } else if (res.employee.classifications.length > 1) {
         // Classifications as array
-        res.employee.classifications = res.employee.classifications.map((classification) => {
+        res.employee.classifications = res.employee.classifications.map((c) => {
+          console.log("c", c)
           const { 
-            _pivot_perdet_seq_num, 
-            _pivot_td_id,
-            employees_classifications,
-            ...filteredClassification 
-          } = classification
-          return _.pick({ ...filteredClassification, ...employees_classifications[0] }, [
+            td_id,
+            classification
+          } = c
+          return _.pick({ td_id, ...classification }, [
             "tp_code",
             "tp_descr_txt",
             "disabled_ind",
@@ -180,12 +180,10 @@ const get_clients = async query => {
       } else {
         // Single classification as object
         const { 
-          _pivot_perdet_seq_num, 
-          _pivot_td_id, 
-          employees_classifications,
-          ...filteredClassification 
+          td_id,
+          classification 
         } = res.employee.classifications
-        res.employee.classifications = _.pick({ ...filteredClassification, ...employees_classifications[0] }, [
+        res.employee.classifications = _.pick({ td_id, ...classification }, [
           "tp_code",
           "tp_descr_txt",
           "disabled_ind",
@@ -326,8 +324,7 @@ const FETCH_OPTIONS = {
     'bids',
     'bureaus',
     'organizations',
-    'classifications',
-    'classifications.employees_classifications',
+    'classifications.classification',
     'assignments',
     'assignments.position',
     'assignments.position.skill',
