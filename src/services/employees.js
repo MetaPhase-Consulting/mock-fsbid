@@ -461,7 +461,7 @@ const add_classification = async query => {
   
   try {
     if (Array.isArray(tracking_details)) {
-      const proms = tracking_details.map(async (tracking_event, i) => {
+      const proms = tracking_details.map(async (tracking_event) => {
         await EmployeesClassifications.forge({
           te_id: tracking_event,
           perdet_seq_num: perdet_seq_num,
@@ -489,7 +489,7 @@ const remove_classification = async query => {
   
   try {
     if (Array.isArray(tracking_details)) {
-      const proms = tracking_details.map(async (tracking_detail, i) => {
+      const proms = tracking_details.map(async (tracking_detail) => {
         await EmployeesClassifications.where({
           td_id: tracking_detail,
         }).destroy()
