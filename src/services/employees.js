@@ -461,14 +461,16 @@ const add_classification = async query => {
   
   try {
     if (Array.isArray(tracking_details)) {
-      tracking_details.forEach(tracking_event => {
-        EmployeesClassifications.forge({
+      const proms = tracking_details.map(async (tracking_event, i) => {
+        await EmployeesClassifications.forge({
           te_id: tracking_event,
           perdet_seq_num: perdet_seq_num,
         }).save()
+        return
       })
+      await Promise.all(proms)
     } else {
-      EmployeesClassifications.forge({
+      await EmployeesClassifications.forge({
         te_id: tracking_details,
         perdet_seq_num: perdet_seq_num,
       }).save()
@@ -487,13 +489,15 @@ const remove_classification = async query => {
   
   try {
     if (Array.isArray(tracking_details)) {
-      tracking_details.forEach(tracking_detail => {
-        EmployeesClassifications.where({
+      const proms = tracking_details.map(async (tracking_detail, i) => {
+        await EmployeesClassifications.where({
           td_id: tracking_detail,
         }).destroy()
+        return
       })
+      await Promise.all(proms)
     } else {
-      EmployeesClassifications.where({
+      await EmployeesClassifications.where({
         td_id: tracking_details,
       }).destroy()
     }
