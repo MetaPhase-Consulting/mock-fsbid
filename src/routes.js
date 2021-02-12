@@ -2,6 +2,7 @@ const { PRIVATE_KEY } = require('./constants')
 const bidding = require('./services/bids')
 const futureVacancies = require('./services/futurevacancies')
 const availablePositions = require('./services/availablepositions')
+const availableBidders = require('./services/availablebidders')
 const employees = require('./services/employees')
 const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
@@ -293,6 +294,13 @@ var appRouter = function (app) {
       return_code: 0
     })
   })
+
+  app.get("/cdo/availablebidders", async function (req, res) {
+    if (!req.headers.jwtauthorization) {
+      res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
+    }
+    res.status(200).send(await availableBidders.get_available_bidders());
+  });
 
   app.get('/bidderTrackingPrograms', async function(req, res) {
     const classifications = await employees.get_classifications(req.query)
