@@ -1,11 +1,12 @@
 const { findRandom } = require('./data/helpers')
+const _ = require('lodash');
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex.raw('TRUNCATE TABLE employees_classifications')
     .then(function () {
       
-      return knex.select('td_id').from('classifications').then(classification => {
+      return knex.select('te_id').from('classifications').then(classification => {
         return knex
               .from('employees')
               .select('employees.perdet_seq_num').then(e => {
@@ -15,11 +16,11 @@ exports.seed = function(knex) {
                   for (let index = 0; index < count; index++) {
                     emp_class.push({
                       perdet_seq_num: emp.perdet_seq_num,
-                      td_id: findRandom(classification)['td_id'],
+                      te_id: findRandom(classification)['te_id'],
                     })
                   }
                 })
-                return knex('employees_classifications').insert(emp_class);
+                return knex('employees_classifications').insert(_.uniqWith(emp_class, _.isEqual));
               })
       })
     });

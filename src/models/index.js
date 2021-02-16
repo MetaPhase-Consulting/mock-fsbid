@@ -23,6 +23,7 @@ const PostIndicators = require('./postindicators.js')
 const UnaccompaniedStatuses = require('./unaccompaniedstatuses.js')
 const CommuterPosts = require('./commuterposts.js')
 const LocationsCommuterPosts = require('./locationscommuterposts')
+const EmployeesClassifications = require('./employeesclassifications')
 
 module.exports = {
   Seasons,
@@ -49,5 +50,6 @@ module.exports = {
   PostIndicators,
   UnaccompaniedStatuses,
   CommuterPosts,
-  LocationsCommuterPosts
+  LocationsCommuterPosts,
+  EmployeesClassifications
 }

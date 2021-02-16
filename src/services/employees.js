@@ -1,5 +1,6 @@
+const { get } = require('lodash');
 const _ = require('lodash');
-const { Employees, Assignments, Classifications } = require('../models')
+const { Employees, Assignments, Classifications, EmployeesClassifications } = require('../models')
 const { addOrderBy } = require('./common.js')
 
 // Mapping of provided sort fields to matching query fields
@@ -121,7 +122,13 @@ const get_clients = async query => {
     const data = await get_paged_employees_by_query(query, get_clients_filters)
     const currentAssignmentOnly = query["request_params.currentAssignmentOnly"]
     return (data || []).map((emp, index) => {
-      const { roles = [],  manager = {}, currentassignment = {}, assignments = [], classifications = [] } = emp
+      const { 
+        roles = [],  
+        manager = {}, 
+        currentassignment = {}, 
+        assignments = [], 
+        classifications = [],
+      } = emp
       let assignmentInfo = getAssignment(currentassignment, true)
       // Have to specifically check for false as null will return currentAssignment
       if (currentAssignmentOnly === 'false') {
@@ -155,14 +162,32 @@ const get_clients = async query => {
         delete res.employee.classifications
       } else if (res.employee.classifications.length > 1) {
         // Classifications as array
-        res.employee.classifications = res.employee.classifications.map((classification) => {
-          const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
-          return filteredClassification
+        res.employee.classifications = res.employee.classifications.map((c) => {
+          const { 
+            td_id,
+            classification
+          } = c
+          return _.pick({ td_id, ...classification }, [
+            "tp_code",
+            "tp_descr_txt",
+            "disabled_ind",
+            "rnum",
+            "td_id",
+          ])
         })
       } else {
         // Single classification as object
-        const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassifications } = res.employee.classifications
-        res.employee.classifications = filteredClassifications
+        const { 
+          td_id,
+          classification 
+        } = res.employee.classifications
+        res.employee.classifications = _.pick({ td_id, ...classification }, [
+          "tp_code",
+          "tp_descr_txt",
+          "disabled_ind",
+          "rnum",
+          "td_id",
+        ])
       }
       return res
     })
@@ -336,7 +361,7 @@ const FETCH_OPTIONS = {
     'bids',
     'bureaus',
     'organizations',
-    'classifications',
+    'classifications.classification',
     'assignments',
     'assignments.position',
     'assignments.position.skill',
@@ -449,7 +474,7 @@ const get_classifications = async query => {
     const data = await Classifications.query(qb => {
       const perdet_seq_num = query['request_params.perdet_seq_num']
       if (perdet_seq_num) {
-        qb.join('employees_classifications', 'employees_classifications.td_id', 'classifications.td_id')
+        qb.join('employees_classifications', 'employees_classifications.te_id', 'classifications.te_id')
         qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
       }
     }).fetchPage({
@@ -462,6 +487,60 @@ const get_classifications = async query => {
       const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
       return filteredClassification
     })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+const add_classification = async query => {
+  // Will be renamed - update
+  const tracking_details = query['tracking_detail']
+  const perdet_seq_num = query['perdet_seq_num']
+  
+  try {
+    if (Array.isArray(tracking_details)) {
+      const proms = tracking_details.map(async (tracking_event) => {
+        await EmployeesClassifications.forge({
+          te_id: tracking_event,
+          perdet_seq_num: perdet_seq_num,
+        }).save()
+        return
+      })
+      await Promise.all(proms)
+    } else {
+      await EmployeesClassifications.forge({
+        te_id: tracking_details,
+        perdet_seq_num: perdet_seq_num,
+      }).save()
+    }
+    return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+const remove_classification = async query => {
+  // Update arg name
+  const tracking_details = query['tracking_detail']
+  const perdet_seq_num = query['perdet_seq_num']
+  
+  try {
+    if (Array.isArray(tracking_details)) {
+      const proms = tracking_details.map(async (tracking_detail) => {
+        await EmployeesClassifications.where({
+          td_id: tracking_detail,
+        }).destroy()
+        return
+      })
+      await Promise.all(proms)
+    } else {
+      await EmployeesClassifications.where({
+        td_id: tracking_details,
+      }).destroy()
+    }
+    return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
   } catch (Error) {
     console.error(Error)
     return null
@@ -591,4 +670,19 @@ const get_user = async query => {
   }
 }
 
-module.exports = { get_employee_bureaus_by_query, get_employee_organizations_by_query, get_employee_by_ad_id, get_employee_by_perdet_seq_num, get_employee_by_username, get_agents, get_clients, get_assignments, get_classifications, get_persons, personSkills, personLanguages, get_user }
+module.exports = { 
+  get_employee_bureaus_by_query, 
+  get_employee_organizations_by_query, 
+  get_employee_by_ad_id, 
+  get_employee_by_perdet_seq_num, 
+  get_employee_by_username, 
+  get_agents, get_clients, 
+  get_assignments, 
+  get_classifications, 
+  get_persons, 
+  personSkills, 
+  personLanguages, 
+  get_user,
+  add_classification,
+  remove_classification,
+ }
