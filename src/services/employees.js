@@ -645,7 +645,7 @@ const get_user = async query => {
           gal_office_text: user.gal_office_text || '',
           gal_assistant_name: user.gal_assistant_name || '',
           gal_phone_nbr_text: user.office_phone || '',
-          gal_smtp_email_address_text: user.gal_smtp_email_address_text || '',
+          gal_smtp_email_address_text: user.email || '',
           gal_object_class_text: user.gal_object_class_text || '',
           gal_nt_account_text: user.gal_nt_account_text || '',
           gal_home_server_text: user.gal_home_server_text || '',
