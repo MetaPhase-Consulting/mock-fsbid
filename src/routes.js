@@ -331,7 +331,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/SECREF/user', async function(req, res) {
+  app.get('/v2/SECREF/user', async function(req, res) {
     const user = await employees.get_user(req.query)
     try {
       res.status(200).send({
