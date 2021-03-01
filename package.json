@@ -25,7 +25,7 @@
     "express": "^4.17.1",
     "get-stream": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
-    "knex": "^0.21.17",
+    "knex": "^0.21.18",
     "lodash": "^4.17.21",
     "morgan-body": "^2.6.5",
     "oracledb": "^5.1.0",
