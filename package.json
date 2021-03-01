@@ -33,7 +33,7 @@
     "pg": "^8.5.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "chai": "^4.3.0",
     "chai-http": "^4.3.0",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.7",
