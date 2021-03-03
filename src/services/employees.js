@@ -357,6 +357,7 @@ const FETCH_OPTIONS = {
   withRelated: [
     'roles',
     'skills',
+    'languages',
     'manager',
     'bids',
     'bureaus',
@@ -551,6 +552,7 @@ const get_persons = async query => {
   try {
     const data = await get_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
+    
     emp["employee_profile_url"] = `www.talentmap/profile/public/${emp.first_name}_${emp.last_name}.com`;
       const res = {
           per_seq_num: emp.per_seq_num,

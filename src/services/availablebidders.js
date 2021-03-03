@@ -3,6 +3,17 @@ const _ = require('lodash');
 var dbConfig = require('../../oracle.js');
 var employees = require('./employees');
 
+const personLanguagesNested = (languages = []) => {
+  return languages.map((m, i) => ({
+    "rnum": i + 1,
+    "empl_language_code": m.language_code,
+    "empl_language": m.language_short_desc,
+    "empl_high_test_date": "2016-06-03T00:00:00-04:00",
+    "empl_high_speaking": "3",
+    "empl_high_reading": "3"
+  }))
+}
+
 const get_available_bidders = async () => {
 
   let connection;
@@ -32,6 +43,7 @@ const get_available_bidders = async () => {
       return {
         ..._.omit(emp, ['currentassignment', 'roles', 'bids', 'classifications', 'assignments', 'bureaus', 'organizations']),
         ...m,
+        languages: personLanguagesNested(_.get(emp, 'languages', [])),
       };
     })
 
