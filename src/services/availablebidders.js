@@ -52,8 +52,8 @@ const get_available_bidders = async () => {
   return {}
 }
 
-const get_fake_available_bidders = () => {
-  return (
+const get_fake_available_bidders = (isCDO) => {
+  const fakeData = 
     [
       {
         "hru_id": "1215",
@@ -368,8 +368,11 @@ const get_fake_available_bidders = () => {
           "last_editing_user_id": "11260"
         }
       },
-    ]
-  )
+    ];
+  if (!isCDO) {
+    return fakeData.map(e => _.omit(e, 'details'))
+  }
+  return fakeData
 }
 
 module.exports = { get_available_bidders, get_fake_available_bidders };
