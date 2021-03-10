@@ -132,8 +132,8 @@ const get_fake_available_bidders = (isCDO) => {
           "comments": "Must panel or they're fired",
           "date_created": "2021-02-19T09:32:49-05:00",
           "update_date": "2021-02-19T09:32:49-05:00",
-          "archived": "1",
-          "is_shared": "0",
+          "archived": "0",
+          "is_shared": "1",
           "last_editing_user_id": "11262"
         }
       },
@@ -204,7 +204,7 @@ const get_fake_available_bidders = (isCDO) => {
           "date_created": "2021-02-19T09:55:08-05:00",
           "update_date": "2021-02-19T09:55:08-05:00",
           "archived": "0",
-          "is_shared": "1",
+          "is_shared": "0",
           "last_editing_user_id": "11260"
         }
       },
