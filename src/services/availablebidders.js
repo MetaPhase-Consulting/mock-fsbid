@@ -58,6 +58,10 @@ const get_fake_available_bidders = () => {
       {
         "hru_id": "1215",
         "perdet_seq_num": "435652",
+        "cdo_fullname": "SCHIISSLER-PENALOZA,COLBYE-GOSTOF NMN",
+        "cdo_last_name": "SCHIISSLER-PENALOZA",
+        "cdo_first_name": "COLBYE-GOSTOF",
+        "cdo_email": "fjx717578jkcewxokeewa@state.gov",
         "employee": {
           "perdet_seq_num": "435652",
           "per_seq_num": "65537",
@@ -136,6 +140,10 @@ const get_fake_available_bidders = () => {
       {
         "hru_id": "1215",
         "perdet_seq_num": "533825",
+        "cdo_fullname": "SCHIISSLER-PENALOZA,COLBYE-GOSTOF NMN",
+        "cdo_last_name": "SCHIISSLER-PENALOZA",
+        "cdo_first_name": "COLBYE-GOSTOF",
+        "cdo_email": "fjx717578jkcewxokeewa@state.gov",
         "employee": {
           "perdet_seq_num": "533825",
           "per_seq_num": "623277",
@@ -203,6 +211,10 @@ const get_fake_available_bidders = () => {
       {
         "hru_id": "4859",
         "perdet_seq_num": "383279",
+        "cdo_fullname": "SCHIISSLER-PENALOZA,COLBYE-GOSTOF NMN",
+        "cdo_last_name": "SCHIISSLER-PENALOZA",
+        "cdo_first_name": "COLBYE-GOSTOF",
+        "cdo_email": "fjx717578jkcewxokeewa@state.gov",
         "employee": {
           "perdet_seq_num": "383279",
           "per_seq_num": "26676",
