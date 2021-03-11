@@ -295,11 +295,36 @@ var appRouter = function (app) {
     })
   })
 
+  // Need to update redundant routes once we are done with available bidders
   app.get("/cdo/availablebidders", async function (req, res) {
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     }
     res.status(200).send(await availableBidders.get_available_bidders());
+  });
+
+  app.get("/clients/availablebidders/cdo", async function (req, res) {
+    if (!req.headers.jwtauthorization) {
+      res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
+    }
+    const bidders = await availableBidders.get_fake_available_bidders(true);
+    res.status(200).send({
+      Data: bidders,
+      usl_id: 0,
+      return_code: 0
+    })
+  });
+  
+  app.get("/clients/availablebidders/bureau", async function (req, res) {
+    if (!req.headers.jwtauthorization) {
+      res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
+    }
+    const bidders = await availableBidders.get_fake_available_bidders(false);
+    res.status(200).send({
+      Data: bidders,
+      usl_id: 0,
+      return_code: 0
+    })
   });
 
   app.get('/bidderTrackingPrograms', async function(req, res) {
