@@ -479,7 +479,7 @@ const get_classifications = async query => {
       }
     }).fetchPage({
       require: false,
-      pageSize: query["request_params.page_size"] || 25,
+      pageSize: query["request_params.page_size"] || 1000,
       page: query["request_params.page_index"] || 1,
     })
 
