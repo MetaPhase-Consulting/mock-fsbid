@@ -521,7 +521,6 @@ const add_classification = async query => {
 }
 
 const remove_classification = async query => {
-  //td_id has to be moved over to function with te_id
   const tracking_events = query['tracking_event']
   const perdet_seq_num = query['perdet_seq_num']
   try {
