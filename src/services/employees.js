@@ -494,13 +494,12 @@ const get_classifications = async query => {
 }
 
 const add_classification = async query => {
-  // Will be renamed - update
-  const tracking_details = query['tracking_detail']
+  const tracking_events = query['tracking_event']
   const perdet_seq_num = query['perdet_seq_num']
   
   try {
-    if (Array.isArray(tracking_details)) {
-      const proms = tracking_details.map(async (tracking_event) => {
+    if (Array.isArray(tracking_events)) {
+      const proms = tracking_events.map(async (tracking_event) => {
         await EmployeesClassifications.forge({
           te_id: tracking_event,
           perdet_seq_num: perdet_seq_num,
@@ -510,7 +509,7 @@ const add_classification = async query => {
       await Promise.all(proms)
     } else {
       await EmployeesClassifications.forge({
-        te_id: tracking_details,
+        te_id: tracking_events,
         perdet_seq_num: perdet_seq_num,
       }).save()
     }
@@ -522,22 +521,23 @@ const add_classification = async query => {
 }
 
 const remove_classification = async query => {
-  // Update arg name
-  const tracking_details = query['tracking_detail']
+  //td_id has to be moved over to function with te_id
+  const tracking_events = query['tracking_event']
   const perdet_seq_num = query['perdet_seq_num']
-  
   try {
-    if (Array.isArray(tracking_details)) {
-      const proms = tracking_details.map(async (tracking_detail) => {
+    if (Array.isArray(tracking_events)) {
+      const proms = tracking_events.map(async (tracking_event) => {
         await EmployeesClassifications.where({
-          td_id: tracking_detail,
+          te_id: tracking_event,
+          perdet_seq_num: perdet_seq_num,
         }).destroy()
         return
       })
       await Promise.all(proms)
     } else {
       await EmployeesClassifications.where({
-        td_id: tracking_details,
+        te_id: tracking_events,
+        perdet_seq_num: perdet_seq_num,
       }).destroy()
     }
     return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
