@@ -169,6 +169,7 @@ const get_clients = async query => {
           } = c
           return _.pick({ td_id, ...classification }, [
             "tp_code",
+            "te_id",
             "tp_descr_txt",
             "disabled_ind",
             "rnum",
