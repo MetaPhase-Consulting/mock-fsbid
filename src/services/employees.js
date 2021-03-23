@@ -169,6 +169,7 @@ const get_clients = async query => {
           } = c
           return _.pick({ td_id, ...classification }, [
             "tp_code",
+            "te_id",
             "tp_descr_txt",
             "disabled_ind",
             "rnum",
@@ -183,6 +184,7 @@ const get_clients = async query => {
         } = res.employee.classifications
         res.employee.classifications = _.pick({ td_id, ...classification }, [
           "tp_code",
+          "te_id",
           "tp_descr_txt",
           "disabled_ind",
           "rnum",
@@ -479,7 +481,7 @@ const get_classifications = async query => {
       }
     }).fetchPage({
       require: false,
-      pageSize: query["request_params.page_size"] || 25,
+      pageSize: query["request_params.page_size"] || 1000,
       page: query["request_params.page_index"] || 1,
     })
 
@@ -494,13 +496,12 @@ const get_classifications = async query => {
 }
 
 const add_classification = async query => {
-  // Will be renamed - update
-  const tracking_details = query['tracking_detail']
+  const tracking_events = query['tracking_event']
   const perdet_seq_num = query['perdet_seq_num']
   
   try {
-    if (Array.isArray(tracking_details)) {
-      const proms = tracking_details.map(async (tracking_event) => {
+    if (Array.isArray(tracking_events)) {
+      const proms = tracking_events.map(async (tracking_event) => {
         await EmployeesClassifications.forge({
           te_id: tracking_event,
           perdet_seq_num: perdet_seq_num,
@@ -510,7 +511,7 @@ const add_classification = async query => {
       await Promise.all(proms)
     } else {
       await EmployeesClassifications.forge({
-        te_id: tracking_details,
+        te_id: tracking_events,
         perdet_seq_num: perdet_seq_num,
       }).save()
     }
@@ -522,22 +523,22 @@ const add_classification = async query => {
 }
 
 const remove_classification = async query => {
-  // Update arg name
-  const tracking_details = query['tracking_detail']
+  const tracking_events = query['tracking_event']
   const perdet_seq_num = query['perdet_seq_num']
-  
   try {
-    if (Array.isArray(tracking_details)) {
-      const proms = tracking_details.map(async (tracking_detail) => {
+    if (Array.isArray(tracking_events)) {
+      const proms = tracking_events.map(async (tracking_event) => {
         await EmployeesClassifications.where({
-          td_id: tracking_detail,
+          te_id: tracking_event,
+          perdet_seq_num: perdet_seq_num,
         }).destroy()
         return
       })
       await Promise.all(proms)
     } else {
       await EmployeesClassifications.where({
-        td_id: tracking_details,
+        te_id: tracking_events,
+        perdet_seq_num: perdet_seq_num,
       }).destroy()
     }
     return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})

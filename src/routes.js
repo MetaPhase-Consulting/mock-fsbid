@@ -327,16 +327,6 @@ var appRouter = function (app) {
     })
   });
 
-  app.get('/bidderTrackingPrograms', async function(req, res) {
-    const classifications = await employees.get_classifications(req.query)
-
-    res.status(200).send({
-      Data: classifications,
-      usl_id: 0,
-      return_code: 0
-    })
-  })
-
   app.get('/Persons', async function(req,res) {
     const persons = await employees.get_persons(req.query)
 
@@ -368,6 +358,15 @@ var appRouter = function (app) {
       console.error(errMsg)
       res.status(500).send({ "Message": "An error has occurred." });
     }
+  })
+
+  app.get('/bidderTrackingPrograms', async function(req, res) {
+    const classifications = await employees.get_classifications(req.query)
+    res.status(200).send({
+      Data: classifications,
+      usl_id: 0,
+      return_code: 0
+    })
   })
 
   app.post('/TrackingPrograms/Bidders', async function(req, res) {
