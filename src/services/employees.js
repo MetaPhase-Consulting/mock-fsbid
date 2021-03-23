@@ -184,6 +184,7 @@ const get_clients = async query => {
         } = res.employee.classifications
         res.employee.classifications = _.pick({ td_id, ...classification }, [
           "tp_code",
+          "te_id",
           "tp_descr_txt",
           "disabled_ind",
           "rnum",
