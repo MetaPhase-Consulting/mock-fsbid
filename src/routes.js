@@ -371,7 +371,12 @@ var appRouter = function (app) {
 
   app.post('/TrackingPrograms/Bidders', async function(req, res) {
     try {
-      res.status(200).send(await employees.add_classification(req.query))
+      classifications = await employees.add_classification(req.query)
+      res.status(200).send({
+        Data: classifications,
+        usl_id: 0,
+        return_code: 0
+      })
     } catch (err) {
       console.error('Error occurred adding classification')
       console.error(`${err}`)
@@ -381,7 +386,12 @@ var appRouter = function (app) {
 
   app.delete('/TrackingPrograms/Bidders', async function(req, res) {
     try {
-      res.status(200).send(await employees.remove_classification(req.query))
+      classifications = await employees.remove_classification(req.query)
+      res.status(200).send({
+        Data: classifications,
+        usl_id: 0,
+        return_code: 0
+      })
     } catch (err) {
       console.error('Error occurred removing classification')
       console.error(`${err}`)
