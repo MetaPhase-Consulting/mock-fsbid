@@ -498,7 +498,6 @@ const get_classifications = async query => {
 const add_classification = async query => {
   const tracking_events = query['tracking_event']
   const perdet_seq_num = query['perdet_seq_num']
-  
   try {
     if (Array.isArray(tracking_events)) {
       const proms = tracking_events.map(async (tracking_event) => {
@@ -506,7 +505,6 @@ const add_classification = async query => {
           te_id: tracking_event,
           perdet_seq_num: perdet_seq_num,
         }).save()
-        return
       })
       await Promise.all(proms)
     } else {
@@ -532,7 +530,6 @@ const remove_classification = async query => {
           te_id: tracking_event,
           perdet_seq_num: perdet_seq_num,
         }).destroy()
-        return
       })
       await Promise.all(proms)
     } else {
