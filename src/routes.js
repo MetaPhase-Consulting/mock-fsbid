@@ -307,7 +307,7 @@ var appRouter = function (app) {
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     }
-    const bidders = await availableBidders.get_fake_available_bidders(true);
+    const bidders = await availableBidders.get_available_bidders(false);
     res.status(200).send({
       Data: bidders,
       usl_id: 0,
@@ -319,7 +319,7 @@ var appRouter = function (app) {
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     }
-    const bidders = await availableBidders.get_fake_available_bidders(false);
+    const bidders = await availableBidders.get_available_bidders(true);
     res.status(200).send({
       Data: bidders,
       usl_id: 0,

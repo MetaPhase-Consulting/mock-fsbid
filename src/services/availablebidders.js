@@ -2,16 +2,20 @@ var oracledb = require('oracledb');
 const _ = require('lodash');
 var dbConfig = require('../../oracle.js');
 var employees = require('./employees');
+const { get } = require('lodash');
 
-const get_available_bidders = async () => {
+const get_available_bidders = async (isBureau = false) => {
 
   let connection;
 
   try {
     connection = await oracledb.getConnection(dbConfig);
 
+    let q = `SELECT * FROM CDO_AVAILABLEBIDDERS `;
+    if (isBureau) { q += 'WHERE IS_SHARED = 1'};
+
     result = await connection.execute(
-      `SELECT * FROM CDO_AVAILABLEBIDDERS `,
+      q,
       [],
       { outFormat: oracledb.OUT_FORMAT_OBJECT }
     );
@@ -29,9 +33,62 @@ const get_available_bidders = async () => {
 
     const availableBidders$ = availableBidders.map((m, i) => {
       const emp = emps[i][0];
+      const skills = {};
+      if (_.get(emp, 'skills[0]')) {
+        skills.per_skill_code = _.get(emp, 'skills[0].skl_code');
+        skills.per_skill_code_desc = _.get(emp, 'skills[0].skill_descr');
+      }
+      if (_.get(emp, 'skills[1]')) {
+        skills.per_skill_2_code = _.get(emp, 'skills[1].skl_code');
+        skills.per_skill_2_code_desc = _.get(emp, 'skills[1].skill_descr');
+      }
       return {
-        ..._.omit(emp, ['currentassignment', 'roles', 'bids', 'classifications', 'assignments', 'bureaus', 'organizations']),
-        ...m,
+        ..._.omit(emp, ['currentassignment', 'roles', 'bids', 'classifications', 'bureaus', 'organizations', 'languages']),
+        cdo_fullname: _.get(emp, 'manager.fullname'),
+        cdo_last_name: _.get(emp, 'manager.last_name'),
+        cdo_first_name: _.get(emp, 'manager.first_name'),
+        cdo_email: _.get(emp, 'manager.email'),
+        languages: (_.get(emp, 'languages') || []).map((l, i) => ({
+          "rnum": `${i + 1}`,
+          "empl_language_code": l.language_code,
+          "empl_language": l.language_short_desc,
+          "empl_high_test_date": "2019-09-09T00:00:00-04:00",
+          "empl_high_speaking": "2+",
+          "empl_high_reading": "3"
+        })),
+        employee: {
+          "perdet_seq_num": emp.perdet_seq_num,
+          "per_seq_num": emp.perdet_seq_num,
+          "pert_external_id": emp.perdet_seq_num,
+          "per_last_name": emp.last_name,
+          "per_first_name": emp.first_name,
+          "per_middle_name": emp.middle_name,
+          "per_grade_code": emp.grade_code,
+          ...skills,
+          "per_pay_plan_code": "FP",
+          "per_tenure_code": "01",
+          "rnum": "1",
+          currentAssignment: {
+            ...(_.omit(_.get(emp, 'assignments[0]', {}), ['position'])),
+            "asgd_etd_ted_date": _.get(emp, 'assignments[0].eta_date'),
+            "rnum": `${i}`,
+            currentPosition: {
+              ...(_.omit(_.get(emp, 'assignments[0].position', {}), ['location'])),
+              currentLocation: {
+                ...(_.omit(_.get(emp, 'assignments[0].position.location', {}), [])),
+                "gvt_geoloc_cd": _.get(emp, 'assignments[0].position.location.location_code'),
+                "city": _.get(emp, 'assignments[0].position.location.location_city'),
+                "state": _.get(emp, 'assignments[0].position.location.location_state'),
+                "country": _.get(emp, 'assignments[0].position.location.location_country'),
+                "rnum": "1"
+              }
+            }
+          }
+        },
+        details: {
+          ...m,
+          "is_shared": `${m.is_shared}`,
+        }
       };
     })
 
@@ -82,7 +139,87 @@ const get_fake_available_bidders = (isCDO) => {
             "asg_seq_num": "296520",
             "asgd_revision_num": "2",
             "asgd_eta_date": "2020-08-24T00:00:00-04:00",
-            "asgd_etd_ted_date": "2021-07-24T00:00:00-04:00",
+            "asgs_code": "EF",
+            "rnum": "2",
+            "currentPosition": {
+              "pos_seq_num": "13082",
+              "pos_location_code": "110010001",
+              "pos_num_text": "S8888700",
+              "pos_grade_code": "00",
+              "pos_skill_code": "7090",
+              "pos_skill_desc": "LEAVE WITHOUT PAY",
+              "pos_org_short_desc": "GTM/LWOP",
+              "pos_bureau_short_desc": "GTM",
+              "pos_bureau_long_desc": "DIRECTOR GENERAL OF THE FS AND DIRECTOR OF GT",
+              "pos_title_desc": "SECRETARY OF STATE",
+              "rnum": "3",
+              "currentLocation": {
+                "gvt_geoloc_cd": "110010001",
+                "city": "WASHINGTON",
+                "state": "DC",
+                "country": "USA",
+                "rnum": "1"
+              }
+            }
+          }
+        },
+        "languages": [
+          {
+            "rnum": "11",
+            "empl_language_code": "FR",
+            "empl_language": "French",
+            "empl_high_test_date": "2019-09-09T00:00:00-04:00",
+            "empl_high_speaking": "2+",
+            "empl_high_reading": "3"
+          },
+          {
+            "rnum": "12",
+            "empl_language_code": "QB",
+            "empl_language": "Spanish",
+            "empl_high_test_date": "2013-06-07T00:00:00-04:00",
+            "empl_high_speaking": "2",
+            "empl_high_reading": "2+"
+          }
+        ],
+        "details": {
+          "status": "OC",
+          "oc_reason": "Appealing/Grieving Selection Out",
+          "oc_bureau": "A",
+          "comments": "Must panel or they're fired",
+          "date_created": "2021-02-19T09:32:49-05:00",
+          "update_date": "2021-02-19T09:32:49-05:00",
+          "archived": "0",
+          "is_shared": "1",
+          "last_editing_user_id": "11262"
+        }
+      },
+      {
+        "hru_id": "1215",
+        "perdet_seq_num": "435652",
+        "cdo_fullname": "SCHIISSLER-PENALOZA,COLBYE-GOSTOF NMN",
+        "cdo_last_name": "SCHIISSLER-PENALOZA",
+        "cdo_first_name": "COLBYE-GOSTOF",
+        "cdo_email": "fjx717578jkcewxokeewa@state.gov",
+        "employee": {
+          "perdet_seq_num": "435652",
+          "per_seq_num": "65537",
+          "pert_external_id": "154231",
+          "per_last_name": "AKINREMI",
+          "per_first_name": "ZOHARA-KESEAN",
+          "per_middle_name": "NMN",
+          "per_grade_code": "06",
+          "per_skill_code": "9017",
+          "per_skill_code_desc": "OFFICE MANAGEMENT",
+          "per_skill_2_code": "9017",
+          "per_skill_2_code_desc": "OFFICE MANAGEMENT",
+          "per_pay_plan_code": "FP",
+          "per_tenure_code": "01",
+          "rnum": "1",
+          "currentAssignment": {
+            "pos_seq_num": "13082",
+            "asg_seq_num": "296520",
+            "asgd_revision_num": "2",
+            "asgd_eta_date": "2020-08-24T00:00:00-04:00",
             "asgs_code": "EF",
             "rnum": "2",
             "currentPosition": {

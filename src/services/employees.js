@@ -363,6 +363,7 @@ const FETCH_OPTIONS = {
     'bids',
     'bureaus',
     'organizations',
+    'languages',
     'classifications.classification',
     'assignments',
     'assignments.position',
