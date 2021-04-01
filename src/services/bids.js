@@ -65,6 +65,7 @@ async function get_bids_by_cp(query) {
     "handshake_code": m.ubw_hndshk_offrd_flg === 'Y' ? "HS" : null,
     "tp_codes_txt": m.per_classifications_tp_codes_txt,
     "tp_descs_txt": m.per_classifications_tp_descs_txt,
+    "te_id": m.per_classifications_te_id,
     "ubw_submit_dt": m.ubw_submit_dt ? dateFns.format(m.ubw_submit_dt, 'MM/dd/yyyy') : null,
     "assignment_status": "EF",
     "TED": m.per_ted,
@@ -153,6 +154,7 @@ const formatData = (data, isCDO = true) => {
       per_ted: _.get(data, 'employee.currentassignment.etd_ted_date'),
       per_classifications_tp_codes_txt: _.get(data, 'employee.classifications', []).map(m => m.tp_code).join(''),
       per_classifications_tp_descs_txt: _.get(data, 'employee.classifications', []).map(m => m.tp_descr_txt).join('; '),
+      per_classifications_te_id: _.get(data, 'employee.classifications', []).map(m => m.te_id),
     }
     if (skills) {
       employeeProps = {
