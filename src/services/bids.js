@@ -1,4 +1,4 @@
-const { Bids } = require('../models')
+const { Bids, Classifications } = require('../models')
 const { get_available_position_by_id } = require('./availablepositions')
 const { personSkills, personLanguages } = require('./employees')
 
@@ -52,28 +52,51 @@ async function get_bids_by_cp(query) {
     ], require: false })
 
   let bids$ = bids.map(bid => formatData(bid.serialize()))
-  // fsbid mapping, with some static data
-  bids$ = bids$.map(m => ({
-    "per_seq_num": null,
-    "perdet_seq_num": m.perdet_seq_num,
-    "full_name": `${m.per_last_name}, ${m.per_first_name}`,
-    "org_short_desc": "ABIDJAN",
-    "grade_code": m.per_grade_code,
-    "skill_code": m.per_skill_code,
-    "skill_desc": m.per_skill_code_desc,
-    "language_txt": `${m.per_language_code} ${m.per_language_code_reading_proficiency}/${m.per_language_code_spoken_proficiency} (01/10/2017)`,
-    "handshake_code": m.ubw_hndshk_offrd_flg === 'Y' ? "HS" : null,
-    "tp_codes_txt": m.per_classifications_tp_codes_txt,
-    "tp_descs_txt": m.per_classifications_tp_descs_txt,
-    "te_id": m.per_classifications_te_id,
-    "ubw_submit_dt": m.ubw_submit_dt ? dateFns.format(m.ubw_submit_dt, 'MM/dd/yyyy') : null,
-    "assignment_status": "EF",
-    "TED": m.per_ted,
-  }))
+
+  let bids$$ = await bids$.map(async (v) => {
+    // console.log('v.perdet_seq_num:', v.perdet_seq_num)
+    const data$ =  await Classifications.query(qb => {
+      const perdet_seq_num = v.perdet_seq_num
+      if (perdet_seq_num) {
+        qb.join('employees_classifications', 'employees_classifications.te_id', 'classifications.te_id')
+        qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
+      }
+    }).fetchPage({
+      require: false,
+      pageSize: query["request_params.page_size"] || 1000,
+      page: query["request_params.page_index"] || 1,
+    })
+
+    let y = await data$.serialize().map(classification => {
+      const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
+      return filteredClassification
+    })
+    return {
+      "per_seq_num": null,
+      "perdet_seq_num": v.perdet_seq_num,
+      "full_name": `${v.per_last_name}, ${v.per_first_name}`,
+      "org_short_desc": "ABIDJAN",
+      "grade_code": v.per_grade_code,
+      "skill_code": v.per_skill_code,
+      "skill_desc": v.per_skill_code_desc,
+      "language_txt": `${v.per_language_code} ${v.per_language_code_reading_proficiency}/${v.per_language_code_spoken_proficiency} (01/10/2017)`,
+      "handshake_code": v.ubw_hndshk_offrd_flg === 'Y' ? "HS" : null,
+      "tp_codes_txt": v.per_classifications_tp_codes_txt,
+      "tp_descs_txt": v.per_classifications_tp_descs_txt,
+      "te_id": y,
+      "ubw_submit_dt": v.ubw_submit_dt ? dateFns.format(v.ubw_submit_dt, 'MM/dd/yyyy') : null,
+      "assignment_status": "EF",
+      "TED": v.per_ted,
+    }
+  });
+  let x = await Promise.all(bids$$).then((values) => {
+    return values
+  });
+
   let orderBy = _.get(query, 'request_params.order_by', '');
   orderBy = orderBy.split(' ');
   if (orderBy) {
-    bids$ = _.orderBy(bids$, orderBy[0], orderBy[1]);
+    x = _.orderBy(x, orderBy[0], orderBy[1]);
   }
 
   let handshake_code = _.get(query, 'request_params.handshake_code');
@@ -82,17 +105,17 @@ async function get_bids_by_cp(query) {
     if (handshake_code$ === 'OP') {
       handshake_code$ = null;
     }
-    bids$ = _.filter(bids$, f => f.handshake_code === handshake_code$);
+    x = _.filter(x, f => f.handshake_code === handshake_code$);
   }
 
   const pageSize = _.get(query, 'request_params.page_size');
   const pageIndex = _.get(query, 'request_params.page_index');
   if (pageSize && pageIndex) {
-    bids$ = paginate(bids$, pageSize, pageIndex);
+    x = paginate(x, pageSize, pageIndex);
   }
 
   return {
-    Data: bids$,
+    Data: x,
     usl_id: 0,
     return_code: 0
   }
