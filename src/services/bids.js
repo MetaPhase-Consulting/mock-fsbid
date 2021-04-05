@@ -54,7 +54,6 @@ async function get_bids_by_cp(query) {
   let bids$ = bids.map(bid => formatData(bid.serialize()))
 
   let bids$$ = await bids$.map(async (v) => {
-    // console.log('v.perdet_seq_num:', v.perdet_seq_num)
     const data$ =  await Classifications.query(qb => {
       const perdet_seq_num = v.perdet_seq_num
       if (perdet_seq_num) {
