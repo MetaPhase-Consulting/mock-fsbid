@@ -21,7 +21,7 @@ services:
       - DB_CLIENT=postgres
       - ORACLE_USER=talentmap1
       - ORACLE_PW=talentmap1
-      - ORACLE_HOST=host.docker.internal:1521/talentmappdb
+      - ORACLE_HOST=host.docker.internal:1521/oraclepdb
       - DEBUG=false
   db:
     image: postgres:9.6.3
