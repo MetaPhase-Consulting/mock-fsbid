@@ -80,7 +80,7 @@ async function get_bids_by_cp(query) {
       "skill_desc": v.per_skill_code_desc,
       "language_txt": `${v.per_language_code} ${v.per_language_code_reading_proficiency}/${v.per_language_code_spoken_proficiency} (01/10/2017)`,
       "handshake_code": v.ubw_hndshk_offrd_flg === 'Y' ? "HS" : null,
-      "bdr_trck_prgm": filtered_classifications,
+      "classifications": filtered_classifications,
       "ubw_submit_dt": v.ubw_submit_dt ? dateFns.format(v.ubw_submit_dt, 'MM/dd/yyyy') : null,
       "assignment_status": "EF",
       "TED": v.per_ted,
