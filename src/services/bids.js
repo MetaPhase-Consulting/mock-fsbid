@@ -53,8 +53,7 @@ async function get_bids_by_cp(query) {
 
   let bids$ = bids.map(bid => formatData(bid.serialize()))
 
-  let bids$$ = await bids$.map(async (v) => {
-    // console.log('v.perdet_seq_num:', v.perdet_seq_num)
+  let promises = bids$.map(async (v) => {
     const data$ =  await Classifications.query(qb => {
       const perdet_seq_num = v.perdet_seq_num
       if (perdet_seq_num) {
@@ -67,7 +66,7 @@ async function get_bids_by_cp(query) {
       page: query["request_params.page_index"] || 1,
     })
 
-    let y = await data$.serialize().map(classification => {
+    let filtered_classifications = await data$.serialize().map(classification => {
       const { _pivot_perdet_seq_num, _pivot_td_id, ...filteredClassification } = classification
       return filteredClassification
     })
@@ -81,22 +80,18 @@ async function get_bids_by_cp(query) {
       "skill_desc": v.per_skill_code_desc,
       "language_txt": `${v.per_language_code} ${v.per_language_code_reading_proficiency}/${v.per_language_code_spoken_proficiency} (01/10/2017)`,
       "handshake_code": v.ubw_hndshk_offrd_flg === 'Y' ? "HS" : null,
-      "tp_codes_txt": v.per_classifications_tp_codes_txt,
-      "tp_descs_txt": v.per_classifications_tp_descs_txt,
-      "te_id": y,
+      "bdr_trck_prgm": filtered_classifications,
       "ubw_submit_dt": v.ubw_submit_dt ? dateFns.format(v.ubw_submit_dt, 'MM/dd/yyyy') : null,
       "assignment_status": "EF",
       "TED": v.per_ted,
     }
   });
-  let x = await Promise.all(bids$$).then((values) => {
-    return values
-  });
+  let bids_with_tracking_program = await Promise.all(promises);
 
   let orderBy = _.get(query, 'request_params.order_by', '');
   orderBy = orderBy.split(' ');
   if (orderBy) {
-    x = _.orderBy(x, orderBy[0], orderBy[1]);
+    bids_with_tracking_program = _.orderBy(bids_with_tracking_program, orderBy[0], orderBy[1]);
   }
 
   let handshake_code = _.get(query, 'request_params.handshake_code');
@@ -105,17 +100,17 @@ async function get_bids_by_cp(query) {
     if (handshake_code$ === 'OP') {
       handshake_code$ = null;
     }
-    x = _.filter(x, f => f.handshake_code === handshake_code$);
+    bids_with_tracking_program = _.filter(bids_with_tracking_program, f => f.handshake_code === handshake_code$);
   }
 
   const pageSize = _.get(query, 'request_params.page_size');
   const pageIndex = _.get(query, 'request_params.page_index');
   if (pageSize && pageIndex) {
-    x = paginate(x, pageSize, pageIndex);
+    bids_with_tracking_program = paginate(bids_with_tracking_program, pageSize, pageIndex);
   }
 
   return {
-    Data: x,
+    Data: bids_with_tracking_program,
     usl_id: 0,
     return_code: 0
   }
