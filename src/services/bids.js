@@ -172,7 +172,6 @@ const formatData = (data, isCDO = true) => {
       per_ted: _.get(data, 'employee.currentassignment.etd_ted_date'),
       per_classifications_tp_codes_txt: _.get(data, 'employee.classifications', []).map(m => m.tp_code).join(''),
       per_classifications_tp_descs_txt: _.get(data, 'employee.classifications', []).map(m => m.tp_descr_txt).join('; '),
-      per_classifications_te_id: _.get(data, 'employee.classifications', []).map(m => m.te_id),
     }
     if (skills) {
       employeeProps = {
