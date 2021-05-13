@@ -363,6 +363,7 @@ const FETCH_OPTIONS = {
     'bids',
     'bureaus',
     'organizations',
+    'languages',
     'classifications.classification',
     'assignments',
     'assignments.position',
@@ -496,7 +497,7 @@ const get_classifications = async query => {
 }
 
 const add_classification = async query => {
-  const tracking_events = query['tracking_event']
+  const tracking_events = query['te_id']
   const perdet_seq_num = query['perdet_seq_num']
   try {
     if (Array.isArray(tracking_events)) {
@@ -521,7 +522,7 @@ const add_classification = async query => {
 }
 
 const remove_classification = async query => {
-  const tracking_events = query['tracking_event']
+  const tracking_events = query['te_id']
   const perdet_seq_num = query['perdet_seq_num']
   try {
     if (Array.isArray(tracking_events)) {
