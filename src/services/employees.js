@@ -1,4 +1,4 @@
-const { get } = require('lodash');
+const { get, isArray } = require('lodash');
 const _ = require('lodash');
 const { Employees, Assignments, Classifications, EmployeesClassifications } = require('../models')
 const { addOrderBy } = require('./common.js')
@@ -198,9 +198,15 @@ const get_clients = async query => {
 
 // Maps request params to employee fields for filtering
 const get_agents_filters = (params = {}) => {
-  const { rl_cd, perdet_seq_num, hru_id } = params
+  const { 'request_params.rl_cd': rl_cd, 'request_params.perdet_seq_num': perdet_seq_num, 'request_params.hru_id': hru_id } = params
   const q = {}
   if (rl_cd) q['employees_roles.code'] = rl_cd
+
+  // This is only going to return 'CDO' (not 'CDO3'). Could use the addFilter function to query by multiple values
+  if (isArray(rl_cd)) {
+    q['employees_roles.code'] = 'CDO'
+  }
+
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
   if (hru_id) q['employees.hru_id'] = hru_id
 
