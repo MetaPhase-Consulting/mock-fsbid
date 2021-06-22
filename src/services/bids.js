@@ -70,7 +70,7 @@ async function get_bids_by_cp(query) {
     "TED": m.per_ted,
     "userDetails": {
       "gal_smtp_email_address_text": m.gal_smtp_email_address_text,
-      "rnum": `${i}`,
+      "rnum": `${i + 1}`,
     }
   }))
   let orderBy = _.get(query, 'request_params.order_by', '');
