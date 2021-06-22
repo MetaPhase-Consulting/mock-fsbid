@@ -53,10 +53,9 @@ async function get_bids_by_cp(query) {
 
   let bids$ = bids.map(bid => formatData(bid.serialize()))
   // fsbid mapping, with some static data
-  bids$ = bids$.map(m => ({
+  bids$ = bids$.map((m, i) => ({
     "per_seq_num": null,
     "perdet_seq_num": m.perdet_seq_num,
-    "gal_smtp_email_address_text": m.gal_smtp_email_address_text,
     "full_name": `${m.per_last_name}, ${m.per_first_name}`,
     "org_short_desc": "ABIDJAN",
     "grade_code": m.per_grade_code,
@@ -69,6 +68,10 @@ async function get_bids_by_cp(query) {
     "ubw_submit_dt": m.ubw_submit_dt ? dateFns.format(m.ubw_submit_dt, 'MM/dd/yyyy') : null,
     "assignment_status": "EF",
     "TED": m.per_ted,
+    "userDetails": {
+      "gal_smtp_email_address_text": m.gal_smtp_email_address_text,
+      "rnum": `${i + 1}`,
+    }
   }))
   let orderBy = _.get(query, 'request_params.order_by', '');
   orderBy = orderBy.split(' ');
