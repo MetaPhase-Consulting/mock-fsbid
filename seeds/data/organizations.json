@@ -8,5 +8,25 @@
     "code": "222210",
     "short_desc": "A/LM/OPS/TTM",
     "long_desc": "TRANSPORTATION & TRAVEL MANAGEMENT DIVISION"
+  },
+  {
+    "code": "120200",
+    "short_desc": "EUR-IO/EX",
+    "long_desc": "JOINT EXECUTIVE OFFICE"
+  },
+  {
+    "code": "324066",
+    "short_desc": "DS/DC/FRDCD",
+    "long_desc": "FRANKFURT  -REG COURIER DIV, FRANKFURT, GERMANY"
+  },
+  {
+    "code": "324002",
+    "short_desc": "BERLIN USEMB",
+    "long_desc": "BERLIN, US EMBASSY"
+  },
+  {
+    "code": "025100",
+    "short_desc": "ENR",
+    "long_desc": "IMMEDIATE OFFICE OF THE ASSISTANT SECRETARY"
   }
 ]
