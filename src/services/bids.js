@@ -33,10 +33,11 @@ async function get_bid(cp_id, perdet_seq_num) {
   }
 }
 
-async function get_bids_by_cp(query) {
+async function get_bids_by_cp(query, excludeDraft = false) {
   const cp_id = _.get(query, 'request_params.cp_id');
   console.log(`Trying to get bid for cp_id=${cp_id}`)
-  const bids = await Bids
+  let bids = await Bids
+    .where(...(excludeDraft ? ['bs_cd', '<>', 'W'] : ['cp_id', cp_id])) // redundant, but best way I could conditionally insert this where statement
     .where('cp_id', cp_id)
     .fetchAll({ withRelated: [
       'position',
