@@ -21,6 +21,7 @@ function paginate(array, page_size, page_number) {
 }
 
 async function get_bid(cp_id, perdet_seq_num) {
+  // testing ssh
   console.log(`Trying to get bid for cp_id=${cp_id} and perdet_seq_num=${perdet_seq_num}`)
   const bid = await Bids
     .where('cp_id', cp_id)
