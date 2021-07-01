@@ -59,7 +59,7 @@ const Bids = bookshelf.model('Bids', {
         if (at_grade) bidstats.set('cp_at_grd_qty', cp_at_grd_qty)
         if (in_skill) bidstats.set('cp_in_cone_qty', cp_in_cone_qty)
         if (at_grade_in_skill) bidstats.set('cp_at_grd_in_cone_qty', cp_at_grd_in_cone_qty)
-        
+
         return bidstats.save()
       })
     }
@@ -74,11 +74,17 @@ const Bids = bookshelf.model('Bids', {
         // Position has been filled
         available_position.set('cp_status', 'FP')
         return available_position.save()
-      } else if (bs_cd === 'A' && handshakeOffered === 'Y') {
-        // Handshake has been offered on the position
-        available_position.set('cp_status', 'HS')
-        return available_position.save()
-      } 
+      } else if (bs_cd === 'A') {
+        if (handshakeOffered === 'Y') {
+          // Handshake has been offered(registered in TM) on the position
+          available_position.set('cp_status', 'HS')
+          return available_position.save()
+        } else {
+          // Handshake has been un-offered(unregistered in TM) on the position
+          available_position.set('cp_status', 'OP')
+          return available_position.save()
+        }
+      }
     })
   }
 })
