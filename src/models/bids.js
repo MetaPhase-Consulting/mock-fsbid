@@ -75,7 +75,7 @@ const Bids = bookshelf.model('Bids', {
         available_position.set('cp_status', 'FP')
         return available_position.save()
       } else if (bs_cd === 'A') {
-        if(handshakeOffered === 'Y') {
+        if (handshakeOffered === 'Y') {
           // Handshake has been offered(registered in TM) on the position
           available_position.set('cp_status', 'HS')
           return available_position.save()
