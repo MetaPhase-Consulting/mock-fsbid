@@ -11,6 +11,20 @@ const Employees = bookshelf.model('Employees', {
         return 'N'
       }
    },
+   no_bids: function() {
+        if (this.related('bids').pluck('bs_cd').some(b => ['A', 'C', 'P'].indexOf(b) > -1)) {
+          return 'N'
+        } else {
+          return 'Y'
+        }
+    },
+    no_successful_panel: function() {
+      if (this.related('bids').pluck('bs_cd').some(b => ['P'].indexOf(b) > -1)) {
+        return 'N'
+      } else {
+        return 'Y'
+      }
+  },
    fullname: function() {
      return `${this.get('last_name')}, ${this.get('first_name')}`
    }
