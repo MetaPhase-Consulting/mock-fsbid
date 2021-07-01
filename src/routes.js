@@ -70,7 +70,7 @@ var appRouter = function (app) {
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     }
-    res.status(200).send(await bidding.get_bids_by_cp(req.query));
+    res.status(200).send(await bidding.get_bids_by_cp(req.query, true));
   });
 
   app.get("/bids", async function (req, res) {
