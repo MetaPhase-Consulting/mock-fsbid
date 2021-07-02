@@ -116,6 +116,7 @@ const addFreeTextFilter = (qb, value) => {
       this.where("positions.pos_title_desc", operator, val)
           .orWhere('codes.skill_descr', operator, val)
           .orWhere('positions.pos_job_category_desc', operator, val)
+          .orWhere('positions.position', operator, val)
           .orWhere('capsuledescriptions.description', operator, val)
     })
   }
