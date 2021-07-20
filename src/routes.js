@@ -183,8 +183,25 @@ var appRouter = function (app) {
     }
   });
 
+  app.post('/v2/cyclePositions/available', async function(req, res) {
+    try {
+      let body$ = req.body || {};
+      body$ = _.mapKeys(body$, (v, k) => 'request_params.' + k);
+      res.status(200).send(await availablePositions.get_available_positions(body$))
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  });
+
   app.get('/availablePositionsCount', async function(req, res) {
     res.status(200).send(await availablePositions.get_available_positions_count(req.query))
+  });
+
+  app.post('/v2/cyclePositions/availableCount', async function(req, res) {
+    let body$ = req.body || {};
+    body$ = _.mapKeys(body$, (v, k) => 'request_params.' + k);
+    res.status(200).send(await availablePositions.get_available_positions_count(body$))
   });
 
   app.get('/positions/available/tandem', async function(req, res) {
