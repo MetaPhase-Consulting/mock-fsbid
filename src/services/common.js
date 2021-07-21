@@ -6,6 +6,7 @@ const FILTERS = {
   "grades": { field: "positions.pos_grade_code" },
   "languages": {field: ["positions.lang1", "positions.lang2"] },
   "bureaus": { field: "positions.bureau" },
+  "org_codes": { field: "positions.org_code" },
   "danger_pays": { field: "positions.bt_danger_pay_num" },
   "assign_cycles": { field: "cycle_id" },
   "location_codes": { field: "positions.pos_location_code" },
