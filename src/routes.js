@@ -6,6 +6,7 @@ const availableBidders = require('./services/availablebidders')
 const employees = require('./services/employees')
 const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
+const common = require('./services/common')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -185,8 +186,7 @@ var appRouter = function (app) {
 
   app.post('/v2/cyclePositions/available', async function(req, res) {
     try {
-      let body$ = req.body || {};
-      body$ = _.mapKeys(body$, (v, k) => 'request_params.' + k);
+      const body$ = common.convertPostBodyToGetQuery(req.body)
       res.status(200).send(await availablePositions.get_available_positions(body$))
     } catch (errMsg) {
       console.error(errMsg)
@@ -199,8 +199,7 @@ var appRouter = function (app) {
   });
 
   app.post('/v2/cyclePositions/availableCount', async function(req, res) {
-    let body$ = req.body || {};
-    body$ = _.mapKeys(body$, (v, k) => 'request_params.' + k);
+    const body$ = common.convertPostBodyToGetQuery(req.body)
     res.status(200).send(await availablePositions.get_available_positions_count(body$))
   });
 

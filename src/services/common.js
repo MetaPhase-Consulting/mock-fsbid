@@ -281,4 +281,19 @@ const formatCommuterPost = (postsArr, counterObj, id) => {
   }
 }
 
-module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, formatLanguage, createPositionQuery, createTandemPositionQuery, formatCommuterPost }
+const convertPostBodyToGetQuery = query => {
+  let body$ = query || {};
+  if (body$.order_by && _.isArray(body$.order_by)) {
+    body$.order_by = body$.order_by.map(m => {
+      let m$ = m + ' asc';
+      if (m[0] === '-') {
+        m$ = m.substring(1) + ' desc';
+      }
+      return m$;
+    });
+  }
+  body$ = _.mapKeys(body$, (v, k) => 'request_params.' + k);
+  return body$;
+}
+
+module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, convertPostBodyToGetQuery, formatLanguage, createPositionQuery, createTandemPositionQuery, formatCommuterPost }
