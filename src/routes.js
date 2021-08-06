@@ -6,6 +6,7 @@ const availableBidders = require('./services/availablebidders')
 const employees = require('./services/employees')
 const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
+const common = require('./services/common')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -183,8 +184,23 @@ var appRouter = function (app) {
     }
   });
 
+  app.post('/v2/cyclePositions/available', async function(req, res) {
+    try {
+      const body$ = common.convertPostBodyToGetQuery(req.body)
+      res.status(200).send(await availablePositions.get_available_positions(body$))
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  });
+
   app.get('/availablePositionsCount', async function(req, res) {
     res.status(200).send(await availablePositions.get_available_positions_count(req.query))
+  });
+
+  app.post('/v2/cyclePositions/availableCount', async function(req, res) {
+    const body$ = common.convertPostBodyToGetQuery(req.body)
+    res.status(200).send(await availablePositions.get_available_positions_count(body$))
   });
 
   app.get('/positions/available/tandem', async function(req, res) {
