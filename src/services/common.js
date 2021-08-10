@@ -129,6 +129,9 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
     qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
     qb.join('codes', 'positions.jc_id', 'codes.jc_id')
+    if (tableName === 'availablepositions') {
+      qb.join('cycles', `${tableName}.cycle_id`, 'cycles.cycle_id')
+    }
     qb.fullOuterJoin('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
     qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
     Object.keys(query).map(q => {
@@ -182,6 +185,9 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
     if (!isCount) {
       // Order by
       addOrderBy(qb, query[`${paramPrefix}.order_by`])
+    }
+    if (tableName === 'availablepositions') {
+      addFilter(qb, 'cycles.cycle_status_code', 'A')
     }
   })
 }
