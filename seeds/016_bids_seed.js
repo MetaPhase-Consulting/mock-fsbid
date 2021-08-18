@@ -28,6 +28,7 @@ exports.seed = function(knex) {
                         bs_cd: 'A',
                         ubw_submit_dt: '2021-08-11 15:16:39.139731+00',
                         cdo_bid: randCdoBid === 1 ? 'Y' : 'N',
+                        handshake_allowed_ind: 'Y',
                       }
                     }
                     bids.push(bid)
