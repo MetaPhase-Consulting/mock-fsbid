@@ -1,6 +1,6 @@
 const bookshelf = require('../bookshelf.js')
 
-const PanelMeetingDateTypes = bookshelf.model('PanelMeetingStatuses', {
+const PanelMeetingStatuses = bookshelf.model('PanelMeetingStatuses', {
   tableName: 'panelmeetingstatuses',
   idAttribute: 'pmscode'
 })
