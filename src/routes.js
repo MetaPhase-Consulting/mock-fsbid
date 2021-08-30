@@ -311,6 +311,16 @@ var appRouter = function (app) {
     })
   })
 
+  app.get('/v2/clients', async function(req, res) {
+    const clients = await employees.get_v2_clients(req.query)
+
+    res.status(200).send({
+      Data: clients,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
+
   // Need to update redundant routes once we are done with available bidders
   app.get("/cdo/availablebidders", async function (req, res) {
     if (!req.headers.jwtauthorization) {
