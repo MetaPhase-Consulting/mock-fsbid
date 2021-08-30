@@ -114,6 +114,27 @@ const getAssignment = (assignment = {}, isCurrent = false) => {
   return isCurrent ? { currentAssignment: response } : response;
 }
 
+const getLanguage = (language) => {
+  return {
+    "empl_language_code": language._pivot_language_code,
+    "empl_language": language.language_long_desc,
+    "empl_high_test_date": "2003-05-28T00:00:00-04:00",
+    "empl_high_speaking": "2+",
+    "empl_high_reading": "2",
+  }
+}
+
+const getCDOs = (manager) => {
+  return {
+    "hru_id": manager.hru_id ? `${manager.hru_id}` : null,
+    "rl_cd": "CDO",
+    "cdo_fullname": `${manager.last_name},${manager.first_name} ${manager.middle_name ? manager.middle_name : 'NMN'}`,
+    "cdo_last_name": manager.last_name,
+    "cdo_first_name": manager.first_name,
+    "cdo_email": manager.email,
+  }
+}
+
 // Gets clients for an Agent
 const get_clients = async query => {
   if (query['request_params.get_count'] === 'true') {
@@ -155,6 +176,92 @@ const get_clients = async query => {
           ...assignmentInfo,
           classifications: classifications.length === 1 ? classifications[0] : classifications,
         }
+      }
+      // Deletes pivot_td_id and pivot_perdet_seq_num field used in our mock db to randomly assign to employees
+      if (res.employee.classifications.length < 1) {
+        // No classifications exist, returning nothing
+        delete res.employee.classifications
+      } else if (res.employee.classifications.length > 1) {
+        // Classifications as array
+        res.employee.classifications = res.employee.classifications.map((c) => {
+          const { 
+            td_id,
+            classification
+          } = c
+          return _.pick({ td_id, ...classification }, [
+            "tp_code",
+            "te_id",
+            "tp_descr_txt",
+            "disabled_ind",
+            "rnum",
+            "td_id",
+          ])
+        })
+      } else {
+        // Single classification as object
+        const { 
+          td_id,
+          classification 
+        } = res.employee.classifications
+        res.employee.classifications = _.pick({ td_id, ...classification }, [
+          "tp_code",
+          "te_id",
+          "tp_descr_txt",
+          "disabled_ind",
+          "rnum",
+          "td_id",
+        ])
+      }
+      return res
+    })
+  }
+}
+
+const get_v2_clients = async query => {
+  if (query['request_params.get_count'] === 'true') {
+    return await get_employees_count_by_query(query, get_clients_filters)
+  } else {
+    const data = await get_paged_employees_by_query(query, get_clients_filters)
+    const currentAssignmentOnly = query["request_params.currentAssignmentOnly"]
+    return (data || []).map((emp, index) => {
+      const { 
+        roles = [],  
+        manager = [], 
+        currentassignment = {}, 
+        assignments = [], 
+        classifications = [],
+        languages = [],
+      } = emp
+      console.log(manager);
+      let assignmentInfo = getAssignment(currentassignment, true)
+      // Have to specifically check for false as null will return currentAssignment
+      if (currentAssignmentOnly === 'false') {
+        // FSBid returns an object if there is only 1 assignment ¯\_(ツ)_/¯
+        const assignments$ = (assignments || []).map(m => getAssignment(m));
+        assignmentInfo = {
+          assignment: assignments$.length === 1 ? assignments$[0] : assignments$
+        }
+      }
+      const res =  {
+        rnum: index + 1,
+        hru_id: manager.hru_id,
+        rl_cd: roles.length > 0 ? roles[0]['code'] : '', // FSBid only returns one role
+        employee: {
+          perdet_seq_num: emp.perdet_seq_num,
+          pert_external_id: `${emp.per_seq_num}`,
+          per_first_name: emp.first_name,
+          per_last_name: emp.last_name,
+          per_grade_code: emp.grade_code,
+          per_middle_name: emp.middle_name,
+          ...personSkills(emp.skills),
+          per_pay_plan_code: "",
+          per_tenure_code: "",
+          ...assignmentInfo,
+          classifications: classifications.length === 1 ? classifications[0] : classifications,
+        },
+        // TO-DO: Establish m2m relationship on manager with CDO and CDO3 -> Return array of relations instead of single obj
+        cdos: [manager].map(m => getCDOs(m)),
+        languages: languages.map(l => getLanguage(l)),
       }
       // Deletes pivot_td_id and pivot_perdet_seq_num field used in our mock db to randomly assign to employees
       if (res.employee.classifications.length < 1) {
@@ -681,7 +788,9 @@ module.exports = {
   get_employee_by_ad_id, 
   get_employee_by_perdet_seq_num, 
   get_employee_by_username, 
-  get_agents, get_clients, 
+  get_agents,
+  get_v2_clients,
+  get_clients,
   get_assignments, 
   get_classifications, 
   get_persons, 
