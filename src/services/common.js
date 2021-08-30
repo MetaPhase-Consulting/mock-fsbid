@@ -292,9 +292,9 @@ const formatCommuterPost = (postsArr, counterObj, id) => {
 const convertPostBodyToGetQuery = query => {
   let body$ = query || {};
   if (body$.order_by && _.isArray(body$.order_by)) {
-    body$.order_by = body$.order_by.map(m => {
+    body$.order_by = _.filter(body$.order_by).map(m => {
       let m$ = m + ' asc';
-      if (m[0] === '-') {
+      if (_.get(m, '[0]') === '-') {
         m$ = m.substring(1) + ' desc';
       }
       return m$;
