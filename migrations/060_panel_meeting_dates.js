@@ -6,7 +6,7 @@ exports.up = function(knex) {
 
       table.foreign('mdtcode').references('panelmeetingdatetypes.mdtcode')
       table.foreign('pmseqnum').references('panelmeetings.pmseqnum')
-      table.date('pmddttm')
+      table.datetime('pmddttm')
     });
 };
 exports.down = function(knex) {

@@ -19,7 +19,7 @@ exports.seed = function(knex) {
           return knex.select('pmtcode').from('panelmeetingtypes')
             .then(pmtcodes => {
               const panel_meetings = [];
-              const arr = Array(2000).fill(null);
+              const arr = Array(700).fill(null);
               arr.forEach((panel, i) => {
                 let pmscode$ = 'C';
                 if (i > arr.length / 2) {
@@ -27,6 +27,9 @@ exports.seed = function(knex) {
                 }
                 if (i > arr.length / 4) {
                   pmscode$ = 'I';
+                }
+                if (i > arr.length - 4) {
+                  pmscode$ = 'O';
                 }
                 panel_meetings.push({
                   pmseqnum: i + 1,
