@@ -7,10 +7,6 @@ exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex.raw('TRUNCATE TABLE panelmeetingdates CASCADE')
     .then(function () {
-      // Inserts seed entries
-      // return knex('panelmeetingdates').insert(panelmeetingdates);
-
-
       return knex.select().from('panelmeetings')
         .then(panelmeetings => {
           const panel_meeting_dates = []

@@ -4,13 +4,6 @@ const { readJson } = require('./data/helpers')
 const panelmeetings = readJson('./panelmeetings.json')
 
 exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  /* return knex.raw('TRUNCATE TABLE panels CASCADE')
-    .then(function () {
-      // Inserts seed entries
-      return knex('panelmeetings').insert(panelmeetings);
-    }); */
-  
   return knex.raw('TRUNCATE TABLE panelmeetings CASCADE')
     .then(function () {
 
