@@ -1,0 +1,68 @@
+[
+  {
+    "aiscode": "A",
+    "aisabbrdesctext": "APR",
+    "aisdesctext": "Approved",
+    "aisordernum": 1
+  },
+  {
+    "aiscode": "F",
+    "aisabbrdesctext": "DEF",
+    "aisdesctext": "Deferred",
+    "aisordernum": 2
+  },
+  {
+    "aiscode": "C",
+    "aisabbrdesctext": "XXX",
+    "aisdesctext": "Deferred - Proposed Position",
+    "aisordernum": 3
+  },
+  {
+    "aiscode": "D",
+    "aisabbrdesctext": "DIS",
+    "aisdesctext": "Disapproved",
+    "aisordernum": 4
+  },
+  {
+    "aiscode": "H",
+    "aisabbrdesctext": "HLD",
+    "aisdesctext": "Held",
+    "aisordernum": 5
+  },
+  {
+    "aiscode": "M",
+    "aisabbrdesctext": "MOV",
+    "aisdesctext": "Move to ML/ID",
+    "aisordernum": 6
+  },
+  {
+    "aiscode": "N",
+    "aisabbrdesctext": "NR",
+    "aisdesctext": "Not Ready",
+    "aisordernum": 7
+  },
+  {
+    "aiscode": "O",
+    "aisabbrdesctext": "OOO",
+    "aisdesctext": "Out of Order",
+    "aisordernum": 8
+  },
+  {
+    "aiscode": "P",
+    "aisabbrdesctext": "PIP",
+    "aisdesctext": "PIP",
+    "aisordernum": 9
+  },
+  {
+    "aiscode": "R",
+    "aisabbrdesctext": "RDY",
+    "aisdesctext": "Ready",
+    "aisordernum": 10
+  },
+  {
+    "aiscode": "W",
+    "aisabbrdesctext": "WDR",
+    "aisdesctext": "Withdrawn",
+    "aisordernum": 11
+  }
+]
