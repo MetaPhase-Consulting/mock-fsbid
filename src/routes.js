@@ -363,7 +363,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/cyclePositions/cyclePositions', async function(req, res) {
+  app.get('/cyclePositions', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query, true))
     } catch (errMsg) {
@@ -371,6 +371,16 @@ var appRouter = function (app) {
       res.status(500).send({ "Message": "An error has occurred." });
     }
   })
+
+  app.post('/v2/cyclePositions', async function(req, res) {
+    try {
+      const body$ = common.convertPostBodyToGetQuery(req.body)
+      res.status(200).send(await availablePositions.get_available_positions(body$, true))
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  });
 
   app.get('/v2/SECREF/user', async function(req, res) {
     const user = await employees.get_user(req.query)
