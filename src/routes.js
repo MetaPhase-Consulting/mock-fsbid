@@ -308,8 +308,8 @@ var appRouter = function (app) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     }
     if (req && req.query) {
-      if (!req.query.order_by || !req.query.is_asc) {
-        console.error('order_by and is_asc query params are required.')
+      if (!req.query.is_asc) {
+        console.error('is_asc query param is required.')
         res.status(500).send({ "Message": "An error has occurred." });
       }
     }
@@ -326,8 +326,8 @@ var appRouter = function (app) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     }
     if (req && req.query) {
-      if (!req.query.order_by || !req.query.is_asc) {
-        console.error('order_by and is_asc query params are required.')
+      if (!req.query.is_asc) {
+        console.error('is_asc query param is required.')
         res.status(500).send({ "Message": "An error has occurred." });
       }
     }
