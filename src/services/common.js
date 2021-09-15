@@ -30,6 +30,11 @@ const FILTERS = {
   },
 }
 
+const CYCLE_POSITION_FILTERS = {
+  ...FILTERS,
+  "bureaus": { field: ["positions.bureau", "positions.consultative_bureau"] },
+}
+
 const TANDEM_ONE_FILTERS = {
   "pos_numbers": { field: "position" },
   "grades": { field: "positions.pos_grade_code" },
@@ -89,7 +94,11 @@ const TANDEM_TWO_FILTERS = {
 }
 
 // Get field for the provided filter.
-const getFilter = param => FILTERS[param.split('.').slice(-1)[0]]
+const getFilter = (param, isCycle) => {
+  console.log(isCycle)
+  const FILTERS$ = isCycle ? CYCLE_POSITION_FILTERS : FILTERS;
+  return FILTERS$[param.split('.').slice(-1)[0]]
+}
 
 // Get field for the tandem filters.
 const getTandemFilter = (param, isTandemOne) => {
@@ -123,7 +132,7 @@ const addFreeTextFilter = (qb, value) => {
   }
 }
 
-const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
+const createPositionQuery = (model, tableName, paramPrefix, query, isCount, isCycle) => {
   return model.query(qb => {
     qb.join('positions', `${tableName}.position`, 'positions.position')
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
@@ -134,8 +143,9 @@ const createPositionQuery = (model, tableName, paramPrefix, query, isCount) => {
     }
     qb.fullOuterJoin('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
     qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
+
     Object.keys(query).map(q => {
-      const filter = getFilter(q)
+      const filter = getFilter(q, isCycle)
       const value = query[q]
       if (_.get(filter, 'field') === 'positions.pos_grade_code') {
         const rE = /^\s+$/g;
