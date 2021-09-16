@@ -12,9 +12,9 @@ const PanelMeetingItems = bookshelf.model('PanelMeetingItems', {
     return this.belongsTo('PanelMeetingItemCategories', 'miccode')
   },
 
-  // aiseqnum() {
-  //   return this.belongsTo('AgendaItems', 'aiseqnum')
-  // },
+  aiseqnum() {
+    return this.belongsTo('AgendaItems', 'aiseqnum')
+  },
   
 })
 

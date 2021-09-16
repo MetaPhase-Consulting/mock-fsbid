@@ -1,6 +1,6 @@
 exports.up = function(knex) {
   return knex.schema
-    .createTable('agendaitem', function(table) {
+    .createTable('agendaitems', function(table) {
       table.integer('aiseqnum').primary()
       table.string('aiscode')
       table.integer('pmiseqnum')
@@ -39,5 +39,5 @@ exports.up = function(knex) {
 };
 exports.down = function(knex) {
   return knex.schema
-    .dropTable('agendaitem')
+    .dropTable('agendaitems')
 };
