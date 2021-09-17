@@ -15,15 +15,13 @@ exports.seed = function(knex) {
               const arr = Array(700).fill(null);
               arr.forEach((panel, i) => {
                 let pmscode$ = 'C';
-                if (i > arr.length / 2) {
-                  pmscode$ = 'P';
-                }
-                if (i > arr.length / 4) {
-                  pmscode$ = 'I';
-                }
                 if (i > arr.length - 4) {
                   pmscode$ = 'O';
-                }
+                } else if (i > arr.length / 2) {
+                  pmscode$ = 'P';
+                } else if (i > arr.length / 4) {
+                  pmscode$ = 'I';
+                } 
                 panel_meetings.push({
                   pmseqnum: i + 1,
                   pmscode: pmscode$,
