@@ -1,8 +1,6 @@
 const _ = require('lodash')
 const { readJson } = require('./data/helpers')
 
-const panelmeetings = readJson('./panelmeetings.json')
-
 exports.seed = function(knex) {
   return knex.raw('TRUNCATE TABLE panelmeetings CASCADE')
     .then(function () {
