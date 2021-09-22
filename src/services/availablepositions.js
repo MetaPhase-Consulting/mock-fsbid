@@ -145,7 +145,6 @@ const RELATED = [
 ]
 
 async function get_available_positions(query, isCyclePositions=false) {
-  console.log(isCyclePositions)
   const isCount = query['request_params.count'] === 'true' || query['request_params.totalResults'] === 'true' || query['request_params.totalResults'] === true
   if (isCount && isCyclePositions) {
     return get_available_positions_count(query, isCyclePositions)
