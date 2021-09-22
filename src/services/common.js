@@ -95,7 +95,6 @@ const TANDEM_TWO_FILTERS = {
 
 // Get field for the provided filter.
 const getFilter = (param, isCycle) => {
-  console.log(isCycle)
   const FILTERS$ = isCycle ? CYCLE_POSITION_FILTERS : FILTERS;
   return FILTERS$[param.split('.').slice(-1)[0]]
 }
