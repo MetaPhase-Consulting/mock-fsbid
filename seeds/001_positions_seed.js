@@ -1,4 +1,5 @@
 const { readJson, findRandom } = require('./data/helpers')
+const _ = require('lodash');
 
 const positions = readJson('./positions.json')
 const locations = readJson('./locations.json')
@@ -11,6 +12,7 @@ const differentialrates = readJson('./differentialrates.json')
 const dangerpays = readJson('./dangerpays.json')
 const jobcategories = readJson('./jobcategories.json')
 const tourofduties = readJson('./tourofduties.json')
+const bureauskills = readJson('./bureau_skills.json')
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
@@ -35,6 +37,12 @@ exports.seed = function(knex) {
         } else {
           position.jc_id_2= findRandom(codes)['jc_id'];
         }
+
+        // mock the consultative bureau based on either skill code
+        position.consultative_bureau = _.get(
+          bureauskills.find(f => f.jc_id === position.jc_id || f.jc_id === position.jc_id_2),
+          'bur'
+        )
 
         position.bt_differential_rate_num = findRandom(differentialrates)['pay_percent_num']
         position.bt_danger_pay_num = findRandom(dangerpays)['pay_percent_num']
