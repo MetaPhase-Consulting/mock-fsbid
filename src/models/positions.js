@@ -22,6 +22,9 @@ const Positions = bookshelf.model('Positions', {
   bureau() {
     return this.belongsTo('Bureaus', 'bureau')
   },
+  consultative_bureau() {
+    return this.belongsTo('Bureaus', 'bureau')
+  },
   skill() {
     return this.belongsTo('Codes', 'jc_id')
   },
