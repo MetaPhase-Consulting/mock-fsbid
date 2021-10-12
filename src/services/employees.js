@@ -9,6 +9,7 @@ const SORT_MAPPING = {
   per_skill_code: 'codes.skl_code',
   per_last_name: 'employees.last_name',
   per_first_name: 'employees.first_name',
+  per_middle_name: 'employees.middle_name',
 }
 
 // Fetch an employee for an ad_id value
