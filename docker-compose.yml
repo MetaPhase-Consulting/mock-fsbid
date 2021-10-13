@@ -24,7 +24,7 @@ services:
       - ORACLE_HOST=host.docker.internal:1521/oraclepdb
       - DEBUG=false
   db:
-    image: postgres:9.6.3
+    image: postgres:13.4-alpine
     ports:
       - "35432:5432"
     volumes:
