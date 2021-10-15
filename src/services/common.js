@@ -28,6 +28,17 @@ const FILTERS = {
     ],
     value: 'Y',
   },
+  "audit_ind": {
+    fields: [
+      "hard_to_fill_ind",
+    ],
+    value: 'Y',
+  },
+  // why does this not work?
+  // "audit_ind": {
+  //   field: "hard_to_fill_ind",
+  //   value: 'Y',
+  // },
 }
 
 const CYCLE_POSITION_FILTERS = {
@@ -61,7 +72,13 @@ const TANDEM_ONE_FILTERS = {
     ],
     value: 'Y',
   },
-  "cpn_codes": { field: "locations_commuterposts.cpn_code" }
+  "cpn_codes": { field: "locations_commuterposts.cpn_code" },
+  "audit_ind": {
+    fields: [
+      "hard_to_fill_ind",
+    ],
+    value: 'Y',
+  },
 }
 
 const TANDEM_TWO_FILTERS = {
@@ -90,7 +107,13 @@ const TANDEM_TWO_FILTERS = {
     ],
     value: 'Y',
   },
-  "cpn_codes2": { field: "locations_commuterposts.cpn_code" }
+  "cpn_codes2": { field: "locations_commuterposts.cpn_code" },
+  "audit_ind": {
+    fields: [
+      "hard_to_fill_ind",
+    ],
+    value: 'Y',
+  },
 }
 
 // Get field for the provided filter.
