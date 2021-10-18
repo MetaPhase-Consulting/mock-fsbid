@@ -63,7 +63,7 @@ const TANDEM_ONE_FILTERS = {
     value: 'Y',
   },
   "cpn_codes": { field: "locations_commuterposts.cpn_code" },
-  "htf_ind": { field: "position.hard_to_fill_ind" },
+  "htf_ind": { field: "hard_to_fill_ind" },
 }
 
 const TANDEM_TWO_FILTERS = {
@@ -93,7 +93,7 @@ const TANDEM_TWO_FILTERS = {
     value: 'Y',
   },
   "cpn_codes2": { field: "locations_commuterposts.cpn_code" },
-  "htf_ind": { field: "position.hard_to_fill_ind" },
+  "htf_ind": { field: "hard_to_fill_ind" },
 }
 
 // Get field for the provided filter.
