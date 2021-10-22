@@ -9,20 +9,9 @@ const formatData = (data) => {
     if (!Array.isArray(data)) {
       data = [data]
     }
-    const omitFields = [
-      'capsuledescription',
-      'skill',
-      'skill2',
-      'bureau',
-      'location',
-      'org',
-      'bidstats',
-      'cycle',
-      'commuterpost',
-    ]
 
     return data.map(d => {
-      const { tod, lang1, lang2, org, location, bureau, skill, skill2, capsuledescription } = d
+      const { lang1, lang2, org, location, bureau, skill, skill2 } = d
       return {
         "pos_seq_num": d.pos_seq_num,
         "pos_num_text": d.position,
@@ -80,22 +69,18 @@ const formatData = (data) => {
 
 
 const RELATED = [
-  'tod',
   'lang1',
   'lang2',
   'org',
   'location',
   'bureau',
-  'consultative_bureau',
   'skill',
-  'skill2',
-  'location.unaccompaniedstatus',
+  'skill2'
 ]
 
 
 async function get_position_by_id(query) {
   const id = _.get(query, 'request_params.pos_seq_num', '')
-  console.log(id)
   const data = await new Positions({ pos_seq_num: id })
     .fetch({
       withRelated: RELATED,
