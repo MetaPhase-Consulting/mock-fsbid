@@ -86,8 +86,12 @@ async function get_position_by_id(query) {
       withRelated: RELATED,
       require: false,
     })
-  if (data) {
-    return formatData(data.serialize())
+  const results = data ? formatData(data.serialize()) : []
+  
+  return {
+    "Data": results,
+    "usl_id": 44999637,
+    "return_code": 0
   }
 }
 
