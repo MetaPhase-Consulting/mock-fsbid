@@ -181,7 +181,6 @@ var appRouter = function (app) {
   });
 
   app.post('/v2/futureVacancies/count', async function(req, res) {
-    console.log('hi')
     const body$ = common.convertPostBodyToGetQuery(req.body)
     res.status(200).send(await futureVacancies.get_future_vacancies_count(body$))
   });
