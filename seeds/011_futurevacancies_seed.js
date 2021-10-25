@@ -3,6 +3,7 @@ const { readJson } = require('./data/helpers')
 
 const seasons = readJson('./seasons.json')
 const positions = readJson('./positions')
+const employees = readJson('./employees')
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
@@ -22,6 +23,7 @@ exports.seed = function(knex) {
             bt_most_difficult_to_staff_flg: _.sample(flags),
             bt_inside_efm_employment_flg: _.sample(flags),
             bt_outside_efm_employment_flg: _.sample(flags),
+            assignee: Math.random() < .7 ? _.sample(employees).last_name : 'Vacant',
           })
         })
       });
