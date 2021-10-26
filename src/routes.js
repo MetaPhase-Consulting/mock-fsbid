@@ -4,6 +4,7 @@ const futureVacancies = require('./services/futurevacancies')
 const availablePositions = require('./services/availablepositions')
 const availableBidders = require('./services/availablebidders')
 const employees = require('./services/employees')
+const positions = require('./services/positions')
 const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
 const common = require('./services/common')
@@ -398,6 +399,15 @@ var appRouter = function (app) {
   app.get('/cyclePositions', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query, true))
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  })
+
+  app.get('/Positions', async function(req, res) {
+    try {
+      res.status(200).send(await positions.get_position_by_id(req.query))
     } catch (errMsg) {
       console.error(errMsg)
       res.status(500).send({ "Message": "An error has occurred." });
