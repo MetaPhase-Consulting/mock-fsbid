@@ -171,8 +171,18 @@ var appRouter = function (app) {
     res.status(200).send(await futureVacancies.get_future_vacancies(req.query))
   });
 
+  app.post('/v2/futureVacancies', async function(req, res) {
+    const body$ = common.convertPostBodyToGetQuery(req.body)
+    res.status(200).send(await futureVacancies.get_future_vacancies(body$))
+  });
+
   app.get('/futureVacanciesCount', async function(req, res) {
     res.status(200).send(await futureVacancies.get_future_vacancies_count(req.query))
+  });
+
+  app.post('/v2/futureVacancies/count', async function(req, res) {
+    const body$ = common.convertPostBodyToGetQuery(req.body)
+    res.status(200).send(await futureVacancies.get_future_vacancies_count(body$))
   });
 
   app.get('/availablePositions', async function(req, res) {
@@ -209,6 +219,16 @@ var appRouter = function (app) {
 
   app.get('/positions/futureVacancies/tandem', async function(req, res) {
     res.status(200).send(await futureVacancies.get_future_vacancies_tandem(req.query))
+  });
+
+  app.post('/v2/cyclepositions/availableTandem', async function(req, res) {
+    const body$ = common.convertPostBodyToGetQuery(req.body)
+    res.status(200).send(await availablePositions.get_available_positions_tandem(body$))
+  });
+
+  app.post('/v2/futureVacancies/tandem', async function(req, res) {
+    const body$ = common.convertPostBodyToGetQuery(req.body)
+    res.status(200).send(await futureVacancies.get_future_vacancies_tandem(body$))
   });
 
   app.get('/Employees/userInfo', async function(req, res) {
