@@ -24,7 +24,7 @@ exports.seed = function(knex) {
             bt_most_difficult_to_staff_flg: _.sample(flags),
             bt_inside_efm_employment_flg: _.sample(flags),
             bt_outside_efm_employment_flg: _.sample(flags),
-            hard_to_fill_ind: _.sample(["Y", "N"]),
+            acp_hard_to_fill_ind: _.sample(["Y", "N"]),
           })
         })
       });
