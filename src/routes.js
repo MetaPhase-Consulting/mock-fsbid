@@ -447,6 +447,15 @@ var appRouter = function (app) {
     })
   })
 
+  app.get('/TrackingPrograms', async function(req, res) {
+    const classifications = await employees.get_classifications(req.query)
+    res.status(200).send({
+      Data: classifications,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
+
   app.post('/TrackingPrograms/Bidders', async function(req, res) {
     try {
       classifications = await employees.add_classification(req.query)
