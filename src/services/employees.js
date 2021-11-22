@@ -589,15 +589,15 @@ const get_assignments = async query => {
 const get_classifications = async query => {
   try {
     const data = await Classifications.query(qb => {
-      const perdet_seq_num = query['request_params.perdet_seq_num']
+      const perdet_seq_num = query['perdet_seq_num']
       if (perdet_seq_num) {
         qb.join('employees_classifications', 'employees_classifications.te_id', 'classifications.te_id')
         qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
       }
     }).fetchPage({
       require: false,
-      pageSize: query["request_params.page_size"] || 1000,
-      page: query["request_params.page_index"] || 1,
+      pageSize: query["page_size"] || 1000,
+      page: query["page_index"] || 1,
     })
 
     return await data.serialize().map(classification => {
