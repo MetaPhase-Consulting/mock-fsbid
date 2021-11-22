@@ -63,6 +63,7 @@ const get_available_bidders = async (isBureau = false) => {
           "per_last_name": emp.last_name,
           "per_first_name": emp.first_name,
           "per_middle_name": emp.middle_name,
+          "per_suffix_name": emp.suffix_name,
           "per_grade_code": emp.grade_code,
           ...skills,
           "per_pay_plan_code": "FP",

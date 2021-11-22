@@ -129,9 +129,10 @@ const getCDOs = (manager) => {
   return {
     "hru_id": manager.hru_id ? `${manager.hru_id}` : null,
     "rl_cd": "CDO",
-    "cdo_fullname": `${manager.last_name},${manager.first_name} ${manager.middle_name ? manager.middle_name : 'NMN'}`,
+    "cdo_fullname": `${manager.last_name} ${manager.suffix_name},${manager.first_name} ${manager.middle_name ? manager.middle_name : 'NMN'}`,
     "cdo_last_name": manager.last_name,
     "cdo_first_name": manager.first_name,
+    "cdo_suffix_name": manager.suffix_name,
     "cdo_email": manager.email,
   }
 }
@@ -169,6 +170,7 @@ const get_clients = async query => {
           pert_external_id: `${emp.per_seq_num}`,
           per_first_name: emp.first_name,
           per_last_name: emp.last_name,
+          per_suffix_name: emp.suffix_name,
           per_grade_code: emp.grade_code,
           per_middle_name: emp.middle_name,
           ...personSkills(emp.skills),
@@ -252,6 +254,7 @@ const get_v2_clients = async query => {
           pert_external_id: `${emp.per_seq_num}`,
           per_first_name: emp.first_name,
           per_last_name: emp.last_name,
+          per_suffix_name: emp.suffix_name,
           per_grade_code: emp.grade_code,
           per_middle_name: emp.middle_name,
           ...personSkills(emp.skills),
@@ -745,6 +748,7 @@ const get_user = async query => {
           gal_last_name: user.last_name || '',
           gal_first_name: user.first_name || '',
           gal_mi_name: user.middle_name || '',
+          gal_suffix_name: user.suffix_name || '',
           gal_display_name: user.fullname || '',
           gal_alias_name: user.gal_alias_name || '',
           gal_address_text: user.office_address || '',
