@@ -628,7 +628,7 @@ const add_classification = async query => {
         perdet_seq_num: perdet_seq_num,
       }).save()
     }
-    return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
+    return await get_classifications({"perdet_seq_num": perdet_seq_num})
   } catch (Error) {
     console.error(Error)
     return null
@@ -653,7 +653,7 @@ const remove_classification = async query => {
         perdet_seq_num: perdet_seq_num,
       }).destroy()
     }
-    return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
+    return await get_classifications({"perdet_seq_num": perdet_seq_num})
   } catch (Error) {
     console.error(Error)
     return null
