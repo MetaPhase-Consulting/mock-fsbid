@@ -4,7 +4,7 @@ services:
     build:
       context: .
     ports:
-      - "${APP_PORT-4000-4100}:3333"
+      - "${APP_PORT-4000-4010}:3333"
     deploy:
       replicas: ${REPLICAS-1}
     links:
