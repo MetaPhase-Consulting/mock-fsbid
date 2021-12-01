@@ -4,7 +4,7 @@ services:
     build:
       context: .
     deploy:
-      replicas: 3
+      replicas: ${REPLICAS-1}
     links:
       - db
     command: npm run dev
