@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker-compose up -d
+      run: APP_PORT=3333 LB_PORT=4000 docker-compose up -d
     - name: Install dependencies
       run: |
         npm i
