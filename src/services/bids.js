@@ -68,8 +68,8 @@ async function get_bids_by_cp(query, excludeDraft = false) {
       "tp_codes_txt": m.per_classifications_tp_codes_txt,
       "tp_descs_txt": m.per_classifications_tp_descs_txt,
       "ubw_submit_dt": m.ubw_submit_dt ? dateFns.format(m.ubw_submit_dt, 'MM/dd/yyyy') : null,
-      "handshake_offered_dt": m.ubw_submit_dt ? dateFns.format(dateFns.add(m.ubw_submit_dt, {weeks: 2}), 'MM/dd/yyyy') : null,
-      "handshake_offered_flag": m.ubw_hndshk_offrd_flg,
+      "ubw_handshake_offered_dt": m.ubw_submit_dt ? dateFns.format(dateFns.add(m.ubw_submit_dt, {weeks: 2}), 'MM/dd/yyyy') : null,
+      "ubw_handshake_offered_flag": m.ubw_hndshk_offrd_flg,
       "assignment_status": "EF",
       "TED": m.per_ted,
       "userDetails": {
