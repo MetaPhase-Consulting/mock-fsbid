@@ -4,7 +4,9 @@ services:
     build:
       context: .
     ports:
-      - 3333:3333
+      - "${APP_PORT-4000-4010}:3333"
+    deploy:
+      replicas: ${REPLICAS-1}
     links:
       - db
     command: npm run dev
@@ -23,6 +25,18 @@ services:
       - ORACLE_PW=talentmap1
       - ORACLE_HOST=host.docker.internal:1521/oraclepdb
       - DEBUG=false
+  haproxy:
+    image: eeacms/haproxy
+    depends_on:
+    - app
+    ports:
+    - "${LB_PORT-3333}:5000"
+    - "1937:1936"
+    environment:
+      BACKENDS: "app"
+      BACKENDS_PORT: "3333"
+      DNS_ENABLED: "true"
+      LOG_LEVEL: "info"
   db:
     image: postgres:13.4-alpine
     ports:
