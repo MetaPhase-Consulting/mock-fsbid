@@ -494,6 +494,90 @@ var appRouter = function (app) {
       res.status(200).send({ Data: null, return_code: -1 })
     }
   });
+
+
+
+
+    const status = ['Approved', 'Withdrawn', 'Deferred']
+    const ai = {
+      "aiseqnum": 1,
+      "aicombinedremarktext": 'Remark 1;Remark 2;Remark 3',
+      "pmddttm": "09/01/22",
+      "aisdesctext": 'Approved',
+
+      "update_date": "2020-09-09T00:00:00-04:00",
+      "aiupdateid": 'Woodward, Wendy',
+      "aiitemcreatorid": 'Woodward, Wendy',
+
+      "legs": [
+        {
+          "ailaiseqnum": 1,
+          "postitledesc": "SPECIAL AGENT",
+          "posseqnum": "S70000011",
+          "posorgshortdesc": "PARIS",
+          "ailetadate": "01/18",
+          "ailetdtedsepdate": "01/20",
+          "ailtodothertext": "2YRR",
+          "posgradecode": "02",
+          "latabbrdesctext": "",
+
+          "travel": "",
+        },
+        {
+          "ailaiseqnum": 2,
+          "postitledesc": "TRAINING",
+          "posseqnum": "S00000001",
+          "posorgshortdesc": "Washington, D.C.",
+          "ailetadate": "01/20",
+          "ailetdtedsepdate": "07/20",
+          "ailtodothertext": "6 MO",
+          "posgradecode": "02",
+          "latabbrdesctext": "Reassign",
+
+          "travel": "Post to USHL",
+        },
+        {
+          "ailaiseqnum": 3,
+          "postitledesc": "SPECIAL AGENT",
+          "posseqnum": "S70000011",
+          "posorgshortdesc": "BELGRADE",
+          "ailetadate": "07/20",
+          "ailetdtedsepdate": "07/22",
+          "ailtodothertext": "2YRR",
+          "posgradecode": "02",
+          "latabbrdesctext": "Reassign",
+
+          "travel": "Post to USHL",
+        }
+      ]
+    };
+    const ais = [1,2,3].map((m, i) => ({
+      ...ai,
+      aiseqnum: i + 1,
+      aisdesctext: status[i],
+      aiperdetseqnum: [4, 6, 8][i], // perdets of Jenny, Tarek, Wendy
+    }))
+
+  app.get('/v1/agendaItems/:id', async function(req, res) {
+    const status = ['Approved', 'Withdrawn', 'Deferred']
+    const ai$ = ais.filter(f => `${f.aiseqnum}` === req.params.id)
+    res.status(200).send({
+      Data: ai$,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
+
+  app.get('/v1/agendaItems', async function(req, res) {
+    const ais$ = ais.map(m => ({aiseqnum: m.aiseqnum})) // only return
+    res.status(200).send({
+      Data: ais$,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
+
+
 };
 
 module.exports = appRouter;
