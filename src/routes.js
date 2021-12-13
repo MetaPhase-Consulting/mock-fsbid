@@ -501,13 +501,28 @@ var appRouter = function (app) {
     const status = ['Approved', 'Withdrawn', 'Deferred']
     const ai = {
       "aiseqnum": 1,
-      "aicombinedremarktext": 'Remark 1;Remark 2;Remark 3',
-      "pmddttm": "09/01/22",
-      "aisdesctext": 'Approved',
+      "aicorrectiontext": null,
+      "aicombinedremarktext": "Remarks:Critical Need Position;High Differential Post;Reassignment at post;SND Post;Continues SND eligibility;Creator(s):Townpost, Jenny Nmn;Modifier(s):WoodwardWA;CDO: Rehman, Tarek S; ;",
+      "aicombinedtodothertext": "2Y/HL/2Y",
+      "aitodcode": "X",
+      "aitoddesctext": "OTHER",
+      "aiasgseqnum": 274115,
+      "aiasgdrevisionnum": 4,
+      "aiperdetseqnum": 408869,
+      "aipmiseqnum": 227054,
+      "aiitemcreatorid": 3857,
+      "aiupdateid": 57497,
+      "aisdesctext": "Ready",
 
+      // In contract but not response
+      "pmddttm": "09/01/22",
+
+      // Needed
       "update_date": "2020-09-09T00:00:00-04:00",
-      "aiupdateid": 'Woodward, Wendy',
-      "aiitemcreatorid": 'Woodward, Wendy',
+
+      // Need actual names like below:
+      // "aiupdateid": 'Woodward, Wendy',
+      // "aiitemcreatorid": 'Woodward, Wendy',
 
       "legs": [
         {
