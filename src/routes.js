@@ -494,6 +494,105 @@ var appRouter = function (app) {
       res.status(200).send({ Data: null, return_code: -1 })
     }
   });
+
+
+
+
+    const status = ['Approved', 'Withdrawn', 'Deferred']
+    const ai = {
+      "aiseqnum": 1,
+      "aicorrectiontext": null,
+      "aicombinedremarktext": "Remarks:Critical Need Position;High Differential Post;Reassignment at post;SND Post;Continues SND eligibility;Creator(s):Townpost, Jenny Nmn;Modifier(s):WoodwardWA;CDO: Rehman, Tarek S; ;",
+      "aicombinedtodothertext": "2Y/HL/2Y",
+      "aitodcode": "X",
+      "aitoddesctext": "OTHER",
+      "aiasgseqnum": 274115,
+      "aiasgdrevisionnum": 4,
+      "aiperdetseqnum": 408869,
+      "aipmiseqnum": 227054,
+      "aiitemcreatorid": 3857,
+      "aiupdateid": 57497,
+      "aisdesctext": "Ready",
+
+      // In contract but not response
+      "pmddttm": "09/01/22",
+
+      // Needed
+      "update_date": "2020-09-09T00:00:00-04:00",
+
+      // Need actual names like below:
+      // "aiupdateid": 'Woodward, Wendy',
+      // "aiitemcreatorid": 'Woodward, Wendy',
+
+      "legs": [
+        {
+          "ailaiseqnum": 1,
+          "postitledesc": "SPECIAL AGENT",
+          "posseqnum": "S70000011",
+          "posorgshortdesc": "PARIS",
+          "ailetadate": "01/18",
+          "ailetdtedsepdate": "01/20",
+          "ailtodothertext": "2YRR",
+          "posgradecode": "02",
+          "latabbrdesctext": "",
+
+          "travel": "",
+        },
+        {
+          "ailaiseqnum": 2,
+          "postitledesc": "TRAINING",
+          "posseqnum": "S00000001",
+          "posorgshortdesc": "Washington, D.C.",
+          "ailetadate": "01/20",
+          "ailetdtedsepdate": "07/20",
+          "ailtodothertext": "6 MO",
+          "posgradecode": "02",
+          "latabbrdesctext": "Reassign",
+
+          "travel": "Post to USHL",
+        },
+        {
+          "ailaiseqnum": 3,
+          "postitledesc": "SPECIAL AGENT",
+          "posseqnum": "S70000011",
+          "posorgshortdesc": "BELGRADE",
+          "ailetadate": "07/20",
+          "ailetdtedsepdate": "07/22",
+          "ailtodothertext": "2YRR",
+          "posgradecode": "02",
+          "latabbrdesctext": "Reassign",
+
+          "travel": "Post to USHL",
+        }
+      ]
+    };
+    const ais = [1,2,3].map((m, i) => ({
+      ...ai,
+      aiseqnum: i + 1,
+      aisdesctext: status[i],
+      aiperdetseqnum: [4, 6, 8][i], // perdets of Jenny, Tarek, Wendy
+    }))
+
+  app.get('/v1/agendaItems/:id', async function(req, res) {
+    const status = ['Approved', 'Withdrawn', 'Deferred']
+    const ai$ = ais.filter(f => `${f.aiseqnum}` === req.params.id)
+    res.status(200).send({
+      Data: ai$,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
+
+  app.get('/v1/agendaItems', async function(req, res) {
+    const ais$ = ais.map(m => ({aiseqnum: m.aiseqnum})) // only return
+    res.status(200).send({
+      Data: ais$,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
+
+
 };
 
 module.exports = appRouter;
