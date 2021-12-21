@@ -664,7 +664,6 @@ const get_persons = async query => {
   try {
     const data = await get_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
-    emp["employee_profile_url"] = `www.talentmap/profile/public/${emp.first_name}_${emp.last_name}.com`;
       const res = {
           per_seq_num: emp.per_seq_num,
           per_full_name: emp.fullname,
@@ -702,6 +701,53 @@ const get_persons = async query => {
         delete res.per_skill_code_desc
         delete res.per_skill_2_code_desc
         delete res.per_skill_3_code_desc
+      return res
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+const get_agenda_persons = async query => {
+  try {
+    const data = await get_employees_by_query(query, get_persons_filters)
+    return data.map(emp => {
+      const { 
+        roles = [],  
+        manager = [], 
+        currentassignment = {}, 
+        assignments = [], 
+        classifications = [],
+        languages = [],
+      } = emp
+      let assignmentInfo = getAssignment(currentassignment, true)
+      const res = {
+          perdetseqnum: emp.per_seq_num,
+          perpiiseqnum: '', // what is this?
+          perpiifullname: emp.fullname,
+          perpiilastname: emp.last_name,
+          perpiifirstname: emp.first_name,
+          perpiimiddlename: emp.middle_name || '',
+          pperpiisuffixname: emp.per_suffix_name || '',
+          pertexternalid: emp.pert_external_id || '',
+          pertcurrentind: "N", // can be "Y" or "N"
+          currentAssignment: assignmentInfo ? {
+            asgperdetseqnum: emp.per_seq_num,
+            asgempseqnbr: '', // what is this?
+            asgposseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
+            asgdrevisionnum: 1,
+            asgdasgscode: "EF",
+            asgdetdteddate: assignmentInfo.currentAssignment.asgd_etd_ted_date,
+            asgdtodcode: '', // need to map
+            position: {
+              posseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
+              posorgcode: '', // need to map
+              posorgshortdesc: '', // need to map
+              posbureaushortdesc: assignmentInfo.currentAssignment.currentPosition.pos_bureau_short_desc,
+            },
+          } : null,
+        }
       return res
     })
   } catch (Error) {
@@ -795,6 +841,7 @@ module.exports = {
   get_assignments, 
   get_classifications, 
   get_persons, 
+  get_agenda_persons,
   personSkills, 
   personLanguages, 
   get_user,

@@ -514,8 +514,9 @@ var appRouter = function (app) {
       "aiupdateid": 57497,
       "aisdesctext": "Ready",
 
-      // In contract but not response
-      "pmddttm": "09/01/22",
+      "Panel": {
+        "pmddttm": "2021-11-04T13:55:00",
+      },
 
       // Needed
       "update_date": "2020-09-09T00:00:00-04:00",
@@ -524,45 +525,91 @@ var appRouter = function (app) {
       // "aiupdateid": 'Woodward, Wendy',
       // "aiitemcreatorid": 'Woodward, Wendy',
 
-      "legs": [
+      "AgendaAssignment": {
+        "asgposseqnum": 84903,
+        "asgdasgseqnum": 274115,
+        "asgdrevisionnum": 4,
+        "asgdasgscode": "EF",
+        "asgdetadate": "2019-05-01T00:00:00",
+        "asgdetdteddate": "2023-05-01T00:00:00",
+        "asgdtoddesctext": "2 YRS/HLRT/2 YRS",
+        "position": {
+          "posseqnum": 84903,
+          "posorgshortdesc": "MATAMOROS",
+          "posnumtext": "30741960",
+          "posgradecode": "03",
+          "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
+          "rnum": 1,
+        },
+      },
+
+      "Remarks": [
+        // TODO
+      ],
+
+      "agendaLegs": [
         {
           "ailaiseqnum": 1,
+          "aillatcode": "S",
           "postitledesc": "SPECIAL AGENT",
-          "posseqnum": "S70000011",
+          "posseqnum": "84903",
           "posorgshortdesc": "PARIS",
           "ailetadate": "01/18",
           "ailetdtedsepdate": "01/20",
           "ailtodothertext": "2YRR",
           "posgradecode": "02",
           "latabbrdesctext": "",
-
-          "travel": "",
+          "ailtfcd": "",
+          "position": {
+            "posseqnum": 84903,
+            "posorgshortdesc": "MATAMOROS",
+            "posnumtext": "S70000011",
+            "posgradecode": "03",
+            "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
+            "rnum": 1,
+          },
         },
         {
           "ailaiseqnum": 2,
+          "aillatcode": "S",
           "postitledesc": "TRAINING",
-          "posseqnum": "S00000001",
+          "posseqnum": "84903",
           "posorgshortdesc": "Washington, D.C.",
           "ailetadate": "01/20",
           "ailetdtedsepdate": "07/20",
           "ailtodothertext": "6 MO",
           "posgradecode": "02",
           "latabbrdesctext": "Reassign",
-
-          "travel": "Post to USHL",
+          "ailtfcd": "Post to USHL",
+          "position": {
+            "posseqnum": 84903,
+            "posorgshortdesc": "MATAMOROS",
+            "posnumtext": "S70000011",
+            "posgradecode": "03",
+            "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
+            "rnum": 1,
+          },
         },
         {
           "ailaiseqnum": 3,
+          "aillatcode": "S",
           "postitledesc": "SPECIAL AGENT",
-          "posseqnum": "S70000011",
+          "posseqnum": "84903",
           "posorgshortdesc": "BELGRADE",
           "ailetadate": "07/20",
           "ailetdtedsepdate": "07/22",
           "ailtodothertext": "2YRR",
           "posgradecode": "02",
           "latabbrdesctext": "Reassign",
-
-          "travel": "Post to USHL",
+          "ailtfcd": "Post to USHL",
+          "position": {
+            "posseqnum": 84903,
+            "posorgshortdesc": "MATAMOROS",
+            "posnumtext": "S70000011",
+            "posgradecode": "03",
+            "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
+            "rnum": 1,
+          },
         }
       ]
     };
@@ -573,9 +620,11 @@ var appRouter = function (app) {
       aiperdetseqnum: [4, 6, 8][i], // perdets of Jenny, Tarek, Wendy
     }))
 
-  app.get('/v1/agendaItems/:id', async function(req, res) {
-    const status = ['Approved', 'Withdrawn', 'Deferred']
-    const ai$ = ais.filter(f => `${f.aiseqnum}` === req.params.id)
+  app.get('/v1/agendaItems', async function(req, res, next) {
+    if (!req.query.aiseqnum) {
+      next();
+    }
+    const ai$ = ais.filter(f => `${f.aiseqnum}` === req.query.aiseqnum)
     res.status(200).send({
       Data: ai$,
       usl_id: 0,
@@ -592,6 +641,14 @@ var appRouter = function (app) {
     })
   })
 
+  app.get('/v1/persons/agendaItems', async function(req,res) {
+    const persons = await employees.get_agenda_persons(req.query)
+    res.status(200).send({
+      Data: persons,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
 
 };
 
