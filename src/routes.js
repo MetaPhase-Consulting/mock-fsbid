@@ -554,8 +554,8 @@ var appRouter = function (app) {
           "postitledesc": "SPECIAL AGENT",
           "posseqnum": "84903",
           "posorgshortdesc": "PARIS",
-          "ailetadate": "01/18",
-          "ailetdtedsepdate": "01/20",
+          "ailetadate": "2018-01-01T00:00:00",
+          "ailetdtedsepdate": "2020-01-01T00:00:00",
           "ailtodothertext": "2YRR",
           "posgradecode": "02",
           "latabbrdesctext": "",
@@ -575,8 +575,8 @@ var appRouter = function (app) {
           "postitledesc": "TRAINING",
           "posseqnum": "84903",
           "posorgshortdesc": "Washington, D.C.",
-          "ailetadate": "01/20",
-          "ailetdtedsepdate": "07/20",
+          "ailetadate": "2020-01-01T00:00:00",
+          "ailetdtedsepdate": "2020-07-01T00:00:00",
           "ailtodothertext": "6 MO",
           "posgradecode": "02",
           "latabbrdesctext": "Reassign",
@@ -596,8 +596,8 @@ var appRouter = function (app) {
           "postitledesc": "SPECIAL AGENT",
           "posseqnum": "84903",
           "posorgshortdesc": "BELGRADE",
-          "ailetadate": "07/20",
-          "ailetdtedsepdate": "07/22",
+          "ailetadate": "2020-07-01T00:00:00",
+          "ailetdtedsepdate": "2022-07-01T00:00:00",
           "ailtodothertext": "2YRR",
           "posgradecode": "02",
           "latabbrdesctext": "Reassign",
@@ -613,18 +613,18 @@ var appRouter = function (app) {
         }
       ]
     };
-    const ais = [1,2,3].map((m, i) => ({
+    const ais = [1,2,3,4,5,6,7,8,9,10].map((m, i) => ({
       ...ai,
       aiseqnum: i + 1,
-      aisdesctext: status[i],
-      aiperdetseqnum: [4, 6, 8][i], // perdets of Jenny, Tarek, Wendy
+      aisdesctext: _.sample(status),
+      aiperdetseqnum: i % 3 === 0 ? 4 : 6, // perdets of Jenny, Tarek
     }))
 
-  app.get('/v1/agendaItems', async function(req, res, next) {
-    if (!req.query.aiseqnum) {
+  app.get('/v1/agendaItems/:id', async function(req, res, next) {
+    if (!req.params.id) {
       next();
     }
-    const ai$ = ais.filter(f => `${f.aiseqnum}` === req.query.aiseqnum)
+    const ai$ = ais.filter(f => `${f.aiseqnum}` === req.params.id)
     res.status(200).send({
       Data: ai$,
       usl_id: 0,
@@ -632,8 +632,16 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v1/agendaItems', async function(req, res) {
-    const ais$ = ais.map(m => ({aiseqnum: m.aiseqnum})) // only return
+  app.get('/v1/agendaItems', async function(req, res) { // singleton
+    const { query } = req; // aiseqnum|eq|226661|
+    const filter = _.get(query, "['rp.filter']", '').split('|');
+    const column = filter[0];
+    const value= filter[2]
+    let ais$ = ais;
+    if (column && value) {
+      ais$ = ais$.filter(f => `${f[column]}` === value);
+    }
+    ais$ = ais$.map(m => ({ aiseqnum: m.aiseqnum })) // only return aiseqnum
     res.status(200).send({
       Data: ais$,
       usl_id: 0,
