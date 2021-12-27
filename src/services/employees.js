@@ -337,7 +337,8 @@ const get_persons_filters = (params = {}) => {
   const { perdet_seq_num } = params
   const q = {}
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
-
+  // Update with perdet or pert_ext pending on finalized lookup
+  if (params['rp.filter']) q['employees.perdet_seq_num'] = params['rp.filter'].split('|').pop()
   return q
 }
 
@@ -710,6 +711,27 @@ const get_persons = async query => {
   }
 }
 
+const get_v3_persons = async query => {
+  try {
+    const data = await get_employees_by_query(query, get_persons_filters)
+    return data.map(emp => {
+      const res = {
+        perpiifirstname: emp.first_name,
+        perpiilastname: emp.last_name,
+        perpiimiddlename: emp.middle_name || '',
+        perpiisuffixname: emp.per_suffix_name || '',
+        perdetseqnum: emp.perdet_seq_num || '',
+        persdesc: "Active",
+        rnum: emp.rnum || '',
+      }
+      return res
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 const get_user = async query => {
   try {
     const data = await get_users_query(query).fetchAll(FETCH_OPTIONS);
@@ -794,7 +816,8 @@ module.exports = {
   get_clients,
   get_assignments, 
   get_classifications, 
-  get_persons, 
+  get_persons,
+  get_v3_persons,
   personSkills, 
   personLanguages, 
   get_user,

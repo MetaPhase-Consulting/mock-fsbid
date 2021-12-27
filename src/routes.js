@@ -396,6 +396,17 @@ var appRouter = function (app) {
     })
   })
 
+  app.get('/v3/Persons', async function(req,res) {
+    const persons = await employees.get_v3_persons(req.query)
+
+    res.status(200).send({
+      Data: persons,
+      UslId: 0,
+      ReturnCode: 0
+      // Wierd cased/spacing on keys - need to update after WS changes
+    })
+  })
+
   app.get('/cyclePositions', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query, true))
