@@ -337,8 +337,14 @@ const get_persons_filters = (params = {}) => {
   const { perdet_seq_num } = params
   const q = {}
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
-  // Update with perdet or pert_ext pending on finalized lookup
-  if (params['rp.filter']) q['employees.perdet_seq_num'] = params['rp.filter'].split('|').pop()
+  if (params['rp.filter']) {
+    const filterArg = params['rp.filter'].split('|')
+    const col = filterArg[0]
+    const val = filterArg.slice(-2)[0]
+    if (col === 'pertexternalid') q['employees.pert_external_id'] = val
+    if (col === 'perpiifullname') q['employees.fullname'] = val
+    // Update to be %like search on first, last, middle name
+  }
   return q
 }
 
