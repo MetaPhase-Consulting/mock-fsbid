@@ -525,7 +525,7 @@ var appRouter = function (app) {
       // "aiupdateid": 'Woodward, Wendy',
       // "aiitemcreatorid": 'Woodward, Wendy',
 
-      "AgendaAssignment": {
+      "agendaAssignment": [{
         "asgposseqnum": 84903,
         "asgdasgseqnum": 274115,
         "asgdrevisionnum": 4,
@@ -533,18 +533,22 @@ var appRouter = function (app) {
         "asgdetadate": "2019-05-01T00:00:00",
         "asgdetdteddate": "2023-05-01T00:00:00",
         "asgdtoddesctext": "2 YRS/HLRT/2 YRS",
-        "position": {
+        "position": [{
           "posseqnum": 84903,
           "posorgshortdesc": "MATAMOROS",
           "posnumtext": "30741960",
           "posgradecode": "03",
           "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
           "rnum": 1,
-        },
-      },
+        }],
+      }],
 
-      "Remarks": [
-        // TODO
+      "remarks": [
+        {
+          "airaiseqnum": 157,
+          "airrmrkseqnum": 1,
+          "airremarktext": "EL directed;via functional & language training"
+        }
       ],
 
       "agendaLegs": [
@@ -558,7 +562,7 @@ var appRouter = function (app) {
           "ailetdtedsepdate": "2020-01-01T00:00:00",
           "ailtodothertext": "2YRR",
           "posgradecode": "02",
-          "latabbrdesctext": "",
+          "latabbrdesctext": "Reassign",
           "ailtfcd": "",
           "position": {
             "posseqnum": 84903,
@@ -568,6 +572,35 @@ var appRouter = function (app) {
             "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
             "rnum": 1,
           },
+          "agendaLegAssignment": [
+            {
+              "asgposseqnum": 24026,
+              "asgdasgseqnum": 131740,
+              "asgdrevisionnum": 1,
+              "asgdasgscode": "EF",
+              "asgdetadate": "2002-11-01T00:00:00",
+              "asgdetdteddate": "2004-11-01T00:00:00",
+              "asgdtoddesctext": "2 YRS/TRANSFER",
+              "position": [
+                {
+                  "posseqnum": 24026,
+                  "posorgshortdesc": "DS/CR/CFI",
+                  "posnumtext": "S7323821",
+                  "posgradecode": "03",
+                  "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+                }
+              ]
+            }
+          ],
+          "agendaLegPosition": [
+            {
+              "posseqnum": 24026,
+              "posorgshortdesc": "DS/CR/CFI",
+              "posnumtext": "S7323821",
+              "posgradecode": "03",
+              "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+            }
+          ]
         },
         {
           "ailaiseqnum": 2,
@@ -589,6 +622,35 @@ var appRouter = function (app) {
             "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
             "rnum": 1,
           },
+          "agendaLegAssignment": [
+            {
+              "asgposseqnum": 24026,
+              "asgdasgseqnum": 131740,
+              "asgdrevisionnum": 1,
+              "asgdasgscode": "EF",
+              "asgdetadate": "2002-11-01T00:00:00",
+              "asgdetdteddate": "2004-11-01T00:00:00",
+              "asgdtoddesctext": "2 YRS/TRANSFER",
+              "position": [
+                {
+                  "posseqnum": 24026,
+                  "posorgshortdesc": "DS/CR/CFI",
+                  "posnumtext": "S7323821",
+                  "posgradecode": "03",
+                  "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+                }
+              ]
+            }
+          ],
+          "agendaLegPosition": [
+            {
+              "posseqnum": 24026,
+              "posorgshortdesc": "DS/CR/CFI",
+              "posnumtext": "S7323821",
+              "posgradecode": "03",
+              "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+            }
+          ]
         },
         {
           "ailaiseqnum": 3,
@@ -610,6 +672,35 @@ var appRouter = function (app) {
             "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
             "rnum": 1,
           },
+          "agendaLegAssignment": [
+            {
+              "asgposseqnum": 24026,
+              "asgdasgseqnum": 131740,
+              "asgdrevisionnum": 1,
+              "asgdasgscode": "EF",
+              "asgdetadate": "2002-11-01T00:00:00",
+              "asgdetdteddate": "2004-11-01T00:00:00",
+              "asgdtoddesctext": "2 YRS/TRANSFER",
+              "position": [
+                {
+                  "posseqnum": 24026,
+                  "posorgshortdesc": "DS/CR/CFI",
+                  "posnumtext": "S7323821",
+                  "posgradecode": "03",
+                  "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+                }
+              ]
+            }
+          ],
+          "agendaLegPosition": [
+            {
+              "posseqnum": 24026,
+              "posorgshortdesc": "DS/CR/CFI",
+              "posnumtext": "S7323821",
+              "posgradecode": "03",
+              "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+            }
+          ]
         }
       ]
     };
@@ -634,7 +725,7 @@ var appRouter = function (app) {
 
   app.get('/v1/agendaItems', async function(req, res) { // singleton
     const { query } = req; // aiseqnum|eq|226661|
-    const filter = _.get(query, "['rp.filter']", '').split('|');
+    const filter = _.get(query, "['rp.filter']", '').split('|')
     const column = filter[0];
     const value= filter[2]
     let ais$ = ais;
