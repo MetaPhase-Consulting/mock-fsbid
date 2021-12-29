@@ -732,6 +732,37 @@ const get_v3_persons = async query => {
   }
 }
 
+const get_v3_persons_agenda_items = async query => {
+  try {
+    const data = await get_employees_by_query(query, get_persons_filters)
+    return data.map(emp => {
+      const res = {
+        perpiifirstname: emp.first_name,
+        perpiilastname: emp.last_name,
+        perpiimiddlename: emp.middle_name || '',
+        perpiisuffixname: emp.per_suffix_name || '',
+        perpiifullname: emp.fullname,
+        perpiiseqnum: 691624,
+        perdetorgcode: "219910",
+        "perdetminactemplrcd#ind": "Y",
+        pertexttcode: "G",
+        perdetseqnum: emp.perdet_seq_num || '',
+        perdetperscode: "A",
+        pertexternalid: emp.pert_external_id,
+        pertcurrentind: "Y",
+        persdesc: "Active",
+        rnum: emp.rnum || '',
+        currentAssignment: [],
+        handshake: [],
+      }
+      return res
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 const get_user = async query => {
   try {
     const data = await get_users_query(query).fetchAll(FETCH_OPTIONS);
@@ -818,6 +849,7 @@ module.exports = {
   get_classifications, 
   get_persons,
   get_v3_persons,
+  get_v3_persons_agenda_items,
   personSkills, 
   personLanguages, 
   get_user,

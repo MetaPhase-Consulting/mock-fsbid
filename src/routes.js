@@ -403,7 +403,16 @@ var appRouter = function (app) {
       Data: persons,
       UslId: 0,
       ReturnCode: 0
-      // Wierd cased/spacing on keys - need to update after WS changes
+    })
+  })
+
+  app.get('/v3/Persons/agendaItems', async function(req,res) {
+    const persons = await employees.get_v3_persons_agenda_items(req.query)
+
+    res.status(200).send({
+      Data: persons,
+      UslId: 0,
+      ReturnCode: 0
     })
   })
 
