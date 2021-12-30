@@ -563,7 +563,7 @@ var appRouter = function (app) {
           "ailtodothertext": "2YRR",
           "posgradecode": "02",
           "latabbrdesctext": "Reassign",
-          "ailtfcd": "",
+          "ailtfcd": "8150",
           "position": {
             "posseqnum": 84903,
             "posorgshortdesc": "MATAMOROS",
@@ -613,7 +613,7 @@ var appRouter = function (app) {
           "ailtodothertext": "6 MO",
           "posgradecode": "02",
           "latabbrdesctext": "Reassign",
-          "ailtfcd": "Post to USHL",
+          "ailtfcd": "8150", // will eventually be something like "Post to USHL",
           "position": {
             "posseqnum": 84903,
             "posorgshortdesc": "MATAMOROS",
@@ -663,7 +663,7 @@ var appRouter = function (app) {
           "ailtodothertext": "2YRR",
           "posgradecode": "02",
           "latabbrdesctext": "Reassign",
-          "ailtfcd": "Post to USHL",
+          "ailtfcd": null,
           "position": {
             "posseqnum": 84903,
             "posorgshortdesc": "MATAMOROS",
