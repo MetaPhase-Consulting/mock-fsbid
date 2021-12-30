@@ -514,8 +514,9 @@ var appRouter = function (app) {
       "aiupdateid": 57497,
       "aisdesctext": "Ready",
 
-      // In contract but not response
-      "pmddttm": "09/01/22",
+      "Panel": [{
+        "pmddttm": "2021-11-04T13:55:00",
+      }],
 
       // Needed
       "update_date": "2020-09-09T00:00:00-04:00",
@@ -524,57 +525,197 @@ var appRouter = function (app) {
       // "aiupdateid": 'Woodward, Wendy',
       // "aiitemcreatorid": 'Woodward, Wendy',
 
-      "legs": [
+      "agendaAssignment": [{
+        "asgposseqnum": 84903,
+        "asgdasgseqnum": 274115,
+        "asgdrevisionnum": 4,
+        "asgdasgscode": "EF",
+        "asgdetadate": "2019-05-01T00:00:00",
+        "asgdetdteddate": "2023-05-01T00:00:00",
+        "asgdtoddesctext": "2 YRS/HLRT/2 YRS",
+        "position": [{
+          "posseqnum": 84903,
+          "posorgshortdesc": "MATAMOROS",
+          "posnumtext": "30741960",
+          "posgradecode": "03",
+          "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
+          "rnum": 1,
+        }],
+      }],
+
+      "remarks": [
+        {
+          "airaiseqnum": 157,
+          "airrmrkseqnum": 1,
+          "airremarktext": "EL directed;via functional & language training"
+        }
+      ],
+
+      "agendaLegs": [
         {
           "ailaiseqnum": 1,
+          "aillatcode": "S",
           "postitledesc": "SPECIAL AGENT",
-          "posseqnum": "S70000011",
+          "posseqnum": "84903",
           "posorgshortdesc": "PARIS",
-          "ailetadate": "01/18",
-          "ailetdtedsepdate": "01/20",
+          "ailetadate": "2018-01-01T00:00:00",
+          "ailetdtedsepdate": "2020-01-01T00:00:00",
           "ailtodothertext": "2YRR",
           "posgradecode": "02",
-          "latabbrdesctext": "",
-
-          "travel": "",
+          "latabbrdesctext": "Reassign",
+          "ailtfcd": "8150",
+          "position": {
+            "posseqnum": 84903,
+            "posorgshortdesc": "MATAMOROS",
+            "posnumtext": "S70000011",
+            "posgradecode": "03",
+            "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
+            "rnum": 1,
+          },
+          "agendaLegAssignment": [
+            {
+              "asgposseqnum": 24026,
+              "asgdasgseqnum": 131740,
+              "asgdrevisionnum": 1,
+              "asgdasgscode": "EF",
+              "asgdetadate": "2002-11-01T00:00:00",
+              "asgdetdteddate": "2004-11-01T00:00:00",
+              "asgdtoddesctext": "2 YRS/TRANSFER",
+              "position": [
+                {
+                  "posseqnum": 24026,
+                  "posorgshortdesc": "DS/CR/CFI",
+                  "posnumtext": "S7323821",
+                  "posgradecode": "03",
+                  "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+                }
+              ]
+            }
+          ],
+          "agendaLegPosition": [
+            {
+              "posseqnum": 24026,
+              "posorgshortdesc": "DS/CR/CFI",
+              "posnumtext": "S7323821",
+              "posgradecode": "03",
+              "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+            }
+          ]
         },
         {
           "ailaiseqnum": 2,
+          "aillatcode": "S",
           "postitledesc": "TRAINING",
-          "posseqnum": "S00000001",
+          "posseqnum": "84903",
           "posorgshortdesc": "Washington, D.C.",
-          "ailetadate": "01/20",
-          "ailetdtedsepdate": "07/20",
+          "ailetadate": "2020-01-01T00:00:00",
+          "ailetdtedsepdate": "2020-07-01T00:00:00",
           "ailtodothertext": "6 MO",
           "posgradecode": "02",
           "latabbrdesctext": "Reassign",
-
-          "travel": "Post to USHL",
+          "ailtfcd": "8150", // will eventually be something like "Post to USHL",
+          "position": {
+            "posseqnum": 84903,
+            "posorgshortdesc": "MATAMOROS",
+            "posnumtext": "S70000011",
+            "posgradecode": "03",
+            "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
+            "rnum": 1,
+          },
+          "agendaLegAssignment": [
+            {
+              "asgposseqnum": 24026,
+              "asgdasgseqnum": 131740,
+              "asgdrevisionnum": 1,
+              "asgdasgscode": "EF",
+              "asgdetadate": "2002-11-01T00:00:00",
+              "asgdetdteddate": "2004-11-01T00:00:00",
+              "asgdtoddesctext": "2 YRS/TRANSFER",
+              "position": [
+                {
+                  "posseqnum": 24026,
+                  "posorgshortdesc": "DS/CR/CFI",
+                  "posnumtext": "S7323821",
+                  "posgradecode": "03",
+                  "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+                }
+              ]
+            }
+          ],
+          "agendaLegPosition": [
+            {
+              "posseqnum": 24026,
+              "posorgshortdesc": "DS/CR/CFI",
+              "posnumtext": "S7323821",
+              "posgradecode": "03",
+              "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+            }
+          ]
         },
         {
           "ailaiseqnum": 3,
+          "aillatcode": "S",
           "postitledesc": "SPECIAL AGENT",
-          "posseqnum": "S70000011",
+          "posseqnum": "84903",
           "posorgshortdesc": "BELGRADE",
-          "ailetadate": "07/20",
-          "ailetdtedsepdate": "07/22",
+          "ailetadate": "2020-07-01T00:00:00",
+          "ailetdtedsepdate": "2022-07-01T00:00:00",
           "ailtodothertext": "2YRR",
           "posgradecode": "02",
           "latabbrdesctext": "Reassign",
-
-          "travel": "Post to USHL",
+          "ailtfcd": null,
+          "position": {
+            "posseqnum": 84903,
+            "posorgshortdesc": "MATAMOROS",
+            "posnumtext": "S70000011",
+            "posgradecode": "03",
+            "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
+            "rnum": 1,
+          },
+          "agendaLegAssignment": [
+            {
+              "asgposseqnum": 24026,
+              "asgdasgseqnum": 131740,
+              "asgdrevisionnum": 1,
+              "asgdasgscode": "EF",
+              "asgdetadate": "2002-11-01T00:00:00",
+              "asgdetdteddate": "2004-11-01T00:00:00",
+              "asgdtoddesctext": "2 YRS/TRANSFER",
+              "position": [
+                {
+                  "posseqnum": 24026,
+                  "posorgshortdesc": "DS/CR/CFI",
+                  "posnumtext": "S7323821",
+                  "posgradecode": "03",
+                  "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+                }
+              ]
+            }
+          ],
+          "agendaLegPosition": [
+            {
+              "posseqnum": 24026,
+              "posorgshortdesc": "DS/CR/CFI",
+              "posnumtext": "S7323821",
+              "posgradecode": "03",
+              "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
+            }
+          ]
         }
       ]
     };
-    const ais = [1,2,3].map((m, i) => ({
+    const ais = [1,2,3,4,5,6,7,8,9,10].map((m, i) => ({
       ...ai,
+      agendaLegs: ai.agendaLegs.slice(0, _.sample([2.3,4])),
       aiseqnum: i + 1,
-      aisdesctext: status[i],
-      aiperdetseqnum: [4, 6, 8][i], // perdets of Jenny, Tarek, Wendy
+      aisdesctext: _.sample(status),
+      aiperdetseqnum: i % 3 === 0 ? 4 : 6, // perdets of Jenny, Tarek
     }))
 
-  app.get('/v1/agendaItems/:id', async function(req, res) {
-    const status = ['Approved', 'Withdrawn', 'Deferred']
+  app.get('/v1/agendaItems/:id', async function(req, res, next) {
+    if (!req.params.id) {
+      next();
+    }
     const ai$ = ais.filter(f => `${f.aiseqnum}` === req.params.id)
     res.status(200).send({
       Data: ai$,
@@ -583,8 +724,16 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v1/agendaItems', async function(req, res) {
-    const ais$ = ais.map(m => ({aiseqnum: m.aiseqnum})) // only return
+  app.get('/v1/agendaItems', async function(req, res) { // singleton
+    const { query } = req; // aiseqnum|eq|226661|
+    const filter = _.get(query, "['rp.filter']", '').split('|')
+    const column = filter[0];
+    const value= filter[2]
+    let ais$ = ais;
+    if (column && value) {
+      ais$ = ais$.filter(f => `${f[column]}` === value);
+    }
+    ais$ = ais$.map(m => ({ aiseqnum: m.aiseqnum })) // only return aiseqnum
     res.status(200).send({
       Data: ais$,
       usl_id: 0,
@@ -592,6 +741,14 @@ var appRouter = function (app) {
     })
   })
 
+  app.get('/v1/persons/agendaItems', async function(req,res) {
+    const persons = await employees.get_agenda_persons(req.query)
+    res.status(200).send({
+      Data: persons,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
 
 };
 
