@@ -748,7 +748,7 @@ const get_v3_persons_agenda_items = async query => {
         perpiimiddlename: emp.middle_name || '',
         perpiisuffixname: emp.per_suffix_name || '',
         perpiifullname: emp.fullname,
-        perpiiseqnum: 691624,
+        perpiiseqnum: emp.emp_seq_nbr,
         perdetorgcode: "219910",
         "perdetminactemplrcd#ind": "Y",
         pertexttcode: "G",
@@ -758,7 +758,28 @@ const get_v3_persons_agenda_items = async query => {
         pertcurrentind: "Y",
         persdesc: "Active",
         rnum: emp.rnum || '',
-        currentAssignment: [],
+        currentAssignment: [
+          {
+            asgperdetseqnum: emp.perdet_seq_num || '',
+            asgempseqnbr: emp.emp_seq_nbr || '',
+            asgposseqnum: 127105,
+            asgdasgseqnum: 277311,
+            asgdrevisionnum: 2,
+            asgdasgscode: "EF",
+            asgdetdteddate: null,
+            asgdtodcode: "Y",
+            position: [
+              {
+                posseqnum: 127105,
+                posorgshortdesc: "OIG/EX",
+                posnumtext: "S0000196",
+                posgradecode: "00",
+                postitledesc: "CHIEF, PROJECT MANAGEMENT AND"
+              }
+            ],
+            latestAgendaItem: []
+          }
+        ],
         handshake: [],
       }
       return res
