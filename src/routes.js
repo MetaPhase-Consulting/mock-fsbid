@@ -514,9 +514,9 @@ var appRouter = function (app) {
       "aiupdateid": 57497,
       "aisdesctext": "Ready",
 
-      "Panel": {
+      "Panel": [{
         "pmddttm": "2021-11-04T13:55:00",
-      },
+      }],
 
       // Needed
       "update_date": "2020-09-09T00:00:00-04:00",
@@ -706,6 +706,7 @@ var appRouter = function (app) {
     };
     const ais = [1,2,3,4,5,6,7,8,9,10].map((m, i) => ({
       ...ai,
+      agendaLegs: ai.agendaLegs.slice(0, _.sample([2.3,4])),
       aiseqnum: i + 1,
       aisdesctext: _.sample(status),
       aiperdetseqnum: i % 3 === 0 ? 4 : 6, // perdets of Jenny, Tarek
