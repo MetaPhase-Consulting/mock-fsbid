@@ -55,11 +55,16 @@ var appRouter = function (app) {
   app.get('/HR/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
     async function pdf() {
       const doc = new PDFDocument()
-      doc.text(`Here is a client profile PDF for ${req.params.id}. Enjoy!`)
+      const text = `Here is a client profile PDF for ${req.params.id}. Enjoy!
+      
+      `
+      doc.text(new Array(100).fill(null).map(() => text).join(''))
       doc.end()
       return await getStream.buffer(doc)
     }
     const pdfBuffer = await pdf()
+    const sleep = (t) =>  ({ then: (r) => setTimeout(r, t) })
+    await sleep(3000)
     res.writeHead(200, {
       'Content-Type': 'application/pdf',
     });
