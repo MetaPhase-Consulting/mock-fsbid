@@ -341,7 +341,7 @@ const get_persons_filters = (params = {}) => {
     const filterArg = params['rp.filter'].split('|')
     const col = filterArg[0]
     const val = filterArg.slice(-2)[0]
-    if (col === 'pertexternalid') q['employees.pert_external_id'] = val
+    if (col === 'pertexternalid') q['employees.per_seq_num'] = val
     if (col === 'perpiifullname') q['employees.fullname'] = val
     // Update to be %like search on first, last, middle name
   }
@@ -695,7 +695,7 @@ const get_persons = async query => {
           per_retirement_code: emp.per_retirement_code || '',
           per_concurrent_appts_flg: emp.per_concurrent_appts_flg || '',
           'per_empl_rcd#': '',
-          pert_external_id: emp.pert_external_id || '',
+          pert_external_id: emp.per_seq_num || '',
           extt_code: emp.extt_code || '',
           perdet_seq_num: emp.perdet_seq_num || '',
           per_service_type_code: emp.per_service_type_code || '',
@@ -762,7 +762,7 @@ const get_v3_persons_agenda_items = async query => {
         pertexttcode: "G",
         perdetseqnum: emp.perdet_seq_num || '',
         perdetperscode: "A",
-        pertexternalid: emp.pert_external_id,
+        pertexternalid: emp.per_seq_num || '',
         pertcurrentind: "Y",
         persdesc: "Active",
         rnum: emp.rnum || '',
