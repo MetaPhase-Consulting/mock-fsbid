@@ -671,7 +671,6 @@ const get_persons = async query => {
   try {
     const data = await get_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
-    emp["employee_profile_url"] = `www.talentmap/profile/public/${emp.first_name}_${emp.last_name}.com`;
       const res = {
           per_seq_num: emp.per_seq_num,
           per_full_name: emp.fullname,
@@ -742,6 +741,15 @@ const get_v3_persons_agenda_items = async query => {
   try {
     const data = await get_paged_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
+      const { 
+        roles = [],  
+        manager = [], 
+        currentassignment = {}, 
+        assignments = [], 
+        classifications = [],
+        languages = [],
+      } = emp
+      let assignmentInfo = getAssignment(currentassignment, true)
       const res = {
         perpiifirstname: emp.first_name,
         perpiilastname: emp.last_name,
@@ -758,19 +766,19 @@ const get_v3_persons_agenda_items = async query => {
         pertcurrentind: "Y",
         persdesc: "Active",
         rnum: emp.rnum || '',
-        currentAssignment: [
+        currentAssignment: assignmentInfo ? [
           {
             asgperdetseqnum: emp.perdet_seq_num || '',
             asgempseqnbr: emp.emp_seq_nbr || '',
-            asgposseqnum: 127105,
+            asgposseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
             asgdasgseqnum: 277311,
             asgdrevisionnum: 2,
             asgdasgscode: "EF",
-            asgdetdteddate: null,
+            asgdetdteddate: assignmentInfo.currentAssignment.asgd_etd_ted_date,
             asgdtodcode: "Y",
             position: [
               {
-                posseqnum: 127105,
+                posseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
                 posorgshortdesc: "OIG/EX",
                 posnumtext: "S0000196",
                 posgradecode: "00",
@@ -779,7 +787,7 @@ const get_v3_persons_agenda_items = async query => {
             ],
             latestAgendaItem: []
           }
-        ],
+        ] : [],
         handshake: [],
       }
       return res
@@ -789,6 +797,7 @@ const get_v3_persons_agenda_items = async query => {
     return null
   }
 }
+
 
 const get_user = async query => {
   try {
@@ -877,6 +886,7 @@ module.exports = {
   get_persons,
   get_v3_persons,
   get_v3_persons_agenda_items,
+  get_persons, 
   personSkills, 
   personLanguages, 
   get_user,
