@@ -551,8 +551,8 @@ const get_paged_employees_by_query = async (query, mapping) => {
   try {
     const data = await get_employees_query(query, mapping).fetchPage({
       ...FETCH_OPTIONS,
-      pageSize: query["request_params.page_size"] || 2000,
-      page: query["request_params.page_index"] || 1
+      pageSize: query["request_params.page_size"] || query["rp.pageRows"] || 2000,
+      page: query["request_params.page_index"] || query["rp.pageNum"] || 1
     })
     return data.serialize()
   } catch (Error) {
@@ -719,7 +719,7 @@ const get_persons = async query => {
 
 const get_v3_persons = async query => {
   try {
-    const data = await get_employees_by_query(query, get_persons_filters)
+    const data = await get_paged_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
       const res = {
         perpiifirstname: emp.first_name,
@@ -740,7 +740,7 @@ const get_v3_persons = async query => {
 
 const get_v3_persons_agenda_items = async query => {
   try {
-    const data = await get_employees_by_query(query, get_persons_filters)
+    const data = await get_paged_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
       const res = {
         perpiifirstname: emp.first_name,
