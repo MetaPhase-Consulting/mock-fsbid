@@ -29,7 +29,15 @@ const limitRequestLength = function (req, res, next) {
   };
 };
 
-app.use(cors())
+var corsOptions = {
+  origin: function (origin, callback) {
+    // dynamic origin (returns the origin used)
+    callback(null, [origin])
+  },
+  credentials: true,
+}
+
+app.use(cors(corsOptions))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
