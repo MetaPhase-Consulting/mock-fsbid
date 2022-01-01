@@ -342,7 +342,7 @@ const get_persons_filters = (params = {}) => {
     const col = filterArg[0]
     const val = filterArg.slice(-2)[0]
     if (col === 'pertexternalid') q['employees.per_seq_num'] = val
-    if (col === 'perpiifullname') q['employees.fullname'] = val
+    if (col === 'perpiifullname') q['employees.last_name'] = _.capitalize(val)
     // Update to be %like search on first, last, middle name
   }
   return q
