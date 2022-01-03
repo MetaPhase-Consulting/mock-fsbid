@@ -337,7 +337,14 @@ const get_persons_filters = (params = {}) => {
   const { perdet_seq_num } = params
   const q = {}
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
-
+  if (params['rp.filter']) {
+    const filterArg = params['rp.filter'].split('|')
+    const col = filterArg[0]
+    const val = filterArg.slice(-2)[0]
+    if (col === 'pertexternalid') q['employees.per_seq_num'] = val
+    if (col === 'perpiifullname') q['employees.last_name'] = _.capitalize(val)
+    // Update to be %like search on first, last, middle name
+  }
   return q
 }
 
@@ -544,8 +551,8 @@ const get_paged_employees_by_query = async (query, mapping) => {
   try {
     const data = await get_employees_query(query, mapping).fetchPage({
       ...FETCH_OPTIONS,
-      pageSize: query["request_params.page_size"] || 2000,
-      page: query["request_params.page_index"] || 1
+      pageSize: query["request_params.page_size"] || query["rp.pageRows"] || 2000,
+      page: query["request_params.page_index"] || query["rp.pageNum"] || 1
     })
     return data.serialize()
   } catch (Error) {
@@ -688,7 +695,7 @@ const get_persons = async query => {
           per_retirement_code: emp.per_retirement_code || '',
           per_concurrent_appts_flg: emp.per_concurrent_appts_flg || '',
           'per_empl_rcd#': '',
-          pert_external_id: emp.pert_external_id || '',
+          pert_external_id: emp.per_seq_num || '',
           extt_code: emp.extt_code || '',
           perdet_seq_num: emp.perdet_seq_num || '',
           per_service_type_code: emp.per_service_type_code || '',
@@ -709,9 +716,30 @@ const get_persons = async query => {
   }
 }
 
-const get_agenda_persons = async query => {
+const get_v3_persons = async query => {
   try {
-    const data = await get_employees_by_query(query, get_persons_filters)
+    const data = await get_paged_employees_by_query(query, get_persons_filters)
+    return data.map(emp => {
+      const res = {
+        perpiifirstname: emp.first_name,
+        perpiilastname: emp.last_name,
+        perpiimiddlename: emp.middle_name || '',
+        perpiisuffixname: emp.per_suffix_name || '',
+        perdetseqnum: emp.perdet_seq_num || '',
+        persdesc: "Active",
+        rnum: emp.rnum || '',
+      }
+      return res
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+const get_v3_persons_agenda_items = async query => {
+  try {
+    const data = await get_paged_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
       const { 
         roles = [],  
@@ -723,31 +751,45 @@ const get_agenda_persons = async query => {
       } = emp
       let assignmentInfo = getAssignment(currentassignment, true)
       const res = {
-          perdetseqnum: emp.per_seq_num,
-          perpiiseqnum: '', // what is this?
-          perpiifullname: emp.fullname,
-          perpiilastname: emp.last_name,
-          perpiifirstname: emp.first_name,
-          perpiimiddlename: emp.middle_name || '',
-          pperpiisuffixname: emp.per_suffix_name || '',
-          pertexternalid: emp.pert_external_id || '',
-          pertcurrentind: "N", // can be "Y" or "N"
-          currentAssignment: assignmentInfo ? {
-            asgperdetseqnum: emp.per_seq_num,
-            asgempseqnbr: '', // what is this?
+        perpiifirstname: emp.first_name,
+        perpiilastname: emp.last_name,
+        perpiimiddlename: emp.middle_name || '',
+        perpiisuffixname: emp.per_suffix_name || '',
+        perpiifullname: emp.fullname,
+        perpiiseqnum: emp.emp_seq_nbr,
+        perdetorgcode: "219910",
+        "perdetminactemplrcd#ind": "Y",
+        pertexttcode: "G",
+        perdetseqnum: emp.perdet_seq_num || '',
+        perdetperscode: "A",
+        pertexternalid: emp.per_seq_num || '',
+        pertcurrentind: "Y",
+        persdesc: "Active",
+        rnum: emp.rnum || '',
+        currentAssignment: assignmentInfo ? [
+          {
+            asgperdetseqnum: emp.perdet_seq_num || '',
+            asgempseqnbr: emp.emp_seq_nbr || '',
             asgposseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
-            asgdrevisionnum: 1,
+            asgdasgseqnum: 277311,
+            asgdrevisionnum: 2,
             asgdasgscode: "EF",
             asgdetdteddate: assignmentInfo.currentAssignment.asgd_etd_ted_date,
-            asgdtodcode: '', // need to map
-            position: {
-              posseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
-              posorgcode: '', // need to map
-              posorgshortdesc: '', // need to map
-              posbureaushortdesc: assignmentInfo.currentAssignment.currentPosition.pos_bureau_short_desc,
-            },
-          } : null,
-        }
+            asgdtodcode: "Y",
+            position: [
+              {
+                posseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
+                posorgshortdesc: "OIG/EX",
+                posnumtext: "S0000196",
+                posgradecode: "00",
+                postitledesc: "CHIEF, PROJECT MANAGEMENT AND"
+              }
+            ],
+            latestAgendaItem: []
+          }
+        ] : [],
+        handshake: [],
+      }
       return res
     })
   } catch (Error) {
@@ -755,6 +797,7 @@ const get_agenda_persons = async query => {
     return null
   }
 }
+
 
 const get_user = async query => {
   try {
@@ -840,8 +883,10 @@ module.exports = {
   get_clients,
   get_assignments, 
   get_classifications, 
+  get_persons,
+  get_v3_persons,
+  get_v3_persons_agenda_items,
   get_persons, 
-  get_agenda_persons,
   personSkills, 
   personLanguages, 
   get_user,

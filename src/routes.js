@@ -401,6 +401,26 @@ var appRouter = function (app) {
     })
   })
 
+  app.get('/v3/Persons', async function(req,res) {
+    const persons = await employees.get_v3_persons(req.query)
+
+    res.status(200).send({
+      Data: persons,
+      UslId: 0,
+      ReturnCode: 0
+    })
+  })
+
+  app.get('/v3/Persons/agendaItems', async function(req,res) {
+    const persons = await employees.get_v3_persons_agenda_items(req.query)
+
+    res.status(200).send({
+      Data: persons,
+      UslId: 0,
+      ReturnCode: 0
+    })
+  })
+
   app.get('/cyclePositions', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query, true))
@@ -745,16 +765,6 @@ var appRouter = function (app) {
       return_code: 0
     })
   })
-
-  app.get('/v1/persons/agendaItems', async function(req,res) {
-    const persons = await employees.get_agenda_persons(req.query)
-    res.status(200).send({
-      Data: persons,
-      usl_id: 0,
-      return_code: 0
-    })
-  })
-
 };
 
 module.exports = appRouter;
