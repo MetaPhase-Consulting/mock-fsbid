@@ -523,7 +523,19 @@ var appRouter = function (app) {
 
 
 
-    const status = ['Approved', 'Withdrawn', 'Deferred']
+    const status = [
+      'Withdrawn',
+      'Disapproved',
+      'Approved',
+      'Deferred',
+      'Deferred - Proposed Position',
+      'Ready',
+      'Held',
+      'Not Ready',
+      'Out of Order',
+      'PIP',
+      'Move to ML/ID',
+    ]
     const ai = {
       "aiseqnum": 1,
       "aicorrectiontext": null,
@@ -729,12 +741,12 @@ var appRouter = function (app) {
         }
       ]
     };
-    const ais = [1,2,3,4,5,6,7,8,9,10].map((m, i) => ({
+    const ais = (new Array(50).fill(1)).map((m, i) => ({
       ...ai,
       agendaLegs: ai.agendaLegs.slice(0, _.sample([2.3,4])),
       aiseqnum: i + 1,
       aisdesctext: _.sample(status),
-      aiperdetseqnum: i % 3 === 0 ? 4 : 6, // perdets of Jenny, Tarek
+      aiperdetseqnum: i % 2 === 0 ? 4 : 6, // perdets of Jenny, Tarek
     }))
 
   app.get('/v1/agendaItems/:id', async function(req, res, next) {
