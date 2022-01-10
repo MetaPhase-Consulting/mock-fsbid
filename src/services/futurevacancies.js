@@ -7,7 +7,8 @@ const create_tandem_query = (query, isCount=false, isTandemOne=false) => createT
 const formatData = data => {
   return data.map((d, i)=> {
     const { position } = d
-    const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription } = position
+    const { tod, lang1, lang2, org, location, bureau, skill, skill2, capsuledescription, commuterpost } = position
+  
     d.tod = tod && tod.long_desc
     delete position.tod
     d.lang1 = formatLanguage(lang1)
@@ -31,6 +32,8 @@ const formatData = data => {
     delete position.pos_seq_num
     d.pos_skill_desc = skill.skill_descr
     d.pos_skill_code = skill.skl_code
+    d.pos_staff_ptrn_skill_desc = skill2.skill_descr
+    d.pos_staff_ptrn_skill_code = skill2.skl_code
     delete position.skill
     d.ppos_capsule_descr_txt = capsuledescription.description
     d.ppos_capsule_modify_dt = capsuledescription.last_modified
@@ -44,7 +47,7 @@ const formatTandemData = (data, isTandemOne) => {
   const counter = {}
   return data.map((d, i)=> {
     const { position } = d
-    const { tod, lang1, lang2, org, location, bureau, skill, capsuledescription, commuterpost } = position
+    const { tod, lang1, lang2, org, location, bureau, skill, skill2, capsuledescription, commuterpost } = position
     // Sets up a counter for duplicate cp_ids to determine which commuter post to use
     const fv_seq_num = d.fv_seq_num
     counter.hasOwnProperty(fv_seq_num) ? counter[fv_seq_num] += 1 : counter[fv_seq_num] = 0
@@ -74,6 +77,8 @@ const formatTandemData = (data, isTandemOne) => {
     delete position.pos_seq_num
     d.pos_skill_desc = skill.skill_descr
     d.pos_skill_code = skill.skl_code
+    d.pos_staff_ptrn_skill_desc = skill2.skill_descr
+    d.pos_staff_ptrn_skill_code = skill2.skl_code
     delete position.skill
     d.ppos_capsule_descr_txt = capsuledescription.description
     d.ppos_capsule_modify_dt = capsuledescription.last_modified
@@ -92,7 +97,9 @@ const RELATED = [
   'position.location', 
   'position.bureau',
   'position.skill',
+  'position.skill2',
   'position.capsuledescription',
+  'position.location.unaccompaniedstatus',
   'position.commuterpost'
 ]
 

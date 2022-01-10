@@ -3,7 +3,7 @@ const _ = require('lodash')
 const { AvailablePositions } = require('../models')
 const { createPositionQuery, createTandemPositionQuery, formatLanguage, formatCommuterPost} = require('./common')
 
-const create_query = (query, isCount=false) => createPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount)
+const create_query = (query, isCount=false, isCycle) => createPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount, isCycle)
 const create_tandem_query = (query, isCount=false, isTandemOne=false) => createTandemPositionQuery(AvailablePositions, 'availablepositions', 'request_params', query, isCount, isTandemOne)
 
 const formatData = (data, isCyclePositions) => {
@@ -136,6 +136,7 @@ const RELATED = [
   'position.org',
   'position.location',
   'position.bureau',
+  'position.consultative_bureau',
   'position.skill',
   'position.skill2',
   'position.capsuledescription',
@@ -144,11 +145,11 @@ const RELATED = [
 ]
 
 async function get_available_positions(query, isCyclePositions=false) {
-  const isCount = query['request_params.count'] === 'true' || query['request_params.totalResults'] === 'true'
+  const isCount = query['request_params.count'] === 'true' || query['request_params.totalResults'] === 'true' || query['request_params.totalResults'] === true
   if (isCount && isCyclePositions) {
-    return get_available_positions_count(query)
+    return get_available_positions_count(query, isCyclePositions)
   }
-  const data = await create_query(query).fetchPage({
+  const data = await create_query(query, false, isCyclePositions).fetchPage({
     withRelated: RELATED,
     pageSize: query["request_params.page_size"] || 25,
     page: query["request_params.page_index"] || 1,
@@ -158,14 +159,14 @@ async function get_available_positions(query, isCyclePositions=false) {
   })
 
   return {
-    "Data": formatData(data.serialize(), isCyclePositions),
+    "Data": formatData(data.serialize(), isCyclePositions, isCyclePositions),
     "usl_id": 44999637,
     "return_code": 0
   }
 }
 
-async function get_available_positions_count(query) {
-  const count = await create_query(query, true).count()
+async function get_available_positions_count(query, isCyclePositions) {
+  const count = await create_query(query, true, isCyclePositions).count()
   return {
     "Data": [
         {

@@ -333,6 +333,12 @@ var appRouter = function (app) {
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     }
+    if (req && req.query) {
+      if (!req.query.is_asc) {
+        console.error('is_asc query param is required.')
+        res.status(500).send({ "Message": "An error has occurred." });
+      }
+    }
     const bidders = await availableBidders.get_available_bidders(false);
     res.status(200).send({
       Data: bidders,
@@ -344,6 +350,12 @@ var appRouter = function (app) {
   app.get("/clients/availablebidders/bureau", async function (req, res) {
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
+    }
+    if (req && req.query) {
+      if (!req.query.is_asc) {
+        console.error('is_asc query param is required.')
+        res.status(500).send({ "Message": "An error has occurred." });
+      }
     }
     const bidders = await availableBidders.get_available_bidders(true);
     res.status(200).send({
@@ -363,7 +375,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/cyclePositions/cyclePositions', async function(req, res) {
+  app.get('/cyclePositions', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query, true))
     } catch (errMsg) {
@@ -371,6 +383,16 @@ var appRouter = function (app) {
       res.status(500).send({ "Message": "An error has occurred." });
     }
   })
+
+  app.post('/v2/cyclePositions', async function(req, res) {
+    try {
+      const body$ = common.convertPostBodyToGetQuery(req.body)
+      res.status(200).send(await availablePositions.get_available_positions(body$, true))
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  });
 
   app.get('/v2/SECREF/user', async function(req, res) {
     const user = await employees.get_user(req.query)
