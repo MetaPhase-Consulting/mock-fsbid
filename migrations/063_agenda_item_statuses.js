@@ -5,6 +5,10 @@ exports.up = function(knex) {
       table.string('aisabbrdesctext')
       table.string('aisdesctext')
       table.integer('aisordernum')
+      table.integer('aiscreateid')
+      table.date('aiscreatedate')
+      table.integer('aisupdateid')
+      table.date('aisupdatedate')
     });
 };
 exports.down = function(knex) {

@@ -3,8 +3,13 @@ exports.up = function(knex) {
     .createTable('panelmeetingitemcategories', function(table) {
       table.string('miccode').primary()
       table.string('micdesctext')
-      table.string('micvirtualallowedind')
+
       table.integer('micordernum')
+      table.string('micvirtualallowedind')
+      table.integer('miccreateid')
+      table.date('miccreatedate')
+      table.integer('micupdateid')
+      table.date('micupdatedate')
     });
 };
 exports.down = function(knex) {

@@ -11,10 +11,6 @@ const PanelMeetingItems = bookshelf.model('PanelMeetingItems', {
   miccode() {
     return this.belongsTo('PanelMeetingItemCategories', 'miccode')
   },
-
-  aiseqnum() {
-    return this.belongsTo('AgendaItems', 'aiseqnum')
-  },
   
 })
 
