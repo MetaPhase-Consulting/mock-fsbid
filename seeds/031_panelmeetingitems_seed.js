@@ -1,5 +1,6 @@
 const _ = require('lodash')
 const datefns = require('date-fns');
+const { randomIntInclusive } = require('./data/helpers')
 
 exports.seed = function(knex) {
   return knex.raw('TRUNCATE TABLE panelmeetingitems CASCADE')
@@ -15,17 +16,17 @@ exports.seed = function(knex) {
                   let pmseqnum = pm.pmseqnum;
                   let mic = _.sample(MICs);
                   // 15-20 pmi per pmseqnum; 60 for pmiseqnum=60
-                  let numOfPMIs = Math.floor(Math.random() * 6) + 15;
+                  let numOfPMIs = randomIntInclusive(15, 20);
                   numOfPMIs = pmseqnum === 60 ? 60 : numOfPMIs;
-                  for(let k = 1; k <= numOfPMIs; k++){
+                  for(let k = 1; k <= numOfPMIs; k++) {
                     pmiseqnum+=1;
                     // grab the pmd_dttm using pmseqnum from panel meeting date table
                     // 2 weeks to 5 days before pmd_dttm
-                    let createDate = datefns.subDays(pmd_dttm, Math.floor(Math.random() * 10) + 5);
+                    let createDate = datefns.subDays(pmd_dttm, randomIntInclusive(5, 14));
                     // createDate to 3 days before pmd_dttm
                     let rangeleft = datefns.addMinutes(createDate, 3);
                     let rangeRight = datefns.subDays(pmd_dttm, 3);
-                    let range = differenceInDays(rangeleft, rangeRight);
+                    let range = datefns.differenceInDays(rangeleft, rangeRight);
                     let updateDate = datefns.subDays(createDate, Math.floor(Math.random() * range));
                     panel_meeting_items.push({
                       pmiseqnum: pmiseqnum,
@@ -40,12 +41,13 @@ exports.seed = function(knex) {
                       pmicreateid: _.sample(aoCdoPerdets),
                       // TODO: Until when can create and update Panel Meeting Items and Agendas be edited once attached to a Panel Meeting
 
+                      // TODO: last two to complete in the file
                       // pmicreatedate: createDate,
                       pmiupdateid: _.sample(aoCdoPerdets),
                       // pmiupdatedate: updateDate,
                     });
                   }
-                };
+                });
 
               return knex.batchInsert('panelmeetingitems', panel_meeting_items, 500);
             });

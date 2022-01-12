@@ -6,11 +6,3 @@ const PanelMeetingItemCategories = bookshelf.model('PanelMeetingItemCategories',
 })
 
 module.exports = PanelMeetingItemCategories
-
-
-
-
-
-
-
-
