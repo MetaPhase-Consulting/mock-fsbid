@@ -1,49 +1,44 @@
 const datefns = require('date-fns');
-const { findRandom, randomIntInclusive } = require('./data/helpers')
-const _ = require('lodash')
+const { randomIntInclusive } = require('./data/helpers');
+const _ = require('lodash');
 
-const agendaitems = readJson('./agendaitems.json')
-
-
-
+const agendaitems = readJson('./agendaitems.json');
+const tods = readJson('./tourofduties.json');
 
 exports.seed = function(knex) {
   return knex.raw('TRUNCATE TABLE agendaitems CASCADE')
     .then(function () {
       return knex.select('aiscode').from('agendaitemstatuses')
-        .then(aiscodes => {
+        .then(AISs => {
           return knex.select('pmiseqnum').from('panelmeetingitems')
-            .then(pmiseqnums => {
+            .then(PMIs => {
               const agenda_items = [];
-              const yearFromNow = datefns.addDays(Date.now(), 365);
-              for (let i = 0; i < 2000; i++) {
+              PMIs.forEach(pmi => {
                 let seed_ai = _.sample(agendaitems);
+                let tod = _.sample(tods);
 
-                seed_ai['aiseqnum'] = i + 1;
-                seed_ai['aiscode'] = _.sample(aiscodes).aiscode;
-                seed_ai['pmiseqnum'] = _.sample(pmiseqnums).pmiseqnum;
+                seed_ai['pmiseqnum'] = pmi.pmiseqnum;
+                seed_ai['aiscode'] = _.sample(AISs).aiscode;
+                seed_ai['aiseqnumref'] = randomIntInclusive(100, 1000);
 
-                seed_ai['aiseqnumref'] = null; //129 of 150 null otherwise 3-4 digit num
+                // Jenny or Tarek
                 if(i%2) {
-                  seed_ai['aiseqnumref'] = randomIntInclusive(100, 1000);
+                  seed_ai['empseqnbr'] = 143197;
+                  seed_ai['perdetseqnum'] = 6;
+                } else {
+                  seed_ai['empseqnbr'] = 143195;
+                  seed_ai['perdetseqnum'] = 4;
                 }
-                seed_ai['aicreateid'] = randomIntInclusive(1, 100000);//1-6 digit nums
-                seed_ai['aiupdateid'] = randomIntInclusive(1000, 10000);//4-6 digit nums
+                seed_ai['todcode'] = tod['code'];
+                seed_ai['toddesctext'] = tod['long_desc'];
+                seed_ai['aicombinedtodmonthsnum'] = randomIntInclusive(12, 72);
+                seed_ai['aicreateid'] = pmi['pmicreateid'];
+                seed_ai['aicreatedate'] = pmi['pmicreatedate'];
+                seed_ai['aiupdateid'] = _.sample([2, 7, 8, 13]);
+                seed_ai['aiupdatedate'] = datefns.addDays(pmi['pmicreatedate'], randomIntInclusive(14, 30));
 
-                const createDate = datefns.subDays(yearFromNow, randomIntInclusive(0, 4015));
-                seed_ai['aicreatedate'] = createDate;//date from 10 years back to 1 year forward
-                seed_ai['aiupdatedate'] = datefns.addDays(createDate, randomIntInclusive(14, 42)); //aicreatedate + (2 - 6 weeks)
-                seed_ai['aiitemcreatorid'] = findRandom([7, 13]);
-
-/*      waiting
-                seed_ai['perdetseqnum'] = ;
-                seed_ai['empseqnbr'] = ;
-                seed_ai['asgseqnum'] = ;
-                seed_ai['todcode'] = ;
-                seed_ai['asgdrevisionnum'] = ;
-                 */
                 agenda_items.push(seed_ai);
-              }
+              });
               return knex.batchInsert('agendaitems', agenda_items, 500);
             });
         });

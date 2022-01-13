@@ -8,17 +8,14 @@ exports.up = function(knex) {
         table.foreign('pmiseqnum').references('panelmeetingitems.pmiseqnum')
         table.foreign('aiscode').references('agendaitemstatuses.aiscode')
 
-        table.integer('empseqnbr') //person the ai is for
-        table.integer('perdetseqnum') // person the ai is for
+        table.integer('empseqnbr')
+        table.integer('perdetseqnum')
         table.string('todcode')
         table.string('toddesctext')
-        table.integer('asgseqnum')
-        table.integer('asgdrevisionnum')
         table.integer('aicombinedtodmonthsnum')
         table.string('aicombinedtodothertext')
         table.string('aicorrectiontext')
         table.string('ailabeltext')
-        table.string('aisorttext')
         table.integer('aicreateid')
         table.date('aicreatedate')
         table.integer('aiupdateid')
