@@ -10,6 +10,10 @@ const SORT_MAPPING = {
   per_last_name: 'employees.last_name',
   per_first_name: 'employees.first_name',
   per_middle_name: 'employees.middle_name',
+  perpiifullname: 'employees.last_name',
+  perpiifirstname: 'employees.first_name',
+  perpiilastname: 'employees.last_name',
+  pertexternalid: 'employees.per_seq_num',
 }
 
 // Fetch an employee for an ad_id value
@@ -369,7 +373,7 @@ const get_employees_query = (params, mapping) => {
     addFreeTextFilter(qb, params['request_params.freeText'])
     const isCount = params['request_params.get_count'] === 'true'
     if (!isCount) {
-      const orderByField = params['request_params.order_by']
+      const orderByField = params['request_params.order_by'] || params['rp.orderBy']
       if (orderByField) {
         addOrderBy(qb, orderByField, SORT_MAPPING)
       } else {
