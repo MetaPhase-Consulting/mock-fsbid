@@ -11,24 +11,6 @@ const AgendaItems = bookshelf.model('AgendaItems', {
   pmiseqnum() {
     return this.belongsTo('PanelMeetingItems', 'pmiseqnum')
   },
-
-/* waiting on template response
-
-  perdetseqnum() {
-    return this.belongsTo('', 'perdetseqnum')
-  },
-  empseqnbr() {
-    return this.belongsTo('', 'empseqnbr')
-  },
-  asgseqnum() {
-    return this.belongsTo('', 'asgseqnum')
-  },
-  todcode() {
-    return this.belongsTo('', 'todcode')
-  },
-  asgdrevisionnum() {
-    return this.belongsTo('', 'asgdrevisionnum')
-  },*/
 })
 
 module.exports = AgendaItems
