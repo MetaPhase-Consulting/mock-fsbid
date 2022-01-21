@@ -744,7 +744,7 @@ var appRouter = function (app) {
     };
     const ais = (new Array(50).fill(1)).map((m, i) => ({
       ...ai,
-      agendaLegs: ai.agendaLegs.slice(0, _.sample([2.3,4])),
+      agendaLegs: ai.agendaLegs.slice(0, _.sample([1,2,3])),
       aiseqnum: i + 1,
       aisdesctext: _.sample(status),
       aiperdetseqnum: i % 2 === 0 ? 4 : 6, // perdets of Jenny, Tarek
@@ -763,6 +763,9 @@ var appRouter = function (app) {
   })
 
   app.get('/v1/agendaItems', async function(req, res) { // singleton
+    console.log("|\\---/|");
+    console.log("| o_o |");
+    console.log(" \\_^_/");
     const { query } = req; // aiseqnum|eq|226661|
     const filter = _.get(query, "['rp.filter']", '').split('|')
     const column = filter[0];
