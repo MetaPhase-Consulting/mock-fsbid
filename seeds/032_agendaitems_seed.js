@@ -12,34 +12,31 @@ exports.seed = function(knex) {
         .then(AISs => {
           return knex.select('pmiseqnum').from('panelmeetingitems')
             .then(PMIs => {
-              const agenda_items = [];
-              PMIs.forEach(pmi => {
-                let seed_ai = _.sample(agendaitems);
-                let tod = _.sample(tods);
+              return knex.select('perdet_seq_num').from('employees')
+                .then(EMPs => {
+                  const agenda_items = [];
+                  PMIs.forEach(pmi => {
+                    let seed_ai = _.sample(agendaitems);
+                    let tod = _.sample(tods);
+                    let emp = _.sample(EMPs);
 
-                seed_ai['pmiseqnum'] = pmi.pmiseqnum;
-                seed_ai['aiscode'] = _.sample(AISs).aiscode;
-                seed_ai['aiseqnumref'] = randomIntInclusive(100, 1000);
+                    seed_ai['pmiseqnum'] = pmi.pmiseqnum;
+                    seed_ai['aiscode'] = _.sample(AISs).aiscode;
+                    seed_ai['aiseqnumref'] = randomIntInclusive(100, 1000);
+                    seed_ai['empseqnbr'] = emp.per_seq_num;
+                    seed_ai['perdetseqnum'] = emp.perdet_seq_num;
+                    seed_ai['todcode'] = tod['code'];
+                    seed_ai['toddesctext'] = tod['long_desc'];
+                    seed_ai['aicombinedtodmonthsnum'] = randomIntInclusive(12, 72);
+                    seed_ai['aicreateid'] = pmi['pmicreateid'];
+                    seed_ai['aicreatedate'] = pmi['pmicreatedate'];
+                    seed_ai['aiupdateid'] = _.sample([2, 7, 8, 13]);
+                    seed_ai['aiupdatedate'] = datefns.addDays(pmi['pmicreatedate'], randomIntInclusive(14, 30));
 
-                // Jenny or Tarek
-                if(i%2) {
-                  seed_ai['empseqnbr'] = 143197;
-                  seed_ai['perdetseqnum'] = 6;
-                } else {
-                  seed_ai['empseqnbr'] = 143195;
-                  seed_ai['perdetseqnum'] = 4;
-                }
-                seed_ai['todcode'] = tod['code'];
-                seed_ai['toddesctext'] = tod['long_desc'];
-                seed_ai['aicombinedtodmonthsnum'] = randomIntInclusive(12, 72);
-                seed_ai['aicreateid'] = pmi['pmicreateid'];
-                seed_ai['aicreatedate'] = pmi['pmicreatedate'];
-                seed_ai['aiupdateid'] = _.sample([2, 7, 8, 13]);
-                seed_ai['aiupdatedate'] = datefns.addDays(pmi['pmicreatedate'], randomIntInclusive(14, 30));
-
-                agenda_items.push(seed_ai);
+                    agenda_items.push(seed_ai);
+                  });
+                  return knex.batchInsert('agendaitems', agenda_items, 500);
               });
-              return knex.batchInsert('agendaitems', agenda_items, 500);
             });
         });
     });
