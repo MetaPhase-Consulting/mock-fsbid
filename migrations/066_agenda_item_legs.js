@@ -4,15 +4,19 @@ exports.up = function(knex) {
       table.integer('ailseqnum').primary()
 
       table.integer('aiseqnum')
-      table.string('latcode')
-      table.foreign('aiseqnum').references('agendaitems.aiseqnum')
-      table.foreign('latcode').references('legactiontype.latcode')
-
       table.integer('cpid')
+      table.string('todcode')
+      table.string('latcode')
+      table.integer('asgdrevisionnum')
+      table.foreign('aiseqnum').references('agendaitems.aiseqnum')
+      table.foreign('cpid').references('availablepositions.cp_id')
+      table.foreign('todcode').references('tourofduties.code')
+      table.foreign('latcode').references('legactiontype.latcode')
+      table.foreign('asgdrevisionnum').references('assignments.asgd_revision_num')
+
       table.integer('posseqnum')
       table.integer('empseqnbr')
       table.integer('perdetseqnum')
-      table.string('todcode')
       table.integer('ailtodmonthsnum')
       table.string('ailtodothertext')
       table.date('ailetadate')
@@ -20,9 +24,7 @@ exports.up = function(knex) {
       table.string('ailcitytext')
       table.string('ailcountrystatetext')
       table.string('ailemprequestedsepind')
-        // grab from details table - maybe - might just have static data here
       table.integer('asgseqnum')
-      table.integer('asgdrevisionnum')
     });
 };
 exports.down = function(knex) {
