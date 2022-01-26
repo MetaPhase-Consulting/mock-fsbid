@@ -6,7 +6,7 @@ exports.seed = function(knex) {
     .then(function () {
 
       return knex.select('pmscode').from('panelmeetingstatuses')
-        .then(pmscodes => {
+        .then(() => {
           return knex.select('pmtcode').from('panelmeetingtypes')
             .then(pmtcodes => {
               const panel_meetings = [];
