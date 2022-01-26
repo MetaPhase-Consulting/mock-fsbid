@@ -282,7 +282,7 @@ var appRouter = function (app) {
   app.get('/v1/references/Locations', lookup(lookups.get_locations))
   app.get('/v1/agendaItemStatuses', lookup(lookups.get_agenda_item_statuses))
 
-  app.get('/v1/references/postAttributes', async function(req, res) {
+  app.get('/v1/fsbid/posts/attributes', async function(req, res) {
     // TODO - add all post attributes tables by query param
     const data = await postattributes.get_postattributes(req.query)
     res.status(200).send(data)
