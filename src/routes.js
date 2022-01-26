@@ -152,7 +152,7 @@ var appRouter = function (app) {
     res.status(200).send(await futureVacancies.get_future_vacancies(body$))
   });
 
-  app.get('/v1/futureVacanciesCount', async function(req, res) {
+  app.get('/v1/futureVacancies/count', async function(req, res) {
     res.status(200).send(await futureVacancies.get_future_vacancies_count(req.query))
   });
 
