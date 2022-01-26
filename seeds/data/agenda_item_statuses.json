@@ -1,0 +1,57 @@
+[
+  {
+    "aiscode": "R",
+    "aisabbrdesctext": "RDY",
+    "aisdesctext": "Ready"
+  },
+  {
+    "aiscode": "D",
+    "aisabbrdesctext": "DIS",
+    "aisdesctext": "Disapproved"
+  },
+  {
+    "aiscode": "F",
+    "aisabbrdesctext": "DEF",
+    "aisdesctext": "Deferred"
+  },
+  {
+    "aiscode": "H",
+    "aisabbrdesctext": "HLD",
+    "aisdesctext": "Held"
+  },
+  {
+    "aiscode": "N",
+    "aisabbrdesctext": "NR",
+    "aisdesctext": "Not Ready"
+  },
+  {
+    "aiscode": "O",
+    "aisabbrdesctext": "OOO",
+    "aisdesctext": "Out of Order"
+  },
+  {
+    "aiscode": "P",
+    "aisabbrdesctext": "PIP",
+    "aisdesctext": "PIP"
+  },
+  {
+    "aiscode": "W",
+    "aisabbrdesctext": "WDR",
+    "aisdesctext": "Withdrawn"
+  },
+  {
+    "aiscode": "M",
+    "aisabbrdesctext": "MOV",
+    "aisdesctext": "Move to ML/ID"
+  },
+  {
+    "aiscode": "A",
+    "aisabbrdesctext": "APR",
+    "aisdesctext": "Approved"
+  },
+  {
+    "aiscode": "C",
+    "aisabbrdesctext": "XXX",
+    "aisdesctext": "Deferred - Proposed Position"
+  }
+]
