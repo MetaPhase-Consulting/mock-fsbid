@@ -1,7 +1,4 @@
 const datefns = require('date-fns');
-const { readJson } = require('./data/helpers')
-
-const panelmeetingdates = readJson('./panelmeetingdates.json')
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
