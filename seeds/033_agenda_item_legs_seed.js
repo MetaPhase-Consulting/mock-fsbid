@@ -30,6 +30,7 @@ exports.seed = function(knex) {
                     const ap = _.sample(APs);
                     const lat = _.sample(lats);
                     const location = _.sample(locations);
+                    const tod = _.sample(tods);
                     const todmonthsnum = randomIntInclusive(1, 50);
                     const tedsepdate = datefns.addMonths(etadate, todmonthsnum);
 
@@ -42,9 +43,9 @@ exports.seed = function(knex) {
                       posseqnum: _.find(positions, ['position', ap.position])['pos_seq_num'],
                       empseqnbr: empseqnbr,
                       perdetseqnum: perdetseqnum,
-                      todcode: tods.code,
+                      todcode: tod.code,
                       ailtodmonthsnum: todmonthsnum,
-                      ailtodothertext: tods['long_desc'],
+                      ailtodothertext: tod['long_desc'],
                       ailetadate: etadate,
                       ailetdtedsepdate: tedsepdate,
                       ailcitytext: location.location_city,
