@@ -72,7 +72,7 @@ var appRouter = function (app) {
     res.end(download)
   });
 
-  app.get("/cyclePositions/bidders", async function (req, res) {
+  app.get("/v1/cyclePositions/bidders", async function (req, res) {
     let isCDO = false;
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
@@ -80,7 +80,7 @@ var appRouter = function (app) {
     res.status(200).send(await bidding.get_bids_by_cp(req.query, true));
   });
 
-  app.get("/bids", async function (req, res) {
+  app.get("/v1/bids", async function (req, res) {
     let isCDO = false;
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
@@ -92,7 +92,7 @@ var appRouter = function (app) {
     res.status(200).send(await bidding.get_bids(req.query, isCDO));
   });
 
-  app.post('/bids', async function(req, res) {
+  app.post('/v1/bids', async function(req, res) {
     try {
       res.status(200).send(await bidding.add_bid(req.query))
     } catch (err) {
@@ -102,7 +102,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.put('/bids', async function(req, res) {
+  app.put('/v1/bids', async function(req, res) {
     let isCDO = false;
     const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
     const roles = _.get(decoded, 'payload.role', []);
@@ -116,7 +116,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.patch('/bids/handshake', async function(req, res) {
+  app.patch('/v1/bids/handshake', async function(req, res) {
     if (!req.query.perdet_seq_num || !req.query.cp_id) {
       res.status(200).send({ Data: null, usl_id: 4000003, return_code: -2 })
     };
@@ -139,41 +139,11 @@ var appRouter = function (app) {
     }
   });
 
-  app.delete('/bids', async function(req, res) {
+  app.delete('/v1/bids', async function(req, res) {
     res.status(200).send(await bidding.remove_bid(req.query))
   });
 
-  app.put('/bids/offerHandshake', async function(req, res) {
-    try {
-      res.status(200).send(await bidding.offer_handshake(req.query))
-    } catch (err) {
-      console.error('Error occurred offering handshake on bid')
-      console.error(`${err}`)
-      res.status(200).send({ Data: null, return_code: -1 })
-    }
-  })
-
-  app.put('/bids/panel', async function(req, res) {
-    try {
-      res.status(200).send(await bidding.panel_bid(req.query))
-    } catch (err) {
-      console.error('Error occurred paneling bid')
-      console.error(`${err}`)
-      res.status(200).send({ Data: null, return_code: -1 })
-    }
-  })
-
-  app.put('/bids/assign', async function(req, res) {
-    try {
-      res.status(200).send(await bidding.assign_bid(req.query))
-    } catch (err) {
-      console.error('Error occurred assigning bid')
-      console.error(`${err}`)
-      res.status(200).send({ Data: null, return_code: -1 })
-    }
-  })
-
-  app.get('/futureVacancies', async function(req, res) {
+  app.get('/v1/futureVacancies', async function(req, res) {
     res.status(200).send(await futureVacancies.get_future_vacancies(req.query))
   });
 
@@ -182,7 +152,7 @@ var appRouter = function (app) {
     res.status(200).send(await futureVacancies.get_future_vacancies(body$))
   });
 
-  app.get('/futureVacanciesCount', async function(req, res) {
+  app.get('/v1/futureVacancies/count', async function(req, res) {
     res.status(200).send(await futureVacancies.get_future_vacancies_count(req.query))
   });
 
@@ -191,7 +161,7 @@ var appRouter = function (app) {
     res.status(200).send(await futureVacancies.get_future_vacancies_count(body$))
   });
 
-  app.get('/availablePositions', async function(req, res) {
+  app.get('/v1/cyclePositions/available', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query))
     } catch (errMsg) {
@@ -210,7 +180,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.get('/availablePositionsCount', async function(req, res) {
+  app.get('/v1/cyclePositions/availableCount', async function(req, res) {
     res.status(200).send(await availablePositions.get_available_positions_count(req.query))
   });
 
@@ -219,11 +189,11 @@ var appRouter = function (app) {
     res.status(200).send(await availablePositions.get_available_positions_count(body$))
   });
 
-  app.get('/positions/available/tandem', async function(req, res) {
+  app.get('/v1/cyclePositions/availableTandem', async function(req, res) {
     res.status(200).send(await availablePositions.get_available_positions_tandem(req.query))
   });
 
-  app.get('/positions/futureVacancies/tandem', async function(req, res) {
+  app.get('/v1/futureVacancies/tandem', async function(req, res) {
     res.status(200).send(await futureVacancies.get_future_vacancies_tandem(req.query))
   });
 
@@ -237,7 +207,7 @@ var appRouter = function (app) {
     res.status(200).send(await futureVacancies.get_future_vacancies_tandem(body$))
   });
 
-  app.get('/Employees/userInfo', async function(req, res) {
+  app.get('/v1/Employees/userInfo', async function(req, res) {
     const employee = await employees.get_employee_by_ad_id(req.query)
     let employee$ = employee;
     if (Array.isArray(employee$)) {
@@ -256,7 +226,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/bureauPermissions', async function(req, res) {
+  app.get('/v1/fsbid/bureauPermissions', async function(req, res) {
     try {
       const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
       const found = _.get(decoded, 'payload.unique_name', '');
@@ -272,7 +242,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.get('/Organizations/Permissions', async function(req, res) {
+  app.get('/v1/Organizations/Permissions', async function(req, res) {
     try {
       const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
       const found = _.get(decoded, 'payload.unique_name', '');
@@ -288,7 +258,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.get('/Assignments', async function(req, res) {
+  app.get('/v1/Assignments', async function(req, res) {
     const data = await employees.get_assignments(req.query)
     res.status(200).send({
       Data: data,
@@ -300,25 +270,25 @@ var appRouter = function (app) {
   // Common look up function
   const lookup = fn => async (req, res) => res.status(200).send(await fn())
 
-  app.get('/bidSeasons', lookup(lookups.get_seasons))
-  app.get('/cycles', lookup(lookups.get_cycles))
-  app.get('/grades', lookup(lookups.get_grades))
-  app.get('/languages', lookup(lookups.get_languages))
-  app.get('/dangerpays', lookup(lookups.get_dangerpays))
-  app.get('/differentialrates', lookup(lookups.get_differentialrates))
-  app.get('/tourofduties', lookup(lookups.get_tourofduties))
-  app.get('/bureaus', lookup(lookups.get_bureaus))
-  app.get('/skillCodes', lookup(lookups.get_codes))
-  app.get('/Locations', lookup(lookups.get_locations))
-  app.get('/v1/agendaItemStatuses', lookup(lookups.get_agenda_item_statuses))
+  app.get('/v1/fsbid/bidSeasons', lookup(lookups.get_seasons))
+  app.get('/v1/cycles', lookup(lookups.get_cycles))
+  app.get('/v1/references/grades', lookup(lookups.get_grades))
+  app.get('/v1/references/languages', lookup(lookups.get_languages))
+  app.get('/v1/posts/dangerpays', lookup(lookups.get_dangerpays))
+  app.get('/v1/posts/differentialrates', lookup(lookups.get_differentialrates))
+  app.get('/v1/posts/tourofduties', lookup(lookups.get_tourofduties))
+  app.get('/v1/fsbid/bureaus', lookup(lookups.get_bureaus))
+  app.get('/v1/references/skills', lookup(lookups.get_codes))
+  app.get('/v1/references/Locations', lookup(lookups.get_locations))
+  app.get('/v1/agendaItems/statuses', lookup(lookups.get_agenda_item_statuses))
 
-  app.get('/references/postAttributes', async function(req, res) {
+  app.get('/v1/fsbid/posts/attributes', async function(req, res) {
     // TODO - add all post attributes tables by query param
     const data = await postattributes.get_postattributes(req.query)
     res.status(200).send(data)
   })
 
-  app.get('/Agents', async function(req, res) {
+  app.get('/v1/clients/Agents', async function(req, res) {
     const agents = await employees.get_agents(req.query)
 
     res.status(200).send({
@@ -328,7 +298,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/CDOClients', async function(req, res) {
+  app.get('/v1/fsbid/CDOClients', async function(req, res) {
     const clients = await employees.get_clients(req.query)
 
     res.status(200).send({
@@ -348,15 +318,7 @@ var appRouter = function (app) {
     })
   })
 
-  // Need to update redundant routes once we are done with available bidders
-  app.get("/cdo/availablebidders", async function (req, res) {
-    if (!req.headers.jwtauthorization) {
-      res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
-    }
-    res.status(200).send(await availableBidders.get_available_bidders());
-  });
-
-  app.get("/clients/availablebidders/cdo", async function (req, res) {
+  app.get("/v1/clients/availablebidders/cdo", async function (req, res) {
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     }
@@ -374,7 +336,7 @@ var appRouter = function (app) {
     })
   });
   
-  app.get("/clients/availablebidders/bureau", async function (req, res) {
+  app.get("/v1/clients/availablebidders/bureau", async function (req, res) {
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     }
@@ -392,7 +354,7 @@ var appRouter = function (app) {
     })
   });
 
-  app.get('/Persons', async function(req,res) {
+  app.get('/v1/Persons', async function(req,res) {
     const persons = await employees.get_persons(req.query)
 
     res.status(200).send({
@@ -422,7 +384,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/cyclePositions', async function(req, res) {
+  app.get('/v1/cyclePositions', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query, true))
     } catch (errMsg) {
@@ -431,7 +393,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/Positions', async function(req, res) {
+  app.get('/v1/Positions', async function(req, res) {
     try {
       res.status(200).send(await positions.get_position_by_id(req.query))
     } catch (errMsg) {
@@ -464,7 +426,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/bidderTrackingPrograms', async function(req, res) {
+  app.get('/v1/fsbid/bidderTrackingPrograms', async function(req, res) {
     const classifications = await employees.get_classifications(req.query)
     res.status(200).send({
       Data: classifications,
@@ -473,7 +435,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/TrackingPrograms', async function(req, res) {
+  app.get('/v1/TrackingPrograms', async function(req, res) {
     const classifications = await employees.get_classifications(req.query)
     res.status(200).send({
       Data: classifications,
@@ -482,7 +444,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/TrackingPrograms/Bidders', async function(req, res) {
+  app.get('/v1/TrackingPrograms/Bidders', async function(req, res) {
     const classifications = await employees.get_classifications(req.query)
     res.status(200).send({
       Data: classifications,
@@ -491,7 +453,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.post('/TrackingPrograms/Bidders', async function(req, res) {
+  app.post('/v1/TrackingPrograms/Bidders', async function(req, res) {
     try {
       classifications = await employees.add_classification(req.query)
       res.status(200).send({
@@ -506,7 +468,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.delete('/TrackingPrograms/Bidders', async function(req, res) {
+  app.delete('/v1/TrackingPrograms/Bidders', async function(req, res) {
     try {
       classifications = await employees.remove_classification(req.query)
       res.status(200).send({
