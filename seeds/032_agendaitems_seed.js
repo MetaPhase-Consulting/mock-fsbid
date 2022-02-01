@@ -8,7 +8,7 @@ const tods = readJson('./tourofduties.json');
 exports.seed = function(knex) {
   return knex.raw('TRUNCATE TABLE agendaitems CASCADE')
     .then(function () {
-      return knex.select('aiscode').from('agendaitemstatuses')
+      return knex.select('aiscode').from('agenda_item_statuses')
         .then(AISs => {
           return knex.select('pmiseqnum').from('panelmeetingitems')
             .then(PMIs => {

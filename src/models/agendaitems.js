@@ -5,7 +5,7 @@ const AgendaItems = bookshelf.model('AgendaItems', {
   idAttribute: 'aiseqnum',
 
   aiscode() {
-    return this.belongsTo('AgendaItemStatuses', 'aiscode')
+    return this.belongsTo('Agenda_Item_Statuses', 'aiscode')
   },
 
   pmiseqnum() {
