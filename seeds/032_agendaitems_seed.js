@@ -1,5 +1,5 @@
 const datefns = require('date-fns');
-const { randomIntInclusive } = require('./data/helpers');
+const { randomIntInclusive, readJson } = require('./data/helpers');
 const _ = require('lodash');
 
 const agendaitems = readJson('./agendaitems.json');
