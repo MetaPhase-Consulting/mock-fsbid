@@ -1,4 +1,4 @@
-const { randomIntInclusive } = require('./data/helpers')
+const { randomIntInclusive, readJson } = require('./data/helpers')
 const _ = require('lodash')
 
 const airremarks = readJson('./agenda_item_remarks.json')

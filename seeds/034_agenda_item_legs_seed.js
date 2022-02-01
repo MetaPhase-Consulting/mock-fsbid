@@ -1,6 +1,6 @@
 const _ = require('lodash')
 const datefns = require('date-fns');
-const { randomIntInclusive } = require('./data/helpers')
+const { randomIntInclusive, readJson } = require('./data/helpers')
 const lats = readJson('./legactiontype.json')
 const locations = readJson('./locations.json')
 const tods = readJson('./tourofduties.json')
