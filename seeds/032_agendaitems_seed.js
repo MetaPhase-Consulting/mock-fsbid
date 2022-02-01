@@ -16,31 +16,31 @@ exports.seed = function(knex) {
                 .then(EMPs => {
                   const agenda_items = [];
                   PMIs.forEach(pmi => {
-                    let seed_ai = _.sample(agendaitems);
+                    let seed_ai = {};
                     let tod = _.sample(tods);
                     let emp = _.sample(EMPs);
-                    console.log("|\\---/|");
-                    console.log("| o_o |");
-                    console.log(" \\_^_/");
-                    console.log(pmi['pmicreatedate']);
                     seed_ai['pmiseqnum'] = pmi.pmiseqnum;
                     seed_ai['aiscode'] = _.sample(AISs).aiscode;
-                    seed_ai['aiseqnumref'] = randomIntInclusive(100, 1000);
                     seed_ai['empseqnbr'] = emp.per_seq_num;
                     seed_ai['perdetseqnum'] = emp.perdet_seq_num;
                     seed_ai['todcode'] = tod['code'];
                     seed_ai['toddesctext'] = tod['long_desc'];
                     seed_ai['aicombinedtodmonthsnum'] = randomIntInclusive(12, 72);
+                    seed_ai['aicombinedtodothertext'] = _.sample(agendaitems['aicombinedtodothertext']);
+                    seed_ai['aicorrectiontext'] = null;
+                    seed_ai['ailabeltext'] = _.sample(agendaitems['ailabeltext']);
                     seed_ai['aicreateid'] = pmi['pmicreateid'];
-
                     seed_ai['aicreatedate'] = pmi['pmicreatedate'];
                     seed_ai['aiupdateid'] = _.sample([2, 7, 8, 13]);
-                    console.log(1, seed_ai['aicreatedate']);
-                    console.log(2, seed_ai['aiupdateid']);
                     seed_ai['aiupdatedate'] = datefns.addDays(pmi['pmicreatedate'], randomIntInclusive(14, 30));
+                    seed_ai['aiseqnumref'] = randomIntInclusive(100, 1000);
+                    seed_ai['aiitemcreatorid'] = _.sample([2, 7, 8, 13]);
                     agenda_items.push(seed_ai);
                   });
-
+                  console.log("|\\---/|");
+                  console.log("| o_o |");
+                  console.log(" \\_^_/");
+                  console.log(agenda_items);
                   return knex.batchInsert('agendaitems', agenda_items, 500);
               });
             });

@@ -1,7 +1,7 @@
 exports.up = function(knex) {
   return knex.schema
     .createTable('agendaitems', function(table) {
-        table.integer('aiseqnum').primary()
+        table.increments('aiseqnum').primary()
 
         table.integer('pmiseqnum')
         table.string('aiscode')
