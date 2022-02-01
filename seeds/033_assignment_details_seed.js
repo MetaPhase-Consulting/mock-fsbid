@@ -11,6 +11,7 @@ exports.seed = function(knex) {
               return knex.select('asgseqnum').from('assignments')
                 .then(ASGs => {
                     const assignment_details = [];
+                    const yNnull = ['Y', 'N', null];
                     AILs.forEach(ail => {
                       const employeeAssignments = _.filter(ASGs, ['emp_seq_nbr', ail.empseqnbr]);
                       if (employeeAssignments) {
@@ -29,16 +30,16 @@ exports.seed = function(knex) {
                           asgdetadate: ail['ailetadate'],
                           asgdadjustmonthsnum: randomIntInclusive(0, 3),
                           asgdetdteddate: position['ted'],
-                          asgdsalaryreimburseind:  _.sample('Y', 'N', null),
-                          asgdtravelreimburseind:  _.sample('Y', 'N', null),
-                          asgdtrainingind:  _.sample('Y', 'N', null),
+                          asgdsalaryreimburseind:  _.sample(yNnull),
+                          asgdtravelreimburseind:  _.sample(yNnull),
+                          asgdtrainingind:  _.sample(yNnull),
                           asgdcreateid: null,
                           asgdcreatedate: empAsg['asg_create_date'],
                           asgdupdateid: null,
                           asgdupdatedate: position['last_updated_date'],
                           asgdnotecommenttext: '',
-                          asgdpriorityind:  _.sample('Y', 'N', null),
-                          asgdcriticalneedind:  _.sample('Y', 'N', null),
+                          asgdpriorityind:  _.sample(yNnull),
+                          asgdcriticalneedind:  _.sample(yNnull),
                         });
                       }
                     });

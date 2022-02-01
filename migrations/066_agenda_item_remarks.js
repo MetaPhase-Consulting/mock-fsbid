@@ -1,7 +1,7 @@
 exports.up = function(knex) {
   return knex.schema
     .createTable('agendaitemlegs', function(table) {
-      table.integer('rmrkseqnum').primary()
+      table.increments('rmrkseqnum').primary()
 
       table.integer('aiseqnum')
       table.foreign('aiseqnum').references('agendaitems.aiseqnum')

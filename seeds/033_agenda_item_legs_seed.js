@@ -22,7 +22,7 @@ exports.seed = function(knex) {
                   const empseqnbr = ai.empseqnbr; // blocker until other Mock PR merges
                   const perdetseqnum = ai.perdetseqnum; // blocker until other Mock PR merges
                   // // 1-4 legs for most ai - 5-7 for aiseqnums ending in 7
-                  const numOfLegs = _.endsWith(aiseqnum, 7) ? _.sample([5, 6, 7]) : _.sample([1, 2, 3, 4]);
+                  const numOfLegs = _.endsWith(aiseqnum, 7) ? _.sample([5, 6, 7]) : _.sample([0, 1, 2, 3, 4]);
                   // 10 years past - 1 year future
                   let etadate = datefns.addDays(today, randomIntInclusive(-3650, 365));
 
