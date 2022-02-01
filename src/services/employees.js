@@ -9,6 +9,11 @@ const SORT_MAPPING = {
   per_skill_code: 'codes.skl_code',
   per_last_name: 'employees.last_name',
   per_first_name: 'employees.first_name',
+  per_middle_name: 'employees.middle_name',
+  perpiifullname: 'employees.last_name',
+  perpiifirstname: 'employees.first_name',
+  perpiilastname: 'employees.last_name',
+  pertexternalid: 'employees.per_seq_num',
 }
 
 // Fetch an employee for an ad_id value
@@ -336,7 +341,14 @@ const get_persons_filters = (params = {}) => {
   const { perdet_seq_num } = params
   const q = {}
   if (perdet_seq_num) q['employees.perdet_seq_num'] = perdet_seq_num
-
+  if (params['rp.filter']) {
+    const filterArg = params['rp.filter'].split('|')
+    const col = filterArg[0]
+    const val = filterArg.slice(-2)[0]
+    if (col === 'pertexternalid') q['employees.per_seq_num'] = val
+    if (col === 'perpiifullname') q['employees.last_name'] = _.capitalize(val)
+    // Update to be %like search on first, last, middle name
+  }
   return q
 }
 
@@ -361,7 +373,7 @@ const get_employees_query = (params, mapping) => {
     addFreeTextFilter(qb, params['request_params.freeText'])
     const isCount = params['request_params.get_count'] === 'true'
     if (!isCount) {
-      const orderByField = params['request_params.order_by']
+      const orderByField = params['request_params.order_by'] || params['rp.orderBy']
       if (orderByField) {
         addOrderBy(qb, orderByField, SORT_MAPPING)
       } else {
@@ -543,8 +555,8 @@ const get_paged_employees_by_query = async (query, mapping) => {
   try {
     const data = await get_employees_query(query, mapping).fetchPage({
       ...FETCH_OPTIONS,
-      pageSize: query["request_params.page_size"] || 2000,
-      page: query["request_params.page_index"] || 1
+      pageSize: query["request_params.page_size"] || query["rp.pageRows"] || 2000,
+      page: query["request_params.page_index"] || query["rp.pageNum"] || 1
     })
     return data.serialize()
   } catch (Error) {
@@ -588,15 +600,15 @@ const get_assignments = async query => {
 const get_classifications = async query => {
   try {
     const data = await Classifications.query(qb => {
-      const perdet_seq_num = query['request_params.perdet_seq_num']
+      const perdet_seq_num = query['perdet_seq_num']
       if (perdet_seq_num) {
         qb.join('employees_classifications', 'employees_classifications.te_id', 'classifications.te_id')
         qb.where('employees_classifications.perdet_seq_num', perdet_seq_num)
       }
     }).fetchPage({
       require: false,
-      pageSize: query["request_params.page_size"] || 1000,
-      page: query["request_params.page_index"] || 1,
+      pageSize: query["page_size"] || 1000,
+      page: query["page_index"] || 1,
     })
 
     return await data.serialize().map(classification => {
@@ -627,7 +639,7 @@ const add_classification = async query => {
         perdet_seq_num: perdet_seq_num,
       }).save()
     }
-    return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
+    return await get_classifications({"perdet_seq_num": perdet_seq_num})
   } catch (Error) {
     console.error(Error)
     return null
@@ -652,7 +664,7 @@ const remove_classification = async query => {
         perdet_seq_num: perdet_seq_num,
       }).destroy()
     }
-    return await get_classifications({"request_params.perdet_seq_num": perdet_seq_num})
+    return await get_classifications({"perdet_seq_num": perdet_seq_num})
   } catch (Error) {
     console.error(Error)
     return null
@@ -663,7 +675,6 @@ const get_persons = async query => {
   try {
     const data = await get_employees_by_query(query, get_persons_filters)
     return data.map(emp => {
-    emp["employee_profile_url"] = `www.talentmap/profile/public/${emp.first_name}_${emp.last_name}.com`;
       const res = {
           per_seq_num: emp.per_seq_num,
           per_full_name: emp.fullname,
@@ -688,7 +699,7 @@ const get_persons = async query => {
           per_retirement_code: emp.per_retirement_code || '',
           per_concurrent_appts_flg: emp.per_concurrent_appts_flg || '',
           'per_empl_rcd#': '',
-          pert_external_id: emp.pert_external_id || '',
+          pert_external_id: emp.per_seq_num || '',
           extt_code: emp.extt_code || '',
           perdet_seq_num: emp.perdet_seq_num || '',
           per_service_type_code: emp.per_service_type_code || '',
@@ -708,6 +719,89 @@ const get_persons = async query => {
     return null
   }
 }
+
+const get_v3_persons = async query => {
+  try {
+    const data = await get_paged_employees_by_query(query, get_persons_filters)
+    return data.map(emp => {
+      const res = {
+        perpiifirstname: emp.first_name,
+        perpiilastname: emp.last_name,
+        perpiimiddlename: emp.middle_name || '',
+        perpiisuffixname: emp.per_suffix_name || '',
+        perdetseqnum: emp.perdet_seq_num || '',
+        persdesc: "Active",
+        rnum: emp.rnum || '',
+      }
+      return res
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+const get_v3_persons_agenda_items = async query => {
+  try {
+    const data = await get_paged_employees_by_query(query, get_persons_filters)
+    return data.map(emp => {
+      const { 
+        roles = [],  
+        manager = [], 
+        currentassignment = {}, 
+        assignments = [], 
+        classifications = [],
+        languages = [],
+      } = emp
+      let assignmentInfo = getAssignment(currentassignment, true)
+      const res = {
+        perpiifirstname: emp.first_name,
+        perpiilastname: emp.last_name,
+        perpiimiddlename: emp.middle_name || '',
+        perpiisuffixname: emp.per_suffix_name || '',
+        perpiifullname: emp.fullname,
+        perpiiseqnum: emp.emp_seq_nbr,
+        perdetorgcode: "219910",
+        "perdetminactemplrcd#ind": "Y",
+        pertexttcode: "G",
+        perdetseqnum: emp.perdet_seq_num || '',
+        perdetperscode: "A",
+        pertexternalid: emp.per_seq_num || '',
+        pertcurrentind: "Y",
+        persdesc: "Active",
+        rnum: emp.rnum || '',
+        currentAssignment: assignmentInfo ? [
+          {
+            asgperdetseqnum: emp.perdet_seq_num || '',
+            asgempseqnbr: emp.emp_seq_nbr || '',
+            asgposseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
+            asgdasgseqnum: 277311,
+            asgdrevisionnum: 2,
+            asgdasgscode: "EF",
+            asgdetdteddate: assignmentInfo.currentAssignment.asgd_etd_ted_date,
+            asgdtodcode: "Y",
+            position: [
+              {
+                posseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
+                posorgshortdesc: "OIG/EX",
+                posnumtext: "S0000196",
+                posgradecode: "00",
+                postitledesc: "CHIEF, PROJECT MANAGEMENT AND"
+              }
+            ],
+            latestAgendaItem: []
+          }
+        ] : [],
+        handshake: [],
+      }
+      return res
+    })
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 
 const get_user = async query => {
   try {
@@ -793,6 +887,9 @@ module.exports = {
   get_clients,
   get_assignments, 
   get_classifications, 
+  get_persons,
+  get_v3_persons,
+  get_v3_persons_agenda_items,
   get_persons, 
   personSkills, 
   personLanguages, 

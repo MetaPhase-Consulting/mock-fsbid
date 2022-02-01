@@ -54,26 +54,34 @@ async function get_bids_by_cp(query, excludeDraft = false) {
 
   let bids$ = bids.map(bid => formatData(bid.serialize()))
   // fsbid mapping, with some static data
-  bids$ = bids$.map((m, i) => ({
-    "per_seq_num": null,
-    "perdet_seq_num": m.perdet_seq_num,
-    "full_name": `${m.per_last_name}, ${m.per_first_name}`,
-    "org_short_desc": "ABIDJAN",
-    "grade_code": m.per_grade_code,
-    "skill_code": m.per_skill_code,
-    "skill_desc": m.per_skill_code_desc,
-    "language_txt": `${m.per_language_code} ${m.per_language_code_reading_proficiency}/${m.per_language_code_spoken_proficiency} (01/10/2017)`,
-    "handshake_code": m.ubw_hndshk_offrd_flg === 'Y' ? "HS" : null,
-    "tp_codes_txt": m.per_classifications_tp_codes_txt,
-    "tp_descs_txt": m.per_classifications_tp_descs_txt,
-    "ubw_submit_dt": m.ubw_submit_dt ? dateFns.format(m.ubw_submit_dt, 'MM/dd/yyyy') : null,
-    "assignment_status": "EF",
-    "TED": m.per_ted,
-    "userDetails": {
-      "gal_smtp_email_address_text": m.gal_smtp_email_address_text,
-      "rnum": `${i + 1}`,
+  bids$ = bids$.map((m, i) => {
+    let payload = {
+      "per_seq_num": null,
+      "perdet_seq_num": m.perdet_seq_num,
+      "full_name": `${m.per_last_name}, ${m.per_first_name}`,
+      "org_short_desc": "ABIDJAN",
+      "grade_code": m.per_grade_code,
+      "skill_code": m.per_skill_code,
+      "skill_desc": m.per_skill_code_desc,
+      "language_txt": `${m.per_language_code} ${m.per_language_code_reading_proficiency}/${m.per_language_code_spoken_proficiency} (01/10/2017)`,
+      "handshake_code": m.ubw_hndshk_offrd_flg === 'Y' ? "HS" : null,
+      "tp_codes_txt": m.per_classifications_tp_codes_txt,
+      "tp_descs_txt": m.per_classifications_tp_descs_txt,
+      "ubw_submit_dt": m.ubw_submit_dt ? dateFns.format(m.ubw_submit_dt, 'MM/dd/yyyy') : null,
+      "ubw_handshake_offered_dt": m.ubw_submit_dt ? dateFns.format(dateFns.add(m.ubw_submit_dt, {weeks: 2}), 'MM/dd/yyyy') : null,
+      "ubw_handshake_offered_flag": m.ubw_hndshk_offrd_flg,
+      "assignment_status": "EF",
+      "TED": m.per_ted,
+      "userDetails": {
+        "gal_smtp_email_address_text": m.gal_smtp_email_address_text,
+        "rnum": `${i + 1}`,
+      }
+    };
+    if(m.ubw_hndshk_offrd_flg === "N") {
+      payload = _.omit(payload, ['handshake_offered_dt']);
     }
-  }))
+    return payload;
+  });
   let orderBy = _.get(query, 'request_params.order_by', '');
   orderBy = orderBy.split(' ');
   if (orderBy) {

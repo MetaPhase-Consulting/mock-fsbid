@@ -6,7 +6,7 @@ exports.seed = function(knex) {
     .then(function () {
 
       return knex.select('pmscode').from('panelmeetingstatuses')
-        .then(pmscodes => {
+        .then(() => {
           return knex.select('pmtcode').from('panelmeetingtypes')
             .then(pmtcodes => {
               const panel_meetings = [];
@@ -18,7 +18,7 @@ exports.seed = function(knex) {
                 } else if (i > arr.length / 2) {
                   pmscode$ = 'P';
                 } else if (i > arr.length / 4) {
-                  pmscode$ = 'I';
+                  pmscode$ = _.sample(['I', 'A']);
                 } 
                 panel_meetings.push({
                   pmseqnum: i + 1,
