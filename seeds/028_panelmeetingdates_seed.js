@@ -16,7 +16,7 @@ exports.seed = function(knex) {
 
             let dates = []
 
-            if (pmscode === 'I') {
+            if (pmscode === 'I' || pmscode === 'A') {
               dates = ['MEET', 'CUT', 'ADD']
             } else if (pmscode === 'O') {
               dates = ['MEET', 'CUT', 'ADD', 'OFF']
