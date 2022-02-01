@@ -9,18 +9,17 @@ const positions = readJson('./positions.json')
 exports.seed = function(knex) {
   return knex.raw('TRUNCATE TABLE agendaitemlegs CASCADE')
     .then(function () {
-      return knex.select('aiseqnum').from('agendaitems')
+      return knex.select().from('agendaitems')
         .then(AIs => {
-          return knex.select('cp_id').from('availablePositions')
+          return knex.select('cp_id', 'position').from('availablePositions')
             .then(APs => {
                 const agenda_items_legs = [];
-                let ailseqnum = 1;
                 const today = Date.now();
 
                 AIs.forEach(ai => {
-                  const aiseqnum = ai.aiseqnum; // blocker until other Mock PR merges
-                  const empseqnbr = ai.empseqnbr; // blocker until other Mock PR merges
-                  const perdetseqnum = ai.perdetseqnum; // blocker until other Mock PR merges
+                  const { aiseqnum } = ai;
+                  const { empseqnbr } = ai;
+                  const { perdetseqnum } = ai;
                   // // 1-4 legs for most ai - 5-7 for aiseqnums ending in 7
                   const numOfLegs = _.endsWith(aiseqnum, 7) ? _.sample([5, 6, 7]) : _.sample([0, 1, 2, 3, 4]);
                   // 10 years past - 1 year future
@@ -35,7 +34,6 @@ exports.seed = function(knex) {
                     const tedsepdate = datefns.addMonths(etadate, todmonthsnum);
 
                     agenda_items_legs.push({
-                      ailseqnum: ailseqnum,
                       aiseqnum: aiseqnum,
                       latcode: lat.latcode,
 
@@ -52,7 +50,6 @@ exports.seed = function(knex) {
                       ailcountrystatetext: location.location_state,
                       ailemprequestedsepind:  _.sample('Y', 'N', null),
                     });
-                    ailseqnum+=1;
                     etadate = datefns.addMonths(tedsepdate, 1);
                   }
                 });

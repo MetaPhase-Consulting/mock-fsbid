@@ -4,11 +4,11 @@ const { randomIntInclusive } = require('./data/helpers')
 exports.seed = function(knex) {
   return knex.raw('TRUNCATE TABLE assignmentdetails CASCADE')
     .then(function () {
-      return knex.select('ailseqnum').from('agendaitemlegs')
+      return knex.select().from('agendaitemlegs')
         .then(AILs => {
           return knex.select('pos_seq_num').from('positions')
             .then(Ps => {
-              return knex.select('asgseqnum').from('assignments')
+              return knex.select().from('assignments')
                 .then(ASGs => {
                     const assignment_details = [];
                     const yNnull = ['Y', 'N', null];

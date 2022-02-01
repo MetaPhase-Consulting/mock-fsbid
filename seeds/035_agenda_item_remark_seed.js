@@ -11,7 +11,7 @@ exports.seed = function(knex) {
           const agenda_item_remarks = [];
 
           AIs.forEach(ai => {
-            const aiseqnum = ai.aiseqnum; // blocker until other Mock PR merges
+            const { aiseqnum } = ai;
             const numOfRemarks = randomIntInclusive(0, 10)
 
             for(let k = 0; k < numOfRemarks; k++) {
