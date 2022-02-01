@@ -15,7 +15,7 @@ exports.seed = function(knex) {
                   let pmiseqnum = 0;
                   const aoCdoPerdets = [2, 7, 8, 13];
                   PMs.forEach(pm => {
-                    let { pmseqnum } = pm;
+                    const { pmseqnum } = pm;
                     const numPMIsLookup = {
                       60: 60,
                       200: 200,
@@ -24,7 +24,6 @@ exports.seed = function(knex) {
                     };
                     const pmddttm = _.find(MDTs, { 'pmseqnum': pmseqnum, 'mdtcode': 'MEET' })['pmddttm']
                     let mic = _.sample(MICs);
-                    // 15-20 pmi per pmseqnum; 60 for pmiseqnum=60
                     const numOfPMIs = _.get(numPMIsLookup, pmseqnum) || numPMIsLookup['default'];
                     for(let k = 1; k <= numOfPMIs; k++) {
                       pmiseqnum+=1;
