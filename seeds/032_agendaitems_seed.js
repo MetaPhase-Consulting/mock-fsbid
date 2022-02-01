@@ -37,10 +37,6 @@ exports.seed = function(knex) {
                     seed_ai['aiitemcreatorid'] = _.sample([2, 7, 8, 13]);
                     agenda_items.push(seed_ai);
                   });
-                  console.log("|\\---/|");
-                  console.log("| o_o |");
-                  console.log(" \\_^_/");
-                  console.log(agenda_items);
                   return knex.batchInsert('agendaitems', agenda_items, 500);
               });
             });
