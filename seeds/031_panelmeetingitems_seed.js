@@ -9,14 +9,15 @@ exports.seed = function(knex) {
         .then(PMs => {
           return knex.select('miccode').from('panelmeetingitemcategories')
             .then(MICs => {
-              return knex.select('mdtcode').from('panelmeetingdates')
+              return knex.select().from('panelmeetingdates')
                 .then(MDTs => {
                   const panel_meeting_items = [];
                   let pmiseqnum = 0;
                   const aoCdoPerdets = [2, 7, 8, 13];
                   PMs.forEach(pm => {
                       let pmseqnum = pm.pmseqnum;
-                      let pmddttm = _.find(MDTs, { 'pmseqnum': pmseqnum })['pmddttm'] || null;
+                      const pmddttm = _.find(MDTs, { 'pmseqnum': pmseqnum, 'mdtcode': 'MEET' })
+                    const pmddttm$ = pmddttm['pmddttm'];
                       let mic = _.sample(MICs);
                       // 15-20 pmi per pmseqnum; 60 for pmiseqnum=60
                       let numOfPMIs = randomIntInclusive(15, 20);
