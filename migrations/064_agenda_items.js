@@ -4,7 +4,7 @@ exports.up = function(knex) {
         table.integer('aiseqnum').primary()
 
         table.integer('pmiseqnum')
-         table.string('aiscode')
+        table.string('aiscode')
         table.foreign('pmiseqnum').references('panelmeetingitems.pmiseqnum')
         table.foreign('aiscode').references('agendaitemstatuses.aiscode')
 
