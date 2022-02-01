@@ -38,6 +38,7 @@ exports.seed = function(knex) {
                       latcode: lat.latcode,
 
                       cpid: ap.cp_id,
+                      asgdrevisionnum: null,
                       posseqnum: _.find(positions, ['position', ap.position])['pos_seq_num'],
                       empseqnbr: empseqnbr,
                       perdetseqnum: perdetseqnum,

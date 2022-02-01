@@ -4,18 +4,15 @@ exports.up = function(knex) {
             table.integer('asgd_code').primary()
 
             table.integer('asgseqnum')
-            table.string('asgscode')
+            table.integer('ailseqnum')
+            table.foreign('asgseqnum').references('assignments.asg_seq_num')
+            table.foreign('ailseqnum').references('agendaitemlegs.ailseqnum')
+
+
             table.string('latcode')
             table.string('todcode')
-            table.integer('ailseqnum')
             table.string('orgcode')
-            table.foreign('asgseqnum').references('assignments.asg_seq_num')
-            table.foreign('asgscode').references('assignments.asgs_code')
-            table.foreign('latcode').references('legactiontype.latcode')
-            table.foreign('todcode').references('tourofduties.code')
-            table.foreign('ailseqnum').references('agendaitemlegs.ailseqnum')
-            table.foreign('orgcode').references('organizaions.code')
-
+            table.string('asgscode')
             table.integer('asgdrevisionnum')
             table.string('asgdtodothertext')
             table.integer('asgdtodmonthsnum')

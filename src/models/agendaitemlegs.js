@@ -16,10 +16,6 @@ const AgendaItemLegs = bookshelf.model('AgendaItemLegs', {
   latcode() {
     return this.belongsTo('LegActionType', 'latcode')
   },
-  // should i pull this out of assignments and into assignment details?
-  asgdrevisionnum() {
-    return this.belongsTo('assignments', 'asgd_revision_num')
-  },
 })
 
 module.exports = AgendaItemLegs
