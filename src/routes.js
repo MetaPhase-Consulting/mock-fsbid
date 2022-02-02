@@ -725,9 +725,6 @@ var appRouter = function (app) {
   })
 
   app.get('/v1/agendaItems', async function(req, res) { // singleton
-    console.log("|\\---/|");
-    console.log("| o_o |");
-    console.log(" \\_^_/");
     const { query } = req; // aiseqnum|eq|226661|
     const filter = _.get(query, "['rp.filter']", '').split('|')
     const column = filter[0];
