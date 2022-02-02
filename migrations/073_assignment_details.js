@@ -1,7 +1,7 @@
 exports.up = function(knex) {
     return knex.schema
         .createTable('assignmentdetails', function(table) {
-            table.integer('asgd_code').primary()
+            table.increments('asgd_code').primary()
 
             table.integer('asgseqnum')
             table.integer('ailseqnum')

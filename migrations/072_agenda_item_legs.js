@@ -10,7 +10,7 @@ exports.up = function(knex) {
       table.foreign('aiseqnum').references('agendaitems.aiseqnum')
       table.foreign('cpid').references('availablepositions.cp_id')
       table.foreign('todcode').references('tourofduties.code')
-      table.foreign('latcode').references('legactiontype.latcode')
+      table.foreign('latcode').references('legactiontypes.latcode')
 
       table.integer('asgdrevisionnum')
       table.integer('posseqnum')
