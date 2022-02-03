@@ -785,10 +785,10 @@ const get_v3_persons_agenda_items = async query => {
               position: [
                 {
                   posseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
-                  posorgshortdesc: "OIG/EX",
-                  posnumtext: "S0000196",
-                  posgradecode: "00",
-                  postitledesc: "CHIEF, PROJECT MANAGEMENT AND"
+                  posorgshortdesc: assignmentInfo.currentAssignment.currentPosition.pos_bureau_short_desc,
+                  posnumtext: assignmentInfo.currentAssignment.currentPosition.pos_num_text,
+                  posgradecode: assignmentInfo.currentAssignment.currentPosition.pos_grade_code,
+                  postitledesc: assignmentInfo.currentAssignment.currentPosition.pos_title_desc,
                 }
               ],
               latestAgendaItem: agendaInfo,
