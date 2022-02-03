@@ -4,6 +4,7 @@ const futureVacancies = require('./services/futurevacancies')
 const availablePositions = require('./services/availablepositions')
 const availableBidders = require('./services/availablebidders')
 const employees = require('./services/employees')
+const agendas = require('./services/agendas')
 const positions = require('./services/positions')
 const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
@@ -725,20 +726,25 @@ var appRouter = function (app) {
   })
 
   app.get('/v1/agendaItems', async function(req, res) { // singleton
-    const { query } = req; // aiseqnum|eq|226661|
-    const filter = _.get(query, "['rp.filter']", '').split('|')
-    const column = filter[0];
-    const value= filter[2]
-    let ais$ = ais;
-    if (column && value) {
-      ais$ = ais$.filter(f => `${f[column]}` === value);
+    try {
+      const { query } = req; // aiseqnum|eq|226661|
+      const filter = _.get(query, "['rp.filter']", '').split('|')
+      const column = filter[0];
+      const value= filter[2]
+      let ais = await agendas.getAgendaItems()
+      if (column && value) {
+        ais = ais.filter(f => `${f[column]}` === value);
+      }
+      res.status(200).send({
+        Data: ais,
+        usl_id: 0,
+        return_code: 0
+      })
+
+    } catch {
+      console.error('Error grabbing Agenda Items')
+      res.status(200).send({ Data: null, return_code: -1 })
     }
-    ais$ = ais$.map(m => ({ aiseqnum: m.aiseqnum })) // only return aiseqnum
-    res.status(200).send({
-      Data: ais$,
-      usl_id: 0,
-      return_code: 0
-    })
   })
 };
 
