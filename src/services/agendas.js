@@ -1,17 +1,24 @@
 const _ = require('lodash')
 const { AgendaItems } = require('../models')
 
-const getAgendas = async (perdet, onlyLatest) => {
+const getAgendas = async (empData) => {
   try {
+    const perdets = empData.map(e => e.perdet_seq_num);
     const data = await AgendaItems.query(qb => {
-      if (perdet) {
-        qb.where('agendaitems.perdetseqnum', perdet)
+      if (Array.isArray(perdets)) {
+        //grab only a single AI per perdet for all users
+        qb.where('perdetseqnum', "in", perdets)
+          .distinctOn('perdetseqnum')
+      } else {
+          qb.where('perdetseqnum', perdets)
+            .distinctOn('perdetseqnum')
       }
-    }).fetchPage({
-      require: false,
-      pageSize: onlyLatest ? 1 : 25,
-      page: 1,
     })
+    .fetchPage({
+      page: 1,
+      require: false,
+    })
+
     return data.serialize()
   } catch (Error) {
     console.error(Error)

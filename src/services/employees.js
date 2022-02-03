@@ -1,4 +1,4 @@
-const { get, isArray } = require('lodash');
+const { find, isArray } = require('lodash');
 const _ = require('lodash');
 const { Employees, Assignments, Classifications, EmployeesClassifications } = require('../models')
 const { addOrderBy } = require('./common.js')
@@ -745,7 +745,7 @@ const get_v3_persons = async query => {
 const get_v3_persons_agenda_items = async query => {
   try {
     const data = await get_paged_employees_by_query(query, get_persons_filters)
-    // const getAgendas = await agendas.getAgendas(data)
+    const getAgendas = await agendas.getAgendas(data)
     const mapData = Promise.all(data.map(async (emp) => {
         const {
           roles = [],
@@ -756,7 +756,7 @@ const get_v3_persons_agenda_items = async query => {
           languages = [],
         } = emp
         let assignmentInfo = getAssignment(currentassignment, true)
-        let agendaInfo = await agendas.getAgendas(emp.perdet_seq_num, true)
+        // let agendaInfo = await agendas.getAgendas(data)
         const res = {
           perpiifirstname: emp.first_name,
           perpiilastname: emp.last_name,
@@ -791,7 +791,9 @@ const get_v3_persons_agenda_items = async query => {
                   postitledesc: assignmentInfo.currentAssignment.currentPosition.pos_title_desc,
                 }
               ],
-              latestAgendaItem: agendaInfo,
+              latestAgendaItem: getAgendas ?
+                _.find(getAgendas, ['perdetseqnum', emp.perdet_seq_num])
+                : {},
             }
           ] : [],
           handshake: [],
