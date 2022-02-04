@@ -35,6 +35,7 @@ const PanelMeetingDateTypes = require('./panelmeetingdatetypes')
 const PanelMeetingItemCategories = require('./panelmeetingitemcategories')
 const PanelMeetingStatuses = require('./panelmeetingstatuses')
 const PanelMeetingTypes = require('./panelmeetingtypes')
+const AssignmentDetails = require('./assignmentdetails.js')
 
 
 module.exports = {
@@ -75,4 +76,5 @@ module.exports = {
   PanelMeetingItemCategories,
   PanelMeetingStatuses,
   PanelMeetingTypes,
+  AssignmentDetails,
 }

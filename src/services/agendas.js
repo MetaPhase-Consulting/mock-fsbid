@@ -1,13 +1,5 @@
 const _ = require('lodash')
-const { AgendaItems } = require('../models')
-
-const get_agendas_query = () => {
-  return AgendaItems.query(qb => {
-    qb.join('agendaitemlegs', 'agendaitems.aiseqnum', 'agendaitemlegs.aiseqnum')
-  })
-}
-
-
+const { AgendaItems, AgendaItemLegs, AssignmentDetails, AgendaItemRemarks, PanelMeetings } = require('../models')
 
 const getAgendas = async (empData) => {
   try {
@@ -21,12 +13,7 @@ const getAgendas = async (empData) => {
           qb.where('perdetseqnum', perdets)
             .distinctOn('perdetseqnum')
       }
-    })
-    .fetchPage({
-      page: 1,
-      require: false,
-    })
-
+    }).fetchAll()
     return data.serialize()
   } catch (Error) {
     console.error(Error)
@@ -36,84 +23,129 @@ const getAgendas = async (empData) => {
 
 const getAgendaItems = async () => {
   try {
-    const data = await get_agendas_query()
-    .fetchPage({
-      pageSize: 100,
-      page: 1,
+// 🧠 grab AIs with PMI
+    let ai_pmiData = await AgendaItems.query(qb => {
+      qb.join('panelmeetingitems', 'agendaitems.pmiseqnum', 'panelmeetingitems.pmiseqnum')
+    }).fetchPage({
+        withRelated: ['pmiseqnum'],
+        pageSize: 5, //TODO: update after building ⭕
+        page: 1,
+        require: false,
+      })
+    ai_pmiData = ai_pmiData.serialize()
+    const aiSeqNums = ai_pmiData.map(e => e.aiseqnum);
+    const pmSeqNums = _.uniq(ai_pmiData.map(e => e.pmiseqnum.pmseqnum));
+
+// 🧠  for each AI grab all the AILs that match the aiseqnum
+    let ailData = await AgendaItemLegs.query(qb => {
+      if (Array.isArray(aiSeqNums)) {
+        qb.where('aiseqnum', "in", aiSeqNums)
+      } else {
+        qb.where('aiseqnum', aiSeqNums)
+      }
+    }).fetchAll()
+    ailData = ailData.serialize()
+    const ailSeqNums = ailData.map(e => e.ailseqnum);
+
+// 🧠  for each AI grab all the AIRs that have the same aiseqnum
+    let airData = await AgendaItemRemarks.query(qb => {
+      if (Array.isArray(aiSeqNums)) {
+        qb.where('aiseqnum', "in", aiSeqNums)
+      } else {
+        qb.where('aiseqnum', aiSeqNums)
+      }
+    }).fetchAll()
+    airData = airData.serialize()
+
+// 🧠 for each AIL grab the AGSD with the same ailseqnum
+    let asgdData = await AssignmentDetails.query(qb => {
+      if (Array.isArray(ailSeqNums)) {
+        qb.where('ailseqnum', "in", ailSeqNums)
+      } else {
+        qb.where('ailseqnum', ailSeqNums)
+      }
+    }).fetchAll()
+    asgdData = asgdData.serialize()
+
+// 🧠 for each unique PMI pmseqnum, grab the PM with the same pmseqnum
+// with related on pmscode and pmtcode
+    let pmData = await PanelMeetings.query(qb => {
+      if (Array.isArray(pmSeqNums)) {
+        qb.where('pmseqnum', "in", pmSeqNums)
+        qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
+        qb.join('panelmeetingtypes', 'panelmeetings.pmtcode', 'panelmeetingtypes.pmtcode')
+      } else {
+        qb.where('pmseqnum', pmSeqNums)
+        qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
+        qb.join('panelmeetingtypes', 'panelmeetings.pmtcode', 'panelmeetingtypes.pmtcode')
+      }
+    }).fetchAll({
+      withRelated: ['pmscode', 'pmtcode'],
       require: false,
     })
-    const data$ = data.serialize()
-    const res = data$.map(d => {
+    pmData = pmData.serialize()
+
+
+    const res = ai_pmiData.map(ai => {
+      const pmi = ai.pmiseqnum;
+      const remarks = _.filter(airData, ['aiseqnum',  ai.aiseqnum]);
+      const pm = _.filter(pmData, ['pmseqnum',  pmi.pmseqnum]);
+      const ails = _.filter(ailData, ['aiseqnum',  ai.aiseqnum]);
+      console.log('🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄')
+      console.log(ails)
+      console.log('🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄')
       const ret = {
-        aiseqnum: d.aiseqnum,
-        aicorrectiontext: d.aicorrectiontext,
-        // aicombinedremarktext: "we dont really want this",
-        aicombinedtodothertext: d.aicombinedtodothertext,
-        aitodcode: d.todcode,
-        aitoddesctext: d.toddesctext,
-        //sophie
-        aiasgseqnum: null,
-        aiasgdrevisionnum: null,
-        aiperdetseqnum: 416657,
-        aipmiseqnum: 236,
-        aiitemcreatorid: null,
-        aiupdateid: 1,
-        aisdesctext: "Approved",
-        rnum: 20,
-        agendaAssignment: [],
-        agendaLegs: [
-          {
-          ailaiseqnum: 236,
-          aillatcode: "E",
-          ailtfcd: "8150",
-          ailcpid: null,
-          ailperdetseqnum: null,
-          ailseqnum: 282,
-          ailposseqnum: 42658,
-          ailtodcode: "X",
-          ailtodmonthsnum: 6,
-          ailtodothertext: "six months                                                  ",
-          ailetadate: "2004-09-01T00:00:00",
-          ailetdtedsepdate: "2005-03-01T00:00:00",
-          aildsccd: null,
-          ailcitytext: "                                        ",
-          ailcountrystatetext: "                         ",
-          ailusind: " ",
-          ailasgseqnum: 153256,
-          ailasgdrevisionnum: 1,
-          ailsepseqnum: null,
-          ailsepdrevisionnum: null,
-          latabbrdesctext: "Reassign",
-          latdesctext: "Reassign",
-          agendaLegAssignment: [
-            {
-              asgposseqnum: 42658,
-              asgdasgseqnum: 153256,
-              asgdrevisionnum: 1,
-              asgdasgscode: "AP",
-              asgdetadate: "2004-09-01T00:00:00",
-              asgdetdteddate: "2005-03-01T00:00:00",
-              asgdtoddesctext: "OTHER",
-              position: [
-                {
-                  posseqnum: 42658,
-                  posorgshortdesc: "GTM/FSSI",
-                  posnumtext: "S0000209",
-                  posgradecode: "00",
-                  postitledesc: "Spcl Coordinator for Democracy"
-                }
-              ]
-            }
-          ]
-        }
-        ]
+        aiseqnum: ai.aiseqnum,
+        aicorrectiontext: ai.aicorrectiontext,
+        aicombinedtodothertext: ai.aicombinedtodothertext,
+        aitodcode: ai.todcode,
+        aitoddesctext: ai.toddesctext,
+        aiperdetseqnum: ai.perdetseqnum,
+        aipmiseqnum: pmi.pmiseqnum,
+        aiitemcreatorid: ai.aiitemcreatorid,
+        aiupdateid: ai.aiupdateid,
+        Panel: [{
+          pmseqnum: pm.pmseqnum,
+          pmpmscode: pm.pmscode,
+          pmiseqnum: pmi.pmiseqnum,
+          pmimiccode: pmi.miccode,
+          pmsdesctext: 'sophie',
+          pmdmdtcode: 'sophie',
+          pmddttm: 'sophie',
+          micdesctext: 'sophie',
+        }],
+        agendaAssignment: ['sophie'],
+        remarks: remarks.map(r => {
+          return {
+            airaiseqnum: r.aiseqnum,
+            airrmrkseqnum: r.rmrkseqnum,
+            airremarktext: r.airremarktext
+          }
+        }),
+        creators: ['sophie'],
+        updaters: [],
+        agendaLegs: ails.map(l => {
+          return {
+            ailaiseqnum: l.aiseqnum,
+            ailseqnum: l.ailseqnum,
+            aillatcode: l.latcode,
+            ailcpid: l.cpid,
+            ailtodcode: l.todcode,
+            ailposseqnum: l.posseqnum,
+            ailperdetseqnum: l.perdetseqnum,
+            ailtodmonthsnum: l.ailtodmonthsnum,
+            ailtodothertext: l.ailtodothertext,
+            ailetadate: l.ailetadate,
+            ailetdtedsepdate: l.ailetdtedsepdate,
+            ailcitytext: l.ailcitytext,
+            ailcountrystatetext: l.ailcountrystatetext,
+            ailasgseqnum: l.asgseqnum,
+          }
+        }),
       }
       return ret
     })
 
-    console.log("++++++++++++++++++++")
-    console.log(res);
-    console.log("++++++++++++++++++++")
     return res
   } catch (Error) {
     console.error(Error)
