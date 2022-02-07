@@ -717,9 +717,10 @@ var appRouter = function (app) {
     if (!req.params.id) {
       next();
     }
-    const ai$ = ais.filter(f => `${f.aiseqnum}` === req.params.id)
+    let ai = await agendas.getAgendaItems(req.params.id)
+
     res.status(200).send({
-      Data: ai$,
+      Data: ai,
       usl_id: 0,
       return_code: 0
     })

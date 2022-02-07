@@ -1,7 +1,8 @@
 const { readJson } = require('../../seeds/data/helpers')
 const _ = require('lodash')
-const { AgendaItems, AgendaItemLegs, AssignmentDetails, AgendaItemRemarks, PanelMeetings, PanelMeetingDates } = require('../models')
+const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, PanelMeetings, PanelMeetingDates } = require('../models')
 const PMIC = readJson('./panelmeetingitemcategories.json')
+const BUR = readJson('./bureaus.json')
 
 const getAgendas = async (empData) => {
   try {
@@ -23,14 +24,17 @@ const getAgendas = async (empData) => {
   }
 }
 
-const getAgendaItems = async () => {
+const getAgendaItems = async (ai_id) => {
   try {
-// 🧠 grab AIs with PMI
+// grab AIs with PMI
     let ai_pmiData = await AgendaItems.query(qb => {
       qb.join('panelmeetingitems', 'agendaitems.pmiseqnum', 'panelmeetingitems.pmiseqnum')
+      if(ai_id) {
+        qb.where('aiseqnum', '=', ai_id);
+      }
     }).fetchPage({
         withRelated: ['pmiseqnum'],
-        pageSize: 5, //TODO: update after building ⭕
+        pageSize: ai_id ? 1 : 50,
         page: 1,
         require: false,
       })
@@ -38,7 +42,7 @@ const getAgendaItems = async () => {
     const aiSeqNums = ai_pmiData.map(e => e.aiseqnum);
     const pmSeqNums = _.uniq(ai_pmiData.map(e => e.pmiseqnum.pmseqnum));
 
-// 🧠  for each AI grab all the AILs that match the aiseqnum
+// for each AI grab all the AILs that match the aiseqnum
     let ailData = await AgendaItemLegs.query(qb => {
       qb.join('availablepositions', 'agendaitemlegs.cpid', 'availablepositions.cp_id')
       qb.join('legactiontypes', 'agendaitemlegs.latcode', 'legactiontypes.latcode')
@@ -53,7 +57,7 @@ const getAgendaItems = async () => {
     ailData = ailData.serialize()
     const ailSeqNums = ailData.map(e => e.ailseqnum);
 
-// 🧠  for each AI grab all the AIRs that have the same aiseqnum
+// for each AI grab all the AIRs that have the same aiseqnum
     let airData = await AgendaItemRemarks.query(qb => {
       if (Array.isArray(aiSeqNums)) {
         qb.where('aiseqnum', "in", aiSeqNums)
@@ -63,7 +67,7 @@ const getAgendaItems = async () => {
     }).fetchAll()
     airData = airData.serialize()
 
-// 🧠 for each AIL grab the AGSD with the same ailseqnum
+// for each AIL grab the AGSD with the same ailseqnum
     let asgdData = await AssignmentDetails.query(qb => {
       if (Array.isArray(ailSeqNums)) {
         qb.where('ailseqnum', "in", ailSeqNums)
@@ -72,8 +76,22 @@ const getAgendaItems = async () => {
       }
     }).fetchAll()
     asgdData = asgdData.serialize()
+    const asgSeqNums = asgdData.map(e => e.asgseqnum);
 
-// 🧠 for each unique PMI pmseqnum, grab the PM with the same pmseqnum
+    // for each ASGD grab the ASG with the same asg_seq_num
+    let asg_posData = await Assignments.query(qb => {
+      qb.join('positions', 'assignments.pos_seq_num', 'positions.pos_seq_num')
+      if (Array.isArray(asgSeqNums)) {
+        qb.where('asg_seq_num', "in", asgSeqNums)
+      } else {
+        qb.where('asg_seq_num', asgSeqNums)
+      }
+    }).fetchAll(
+      {withRelated: ['position'],}
+    )
+    asg_posData = asg_posData.serialize()
+
+// for each unique PMI pmseqnum, grab the PM with the same pmseqnum
 // with related on pmscode and pmtcode
     let pmData = await PanelMeetings.query(qb => {
       if (Array.isArray(pmSeqNums)) {
@@ -92,7 +110,7 @@ const getAgendaItems = async () => {
     pmData = pmData.serialize()
 
 
-// 🧠 for each pmseqnum, grab the PMDT with the same pmseqnum
+// for each pmseqnum, grab the PMDT with the same pmseqnum
     let pmdtData = await PanelMeetingDates.query(qb => {
       if (Array.isArray(pmSeqNums)) {
         qb.where('pmseqnum', "in", pmSeqNums)
@@ -112,9 +130,64 @@ const getAgendaItems = async () => {
       const pmdt = _.filter(pmdtData, ['pmseqnum',  pmi.pmseqnum])[0];
       const pms = pm.pmscode;
       const ails = _.filter(ailData, ['aiseqnum',  ai.aiseqnum]);
-      console.log('🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄')
-      console.log(ails)
-      console.log('🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄')
+      // const ailSeqNums = ails.map(e => e.ailseqnum);
+      // const asgds = _.filter(asgdData, function(o) { return _.includes(ailSeqNums, o.ailseqnum); });
+
+      const agendaLegs = ails.map(l => {
+        const lat = l.latcode;
+        const asgd = _.filter(asgdData, {'ailseqnum': l.ailseqnum})[0];
+        const as = _.filter(asg_posData, {'asg_seq_num': asgd.asgseqnum})[0];
+        const pos = _.get(as, 'position') || null;
+        delete as.position
+
+        const position = {
+          posseqnum: _.get(pos, 'pos_seq_num'),
+          posorgshortdesc: _.get(pos, 'bureau') ?
+            _.find(BUR, ['bur', _.get(pos, 'bureau')])['bureau_short_desc'] : null,
+          posnumtext: _.get(pos, 'position'),
+          posgradecode: _.get(pos, 'pos_grade_code'),
+          postitledesc: _.get(pos, 'pos_title_desc'),
+        };
+
+        return {
+          ailaiseqnum: l.aiseqnum,
+          ailseqnum: l.ailseqnum,
+          aillatcode: lat.latcode,
+          ailcpid: l.cpid,
+          ailtodcode: l.todcode,
+          ailposseqnum: l.posseqnum,
+          ailperdetseqnum: l.perdetseqnum,
+          ailtodmonthsnum: l.ailtodmonthsnum,
+          ailtodothertext: l.ailtodothertext,
+          ailetadate: l.ailetadate,
+          ailetdtedsepdate: l.ailetdtedsepdate,
+          ailcitytext: l.ailcitytext,
+          ailcountrystatetext: l.ailcountrystatetext,
+          ailasgseqnum: l.asgseqnum,
+          ailasgdrevisionnum: l.asgdrevisionnum,
+          latabbrdesctext: lat.latabbredesctext,
+          latdesctext: lat.latdesctext,
+          agendaLegAssignment: [
+            {
+              asgposseqnum: as.pos_seq_num,
+              asgdasgseqnum: asgd.asgseqnum,
+              asgdrevisionnum: asgd.asgdrevisionnum,
+              asgdasgscode: as.asgs_code,
+              asgdetadate: asgd.asgdetadate,
+              asgdetdteddate: asgd.asgdetdteddate,
+              asgdtoddesctext: asgd.asgdtodothertext,
+              position: [
+                position
+              ]
+            }
+          ],
+          agendaLegPosition: [
+            position
+          ]
+        }
+      });
+
+
       const ret = {
         aiseqnum: ai.aiseqnum,
         aicorrectiontext: ai.aicorrectiontext,
@@ -135,9 +208,7 @@ const getAgendaItems = async () => {
           pmddttm: pmdt.pmddttm,
           micdesctext: _.find(PMIC, ['miccode', pmi.miccode])['micdesctext'],
         }],
-        agendaAssignment: [
-          // same as agendaLegs[0].agendaLegAssignment
-          'sophie'],
+        agendaAssignment: [_.get(agendaLegs, '[0].agendaLegPosition')],
         remarks: remarks.map(r => {
           return {
             airaiseqnum: r.aiseqnum,
@@ -145,61 +216,23 @@ const getAgendaItems = async () => {
             airremarktext: r.airremarktext
           }
         }),
-        creators: ['sophie'], // ⭕check if dev1 ever returns this
+        creators: [], // ⭕check if dev1 ever returns this
         updaters: [],
-        agendaLegs: ails.map(l => {
-          const lat = l.latcode;
-          return {
-            ailaiseqnum: l.aiseqnum,
-            ailseqnum: l.ailseqnum,
-            aillatcode: lat.latcode,
-            ailcpid: l.cpid,
-            ailtodcode: l.todcode,
-            ailposseqnum: l.posseqnum,
-            ailperdetseqnum: l.perdetseqnum,
-            ailtodmonthsnum: l.ailtodmonthsnum,
-            ailtodothertext: l.ailtodothertext,
-            ailetadate: l.ailetadate,
-            ailetdtedsepdate: l.ailetdtedsepdate,
-            ailcitytext: l.ailcitytext,
-            ailcountrystatetext: l.ailcountrystatetext,
-            ailasgseqnum: l.asgseqnum,
-            ailasgdrevisionnum: l.asgdrevisionnum,
-            latabbrdesctext: lat.latabbredesctext,
-            latdesctext: lat.latdesctext,
-            agendaLegAssignment: [
-              {
-                "asgposseqnum": 8463, //sophie
-                "asgdasgseqnum": 134641, //assignmentdetails.asgseqnum
-                "asgdrevisionnum": 1, //assignemntdetails.asgdrevisionnum
-                "asgdasgscode": "EF", //assignments.asgs_code
-                "asgdetadate": "2003-02-01T00:00:00", //assingmentdetails.asgdetadate
-                "asgdetdteddate": "2005-08-01T00:00:00", //assingmentdetails.asgdetdteddate
-                "asgdtoddesctext": "OTHER", //assignmentdetails.asgdtodothertext
-                "position": [
-                  {
-                    "posseqnum": 8463, //positions
-                    "posorgshortdesc": "DS/FLD/CFO", //position.pos_bureau_short_desc
-                    "posnumtext": "S7874101", //positions.bureau -> lookup on bureau
-                    "posgradecode": "04",  //positions.pos_grade_code
-                    "postitledesc": "EDUCATION ASSISTANT" //position.pos_title_desc
-                  }
-                ]
-              }
-            ],
-            agendaLegPosition: [
-              {
-                // same as agendaLegAssignment.position
-                "posseqnum": 8463,
-                "posorgshortdesc": "DS/FLD/CFO",
-                "posnumtext": "S7874101",
-                "posgradecode": "04",
-                "postitledesc": "EDUCATION ASSISTANT"
-              }
-            ]
-          }
-        }),
+        agendaLegs: agendaLegs
       }
+
+      //remove extra data
+      if(!ai_id){
+        delete ret['Panel']
+        delete ret['remarks']
+        delete ret['creators']
+        delete ret['updaters']
+        ret.agendaLegs.forEach(l => {
+          delete l['agendaLegAssignment']
+          delete l['agendaLegPosition']
+        })
+      }
+
       return ret
     })
 
