@@ -130,8 +130,6 @@ const getAgendaItems = async (ai_id) => {
       const pmdt = _.filter(pmdtData, ['pmseqnum',  pmi.pmseqnum])[0];
       const pms = pm.pmscode;
       const ails = _.filter(ailData, ['aiseqnum',  ai.aiseqnum]);
-      // const ailSeqNums = ails.map(e => e.ailseqnum);
-      // const asgds = _.filter(asgdData, function(o) { return _.includes(ailSeqNums, o.ailseqnum); });
 
       const agendaLegs = ails.map(l => {
         const lat = l.latcode;
@@ -216,7 +214,7 @@ const getAgendaItems = async (ai_id) => {
             airremarktext: r.airremarktext
           }
         }),
-        creators: [], // ⭕check if dev1 ever returns this
+        creators: [],
         updaters: [],
         agendaLegs: agendaLegs
       }
