@@ -1,5 +1,7 @@
+const { readJson } = require('../../seeds/data/helpers')
 const _ = require('lodash')
-const { AgendaItems, AgendaItemLegs, AssignmentDetails, AgendaItemRemarks, PanelMeetings } = require('../models')
+const { AgendaItems, AgendaItemLegs, AssignmentDetails, AgendaItemRemarks, PanelMeetings, PanelMeetingDates } = require('../models')
+const PMIC = readJson('./panelmeetingitemcategories.json')
 
 const getAgendas = async (empData) => {
   try {
@@ -38,12 +40,16 @@ const getAgendaItems = async () => {
 
 // 🧠  for each AI grab all the AILs that match the aiseqnum
     let ailData = await AgendaItemLegs.query(qb => {
+      qb.join('availablepositions', 'agendaitemlegs.cpid', 'availablepositions.cp_id')
+      qb.join('legactiontypes', 'agendaitemlegs.latcode', 'legactiontypes.latcode')
       if (Array.isArray(aiSeqNums)) {
         qb.where('aiseqnum', "in", aiSeqNums)
       } else {
         qb.where('aiseqnum', aiSeqNums)
       }
-    }).fetchAll()
+    }).fetchAll({
+      withRelated: ['cpid', 'latcode'],
+    })
     ailData = ailData.serialize()
     const ailSeqNums = ailData.map(e => e.ailseqnum);
 
@@ -86,10 +92,25 @@ const getAgendaItems = async () => {
     pmData = pmData.serialize()
 
 
+// 🧠 for each pmseqnum, grab the PMDT with the same pmseqnum
+    let pmdtData = await PanelMeetingDates.query(qb => {
+      if (Array.isArray(pmSeqNums)) {
+        qb.where('pmseqnum', "in", pmSeqNums)
+      } else {
+        qb.where('pmseqnum', pmSeqNums)
+      }
+    }).fetchAll({
+      require: false,
+    })
+    pmdtData = pmdtData.serialize()
+
+
     const res = ai_pmiData.map(ai => {
       const pmi = ai.pmiseqnum;
       const remarks = _.filter(airData, ['aiseqnum',  ai.aiseqnum]);
-      const pm = _.filter(pmData, ['pmseqnum',  pmi.pmseqnum]);
+      const pm = _.filter(pmData, ['pmseqnum',  pmi.pmseqnum])[0];
+      const pmdt = _.filter(pmdtData, ['pmseqnum',  pmi.pmseqnum])[0];
+      const pms = pm.pmscode;
       const ails = _.filter(ailData, ['aiseqnum',  ai.aiseqnum]);
       console.log('🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄')
       console.log(ails)
@@ -106,15 +127,17 @@ const getAgendaItems = async () => {
         aiupdateid: ai.aiupdateid,
         Panel: [{
           pmseqnum: pm.pmseqnum,
-          pmpmscode: pm.pmscode,
+          pmpmscode: pms.pmscode,
           pmiseqnum: pmi.pmiseqnum,
           pmimiccode: pmi.miccode,
-          pmsdesctext: 'sophie',
-          pmdmdtcode: 'sophie',
-          pmddttm: 'sophie',
-          micdesctext: 'sophie',
+          pmsdesctext: pms.pmsdesctext,
+          pmdmdtcode: pmdt.mdtcode,
+          pmddttm: pmdt.pmddttm,
+          micdesctext: _.find(PMIC, ['miccode', pmi.miccode])['micdesctext'],
         }],
-        agendaAssignment: ['sophie'],
+        agendaAssignment: [
+          // same as agendaLegs[0].agendaLegAssignment
+          'sophie'],
         remarks: remarks.map(r => {
           return {
             airaiseqnum: r.aiseqnum,
@@ -122,13 +145,14 @@ const getAgendaItems = async () => {
             airremarktext: r.airremarktext
           }
         }),
-        creators: ['sophie'],
+        creators: ['sophie'], // ⭕check if dev1 ever returns this
         updaters: [],
         agendaLegs: ails.map(l => {
+          const lat = l.latcode;
           return {
             ailaiseqnum: l.aiseqnum,
             ailseqnum: l.ailseqnum,
-            aillatcode: l.latcode,
+            aillatcode: lat.latcode,
             ailcpid: l.cpid,
             ailtodcode: l.todcode,
             ailposseqnum: l.posseqnum,
@@ -140,6 +164,39 @@ const getAgendaItems = async () => {
             ailcitytext: l.ailcitytext,
             ailcountrystatetext: l.ailcountrystatetext,
             ailasgseqnum: l.asgseqnum,
+            ailasgdrevisionnum: l.asgdrevisionnum,
+            latabbrdesctext: lat.latabbredesctext,
+            latdesctext: lat.latdesctext,
+            agendaLegAssignment: [
+              {
+                "asgposseqnum": 8463, //sophie
+                "asgdasgseqnum": 134641, //assignmentdetails.asgseqnum
+                "asgdrevisionnum": 1, //assignemntdetails.asgdrevisionnum
+                "asgdasgscode": "EF", //assignments.asgs_code
+                "asgdetadate": "2003-02-01T00:00:00", //assingmentdetails.asgdetadate
+                "asgdetdteddate": "2005-08-01T00:00:00", //assingmentdetails.asgdetdteddate
+                "asgdtoddesctext": "OTHER", //assignmentdetails.asgdtodothertext
+                "position": [
+                  {
+                    "posseqnum": 8463, //positions
+                    "posorgshortdesc": "DS/FLD/CFO", //position.pos_bureau_short_desc
+                    "posnumtext": "S7874101", //positions.bureau -> lookup on bureau
+                    "posgradecode": "04",  //positions.pos_grade_code
+                    "postitledesc": "EDUCATION ASSISTANT" //position.pos_title_desc
+                  }
+                ]
+              }
+            ],
+            agendaLegPosition: [
+              {
+                // same as agendaLegAssignment.position
+                "posseqnum": 8463,
+                "posorgshortdesc": "DS/FLD/CFO",
+                "posnumtext": "S7874101",
+                "posgradecode": "04",
+                "postitledesc": "EDUCATION ASSISTANT"
+              }
+            ]
           }
         }),
       }
