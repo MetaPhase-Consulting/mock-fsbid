@@ -1,0 +1,58 @@
+[
+{
+    "mdtcode": "ADD",
+    "mdtdesctext": "Addendum Cutoff",
+    "mdtincludetimeind": "Y",
+    "mdtuserinputind": "Y",
+    "mdtordernum": 3
+  },
+  {
+    "mdtcode": "COMP",
+    "mdtdesctext": "Agenda Completed Time",
+    "mdtincludetimeind": "Y",
+    "mdtuserinputind": "N",
+    "mdtordernum": 7
+  },
+  {
+    "mdtcode": "CUT",
+    "mdtdesctext": "Official Preliminary Cutoff",
+    "mdtincludetimeind": "Y",
+    "mdtuserinputind": "Y",
+    "mdtordernum": 2
+  },
+  {
+    "mdtcode": "MEET",
+    "mdtdesctext": "Panel Meeting Date",
+    "mdtincludetimeind": "Y",
+    "mdtuserinputind": "Y",
+    "mdtordernum": 1
+  },
+  {
+    "mdtcode": "OFF",
+    "mdtdesctext": "Official Preliminary Run Time",
+    "mdtincludetimeind": "Y",
+    "mdtuserinputind": "N",
+    "mdtordernum": 4
+  },
+  {
+    "mdtcode": "OFFA",
+    "mdtdesctext": "Official Addendum Run Time",
+    "mdtincludetimeind": "Y",
+    "mdtuserinputind": "N",
+    "mdtordernum": 5
+  },
+  {
+    "mdtcode": "POSS",
+    "mdtdesctext": " Post Panel Started",
+    "mdtincludetimeind": "Y",
+    "mdtuserinputind": "N",
+    "mdtordernum": 6
+  },
+  {
+    "mdtcode": "POST",
+    "mdtdesctext": " Post Panel Run Time",
+    "mdtincludetimeind": "Y",
+    "mdtuserinputind": "N",
+    "mdtordernum": 6
+  }
+]

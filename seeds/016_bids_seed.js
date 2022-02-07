@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex.raw('TRUNCATE TABLE bids CASCADE')
@@ -36,7 +38,30 @@ exports.seed = function(knex) {
                 })
               })
               // run in batches of 1000 to prevent 08P01 error
-              return knex.batchInsert('bids', bids, 1000)
+              return knex.batchInsert('bids', bids, 1000).then(() => {
+                let bidstats = []
+                bidstats = bids.filter(f => f.bs_cd === 'A')
+                bidstats = _.countBy(bidstats.map(m => m.cp_id));
+                const bidstats$ = _.keys(bidstats).map(k => {
+                  const cp_ttl_bidder_qty = bidstats[k];
+                  // generate some randomness that still makes sense numerically
+                  const cp_at_grd_qty = Math.floor(cp_ttl_bidder_qty / ((Math.random() * 3) + 1))
+                  const cp_in_cone_qty = Math.floor(cp_ttl_bidder_qty / ((Math.random() * 3) + 1))
+                  const cp_at_grd_in_cone_qty = Math.floor(cp_ttl_bidder_qty / ((Math.random() * 4) + 3))
+                  return {
+                    cp_id: k,
+                    cp_ttl_bidder_qty,
+                    cp_at_grd_qty,
+                    cp_in_cone_qty,
+                    cp_at_grd_in_cone_qty,
+                  }
+                })
+                // delete bid stats of ones we're about to generate
+                knex('bidstats').whereIn('cp_id', bidstats$.map(m => m.cp_id)).del()
+                  .then(() => {
+                    return knex.batchInsert('bidstats', bidstats$, 1000)
+                  })
+                });
             })
         })
     });
