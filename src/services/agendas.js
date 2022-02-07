@@ -24,13 +24,16 @@ const getAgendas = async (empData) => {
   }
 }
 
-const getAgendaItems = async (ai_id) => {
+const getAgendaItems = async (ai_id, perdet) => {
   try {
 // grab AIs with PMI
     let ai_pmiData = await AgendaItems.query(qb => {
       qb.join('panelmeetingitems', 'agendaitems.pmiseqnum', 'panelmeetingitems.pmiseqnum')
       if(ai_id) {
         qb.where('aiseqnum', '=', ai_id);
+      }
+      if(perdet) {
+        qb.where('perdetseqnum', '=', perdet);
       }
     }).fetchPage({
         withRelated: ['pmiseqnum'],
