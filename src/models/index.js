@@ -25,6 +25,7 @@ const CommuterPosts = require('./commuterposts.js')
 const LocationsCommuterPosts = require('./locationscommuterposts')
 const EmployeesClassifications = require('./employeesclassifications')
 const AgendaItemStatuses = require('./agendaitemstatuses')
+const PanelMeetingItemCategories = require('./panelmeetingitemcategories')
 
 module.exports = {
   Seasons,
@@ -54,4 +55,5 @@ module.exports = {
   LocationsCommuterPosts,
   EmployeesClassifications,
   AgendaItemStatuses,
+  PanelMeetingItemCategories,
 }

@@ -281,6 +281,7 @@ var appRouter = function (app) {
   app.get('/v1/references/skills', lookup(lookups.get_codes))
   app.get('/v1/references/Locations', lookup(lookups.get_locations))
   app.get('/v1/agendaItems/statuses', lookup(lookups.get_agenda_item_statuses))
+  app.get('/v1/panels/categories', lookup(lookups.get_panel_categories))
 
   app.get('/v1/fsbid/posts/attributes', async function(req, res) {
     // TODO - add all post attributes tables by query param
