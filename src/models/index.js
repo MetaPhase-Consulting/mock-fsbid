@@ -25,7 +25,9 @@ const CommuterPosts = require('./commuterposts.js')
 const LocationsCommuterPosts = require('./locationscommuterposts')
 const EmployeesClassifications = require('./employeesclassifications')
 const AgendaItemStatuses = require('./agendaitemstatuses')
-const PanelMeetingItemCategories = require('./panelmeetingitemcategories')
+const PanelMeetingItemCategories = require('./panelmeetingitemcategories') // TODO: 🔴 remove once PR 260 merges
+const PanelMeetings = require('./panelmeetings') // TODO: 🔴 remove once PR 260 merges
+const PanelMeetingDates = require('./panelmeetingdates') // TODO: 🔴 remove once PR 260 merges
 
 module.exports = {
   Seasons,
@@ -55,5 +57,7 @@ module.exports = {
   LocationsCommuterPosts,
   EmployeesClassifications,
   AgendaItemStatuses,
-  PanelMeetingItemCategories,
+  PanelMeetingItemCategories, // TODO: 🔴 remove once PR 260 merges
+  PanelMeetingDates, // TODO: 🔴 remove once PR 260 merges
+  PanelMeetings, // TODO: 🔴 remove once PR 260 merges
 }

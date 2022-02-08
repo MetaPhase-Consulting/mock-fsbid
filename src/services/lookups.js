@@ -59,15 +59,12 @@ const getCommuterPosts = CommuterPosts => async () => {
   }
 }
 
-const getPanelCategories = CommuterPosts => async () => {
+const getSome = (model, pickProps) => async () => {
   try {
-    const data = await PanelMeetingItemCategories.fetchAll()
+    const data = await model.fetchAll()
     const results = data.serialize().map(d => (
-      _.pick(d, ['miccode', 'micdesctext'])
+      _.pick(d, pickProps)
     ))
-    console.log("🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶");
-    console.log(results);
-    console.log("🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶");
     return { "Data": results, return_code: 0 }
   } catch (Error) {
     console.error(Error)
@@ -89,7 +86,7 @@ const get_postindicators = getAll(PostIndicators)
 const get_unaccompaniedstatuses = getAll(UnaccompaniedStatuses)
 const get_commuterposts = getCommuterPosts(CommuterPosts)
 const get_agenda_item_statuses = getAll(AgendaItemStatuses)
-const get_panel_categories = getPanelCategories(PanelMeetingItemCategories)
+const get_panel_categories = getSome(PanelMeetingItemCategories, ['miccode', 'micdesctext'])
 
 module.exports = {
   get_seasons,

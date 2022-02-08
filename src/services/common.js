@@ -316,4 +316,30 @@ const convertPostBodyToGetQuery = query => {
   return body$;
 }
 
-module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, convertPostBodyToGetQuery, formatLanguage, createPositionQuery, createTandemPositionQuery, formatCommuterPost }
+const convertTemplateFiltersCols = query => {
+    const queryFilterDict = {
+      EQ: "=",
+      IN: "="
+    }
+
+    const filsCols = {
+      columns: _.get(query, "['rp.columns']", '')
+    }
+
+    const filters = _.get(query, "['rp.filter']", '');
+
+    const filters$ = filters.map(f => {
+      const f$ = f.split('|');
+      return {
+        name: f$[0],
+        method: queryFilterDict[f$[1]],
+        value: f$[2]
+      };
+    })
+
+  filsCols['filters'] = filters$
+
+  return filsCols
+}
+
+module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, convertPostBodyToGetQuery, formatLanguage, createPositionQuery, createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols }

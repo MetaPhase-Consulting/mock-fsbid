@@ -14,6 +14,8 @@ const _ = require('lodash');
 const PDFDocument = require('pdfkit');
 const getStream = require('get-stream')
 
+const {  PanelMeetings, PanelMeetingDates } = require('./models') // TODO: 🔴 move to src/services/agendas.js once PR 260 merges
+
 var appRouter = function (app) {
   app.get("/", function(req, res) {
     res.status(200).send("Welcome to our restful API!");
@@ -737,6 +739,53 @@ var appRouter = function (app) {
     ais$ = ais$.map(m => ({ aiseqnum: m.aiseqnum })) // only return aiseqnum
     res.status(200).send({
       Data: ais$,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
+
+
+  // TODO: 🔴 move to src/services/agendas.js before this PR merges and after PR 260 does
+  const getPanelDates = async (filsCols) => {
+    try {
+      console.log("🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒");
+      // filter using filscols
+      console.log("🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒");
+      let pmdtData = await PanelMeetingDates.query(qb => {
+        qb.join('panelmeetings', 'panelmeetingdates.pmseqnum', 'panelmeetings.pmseqnum')
+        qb.where('mdtcode', '=', 'MEET');
+        qb.where('pmscode', '=', 'I');
+      }).fetchAll({
+        withRelated: ['pmseqnum'],
+        require: false,
+      })
+
+      pmdtData = pmdtData.serialize()
+
+      const pmdtData$ = pmdtData.map(pd => _.pick(pd, filsCols.columns))
+
+      return pmdtData$
+    } catch (Error) {
+      console.error(Error)
+      return null
+    }
+  }
+
+  app.get('/v1/panels/dates', async function(req, res) {
+    // it seems more than one filter filters as an AND - so results would have to match on both
+    const filsCols = common.convertTemplateFiltersCols(req.query)
+
+// for this EP, on our API, we want to send in, so be able to handle that here
+//     rp.filter: pmpmscode|IN|I|
+//     rp.filter: pmdmdtcode|EQ|MEET|
+//     rp.columns: pmdpmseqnum
+//     rp.columns: pmddttm
+
+    // let pmdt = await agendas.getPanelDates() //TODO: 🔴 update once PR 260 merges
+    let pmdt = await getPanelDates(filsCols);
+
+    res.status(200).send({
+      Data: pmdt,
       usl_id: 0,
       return_code: 0
     })
