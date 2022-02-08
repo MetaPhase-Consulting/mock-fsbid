@@ -58,7 +58,7 @@ async function get_bids_by_cp(query, excludeDraft = false) {
     let payload = {
       "per_seq_num": null,
       "perdet_seq_num": m.perdet_seq_num,
-      "full_name": `${m.per_last_name}, ${m.per_first_name}`,
+      "full_name": `${m.per_last_name}${m.per_suffix_name ? ` ${m.per_suffix_name}` : ''}, ${m.per_first_name}`,
       "org_short_desc": "ABIDJAN",
       "grade_code": m.per_grade_code,
       "skill_code": m.per_skill_code,
@@ -161,6 +161,7 @@ const formatData = (data, isCDO = true) => {
     let employeeProps = {
       per_first_name: _.get(data, 'employee.first_name'),
       per_last_name: _.get(data, 'employee.last_name'),
+      per_suffix_name: _.get(data, 'employee.suffix_name'),
       gal_smtp_email_address_text: _.get(data, 'employee.email'),
       per_grade_code: _.get(data, 'employee.grade_code'),
       per_grade_code: _.get(data, 'employee.grade_code'),

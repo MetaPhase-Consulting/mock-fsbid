@@ -133,7 +133,7 @@ const getCDOs = (manager) => {
   return {
     "hru_id": manager.hru_id ? `${manager.hru_id}` : null,
     "rl_cd": "CDO",
-    "cdo_fullname": `${manager.last_name} ${manager.suffix_name},${manager.first_name} ${manager.middle_name ? manager.middle_name : 'NMN'}`,
+    "cdo_fullname": `${manager.last_name}${manager.suffix_name ? ` ${manager.suffix_name}` : ''},${manager.first_name} ${manager.middle_name ? manager.middle_name : 'NMN'}`,
     "cdo_last_name": manager.last_name,
     "cdo_first_name": manager.first_name,
     "cdo_suffix_name": manager.suffix_name,
