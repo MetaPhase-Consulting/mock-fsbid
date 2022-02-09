@@ -748,13 +748,11 @@ var appRouter = function (app) {
   // TODO: 🔴 move to src/services/agendas.js before this PR merges and after PR 260 does
   const getPanelDates = async (filsCols) => {
     try {
-      console.log("🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒");
-      // filter using filscols
-      console.log("🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒");
       let pmdtData = await PanelMeetingDates.query(qb => {
         qb.join('panelmeetings', 'panelmeetingdates.pmseqnum', 'panelmeetings.pmseqnum')
-        qb.where('mdtcode', '=', 'MEET');
-        qb.where('pmscode', '=', 'I');
+        filsCols['filters'].map(fc => {
+          return qb.where(fc.name, fc.method, fc.value);
+        })
       }).fetchAll({
         withRelated: ['pmseqnum'],
         require: false,
@@ -762,9 +760,21 @@ var appRouter = function (app) {
 
       pmdtData = pmdtData.serialize()
 
-      const pmdtData$ = pmdtData.map(pd => _.pick(pd, filsCols.columns))
+      pmdtData = pmdtData.map(p => {
+        let pmseqnumNode = p['pmseqnum']
+        delete p['pmseqnum']
+        const merged = _.merge(pmseqnumNode, p)
 
-      return pmdtData$
+        const mapBackToWS = _.mapKeys(merged, function(value, key) {
+          return common.panelNameMapping(key, true);
+        })
+
+        return  mapBackToWS
+      })
+
+      const cols = filsCols['columns'].map(a => common.panelNameMapping(a, true))
+
+      return pmdtData.map(pd => _.pick(pd, cols))
     } catch (Error) {
       console.error(Error)
       return null
@@ -772,15 +782,7 @@ var appRouter = function (app) {
   }
 
   app.get('/v1/panels/dates', async function(req, res) {
-    // it seems more than one filter filters as an AND - so results would have to match on both
     const filsCols = common.convertTemplateFiltersCols(req.query)
-
-// for this EP, on our API, we want to send in, so be able to handle that here
-//     rp.filter: pmpmscode|IN|I|
-//     rp.filter: pmdmdtcode|EQ|MEET|
-//     rp.columns: pmdpmseqnum
-//     rp.columns: pmddttm
-
     // let pmdt = await agendas.getPanelDates() //TODO: 🔴 update once PR 260 merges
     let pmdt = await getPanelDates(filsCols);
 

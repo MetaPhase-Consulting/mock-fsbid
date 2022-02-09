@@ -316,30 +316,45 @@ const convertPostBodyToGetQuery = query => {
   return body$;
 }
 
+const panelNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    pmpmscode: 'pmscode',
+    pmdmdtcode: 'mdtcode',
+    pmdpmseqnum: 'pmseqnum'
+  };
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+  return _.get(colDictionary, val) || val
+}
+
 const convertTemplateFiltersCols = query => {
-    const queryFilterDict = {
-      EQ: "=",
-      IN: "="
-    }
+  const queryFilterDict = {
+    EQ: "=",
+    IN: "="
+  }
 
-    const filsCols = {
-      columns: _.get(query, "['rp.columns']", '')
-    }
+  const columns = _.get(query, "['rp.columns']", '').map(c => panelNameMapping(c));
+  const filters = _.get(query, "['rp.filter']", '').map(f => {
+    const f$ = f.split('|');
+    return {
+      name: panelNameMapping(f$[0]),
+      method: queryFilterDict[f$[1]],
+      value: f$[2]
+    };
+  })
 
-    const filters = _.get(query, "['rp.filter']", '');
-
-    const filters$ = filters.map(f => {
-      const f$ = f.split('|');
-      return {
-        name: f$[0],
-        method: queryFilterDict[f$[1]],
-        value: f$[2]
-      };
-    })
-
-  filsCols['filters'] = filters$
+  const filsCols = {
+    filters: filters,
+    columns: columns
+  }
 
   return filsCols
 }
 
-module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, convertPostBodyToGetQuery, formatLanguage, createPositionQuery, createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols }
+
+
+module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy,
+  convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
+  createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
+  panelNameMapping }
