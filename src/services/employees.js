@@ -840,7 +840,6 @@ const get_user = async query => {
           gal_last_name: user.last_name || '',
           gal_first_name: user.first_name || '',
           gal_mi_name: user.middle_name || '',
-          gal_suffix_name: user.suffix_name || '',
           gal_display_name: user.fullname || '',
           gal_alias_name: user.gal_alias_name || '',
           gal_address_text: user.office_address || '',
