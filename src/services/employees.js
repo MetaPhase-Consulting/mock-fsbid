@@ -136,7 +136,6 @@ const getCDOs = (manager) => {
     "cdo_fullname": `${manager.last_name},${manager.first_name} ${manager.middle_name ? manager.middle_name : 'NMN'}`,
     "cdo_last_name": manager.last_name,
     "cdo_first_name": manager.first_name,
-    "cdo_suffix_name": manager.suffix_name,
     "cdo_email": manager.email,
   }
 }
