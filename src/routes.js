@@ -269,6 +269,24 @@ var appRouter = function (app) {
     })
   })
 
+  app.get('/v2/assignments', async function(req, res) {
+    try {
+
+      common.checkForRp(req.query, res)
+
+      const filsCols = common.convertTemplateFiltersCols(req.query, common.asg_posNameMapping)
+      const asg_pos = await employees.v2_get_assignments(filsCols, req.query)
+
+      res.status(200).send({
+        Data: asg_pos,
+        usl_id: 0,
+        return_code: 0
+      })
+    } catch {
+      console.error('An error has occurred.')
+    }
+  })
+
   // Common look up function
   const lookup = fn => async (req, res) => res.status(200).send(await fn())
 
@@ -746,16 +764,20 @@ var appRouter = function (app) {
 
 
   // TODO: 🔴 move to src/services/agendas.js before this PR merges and after PR 260 does
-  const getPanelDates = async (filsCols) => {
+  const getPanelDates = async (filsCols, query) => {
     try {
       let pmdtData = await PanelMeetingDates.query(qb => {
         qb.join('panelmeetings', 'panelmeetingdates.pmseqnum', 'panelmeetings.pmseqnum')
-        filsCols['filters'].map(fc => {
-          return qb.where(fc.name, fc.method, fc.value);
-        })
-      }).fetchAll({
+        if(filsCols['filters'].length) {
+          filsCols['filters'].map(fc => {
+            return qb.where(fc.name, fc.method, fc.value);
+          })
+        }
+      }).fetchPage({
         withRelated: ['pmseqnum'],
         require: false,
+        pageSize: query['rp.pageRows'] || 25,
+        page: query['rp.pageNum'] || 1,
       })
 
       pmdtData = pmdtData.serialize()
@@ -765,16 +787,17 @@ var appRouter = function (app) {
         delete p['pmseqnum']
         const merged = _.merge(pmseqnumNode, p)
 
-        const mapBackToWS = _.mapKeys(merged, function(value, key) {
+        return _.mapKeys(merged, function(value, key) {
           return common.panelNameMapping(key, true);
         })
-
-        return  mapBackToWS
       })
 
       const cols = filsCols['columns'].map(a => common.panelNameMapping(a, true))
+      if(filsCols['columns'].length) {
+        pmdtData = pmdtData.map(pd => _.pick(pd, cols))
+      }
 
-      return pmdtData.map(pd => _.pick(pd, cols))
+      return pmdtData
     } catch (Error) {
       console.error(Error)
       return null
@@ -782,15 +805,21 @@ var appRouter = function (app) {
   }
 
   app.get('/v1/panels/dates', async function(req, res) {
-    const filsCols = common.convertTemplateFiltersCols(req.query)
+    try {
+    common.checkForRp(req.query, res)
+
+    const filsCols = common.convertTemplateFiltersCols(req.query, common.panelNameMapping)
     // let pmdt = await agendas.getPanelDates() //TODO: 🔴 update once PR 260 merges
-    let pmdt = await getPanelDates(filsCols);
+    let pmdt = await getPanelDates(filsCols, req.query);
 
     res.status(200).send({
       Data: pmdt,
       usl_id: 0,
       return_code: 0
     })
+    } catch {
+      console.error('An error has occurred')
+    }
   })
 };
 

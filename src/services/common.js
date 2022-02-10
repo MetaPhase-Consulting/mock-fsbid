@@ -328,17 +328,40 @@ const panelNameMapping = (val, toWS=false) => {
   return _.get(colDictionary, val) || val
 }
 
-const convertTemplateFiltersCols = query => {
+const asg_posNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    asgposseqnum: 'pos_seq_num',
+    asgdasgseqnum: 'asg_seq_num',
+    asgdrevisionnum: 'asgd_revision_num',
+    asgdasgscode: 'asgs_code',
+    asgdetadate: 'eta_date',
+    asgdetdteddate: 'etd_ted_date',
+    asgdtoddesctext: 'long_desc',
+  };
+
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+
+  return _.get(colDictionary, val) || val
+}
+
+const convertTemplateFiltersCols = (query, mapFunc) => {
   const queryFilterDict = {
     EQ: "=",
     IN: "="
   }
 
-  const columns = _.get(query, "['rp.columns']", '').map(c => panelNameMapping(c));
-  const filters = _.get(query, "['rp.filter']", '').map(f => {
+  let columns = _.get(query, 'rp.columns') || []
+  let filters = _.get(query, 'rp.filter') || []
+  if(typeof(columns) === 'string') columns = [columns]
+  if(typeof(filters) === 'string') filters = [filters]
+
+  columns = columns.map(c => mapFunc(c))
+  filters = filters.map(f => {
     const f$ = f.split('|');
     return {
-      name: panelNameMapping(f$[0]),
+      name: mapFunc(f$[0]),
       method: queryFilterDict[f$[1]],
       value: f$[2]
     };
@@ -352,9 +375,18 @@ const convertTemplateFiltersCols = query => {
   return filsCols
 }
 
+const checkForRp = (query, res) => {
+  let hasRp = false
+  Object.keys(query).forEach(a => {if(_.startsWith(a, 'rp.')){ hasRp = true; }})
+  if(!hasRp){
+    console.error('rp cannot be null')
+    res.status(500).send({ "Message": "An error has occurred." });
+  }
+}
+
 
 
 module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
-  panelNameMapping }
+  panelNameMapping, asg_posNameMapping, checkForRp }
