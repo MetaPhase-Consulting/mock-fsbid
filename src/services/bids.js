@@ -75,6 +75,14 @@ async function get_bids_by_cp(query, excludeDraft = false) {
       "userDetails": {
         "gal_smtp_email_address_text": m.gal_smtp_email_address_text,
         "rnum": `${i + 1}`,
+      },
+      "employee": {
+        "perdet_seq_num": m.perdet_seq_num,
+        "per_last_name": m.per_last_name,
+        "per_first_name": m.per_first_name,
+        "per_middle_name": m.per_middle_name || 'NMN',
+        "per_suffix_name": m.per_suffix_name || undefined,
+        "rnum": `${i + 1}`,
       }
     };
     if(m.ubw_hndshk_offrd_flg === "N") {
