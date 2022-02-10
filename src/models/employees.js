@@ -12,7 +12,7 @@ const Employees = bookshelf.model('Employees', {
       }
    },
    fullname: function() {
-     return `${this.get('last_name')}${this.get('suffix_name') ? ' ' + this.get('suffix_name') : ''}, ${this.get('first_name')}${this.get('middle_name')}`
+     return `${this.get('last_name')}, ${this.get('first_name')}`
    }
   },
 
