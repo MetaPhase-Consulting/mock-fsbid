@@ -239,16 +239,16 @@ const getAgendaItems = async (ai_id, perdet) => {
         agendaLegs: agendaLegs
       }
 
-      let ret$ = ret
       //remove extra data
       if(!ai_id){
-        ret$ = _.omit(ret$, ['Panel', 'remarks', 'creators', 'updaters'])
-        ret$.agendaLegs.forEach(l => {
+        let ret$ = _.omit(ret, ['Panel', 'remarks', 'creators', 'updaters'])
+        ret$['agendaLegs'] = ret$.agendaLegs.map(l => {
           return _.omit(l, ['agendaLegAssignment', 'agendaLegPosition'])
         })
+        return ret$
       }
 
-      return ret$
+      return ret
     })
 
     return res
