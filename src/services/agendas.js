@@ -149,7 +149,7 @@ const getAgendaItems = async (ai_id, perdet) => {
 
         const position = {
           posseqnum: _.get(pos, 'pos_seq_num'),
-          Nposorgshortdesc: _.get(pos, 'bureau') ?
+          posorgshortdesc: _.get(pos, 'bureau') ?
             _.find(burData, ['bur', _.get(pos, 'bureau')])['bureau_short_desc'] : null,
           posnumtext: _.get(pos, 'position'),
           posgradecode: _.get(pos, 'pos_grade_code'),
