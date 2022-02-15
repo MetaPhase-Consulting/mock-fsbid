@@ -75,6 +75,14 @@ async function get_bids_by_cp(query, excludeDraft = false) {
       "userDetails": {
         "gal_smtp_email_address_text": m.gal_smtp_email_address_text,
         "rnum": `${i + 1}`,
+      },
+      "employee": {
+        "perdet_seq_num": m.perdet_seq_num,
+        "per_last_name": m.per_last_name,
+        "per_first_name": m.per_first_name,
+        "per_middle_name": m.per_middle_name || 'NMN',
+        "per_suffix_name": m.per_suffix_name || undefined,
+        "rnum": `${i + 1}`,
       }
     };
     if(m.ubw_hndshk_offrd_flg === "N") {
@@ -161,6 +169,7 @@ const formatData = (data, isCDO = true) => {
     let employeeProps = {
       per_first_name: _.get(data, 'employee.first_name'),
       per_last_name: _.get(data, 'employee.last_name'),
+      per_suffix_name: _.get(data, 'employee.suffix_name') || undefined,
       gal_smtp_email_address_text: _.get(data, 'employee.email'),
       per_grade_code: _.get(data, 'employee.grade_code'),
       per_grade_code: _.get(data, 'employee.grade_code'),
