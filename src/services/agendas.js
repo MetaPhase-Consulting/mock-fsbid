@@ -1,7 +1,7 @@
 const { readJson } = require('../../seeds/data/helpers')
 const _ = require('lodash')
-const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, PanelMeetings, PanelMeetingDates } = require('../models')
-const PMIC = readJson('./panelmeetingitemcategories.json')
+const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks,
+  Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories } = require('../models')
 const BUR = readJson('./bureaus.json')
 
 const getAgendas = async (empData) => {
@@ -125,6 +125,12 @@ const getAgendaItems = async (ai_id, perdet) => {
     })
     pmdtData = pmdtData.serialize()
 
+    let pmicData = await PanelMeetingItemCategories.fetchAll({require: false})
+    pmicData = pmicData.serialize()
+
+    let burData = await Bureaus.fetchAll({require: false})
+    burData = burData.serialize()
+
 
     const res = ai_pmiData.map(ai => {
       const pmi = ai.pmiseqnum;
@@ -143,8 +149,8 @@ const getAgendaItems = async (ai_id, perdet) => {
 
         const position = {
           posseqnum: _.get(pos, 'pos_seq_num'),
-          posorgshortdesc: _.get(pos, 'bureau') ?
-            _.find(BUR, ['bur', _.get(pos, 'bureau')])['bureau_short_desc'] : null,
+          Nposorgshortdesc: _.get(pos, 'bureau') ?
+            _.find(burData, ['bur', _.get(pos, 'bureau')])['bureau_short_desc'] : null,
           posnumtext: _.get(pos, 'position'),
           posgradecode: _.get(pos, 'pos_grade_code'),
           postitledesc: _.get(pos, 'pos_title_desc'),
@@ -207,7 +213,7 @@ const getAgendaItems = async (ai_id, perdet) => {
           pmsdesctext: pms.pmsdesctext,
           pmdmdtcode: pmdt.mdtcode,
           pmddttm: pmdt.pmddttm,
-          micdesctext: _.find(PMIC, ['miccode', pmi.miccode])['micdesctext'],
+          micdesctext: _.find(pmicData, ['miccode', pmi.miccode])['micdesctext'],
         }],
         agendaAssignment: [_.get(agendaLegs, '[0].agendaLegPosition')],
         remarks: remarks.map(r => {
