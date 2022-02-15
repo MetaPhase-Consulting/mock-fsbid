@@ -143,9 +143,9 @@ const getAgendaItems = async (ai_id, perdet) => {
       const agendaLegs = ails.map(l => {
         const lat = l.latcode;
         const asgd = _.filter(asgdData, {'ailseqnum': l.ailseqnum})[0];
-        const as = _.filter(asg_posData, {'asg_seq_num': asgd.asgseqnum})[0];
+        let as = _.filter(asg_posData, {'asg_seq_num': asgd.asgseqnum})[0];
         const pos = _.get(as, 'position') || null;
-        delete as.position
+        as = _.omit(as, ['position'])
 
         const position = {
           posseqnum: _.get(pos, 'pos_seq_num'),
@@ -229,19 +229,16 @@ const getAgendaItems = async (ai_id, perdet) => {
         agendaLegs: agendaLegs
       }
 
+      let ret$ = ret
       //remove extra data
       if(!ai_id){
-        delete ret['Panel']
-        delete ret['remarks']
-        delete ret['creators']
-        delete ret['updaters']
-        ret.agendaLegs.forEach(l => {
-          delete l['agendaLegAssignment']
-          delete l['agendaLegPosition']
+        ret$ = _.omit(ret$, ['Panel', 'remarks', 'creators', 'updaters'])
+        ret$.agendaLegs.forEach(l => {
+          return _.omit(l, ['agendaLegAssignment', 'agendaLegPosition'])
         })
       }
 
-      return ret
+      return ret$
     })
 
     return res
