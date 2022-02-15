@@ -29,11 +29,7 @@ const getAgendaItems = async (ai_id, perdet) => {
 // grab AIs with PMI
     let ai_pmiData = await AgendaItems.query(qb => {
       qb.join('panelmeetingitems', 'agendaitems.pmiseqnum', 'panelmeetingitems.pmiseqnum')
-      // qb.join('agenda_item_statuses', 'agendaitems.aiscode', 'agenda_item_statuses.aiscode')
-      // qb.join('Agenda_Item_Statuses', 'agendaitems.aiscode', 'agenda_item_statuses.aiscode')
-      // qb.join('Agenda_Item_Statuses', 'agendaitems.aiscode', 'Agenda_Item_Statuses.aiscode')
-      // qb.join('agenda_item_statuses', 'agendaitems.aiscode', 'Agenda_Item_Statuses.aiscode')
-      // qb.join('AgendaItemStatuses', 'agendaitems.aiscode', 'AgendaItemStatuses.aiscode')
+      qb.join('agenda_item_statuses', 'agendaitems.aiscode', 'agenda_item_statuses.aiscode')
       if(ai_id) {
         qb.where('aiseqnum', '=', ai_id);
       }
@@ -41,8 +37,7 @@ const getAgendaItems = async (ai_id, perdet) => {
         qb.where('perdetseqnum', '=', perdet);
       }
     }).fetchPage({
-        // withRelated: ['pmiseqnum', 'aiscode'],
-        withRelated: ['pmiseqnum'],
+        withRelated: ['pmiseqnum', 'aiscode'],
         pageSize: ai_id ? 1 : 50,
         page: 1,
         require: false,
@@ -137,9 +132,6 @@ const getAgendaItems = async (ai_id, perdet) => {
     let burData = await Bureaus.fetchAll({require: false})
     burData = burData.serialize()
 
-    let aisData = await AgendaItemStatuses.fetchAll({require: false})
-    aisData = aisData.serialize()
-
     const res = ai_pmiData.map(ai => {
       const pmi = ai.pmiseqnum;
       const remarks = _.filter(airData, ['aiseqnum',  ai.aiseqnum]);
@@ -147,6 +139,28 @@ const getAgendaItems = async (ai_id, perdet) => {
       const pmdt = _.filter(pmdtData, ['pmseqnum',  pmi.pmseqnum])[0];
       const pms = pm.pmscode;
       const ails = _.filter(ailData, ['aiseqnum',  ai.aiseqnum]);
+      const aiStatus = _.get(ai, 'aiscode.aisdesctext')
+
+      const defaultEF = [
+        {
+          "asgposseqnum": 7412,
+          "asgdasgseqnum": 1664,
+          "asgdrevisionnum": 4,
+          "asgdasgscode": "EF",
+          "asgdetadate": "2021-10-06T00:00:00.000Z",
+          "asgdetdteddate": "2023-05-01T00:00:00",
+          "asgdtoddesctext": "3 YRS (2 R & R)",
+          "position": [
+            {
+              "posseqnum": 7412,
+              "posorgshortdesc": "DGHR",
+              "posnumtext": "S7713900",
+              "posgradecode": "00",
+              "postitledesc": "INFORMATION MANAGEMENT SPECIAL"
+            }
+          ]
+        }
+      ]
 
       const agendaLegs = ails.map(l => {
         const lat = l.latcode;
@@ -184,13 +198,13 @@ const getAgendaItems = async (ai_id, perdet) => {
           latdesctext: lat.latdesctext,
           agendaLegAssignment: [
             {
-              asgposseqnum: as.pos_seq_num,
-              asgdasgseqnum: asgd.asgseqnum,
-              asgdrevisionnum: asgd.asgdrevisionnum,
-              asgdasgscode: as.asgs_code,
-              asgdetadate: asgd.asgdetadate,
-              asgdetdteddate: asgd.asgdetdteddate,
-              asgdtoddesctext: asgd.asgdtodothertext,
+              asgposseqnum: as.pos_seq_num || 84903,
+              asgdasgseqnum: asgd.asgseqnum || 274115,
+              asgdrevisionnum: asgd.asgdrevisionnum || 4,
+              asgdasgscode: as.asgs_code || "EF",
+              asgdetadate: asgd.asgdetadate || "2019-05-01T00:00:00",
+              asgdetdteddate: asgd.asgdetdteddate || "2023-05-01T00:00:00",
+              asgdtoddesctext: asgd.asgdtodothertext || "2 YRS/HLRT/2 YRS",
               position: [
                 position
               ]
@@ -201,8 +215,6 @@ const getAgendaItems = async (ai_id, perdet) => {
           ]
         }
       });
-
-      const aiStatus = _.get(ai, 'aiscode') ? _.find(aisData, ['aiscode', ai.aiscode])['aisdesctext'] : null
 
       const ret = {
         aiseqnum: ai.aiseqnum,
@@ -226,7 +238,7 @@ const getAgendaItems = async (ai_id, perdet) => {
           pmddttm: pmdt.pmddttm,
           micdesctext: _.find(pmicData, ['miccode', pmi.miccode])['micdesctext'],
         }],
-        agendaAssignment: _.get(agendaLegs, '[0].agendaLegPosition') ? _.get(agendaLegs, '[0].agendaLegPosition') : [],
+        agendaAssignment: _.get(agendaLegs, '[0].agendaLegAssignment') ? _.get(agendaLegs, '[0].agendaLegAssignment') : defaultEF,
         remarks: remarks.map(r => {
           return {
             airaiseqnum: r.aiseqnum,
