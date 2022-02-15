@@ -169,7 +169,7 @@ const formatData = (data, isCDO = true) => {
     let employeeProps = {
       per_first_name: _.get(data, 'employee.first_name'),
       per_last_name: _.get(data, 'employee.last_name'),
-      per_suffix_name: _.get(data, 'employee.suffix_name'),
+      per_suffix_name: _.get(data, 'employee.suffix_name') || undefined,
       gal_smtp_email_address_text: _.get(data, 'employee.email'),
       per_grade_code: _.get(data, 'employee.grade_code'),
       per_grade_code: _.get(data, 'employee.grade_code'),
