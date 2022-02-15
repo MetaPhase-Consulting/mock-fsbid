@@ -198,6 +198,7 @@ const getAgendaItems = async (ai_id, perdet) => {
       const ret = {
         aiseqnum: ai.aiseqnum,
         aicorrectiontext: ai.aicorrectiontext,
+        aicombinedremarktext: "Remarks:Critical Need Position;High Differential Post;Reassignment at post;SND Post;Continues SND eligibility;Creator(s):Townpost, Jenny Nmn;Modifier(s):WoodwardWA;CDO: Rehman, Tarek S; ;",
         aicombinedtodothertext: ai.aicombinedtodothertext,
         aitodcode: ai.todcode,
         aitoddesctext: ai.toddesctext,
