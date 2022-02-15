@@ -1,6 +1,6 @@
 const { readJson } = require('../../seeds/data/helpers')
 const _ = require('lodash')
-const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks,
+const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, AgendaItemStatuses,
   Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories } = require('../models')
 const BUR = readJson('./bureaus.json')
 
@@ -29,6 +29,11 @@ const getAgendaItems = async (ai_id, perdet) => {
 // grab AIs with PMI
     let ai_pmiData = await AgendaItems.query(qb => {
       qb.join('panelmeetingitems', 'agendaitems.pmiseqnum', 'panelmeetingitems.pmiseqnum')
+      // qb.join('agenda_item_statuses', 'agendaitems.aiscode', 'agenda_item_statuses.aiscode')
+      // qb.join('Agenda_Item_Statuses', 'agendaitems.aiscode', 'agenda_item_statuses.aiscode')
+      // qb.join('Agenda_Item_Statuses', 'agendaitems.aiscode', 'Agenda_Item_Statuses.aiscode')
+      // qb.join('agenda_item_statuses', 'agendaitems.aiscode', 'Agenda_Item_Statuses.aiscode')
+      // qb.join('AgendaItemStatuses', 'agendaitems.aiscode', 'AgendaItemStatuses.aiscode')
       if(ai_id) {
         qb.where('aiseqnum', '=', ai_id);
       }
@@ -36,6 +41,7 @@ const getAgendaItems = async (ai_id, perdet) => {
         qb.where('perdetseqnum', '=', perdet);
       }
     }).fetchPage({
+        // withRelated: ['pmiseqnum', 'aiscode'],
         withRelated: ['pmiseqnum'],
         pageSize: ai_id ? 1 : 50,
         page: 1,
@@ -131,6 +137,8 @@ const getAgendaItems = async (ai_id, perdet) => {
     let burData = await Bureaus.fetchAll({require: false})
     burData = burData.serialize()
 
+    let aisData = await AgendaItemStatuses.fetchAll({require: false})
+    aisData = aisData.serialize()
 
     const res = ai_pmiData.map(ai => {
       const pmi = ai.pmiseqnum;
@@ -194,6 +202,7 @@ const getAgendaItems = async (ai_id, perdet) => {
         }
       });
 
+      const aiStatus = _.get(ai, 'aiscode') ? _.find(aisData, ['aiscode', ai.aiscode])['aisdesctext'] : null
 
       const ret = {
         aiseqnum: ai.aiseqnum,
@@ -206,6 +215,7 @@ const getAgendaItems = async (ai_id, perdet) => {
         aipmiseqnum: pmi.pmiseqnum,
         aiitemcreatorid: ai.aiitemcreatorid,
         aiupdateid: ai.aiupdateid,
+        aisdesctext: aiStatus,
         Panel: [{
           pmseqnum: pm.pmseqnum,
           pmpmscode: pms.pmscode,
