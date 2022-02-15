@@ -913,6 +913,43 @@ const v2_get_assignments = async (filsCols, query) => {
   }
 }
 
+const get_separations = async (filsCols, query) => {
+  try {
+    let asg_posData = await Assignments.query(qb => {
+      qb.join('employees', 'employees.per_seq_num', 'assignments.emp_seq_nbr')
+      qb.join('positions', 'positions.pos_seq_num', 'assignments.pos_seq_num')
+      if(filsCols['filters'].length) {
+        filsCols['filters'].map(fc => {
+          return qb.where(fc.name, fc.method, fc.value);
+        })
+      }
+    }).fetchPage({
+      require: false,
+      withRelated: ['employee', 'position'],
+      pageSize: query['rp.pageRows'] || 25,
+      page: query['rp.pageNum'] || 1,
+    })
+    asg_posData = asg_posData.serialize()
+
+    asg_posData = asg_posData.map(a_p => {
+      return _.mapKeys(a_p, function(value, key) {
+        return asg_posNameMapping(key, true);
+      })
+    })
+
+    const cols = filsCols['columns'].map(a => asg_posNameMapping(a, true))
+    if(filsCols['columns'].length) {
+      asg_posData = asg_posData.map(pd => _.pick(pd, cols))
+    }
+
+    return asg_posData
+
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 module.exports = { 
   get_employee_bureaus_by_query, 
   get_employee_organizations_by_query, 
@@ -934,4 +971,5 @@ module.exports = {
   add_classification,
   remove_classification,
   v2_get_assignments,
+  get_separations,
  }

@@ -346,6 +346,39 @@ const asg_posNameMapping = (val, toWS=false) => {
   return _.get(colDictionary, val) || val
 }
 
+const sepNameMapping = (val, toWS=false) => {
+  //what exactly is separations?
+  let colDictionary = {
+    sepseqnum: '',
+    sepdasgscode: '',
+    sepdcitytext: '',
+    sepdcountrystatetext: '',
+    sepdseparationdate: '',
+  };
+
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+
+  return _.get(colDictionary, val) || val
+}
+
+const bidNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    ubwhscode: '',
+    cpposseqnum: '',
+    posnumtext: '',
+    posorgshortdesc: '',
+    postitledesc: '',
+  };
+
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+
+  return _.get(colDictionary, val) || val
+}
+
 const convertTemplateFiltersCols = (query, mapFunc) => {
   const queryFilterDict = {
     EQ: "=",
@@ -389,4 +422,4 @@ const checkForRp = (query, res) => {
 module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
-  panelNameMapping, asg_posNameMapping, checkForRp }
+  panelNameMapping, asg_posNameMapping, checkForRp, sepNameMapping, bidNameMapping }

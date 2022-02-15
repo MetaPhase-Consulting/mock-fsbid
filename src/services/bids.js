@@ -129,6 +129,64 @@ async function get_bids(query, isCDO) {
     return_code: 0
   }
 }
+
+async function v2_get_bids(filsCols, query) {
+  try {
+    let bidsData = await Bids.query(qb => {
+      qb.join('employees', 'employees.per_seq_num', 'assignments.emp_seq_nbr')
+      qb.join('positions', 'positions.pos_seq_num', 'assignments.pos_seq_num')
+      if(filsCols['filters'].length) {
+        filsCols['filters'].map(fc => {
+          return qb.where(fc.name, fc.method, fc.value);
+        })
+      }
+    }).fetchPage({
+      require: false,
+      withRelated: ['employee', 'position'],
+      pageSize: query['rp.pageRows'] || 25,
+      page: query['rp.pageNum'] || 1,
+    })
+    asg_posData = asg_posData.serialize()
+
+    asg_posData = asg_posData.map(a_p => {
+      return _.mapKeys(a_p, function(value, key) {
+        return asg_posNameMapping(key, true);
+      })
+    })
+
+    const cols = filsCols['columns'].map(a => asg_posNameMapping(a, true))
+    if(filsCols['columns'].length) {
+      asg_posData = asg_posData.map(pd => _.pick(pd, cols))
+    }
+
+    return asg_posData
+
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+
+
+
+
+  const bids = await Bids.where('perdet_seq_num', perdet_seq_num).fetchAll({
+    withRelated: [
+      'position',
+      'position.position.location',
+      'position.position.skill',
+      'position.cycle',
+      'position.bidstats'
+    ],
+    require: false,
+  })
+
+  return {
+    Data: bids.map(bid => formatData(bid.serialize(), isCDO)),
+    usl_id: 0,
+    return_code: 0
+  }
+}
+
 // calculate the delete_ind value
 const get_delete_ind = id => (
   {
@@ -334,4 +392,4 @@ async function update_bid(query, data) {
   return { Data: null, usl_id: 45066084, return_code }
 }
 
-module.exports = { get_bids, get_bids_by_cp, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid, register_bid, unregister_bid }
+module.exports = { get_bids, get_bids_by_cp, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid, register_bid, unregister_bid, v2_get_bids }

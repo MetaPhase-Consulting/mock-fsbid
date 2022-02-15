@@ -94,6 +94,35 @@ var appRouter = function (app) {
     res.status(200).send(await bidding.get_bids(req.query, isCDO));
   });
 
+  app.get("/v2/bids", async function (req, res) {
+    try {
+
+      common.checkForRp(req.query, res)
+
+      const filsCols = common.convertTemplateFiltersCols(req.query, common.bidNameMapping)
+      const bidData = await bidding.v2_get_bids(filsCols, req.query)
+
+      res.status(200).send({
+        Data: bidData,
+        usl_id: 0,
+        return_code: 0
+      })
+    } catch {
+      console.error('An error has occurred.')
+    }
+
+
+    //
+    // let isCDO = false;
+    // if (!req.headers.jwtauthorization) {
+    //   res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
+    // } else {
+    //   const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
+    //   const found = _.get(decoded, 'payload.role', []).some(r => ['CDO', 'CDO3'].includes(r));
+    //   isCDO = found;
+    // }
+  });
+
   app.post('/v1/bids', async function(req, res) {
     try {
       res.status(200).send(await bidding.add_bid(req.query))
@@ -819,6 +848,25 @@ var appRouter = function (app) {
     })
     } catch {
       console.error('An error has occurred')
+    }
+  })
+
+
+  app.get('/v2/separations', async function(req, res) {
+    try {
+
+      common.checkForRp(req.query, res)
+
+      const filsCols = common.convertTemplateFiltersCols(req.query, common.sepNameMapping)
+      const sep = await employees.get_separations(filsCols, req.query)
+
+      res.status(200).send({
+        Data: sep,
+        usl_id: 0,
+        return_code: 0
+      })
+    } catch {
+      console.error('An error has occurred.')
     }
   })
 };
