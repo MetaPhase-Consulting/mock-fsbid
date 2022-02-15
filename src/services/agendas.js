@@ -226,7 +226,7 @@ const getAgendaItems = async (ai_id, perdet) => {
           pmddttm: pmdt.pmddttm,
           micdesctext: _.find(pmicData, ['miccode', pmi.miccode])['micdesctext'],
         }],
-        agendaAssignment: [_.get(agendaLegs, '[0].agendaLegPosition')],
+        agendaAssignment: _.get(agendaLegs, '[0].agendaLegPosition') ? _.get(agendaLegs, '[0].agendaLegPosition') : [],
         remarks: remarks.map(r => {
           return {
             airaiseqnum: r.aiseqnum,
