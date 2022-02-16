@@ -84,7 +84,8 @@
         "dob": "1949-04-12T00:00:00",
         "office_phone": "(123) 278 0361",
         "office_address": "5800 Barclay Dr - 863U (SA-24)",
-        "middle_name": "Camélia"
+        "middle_name": "Camélia",
+        "suffix_name": "I"
     },
     {
         "username": "huxleye",
@@ -436,7 +437,8 @@
         "dob": "1959-10-18T02:42:37Z",
         "office_phone": "+86 (132) 668-0643",
         "office_address": "5 Holy Cross Center",
-        "middle_name": "Crééz"
+        "middle_name": "Crééz",
+        "suffix_name": "Esq"
     },
     {
         "first_name": "Zak",
@@ -754,7 +756,8 @@
         "dob": "1955-06-30T08:15:30Z",
         "office_phone": "+386 (376) 149-4967",
         "office_address": "2643 Ronald Regan Terrace",
-        "middle_name": "Judicaël"
+        "middle_name": "Judicaël",
+        "suffix_name": "V"
     },
     {
         "first_name": "Bradly",
@@ -983,7 +986,8 @@
         "dob": "1993-04-11T19:30:56Z",
         "office_phone": "+86 (350) 823-0368",
         "office_address": "34 Moulton Alley",
-        "middle_name": "Noëlla"
+        "middle_name": "Noëlla",
+        "suffix_name": "II"
     },
     {
         "first_name": "Arnaldo",
@@ -1270,7 +1274,8 @@
         "dob": "1987-12-27T05:48:56Z",
         "office_phone": "+352 (918) 757-5906",
         "office_address": "712 Portage Road",
-        "middle_name": "Stévina"
+        "middle_name": "Stévina",
+        "suffix_name": "Sr."
     },
     {
         "first_name": "Lyndy",
@@ -1345,7 +1350,8 @@
         "dob": "1973-08-25T03:06:40Z",
         "office_phone": "+420 (828) 549-4775",
         "office_address": "861 Summer Ridge Pass",
-        "middle_name": "Tán"
+        "middle_name": "Tán",
+        "suffix_name": "VIII"
     },
     {
         "first_name": "Raynell",
@@ -4756,7 +4762,8 @@
         "dob": "1975-10-02T21:53:11Z",
         "office_phone": "+62 (413) 811-0908",
         "office_address": "6 Morningstar Park",
-        "middle_name": "Hélèna"
+        "middle_name": "Hélèna",
+        "suffix_name": "VI",
     },
     {
         "first_name": "Casi",
@@ -10522,7 +10529,8 @@
         "dob": "1957-03-05T01:33:25Z",
         "office_phone": "+86 (258) 590-8662",
         "office_address": "3 Farmco Junction",
-        "middle_name": "Mélodie"
+        "middle_name": "Mélodie",
+        "suffix_name": "III"
     },
     {
         "first_name": "Luis",
