@@ -25,9 +25,18 @@ const CommuterPosts = require('./commuterposts.js')
 const LocationsCommuterPosts = require('./locationscommuterposts')
 const EmployeesClassifications = require('./employeesclassifications')
 const AgendaItemStatuses = require('./agendaitemstatuses')
-const PanelMeetingItemCategories = require('./panelmeetingitemcategories') // TODO: 🔴 remove once PR 260 merges
-const PanelMeetings = require('./panelmeetings') // TODO: 🔴 remove once PR 260 merges
-const PanelMeetingDates = require('./panelmeetingdates') // TODO: 🔴 remove once PR 260 merges
+const AgendaItems = require('./agendaitems')
+const AgendaItemLegs = require('./agendaitemlegs')
+const AgendaItemRemarks = require('./agendaitemremarks')
+const PanelMeetingItems = require('./panelmeetingitems')
+const PanelMeetings = require('./panelmeetings')
+const PanelMeetingDates = require('./panelmeetingdates')
+const PanelMeetingDateTypes = require('./panelmeetingdatetypes')
+const PanelMeetingItemCategories = require('./panelmeetingitemcategories')
+const PanelMeetingStatuses = require('./panelmeetingstatuses')
+const PanelMeetingTypes = require('./panelmeetingtypes')
+const AssignmentDetails = require('./assignmentdetails.js')
+const LegActionTypes = require('./legactiontypes.js')
 
 module.exports = {
   Seasons,
@@ -57,7 +66,16 @@ module.exports = {
   LocationsCommuterPosts,
   EmployeesClassifications,
   AgendaItemStatuses,
-  PanelMeetingItemCategories, // TODO: 🔴 remove once PR 260 merges
-  PanelMeetingDates, // TODO: 🔴 remove once PR 260 merges
-  PanelMeetings, // TODO: 🔴 remove once PR 260 merges
+  AgendaItems,
+  AgendaItemLegs,
+  AgendaItemRemarks,
+  PanelMeetingItems,
+  PanelMeetings,
+  PanelMeetingDates,
+  PanelMeetingDateTypes,
+  PanelMeetingItemCategories,
+  PanelMeetingStatuses,
+  PanelMeetingTypes,
+  AssignmentDetails,
+  LegActionTypes,
 }
