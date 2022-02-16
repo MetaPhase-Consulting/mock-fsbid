@@ -267,4 +267,44 @@ const getAgendaItems = async (ai_id, perdet) => {
   }
 }
 
-module.exports = { getAgendas, getAgendaItems }
+const getPanelDates = async (filsCols, query) => {
+  try {
+    let pmdtData = await PanelMeetingDates.query(qb => {
+      qb.join('panelmeetings', 'panelmeetingdates.pmseqnum', 'panelmeetings.pmseqnum')
+      if(filsCols['filters'].length) {
+        filsCols['filters'].map(fc => {
+          return qb.where(fc.name, fc.method, fc.value);
+        })
+      }
+    }).fetchPage({
+      withRelated: ['pmseqnum'],
+      require: false,
+      pageSize: query['rp.pageRows'] || 25,
+      page: query['rp.pageNum'] || 1,
+    })
+
+    pmdtData = pmdtData.serialize()
+
+    pmdtData = pmdtData.map(p => {
+      let pmseqnumNode = p['pmseqnum']
+      delete p['pmseqnum']
+      const merged = _.merge(pmseqnumNode, p)
+
+      return _.mapKeys(merged, function(value, key) {
+        return common.panelNameMapping(key, true);
+      })
+    })
+
+    const cols = filsCols['columns'].map(a => common.panelNameMapping(a, true))
+    if(filsCols['columns'].length) {
+      pmdtData = pmdtData.map(pd => _.pick(pd, cols))
+    }
+
+    return pmdtData
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+module.exports = { getAgendas, getAgendaItems, getPanelDates }
