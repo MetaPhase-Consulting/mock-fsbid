@@ -133,9 +133,7 @@ var appRouter = function (app) {
 
   app.put('/v1/bids', async function(req, res) {
     let isCDO = false;
-    const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
-    const roles = _.get(decoded, 'payload.role', []);
-    if (_.includes(roles, 'CDO') || _.includes(roles, 'CDO3')) { isCDO = true; }
+    if (common.isCDO(req)) { isCDO = true; }
     try {
       res.status(200).send(await bidding.submit_bid(req.query, isCDO))
     } catch (err) {
