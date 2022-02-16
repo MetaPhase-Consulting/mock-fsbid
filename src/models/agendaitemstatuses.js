@@ -1,8 +1,8 @@
 const bookshelf = require('../bookshelf.js')
 
-const AgendaItemStatuses = bookshelf.model('AgendaItemStatuses', {
+const Agenda_Item_Statuses = bookshelf.model('Agenda_Item_Statuses', {
   tableName: 'agenda_item_statuses',
   idAttribute: 'aiscode'
 })
 
-module.exports = AgendaItemStatuses
+module.exports = Agenda_Item_Statuses

@@ -25,6 +25,19 @@ const CommuterPosts = require('./commuterposts.js')
 const LocationsCommuterPosts = require('./locationscommuterposts')
 const EmployeesClassifications = require('./employeesclassifications')
 const AgendaItemStatuses = require('./agendaitemstatuses')
+const AgendaItems = require('./agendaitems')
+const AgendaItemLegs = require('./agendaitemlegs')
+const AgendaItemRemarks = require('./agendaitemremarks')
+const PanelMeetingItems = require('./panelmeetingitems')
+const PanelMeetings = require('./panelmeetings')
+const PanelMeetingDates = require('./panelmeetingdates')
+const PanelMeetingDateTypes = require('./panelmeetingdatetypes')
+const PanelMeetingItemCategories = require('./panelmeetingitemcategories')
+const PanelMeetingStatuses = require('./panelmeetingstatuses')
+const PanelMeetingTypes = require('./panelmeetingtypes')
+const AssignmentDetails = require('./assignmentdetails.js')
+const LegActionTypes = require('./legactiontypes.js')
+
 
 module.exports = {
   Seasons,
@@ -54,4 +67,16 @@ module.exports = {
   LocationsCommuterPosts,
   EmployeesClassifications,
   AgendaItemStatuses,
+  AgendaItems,
+  AgendaItemLegs,
+  AgendaItemRemarks,
+  PanelMeetingItems,
+  PanelMeetings,
+  PanelMeetingDates,
+  PanelMeetingDateTypes,
+  PanelMeetingItemCategories,
+  PanelMeetingStatuses,
+  PanelMeetingTypes,
+  AssignmentDetails,
+  LegActionTypes,
 }

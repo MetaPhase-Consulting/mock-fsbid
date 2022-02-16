@@ -4,6 +4,7 @@ const futureVacancies = require('./services/futurevacancies')
 const availablePositions = require('./services/availablepositions')
 const availableBidders = require('./services/availablebidders')
 const employees = require('./services/employees')
+const agendas = require('./services/agendas')
 const positions = require('./services/positions')
 const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
@@ -483,262 +484,40 @@ var appRouter = function (app) {
     }
   });
 
-
-
-
-    const status = [
-      'Withdrawn',
-      'Disapproved',
-      'Approved',
-      'Deferred',
-      'Deferred - Proposed Position',
-      'Ready',
-      'Held',
-      'Not Ready',
-      'Out of Order',
-      'PIP',
-      'Move to ML/ID',
-    ]
-    const ai = {
-      "aiseqnum": 1,
-      "aicorrectiontext": null,
-      "aicombinedremarktext": "Remarks:Critical Need Position;High Differential Post;Reassignment at post;SND Post;Continues SND eligibility;Creator(s):Townpost, Jenny Nmn;Modifier(s):WoodwardWA;CDO: Rehman, Tarek S; ;",
-      "aicombinedtodothertext": "2Y/HL/2Y",
-      "aitodcode": "X",
-      "aitoddesctext": "OTHER",
-      "aiasgseqnum": 274115,
-      "aiasgdrevisionnum": 4,
-      "aiperdetseqnum": 408869,
-      "aipmiseqnum": 227054,
-      "aiitemcreatorid": 3857,
-      "aiupdateid": 57497,
-      "aisdesctext": "Ready",
-
-      "Panel": [{
-        "pmddttm": "2021-11-04T13:55:00",
-      }],
-
-      // Needed
-      "update_date": "2020-09-09T00:00:00-04:00",
-
-      // Need actual names like below:
-      // "aiupdateid": 'Woodward, Wendy',
-      // "aiitemcreatorid": 'Woodward, Wendy',
-
-      "agendaAssignment": [{
-        "asgposseqnum": 84903,
-        "asgdasgseqnum": 274115,
-        "asgdrevisionnum": 4,
-        "asgdasgscode": "EF",
-        "asgdetadate": "2019-05-01T00:00:00",
-        "asgdetdteddate": "2023-05-01T00:00:00",
-        "asgdtoddesctext": "2 YRS/HLRT/2 YRS",
-        "position": [{
-          "posseqnum": 84903,
-          "posorgshortdesc": "MATAMOROS",
-          "posnumtext": "30741960",
-          "posgradecode": "03",
-          "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
-          "rnum": 1,
-        }],
-      }],
-
-      "remarks": [
-        {
-          "airaiseqnum": 157,
-          "airrmrkseqnum": 1,
-          "airremarktext": "EL directed;via functional & language training"
-        }
-      ],
-
-      "agendaLegs": [
-        {
-          "ailaiseqnum": 1,
-          "aillatcode": "S",
-          "postitledesc": "SPECIAL AGENT",
-          "posseqnum": "84903",
-          "posorgshortdesc": "PARIS",
-          "ailetadate": "2018-01-01T00:00:00",
-          "ailetdtedsepdate": "2020-01-01T00:00:00",
-          "ailtodothertext": "2YRR",
-          "posgradecode": "02",
-          "latabbrdesctext": "Reassign",
-          "ailtfcd": "8150",
-          "position": {
-            "posseqnum": 84903,
-            "posorgshortdesc": "MATAMOROS",
-            "posnumtext": "S70000011",
-            "posgradecode": "03",
-            "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
-            "rnum": 1,
-          },
-          "agendaLegAssignment": [
-            {
-              "asgposseqnum": 24026,
-              "asgdasgseqnum": 131740,
-              "asgdrevisionnum": 1,
-              "asgdasgscode": "EF",
-              "asgdetadate": "2002-11-01T00:00:00",
-              "asgdetdteddate": "2004-11-01T00:00:00",
-              "asgdtoddesctext": "2 YRS/TRANSFER",
-              "position": [
-                {
-                  "posseqnum": 24026,
-                  "posorgshortdesc": "DS/CR/CFI",
-                  "posnumtext": "S7323821",
-                  "posgradecode": "03",
-                  "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
-                }
-              ]
-            }
-          ],
-          "agendaLegPosition": [
-            {
-              "posseqnum": 24026,
-              "posorgshortdesc": "DS/CR/CFI",
-              "posnumtext": "S7323821",
-              "posgradecode": "03",
-              "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
-            }
-          ]
-        },
-        {
-          "ailaiseqnum": 2,
-          "aillatcode": "S",
-          "postitledesc": "TRAINING",
-          "posseqnum": "84903",
-          "posorgshortdesc": "Washington, D.C.",
-          "ailetadate": "2020-01-01T00:00:00",
-          "ailetdtedsepdate": "2020-07-01T00:00:00",
-          "ailtodothertext": "6 MO",
-          "posgradecode": "02",
-          "latabbrdesctext": "Reassign",
-          "ailtfcd": "8150", // will eventually be something like "Post to USHL",
-          "position": {
-            "posseqnum": 84903,
-            "posorgshortdesc": "MATAMOROS",
-            "posnumtext": "S70000011",
-            "posgradecode": "03",
-            "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
-            "rnum": 1,
-          },
-          "agendaLegAssignment": [
-            {
-              "asgposseqnum": 24026,
-              "asgdasgseqnum": 131740,
-              "asgdrevisionnum": 1,
-              "asgdasgscode": "EF",
-              "asgdetadate": "2002-11-01T00:00:00",
-              "asgdetdteddate": "2004-11-01T00:00:00",
-              "asgdtoddesctext": "2 YRS/TRANSFER",
-              "position": [
-                {
-                  "posseqnum": 24026,
-                  "posorgshortdesc": "DS/CR/CFI",
-                  "posnumtext": "S7323821",
-                  "posgradecode": "03",
-                  "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
-                }
-              ]
-            }
-          ],
-          "agendaLegPosition": [
-            {
-              "posseqnum": 24026,
-              "posorgshortdesc": "DS/CR/CFI",
-              "posnumtext": "S7323821",
-              "posgradecode": "03",
-              "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
-            }
-          ]
-        },
-        {
-          "ailaiseqnum": 3,
-          "aillatcode": "S",
-          "postitledesc": "SPECIAL AGENT",
-          "posseqnum": "84903",
-          "posorgshortdesc": "BELGRADE",
-          "ailetadate": "2020-07-01T00:00:00",
-          "ailetdtedsepdate": "2022-07-01T00:00:00",
-          "ailtodothertext": "2YRR",
-          "posgradecode": "02",
-          "latabbrdesctext": "Reassign",
-          "ailtfcd": null,
-          "position": {
-            "posseqnum": 84903,
-            "posorgshortdesc": "MATAMOROS",
-            "posnumtext": "S70000011",
-            "posgradecode": "03",
-            "postitledesc": "DIGITAL MEDIA ADMINISTRATOR",
-            "rnum": 1,
-          },
-          "agendaLegAssignment": [
-            {
-              "asgposseqnum": 24026,
-              "asgdasgseqnum": 131740,
-              "asgdrevisionnum": 1,
-              "asgdasgscode": "EF",
-              "asgdetadate": "2002-11-01T00:00:00",
-              "asgdetdteddate": "2004-11-01T00:00:00",
-              "asgdtoddesctext": "2 YRS/TRANSFER",
-              "position": [
-                {
-                  "posseqnum": 24026,
-                  "posorgshortdesc": "DS/CR/CFI",
-                  "posnumtext": "S7323821",
-                  "posgradecode": "03",
-                  "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
-                }
-              ]
-            }
-          ],
-          "agendaLegPosition": [
-            {
-              "posseqnum": 24026,
-              "posorgshortdesc": "DS/CR/CFI",
-              "posnumtext": "S7323821",
-              "posgradecode": "03",
-              "postitledesc": "SUPERVISORY FIRE PROTECTION EN"
-            }
-          ]
-        }
-      ]
-    };
-    const ais = (new Array(50).fill(1)).map((m, i) => ({
-      ...ai,
-      agendaLegs: ai.agendaLegs.slice(0, _.sample([1,2,3])),
-      aiseqnum: i + 1,
-      aisdesctext: _.sample(status),
-      aiperdetseqnum: i % 2 === 0 ? 4 : 6, // perdets of Jenny, Tarek
-    }))
-
   app.get('/v1/agendaItems/:id', async function(req, res, next) {
     if (!req.params.id) {
       next();
     }
-    const ai$ = ais.filter(f => `${f.aiseqnum}` === req.params.id)
+    let ai = await agendas.getAgendaItems(req.params.id)
+
     res.status(200).send({
-      Data: ai$,
+      Data: ai,
       usl_id: 0,
       return_code: 0
     })
   })
 
   app.get('/v1/agendaItems', async function(req, res) { // singleton
-    const { query } = req; // aiseqnum|eq|226661|
-    const filter = _.get(query, "['rp.filter']", '').split('|')
-    const column = filter[0];
-    const value= filter[2]
-    let ais$ = ais;
-    if (column && value) {
-      ais$ = ais$.filter(f => `${f[column]}` === value);
+    try {
+      const { query } = req; // aiseqnum|eq|226661|
+      const filter = _.get(query, "['rp.filter']", '').split('|')
+      const column = filter[0];
+      const value= filter[2]
+      const per = column === "aiperdetseqnum" ? value : null;
+      let ais = await agendas.getAgendaItems(null, per)
+      if (column && value) {
+        ais = ais.filter(f => `${f[column]}` === value);
+      }
+      res.status(200).send({
+        Data: ais,
+        usl_id: 0,
+        return_code: 0
+      })
+
+    } catch {
+      console.error('Error grabbing Agenda Items')
+      res.status(200).send({ Data: null, return_code: -1 })
     }
-    ais$ = ais$.map(m => ({ aiseqnum: m.aiseqnum })) // only return aiseqnum
-    res.status(200).send({
-      Data: ais$,
-      usl_id: 0,
-      return_code: 0
-    })
   })
 };
 

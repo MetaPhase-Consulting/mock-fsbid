@@ -1,7 +1,8 @@
-const { get, isArray } = require('lodash');
+const { find, isArray } = require('lodash');
 const _ = require('lodash');
 const { Employees, Assignments, Classifications, EmployeesClassifications } = require('../models')
 const { addOrderBy } = require('./common.js')
+const agendas = require('./agendas');
 
 // Mapping of provided sort fields to matching query fields
 const SORT_MAPPING = {
@@ -746,58 +747,60 @@ const get_v3_persons = async query => {
 const get_v3_persons_agenda_items = async query => {
   try {
     const data = await get_paged_employees_by_query(query, get_persons_filters)
-    return data.map(emp => {
-      const { 
-        roles = [],  
-        manager = [], 
-        currentassignment = {}, 
-        assignments = [], 
-        classifications = [],
-        languages = [],
-      } = emp
-      let assignmentInfo = getAssignment(currentassignment, true)
-      const res = {
-        perpiifirstname: emp.first_name,
-        perpiilastname: emp.last_name,
-        perpiimiddlename: emp.middle_name || '',
-        perpiisuffixname: emp.per_suffix_name || '',
-        perpiifullname: emp.fullname,
-        perpiiseqnum: emp.emp_seq_nbr,
-        perdetorgcode: "219910",
-        "perdetminactemplrcd#ind": "Y",
-        pertexttcode: "G",
-        perdetseqnum: emp.perdet_seq_num || '',
-        perdetperscode: "A",
-        pertexternalid: emp.per_seq_num || '',
-        pertcurrentind: "Y",
-        persdesc: "Active",
-        rnum: emp.rnum || '',
-        currentAssignment: assignmentInfo ? [
-          {
-            asgperdetseqnum: emp.perdet_seq_num || '',
-            asgempseqnbr: emp.emp_seq_nbr || '',
-            asgposseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
-            asgdasgseqnum: 277311,
-            asgdrevisionnum: 2,
-            asgdasgscode: "EF",
-            asgdetdteddate: assignmentInfo.currentAssignment.asgd_etd_ted_date,
-            asgdtodcode: "Y",
-            position: [
-              {
-                posseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
-                posorgshortdesc: "OIG/EX",
-                posnumtext: "S0000196",
-                posgradecode: "00",
-                postitledesc: "CHIEF, PROJECT MANAGEMENT AND"
-              }
-            ],
-            latestAgendaItem: []
-          }
-        ] : [],
-        handshake: [],
-      }
-      return res
-    })
+    const getAgendas = await agendas.getAgendas(data)
+
+    const mapData = Promise.all(data.map(async (emp) => {
+        const {
+          roles = [],
+          manager = [],
+          currentassignment = {},
+          assignments = [],
+          classifications = [],
+          languages = [],
+        } = emp
+        let assignmentInfo = getAssignment(currentassignment, true)
+        const res = {
+          perpiifirstname: emp.first_name,
+          perpiilastname: emp.last_name,
+          perpiimiddlename: emp.middle_name || '',
+          perpiisuffixname: emp.per_suffix_name || '',
+          perpiifullname: emp.fullname,
+          perpiiseqnum: emp.emp_seq_nbr,
+          perdetorgcode: "219910",
+          "perdetminactemplrcd#ind": "Y",
+          pertexttcode: "G",
+          perdetseqnum: emp.perdet_seq_num || '',
+          perdetperscode: "A",
+          pertexternalid: emp.per_seq_num || '',
+          pertcurrentind: "Y",
+          rnum: emp.rnum || '',
+          currentAssignment: assignmentInfo ? [
+            {
+              asgperdetseqnum: emp.perdet_seq_num || '',
+              asgempseqnbr: emp.emp_seq_nbr || '',
+              asgposseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
+              asgdasgseqnum: assignmentInfo.currentAssignment.asg_seq_num,
+              asgdrevisionnum: assignmentInfo.currentAssignment.asg_seq_num,
+              asgdasgscode: assignmentInfo.currentAssignment.asgs_code,
+              asgdetdteddate: assignmentInfo.currentAssignment.asgd_etd_ted_date,
+              asgdtodcode: "Y",
+              position: [
+                {
+                  posseqnum: assignmentInfo.currentAssignment.currentPosition.pos_seq_num,
+                  posorgshortdesc: assignmentInfo.currentAssignment.currentPosition.pos_bureau_short_desc,
+                  posnumtext: assignmentInfo.currentAssignment.currentPosition.pos_num_text,
+                  posgradecode: assignmentInfo.currentAssignment.currentPosition.pos_grade_code,
+                  postitledesc: assignmentInfo.currentAssignment.currentPosition.pos_title_desc,
+                }
+              ],
+              latestAgendaItem: _.find(getAgendas, ['perdetseqnum', emp.perdet_seq_num]) || {},
+            }
+          ] : [],
+          handshake: [],
+        }
+        return res
+      }))
+    return mapData;
   } catch (Error) {
     console.error(Error)
     return null
