@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const jwt = require('jsonwebtoken');
 
 // Maps filter values to data values
 const FILTERS = {
@@ -290,6 +291,11 @@ const SORT_MAPPING = {
   "geoloc.country": "location_country",
 }
 
+const isCDO = (req) => {
+  const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
+  return _.get(decoded, 'payload.role', []).some(r => ['CDO', 'CDO3'].includes(r));
+}
+
 const formatLanguage = lang => lang && `${lang.language_long_desc}(${lang.language_code}) 1/1`
 
 const formatCommuterPost = (postsArr, counterObj, id) => {
@@ -419,7 +425,7 @@ const checkForRp = (query, res) => {
 
 
 
-module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy,
+module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, isCDO,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
   panelNameMapping, asg_posNameMapping, checkForRp, sepNameMapping, bidNameMapping }

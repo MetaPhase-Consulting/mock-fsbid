@@ -87,9 +87,7 @@ var appRouter = function (app) {
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     } else {
-      const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
-      const found = _.get(decoded, 'payload.role', []).some(r => ['CDO', 'CDO3'].includes(r));
-      isCDO = found;
+      isCDO = common.isCDO(req);
     }
     res.status(200).send(await bidding.get_bids(req.query, isCDO));
   });
