@@ -1,7 +1,7 @@
 const { find, isArray } = require('lodash');
 const _ = require('lodash');
-const { Employees, Assignments, Classifications, EmployeesClassifications } = require('../models')
-const { addOrderBy, asg_posNameMapping } = require('./common.js')
+const { Employees, Assignments, AssignmentDetails, Classifications, EmployeesClassifications } = require('../models')
+const { addOrderBy, asgNameMapping } = require('./common.js')
 const agendas = require('./agendas');
 
 // Mapping of provided sort fields to matching query fields
@@ -883,9 +883,8 @@ const get_user = async query => {
 
 const v2_get_assignments = async (filsCols, query) => {
   try {
-    let asg_posData = await Assignments.query(qb => {
-      qb.join('employees', 'employees.per_seq_num', 'assignments.emp_seq_nbr')
-      qb.join('positions', 'positions.pos_seq_num', 'assignments.pos_seq_num')
+    let asgd_asgData = await AssignmentDetails.query(qb => {
+      qb.join('assignments', 'assignments.asg_seq_num', 'assignmentdetails.asgseqnum')
       if(filsCols['filters'].length) {
         filsCols['filters'].map(fc => {
           return qb.where(fc.name, fc.method, fc.value);
@@ -893,24 +892,57 @@ const v2_get_assignments = async (filsCols, query) => {
       }
     }).fetchPage({
       require: false,
-      withRelated: ['employee', 'position'],
-      pageSize: query['rp.pageRows'] || 25,
+      withRelated: ['assignment'],
+      pageSize: query['rp.pageRows'] || 100,
       page: query['rp.pageNum'] || 1,
     })
-    asg_posData = asg_posData.serialize()
+    asgd_asgData = asgd_asgData.serialize()
 
-    asg_posData = asg_posData.map(a_p => {
+    const empSeqNbrs = asgd_asgData.map(a => a.assignment.emp_seq_nbr);
+    const empSeqNbrsUniq = _.uniq(empSeqNbrs);
+
+    let employeeData = await Employees.query(qb => {
+        qb.whereIn('per_seq_num', empSeqNbrsUniq)
+    }).fetchAll({
+      require: false,
+      columns: ['per_seq_num', 'perdet_seq_num']
+    })
+    employeeData = employeeData.serialize()
+
+    let asgd_asg_empData = asgd_asgData.map(asg_asg => {
+      const asg = asg_asg.assignment
+      const asgd_asg$ = _.omit(asg_asg, ['assignment'])
+      _.merge(asgd_asg$, asg)
+      asgd_asg$['asgperdetseqnum'] = _.find(employeeData, ['per_seq_num', asgd_asg$.emp_seq_nbr])['perdet_seq_num'] || null
+      return asgd_asg$
+    })
+
+
+    console.log("🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻")
+    console.log(asgd_asg_empData);
+    console.log("🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻")
+    //mapping for asgd and asg
+
+    asgd_asg_empData = asgd_asg_empData.map(a_p => {
       return _.mapKeys(a_p, function(value, key) {
-        return asg_posNameMapping(key, true);
+        return asgNameMapping(key, true);
       })
     })
 
-    const cols = filsCols['columns'].map(a => asg_posNameMapping(a, true))
+    const cols = filsCols['columns'].map(a => asgNameMapping(a, true))
+    // for this EP, the following cols should always return:
+    // asgposseqnum
+    // asgdasgseqnum
+    // asgdrevisionnum
+    // asgdasgscode
+    // asgdetadate
+    // asgdetdteddate
+    // asgdtoddesctext
     if(filsCols['columns'].length) {
-      asg_posData = asg_posData.map(pd => _.pick(pd, cols))
+      asgd_asg_empData = asgd_asg_empData.map(pd => _.pick(pd, cols))
     }
 
-    return asg_posData
+    return asgd_asg_empData
 
   } catch (Error) {
     console.error(Error)
@@ -938,11 +970,11 @@ const get_separations = async (filsCols, query) => {
 
     asg_posData = asg_posData.map(a_p => {
       return _.mapKeys(a_p, function(value, key) {
-        return asg_posNameMapping(key, true);
+        return asgNameMapping(key, true);
       })
     })
 
-    const cols = filsCols['columns'].map(a => asg_posNameMapping(a, true))
+    const cols = filsCols['columns'].map(a => asgNameMapping(a, true))
     if(filsCols['columns'].length) {
       asg_posData = asg_posData.map(pd => _.pick(pd, cols))
     }

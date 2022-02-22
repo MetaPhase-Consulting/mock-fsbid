@@ -158,11 +158,11 @@ async function v2_get_bids(filsCols, query) {
 
     asg_posData = asg_posData.map(a_p => {
       return _.mapKeys(a_p, function(value, key) {
-        return asg_posNameMapping(key, true);
+        return asgNameMapping(key, true);
       })
     })
 
-    const cols = filsCols['columns'].map(a => asg_posNameMapping(a, true))
+    const cols = filsCols['columns'].map(a => asgNameMapping(a, true))
     if(filsCols['columns'].length) {
       asg_posData = asg_posData.map(pd => _.pick(pd, cols))
     }

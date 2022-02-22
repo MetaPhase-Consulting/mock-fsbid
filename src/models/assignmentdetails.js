@@ -5,7 +5,7 @@ const AssignmentDetails = bookshelf.model('AssignmentDetails', {
   idAttribute: 'asgd_code',
 
   assignment() {
-    return this.belongsTo('Assignments', 'asg_seq_num')
+    return this.belongsTo('Assignments', 'asgseqnum', 'asg_seq_num')
   },
   ailseqnum() {
     return this.belongsTo('agendaitemlegs', 'ailseqnum')

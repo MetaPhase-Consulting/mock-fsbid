@@ -334,11 +334,11 @@ const panelNameMapping = (val, toWS=false) => {
   return _.get(colDictionary, val) || val
 }
 
-const asg_posNameMapping = (val, toWS=false) => {
+const asgNameMapping = (val, toWS=false) => {
   let colDictionary = {
     asgposseqnum: 'pos_seq_num',
-    asgdasgseqnum: 'asg_seq_num',
-    asgdrevisionnum: 'asgd_revision_num',
+    // asgdasgseqnum: 'asg_seq_num',
+    // asgdrevisionnum: 'asgd_revision_num',
     asgdasgscode: 'asgs_code',
     asgdetadate: 'eta_date',
     asgdetdteddate: 'etd_ted_date',
@@ -428,4 +428,4 @@ const checkForRp = (query, res) => {
 module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, isCDO,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
-  panelNameMapping, asg_posNameMapping, checkForRp, sepNameMapping, bidNameMapping }
+  panelNameMapping, asgNameMapping, checkForRp, sepNameMapping, bidNameMapping }
