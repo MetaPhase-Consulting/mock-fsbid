@@ -940,7 +940,7 @@ const v2_get_assignments = async (filsCols, query) => {
       'asgdtoddesctext'
     ];
 
-    const colsToPick = _.union(setCols, filsCols['columns'])
+    const colsToPick = _.union(setCols, cols)
 
     asgd_asg_empData = asgd_asg_empData.map(pd => _.pick(pd, colsToPick))
 
