@@ -1,6 +1,6 @@
 const { find, isArray } = require('lodash');
 const _ = require('lodash');
-const { Employees, Assignments, AssignmentDetails, Classifications, EmployeesClassifications } = require('../models')
+const { Employees, Assignments, AssignmentDetails, Classifications, EmployeesClassifications, TourOfDuties } = require('../models')
 const { addOrderBy, asgNameMapping, asgdNameMapping } = require('./common.js')
 const agendas = require('./agendas');
 
@@ -920,14 +920,36 @@ const v2_get_assignments = async (filsCols, query) => {
     //asg and asgd mapping
     asgd_asg_empData = asgd_asg_empData.map(a_p => {
       return _.mapKeys(a_p, function(value, key) {
-        let mapped = asgNameMapping(key, true);
-        return asgdNameMapping(mapped, true);
+        let mapped = asgdNameMapping(key, true);
+        return asgNameMapping(mapped, true);
       })
     })
 
     const cols = filsCols['columns'].map(a => {
       let mapped = asgNameMapping(a, true);
       return asgdNameMapping(mapped, true);
+    })
+
+    //adding static data we dont have in our db
+    asgd_asg_empData = asgd_asg_empData.map(renderedData => {
+      const aoCdoPerdets = [2, 7, 8, 13];
+      const codeMap = {
+        AP: 'Pending',
+        BR: 'Break',
+        EF: 'Effective',
+        CP: 'Completed'
+      };
+      return {
+        ...renderedData,
+        asgdtfcd: "8155",
+        asgdwrtcoderrrepay: _.sample(["G", "N"]),
+        asgscode: renderedData.asgdasgscode,
+        asgscreatedate: _.get(renderedData, 'asgdcreatedate') || null,
+        asgscreateid: _.sample(aoCdoPerdets),
+        asgsdesctext: codeMap[renderedData.asgdasgscode] || '',
+        asgsupdatedate: _.get(renderedData, 'asgdcreatedate') || null,
+        asgsupdateid: _.sample(aoCdoPerdets)
+      }
     })
 
     const setCols = [

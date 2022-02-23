@@ -351,6 +351,7 @@ const asgNameMapping = (val, toWS=false) => {
 }
 
 const asgdNameMapping = (val, toWS=false) => {
+  //asgdtodothertext gets overwritten when toWS
   let colDictionary = {
     asgdadjustmonthsnum: 'asgdadjustmonthsnum',
     asgdailseqnum: 'ailseqnum',
@@ -367,9 +368,9 @@ const asgdNameMapping = (val, toWS=false) => {
     asgdpriorityind: 'asgdpriorityind',
     asgdsalaryreimburseind: 'asgdsalaryreimburseind',
     asgdtodcode: 'todcode',
-    asgdtoddesctext: 'todcode',
     asgdtodmonthsnum: 'asgdtodmonthsnum',
     asgdtodothertext: 'asgdtodothertext',
+    asgdtoddesctext: 'asgdtodothertext',
     asgdtrainingind: 'asgdtrainingind',
     asgdtravelreimburseind: 'asgdtravelreimburseind',
     asgdupdatedate: 'asgdupdatedate'
