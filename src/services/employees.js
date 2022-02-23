@@ -3,6 +3,7 @@ const _ = require('lodash');
 const { Employees, Assignments, Classifications, EmployeesClassifications } = require('../models')
 const { addOrderBy } = require('./common.js')
 const agendas = require('./agendas');
+const lookups = require('./lookups');
 
 // Mapping of provided sort fields to matching query fields
 const SORT_MAPPING = {
@@ -807,6 +808,27 @@ const get_v3_persons_agenda_items = async query => {
   }
 }
 
+const get_agenda_organizations = async ({ isCurrent = true }) => {
+  const ref = isCurrent ? 'current' : 'hs'
+  let orgs = await lookups.get_organizations();
+  orgs = orgs.Data.map(m => ({
+    [`tmper${ref}orgcode`]: m.code,
+    [`tmper${ref}orgdesc`]: m.short_desc,
+  }))
+  return orgs;
+}
+
+const get_agenda_bureaus = async ({ isCurrent = true }) => {
+  const ref = isCurrent ? 'current' : 'hs'
+  let burs = await lookups.get_bureaus();
+  console.log(burs)
+  burs = burs.Data.map(m => ({
+    [`tmper${ref}bureaucode`]: m.bur,
+    [`tmper${ref}bureaudesc`]: m.bureau_short_desc,
+  }))
+  return burs;
+}
+
 
 const get_user = async query => {
   try {
@@ -892,6 +914,8 @@ module.exports = {
   get_clients,
   get_assignments, 
   get_classifications, 
+  get_agenda_bureaus,
+  get_agenda_organizations,
   get_persons,
   get_v3_persons,
   get_v3_persons_agenda_items,

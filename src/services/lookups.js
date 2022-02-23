@@ -13,6 +13,7 @@ const {
   UnaccompaniedStatuses,
   CommuterPosts,
   AgendaItemStatuses,
+  Organizations,
 } = require('../models')
 
 const _ = require('lodash')
@@ -72,6 +73,7 @@ const get_postindicators = getAll(PostIndicators)
 const get_unaccompaniedstatuses = getAll(UnaccompaniedStatuses)
 const get_commuterposts = getCommuterPosts(CommuterPosts)
 const get_agenda_item_statuses = getAll(AgendaItemStatuses)
+const get_organizations = getAll(Organizations)
 
 module.exports = {
   get_seasons,
@@ -88,4 +90,5 @@ module.exports = {
   get_unaccompaniedstatuses,
   get_commuterposts,
   get_agenda_item_statuses,
+  get_organizations,
 }

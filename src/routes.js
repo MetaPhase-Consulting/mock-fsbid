@@ -385,6 +385,49 @@ var appRouter = function (app) {
     })
   })
 
+  app.get('/v1/tm-persons', async function(req, res) {
+    let persons;
+    // const persons = await employees.get_v3_persons_agenda_items(req.query)
+    if (_.get(req.query, '["rp.columns"]', "").indexOf('ROWCOUNT') > -1) {
+      persons = [{ rowcount: 1337 }]
+    } else {
+      /* persons = Array.from(Array(25).keys()).map((p, i) => (
+        {
+          "tmperaicreateid": 383 + i,
+          "tmperaiscode": "A",
+          "tmpercdoid": null,
+          "tmpercurrentbureaucode": "310000" + i,
+          "tmpercurrentbureaudesc": "GTM",
+          "tmpercurrentlocationcode": "100000001" + i,
+          "tmpercurrentorgcode": "300000" + i,
+          "tmpercurrentorgdesc": "GTM/NGO",
+          "tmpercurrentted": "2022-08-24T00:00:00",
+          "tmperhsbureaucode": null,
+          "tmperhsbureaudesc": null,
+          "tmperhsind": null,
+          "tmperhslocationcode": null,
+          "tmperhsorgcode": null,
+          "tmperhsorgdesc": "RIGA",
+          "tmperpanelmeeting": 2357 + i,
+          "tmperpanelmeetingdate": "2020-09-24T13:55:00",
+          "tmperperdetseqnum": 389894 + i,
+          "tmperperfullname": "O'PALICK-MONOIK,HELIMA-KITRA NMN",
+          "tmperperscode": "A",
+          "tmperpertexternalid": "107168" + i,
+          "tmperseparationdate": null,
+          "rnum": i
+        }
+      )); */
+      persons = await employees.get_v3_persons_agenda_items({ "request_params.page_size": 25, "request_params.page_index": 1 })
+    }
+
+    res.status(200).send({
+      Data: persons,
+      UslId: 0,
+      ReturnCode: 0
+    })
+  })
+
   app.get('/v1/cyclePositions', async function(req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query, true))
@@ -519,6 +562,67 @@ var appRouter = function (app) {
       res.status(200).send({ Data: null, return_code: -1 })
     }
   })
+
+  app.get('/v1/tm-persons/reference/current-organizations', async function(req, res) {
+    try {
+      const Data = await employees.get_agenda_organizations({ isCurrent: true });
+      console.log(Data)
+      res.status(200).send({
+        Data,
+        usl_id: 0,
+        return_code: 0
+      })
+
+    } catch {
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.get('/v1/tm-persons/reference/handshake-organizations', async function(req, res) {
+    try {
+      const Data = await employees.get_agenda_organizations({ isCurrent: false });
+      console.log(Data)
+      res.status(200).send({
+        Data,
+        usl_id: 0,
+        return_code: 0
+      })
+
+    } catch {
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.get('/v1/tm-persons/reference/current-bureaus', async function(req, res) {
+    try {
+      const Data = await employees.get_agenda_bureaus({ isCurrent: true });
+      console.log(Data)
+      res.status(200).send({
+        Data,
+        usl_id: 0,
+        return_code: 0
+      })
+
+    } catch {
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.get('/v1/tm-persons/reference/handshake-bureaus', async function(req, res) {
+    try {
+      const Data = await employees.get_agenda_bureaus({ isCurrent: false });
+      console.log(Data)
+      res.status(200).send({
+        Data,
+        usl_id: 0,
+        return_code: 0
+      })
+
+    } catch {
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
 };
 
 module.exports = appRouter;
