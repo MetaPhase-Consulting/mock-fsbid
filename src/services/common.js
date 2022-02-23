@@ -415,7 +415,7 @@ const bidNameMapping = (val, toWS=false) => {
   return _.get(colDictionary, val) || val
 }
 
-const convertTemplateFiltersCols = (query, mapFunc) => {
+const convertTemplateFiltersCols = (query, mapFunc1, mapFunc2) => {
   const queryFilterDict = {
     EQ: "=",
     IN: "="
@@ -426,11 +426,14 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
   if(typeof(columns) === 'string') columns = [columns]
   if(typeof(filters) === 'string') filters = [filters]
 
-  columns = columns.map(c => mapFunc(c))
+  columns = columns.map(c => mapFunc1(c))
+  if(mapFunc2){ columns = columns.map(c => mapFunc2(c)) }
   filters = filters.map(f => {
     const f$ = f.split('|');
+    let name = mapFunc1(f$[0])
+    if(mapFunc2) { name = mapFunc2(f$[0]) }
     return {
-      name: mapFunc(f$[0]),
+      name: name,
       method: queryFilterDict[f$[1]],
       value: f$[2]
     };
