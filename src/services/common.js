@@ -336,13 +336,43 @@ const panelNameMapping = (val, toWS=false) => {
 
 const asgNameMapping = (val, toWS=false) => {
   let colDictionary = {
+    asgcreatedate: 'asg_create_date',
+    asgcreateid: 'asg_create_id',
+    asgempseqnbr: 'emp_seq_nbr',
     asgposseqnum: 'pos_seq_num',
-    // asgdasgseqnum: 'asg_seq_num',
-    // asgdrevisionnum: 'asgd_revision_num',
-    asgdasgscode: 'asgs_code',
-    asgdetadate: 'eta_date',
-    asgdetdteddate: 'etd_ted_date',
-    asgdtoddesctext: 'long_desc',
+    asgseqnum: 'asg_seq_num',
+    asgupdatedate: 'asg_update_date',
+    asgupdateid: 'asg_update_id'
+  };
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+  return _.get(colDictionary, val) || val
+}
+
+const asgdNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    asgdadjustmonthsnum: 'asgdadjustmonthsnum',
+    asgdailseqnum: 'ailseqnum',
+    asgdasgscode: 'asgscode',
+    asgdasgseqnum: 'asgseqnum',
+    asgdcreatedate: 'asgdcreatedate',
+    asgdcreateid: 'asgdcreateid',
+    asgdcriticalneedind: 'asgdcriticalneedind',
+    asgdetadate: 'asgdetadate',
+    asgdetdteddate: 'asgdetdteddate',
+    asgdlatcode: 'latcode',
+    asgdnotecommenttext: 'asgdnotecommenttext',
+    asgdorgcode: 'orgcode',
+    asgdpriorityind: 'asgdpriorityind',
+    asgdsalaryreimburseind: 'asgdsalaryreimburseind',
+    asgdtodcode: 'todcode',
+    asgdtoddesctext: 'todcode',
+    asgdtodmonthsnum: 'asgdtodmonthsnum',
+    asgdtodothertext: 'asgdtodothertext',
+    asgdtrainingind: 'asgdtrainingind',
+    asgdtravelreimburseind: 'asgdtravelreimburseind',
+    asgdupdatedate: 'asgdupdatedate'
   };
 
   if(toWS) {
@@ -428,4 +458,5 @@ const checkForRp = (query, res) => {
 module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, isCDO,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
-  panelNameMapping, asgNameMapping, checkForRp, sepNameMapping, bidNameMapping }
+  panelNameMapping, asgNameMapping, checkForRp, sepNameMapping, bidNameMapping,
+  asgdNameMapping }

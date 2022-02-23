@@ -1,7 +1,7 @@
 const { find, isArray } = require('lodash');
 const _ = require('lodash');
 const { Employees, Assignments, AssignmentDetails, Classifications, EmployeesClassifications } = require('../models')
-const { addOrderBy, asgNameMapping } = require('./common.js')
+const { addOrderBy, asgNameMapping, asgdNameMapping } = require('./common.js')
 const agendas = require('./agendas');
 
 // Mapping of provided sort fields to matching query fields
@@ -917,33 +917,34 @@ const v2_get_assignments = async (filsCols, query) => {
       return asgd_asg$
     })
 
-
-    console.log("🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻")
-    console.log(asgd_asg_empData);
-    console.log("🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻")
-    //mapping for asgd and asg
-
+    //asg and asgd mapping
     asgd_asg_empData = asgd_asg_empData.map(a_p => {
       return _.mapKeys(a_p, function(value, key) {
-        return asgNameMapping(key, true);
+        let mapped = asgNameMapping(key, true);
+        return asgdNameMapping(mapped, true);
       })
     })
 
-    const cols = filsCols['columns'].map(a => asgNameMapping(a, true))
-    // for this EP, the following cols should always return:
-    // asgposseqnum
-    // asgdasgseqnum
-    // asgdrevisionnum
-    // asgdasgscode
-    // asgdetadate
-    // asgdetdteddate
-    // asgdtoddesctext
-    if(filsCols['columns'].length) {
-      asgd_asg_empData = asgd_asg_empData.map(pd => _.pick(pd, cols))
-    }
+    const cols = filsCols['columns'].map(a => {
+      let mapped = asgNameMapping(a, true);
+      return asgdNameMapping(mapped, true);
+    })
+
+    const setCols = [
+      'asgposseqnum',
+      'asgdasgseqnum',
+      'asgdrevisionnum',
+      'asgdasgscode',
+      'asgdetadate',
+      'asgdetdteddate',
+      'asgdtoddesctext'
+    ];
+
+    const colsToPick = _.union(setCols, filsCols['columns'])
+
+    asgd_asg_empData = asgd_asg_empData.map(pd => _.pick(pd, colsToPick))
 
     return asgd_asg_empData
-
   } catch (Error) {
     console.error(Error)
     return null
