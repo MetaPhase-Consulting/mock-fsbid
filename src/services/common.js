@@ -403,11 +403,11 @@ const sepNameMapping = (val, toWS=false) => {
 
 const bidNameMapping = (val, toWS=false) => {
   let colDictionary = {
-    ubwhscode: '',
-    cpposseqnum: '',
-    posnumtext: '',
-    posorgshortdesc: '',
-    postitledesc: '',
+    ubwhscode: 'ubw_hndshk_offrd_flg',
+    cpposseqnum: 'pos_seq_num',
+    posnumtext: 'position',
+    posorgshortdesc: 'short_desc',
+    postitledesc: 'pos_title_desc',
   };
 
   if(toWS) {

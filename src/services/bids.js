@@ -1,5 +1,6 @@
 const { Bids } = require('../models')
 const { get_available_position_by_id } = require('./availablepositions')
+const { bidNameMapping } = require('./common.js')
 const { personSkills, personLanguages } = require('./employees')
 
 const _ = require('lodash');
@@ -138,61 +139,61 @@ async function get_bids(query, isCDO) {
   }
 }
 
-async function v2_get_bids(filsCols, query) {
+async function v2_get_bids(filsCols) {
   try {
-    let bidsData = await Bids.query(qb => {
-      qb.join('employees', 'employees.per_seq_num', 'assignments.emp_seq_nbr')
-      qb.join('positions', 'positions.pos_seq_num', 'assignments.pos_seq_num')
-      if(filsCols['filters'].length) {
-        filsCols['filters'].map(fc => {
-          return qb.where(fc.name, fc.method, fc.value);
-        })
-      }
-    }).fetchPage({
+    const perdet_seq_num = _.find(filsCols.filters, ['name', 'perdetseqnum'])['value']
+
+    let bids = await Bids.where('perdet_seq_num', perdet_seq_num).fetchAll({
+      withRelated: [
+        'position',
+        'position.cycle',
+        'position.position.org',
+      ],
       require: false,
-      withRelated: ['employee', 'position'],
-      pageSize: query['rp.pageRows'] || 25,
-      page: query['rp.pageNum'] || 1,
     })
-    asg_posData = asg_posData.serialize()
+    bids = bids.serialize()
 
-    asg_posData = asg_posData.map(a_p => {
-      return _.mapKeys(a_p, function(value, key) {
-        return asgNameMapping(key, true);
-      })
+    //format data
+    bids = bids.map(b => {
+      let b$ = {
+        ...b.position.position,
+        'ubw_hndshk_offrd_flg': b['ubw_hndshk_offrd_flg']
+      }
+      b$ = _.pick(b$, ['ubw_hndshk_offrd_flg', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc'])
+      b$['short_desc'] = _.get(b$, 'org.short_desc')
+
+      return _.omit(b$, 'org')
     })
 
-    const cols = filsCols['columns'].map(a => asgNameMapping(a, true))
-    if(filsCols['columns'].length) {
-      asg_posData = asg_posData.map(pd => _.pick(pd, cols))
-    }
+    bids = bids.map(b => {
+    return _.mapKeys(b, function(value, key) {
+      return bidNameMapping(key, true);
+    })
+    })
 
-    return asg_posData
+    const cols = filsCols['columns'].map(a => {
+    return bidNameMapping(a, true);
+    })
+
+    const setCols = [
+    'ubwhscode',
+    'cpposseqnum',
+    'posnumtext',
+    'posorgshortdesc',
+    'postitledesc'
+    ];
+
+    const colsToPick = _.union(setCols, cols)
+
+    bids = bids.map(pd => _.pick(pd, colsToPick))
+
+    return bids
 
   } catch (Error) {
     console.error(Error)
     return null
   }
 
-
-
-
-  const bids = await Bids.where('perdet_seq_num', perdet_seq_num).fetchAll({
-    withRelated: [
-      'position',
-      'position.position.location',
-      'position.position.skill',
-      'position.cycle',
-      'position.bidstats'
-    ],
-    require: false,
-  })
-
-  return {
-    Data: bids.map(bid => formatData(bid.serialize(), isCDO)),
-    usl_id: 0,
-    return_code: 0
-  }
 }
 
 // calculate the delete_ind value

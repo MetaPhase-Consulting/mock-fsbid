@@ -93,11 +93,10 @@ var appRouter = function (app) {
 
   app.get("/v2/bids", async function (req, res) {
     try {
-
       common.checkForRp(req.query, res)
 
       const filsCols = common.convertTemplateFiltersCols(req.query, common.bidNameMapping)
-      const bidData = await bidding.v2_get_bids(filsCols, req.query)
+      const bidData = await bidding.v2_get_bids(filsCols)
 
       res.status(200).send({
         Data: bidData,
@@ -107,17 +106,6 @@ var appRouter = function (app) {
     } catch {
       console.error('An error has occurred.')
     }
-
-
-    //
-    // let isCDO = false;
-    // if (!req.headers.jwtauthorization) {
-    //   res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
-    // } else {
-    //   const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
-    //   const found = _.get(decoded, 'payload.role', []).some(r => ['CDO', 'CDO3'].includes(r));
-    //   isCDO = found;
-    // }
   });
 
   app.post('/v1/bids', async function(req, res) {
