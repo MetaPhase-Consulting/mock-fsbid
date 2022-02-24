@@ -171,10 +171,6 @@ async function v2_get_bids(filsCols) {
     })
     })
 
-    const cols = filsCols['columns'].map(a => {
-    return bidNameMapping(a, true);
-    })
-
     const setCols = [
     'ubwhscode',
     'cpposseqnum',
@@ -183,7 +179,7 @@ async function v2_get_bids(filsCols) {
     'postitledesc'
     ];
 
-    const colsToPick = _.union(setCols, cols)
+    const colsToPick = _.union(setCols,  filsCols['columns'])
 
     bids = bids.map(pd => _.pick(pd, colsToPick))
 
