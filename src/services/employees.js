@@ -1013,10 +1013,6 @@ const get_separations = async (filsCols, query) => {
       })
     })
 
-    const cols = filsCols['columns'].map(a => {
-      return sepNameMapping(a, true);
-    })
-
     const setCols = [
       'sepseqnum',
       'sepdasgscode',
@@ -1025,7 +1021,7 @@ const get_separations = async (filsCols, query) => {
       'sepdseparationdate'
     ];
 
-    const colsToPick = _.union(setCols, cols)
+    const colsToPick = _.union(setCols, filsCols['columns'])
 
     asg_empData = asg_empData.map(pd => _.pick(pd, colsToPick))
 
