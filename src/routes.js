@@ -298,7 +298,7 @@ var appRouter = function (app) {
 
       common.checkForRp(req.query, res)
 
-      const filsCols = common.convertTemplateFiltersCols(req.query, common.asgNameMapping, common.asgdNameMapping)
+      const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.asgNameMapping).map(common.asgdNameMapping))
       const asg_pos = await employees.v2_get_assignments(filsCols, req.query)
 
       res.status(200).send({

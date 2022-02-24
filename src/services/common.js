@@ -351,7 +351,6 @@ const asgNameMapping = (val, toWS=false) => {
 }
 
 const asgdNameMapping = (val, toWS=false) => {
-  //asgdtodothertext gets overwritten when toWS
   let colDictionary = {
     asgdadjustmonthsnum: 'asgdadjustmonthsnum',
     asgdailseqnum: 'ailseqnum',
@@ -369,8 +368,11 @@ const asgdNameMapping = (val, toWS=false) => {
     asgdsalaryreimburseind: 'asgdsalaryreimburseind',
     asgdtodcode: 'todcode',
     asgdtodmonthsnum: 'asgdtodmonthsnum',
-    asgdtodothertext: 'asgdtodothertext',
     asgdtoddesctext: 'asgdtodothertext',
+    // asgdtodothertext: 'asgdtodothertext',
+    // right now our asgdtodothertext matches our tourofduties.long_desc
+    // asgdtoddesctext === tourofduties.long_desc
+    // asgdtodothertext should be something else
     asgdtrainingind: 'asgdtrainingind',
     asgdtravelreimburseind: 'asgdtravelreimburseind',
     asgdupdatedate: 'asgdupdatedate'
@@ -386,11 +388,10 @@ const asgdNameMapping = (val, toWS=false) => {
 const sepNameMapping = (val, toWS=false) => {
   //what exactly is separations?
   let colDictionary = {
-    sepseqnum: '',
-    sepdasgscode: '',
-    sepdcitytext: '',
-    sepdcountrystatetext: '',
-    sepdseparationdate: '',
+    sepempseqnbr: 'emp_seq_nbr',
+    sepperdetseqnum: 'perdet_seq_num',
+    sepseqnum: 'asg_seq_num',
+    sepdasgscode: 'asgs_code',
   };
 
   if(toWS) {
@@ -416,7 +417,7 @@ const bidNameMapping = (val, toWS=false) => {
   return _.get(colDictionary, val) || val
 }
 
-const convertTemplateFiltersCols = (query, mapFunc1, mapFunc2) => {
+const convertTemplateFiltersCols = (query, mapFunc1) => {
   const queryFilterDict = {
     EQ: "=",
     IN: "="
@@ -427,12 +428,11 @@ const convertTemplateFiltersCols = (query, mapFunc1, mapFunc2) => {
   if(typeof(columns) === 'string') columns = [columns]
   if(typeof(filters) === 'string') filters = [filters]
 
-  columns = columns.map(c => mapFunc1(c))
-  if(mapFunc2){ columns = columns.map(c => mapFunc2(c)) }
+  columns = mapFunc1(columns)
+  // columns = columns.map(c => mapFunc1(c))
   filters = filters.map(f => {
     const f$ = f.split('|');
-    let name = mapFunc1(f$[0])
-    if(mapFunc2) { name = mapFunc2(f$[0]) }
+    let name = mapFunc1([f$[0]])[0]
     return {
       name: name,
       method: queryFilterDict[f$[1]],
