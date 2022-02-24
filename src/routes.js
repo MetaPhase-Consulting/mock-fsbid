@@ -552,7 +552,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v1/panels/dates', async function(req, res) {
+  app.get('/v1/panels/references/dates', async function(req, res) {
     try {
     common.checkForRp(req.query, res)
     const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.panelNameMapping))
