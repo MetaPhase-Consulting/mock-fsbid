@@ -948,11 +948,6 @@ const v2_get_assignments = async (filsCols, query) => {
       }
     })
 
-    const cols = filsCols['columns'].map(a => {
-      let mapped = asgNameMapping(a, true);
-      return asgdNameMapping(mapped, true);
-    })
-
     const setCols = [
       'asgposseqnum',
       'asgdasgseqnum',
@@ -963,7 +958,7 @@ const v2_get_assignments = async (filsCols, query) => {
       'asgdtoddesctext'
     ];
 
-    const colsToPick = _.union(setCols, cols)
+    const colsToPick = _.union(setCols, filsCols['columns'])
 
     asgd_asg_empData = asgd_asg_empData.map(pd => _.pick(pd, colsToPick))
 
