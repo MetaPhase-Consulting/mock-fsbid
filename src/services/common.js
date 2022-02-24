@@ -334,6 +334,18 @@ const panelNameMapping = (val, toWS=false) => {
   return _.get(colDictionary, val) || val
 }
 
+const pmdNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    'pmdpmseqnum': 'pmseqnum',
+    'pmdmdtcode': 'mdtcode',
+    'pmddttm': 'pmddttm',
+  };
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+  return _.get(colDictionary, val) || val
+}
+
 const asgNameMapping = (val, toWS=false) => {
   let colDictionary = {
     asgcreatedate: 'asg_create_date',
@@ -386,7 +398,6 @@ const asgdNameMapping = (val, toWS=false) => {
 }
 
 const sepNameMapping = (val, toWS=false) => {
-  //what exactly is separations?
   let colDictionary = {
     sepempseqnbr: 'emp_seq_nbr',
     sepperdetseqnum: 'perdet_seq_num',
@@ -417,7 +428,7 @@ const bidNameMapping = (val, toWS=false) => {
   return _.get(colDictionary, val) || val
 }
 
-const convertTemplateFiltersCols = (query, mapFunc1) => {
+const convertTemplateFiltersCols = (query, mapFunc) => {
   const queryFilterDict = {
     EQ: "=",
     IN: "="
@@ -428,11 +439,10 @@ const convertTemplateFiltersCols = (query, mapFunc1) => {
   if(typeof(columns) === 'string') columns = [columns]
   if(typeof(filters) === 'string') filters = [filters]
 
-  columns = mapFunc1(columns)
-  // columns = columns.map(c => mapFunc1(c))
   filters = filters.map(f => {
     const f$ = f.split('|');
-    let name = mapFunc1([f$[0]])[0]
+
+    let name = mapFunc([f$[0]])[0]
     return {
       name: name,
       method: queryFilterDict[f$[1]],
@@ -463,4 +473,4 @@ module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, 
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
   panelNameMapping, asgNameMapping, checkForRp, sepNameMapping, bidNameMapping,
-  asgdNameMapping }
+  asgdNameMapping, pmdNameMapping }

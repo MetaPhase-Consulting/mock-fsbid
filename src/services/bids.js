@@ -141,7 +141,8 @@ async function get_bids(query, isCDO) {
 
 async function v2_get_bids(filsCols) {
   try {
-    const perdet_seq_num = _.find(filsCols.filters, ['name', 'perdetseqnum'])['value']
+    // TODO: format this gets passed in for bids using template - is it required? rn it is for mock
+    const perdet_seq_num = _.find(filsCols.filters, ['name', 'perdet_seq_num'])['value']
 
     let bids = await Bids.where('perdet_seq_num', perdet_seq_num).fetchAll({
       withRelated: [
@@ -157,9 +158,10 @@ async function v2_get_bids(filsCols) {
     bids = bids.map(b => {
       let b$ = {
         ...b.position.position,
-        'ubw_hndshk_offrd_flg': b['ubw_hndshk_offrd_flg']
+        'ubw_hndshk_offrd_flg': b['ubw_hndshk_offrd_flg'],
+        'perdet_seq_num': b['perdet_seq_num']
       }
-      b$ = _.pick(b$, ['ubw_hndshk_offrd_flg', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc'])
+      b$ = _.pick(b$, ['ubw_hndshk_offrd_flg', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc', 'perdet_seq_num'])
       b$['short_desc'] = _.get(b$, 'org.short_desc')
 
       return _.omit(b$, 'org')

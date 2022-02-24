@@ -1,8 +1,8 @@
 const { readJson } = require('../../seeds/data/helpers')
 const _ = require('lodash')
+const { pmdNameMapping } = require('./common.js')
 const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, AgendaItemStatuses,
   Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories } = require('../models')
-const BUR = readJson('./bureaus.json')
 
 const getAgendas = async (empData) => {
   try {
@@ -291,14 +291,18 @@ const getPanelDates = async (filsCols, query) => {
       const merged = _.merge(pmseqnumNode, p)
 
       return _.mapKeys(merged, function(value, key) {
-        return common.panelNameMapping(key, true);
+        return pmdNameMapping(key, true);
       })
     })
 
-    const cols = filsCols['columns'].map(a => common.panelNameMapping(a, true))
-    if(filsCols['columns'].length) {
-      pmdtData = pmdtData.map(pd => _.pick(pd, cols))
-    }
+    const setCols = [
+      'pmdpmseqnum',
+      'pmddttm'
+    ];
+
+    const colsToPick = _.union(setCols, filsCols['columns'])
+
+    pmdtData = pmdtData.map(pd => _.pick(pd, colsToPick))
 
     return pmdtData
   } catch (Error) {
