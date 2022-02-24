@@ -1053,7 +1053,6 @@ module.exports = {
   get_clients,
   get_assignments, 
   get_classifications, 
-  get_persons,
   get_v3_persons,
   get_v3_persons_agenda_items,
   get_persons, 
