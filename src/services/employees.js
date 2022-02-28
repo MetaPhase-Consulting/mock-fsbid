@@ -798,6 +798,7 @@ const get_v3_persons_agenda_items = async query => {
             }
           ] : [],
           handshake: [],
+          cdos: [{ hruid: 1 }]
         }
         return res
       }))
