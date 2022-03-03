@@ -1,5 +1,6 @@
 const { Bids } = require('../models')
 const { get_available_position_by_id } = require('./availablepositions')
+const { bidNameMapping } = require('./common.js')
 const { personSkills, personLanguages } = require('./employees')
 
 const _ = require('lodash');
@@ -137,6 +138,62 @@ async function get_bids(query, isCDO) {
     return_code: 0
   }
 }
+
+async function v2_get_bids(filsCols) {
+  try {
+    // TODO: format this gets passed in for bids using template - is it required? rn it is for mock
+    const perdet_seq_num = _.find(filsCols.filters, ['name', 'perdet_seq_num'])['value']
+
+    let bids = await Bids.where('perdet_seq_num', perdet_seq_num).fetchAll({
+      withRelated: [
+        'position',
+        'position.cycle',
+        'position.position.org',
+      ],
+      require: false,
+    })
+    bids = bids.serialize()
+
+    //format data
+    bids = bids.map(b => {
+      let b$ = {
+        ...b.position.position,
+        'ubw_hndshk_offrd_flg': b['ubw_hndshk_offrd_flg'],
+        'perdet_seq_num': b['perdet_seq_num']
+      }
+      b$ = _.pick(b$, ['ubw_hndshk_offrd_flg', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc', 'perdet_seq_num'])
+      b$['short_desc'] = _.get(b$, 'org.short_desc')
+
+      return _.omit(b$, 'org')
+    })
+
+    bids = bids.map(b => {
+    return _.mapKeys(b, function(value, key) {
+      return bidNameMapping(key, true);
+    })
+    })
+
+    const setCols = [
+    'ubwhscode',
+    'cpposseqnum',
+    'posnumtext',
+    'posorgshortdesc',
+    'postitledesc'
+    ];
+
+    const colsToPick = _.union(setCols,  filsCols['columns'])
+
+    bids = bids.map(pd => _.pick(pd, colsToPick))
+
+    return bids
+
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+
+}
+
 // calculate the delete_ind value
 const get_delete_ind = id => (
   {
@@ -343,4 +400,4 @@ async function update_bid(query, data) {
   return { Data: null, usl_id: 45066084, return_code }
 }
 
-module.exports = { get_bids, get_bids_by_cp, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid, register_bid, unregister_bid }
+module.exports = { get_bids, get_bids_by_cp, add_bid, submit_bid, remove_bid, offer_handshake, panel_bid, assign_bid, register_bid, unregister_bid, v2_get_bids }

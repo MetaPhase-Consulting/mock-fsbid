@@ -86,11 +86,26 @@ var appRouter = function (app) {
     if (!req.headers.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
     } else {
-      const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
-      const found = _.get(decoded, 'payload.role', []).some(r => ['CDO', 'CDO3'].includes(r));
-      isCDO = found;
+      isCDO = common.isCDO(req);
     }
     res.status(200).send(await bidding.get_bids(req.query, isCDO));
+  });
+
+  app.get("/v2/bids", async function (req, res) {
+    try {
+      common.checkForRp(req.query, res)
+
+      const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.bidNameMapping))
+      const bidData = await bidding.v2_get_bids(filsCols)
+
+      res.status(200).send({
+        Data: bidData,
+        usl_id: 0,
+        return_code: 0
+      })
+    } catch {
+      console.error('An error has occurred.')
+    }
   });
 
   app.post('/v1/bids', async function(req, res) {
@@ -105,9 +120,7 @@ var appRouter = function (app) {
 
   app.put('/v1/bids', async function(req, res) {
     let isCDO = false;
-    const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
-    const roles = _.get(decoded, 'payload.role', []);
-    if (_.includes(roles, 'CDO') || _.includes(roles, 'CDO3')) { isCDO = true; }
+    if (common.isCDO(req)) { isCDO = true; }
     try {
       res.status(200).send(await bidding.submit_bid(req.query, isCDO))
     } catch (err) {
@@ -268,6 +281,24 @@ var appRouter = function (app) {
     })
   })
 
+  app.get('/v2/assignments', async function(req, res) {
+    try {
+
+      common.checkForRp(req.query, res)
+
+      const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.asgNameMapping).map(common.asgdNameMapping))
+      const asg_pos = await employees.v2_get_assignments(filsCols, req.query)
+
+      res.status(200).send({
+        Data: asg_pos,
+        usl_id: 0,
+        return_code: 0
+      })
+    } catch {
+      console.error('An error has occurred.')
+    }
+  })
+
   // Common look up function
   const lookup = fn => async (req, res) => res.status(200).send(await fn())
 
@@ -281,8 +312,8 @@ var appRouter = function (app) {
   app.get('/v1/fsbid/bureaus', lookup(lookups.get_bureaus))
   app.get('/v1/references/skills', lookup(lookups.get_codes))
   app.get('/v1/references/Locations', lookup(lookups.get_locations))
-  app.get('/v1/agendaItems/statuses', lookup(lookups.get_agenda_item_statuses))
-
+  app.get('/v1/agendas/references/statuses', lookup(lookups.get_agenda_item_statuses))
+  app.get('/v1/panels/references/categories', lookup(lookups.get_panel_categories))
   app.get('/v1/fsbid/posts/attributes', async function(req, res) {
     // TODO - add all post attributes tables by query param
     const data = await postattributes.get_postattributes(req.query)
@@ -517,6 +548,41 @@ var appRouter = function (app) {
     } catch {
       console.error('Error grabbing Agenda Items')
       res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.get('/v1/panels/references/dates', async function(req, res) {
+    try {
+    common.checkForRp(req.query, res)
+    const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.panelNameMapping))
+    let pmdt = await agendas.getPanelDates(filsCols, req.query)
+
+    res.status(200).send({
+      Data: pmdt,
+      usl_id: 0,
+      return_code: 0
+    })
+    } catch {
+      console.error('An error has occurred')
+    }
+  })
+
+
+  app.get('/v2/separations', async function(req, res) {
+    try {
+
+      common.checkForRp(req.query, res)
+
+      const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.sepNameMapping))
+      const sep = await employees.get_separations(filsCols, req.query)
+
+      res.status(200).send({
+        Data: sep,
+        usl_id: 0,
+        return_code: 0
+      })
+    } catch {
+      console.error('An error has occurred.')
     }
   })
 };

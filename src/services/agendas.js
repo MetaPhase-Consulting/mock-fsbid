@@ -1,8 +1,8 @@
 const { readJson } = require('../../seeds/data/helpers')
 const _ = require('lodash')
+const { pmdNameMapping } = require('./common.js')
 const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, AgendaItemStatuses,
   Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories } = require('../models')
-const BUR = readJson('./bureaus.json')
 
 const getAgendas = async (empData) => {
   try {
@@ -267,4 +267,48 @@ const getAgendaItems = async (ai_id, perdet) => {
   }
 }
 
-module.exports = { getAgendas, getAgendaItems }
+const getPanelDates = async (filsCols, query) => {
+  try {
+    let pmdtData = await PanelMeetingDates.query(qb => {
+      qb.join('panelmeetings', 'panelmeetingdates.pmseqnum', 'panelmeetings.pmseqnum')
+      if(filsCols['filters'].length) {
+        filsCols['filters'].map(fc => {
+          return qb.where(fc.name, fc.method, fc.value);
+        })
+      }
+    }).fetchPage({
+      withRelated: ['pmseqnum'],
+      require: false,
+      pageSize: query['rp.pageRows'] || 25,
+      page: query['rp.pageNum'] || 1,
+    })
+
+    pmdtData = pmdtData.serialize()
+
+    pmdtData = pmdtData.map(p => {
+      let pmseqnumNode = p['pmseqnum']
+      delete p['pmseqnum']
+      const merged = _.merge(pmseqnumNode, p)
+
+      return _.mapKeys(merged, function(value, key) {
+        return pmdNameMapping(key, true);
+      })
+    })
+
+    const setCols = [
+      'pmdpmseqnum',
+      'pmddttm'
+    ];
+
+    const colsToPick = _.union(setCols, filsCols['columns'])
+
+    pmdtData = pmdtData.map(pd => _.pick(pd, colsToPick))
+
+    return pmdtData
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+module.exports = { getAgendas, getAgendaItems, getPanelDates }
