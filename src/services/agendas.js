@@ -297,7 +297,8 @@ const getPanelDates = async (filsCols, query) => {
 
     const setCols = [
       'pmdpmseqnum',
-      'pmddttm'
+      'pmddttm',
+      'pmtcode'
     ];
 
     const colsToPick = _.union(setCols, filsCols['columns'])
