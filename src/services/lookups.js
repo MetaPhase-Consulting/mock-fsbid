@@ -14,6 +14,7 @@ const {
   CommuterPosts,
   AgendaItemStatuses,
   Organizations,
+  PanelMeetingItemCategories,
 } = require('../models')
 
 const _ = require('lodash')
@@ -59,6 +60,19 @@ const getCommuterPosts = CommuterPosts => async () => {
   }
 }
 
+const getSome = (model, pickProps) => async () => {
+  try {
+    const data = await model.fetchAll()
+    const results = data.serialize().map(d => (
+      _.pick(d, pickProps)
+    ))
+    return { "Data": results, return_code: 0 }
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 const get_seasons = getAll(Seasons)
 const get_cycles = getAll(Cycles)
 const get_grades = getAll(Grades)
@@ -74,6 +88,7 @@ const get_unaccompaniedstatuses = getAll(UnaccompaniedStatuses)
 const get_commuterposts = getCommuterPosts(CommuterPosts)
 const get_agenda_item_statuses = getAll(AgendaItemStatuses)
 const get_organizations = getAll(Organizations)
+const get_panel_categories = getSome(PanelMeetingItemCategories, ['miccode', 'micdesctext'])
 
 module.exports = {
   get_seasons,
@@ -91,4 +106,5 @@ module.exports = {
   get_commuterposts,
   get_agenda_item_statuses,
   get_organizations,
+  get_panel_categories,
 }

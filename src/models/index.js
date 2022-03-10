@@ -38,7 +38,6 @@ const PanelMeetingTypes = require('./panelmeetingtypes')
 const AssignmentDetails = require('./assignmentdetails.js')
 const LegActionTypes = require('./legactiontypes.js')
 
-
 module.exports = {
   Seasons,
   Cycles,

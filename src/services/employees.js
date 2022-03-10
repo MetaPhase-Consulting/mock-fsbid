@@ -1,7 +1,7 @@
 const { find, isArray } = require('lodash');
 const _ = require('lodash');
-const { Employees, Assignments, Classifications, EmployeesClassifications } = require('../models')
-const { addOrderBy } = require('./common.js')
+const { Employees, Assignments, AssignmentDetails, Classifications, EmployeesClassifications, Locations } = require('../models')
+const { addOrderBy, asgNameMapping, asgdNameMapping, sepNameMapping } = require('./common.js')
 const agendas = require('./agendas');
 const lookups = require('./lookups');
 
@@ -904,6 +904,158 @@ const get_user = async query => {
   }
 }
 
+const v2_get_assignments = async (filsCols, query) => {
+  try {
+    let asgd_asgData = await AssignmentDetails.query(qb => {
+      qb.join('assignments', 'assignments.asg_seq_num', 'assignmentdetails.asgseqnum')
+      if(filsCols['filters'].length) {
+        filsCols['filters'].map(fc => {
+          return qb.where(fc.name, fc.method, fc.value);
+        })
+      }
+    }).fetchPage({
+      require: false,
+      withRelated: ['assignment'],
+      pageSize: query['rp.pageRows'] || 100,
+      page: query['rp.pageNum'] || 1,
+    })
+    asgd_asgData = asgd_asgData.serialize()
+
+    const empSeqNbrs = asgd_asgData.map(a => a.assignment.emp_seq_nbr);
+    const empSeqNbrsUniq = _.uniq(empSeqNbrs);
+
+    let employeeData = await Employees.query(qb => {
+        qb.whereIn('per_seq_num', empSeqNbrsUniq)
+    }).fetchAll({
+      require: false,
+      columns: ['per_seq_num', 'perdet_seq_num']
+    })
+    employeeData = employeeData.serialize()
+
+    let asgd_asg_empData = asgd_asgData.map(asgd_asg => {
+      const asg = asgd_asg.assignment
+      const asgd_asg$ = _.omit(asgd_asg, ['assignment'])
+      _.merge(asgd_asg$, asg)
+      asgd_asg$['asgperdetseqnum'] = _.find(employeeData, ['per_seq_num', asgd_asg$.emp_seq_nbr])['perdet_seq_num'] || null
+      return asgd_asg$
+    })
+
+    //asg and asgd mapping
+    asgd_asg_empData = asgd_asg_empData.map(a_p => {
+      return _.mapKeys(a_p, function(value, key) {
+        let mapped = asgdNameMapping(key, true);
+        return asgNameMapping(mapped, true);
+      })
+    })
+
+
+    //adding static data we dont have in our db
+    asgd_asg_empData = asgd_asg_empData.map(renderedData => {
+      const aoCdoPerdets = [2, 7, 8, 13];
+      const codeMap = {
+        AP: 'Pending',
+        BR: 'Break',
+        EF: 'Effective',
+        CP: 'Completed'
+      };
+      return {
+        ...renderedData,
+        asgdtfcd: "8155",
+        asgdwrtcoderrrepay: _.sample(["G", "N"]),
+        asgscode: renderedData.asgdasgscode,
+        asgscreatedate: _.get(renderedData, 'asgdcreatedate') || null,
+        asgscreateid: _.sample(aoCdoPerdets),
+        asgsdesctext: codeMap[renderedData.asgdasgscode] || '',
+        asgsupdatedate: _.get(renderedData, 'asgdcreatedate') || null,
+        asgsupdateid: _.sample(aoCdoPerdets)
+      }
+    })
+
+    const setCols = [
+      'asgposseqnum',
+      'asgdasgseqnum',
+      'asgdrevisionnum',
+      'asgdasgscode',
+      'asgdetadate',
+      'asgdetdteddate',
+      'asgdtoddesctext'
+    ];
+
+    const colsToPick = _.union(setCols, filsCols['columns'])
+
+    asgd_asg_empData = asgd_asg_empData.map(pd => _.pick(pd, colsToPick))
+
+    return asgd_asg_empData
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+const get_separations = async (filsCols, query) => {
+  try {
+    // we have no concept of separation mocked in our DB,
+    // so we are just grabbing assignments
+    let asg_empData = await Assignments.query(qb => {
+      qb.join('employees', 'employees.per_seq_num', 'assignments.emp_seq_nbr')
+      if(filsCols['filters'].length) {
+        filsCols['filters'].map(fc => {
+          return qb.where(fc.name, fc.method, fc.value);
+        })
+      }
+    }).fetchPage({
+      require: false,
+      withRelated: ['employee', 'position'],
+      pageSize: query['rp.pageRows'] || 25,
+      page: query['rp.pageNum'] || 1,
+    })
+    asg_empData = asg_empData.serialize()
+
+    let locsData = await Locations.fetchAll()
+    locsData = locsData.serialize()
+
+
+    //flatten asg_empData and bring in locs data
+    asg_empData = asg_empData.map(a_e => {
+      const perdet = _.get(a_e, 'employee.perdet_seq_num')
+      const loc_code = _.get(a_e, 'position.pos_location_code')
+      const locationData =  _.find(locsData, ['location_code', loc_code])
+      let a_e$ = _.omit(a_e, ['employee', 'position'])
+
+      a_e$['sepperdetseqnum'] = perdet
+      a_e$['asgs_code'] = _.sample(['AP', 'BR', 'EF', 'CP']);
+      a_e$['sepdcitytext'] =  _.get(locationData, 'location_city')
+      a_e$['sepdcountrystatetext'] = `${_.get(locationData, 'location_city')}, ${_.get(locationData, 'location_state') || _.get(locationData, 'location_country')}`
+      a_e$['sepdseparationdate'] = '2020-02-18'
+      return a_e$
+    })
+
+    asg_empData = asg_empData.map(a_e => {
+      return _.mapKeys(a_e, function(value, key) {
+        return sepNameMapping(key, true);
+      })
+    })
+
+    const setCols = [
+      'sepseqnum',
+      'sepdasgscode',
+      'sepdcitytext',
+      'sepdcountrystatetext',
+      'sepdseparationdate'
+    ];
+
+    const colsToPick = _.union(setCols, filsCols['columns'])
+
+    asg_empData = asg_empData.map(pd => _.pick(pd, colsToPick))
+
+    return asg_empData
+
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 module.exports = { 
   get_employee_bureaus_by_query, 
   get_employee_organizations_by_query, 
@@ -926,4 +1078,6 @@ module.exports = {
   get_user,
   add_classification,
   remove_classification,
+  v2_get_assignments,
+  get_separations,
  }

@@ -16,13 +16,13 @@
   "author": "Metaphase Consulting",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.1",
+    "body-parser": "^1.19.2",
     "bookshelf": "^1.2.0",
     "bookshelf-virtuals-plugin": "^1.0.0",
     "cors": "^2.8.5",
     "date-fns": "^2.28.0",
     "dotenv-safe": "^6.1.0",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "get-stream": "^6.0.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.18",
@@ -30,12 +30,12 @@
     "morgan-body": "^2.6.6",
     "oracledb": "^5.3.0",
     "pdfkit": "^0.13.0",
-    "pg": "^8.7.1"
+    "pg": "^8.7.3"
   },
   "devDependencies": {
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
-    "mocha": "^9.2.0",
+    "mocha": "^9.2.1",
     "nodemon": "^2.0.15",
     "nyc": "^15.1.0",
     "sqlite3": "^5.0.0"

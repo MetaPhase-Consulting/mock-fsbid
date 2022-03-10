@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const jwt = require('jsonwebtoken');
 
 // Maps filter values to data values
 const FILTERS = {
@@ -290,6 +291,11 @@ const SORT_MAPPING = {
   "geoloc.country": "location_country",
 }
 
+const isCDO = (req) => {
+  const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
+  return _.get(decoded, 'payload.role', []).some(r => ['CDO', 'CDO3'].includes(r));
+}
+
 const formatLanguage = lang => lang && `${lang.language_long_desc}(${lang.language_code}) 1/1`
 
 const formatCommuterPost = (postsArr, counterObj, id) => {
@@ -316,4 +322,155 @@ const convertPostBodyToGetQuery = query => {
   return body$;
 }
 
-module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, convertPostBodyToGetQuery, formatLanguage, createPositionQuery, createTandemPositionQuery, formatCommuterPost }
+const panelNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    pmpmscode: 'pmscode',
+    pmdmdtcode: 'mdtcode',
+    pmdpmseqnum: 'pmseqnum'
+  };
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+  return _.get(colDictionary, val) || val
+}
+
+const pmdNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    'pmdpmseqnum': 'pmseqnum',
+    'pmdmdtcode': 'mdtcode',
+    'pmddttm': 'pmddttm',
+  };
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+  return _.get(colDictionary, val) || val
+}
+
+const asgNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    asgcreatedate: 'asg_create_date',
+    asgcreateid: 'asg_create_id',
+    asgempseqnbr: 'emp_seq_nbr',
+    asgposseqnum: 'pos_seq_num',
+    asgseqnum: 'asg_seq_num',
+    asgupdatedate: 'asg_update_date',
+    asgupdateid: 'asg_update_id'
+  };
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+  return _.get(colDictionary, val) || val
+}
+
+const asgdNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    asgdadjustmonthsnum: 'asgdadjustmonthsnum',
+    asgdailseqnum: 'ailseqnum',
+    asgdasgscode: 'asgscode',
+    asgdasgseqnum: 'asgseqnum',
+    asgdcreatedate: 'asgdcreatedate',
+    asgdcreateid: 'asgdcreateid',
+    asgdcriticalneedind: 'asgdcriticalneedind',
+    asgdetadate: 'asgdetadate',
+    asgdetdteddate: 'asgdetdteddate',
+    asgdlatcode: 'latcode',
+    asgdnotecommenttext: 'asgdnotecommenttext',
+    asgdorgcode: 'orgcode',
+    asgdpriorityind: 'asgdpriorityind',
+    asgdsalaryreimburseind: 'asgdsalaryreimburseind',
+    asgdtodcode: 'todcode',
+    asgdtodmonthsnum: 'asgdtodmonthsnum',
+    asgdtoddesctext: 'asgdtodothertext',
+    // asgdtodothertext: 'asgdtodothertext',
+    // right now our asgdtodothertext matches our tourofduties.long_desc
+    // asgdtoddesctext === tourofduties.long_desc
+    // asgdtodothertext should be something else
+    asgdtrainingind: 'asgdtrainingind',
+    asgdtravelreimburseind: 'asgdtravelreimburseind',
+    asgdupdatedate: 'asgdupdatedate'
+  };
+
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+
+  return _.get(colDictionary, val) || val
+}
+
+const sepNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    sepempseqnbr: 'emp_seq_nbr',
+    sepperdetseqnum: 'perdet_seq_num',
+    sepseqnum: 'asg_seq_num',
+    sepdasgscode: 'asgs_code',
+  };
+
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+
+  return _.get(colDictionary, val) || val
+}
+
+const bidNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    ubwhscode: 'ubw_hndshk_offrd_flg',
+    cpposseqnum: 'pos_seq_num',
+    posnumtext: 'position',
+    posorgshortdesc: 'short_desc',
+    postitledesc: 'pos_title_desc',
+  };
+
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+
+  return _.get(colDictionary, val) || val
+}
+
+const convertTemplateFiltersCols = (query, mapFunc) => {
+  const queryFilterDict = {
+    EQ: "=",
+    IN: "="
+  }
+
+  let columns = _.get(query, 'rp.columns') || []
+  let filters = _.get(query, 'rp.filter') || []
+  if(typeof(columns) === 'string') columns = [columns]
+  if(typeof(filters) === 'string') filters = [filters]
+
+  filters = filters.map(f => {
+    const f$ = f.split('|');
+
+    let name = mapFunc([f$[0]])[0]
+    return {
+      name: name,
+      method: queryFilterDict[f$[1]],
+      value: f$[2]
+    };
+  })
+
+  const filsCols = {
+    filters: filters,
+    columns: columns
+  }
+
+  return filsCols
+}
+
+const checkForRp = (query, res) => {
+  let hasRp = false
+  Object.keys(query).forEach(a => {if(_.startsWith(a, 'rp.')){ hasRp = true; }})
+  if(!hasRp){
+    console.error('rp cannot be null')
+    res.status(500).send({ "Message": "An error has occurred." });
+  }
+}
+
+
+
+module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, isCDO,
+  convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
+  createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
+  panelNameMapping, asgNameMapping, checkForRp, sepNameMapping, bidNameMapping,
+  asgdNameMapping, pmdNameMapping }
