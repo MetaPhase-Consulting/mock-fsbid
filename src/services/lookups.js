@@ -13,6 +13,7 @@ const {
   UnaccompaniedStatuses,
   CommuterPosts,
   AgendaItemStatuses,
+  Organizations,
   PanelMeetingItemCategories,
 } = require('../models')
 
@@ -86,6 +87,7 @@ const get_postindicators = getAll(PostIndicators)
 const get_unaccompaniedstatuses = getAll(UnaccompaniedStatuses)
 const get_commuterposts = getCommuterPosts(CommuterPosts)
 const get_agenda_item_statuses = getAll(AgendaItemStatuses)
+const get_organizations = getAll(Organizations)
 const get_panel_categories = getSome(PanelMeetingItemCategories, ['miccode', 'micdesctext'])
 
 module.exports = {
@@ -103,5 +105,6 @@ module.exports = {
   get_unaccompaniedstatuses,
   get_commuterposts,
   get_agenda_item_statuses,
+  get_organizations,
   get_panel_categories,
 }
