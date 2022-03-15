@@ -354,7 +354,8 @@ const asgNameMapping = (val, toWS=false) => {
     asgposseqnum: 'pos_seq_num',
     asgseqnum: 'asg_seq_num',
     asgupdatedate: 'asg_update_date',
-    asgupdateid: 'asg_update_id'
+    asgupdateid: 'asg_update_id',
+    asgperdetseqnum: 'perdet_seq_num'
   };
   if(toWS) {
     colDictionary = _.invert(colDictionary);
