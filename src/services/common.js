@@ -459,19 +459,9 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
   return filsCols
 }
 
-const checkForRp = (query, res) => {
-  let hasRp = false
-  Object.keys(query).forEach(a => {if(_.startsWith(a, 'rp.')){ hasRp = true; }})
-  if(!hasRp){
-    console.error('rp cannot be null')
-    res.status(500).send({ "Message": "An error has occurred." });
-  }
-}
-
-
 
 module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, isCDO,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
-  panelNameMapping, asgNameMapping, checkForRp, sepNameMapping, bidNameMapping,
+  panelNameMapping, asgNameMapping, sepNameMapping, bidNameMapping,
   asgdNameMapping, pmdNameMapping }
