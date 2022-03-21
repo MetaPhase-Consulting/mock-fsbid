@@ -419,6 +419,7 @@ const bidNameMapping = (val, toWS=false) => {
     posnumtext: 'position',
     posorgshortdesc: 'short_desc',
     postitledesc: 'pos_title_desc',
+    ubwperdetseqnum: 'perdet_seq_num',
   };
 
   if(toWS) {
