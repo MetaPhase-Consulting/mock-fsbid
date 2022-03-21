@@ -443,19 +443,20 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
   filters = filters.map(f => {
     const f$ = f.split('|');
 
-    let name = mapFunc([f$[0]])[0]
+    let name = mapFunc([f$[0].toLowerCase()])[0]
     return {
       name: name,
-      method: queryFilterDict[f$[1]],
+      method: queryFilterDict[f$[1].toUpperCase()],
       value: f$[2]
     };
   })
+
+  columns = columns.map(c => c.toLowerCase())
 
   const filsCols = {
     filters: filters,
     columns: columns
   }
-
   return filsCols
 }
 
