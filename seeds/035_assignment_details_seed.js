@@ -19,7 +19,7 @@ exports.seed = function(knex) {
                       const position = _.find(Ps, ['pos_seq_num', empAsg['pos_seq_num']]);
                       assignment_details.push({
                         asgseqnum: empAsg['asg_seq_num'],
-                        asgscode: empAsg['asgs_code'],
+                        asgscode: empAsg['asgs_code'] || _.sample(['AP', 'BR', 'CP', 'EF']),
                         latcode: ail['latcode'],
                         todcode: ail['todcode'],
                         ailseqnum: ail['ailseqnum'],

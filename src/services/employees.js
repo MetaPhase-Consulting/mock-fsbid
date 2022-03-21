@@ -934,7 +934,6 @@ const v2_get_assignments = async (filsCols, query) => {
         page: query['rp.pageNum'] || 1,
       })
       asgd_asgData = asgd_asgData.serialize()
-      asgd_asgData = _.uniqBy(asgd_asgData, 'asgseqnum');
     }
     else {
       asgd_asgData = await AssignmentDetails.query(qb => {
