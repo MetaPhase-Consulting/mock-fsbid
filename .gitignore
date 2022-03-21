@@ -4,3 +4,6 @@ node_modules/
 coverage/
 .vscode/
 .DS_Store
+cwallet.sso
+sqlnet.ora
+tnsnames.ora
