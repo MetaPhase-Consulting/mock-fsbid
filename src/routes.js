@@ -96,7 +96,7 @@ var appRouter = function (app) {
       common.checkForRp(req.query, res)
 
       const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.bidNameMapping))
-      const bidData = await bidding.v2_get_bids(filsCols)
+      const bidData = await bidding.v2_get_bids(filsCols, req.query)
 
       res.status(200).send({
         Data: bidData,
