@@ -38,6 +38,7 @@ const PanelMeetingTypes = require('./panelmeetingtypes')
 const AssignmentDetails = require('./assignmentdetails.js')
 const LegActionTypes = require('./legactiontypes.js')
 const AgendaItemRemarkCategories = require('./agendaitemremarkcategories')
+const AgendaItemRemarksRef = require('./agendaitemremarksref')
 
 module.exports = {
   Seasons,
@@ -80,4 +81,5 @@ module.exports = {
   AssignmentDetails,
   LegActionTypes,
   AgendaItemRemarkCategories,
+  AgendaItemRemarksRef,
 }

@@ -315,6 +315,7 @@ var appRouter = function (app) {
   app.get('/v1/agendas/references/statuses', lookup(lookups.get_agenda_item_statuses))
   app.get('/v1/panels/references/categories', lookup(lookups.get_panel_categories))
   app.get('/v1/agendas/references/remark-categories', lookup(lookups.get_agenda_item_remark_categories))
+  app.get('/v1/agendas/references/remarks', lookup(lookups.get_agenda_item_remarks_ref))
   app.get('/v1/fsbid/posts/attributes', async function(req, res) {
     // TODO - add all post attributes tables by query param
     const data = await postattributes.get_postattributes(req.query)
