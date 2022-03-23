@@ -141,6 +141,8 @@ async function get_bids(query, isCDO) {
 
 async function v2_get_bids(filsCols, query) {
   try {
+    //mock currently has no concept of hscode, so intentionally wrongly mapping to ubw_hndshk_offrd_flg
+
     const perdet_seq_num = _.get(_.find(filsCols.filters, ['name', 'perdet_seq_num']), 'value')
 
     let bids = await Bids.query(qb => {
@@ -154,7 +156,7 @@ async function v2_get_bids(filsCols, query) {
         'position.position.org',
       ],
       require: false,
-      pageSize: query['rp.pageRows'] || 100,
+      pageSize: 1,
       page: query['rp.pageNum'] || 1,
     })
     bids = bids.serialize()
@@ -163,10 +165,10 @@ async function v2_get_bids(filsCols, query) {
     bids = bids.map(b => {
       let b$ = {
         ...b.position.position,
-        'ubw_hndshk_offrd_flg': b['ubw_hndshk_offrd_flg'],
+        'ubwhscode': 'HS',
         'perdet_seq_num': b['perdet_seq_num']
       }
-      b$ = _.pick(b$, ['ubw_hndshk_offrd_flg', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc', 'perdet_seq_num'])
+      b$ = _.pick(b$, ['ubwhscode', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc', 'perdet_seq_num'])
       b$['short_desc'] = _.get(b$, 'org.short_desc')
 
       return _.omit(b$, 'org')

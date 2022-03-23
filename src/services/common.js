@@ -415,7 +415,6 @@ const sepNameMapping = (val, toWS=false) => {
 
 const bidNameMapping = (val, toWS=false) => {
   let colDictionary = {
-    ubwhscode: 'ubw_hndshk_offrd_flg',
     cpposseqnum: 'pos_seq_num',
     posnumtext: 'position',
     posorgshortdesc: 'short_desc',
