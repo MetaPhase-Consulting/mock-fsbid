@@ -93,7 +93,6 @@ var appRouter = function (app) {
 
   app.get("/v2/bids", async function (req, res) {
     try {
-      common.checkForRp(req.query, res)
 
       const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.bidNameMapping))
       const bidData = await bidding.v2_get_bids(filsCols, req.query)
@@ -283,9 +282,6 @@ var appRouter = function (app) {
 
   app.get('/v2/assignments', async function(req, res) {
     try {
-
-      common.checkForRp(req.query, res)
-
       const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.asgNameMapping).map(common.asgdNameMapping))
       const asg_pos = await employees.v2_get_assignments(filsCols, req.query)
 
@@ -656,7 +652,6 @@ var appRouter = function (app) {
 
   app.get('/v1/panels/references/dates', async function(req, res) {
     try {
-    common.checkForRp(req.query, res)
     const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.panelNameMapping))
     let pmdt = await agendas.getPanelDates(filsCols, req.query)
 
@@ -672,9 +667,6 @@ var appRouter = function (app) {
 
   app.get('/v2/separations', async function(req, res) {
     try {
-
-      common.checkForRp(req.query, res)
-
       const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.sepNameMapping))
       const sep = await employees.get_separations(filsCols, req.query)
 
