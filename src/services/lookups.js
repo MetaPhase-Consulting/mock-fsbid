@@ -15,6 +15,7 @@ const {
   AgendaItemStatuses,
   Organizations,
   PanelMeetingItemCategories,
+  AgendaItemRemarkCategories,
 } = require('../models')
 
 const _ = require('lodash')
@@ -89,6 +90,7 @@ const get_commuterposts = getCommuterPosts(CommuterPosts)
 const get_agenda_item_statuses = getAll(AgendaItemStatuses)
 const get_organizations = getAll(Organizations)
 const get_panel_categories = getSome(PanelMeetingItemCategories, ['miccode', 'micdesctext'])
+const get_agenda_item_remark_categories = getAll(AgendaItemRemarkCategories)
 
 module.exports = {
   get_seasons,
@@ -107,4 +109,5 @@ module.exports = {
   get_agenda_item_statuses,
   get_organizations,
   get_panel_categories,
+  get_agenda_item_remark_categories,
 }
