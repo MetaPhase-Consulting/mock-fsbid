@@ -148,6 +148,7 @@ async function v2_get_bids(filsCols, query) {
     let bids = await Bids.query(qb => {
       if(perdet_seq_num) {
         qb.where('perdet_seq_num', perdet_seq_num)
+        qb.where('ubw_hndshk_offrd_flg', 'Y')
       }
     }).fetchPage({
       withRelated: [
@@ -156,7 +157,7 @@ async function v2_get_bids(filsCols, query) {
         'position.position.org',
       ],
       require: false,
-      pageSize: 1,
+      pageSize: query['rp.pageRows'] || 100,
       page: query['rp.pageNum'] || 1,
     })
     bids = bids.serialize()
