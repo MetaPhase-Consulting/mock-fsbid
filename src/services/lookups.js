@@ -15,7 +15,7 @@ const {
   AgendaItemStatuses,
   Organizations,
   PanelMeetingItemCategories,
-  AgendaItemRemarkCategories,
+  RemarkCategories,
   AgendaItemRemarksRef,
 } = require('../models')
 
@@ -91,7 +91,7 @@ const get_commuterposts = getCommuterPosts(CommuterPosts)
 const get_agenda_item_statuses = getAll(AgendaItemStatuses)
 const get_organizations = getAll(Organizations)
 const get_panel_categories = getSome(PanelMeetingItemCategories, ['miccode', 'micdesctext'])
-const get_agenda_item_remark_categories = getAll(AgendaItemRemarkCategories)
+const get_remark_categories = getAll(RemarkCategories)
 const get_agenda_item_remarks_ref = getAll(AgendaItemRemarksRef)
 
 module.exports = {
@@ -111,6 +111,6 @@ module.exports = {
   get_agenda_item_statuses,
   get_organizations,
   get_panel_categories,
-  get_agenda_item_remark_categories,
+  get_remark_categories,
   get_agenda_item_remarks_ref,
 }
