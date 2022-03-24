@@ -906,31 +906,62 @@ const get_user = async query => {
 
 const v2_get_assignments = async (filsCols, query) => {
   try {
-    let asgd_asgData = await AssignmentDetails.query(qb => {
-      qb.join('assignments', 'assignments.asg_seq_num', 'assignmentdetails.asgseqnum')
-      if(filsCols['filters'].length) {
-        filsCols['filters'].map(fc => {
-          return qb.where(fc.name, fc.method, fc.value);
-        })
-      }
-    }).fetchPage({
-      require: false,
-      withRelated: ['assignment'],
-      pageSize: query['rp.pageRows'] || 100,
-      page: query['rp.pageNum'] || 1,
-    })
-    asgd_asgData = asgd_asgData.serialize()
+    let asgd_asgData, employeeData;
+    let perdet = _.get(_.filter(filsCols['filters'], { 'name': 'perdet_seq_num'})[0], 'value', null);
+    if(perdet) {
+      filsCols['filters'] = _.filter(filsCols['filters'], function(f) { return f.name !== 'perdet_seq_num'; })
 
-    const empSeqNbrs = asgd_asgData.map(a => a.assignment.emp_seq_nbr);
-    const empSeqNbrsUniq = _.uniq(empSeqNbrs);
+      employeeData = await Employees.query(qb => {
+        qb.where('perdet_seq_num', '=', perdet)
+      }).fetchAll({
+        require: false,
+        columns: ['per_seq_num', 'perdet_seq_num']
+      })
+      employeeData = employeeData.serialize()
+      let empPerSeq = _.get(employeeData[0], 'per_seq_num', null)
+      asgd_asgData = await AssignmentDetails.query(qb => {
+        qb.join('assignments', 'assignments.asg_seq_num', 'assignmentdetails.asgseqnum')
+        qb.where('emp_seq_nbr', '=', empPerSeq)
+        if(filsCols['filters'].length) {
+          filsCols['filters'].map(fc => {
+            return qb.where(fc.name, fc.method, fc.value);
+          })
+        }
+      }).fetchPage({
+        require: false,
+        withRelated: ['assignment'],
+        pageSize: query['rp.pageRows'] || 100,
+        page: query['rp.pageNum'] || 1,
+      })
+      asgd_asgData = asgd_asgData.serialize()
+    }
+    else {
+      asgd_asgData = await AssignmentDetails.query(qb => {
+        qb.join('assignments', 'assignments.asg_seq_num', 'assignmentdetails.asgseqnum')
+        if(filsCols['filters'].length) {
+          filsCols['filters'].map(fc => {
+            return qb.where(fc.name, fc.method, fc.value);
+          })
+        }
+      }).fetchPage({
+        require: false,
+        withRelated: ['assignment'],
+        pageSize: query['rp.pageRows'] || 100,
+        page: query['rp.pageNum'] || 1,
+      })
+      asgd_asgData = asgd_asgData.serialize()
 
-    let employeeData = await Employees.query(qb => {
+      const empSeqNbrs = asgd_asgData.map(a => a.assignment.emp_seq_nbr);
+      const empSeqNbrsUniq = _.uniq(empSeqNbrs);
+
+      employeeData = await Employees.query(qb => {
         qb.whereIn('per_seq_num', empSeqNbrsUniq)
-    }).fetchAll({
-      require: false,
-      columns: ['per_seq_num', 'perdet_seq_num']
-    })
-    employeeData = employeeData.serialize()
+      }).fetchAll({
+        require: false,
+        columns: ['per_seq_num', 'perdet_seq_num']
+      })
+      employeeData = employeeData.serialize()
+    }
 
     let asgd_asg_empData = asgd_asgData.map(asgd_asg => {
       const asg = asgd_asg.assignment

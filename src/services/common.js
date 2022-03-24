@@ -354,7 +354,8 @@ const asgNameMapping = (val, toWS=false) => {
     asgposseqnum: 'pos_seq_num',
     asgseqnum: 'asg_seq_num',
     asgupdatedate: 'asg_update_date',
-    asgupdateid: 'asg_update_id'
+    asgupdateid: 'asg_update_id',
+    asgperdetseqnum: 'perdet_seq_num'
   };
   if(toWS) {
     colDictionary = _.invert(colDictionary);
@@ -419,6 +420,7 @@ const bidNameMapping = (val, toWS=false) => {
     posnumtext: 'position',
     posorgshortdesc: 'short_desc',
     postitledesc: 'pos_title_desc',
+    ubwperdetseqnum: 'perdet_seq_num',
   };
 
   if(toWS) {
@@ -442,35 +444,26 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
   filters = filters.map(f => {
     const f$ = f.split('|');
 
-    let name = mapFunc([f$[0]])[0]
+    let name = mapFunc([f$[0].toLowerCase()])[0]
     return {
       name: name,
-      method: queryFilterDict[f$[1]],
+      method: queryFilterDict[f$[1].toUpperCase()],
       value: f$[2]
     };
   })
+
+  columns = columns.map(c => c.toLowerCase())
 
   const filsCols = {
     filters: filters,
     columns: columns
   }
-
   return filsCols
 }
-
-const checkForRp = (query, res) => {
-  let hasRp = false
-  Object.keys(query).forEach(a => {if(_.startsWith(a, 'rp.')){ hasRp = true; }})
-  if(!hasRp){
-    console.error('rp cannot be null')
-    res.status(500).send({ "Message": "An error has occurred." });
-  }
-}
-
 
 
 module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, isCDO,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
-  panelNameMapping, asgNameMapping, checkForRp, sepNameMapping, bidNameMapping,
+  panelNameMapping, asgNameMapping, sepNameMapping, bidNameMapping,
   asgdNameMapping, pmdNameMapping }

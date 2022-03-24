@@ -139,18 +139,23 @@ async function get_bids(query, isCDO) {
   }
 }
 
-async function v2_get_bids(filsCols) {
+async function v2_get_bids(filsCols, query) {
   try {
-    // TODO: format this gets passed in for bids using template - is it required? rn it is for mock
-    const perdet_seq_num = _.find(filsCols.filters, ['name', 'perdet_seq_num'])['value']
+    const perdet_seq_num = _.get(_.find(filsCols.filters, ['name', 'perdet_seq_num']), 'value')
 
-    let bids = await Bids.where('perdet_seq_num', perdet_seq_num).fetchAll({
+    let bids = await Bids.query(qb => {
+      if(perdet_seq_num) {
+        qb.where('perdet_seq_num', perdet_seq_num)
+      }
+    }).fetchPage({
       withRelated: [
         'position',
         'position.cycle',
         'position.position.org',
       ],
       require: false,
+      pageSize: query['rp.pageRows'] || 100,
+      page: query['rp.pageNum'] || 1,
     })
     bids = bids.serialize()
 
