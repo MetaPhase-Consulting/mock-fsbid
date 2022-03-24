@@ -1,6 +1,6 @@
 exports.up = function(knex) {
   return knex.schema
-    .createTable('agenda_item_remarks_ref', function(table) {
+    .createTable('remarks', function(table) {
       table.integer('rmrkseqnum').primary()
       table.string('rmrkrccode')
       table.integer('rmrkordernum')
@@ -12,5 +12,5 @@ exports.up = function(knex) {
 };
 exports.down = function(knex) {
   return knex.schema
-    .dropTable('agenda_item_remarks_ref');
+    .dropTable('remarks');
 };
