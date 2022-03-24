@@ -141,7 +141,7 @@ async function get_bids(query, isCDO) {
 
 async function v2_get_bids(filsCols, query) {
   try {
-    //mock currently has no concept of hscode, so intentionally wrongly mapping to ubw_hndshk_offrd_flg
+    //mock currently has no concept of hscode, so intentionally wrongly mapping and filtering to/by ubw_hndshk_offrd_flg
 
     const perdet_seq_num = _.get(_.find(filsCols.filters, ['name', 'perdet_seq_num']), 'value')
 
