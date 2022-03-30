@@ -556,20 +556,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.get('/v1/agendaItems/:id', async function(req, res, next) {
-    if (!req.params.id) {
-      next();
-    }
-    let ai = await agendas.getAgendaItems(req.params.id)
-
-    res.status(200).send({
-      Data: ai,
-      usl_id: 0,
-      return_code: 0
-    })
-  })
-
-  app.get('/v1/agendaItems', async function(req, res) { // singleton
+  app.get('/v1/agendas', async function(req, res) { // singleton
     try {
       const { query } = req; // aiseqnum|eq|226661|
       const filter = _.get(query, "['rp.filter']", '').split('|')
