@@ -177,7 +177,7 @@ const getAgendaItems = async (ai_id, perdet) => {
           posgradecode: _.get(pos, 'pos_grade_code'),
           postitledesc: _.get(pos, 'pos_title_desc'),
         };
-       
+ 
         return {
           ailaiseqnum: l.aiseqnum,
           ailseqnum: l.ailseqnum,
