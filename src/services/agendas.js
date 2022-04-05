@@ -177,7 +177,7 @@ const getAgendaItems = async (ai_id, perdet) => {
           posgradecode: _.get(pos, 'pos_grade_code'),
           postitledesc: _.get(pos, 'pos_title_desc'),
         };
-
+ 
         return {
           ailaiseqnum: l.aiseqnum,
           ailseqnum: l.ailseqnum,
@@ -250,14 +250,6 @@ const getAgendaItems = async (ai_id, perdet) => {
         updaters: [],
         agendaLegs: agendaLegs
       }
-
-      //remove extra data
-      if(!ai_id){
-        let ret$ = _.omit(ret, ['Panel', 'remarks', 'creators', 'updaters'])
-        ret$['agendaLegs'] = ret$.agendaLegs.map(l => _.omit(l, ['agendaLegAssignment', 'agendaLegPosition']))
-        return ret$
-      }
-
       return ret
     })
 

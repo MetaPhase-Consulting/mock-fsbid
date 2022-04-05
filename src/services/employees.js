@@ -822,7 +822,6 @@ const get_agenda_organizations = async ({ isCurrent = true }) => {
 const get_agenda_bureaus = async ({ isCurrent = true }) => {
   const ref = isCurrent ? 'current' : 'hs'
   let burs = await lookups.get_bureaus();
-  console.log(burs)
   burs = burs.Data.map(m => ({
     [`tmper${ref}bureaucode`]: m.bur,
     [`tmper${ref}bureaudesc`]: m.bureau_short_desc,
