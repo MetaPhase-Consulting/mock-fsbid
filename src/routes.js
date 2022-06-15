@@ -357,6 +357,10 @@ var appRouter = function (app) {
         console.error('is_asc query param is required.')
         res.status(500).send({ "Message": "An error has occurred." });
       }
+      if (!_.includes(['NAME', 'STATUS', 'SKILL', 'GRADE', 'TED', 'POST', 'CDO'], req.query.order_by.toUpperCase())) {
+        console.error('order_by query value does not exist.')
+        res.status(500).send({ "Message": "An error has occurred." });
+      }
     }
     const bidders = await availableBidders.get_available_bidders(false);
     res.status(200).send({
