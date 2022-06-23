@@ -74,7 +74,7 @@ const get_available_bidders = async (isBureau = false) => {
             "asgd_etd_ted_date": _.get(emp, 'assignments[0].eta_date'),
             "rnum": `${i}`,
             currentPosition: {
-              ...(_.omit(_.get(emp, 'assignments[0].position', {}), ['location', 'bureau'])),
+              ...(_.omit(_.get(emp, 'assignments[0].position', {}), ['location'])),
               "pos_bureau_short_desc": _.get(emp, 'assignments[0].position.bureau.bureau_short_desc', {}),
               "pos_bureau_long_desc": _.get(emp, 'assignments[0].position.bureau.bureau_long_desc', {}),
               currentLocation: {
