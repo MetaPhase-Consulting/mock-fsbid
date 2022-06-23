@@ -75,6 +75,8 @@ const get_available_bidders = async (isBureau = false) => {
             "rnum": `${i}`,
             currentPosition: {
               ...(_.omit(_.get(emp, 'assignments[0].position', {}), ['location'])),
+              "pos_bureau_short_desc": _.get(emp, 'assignments[0].position.bureau.bureau_short_desc', {}),
+              "pos_bureau_long_desc": _.get(emp, 'assignments[0].position.bureau.bureau_long_desc', {}),
               currentLocation: {
                 ...(_.omit(_.get(emp, 'assignments[0].position.location', {}), [])),
                 "gvt_geoloc_cd": _.get(emp, 'assignments[0].position.location.location_code'),
