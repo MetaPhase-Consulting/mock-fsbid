@@ -1,10 +1,10 @@
 [
   {
-    "pmtcode": "ID",
+    "pmpmtcode": "ID",
     "pmtdesctext": "Interdivisional"
   },
   {
-    "pmtcode": "ML",
+    "pmpmtcode": "ML",
     "pmtdesctext": "Mid-Level"
   }
 ]

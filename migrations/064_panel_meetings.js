@@ -4,9 +4,9 @@ exports.up = function(knex) {
       table.integer('pmseqnum').primary()
 
       table.string('pmscode')
-      table.string('pmtcode')
+      table.string('pmpmtcode')
       table.foreign('pmscode').references('panelmeetingstatuses.pmscode')
-      table.foreign('pmtcode').references('panelmeetingtypes.pmtcode')
+      table.foreign('pmpmtcode').references('panelmeetingtypes.pmpmtcode')
 
       table.string('pmvirtualind')
     });

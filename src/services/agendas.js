@@ -96,19 +96,19 @@ const getAgendaItems = async (ai_id, perdet) => {
     asg_posData = asg_posData.serialize()
 
 // for each unique PMI pmseqnum, grab the PM with the same pmseqnum
-// with related on pmscode and pmtcode
+// with related on pmscode and pmpmtcode
     let pmData = await PanelMeetings.query(qb => {
       if (Array.isArray(pmSeqNums)) {
         qb.where('pmseqnum', "in", pmSeqNums)
         qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
-        qb.join('panelmeetingtypes', 'panelmeetings.pmtcode', 'panelmeetingtypes.pmtcode')
+        qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmtcode')
       } else {
         qb.where('pmseqnum', pmSeqNums)
         qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
-        qb.join('panelmeetingtypes', 'panelmeetings.pmtcode', 'panelmeetingtypes.pmtcode')
+        qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmtcode')
       }
     }).fetchAll({
-      withRelated: ['pmscode', 'pmtcode'],
+      withRelated: ['pmscode', 'pmpmtcode'],
       require: false,
     })
     pmData = pmData.serialize()
@@ -290,7 +290,7 @@ const getPanelDates = async (filsCols, query) => {
     const setCols = [
       'pmdpmseqnum',
       'pmddttm',
-      'pmtcode'
+      'pmpmtcode'
     ];
 
     const colsToPick = _.union(setCols, filsCols['columns'])

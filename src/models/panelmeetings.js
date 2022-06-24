@@ -8,8 +8,8 @@ const PanelMeetings = bookshelf.model('PanelMeetings', {
     return this.belongsTo('PanelMeetingStatuses', 'pmscode')
   },
 
-  pmtcode() {
-    return this.belongsTo('PanelMeetingTypes', 'pmtcode')
+  pmpmtcode() {
+    return this.belongsTo('PanelMeetingTypes', 'pmpmtcode')
   },
   
 })
