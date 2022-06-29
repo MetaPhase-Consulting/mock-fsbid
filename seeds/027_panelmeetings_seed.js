@@ -7,7 +7,7 @@ exports.seed = function(knex) {
 
       return knex.select('pmscode').from('panelmeetingstatuses')
         .then(() => {
-          return knex.select('pmtcode').from('panelmeetingtypes')
+          return knex.select('pmpmtcode').from('panelmeetingtypes')
             .then(pmtcodes => {
               const panel_meetings = [];
               const arr = Array(700).fill(null);
@@ -23,7 +23,7 @@ exports.seed = function(knex) {
                 panel_meetings.push({
                   pmseqnum: i + 1,
                   pmscode: pmscode$,
-                  pmtcode: _.sample(pmtcodes).pmtcode,
+                  pmpmtcode: _.sample(pmtcodes).pmpmtcode,
                   pmvirtualind: 'N',
                 });
               });

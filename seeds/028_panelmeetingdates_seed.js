@@ -10,7 +10,7 @@ exports.seed = function(knex) {
           panelmeetings.forEach((panelmeeting, i) => {
             // mock out 52 weeks ahead, separated by 7 days
             const len = (panelmeetings.length - 52 - i) * 7;
-            const { pmseqnum, pmscode, pmtcode } = panelmeeting;
+            const { pmseqnum, pmscode, pmpmtcode } = panelmeeting;
             const today = Date.now();
             const panelDate = datefns.subDays(today, len);
 
