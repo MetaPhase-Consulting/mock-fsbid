@@ -101,11 +101,11 @@ const getAgendaItems = async (ai_id, perdet) => {
       if (Array.isArray(pmSeqNums)) {
         qb.where('pmseqnum', "in", pmSeqNums)
         qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
-        qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmtcode')
+        qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
       } else {
         qb.where('pmseqnum', pmSeqNums)
         qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
-        qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmtcode')
+        qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
       }
     }).fetchAll({
       withRelated: ['pmscode', 'pmpmtcode'],
