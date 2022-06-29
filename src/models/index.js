@@ -39,6 +39,7 @@ const AssignmentDetails = require('./assignmentdetails.js')
 const LegActionTypes = require('./legactiontypes.js')
 const RemarkCategories = require('./remarkcategories')
 const Remarks = require('./remarks')
+const TravelFunctions = require('./travelfunctions.js')
 
 module.exports = {
   Seasons,
@@ -82,4 +83,5 @@ module.exports = {
   LegActionTypes,
   RemarkCategories,
   Remarks,
+  TravelFunctions,
 }

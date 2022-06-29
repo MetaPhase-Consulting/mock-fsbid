@@ -18,6 +18,7 @@ const {
   RemarkCategories,
   Remarks,
   LegActionTypes,
+  TravelFunctions,
 } = require('../models')
 
 const _ = require('lodash')
@@ -95,6 +96,7 @@ const get_panel_categories = getSome(PanelMeetingItemCategories, ['miccode', 'mi
 const get_remark_categories = getAll(RemarkCategories)
 const get_remarks = getAll(Remarks)
 const get_leg_action_types = getAll(LegActionTypes)
+const get_travel_functions = getAll(TravelFunctions)
 
 module.exports = {
   get_seasons,
@@ -116,4 +118,5 @@ module.exports = {
   get_remark_categories,
   get_remarks,
   get_leg_action_types,
+  get_travel_functions,
 }
