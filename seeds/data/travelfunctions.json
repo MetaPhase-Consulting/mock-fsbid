@@ -1,71 +1,71 @@
 [
   {
-    "tfcd": "8150",
+    "tfcd": "1",
     "tfdescr": "Post to Post without Home Leave (Direct Transfer)                     ",
     "tfshortnm": "PostToPostNoHL "
   },
   {
-    "tfcd": "8151",
+    "tfcd": "2",
     "tfdescr": "Post to Post with Home Leave                                          ",
     "tfshortnm": "PostToPostHL   "
   },
   {
-    "tfcd": "8152",
+    "tfcd": "3",
     "tfdescr": "Post to U.S. with Home Leave                                          ",
     "tfshortnm": "PostToUSHL     "
   },
   {
-    "tfcd": "8153",
+    "tfcd": "4",
     "tfdescr": "Post to U.S. without Home Leave (Direct Transfer to U.S.)             ",
     "tfshortnm": "PostToUSNoHL   "
   },
   {
-    "tfcd": "8154",
+    "tfcd": "5",
     "tfdescr": "Separation from the Service                                           ",
     "tfshortnm": "Separation     "
   },
   {
-    "tfcd": "8155",
+    "tfcd": "6",
     "tfdescr": "U.S. to Post                                                          ",
     "tfshortnm": "USToPost       "
   },
   {
-    "tfcd": "8156",
+    "tfcd": "7",
     "tfdescr": "Initial Appointment to Post from U.S.                                 ",
     "tfshortnm": "ApptToPost     "
   },
   {
-    "tfcd": "8157",
+    "tfcd": "8",
     "tfdescr": "Initial Appointment to U.S.",
     "tfshortnm": "ApptToUS"
   },
   {
-    "tfcd": "8158",
+    "tfcd": "9",
     "tfdescr": "Initial Appointment from Overseas",
     "tfshortnm": "ApptFrmOverseas"
   },
   {
-    "tfcd": "8159",
+    "tfcd": "10",
     "tfdescr": "Intra U.S. (Transfer from one U.S. Location to Another U.S. Location) ",
     "tfshortnm": "IntraUS        "
   },
   {
-    "tfcd": "8160",
+    "tfcd": "11",
     "tfdescr": "Round Trip Home Leave                                                 ",
     "tfshortnm": "HLRT           "
   },
   {
-    "tfcd": "8161",
+    "tfcd": "12",
     "tfdescr": "Advance Travel of Dependents                                          ",
     "tfshortnm": "AdvTravlDepndnt"
   },
   {
-    "tfcd": "8162",
+    "tfcd": "13",
     "tfdescr": "Remains of Deceased Dependents                                        ",
     "tfshortnm": "RemainsDepndnt "
   },
   {
-    "tfcd": "8169",
+    "tfcd": "14",
     "tfdescr": "SMA Travel                                                            ",
     "tfshortnm": "SMATravel      "
   }
