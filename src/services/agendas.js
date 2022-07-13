@@ -194,7 +194,7 @@ const getAgendaItems = async (ai_id, perdet) => {
           ailcountrystatetext: l.ailcountrystatetext,
           ailasgseqnum: l.asgseqnum,
           ailasgdrevisionnum: l.asgdrevisionnum,
-          latabbrdesctext: lat.latabbredesctext,
+          latabbrdesctext: lat.latabbrdesctext,
           latdesctext: lat.latdesctext,
           agendaLegAssignment: [
             {
