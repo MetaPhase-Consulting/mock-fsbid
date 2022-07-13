@@ -1,16 +1,15 @@
 exports.up = function(knex) {
     return knex.schema
-        .dropTable('legactiontypes')
-        .createTable('legactiontypes', function(table) {
-            table.string('latcode').primary()
-
-            table.string('latabbrdesctext')
-            table.string('latdesctext')
-            table.integer('latordernum')
-        })
+    .alterTable('legactiontypes', function(table) {
+        table.dropColumn('latabbredesctext')
+        table.string('latabbrdesctext')
+    })
 };
 
 exports.down = function(knex) {
     return knex.schema
-        .dropTable('legactiontypes')
+    .alterTable('legactiontypes', function(table) {
+        table.dropColumn('latabbrdesctext')
+        table.string('latabbredesctext')
+    });
 };
