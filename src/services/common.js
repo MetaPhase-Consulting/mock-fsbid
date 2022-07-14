@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 // Maps filter values to data values
 const FILTERS = {
-  "pos_numbers": { field: "position" },
+  "pos_numbers": { field: "positions.position" },
   "grades": { field: "positions.pos_grade_code" },
   "languages": {field: ["positions.lang1", "positions.lang2"] },
   "bureaus": { field: "positions.bureau" },
@@ -136,28 +136,6 @@ const addFreeTextFilter = (qb, value) => {
 }
 
 const createPositionQuery = (model, tableName, paramPrefix, query, isCount, isCycle) => {
-  console.log('👾👾👾', query)
-
-  if(query['request_params.pos_numbers'].length === 1) {
-    return model.query(qb => {
-      qb.join('positions', `${tableName}.position`, 'positions.position')
-      qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
-      qb.join('bureaus', 'positions.bureau', 'bureaus.bur')
-      qb.join('codes', 'positions.jc_id', 'codes.jc_id')
-      if (tableName === 'availablepositions') {
-        qb.join('cycles', `${tableName}.cycle_id`, 'cycles.cycle_id')
-      }
-      qb.fullOuterJoin('unaccompaniedstatuses', 'locations.us_code', 'unaccompaniedstatuses.us_code')
-      qb.join('capsuledescriptions', 'positions.pos_seq_num', 'capsuledescriptions.pos_seq_num')
-
-      if (tableName === 'availablepositions') {
-        addFilter(qb, 'cycles.cycle_status_code', 'A')
-      }
-      qb.where('positions.position', query['request_params.pos_numbers'])
-    })
-
-  }
-
   return model.query(qb => {
     qb.join('positions', `${tableName}.position`, 'positions.position')
     qb.join('locations', 'positions.pos_location_code', 'locations.location_code')
