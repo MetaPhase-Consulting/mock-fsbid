@@ -1,127 +1,127 @@
 [
   {
     "latcode": "G",
-    "latabbredesctext": "Chg ETA",
+    "latabbrdesctext": "Chg ETA",
     "latdesctext": "Change ETA",
     "latordernum": 7
   },
   {
     "latcode": "E",
-    "latabbredesctext": "Reassign",
+    "latabbrdesctext": "Reassign",
     "latdesctext": "Reassign",
     "latordernum": 20
   },
   {
     "latcode": "F",
-    "latabbredesctext": "To MFO",
+    "latabbrdesctext": "To MFO",
     "latdesctext": "Reassignment to MFO",
     "latordernum": 30
   },
   {
     "latcode": "C",
-    "latabbredesctext": "Chg HL",
+    "latabbrdesctext": "Chg HL",
     "latdesctext": "Change HL",
     "latordernum": 26
   },
   {
     "latcode": "U",
-    "latabbredesctext": "Vol Cable",
+    "latabbrdesctext": "Vol Cable",
     "latdesctext": "Volunteer Cable",
     "latordernum": 32
   },
   {
     "latcode": "M",
-    "latabbredesctext": "Separation",
+    "latabbrdesctext": "Separation",
     "latdesctext": "Separation TBD",
     "latordernum": 50
   },
   {
     "latcode": "N",
-    "latabbredesctext": "Retire",
+    "latabbrdesctext": "Retire",
     "latdesctext": "Retirement",
     "latordernum": 24
   },
   {
     "latcode": "O",
-    "latabbredesctext": "Resign",
+    "latabbrdesctext": "Resign",
     "latdesctext": "Resignation",
     "latordernum": 22
   },
   {
     "latcode": "P",
-    "latabbredesctext": "Terminate",
+    "latabbrdesctext": "Terminate",
     "latdesctext": "Termination",
     "latordernum": 28
   },
   {
     "latcode": "Q",
-    "latabbredesctext": "Death",
+    "latabbrdesctext": "Death",
     "latdesctext": "Death in Service",
     "latordernum": 14
   },
   {
     "latcode": "A",
-    "latabbredesctext": "Appoint",
+    "latabbrdesctext": "Appoint",
     "latdesctext": "Appoint and Assign",
     "latordernum": 4
   },
   {
     "latcode": "B",
-    "latabbredesctext": "CS LNA",
+    "latabbrdesctext": "CS LNA",
     "latdesctext": "Appoint and Assign Civil Srvc LNA",
     "latordernum": 8
   },
   {
     "latcode": "D",
-    "latabbredesctext": "Reappoint",
+    "latabbrdesctext": "Reappoint",
     "latdesctext": "Reappoint to State",
     "latordernum": 18
   },
   {
     "latcode": "K",
-    "latabbredesctext": "Convert",
+    "latabbrdesctext": "Convert",
     "latdesctext": "Convert and Assign",
     "latordernum": 10
   },
   {
     "latcode": "T",
-    "latabbredesctext": "Break",
+    "latabbrdesctext": "Break",
     "latdesctext": "Break",
     "latordernum": 6
   },
   {
     "latcode": "R",
-    "latabbredesctext": "Extend",
+    "latabbrdesctext": "Extend",
     "latdesctext": "Extend",
     "latordernum": 16
   },
   {
     "latcode": "V",
-    "latabbredesctext": "Adjust",
+    "latabbrdesctext": "Adjust",
     "latdesctext": "Adjustment",
     "latordernum": 2
   },
   {
     "latcode": "Z",
-    "latabbredesctext": "Correction",
+    "latabbrdesctext": "Correction",
     "latdesctext": "Assignment Correction",
     "latordernum": 2
   },
   {
     "latcode": "S",
-    "latabbredesctext": "Curtail",
+    "latabbrdesctext": "Curtail",
     "latdesctext": "Curtail",
     "latordernum": 12
   },
   {
     "latcode": "I",
-    "latabbredesctext": "Info",
+    "latabbrdesctext": "Info",
     "latdesctext": "Information Only",
     "latordernum": 17
   },
   {
     "latcode": "H",
-    "latabbredesctext": "Chg Sep Dt",
+    "latabbrdesctext": "Chg Sep Dt",
     "latdesctext": "Change Separation Date",
     "latordernum": 19
   }
