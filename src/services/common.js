@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 // Maps filter values to data values
 const FILTERS = {
-  "pos_numbers": { field: "position" },
+  "pos_numbers": { field: "positions.position" },
   "grades": { field: "positions.pos_grade_code" },
   "languages": {field: ["positions.lang1", "positions.lang2"] },
   "bureaus": { field: "positions.bureau" },
