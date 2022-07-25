@@ -95,7 +95,20 @@ async function get_position_by_id(query) {
   }
 }
 
+async function get_position_by_pos_num(query) {
+  const pos_num = _.get(query, 'request_params.pos_num_text', '')
+  const data = await new Positions({ position: pos_num })
+      .fetch({
+        withRelated: RELATED,
+        require: false,
+      })
+  const results = data ? formatData(data.serialize()) : []
 
+  return {
+    "Data": results,
+    "usl_id": 44999637,
+    "return_code": 0
+  }
+}
 
-
-module.exports = { get_position_by_id }
+module.exports = { get_position_by_id, get_position_by_pos_num }
