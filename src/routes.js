@@ -675,7 +675,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v1/fsbid/positions', async function(req, res) {
+  app.get('/v2/positions', async function(req, res) {
     try {
       res.status(200).send(await positions.get_position_by_pos_num(req.query))
     } catch (errMsg) {
