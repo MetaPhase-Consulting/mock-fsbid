@@ -674,6 +674,15 @@ var appRouter = function (app) {
       console.error('An error has occurred.')
     }
   })
+
+  app.get('/v2/positions', async function(req, res) {
+    try {
+      res.status(200).send(await positions.get_position_by_pos_num(req.query))
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  })
 };
 
 module.exports = appRouter;
