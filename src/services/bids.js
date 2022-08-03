@@ -169,32 +169,38 @@ async function v2_get_bids(filsCols, query) {
         'ubwhscode': 'HS',
         'perdet_seq_num': b['perdet_seq_num']
       }
-      b$ = _.pick(b$, ['ubwhscode', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc', 'perdet_seq_num'])
+      b$['position_info'] = {
+        posseqnum: _.get(b$, 'pos_seq_num'),
+        posorgshortdesc: _.get(b$, 'org.short_desc'),  
+        posnumtext: _.get(b$, 'position'),
+        posgradecode: _.get(b$, 'pos_grade_code'),
+        postitledesc: _.get(b$, 'pos_title_desc'),
+      }
+      b$ = _.pick(b$, ['ubwhscode', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc', 'perdet_seq_num', 'position_info'])
       b$['short_desc'] = _.get(b$, 'org.short_desc')
-
       return _.omit(b$, 'org')
     })
 
     bids = bids.map(b => {
-    return _.mapKeys(b, function(value, key) {
-      return bidNameMapping(key, true);
-    })
+      return _.mapKeys(b, function(value, key) {
+        return bidNameMapping(key, true);
+      })
     })
 
     const setCols = [
-    'ubwhscode',
-    'cpposseqnum',
-    'posnumtext',
-    'posorgshortdesc',
-    'postitledesc'
+      'ubwhscode',
+      'cpposseqnum',
+      'posnumtext',
+      'posorgshortdesc',
+      'postitledesc',
+      'position'  
     ];
-
+      
     const colsToPick = _.union(setCols,  filsCols['columns'])
 
     bids = bids.map(pd => _.pick(pd, colsToPick))
 
     return bids
-
   } catch (Error) {
     console.error(Error)
     return null
