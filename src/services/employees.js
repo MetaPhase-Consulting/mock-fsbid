@@ -928,7 +928,7 @@ const v2_get_assignments = async (filsCols, query) => {
         }
       }).fetchPage({
         require: false,
-        withRelated: ['assignment'],
+        withRelated: ['assignment', 'assignment.position', 'assignment.position.org'],
         pageSize: query['rp.pageRows'] || 100,
         page: query['rp.pageNum'] || 1,
       })
@@ -944,7 +944,7 @@ const v2_get_assignments = async (filsCols, query) => {
         }
       }).fetchPage({
         require: false,
-        withRelated: ['assignment'],
+        withRelated: ['assignment', 'assignment.position', 'assignment.position.org'],
         pageSize: query['rp.pageRows'] || 100,
         page: query['rp.pageNum'] || 1,
       })
@@ -961,12 +961,19 @@ const v2_get_assignments = async (filsCols, query) => {
       })
       employeeData = employeeData.serialize()
     }
-
     let asgd_asg_empData = asgd_asgData.map(asgd_asg => {
       const asg = asgd_asg.assignment
+      const pos = { ...asg.position }  
       const asgd_asg$ = _.omit(asgd_asg, ['assignment'])
       _.merge(asgd_asg$, asg)
       asgd_asg$['asgperdetseqnum'] = _.find(employeeData, ['per_seq_num', asgd_asg$.emp_seq_nbr])['perdet_seq_num'] || null
+      asgd_asg$['position'] = {
+        posseqnum: _.get(pos, 'pos_seq_num'),
+        posorgshortdesc: _.get(pos, 'org.short_desc'),  
+        posnumtext: _.get(pos, 'position'),
+        posgradecode: _.get(pos, 'pos_grade_code'),
+        postitledesc: _.get(pos, 'pos_title_desc'),
+      }  
       return asgd_asg$
     })
 
@@ -977,7 +984,6 @@ const v2_get_assignments = async (filsCols, query) => {
         return asgNameMapping(mapped, true);
       })
     })
-
 
     //adding static data we dont have in our db
     asgd_asg_empData = asgd_asg_empData.map(renderedData => {
@@ -1008,7 +1014,8 @@ const v2_get_assignments = async (filsCols, query) => {
       'asgdasgscode',
       'asgdetadate',
       'asgdetdteddate',
-      'asgdtoddesctext'
+      'asgdtoddesctext',
+      'position'  
     ];
 
     const colsToPick = _.union(setCols, filsCols['columns'])
