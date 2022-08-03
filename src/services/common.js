@@ -388,7 +388,8 @@ const asgdNameMapping = (val, toWS=false) => {
     // asgdtodothertext should be something else
     asgdtrainingind: 'asgdtrainingind',
     asgdtravelreimburseind: 'asgdtravelreimburseind',
-    asgdupdatedate: 'asgdupdatedate'
+    asgdupdatedate: 'asgdupdatedate',
+    position: 'position'  
   };
 
   if(toWS) {
