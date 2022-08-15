@@ -967,13 +967,13 @@ const v2_get_assignments = async (filsCols, query) => {
       const asgd_asg$ = _.omit(asgd_asg, ['assignment'])
       _.merge(asgd_asg$, asg)
       asgd_asg$['asgperdetseqnum'] = _.find(employeeData, ['per_seq_num', asgd_asg$.emp_seq_nbr])['perdet_seq_num'] || null
-      asgd_asg$['position'] = {
+      asgd_asg$['position'] = [{
         posseqnum: _.get(pos, 'pos_seq_num'),
         posorgshortdesc: _.get(pos, 'org.short_desc'),  
         posnumtext: _.get(pos, 'position'),
         posgradecode: _.get(pos, 'pos_grade_code'),
         postitledesc: _.get(pos, 'pos_title_desc'),
-      }  
+      },]
       return asgd_asg$
     })
 
