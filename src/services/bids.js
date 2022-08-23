@@ -167,7 +167,8 @@ async function v2_get_bids(filsCols, query) {
       let b$ = {
         ...b.position.position,
         'ubwhscode': 'HS',
-        'perdet_seq_num': b['perdet_seq_num']
+        'perdet_seq_num': b['perdet_seq_num'],
+        'cp_id': b['cp_id']
       }
       b$['position_info'] = [{
         posseqnum: _.get(b$, 'pos_seq_num'),
@@ -176,7 +177,7 @@ async function v2_get_bids(filsCols, query) {
         posgradecode: _.get(b$, 'pos_grade_code'),
         postitledesc: _.get(b$, 'pos_title_desc'),
       },]
-      b$ = _.pick(b$, ['ubwhscode', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc', 'perdet_seq_num', 'position_info'])
+      b$ = _.pick(b$, ['ubwhscode', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc', 'perdet_seq_num', 'position_info', 'cp_id'])
       b$['short_desc'] = _.get(b$, 'org.short_desc')
       return _.omit(b$, 'org')
     })
@@ -189,6 +190,7 @@ async function v2_get_bids(filsCols, query) {
 
     const setCols = [
       'ubwhscode',
+      'ubwcpid',
       'cpposseqnum',
       'posnumtext',
       'posorgshortdesc',
