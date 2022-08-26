@@ -32,9 +32,6 @@
     "code": "fsofficer"
   },
   {
-    "perdet_seq_num": 8,
-    "code": "CDO"
-  },
   {
     "perdet_seq_num": 8,
     "code": "Bureau"
@@ -62,10 +59,6 @@
   {
     "perdet_seq_num": 13,
     "code": "AO"
-  },
-  {
-    "perdet_seq_num": 13,
-    "code": "CDO"
   },
   {
     "perdet_seq_num": 14,
