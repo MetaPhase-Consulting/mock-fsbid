@@ -9,6 +9,18 @@
   },
   {
     "perdet_seq_num": 2,
+    "code": "FSBid_Org_Bidders"
+  },
+  {
+    "perdet_seq_num": 2,
+    "code": "fsofficer"
+  },
+  {
+    "perdet_seq_num": 2,
+    "code": "FSBid_Org_Capsule"
+  },
+  {
+    "perdet_seq_num": 2,
     "code": "Bureau"
   },
   {
@@ -49,7 +61,7 @@
   },
   {
     "perdet_seq_num": 12,
-    "code": "PT"
+    "code": "FSBid_Org_Bidders"
   },
   {
     "perdet_seq_num": 13,
