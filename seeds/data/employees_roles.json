@@ -24,12 +24,12 @@
     "code": "fsofficer"
   },
   {
-    "perdet_seq_num": 7,
-    "code": "CDO"
-  },
-  {
     "perdet_seq_num": 6,
     "code": "fsofficer"
+  },
+  {
+    "perdet_seq_num": 7,
+    "code": "CDO"
   },
   {
     "perdet_seq_num": 8,
@@ -50,10 +50,6 @@
   {
     "perdet_seq_num": 12,
     "code": "PT"
-  },
-  {
-    "perdet_seq_num": 13,
-    "code": "BMTSOD"
   },
   {
     "perdet_seq_num": 13,
