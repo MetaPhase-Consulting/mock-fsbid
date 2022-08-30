@@ -16,8 +16,12 @@
     "description": "AO Administrator"
   },
   {
-    "code": "PT",
-    "description": "ETravel - HR\\CDA\\AD = Personnel Technician"
+    "code": "FSBid_Org_Bidders",
+    "description": "FSBid Permission to seed bidders by Post"
+  },
+  {
+    "code": "FSBid_Org_Capsule",
+    "description": "FSBid Permission to change capsule by Post"
   },
   {
     "code": "BMTSOD",

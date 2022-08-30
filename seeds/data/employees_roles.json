@@ -9,6 +9,18 @@
   },
   {
     "perdet_seq_num": 2,
+    "code": "FSBid_Org_Bidders"
+  },
+  {
+    "perdet_seq_num": 2,
+    "code": "fsofficer"
+  },
+  {
+    "perdet_seq_num": 2,
+    "code": "FSBid_Org_Capsule"
+  },
+  {
+    "perdet_seq_num": 2,
     "code": "Bureau"
   },
   {
@@ -24,15 +36,11 @@
     "code": "fsofficer"
   },
   {
-    "perdet_seq_num": 7,
-    "code": "CDO"
-  },
-  {
     "perdet_seq_num": 6,
     "code": "fsofficer"
   },
   {
-    "perdet_seq_num": 8,
+    "perdet_seq_num": 7,
     "code": "CDO"
   },
   {
@@ -53,19 +61,11 @@
   },
   {
     "perdet_seq_num": 12,
-    "code": "PT"
-  },
-  {
-    "perdet_seq_num": 13,
-    "code": "BMTSOD"
+    "code": "FSBid_Org_Bidders"
   },
   {
     "perdet_seq_num": 13,
     "code": "AO"
-  },
-  {
-    "perdet_seq_num": 13,
-    "code": "CDO"
   },
   {
     "perdet_seq_num": 14,
