@@ -19,7 +19,10 @@ const {
   Remarks,
   LegActionTypes,
   TravelFunctions,
+  RemarksInsertionText, Bids,
 } = require('../models')
+
+const common = require('./common')
 
 const _ = require('lodash')
 
@@ -77,6 +80,27 @@ const getSome = (model, pickProps) => async () => {
   }
 }
 
+const getRemarks = (Remarks, RemarksInsertionText) => async () => {
+  try {
+    const remarks = await Remarks.fetchAll();
+    const remarksInsertionText = await RemarksInsertionText.fetchAll()
+    const remarksInsertionTextDictionary = common.objArrayToDictionary(remarksInsertionText, 'rirmrkseqnum');
+
+    const r$ = remarks.serialize().map(r => {
+      const insertionT = remarksInsertionTextDictionary[r["rmrkseqnum"]] || [];
+      return {
+        ...r,
+        "RemarkInserts": insertionT,
+      }
+    })
+
+    return { "Data": r$, return_code: 0 }
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 const get_seasons = getAll(Seasons)
 const get_cycles = getAll(Cycles)
 const get_grades = getAll(Grades)
@@ -94,7 +118,7 @@ const get_agenda_item_statuses = getAll(AgendaItemStatuses)
 const get_organizations = getAll(Organizations)
 const get_panel_categories = getSome(PanelMeetingItemCategories, ['miccode', 'micdesctext'])
 const get_remark_categories = getAll(RemarkCategories)
-const get_remarks = getAll(Remarks)
+const get_remarks = getRemarks(Remarks, RemarksInsertionText)
 const get_leg_action_types = getAll(LegActionTypes)
 const get_travel_functions = getAll(TravelFunctions)
 

@@ -463,9 +463,22 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
   return filsCols
 }
 
+const objArrayToDictionary = (data, dictionaryKey) => {
+  // transform data from an array of objects, to an obj
+  const dd = {};
+  data.serialize().forEach(a => {
+    if(dd[a[dictionaryKey]]){
+      dd[a[dictionaryKey]].push(a);
+    } else {
+      dd[a[dictionaryKey]] = [{...a}];
+    }
+  })
+  return dd;
+}
+
 
 module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, isCDO,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
   panelNameMapping, asgNameMapping, sepNameMapping, bidNameMapping,
-  asgdNameMapping, pmdNameMapping }
+  asgdNameMapping, pmdNameMapping, objArrayToDictionary }

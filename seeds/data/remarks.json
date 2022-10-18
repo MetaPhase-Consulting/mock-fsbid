@@ -1,1388 +1,1251 @@
 [
   {
-    "rmrkseqnum": 2,
-    "rmrkrccode": "B",
-    "rmrkordernum": 7,
-    "rmrkshortdesctext": "Promo Bd Recognized",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Potential recognized by last promo board",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 14,
+    "rmrkseqnum": 124,
     "rmrkrccode": "S",
     "rmrkordernum": 8,
     "rmrkshortdesctext": "Extend Stretch",
     "rmrkmutuallyexclusiveind": "Y",
     "rmrktext": "Extension in Stretch",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 15,
+    "rmrkseqnum": 111,
     "rmrkrccode": "S",
     "rmrkordernum": 9,
     "rmrkshortdesctext": "Down Stretch",
     "rmrkmutuallyexclusiveind": "Y",
-    "rmrktext": "Down Stretch, Down Stretch letter on file",
-    "rmrkactiveind": "Y"
+    "rmrktext": "Down Stretch letter on file",
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 22,
+    "rmrkseqnum": 337,
     "rmrkrccode": "R",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "No Repayment",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "No Repayment Issues",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 23,
+    "rmrkseqnum": 6,
     "rmrkrccode": "R",
     "rmrkordernum": 2,
     "rmrkshortdesctext": "Repay Issues",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Repayment Issues Being Addressed",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 28,
+    "rmrkseqnum": 146,
     "rmrkrccode": "I",
     "rmrkordernum": 4,
     "rmrkshortdesctext": "No Tandem issues",
     "rmrkmutuallyexclusiveind": "Y",
     "rmrktext": "Tandem:  No issues",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 34,
+    "rmrkseqnum": 92,
     "rmrkrccode": "B",
     "rmrkordernum": 10,
     "rmrkshortdesctext": "Rec. tenure",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Recommended for tenure",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 35,
-    "rmrkrccode": "B",
-    "rmrkordernum": 2,
-    "rmrkshortdesctext": "3rd tour",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "3rd Tour Bidder",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 40,
+    "rmrkseqnum": 75,
     "rmrkrccode": "L",
     "rmrkordernum": 2,
     "rmrkshortdesctext": "DCM Lang. Waiver",
     "rmrkmutuallyexclusiveind": "Y",
     "rmrktext": "Language Requirement Waived by DCM Committee",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 41,
+    "rmrkseqnum": 102,
     "rmrkrccode": "L",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "Lang. waiver",
     "rmrkmutuallyexclusiveind": "Y",
     "rmrktext": "Full language waiver granted on {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 254,
+        "rirmrkseqnum": 102,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 42,
+    "rmrkseqnum": 135,
     "rmrkrccode": "R",
     "rmrkordernum": 4,
     "rmrkshortdesctext": "R&R Repay Request",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Requests R&R repayment determination",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 43,
+    "rmrkseqnum": 183,
     "rmrkrccode": "L",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "Partial Lg Waiver",
     "rmrkmutuallyexclusiveind": "Y",
     "rmrktext": "Partial Language Waiver Granted on {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 250,
+        "rirmrkseqnum": 183,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 44,
-    "rmrkrccode": "B",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "Diff Bidder",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Differential Bidder",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 46,
+    "rmrkseqnum": 292,
     "rmrkrccode": "P",
     "rmrkordernum": 7,
     "rmrkshortdesctext": "ML cede",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "ML cede granted on {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 88,
+        "rirmrkseqnum": 292,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 47,
+    "rmrkseqnum": 46,
     "rmrkrccode": "B",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "EL Direct",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "EL Directed",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 48,
+    "rmrkseqnum": 249,
     "rmrkrccode": "P",
     "rmrkordernum": 11,
     "rmrkshortdesctext": "Senior cede",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Senior Cede Granted on {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 69,
+        "rirmrkseqnum": 249,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 49,
+    "rmrkseqnum": 258,
     "rmrkrccode": "T",
     "rmrkordernum": 8,
     "rmrkshortdesctext": "R&R Repay Requested",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "R&R Repayment Determination Requested",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 51,
+    "rmrkseqnum": 39,
     "rmrkrccode": "T",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "training curtail",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Curtailment to allow for training",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 52,
+    "rmrkseqnum": 112,
     "rmrkrccode": "T",
     "rmrkordernum": 12,
     "rmrkshortdesctext": "bridge",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Via bridge TBD",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 53,
+    "rmrkseqnum": 224,
     "rmrkrccode": "A",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "training detail",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Employee opts for detail to training",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 55,
+    "rmrkseqnum": 117,
     "rmrkrccode": "P",
     "rmrkordernum": 6,
     "rmrkshortdesctext": "Key",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Key Position",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 56,
+    "rmrkseqnum": 285,
     "rmrkrccode": "P",
     "rmrkordernum": 10,
     "rmrkshortdesctext": "Program Direction",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Program Direction",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 58,
+    "rmrkseqnum": 323,
     "rmrkrccode": "P",
     "rmrkordernum": 2,
     "rmrkshortdesctext": "COM OMS",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "COM OMS",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 59,
+    "rmrkseqnum": 68,
     "rmrkrccode": "P",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "DCM committee",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Approved by DCM Committee on {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 202,
+        "rirmrkseqnum": 68,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 60,
+    "rmrkseqnum": 77,
     "rmrkrccode": "O",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "HDS",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "HDS Post",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 61,
+    "rmrkseqnum": 320,
     "rmrkrccode": "C",
     "rmrkordernum": 6,
     "rmrkshortdesctext": "UV",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "UV, All Concur",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 62,
+    "rmrkseqnum": 120,
     "rmrkrccode": "M",
     "rmrkordernum": 4,
     "rmrkshortdesctext": "discuss",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CDO to Discuss",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 63,
-    "rmrkrccode": "M",
-    "rmrkordernum": 99,
-    "rmrkshortdesctext": "no tandem",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Tandem: No issues",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 64,
+    "rmrkseqnum": 198,
     "rmrkrccode": "M",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "DG directed",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "DG Directed {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 122,
+        "rirmrkseqnum": 198,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 66,
+    "rmrkseqnum": 291,
     "rmrkrccode": "M",
     "rmrkordernum": 17,
     "rmrkshortdesctext": "reassign at post",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Reassignment at post",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 67,
+    "rmrkseqnum": 151,
     "rmrkrccode": "E",
     "rmrkordernum": 4,
     "rmrkshortdesctext": "timely",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Timely",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 68,
+    "rmrkseqnum": 155,
     "rmrkrccode": "E",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "summer cycle",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Move to Summer cycle",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 69,
+    "rmrkseqnum": 188,
     "rmrkrccode": "E",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "BOP",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "BOP",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 70,
+    "rmrkseqnum": 342,
     "rmrkrccode": "E",
     "rmrkordernum": 2,
     "rmrkshortdesctext": "cohen",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Cohen Rule",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 72,
+    "rmrkseqnum": 94,
     "rmrkrccode": "C",
     "rmrkordernum": 4,
     "rmrkshortdesctext": "summer",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Move to Summer Cycle",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 73,
+    "rmrkseqnum": 197,
     "rmrkrccode": "C",
     "rmrkordernum": 2,
     "rmrkshortdesctext": "cat 4",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CAT 4",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 74,
+    "rmrkseqnum": 165,
     "rmrkrccode": "C",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "VOL cable",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Responded to VOL cable",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 75,
+    "rmrkseqnum": 210,
     "rmrkrccode": "C",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "cohen",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Cohen Rule",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 76,
+    "rmrkseqnum": 326,
     "rmrkrccode": "N",
     "rmrkordernum": 2,
     "rmrkshortdesctext": "snd option",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Opts for SND",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 77,
+    "rmrkseqnum": 195,
     "rmrkrccode": "N",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "declines SND",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Declines SND",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 79,
+    "rmrkseqnum": 160,
     "rmrkrccode": "N",
     "rmrkordernum": 4,
     "rmrkshortdesctext": "snd continues",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Continues SND eligibility",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 80,
+    "rmrkseqnum": 182,
     "rmrkrccode": "N",
     "rmrkordernum": 7,
     "rmrkshortdesctext": "SND Waiver Requested",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Requests SND Repayment Determination",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 82,
+    "rmrkseqnum": 149,
     "rmrkrccode": "B",
     "rmrkordernum": 2,
     "rmrkshortdesctext": "2nd Tour",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "2nd Tour",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 84,
+    "rmrkseqnum": 254,
     "rmrkrccode": "P",
     "rmrkordernum": 8,
     "rmrkshortdesctext": "M2EMisc",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "ML to EL exercise {year}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 33,
+        "rirmrkseqnum": 254,
+        "riinsertiontext": "{year}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 87,
+    "rmrkseqnum": 294,
     "rmrkrccode": "N",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "SND Post",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "SND Post",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 90,
+    "rmrkseqnum": 225,
     "rmrkrccode": "M",
     "rmrkordernum": 14,
     "rmrkshortdesctext": "LWOP OK",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "LWOP Committee approved on {date}, criterion {number}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 192,
+        "rirmrkseqnum": 225,
+        "riinsertiontext": "{date}"
+      },
+      {
+        "riseqnum": 193,
+        "rirmrkseqnum": 225,
+        "riinsertiontext": "{number}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 91,
-    "rmrkrccode": "P",
-    "rmrkordernum": 3,
-    "rmrkshortdesctext": "CNP",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Critical Need Position",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 93,
+    "rmrkseqnum": 316,
     "rmrkrccode": "M",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "Approved off-panel",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Approved off-panel on {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 191,
+        "rirmrkseqnum": 316,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 94,
+    "rmrkseqnum": 2,
     "rmrkrccode": "P",
     "rmrkordernum": 12,
     "rmrkshortdesctext": "Y Tour Approval",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Y Tour Committee Approved {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 13,
+        "rirmrkseqnum": 2,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 96,
+    "rmrkseqnum": 231,
     "rmrkrccode": "M",
     "rmrkordernum": 7,
     "rmrkshortdesctext": "Dual incumbency",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Dual Incumbency Approved on {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 125,
+        "rirmrkseqnum": 231,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 98,
-    "rmrkrccode": "O",
-    "rmrkordernum": 2,
-    "rmrkshortdesctext": "High Differential",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "High Differential Post",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 104,
+    "rmrkseqnum": 139,
     "rmrkrccode": "R",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "HL waiver",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Requests Home Leave repayment determination",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 106,
-    "rmrkrccode": "N",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "SND Decision Pending",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "SND Decision Pending",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 108,
+    "rmrkseqnum": 311,
     "rmrkrccode": "N",
     "rmrkordernum": 8,
     "rmrkshortdesctext": "No SND repay Req",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "No SND Repayment Required",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 109,
+    "rmrkseqnum": 20,
     "rmrkrccode": "N",
     "rmrkordernum": 4,
     "rmrkshortdesctext": "Not SND eligible",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Not eligible for SND",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 112,
+    "rmrkseqnum": 21,
     "rmrkrccode": "T",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "DT/delay HL",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Direct transfer/delayed HL approved on {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 27,
+        "rirmrkseqnum": 21,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 114,
+    "rmrkseqnum": 219,
     "rmrkrccode": "G",
     "rmrkordernum": 6,
     "rmrkshortdesctext": "return CS",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Returning CS LNA",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 115,
+    "rmrkseqnum": 100,
     "rmrkrccode": "G",
     "rmrkordernum": 7,
     "rmrkshortdesctext": "Sched C",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Schedule C LNA - No reemployment rights",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 116,
+    "rmrkseqnum": 27,
     "rmrkrccode": "R",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "Sched C resign",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Schedule C resigning",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 117,
+    "rmrkseqnum": 129,
     "rmrkrccode": "G",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "reempl rights",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Reemployment rights granted by {bureau}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 151,
+        "rirmrkseqnum": 129,
+        "riinsertiontext": "{bureau}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 118,
+    "rmrkseqnum": 49,
     "rmrkrccode": "G",
     "rmrkordernum": 4,
     "rmrkshortdesctext": "reempl extend",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Reemployment rights extended by {bureau}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 47,
+        "rirmrkseqnum": 49,
+        "riinsertiontext": "{bureau}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 119,
+    "rmrkseqnum": 276,
     "rmrkrccode": "G",
     "rmrkordernum": 2,
     "rmrkshortdesctext": "Dev Asgn",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CS LNA - Developmental Assignment",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 120,
+    "rmrkseqnum": 8,
     "rmrkrccode": "G",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "Expert",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CS LNA - Expertise Assignment",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 121,
+    "rmrkseqnum": 308,
     "rmrkrccode": "G",
     "rmrkordernum": 2,
     "rmrkshortdesctext": "CS LNA",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CS LNA {program}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 10,
+        "rirmrkseqnum": 308,
+        "riinsertiontext": "{program}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 130,
+    "rmrkseqnum": 70,
     "rmrkrccode": "E",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "Extend per cable",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Extension per 2006 State 121681",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 132,
+    "rmrkseqnum": 203,
     "rmrkrccode": "A",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "COM timing",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Via Consultations and/or Training",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 133,
+    "rmrkseqnum": 349,
     "rmrkrccode": "T",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "Defer HL",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Deferred HL approved on {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 212,
+        "rirmrkseqnum": 349,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 135,
+    "rmrkseqnum": 5,
     "rmrkrccode": "A",
     "rmrkordernum": 6,
     "rmrkshortdesctext": "via training",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Via Training",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 137,
-    "rmrkrccode": "I",
-    "rmrkordernum": 3,
-    "rmrkshortdesctext": "Tandem PIP",
-    "rmrkmutuallyexclusiveind": "Y",
-    "rmrktext": "Tandem:  PIP",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 138,
+    "rmrkseqnum": 266,
     "rmrkrccode": "T",
     "rmrkordernum": 13,
     "rmrkshortdesctext": "Via leave",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Via leave",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 139,
+    "rmrkseqnum": 34,
     "rmrkrccode": "G",
     "rmrkordernum": 8,
     "rmrkshortdesctext": "LNA (not Civil Servi",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "LNA - No reemployment rights",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 142,
+    "rmrkseqnum": 272,
     "rmrkrccode": "D",
     "rmrkordernum": 10,
     "rmrkshortdesctext": "DG approved 3rd year",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "DG approved PSP/SIP {3rd, 4th, etc} year on {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 170,
+        "rirmrkseqnum": 272,
+        "riinsertiontext": "{3rd, 4th, etc}"
+      },
+      {
+        "riseqnum": 171,
+        "rirmrkseqnum": 272,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 145,
+    "rmrkseqnum": 295,
     "rmrkrccode": "R",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "HL repay required",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Home Leave repayment required",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 152,
+    "rmrkseqnum": 343,
     "rmrkrccode": "D",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "TDY PSP #, dates",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "TDY {country} position #{pos#}, {pos grade}, {pos LDP}, {date1}-{date2}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 311,
+        "rirmrkseqnum": 343,
+        "riinsertiontext": "{country}"
+      },
+      {
+        "riseqnum": 312,
+        "rirmrkseqnum": 343,
+        "riinsertiontext": "{pos grade}"
+      },
+      {
+        "riseqnum": 313,
+        "rirmrkseqnum": 343,
+        "riinsertiontext": "{pos LDP}"
+      },
+      {
+        "riseqnum": 314,
+        "rirmrkseqnum": 343,
+        "riinsertiontext": "{pos#}"
+      },
+      {
+        "riseqnum": 315,
+        "rirmrkseqnum": 343,
+        "riinsertiontext": "{date1}"
+      },
+      {
+        "riseqnum": 316,
+        "rirmrkseqnum": 343,
+        "riinsertiontext": "{date2}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 153,
+    "rmrkseqnum": 194,
     "rmrkrccode": "D",
     "rmrkordernum": 4,
     "rmrkshortdesctext": "Empl lang score",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Tested {language score} ({date})",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 337,
+        "rirmrkseqnum": 194,
+        "riinsertiontext": "{language score}"
+      },
+      {
+        "riseqnum": 338,
+        "rirmrkseqnum": 194,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 155,
+    "rmrkseqnum": 40,
     "rmrkrccode": "R",
     "rmrkordernum": 9,
     "rmrkshortdesctext": "Convert to CS",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Converting to CS {agency}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 9,
+        "rirmrkseqnum": 40,
+        "riinsertiontext": "{agency}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 160,
+    "rmrkseqnum": 103,
     "rmrkrccode": "M",
     "rmrkordernum": 19,
     "rmrkshortdesctext": "USERRA",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "USERRA",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 161,
-    "rmrkrccode": "P",
-    "rmrkordernum": 11,
-    "rmrkshortdesctext": "Snr Cd not req",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Senior Cede not required: {PSP-SIP or MSI}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 162,
+    "rmrkseqnum": 24,
     "rmrkrccode": "R",
     "rmrkordernum": 7,
     "rmrkshortdesctext": "Sep travel denied",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Separation travel denied",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 163,
+    "rmrkseqnum": 63,
     "rmrkrccode": "R",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "R&R Repay Required",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "R&R Repayment Required",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 164,
+    "rmrkseqnum": 274,
     "rmrkrccode": "R",
     "rmrkordernum": 8,
     "rmrkshortdesctext": "Sep travel a",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Separation travel approved",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 165,
+    "rmrkseqnum": 237,
     "rmrkrccode": "P",
     "rmrkordernum": 9,
     "rmrkshortdesctext": "Position loc city st",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Position located in {city} {state}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 31,
+        "rirmrkseqnum": 237,
+        "riinsertiontext": "{city}"
+      },
+      {
+        "riseqnum": 32,
+        "rirmrkseqnum": 237,
+        "riinsertiontext": "{state}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 166,
-    "rmrkrccode": "T",
-    "rmrkordernum": 8,
-    "rmrkshortdesctext": "No R&R repay <30day ",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "No R&R repayment required-departure within 30 days of TED",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 167,
-    "rmrkrccode": "N",
-    "rmrkordernum": 7,
-    "rmrkshortdesctext": "SND w/in 30",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "No SND repayment required -- departure within 30 days of TED",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 168,
+    "rmrkseqnum": 35,
     "rmrkrccode": "D",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "PP less than 12M HL",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "PSP/SIP less than 12M HL approved {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 183,
+        "rirmrkseqnum": 35,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 169,
+    "rmrkseqnum": 310,
     "rmrkrccode": "M",
     "rmrkordernum": 13,
     "rmrkshortdesctext": "Breaks Link",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Breaks/curtails {year} PSP/SIP link",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 350,
+        "rirmrkseqnum": 310,
+        "riinsertiontext": "{year}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 170,
+    "rmrkseqnum": 88,
     "rmrkrccode": "B",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "Spec class no.",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "{#} Specialist Orientation Class",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 127,
+        "rirmrkseqnum": 88,
+        "riinsertiontext": "{#}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 171,
+    "rmrkseqnum": 319,
     "rmrkrccode": "B",
     "rmrkordernum": 3,
     "rmrkshortdesctext": "BSAC class no",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "{#} BSAC ",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 272,
+        "rirmrkseqnum": 319,
+        "riinsertiontext": "{#}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 174,
+    "rmrkseqnum": 332,
     "rmrkrccode": "P",
     "rmrkordernum": 10,
     "rmrkshortdesctext": "Position Reprogram",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Position Reprogrammed",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 176,
+    "rmrkseqnum": 11,
     "rmrkrccode": "L",
     "rmrkordernum": 6,
     "rmrkshortdesctext": "RLP Assignment",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "RLP Assignment",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 177,
+    "rmrkseqnum": 299,
     "rmrkrccode": "R",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "Job Search",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Via {M,M Year} Job Search",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 139,
+        "rirmrkseqnum": 299,
+        "riinsertiontext": "{M,M Year}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 182,
+    "rmrkseqnum": 263,
     "rmrkrccode": "T",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "ATA",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "ATA {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 166,
+        "rirmrkseqnum": 263,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 183,
+    "rmrkseqnum": 87,
     "rmrkrccode": "T",
     "rmrkordernum": 2,
     "rmrkshortdesctext": "Last HL",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Last HL {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 245,
+        "rirmrkseqnum": 87,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 184,
+    "rmrkseqnum": 42,
     "rmrkrccode": "E",
     "rmrkordernum": 6,
     "rmrkshortdesctext": "per links cable",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Extension per links cable",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 185,
+    "rmrkseqnum": 7,
     "rmrkrccode": "M",
     "rmrkordernum": 1,
     "rmrkshortdesctext": "Promoted per State",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Promoted per {cable#}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 44,
+        "rirmrkseqnum": 7,
+        "riinsertiontext": "{cable#}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 186,
+    "rmrkseqnum": 18,
     "rmrkrccode": "M",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "DG Approved",
     "rmrkmutuallyexclusiveind": "Y",
     "rmrktext": "DG Approved {action} {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 128,
+        "rirmrkseqnum": 18,
+        "riinsertiontext": "{action} {date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 187,
+    "rmrkseqnum": 150,
     "rmrkrccode": "T",
     "rmrkordernum": 8,
     "rmrkshortdesctext": "R&R Repay Issue ",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "R&R Repayment Issue Exists",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 192,
+    "rmrkseqnum": 265,
     "rmrkrccode": "R",
     "rmrkordernum": 10,
     "rmrkshortdesctext": "No R&R Repay Issue",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "No R&R Repayment Issue",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 193,
+    "rmrkseqnum": 3,
     "rmrkrccode": "P",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "FICA",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "FICA",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 194,
+    "rmrkseqnum": 29,
     "rmrkrccode": "P",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "CA EL LDP",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CA EL LDP",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 195,
+    "rmrkseqnum": 338,
     "rmrkrccode": "P",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "CA LNA",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CA LNA",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 196,
+    "rmrkseqnum": 30,
     "rmrkrccode": "R",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "R&R Repay-Not Rqd",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "R&R Repayment Not Required",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 197,
+    "rmrkseqnum": 156,
     "rmrkrccode": "R",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "HL No Repay Rqd",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Home Leave Repayment Not Required",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 198,
+    "rmrkseqnum": 186,
     "rmrkrccode": "T",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "R&R Repay Not Rqd",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "R&R Repayment Not Required",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 199,
+    "rmrkseqnum": 261,
     "rmrkrccode": "N",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "SND Repay required",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "SND Repayment required",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 200,
+    "rmrkseqnum": 116,
     "rmrkrccode": "N",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "SND Repay being Adrs",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "SND Repayment Issues Being Addressed",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 201,
+    "rmrkseqnum": 54,
     "rmrkrccode": "C",
     "rmrkordernum": 5,
     "rmrkshortdesctext": "Curtail Linked Assig",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Curtail Linked Assignment {Country}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 65,
+        "rirmrkseqnum": 54,
+        "riinsertiontext": "{Country}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 202,
+    "rmrkseqnum": 32,
     "rmrkrccode": "T",
     "rmrkordernum": 8,
     "rmrkshortdesctext": "R&R Repay Not Rqd",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Service Need: R&R Repayment Not Required",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": []
   },
   {
-    "rmrkseqnum": 205,
+    "rmrkseqnum": 264,
     "rmrkrccode": "M",
     "rmrkordernum": 14,
     "rmrkshortdesctext": "DETOApproved",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "DETO agreement approved {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 323,
+        "rirmrkseqnum": 264,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 206,
+    "rmrkseqnum": 289,
     "rmrkrccode": "M",
     "rmrkordernum": 14,
     "rmrkshortdesctext": "NSDD38",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "NSDD-38 approved {date}",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 53,
+        "rirmrkseqnum": 289,
+        "riinsertiontext": "{date}"
+      }
+    ]
   },
   {
-    "rmrkseqnum": 207,
+    "rmrkseqnum": 189,
     "rmrkrccode": "M",
     "rmrkordernum": 19,
     "rmrkshortdesctext": "ECC",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "ECC approved {date}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 208,
-    "rmrkrccode": "M",
-    "rmrkordernum": 14,
-    "rmrkshortdesctext": "DETOLocation",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Position performed via a DETO arrangement from {post}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 209,
-    "rmrkrccode": "M",
-    "rmrkordernum": 17,
-    "rmrkshortdesctext": "ANR/ASA",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "ANR and/or ASA approved {date}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 210,
-    "rmrkrccode": "A",
-    "rmrkordernum": 8,
-    "rmrkshortdesctext": "DSTC training",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "via DSTC training",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 211,
-    "rmrkrccode": "R",
-    "rmrkordernum": 1,
-    "rmrkshortdesctext": "Taskings in",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Via various taskings in {bureau}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 212,
-    "rmrkrccode": "P",
-    "rmrkordernum": 7,
-    "rmrkshortdesctext": "ELtoML Cede",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "EL to ML Cede granted on {date}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 213,
-    "rmrkrccode": "N",
-    "rmrkordernum": 4,
-    "rmrkshortdesctext": "SND Elig Begins",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "SND eligibility begins {date}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 216,
-    "rmrkrccode": "T",
-    "rmrkordernum": 6,
-    "rmrkshortdesctext": "Chg TOD",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Change in TOD effective {date}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 217,
-    "rmrkrccode": "P",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "offsetposition",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Offset for DETO position {number}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 218,
-    "rmrkrccode": "M",
-    "rmrkordernum": 14,
-    "rmrkshortdesctext": "DETOpost",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "DETO position located in {post}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 220,
-    "rmrkrccode": "G",
-    "rmrkordernum": 4,
-    "rmrkshortdesctext": "LNA Orient",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "LNA Orientation Class {#} ",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 221,
-    "rmrkrccode": "M",
-    "rmrkordernum": 14,
-    "rmrkshortdesctext": "Local Hire",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Local Hire",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 222,
-    "rmrkrccode": "P",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "CA AEFM",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "CA AEFM",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 223,
-    "rmrkrccode": "B",
-    "rmrkordernum": 3,
-    "rmrkshortdesctext": "CA LNA Class",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "{#} CA LNA Class",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 225,
-    "rmrkrccode": "P",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "changeinTOD",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Change in TOD effective {date}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 226,
-    "rmrkrccode": "P",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "NTOD",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "NTOD approved {date}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 227,
-    "rmrkrccode": "B",
-    "rmrkordernum": 1,
-    "rmrkshortdesctext": "waiverapproved",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Fair Share waiver approved {date}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 228,
-    "rmrkrccode": "I",
-    "rmrkordernum": 3,
-    "rmrkshortdesctext": "Muller",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Muller Rule",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 229,
-    "rmrkrccode": "C",
-    "rmrkordernum": 4,
-    "rmrkshortdesctext": "pilotprog",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Pilot Program 2020-2022",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 230,
-    "rmrkrccode": "M",
-    "rmrkordernum": 99,
-    "rmrkshortdesctext": "Other",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": null,
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 231,
-    "rmrkrccode": "B",
-    "rmrkordernum": 2,
-    "rmrkshortdesctext": "A-100Class",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "{#} A-100 Class",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 232,
-    "rmrkrccode": "B",
-    "rmrkordernum": 3,
-    "rmrkshortdesctext": "joinA100",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Joining {#} A-100 Class {date}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 233,
-    "rmrkrccode": "S",
-    "rmrkordernum": 2,
-    "rmrkshortdesctext": "stretch",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Stretch",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 235,
-    "rmrkrccode": "M",
-    "rmrkordernum": 11,
-    "rmrkshortdesctext": "LinkedAssign",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Linked assignment {country} {year}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 236,
-    "rmrkrccode": "M",
-    "rmrkordernum": 12,
-    "rmrkshortdesctext": "EarlyHS",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Early HS {country}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 237,
-    "rmrkrccode": "T",
-    "rmrkordernum": 3,
-    "rmrkshortdesctext": "R&R b or c",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "R&R per 3 FAH-1 H-3725 (b or c)",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 238,
-    "rmrkrccode": "C",
-    "rmrkordernum": 1,
-    "rmrkshortdesctext": "VolCurtailment",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Voluntary curtailment per 20 STATE 28424 et al",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 239,
-    "rmrkrccode": "T",
-    "rmrkordernum": 2,
-    "rmrkshortdesctext": "HLwaiverApproved",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Waiver of requirement for Home Leave approved on {date}.",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 241,
-    "rmrkrccode": "M",
-    "rmrkordernum": 6,
-    "rmrkshortdesctext": "CDADirectorApproved",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "CDA Director Approved {action} {date}",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 242,
-    "rmrkrccode": "B",
-    "rmrkordernum": 4,
-    "rmrkshortdesctext": "8yrCDS",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "8 yr CDS waiver granted {date} valid until {date2}.",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 243,
-    "rmrkrccode": "M",
-    "rmrkordernum": 99,
-    "rmrkshortdesctext": "assignmentchallemp",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Assignment Challenge (Employee)",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 244,
-    "rmrkrccode": "M",
-    "rmrkordernum": 99,
-    "rmrkshortdesctext": "assignmentchallpos",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Assignment Challenge (Position)",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 245,
-    "rmrkrccode": "T",
-    "rmrkordernum": 3,
-    "rmrkshortdesctext": "CDAApproved4Y",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "CDA Director Approved COVID-19 4Y TOD",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 246,
-    "rmrkrccode": "N",
-    "rmrkordernum": 2,
-    "rmrkshortdesctext": "SNDProration",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "No SND Repayment Required/Proration",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 247,
-    "rmrkrccode": "N",
-    "rmrkordernum": 3,
-    "rmrkshortdesctext": "SNDNoProration",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "No SND Repayment Required/No Proration",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 248,
-    "rmrkrccode": "C",
-    "rmrkordernum": 3,
-    "rmrkshortdesctext": "G/ADnofault",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "G/AD no-fault curtailment per 20 STATE 95682",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 249,
-    "rmrkrccode": "D",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "SIPCredit",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "SIP credit, two Special R&Rs, and link eligibility per M Memo Approved 10/19/2020",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 250,
-    "rmrkrccode": "L",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "langeliminated",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Language requirement eliminated during 2020 Triennial Language Review",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 251,
-    "rmrkrccode": "L",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "lanqreqchanged",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Language requirement changed post-assignment by 2020 Triennial Language Review",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 252,
-    "rmrkrccode": "M",
-    "rmrkordernum": 7,
-    "rmrkshortdesctext": "DIapprovedbyDG",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Dual Incumbency of up to 24 months approved by the DG on 10/9/2020.",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 253,
-    "rmrkrccode": "M",
-    "rmrkordernum": 6,
-    "rmrkshortdesctext": "DGapprovedCOVID-19",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "DG approved COVID-19 delayed HL up to 9/2021",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 254,
-    "rmrkrccode": "M",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "RRorSNDretention",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "R&R and/or SND retention for Covid delayed travel per M memo 03/26/2021",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 256,
-    "rmrkrccode": "O",
-    "rmrkordernum": 5,
-    "rmrkshortdesctext": "earlyHStoHDS",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Early Handshake - to HDS Post",
-    "rmrkactiveind": "Y"
-  },
-  {
-    "rmrkseqnum": 257,
-    "rmrkrccode": "O",
-    "rmrkordernum": 6,
-    "rmrkshortdesctext": "earlyHSfromHDS",
-    "rmrkmutuallyexclusiveind": "N",
-    "rmrktext": "Early Handshake - from HDS Post",
-    "rmrkactiveind": "Y"
+    "rmrkactiveind": "Y",
+    "RemarkInserts": [
+      {
+        "riseqnum": 332,
+        "rirmrkseqnum": 189,
+        "riinsertiontext": "{date}"
+      }
+    ]
   }
 ]
