@@ -19,11 +19,10 @@ const {
   Remarks,
   LegActionTypes,
   TravelFunctions,
-  RemarksInsertionText, Bids,
+  RemarksInsertionText,
 } = require('../models')
 
 const common = require('./common')
-
 const _ = require('lodash')
 
 // Call getAll on the provided model
