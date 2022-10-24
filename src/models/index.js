@@ -40,6 +40,7 @@ const LegActionTypes = require('./legactiontypes.js')
 const RemarkCategories = require('./remarkcategories')
 const Remarks = require('./remarks')
 const TravelFunctions = require('./travelfunctions.js')
+const RemarksInsertionText = require('./remarksinsertiontext.js')
 
 module.exports = {
   Seasons,
@@ -84,4 +85,5 @@ module.exports = {
   RemarkCategories,
   Remarks,
   TravelFunctions,
+  RemarksInsertionText,
 }

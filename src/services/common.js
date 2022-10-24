@@ -468,4 +468,4 @@ module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, 
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
   panelNameMapping, asgNameMapping, sepNameMapping, bidNameMapping,
-  asgdNameMapping, pmdNameMapping }
+  asgdNameMapping, pmdNameMapping, }
