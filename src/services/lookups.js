@@ -19,6 +19,7 @@ const {
   Remarks,
   LegActionTypes,
   TravelFunctions,
+  FrequentPositions,
 } = require('../models')
 
 const _ = require('lodash')
@@ -90,6 +91,26 @@ const getRemarks = Remarks => async () => {
   }
 }
 
+const getFrequentPositions = FrequentPositions => async () => {
+  try {
+    const data = await FrequentPositions.fetchAll()
+    const results = data.serialize().map(d => (
+      {
+        poscposseqnum: d.posseqnum,
+        position: [
+        {
+          ...d
+        }
+        ]
+      }
+    ))
+    return { "Data": results, return_code: 0 }
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 const get_seasons = getAll(Seasons)
 const get_cycles = getAll(Cycles)
 const get_grades = getAll(Grades)
@@ -110,6 +131,7 @@ const get_remark_categories = getAll(RemarkCategories)
 const get_remarks = getRemarks(Remarks)
 const get_leg_action_types = getAll(LegActionTypes)
 const get_travel_functions = getAll(TravelFunctions)
+const get_frequent_positions = getFrequentPositions(FrequentPositions)
 
 module.exports = {
   get_seasons,
@@ -132,4 +154,5 @@ module.exports = {
   get_remarks,
   get_leg_action_types,
   get_travel_functions,
+  get_frequent_positions,
 }

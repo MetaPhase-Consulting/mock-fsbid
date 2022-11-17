@@ -41,6 +41,7 @@ const RemarkCategories = require('./remarkcategories')
 const Remarks = require('./remarks')
 const TravelFunctions = require('./travelfunctions.js')
 const RemarksInsertionText = require('./remarksinsertiontext.js')
+const FrequentPositions = require('./frequentpositions.js')
 
 module.exports = {
   Seasons,
@@ -86,4 +87,5 @@ module.exports = {
   Remarks,
   TravelFunctions,
   RemarksInsertionText,
+  FrequentPositions,
 }
