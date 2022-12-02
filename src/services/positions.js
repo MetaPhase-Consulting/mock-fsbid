@@ -110,6 +110,14 @@ async function get_position_by_pos_num(query) {
     'posnumtext': p.pos_num_text,
     'posgradecode': p.pos_grade_code,
     'postitledesc': p.pos_title_desc,
+    'poslanguage1code': 'HU',
+    'poslanguage1desc': 'HUNGARIAN',
+    'posspeakproficiency1code': '3',
+    'posreadproficiency1code': '3',
+    'poslanguage2code': 'AE',
+    'poslanguage2desc': 'ARABIC EGYPTIAN',
+    'posspeakproficiency2code': '2',
+    'posreadproficiency2code': '2'
   }))
 
   return {
