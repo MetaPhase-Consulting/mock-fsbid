@@ -143,4 +143,18 @@ async function get_publishable_position_capsule(query) {
   }
 }
 
-module.exports = { get_position_by_id, get_position_by_pos_num, get_publishable_position_capsule }
+async function update_capsule_description(query) {
+  let ReturnCode  
+  try {
+    await CapsuleDescription.where('pos_seq_num', query.pos_seq_num).save({
+      description: query.capsule_descr_txt
+    }, {patch: true})
+    ReturnCode = 0   
+  } catch (Error) {
+    console.log(`An error occurred updating capsule description... ${Error}`)
+    ReturnCode = -2
+  }
+  return { Data: null, usl_id: 45066084, ReturnCode }
+}
+
+module.exports = { get_position_by_id, get_position_by_pos_num, get_publishable_position_capsule, update_capsule_description }

@@ -693,6 +693,14 @@ var appRouter = function (app) {
       res.status(500).send({ "Message": "An error has occurred." });
     }
   }) 
+  
+   app.patch('/v1/publishablePositions/capsule', async function(req, res) {
+    const { query } = req
+    if (!(query.pos_seq_num && query.capsule_descr_txt && query.update_id && query.update_date)) {
+      res.status(200).send({ Data: null, usl_id: 4000003, return_code: -2 })
+    };
+    return res.status(200).send(await positions.update_capsule_description(query))
+  }); 
 };
 
 module.exports = appRouter;
