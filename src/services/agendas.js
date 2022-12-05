@@ -269,15 +269,15 @@ const getAgendaItems = async (ai_id, perdet) => {
             "hruneuid": 87496,
             "hruid": 65426,
             "neuid": 87496,
-            "neulastnm": "WENDY",
-            "neufirstnm": "WOODWARD",
-            "neumiddlenm": "CLÉOPATRE",
+            "neulastnm": "Woodward",
+            "neufirstnm": "Wendy",
+            "neumiddlenm": "Cléopatre",
             "empUser": [
               {
-                "perpiifirstname": "JENNY",
-                "perpiilastname": "TOWNPOST",
+                "perpiifirstname": "Jenny",
+                "perpiilastname": "Townpost",
                 "perpiiseqnum": 9852,
-                "perpiimiddlename": "YÉNORA",
+                "perpiimiddlename": "Yénora",
                 "perpiisuffixname": " ",
                 "perdetseqnum": 642572,
                 "persdesc": "Retired"
@@ -291,15 +291,15 @@ const getAgendaItems = async (ai_id, perdet) => {
             "hruneuid": 87496,
             "hruid": 65426,
             "neuid": 87496,
-            "neulastnm": "WENDY",
-            "neufirstnm": "WOODWARD",
-            "neumiddlenm": "CLÉOPATRE",
+            "neulastnm": "Woodward",
+            "neufirstnm": "Wendy",
+            "neumiddlenm": "Cléopatre",
             "empUser": [
               {
-                "perpiifirstname": "JENNY",
-                "perpiilastname": "TOWNPOST",
+                "perpiifirstname": "Jenny",
+                "perpiilastname": "Townpost",
                 "perpiiseqnum": 9852,
-                "perpiimiddlename": "YÉNORA",
+                "perpiimiddlename": "Yénora",
                 "perpiisuffixname": " ",
                 "perdetseqnum": 642572,
                 "persdesc": "Retired"
