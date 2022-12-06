@@ -263,8 +263,50 @@ const getAgendaItems = async (ai_id, perdet) => {
             airremarktext: r.airremarktext
           }
         }),
-        creators: [],
-        updaters: [],
+        creators: [
+          {
+            "hruempseqnbr": null,
+            "hruneuid": 87496,
+            "hruid": 65426,
+            "neuid": 87496,
+            "neulastnm": "Woodward",
+            "neufirstnm": "Wendy",
+            "neumiddlenm": "Cléopatre",
+            "empUser": [
+              {
+                "perpiifirstname": "Jenny",
+                "perpiilastname": "Townpost",
+                "perpiiseqnum": 9852,
+                "perpiimiddlename": "Yénora",
+                "perpiisuffixname": " ",
+                "perdetseqnum": 642572,
+                "persdesc": "Retired"
+              }
+            ]
+          }
+        ],
+        updaters: [
+          {
+            "hruempseqnbr": null,
+            "hruneuid": 87496,
+            "hruid": 65426,
+            "neuid": 87496,
+            "neulastnm": "Woodward",
+            "neufirstnm": "Wendy",
+            "neumiddlenm": "Cléopatre",
+            "empUser": [
+              {
+                "perpiifirstname": "Jenny",
+                "perpiilastname": "Townpost",
+                "perpiiseqnum": 9852,
+                "perpiimiddlename": "Yénora",
+                "perpiisuffixname": " ",
+                "perdetseqnum": 642572,
+                "persdesc": "Retired"
+              }
+            ]
+          }
+        ],
         agendaLegs: agendaLegs
       }
       return ret
