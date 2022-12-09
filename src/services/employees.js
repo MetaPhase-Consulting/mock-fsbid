@@ -775,6 +775,7 @@ const get_v3_persons_agenda_items = async query => {
           pertexternalid: emp.per_seq_num || '',
           pertcurrentind: "Y",
           rnum: emp.rnum || '',
+          latestAgendaItem: [{panels: [{pmddttm: '06-21-1996'}]}],
           currentAssignment: assignmentInfo ? [
             {
               asgperdetseqnum: emp.perdet_seq_num || '',
