@@ -267,8 +267,6 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
           }
         }),
         creators: [
-        ],
-        creatorsoriginal: [
           {
             "hruempseqnbr": null,
             "hruneuid": 87496,
@@ -290,7 +288,7 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
             ]
           }
         ],
-        updatersoriginal: [
+        updaters: [
           {
             "hruempseqnbr": null,
             "hruneuid": 87496,
@@ -312,7 +310,6 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
             ]
           }
         ],
-        updaters: [],
         agendaLegs: agendaLegs
       }
       return ret
