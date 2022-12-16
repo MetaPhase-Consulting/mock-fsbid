@@ -700,7 +700,23 @@ var appRouter = function (app) {
       res.status(200).send({ Data: null, usl_id: 4000003, return_code: -2 })
     };
     return res.status(200).send(await positions.update_capsule_description(query))
-  }); 
+  });
+
+  app.get('/v1/panels/:pmseqnum/agendas', async function(req, res) {
+    try {
+      let pmseqnum = req.params.pmseqnum;
+      let panelAIs = await agendas.getAgendaItems(null, null, pmseqnum);
+
+      res.status(200).send({
+          Data: panelAIs,
+          usl_id: 0,
+          return_code: 0
+      })
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  })
 };
 
 module.exports = appRouter;

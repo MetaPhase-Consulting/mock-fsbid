@@ -24,7 +24,7 @@ const getAgendas = async (empData) => {
   }
 }
 
-const getAgendaItems = async (ai_id, perdet) => {
+const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
   try {
 // grab AIs with PMI
     let ai_pmiData = await AgendaItems.query(qb => {
@@ -35,6 +35,9 @@ const getAgendaItems = async (ai_id, perdet) => {
       }
       if(perdet) {
         qb.where('perdetseqnum', '=', perdet);
+      }
+      if(pmseqnum) {
+        qb.where('pmseqnum', '=', pmseqnum);
       }
     }).fetchPage({
         withRelated: ['pmiseqnum', 'aiscode'],
@@ -264,6 +267,8 @@ const getAgendaItems = async (ai_id, perdet) => {
           }
         }),
         creators: [
+        ],
+        creatorsoriginal: [
           {
             "hruempseqnbr": null,
             "hruneuid": 87496,
@@ -285,7 +290,7 @@ const getAgendaItems = async (ai_id, perdet) => {
             ]
           }
         ],
-        updaters: [
+        updatersoriginal: [
           {
             "hruempseqnbr": null,
             "hruneuid": 87496,
@@ -307,6 +312,7 @@ const getAgendaItems = async (ai_id, perdet) => {
             ]
           }
         ],
+        updaters: [],
         agendaLegs: agendaLegs
       }
       return ret
