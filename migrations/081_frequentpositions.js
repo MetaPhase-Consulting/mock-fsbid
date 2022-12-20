@@ -1,12 +1,16 @@
 exports.up = function (knex) {
   return knex.schema
     .alterTable('frequentpositions', function (table) {
+      table.dropColumn('posseqnum')
       table.dropColumn('posorgshortdesc')
       table.dropColumn('posnumtext')
       table.dropColumn('posgradecode')
       table.dropColumn('postitledesc')
-      table.foreign('posseqnum').references('pos_seq_num').inTable('positions')
     })
+    .alterTable('frequentpositions', function (table) {
+      table.integer('posseqnum').primary();
+      table.foreign('posseqnum').references('pos_seq_num').inTable('positions')
+    });
 };
 
 exports.down = function (knex) {
