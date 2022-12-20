@@ -16,6 +16,6 @@ exports.down = function (knex) {
       table.string('posnumtext')
       table.string('posgradecode')
       table.string('postitledesc')
-      table.dropForeign(posseqnum)
+      table.dropForeign('posseqnum')
     });
 };
