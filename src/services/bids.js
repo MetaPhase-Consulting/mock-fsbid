@@ -176,6 +176,14 @@ async function v2_get_bids(filsCols, query) {
         posnumtext: _.get(b$, 'position'),
         posgradecode: _.get(b$, 'pos_grade_code'),
         postitledesc: _.get(b$, 'pos_title_desc'),
+        poslanguage1code: "HU",
+        poslanguage1desc: "HUNGARIAN",
+        posspeakproficiency1code: "3",
+        posreadproficiency1code: "3",
+        poslanguage2code: "AE",
+        poslanguage2desc: "ARABIC EGYPTIAN",
+        posspeakproficiency2code: "2",
+        posreadproficiency2code: "2"
       },]
       b$ = _.pick(b$, ['ubwhscode', 'pos_seq_num', 'position', 'pos_title_desc', 'org.short_desc', 'perdet_seq_num', 'position_info', 'cp_id'])
       b$['short_desc'] = _.get(b$, 'org.short_desc')

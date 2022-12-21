@@ -156,7 +156,16 @@ const getAgendaItems = async (ai_id, perdet) => {
               "posorgshortdesc": "DGHR",
               "posnumtext": "S7713900",
               "posgradecode": "00",
-              "postitledesc": "INFORMATION MANAGEMENT SPECIAL"
+              "postitledesc": "INFORMATION MANAGEMENT SPECIAL",
+              "poslanguage1code": "HU",
+              "poslanguage1desc": "HUNGARIAN",
+              "posspeakproficiency1code": "3",
+              "posreadproficiency1code": "3",
+              "poslanguage2code": "AE",
+              "poslanguage2desc": "ARABIC EGYPTIAN",
+              "posspeakproficiency2code": "2",
+              "posreadproficiency2code": "2"
+ 
             }
           ]
         }
@@ -176,6 +185,14 @@ const getAgendaItems = async (ai_id, perdet) => {
           posnumtext: _.get(pos, 'position'),
           posgradecode: _.get(pos, 'pos_grade_code'),
           postitledesc: _.get(pos, 'pos_title_desc'),
+          poslanguage1code: "HU",
+          poslanguage1desc: "HUNGARIAN",
+          posspeakproficiency1code: "3",
+          posreadproficiency1code: "3",
+          poslanguage2code: "AE",
+          poslanguage2desc: "ARABIC EGYPTIAN",
+          posspeakproficiency2code: "2",
+          posreadproficiency2code: "2"
         };
  
         return {
@@ -246,8 +263,50 @@ const getAgendaItems = async (ai_id, perdet) => {
             airremarktext: r.airremarktext
           }
         }),
-        creators: [],
-        updaters: [],
+        creators: [
+          {
+            "hruempseqnbr": null,
+            "hruneuid": 87496,
+            "hruid": 65426,
+            "neuid": 87496,
+            "neulastnm": "Woodward",
+            "neufirstnm": "Wendy",
+            "neumiddlenm": "Cléopatre",
+            "empUser": [
+              {
+                "perpiifirstname": "Jenny",
+                "perpiilastname": "Townpost",
+                "perpiiseqnum": 9852,
+                "perpiimiddlename": "Yénora",
+                "perpiisuffixname": " ",
+                "perdetseqnum": 642572,
+                "persdesc": "Retired"
+              }
+            ]
+          }
+        ],
+        updaters: [
+          {
+            "hruempseqnbr": null,
+            "hruneuid": 87496,
+            "hruid": 65426,
+            "neuid": 87496,
+            "neulastnm": "Woodward",
+            "neufirstnm": "Wendy",
+            "neumiddlenm": "Cléopatre",
+            "empUser": [
+              {
+                "perpiifirstname": "Jenny",
+                "perpiilastname": "Townpost",
+                "perpiiseqnum": 9852,
+                "perpiimiddlename": "Yénora",
+                "perpiisuffixname": " ",
+                "perdetseqnum": 642572,
+                "persdesc": "Retired"
+              }
+            ]
+          }
+        ],
         agendaLegs: agendaLegs
       }
       return ret

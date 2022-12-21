@@ -1,6 +1,7 @@
 const _ = require('lodash')
 
 const { Positions } = require('../models')
+const { CapsuleDescription } = require('../models')
 const { formatLanguage } = require('./common')
 
 
@@ -110,6 +111,14 @@ async function get_position_by_pos_num(query) {
     'posnumtext': p.pos_num_text,
     'posgradecode': p.pos_grade_code,
     'postitledesc': p.pos_title_desc,
+    'poslanguage1code': 'HU',
+    'poslanguage1desc': 'HUNGARIAN',
+    'posspeakproficiency1code': '3',
+    'posreadproficiency1code': '3',
+    'poslanguage2code': 'AE',
+    'poslanguage2desc': 'ARABIC EGYPTIAN',
+    'posspeakproficiency2code': '2',
+    'posreadproficiency2code': '2'
   }))
 
   return {
@@ -119,4 +128,41 @@ async function get_position_by_pos_num(query) {
   }
 }
 
-module.exports = { get_position_by_id, get_position_by_pos_num }
+const formatCapsule = (data) => {
+  if (data) {
+    return [data].map(d => {
+      return {
+        "pos_seq_num": d.pos_seq_num,
+        "capsule_descr_txt": d.description,
+        "capsule_modify_date": d.last_modified, 
+        "update_id": 33155,
+        "update_date": "20210908125141"
+      }
+    })
+  }
+}
+
+async function get_publishable_position_capsule(query) {
+  const data = await new CapsuleDescription({ pos_seq_num: query.pos_seq_num }).fetch()
+  return {
+    "Data": formatCapsule(data.serialize()),
+    "usl_id": 44999637,
+    "return_code": 0
+  }
+}
+
+async function update_capsule_description(query) {
+  let ReturnCode  
+  try {
+    await CapsuleDescription.where('pos_seq_num', query.pos_seq_num).save({
+      description: query.capsule_descr_txt
+    }, {patch: true})
+    ReturnCode = 0   
+  } catch (Error) {
+    console.log(`An error occurred updating capsule description... ${Error}`)
+    ReturnCode = -2
+  }
+  return { Data: null, usl_id: 45066084, ReturnCode }
+}
+
+module.exports = { get_position_by_id, get_position_by_pos_num, get_publishable_position_capsule, update_capsule_description }

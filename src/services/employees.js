@@ -974,6 +974,14 @@ const v2_get_assignments = async (filsCols, query) => {
         posnumtext: _.get(pos, 'position'),
         posgradecode: _.get(pos, 'pos_grade_code'),
         postitledesc: _.get(pos, 'pos_title_desc'),
+        poslanguage1code: "HU",
+        poslanguage1desc: "HUNGARIAN",
+        posspeakproficiency1code: "3",
+        posreadproficiency1code: "3",
+        poslanguage2code: "AE",
+        poslanguage2desc: "ARABIC EGYPTIAN",
+        posspeakproficiency2code: "2",
+        posreadproficiency2code: "2"
       },]
       return asgd_asg$
     })

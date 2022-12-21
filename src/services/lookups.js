@@ -93,17 +93,31 @@ const getRemarks = Remarks => async () => {
 
 const getFrequentPositions = FrequentPositions => async () => {
   try {
-    const data = await FrequentPositions.fetchAll()
-    const results = data.serialize().map(d => (
-      {
+    const data = await FrequentPositions.fetchAll({
+      withRelated: ['position', 'position.org', 'position.lang1', 'position.lang2'],
+    })
+    const results = data.serialize().map(d => {
+      return {
         poscposseqnum: d.posseqnum,
-        position: [
-        {
-          ...d
-        }
-        ]
+          position: [
+            {
+              posseqnum: d.position.pos_seq_num,
+              posorgshortdesc: d.position.org.short_desc,
+              posnumtext: d.position.position,
+              posgradecode: d.position.pos_grade_code,
+              postitledesc: d.position.pos_title_desc,
+              poslanguage1code: d.position.lang1.language_code,
+              poslanguage1desc: d.position.lang1.language_long_desc,
+              posspeakproficiency1code: '3',
+              posreadproficiency1code: '2',
+              poslanguage2code: d.position.lang2.language_code,
+              poslanguage2desc: d.position.lang2.language_long_desc,
+              posspeakproficiency2code: '3',
+              posreadproficiency2code: '4',
+            }
+          ]
       }
-    ))
+    })
     return { "Data": results, return_code: 0 }
   } catch (Error) {
     console.error(Error)
