@@ -91,10 +91,6 @@ const personLanguages = languages => {
 const getAssignment = (assignment = {}, isCurrent = false) => {
   const { position = {} } = assignment || {}
   const { location = {}, bureau = {}, org = {} } = position
-  // check position to see if org is coming through here
-  // console.log("===position===");
-  // console.log(position);
-  // console.log("===position===");
   const response = {
     ags_seq_num: assignment.ags_seq_num,
     pos_seq_num: `${position.pos_seq_num}`,
@@ -236,9 +232,6 @@ const get_v2_clients = async query => {
     return await get_employees_count_by_query(query, get_clients_filters)
   } else {
     const data = await get_paged_employees_by_query(query, get_clients_filters)
-    console.log('===data4===');
-    console.log(data[0].currentassignment);
-    console.log('===data4===');
     const currentAssignmentOnly = query["request_params.currentAssignmentOnly"]
     return (data || []).map((emp, index) => {
       const { 
@@ -249,7 +242,6 @@ const get_v2_clients = async query => {
         classifications = [],
         languages = [],
       } = emp
-      console.log(manager);
       let assignmentInfo = getAssignment(currentassignment, true)
       // Have to specifically check for false as null will return currentAssignment
       if (currentAssignmentOnly === 'false') {
