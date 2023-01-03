@@ -90,7 +90,7 @@ const personLanguages = languages => {
 
 const getAssignment = (assignment = {}, isCurrent = false) => {
   const { position = {} } = assignment || {}
-  const { location = {}, bureau = {} } = position
+  const { location = {}, bureau = {}, org = {} } = position
   const response = {
     ags_seq_num: assignment.ags_seq_num,
     pos_seq_num: `${position.pos_seq_num}`,
@@ -107,6 +107,8 @@ const getAssignment = (assignment = {}, isCurrent = false) => {
       pos_bureau_short_desc: bureau.bureau_short_desc,
       pos_bureau_long_desc: bureau.bureau_long_desc,
       pos_title_desc: position.pos_title_desc,
+      pos_org_short_desc: org.short_desc,
+      pos_org_long_desc: org.long_desc,
       pos_language_1_code: "QB", // TODO - use real data
       pos_language_1_desc: "Spanish", // TODO - use real data
       pos_position_lang_prof_desc: "Spanish 3/3", // TODO - use real data
@@ -240,7 +242,6 @@ const get_v2_clients = async query => {
         classifications = [],
         languages = [],
       } = emp
-      console.log(manager);
       let assignmentInfo = getAssignment(currentassignment, true)
       // Have to specifically check for false as null will return currentAssignment
       if (currentAssignmentOnly === 'false') {
@@ -505,6 +506,7 @@ const FETCH_OPTIONS = {
     'currentassignment.position.skill',
     'currentassignment.position.location',
     'currentassignment.position.bureau',
+    'currentassignment.position.org',
   ]
 }
 
