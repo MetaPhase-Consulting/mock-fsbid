@@ -1,6 +1,6 @@
 const { readJson } = require('../../seeds/data/helpers')
 const _ = require('lodash')
-const { pmdNameMapping } = require('./common.js')
+const { pmdNameMapping, groupArrayOfObjectsByKeyValue } = require('./common.js')
 const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, AgendaItemStatuses,
   Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories } = require('../models')
 
@@ -363,4 +363,62 @@ const getPanelDates = async (filsCols, query) => {
   }
 }
 
-module.exports = { getAgendas, getAgendaItems, getPanelDates }
+const getPanels = async () => {
+  try {
+    let panelMeetingsData = await PanelMeetings.query(qb => {
+      qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode','panelmeetingtypes.pmpmtcode')
+      qb.join('panelmeetingstatuses', 'panelmeetings.pmscode','panelmeetingstatuses.pmscode')
+    }).fetchPage({
+      withRelated: ['pmpmtcode', 'pmscode'],
+      pageSize: 25,
+      page: 1,
+      require: false,
+    });
+    panelMeetingsData = panelMeetingsData.serialize();
+    panelMeetingsData = panelMeetingsData.map(a => {
+      return {
+        'pmseqnum': a.pmseqnum,
+        'pmvirtualind': a.pmvirtualind,
+        'pmpmscode': a.pmscode.pmscode,
+        'pmpmtcode': a.pmpmtcode.pmpmtcode,
+        'pmtdesctext': a.pmpmtcode.pmtdesctext,
+        'pmsdesctext': a.pmscode.pmsdesctext,
+      }
+      });
+
+    let pmSeqNums = _.uniq(panelMeetingsData.map(e => e.pmseqnum));
+
+    // can i use something to group them by pmseqnum to be more performant?
+    let panelMeetingDatesData = await PanelMeetingDates.query(qb => {
+      qb.where('pmseqnum', "in", pmSeqNums)
+      qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode','panelmeetingdatetypes.mdtcode')
+    }).fetchAll({
+      withRelated: ['mdtcode'],
+      require: false,
+    })
+    panelMeetingDatesData = panelMeetingDatesData.serialize();
+    panelMeetingDatesData = panelMeetingDatesData.map(a => {
+      return {
+        'pmdpmseqnum': a.pmseqnum,
+        'pmdmdtcode': a.mdtcode.mdtcode,
+        'pmddttm': a.pmddttm,
+        'mdtcode': a.mdtcode.mdtcode,
+        'mdtdesctext': a.mdtcode.mdtdesctext,
+        'mdtordernum': a.mdtcode.mdtordernum,
+      }
+    });
+    panelMeetingDatesData = groupArrayOfObjectsByKeyValue(panelMeetingDatesData, 'pmdpmseqnum')
+
+    return panelMeetingsData.map(a => {
+      return {
+        ...a,
+        'panelMeetingDates': panelMeetingDatesData[a.pmseqnum],
+      }
+    });
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+module.exports = { getAgendas, getAgendaItems, getPanelDates, getPanels }

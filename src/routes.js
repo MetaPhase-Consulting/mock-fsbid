@@ -1153,7 +1153,22 @@ var appRouter = function (app) {
       res.status(200).send({ Data: null, usl_id: 4000003, return_code: -2 })
     };
     return res.status(200).send(await positions.update_capsule_description(query))
-  }); 
+  });
+
+  app.get('/v1/panels', async function(req, res) {
+    try {
+      let panels = await agendas.getPanels();
+
+      res.status(200).send({
+        Data: panels,
+        usl_id: 0,
+        return_code: 0
+      })
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  })
 
 };
 

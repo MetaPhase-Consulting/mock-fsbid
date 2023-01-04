@@ -463,9 +463,24 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
   return filsCols
 }
 
+// takes an array of objects and groups them under the values of the given key
+const groupArrayOfObjectsByKeyValue = (data, onKey) => {
+  let dataGrouped = {};
+  data.forEach(d => {
+    let keyValue = d[onKey];
+    if(!dataGrouped[keyValue]){
+      dataGrouped[keyValue] = [];
+    }
+    if(dataGrouped[keyValue]){
+      dataGrouped[keyValue].push(d);
+    }
+  })
+  return dataGrouped;
+}
+
 
 module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, isCDO,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
   panelNameMapping, asgNameMapping, sepNameMapping, bidNameMapping,
-  asgdNameMapping, pmdNameMapping, }
+  asgdNameMapping, pmdNameMapping, groupArrayOfObjectsByKeyValue, }
