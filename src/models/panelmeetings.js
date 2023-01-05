@@ -12,7 +12,7 @@ const PanelMeetings = bookshelf.model('PanelMeetings', {
     return this.belongsTo('PanelMeetingTypes', 'pmpmtcode')
   },
 
-  pmseqnumpanelmeetingdates() {
+  dates() {
     return this.hasMany('PanelMeetingDates', 'pmseqnum')
   },
   

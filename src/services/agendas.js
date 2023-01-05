@@ -363,10 +363,10 @@ const getPanelDates = async (filsCols, query) => {
   }
 }
 
-const getPanels = async () => {
+const getPanels = async (filsCols, query) => {
   try {
     let panelMeetingsData = await PanelMeetings.fetchPage({
-      withRelated: ['pmpmtcode', 'pmscode', 'pmseqnumpanelmeetingdates'],
+      withRelated: ['pmpmtcode', 'pmscode', 'dates'],
       pageSize: 25,
       page: 1,
       require: false,
@@ -381,7 +381,7 @@ const getPanels = async () => {
         'pmpmtcode': a.pmpmtcode.pmpmtcode,
         'pmtdesctext': a.pmpmtcode.pmtdesctext,
         'pmsdesctext': a.pmscode.pmsdesctext,
-        'panelMeetingDates': [...a.pmseqnumpanelmeetingdates],
+        'panelMeetingDates': [...a.dates],
       }
       });
 

@@ -1157,7 +1157,8 @@ var appRouter = function (app) {
 
   app.get('/v1/panels', async function(req, res) {
     try {
-      let panels = await agendas.getPanels();
+      const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.panelNameMapping))
+      let panels = await agendas.getPanels(filsCols, req.query);
 
       res.status(200).send({
         Data: panels,

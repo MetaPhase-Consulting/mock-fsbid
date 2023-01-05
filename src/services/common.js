@@ -326,7 +326,9 @@ const panelNameMapping = (val, toWS=false) => {
   let colDictionary = {
     pmpmscode: 'pmscode',
     pmdmdtcode: 'mdtcode',
-    pmdpmseqnum: 'pmseqnum'
+    pmdpmseqnum: 'pmseqnum',
+    pmddttm: 'pmddttm',
+    pmpmtcode: 'pmpmtcode'
   };
   if(toWS) {
     colDictionary = _.invert(colDictionary);
@@ -464,6 +466,7 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
 }
 
 // takes an array of objects and groups them under the values of the given key
+// Disclaimer: if you need to use this function, there may be a better way to query the db
 const groupArrayOfObjectsByKeyValue = (data, onKey) => {
   let dataGrouped = {};
   data.forEach(d => {
