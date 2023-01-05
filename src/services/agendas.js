@@ -1,6 +1,5 @@
-const { readJson } = require('../../seeds/data/helpers')
 const _ = require('lodash')
-const { pmdNameMapping, groupArrayOfObjectsByKeyValue } = require('./common.js')
+const { pmdNameMapping } = require('./common.js')
 const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, AgendaItemStatuses,
   Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories } = require('../models')
 
@@ -372,10 +371,6 @@ const getPanels = async (filsCols, query) => {
       require: false,
     });
     panelMeetingsData = panelMeetingsData.serialize();
-
-    console.log('🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭');
-    console.log(panelMeetingsData);
-    console.log('🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭');
 
     panelMeetingsData = panelMeetingsData.map(a => {
       let panelMeetingDatesData = a.dates.map(d => {
