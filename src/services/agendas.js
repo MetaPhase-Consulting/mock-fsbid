@@ -366,15 +366,13 @@ const getPanelDates = async (filsCols, query) => {
 const getPanels = async () => {
   try {
     let panelMeetingsData = await PanelMeetings.fetchPage({
-      withRelated: ['pmpmtcode', 'pmscode', 'pmseqnum'],
+      withRelated: ['pmpmtcode', 'pmscode', 'pmseqnumpanelmeetingdates'],
       pageSize: 25,
       page: 1,
       require: false,
     });
     panelMeetingsData = panelMeetingsData.serialize();
-    console.log('🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭');
-    console.log(panelMeetingsData[0]);
-    console.log('🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭');
+
     panelMeetingsData = panelMeetingsData.map(a => {
       return {
         'pmseqnum': a.pmseqnum,
@@ -383,37 +381,11 @@ const getPanels = async () => {
         'pmpmtcode': a.pmpmtcode.pmpmtcode,
         'pmtdesctext': a.pmpmtcode.pmtdesctext,
         'pmsdesctext': a.pmscode.pmsdesctext,
+        'panelMeetingDates': [...a.pmseqnumpanelmeetingdates],
       }
       });
 
-    let pmSeqNums = _.uniq(panelMeetingsData.map(e => e.pmseqnum));
-
-    let panelMeetingDatesData = await PanelMeetingDates.query(qb => {
-      qb.where('pmseqnum', "in", pmSeqNums)
-      qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode','panelmeetingdatetypes.mdtcode')
-    }).fetchAll({
-      withRelated: ['mdtcode'],
-      require: false,
-    })
-    panelMeetingDatesData = panelMeetingDatesData.serialize();
-    panelMeetingDatesData = panelMeetingDatesData.map(a => {
-      return {
-        'pmdpmseqnum': a.pmseqnum,
-        'pmdmdtcode': a.mdtcode.mdtcode,
-        'pmddttm': a.pmddttm,
-        'mdtcode': a.mdtcode.mdtcode,
-        'mdtdesctext': a.mdtcode.mdtdesctext,
-        'mdtordernum': a.mdtcode.mdtordernum,
-      }
-    });
-    panelMeetingDatesData = groupArrayOfObjectsByKeyValue(panelMeetingDatesData, 'pmdpmseqnum')
-
-    return panelMeetingsData.map(a => {
-      return {
-        ...a,
-        'panelMeetingDates': panelMeetingDatesData[a.pmseqnum],
-      }
-    });
+    return panelMeetingsData;
   } catch (Error) {
     console.error(Error)
     return null
