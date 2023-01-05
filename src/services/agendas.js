@@ -366,14 +366,14 @@ const getPanelDates = async (filsCols, query) => {
 const getPanels = async () => {
   try {
     let panelMeetingsData = await PanelMeetings.fetchPage({
-      withRelated: ['pmpmtcode', 'pmscode', 'panelmeetingdates'],
+      withRelated: ['pmpmtcode', 'pmscode', 'pmseqnum'],
       pageSize: 25,
       page: 1,
       require: false,
     });
     panelMeetingsData = panelMeetingsData.serialize();
     console.log('🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭');
-    console.log(panelMeetingsData);
+    console.log(panelMeetingsData[0]);
     console.log('🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭');
     panelMeetingsData = panelMeetingsData.map(a => {
       return {

@@ -13,7 +13,7 @@ const PanelMeetings = bookshelf.model('PanelMeetings', {
   },
 
   pmseqnum() {
-    return this.hasMany('PanelMeetingDates', 'id')
+    return this.hasMany('PanelMeetingDates', 'pmseqnum')
   },
   
 })
