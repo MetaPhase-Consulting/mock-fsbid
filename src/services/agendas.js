@@ -366,22 +366,40 @@ const getPanelDates = async (filsCols, query) => {
 const getPanels = async (filsCols, query) => {
   try {
     let panelMeetingsData = await PanelMeetings.fetchPage({
-      withRelated: ['pmpmtcode', 'pmscode', 'dates'],
+      withRelated: ['pmpmtcode', 'pmscode', 'dates.mdtcode'],
       pageSize: 25,
       page: 1,
       require: false,
     });
     panelMeetingsData = panelMeetingsData.serialize();
 
+    console.log('🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭');
+    console.log(panelMeetingsData);
+    console.log('🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭');
+
     panelMeetingsData = panelMeetingsData.map(a => {
+      let panelMeetingDatesData = a.dates.map(d => {
+        return {
+          'pmdpmseqnum': d.pmseqnum,
+          'pmdmdtcode': d.mdtcode.mdtcode,
+          'pmddttm': d.pmddttm,
+          'mdtcode': d.mdtcode.mdtcode,
+          'mdtdesctext': d.mdtcode.mdtdesctext,
+          'mdtordernum': d.mdtcode.mdtordernum,
+        }});
+
       return {
         'pmseqnum': a.pmseqnum,
         'pmvirtualind': a.pmvirtualind,
+        'pmcreateid': 8,
+        'pmcreatedate': '2023-01-05T16:34:55',
+        'pmupdateid': 105163,
+        'pmupdatedate': '2023-01-05T16:34:55',
         'pmpmscode': a.pmscode.pmscode,
         'pmpmtcode': a.pmpmtcode.pmpmtcode,
         'pmtdesctext': a.pmpmtcode.pmtdesctext,
         'pmsdesctext': a.pmscode.pmsdesctext,
-        'panelMeetingDates': [...a.dates],
+        'panelMeetingDates': panelMeetingDatesData,
       }
       });
 
