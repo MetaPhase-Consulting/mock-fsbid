@@ -365,16 +365,16 @@ const getPanelDates = async (filsCols, query) => {
 
 const getPanels = async () => {
   try {
-    let panelMeetingsData = await PanelMeetings.query(qb => {
-      qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode','panelmeetingtypes.pmpmtcode')
-      qb.join('panelmeetingstatuses', 'panelmeetings.pmscode','panelmeetingstatuses.pmscode')
-    }).fetchPage({
-      withRelated: ['pmpmtcode', 'pmscode'],
+    let panelMeetingsData = await PanelMeetings.fetchPage({
+      withRelated: ['pmpmtcode', 'pmscode', 'panelmeetingdates'],
       pageSize: 25,
       page: 1,
       require: false,
     });
     panelMeetingsData = panelMeetingsData.serialize();
+    console.log('🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭');
+    console.log(panelMeetingsData);
+    console.log('🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭');
     panelMeetingsData = panelMeetingsData.map(a => {
       return {
         'pmseqnum': a.pmseqnum,
@@ -388,7 +388,6 @@ const getPanels = async () => {
 
     let pmSeqNums = _.uniq(panelMeetingsData.map(e => e.pmseqnum));
 
-    // can i use something to group them by pmseqnum to be more performant?
     let panelMeetingDatesData = await PanelMeetingDates.query(qb => {
       qb.where('pmseqnum', "in", pmSeqNums)
       qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode','panelmeetingdatetypes.mdtcode')
