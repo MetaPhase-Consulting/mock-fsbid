@@ -1,4 +1,3 @@
-const { readJson } = require('../../seeds/data/helpers')
 const _ = require('lodash')
 const { pmdNameMapping } = require('./common.js')
 const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, AgendaItemStatuses,
@@ -366,4 +365,47 @@ const getPanelDates = async (filsCols, query) => {
   }
 }
 
-module.exports = { getAgendas, getAgendaItems, getPanelDates }
+const getPanels = async (filsCols, query) => {
+  try {
+    let panelMeetingsData = await PanelMeetings.fetchPage({
+      withRelated: ['pmpmtcode', 'pmscode', 'dates.mdtcode'],
+      pageSize: 25,
+      page: 1,
+      require: false,
+    });
+    panelMeetingsData = panelMeetingsData.serialize();
+
+    panelMeetingsData = panelMeetingsData.map(a => {
+      let panelMeetingDatesData = a.dates.map(d => {
+        return {
+          'pmdpmseqnum': d.pmseqnum,
+          'pmdmdtcode': d.mdtcode.mdtcode,
+          'pmddttm': d.pmddttm,
+          'mdtcode': d.mdtcode.mdtcode,
+          'mdtdesctext': d.mdtcode.mdtdesctext,
+          'mdtordernum': d.mdtcode.mdtordernum,
+        }});
+
+      return {
+        'pmseqnum': a.pmseqnum,
+        'pmvirtualind': a.pmvirtualind,
+        'pmcreateid': 8,
+        'pmcreatedate': '2023-01-05T16:34:55',
+        'pmupdateid': 105163,
+        'pmupdatedate': '2023-01-05T16:34:55',
+        'pmpmscode': a.pmscode.pmscode,
+        'pmpmtcode': a.pmpmtcode.pmpmtcode,
+        'pmtdesctext': a.pmpmtcode.pmtdesctext,
+        'pmsdesctext': a.pmscode.pmsdesctext,
+        'panelMeetingDates': panelMeetingDatesData,
+      }
+      });
+
+    return panelMeetingsData;
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
+module.exports = { getAgendas, getAgendaItems, getPanelDates, getPanels }
