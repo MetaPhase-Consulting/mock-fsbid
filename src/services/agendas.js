@@ -366,11 +366,25 @@ const getPanelDates = async (filsCols, query) => {
 }
 
 const getPanels = async (filsCols, query) => {
+  console.log('🥳🥳🥳')
+  console.log(filsCols);
+  console.log('🥳🥳🥳')
   try {
-    let panelMeetingsData = await PanelMeetings.fetchPage({
+    let panelMeetingsData = await PanelMeetings.query(qb => {
+      // i need to include the following in order to filer on pmddttm, but when I do, I only ever get 4 results
+      // qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
+      let filterTable = {
+        'pmscode': 'panelmeetings.pmscode',
+        'pmpmtcode': 'panelmeetings.pmpmtcode',
+        'pmddttm': 'panelmeetingdates.pmddttm',
+      };
+      filsCols['filters'].map(fc => {
+        return qb.where(filterTable[fc.name], fc.method, fc.value);
+      })
+    }).fetchPage({
       withRelated: ['pmpmtcode', 'pmscode', 'dates.mdtcode'],
-      pageSize: 25,
-      page: 1,
+      pageSize: query['rp.pageRows'] || 25,
+      page: query['rp.pageNum'] || 1,
       require: false,
     });
     panelMeetingsData = panelMeetingsData.serialize();
