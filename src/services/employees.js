@@ -795,6 +795,11 @@ const get_v3_persons_agenda_items = async query => {
                   posnumtext: assignmentInfo.currentAssignment.currentPosition.pos_num_text,
                   posgradecode: assignmentInfo.currentAssignment.currentPosition.pos_grade_code,
                   postitledesc: assignmentInfo.currentAssignment.currentPosition.pos_title_desc,
+                  currentLocation: {
+                    city: assignmentInfo.currentAssignment.currentPosition.currentLocation.city,
+                    country: assignmentInfo.currentAssignment.currentPosition.currentLocation.country,
+                    state: assignmentInfo.currentAssignment.currentPosition.currentLocation.state,
+                  }
                 }
               ],
               latestAgendaItem: _.find(getAgendas, ['perdetseqnum', emp.perdet_seq_num]) || {},
