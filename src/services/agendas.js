@@ -365,14 +365,23 @@ const getPanelDates = async (filsCols, query) => {
   }
 }
 
-const getPanels = async (filsCols, query) => {
-  console.log('🥳🥳🥳')
-  console.log(filsCols);
-  console.log('🥳🥳🥳')
+const getPanels = async (filsCols) => {
   try {
-    let panelMeetingsData = await PanelMeetings.query(qb => {
-      // i need to include the following in order to filer on pmddttm, but when I do, I only ever get 4 results
-      // qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
+      let panelMeetingsData = await PanelMeetings.query(qb => {
+      qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
+      qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
+      qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
+      qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
+      qb.select('panelmeetings.pmseqnum',
+                'panelmeetings.pmscode',
+                'panelmeetings.pmpmtcode',
+                'panelmeetings.pmvirtualind',
+                'panelmeetingstatuses.pmsdesctext',
+                'panelmeetingtypes.pmtdesctext',
+                'panelmeetingdates.mdtcode',
+                'panelmeetingdates.pmddttm',
+                'panelmeetingdatetypes.mdtdesctext',
+                'panelmeetingdatetypes.mdtordernum')
       let filterTable = {
         'pmscode': 'panelmeetings.pmscode',
         'pmpmtcode': 'panelmeetings.pmpmtcode',
@@ -381,14 +390,11 @@ const getPanels = async (filsCols, query) => {
       filsCols['filters'].map(fc => {
         return qb.where(filterTable[fc.name], fc.method, fc.value);
       })
-    }).fetchPage({
-      withRelated: ['pmpmtcode', 'pmscode', 'dates.mdtcode'],
-      pageSize: query['rp.pageRows'] || 25,
-      page: query['rp.pageNum'] || 1,
-      require: false,
-    });
-    panelMeetingsData = panelMeetingsData.serialize();
+    }).fetchAll({
+        withRelated: ['dates', 'dates.mdtcode'],
+      });
 
+    panelMeetingsData = panelMeetingsData.serialize();
     panelMeetingsData = panelMeetingsData.map(a => {
       let panelMeetingDatesData = a.dates.map(d => {
         return {
@@ -407,10 +413,10 @@ const getPanels = async (filsCols, query) => {
         'pmcreatedate': '2023-01-05T16:34:55',
         'pmupdateid': 105163,
         'pmupdatedate': '2023-01-05T16:34:55',
-        'pmpmscode': a.pmscode.pmscode,
-        'pmpmtcode': a.pmpmtcode.pmpmtcode,
-        'pmtdesctext': a.pmpmtcode.pmtdesctext,
-        'pmsdesctext': a.pmscode.pmsdesctext,
+        'pmpmscode': a.pmscode,
+        'pmpmtcode': a.pmpmtcode,
+        'pmtdesctext': a.pmtdesctext,
+        'pmsdesctext': a.pmsdesctext,
         'panelMeetingDates': panelMeetingDatesData,
       }
       });
