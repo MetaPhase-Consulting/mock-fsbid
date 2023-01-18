@@ -383,6 +383,7 @@ const getPanels = async (filsCols) => {
                 'panelmeetingdatetypes.mdtdesctext',
                 'panelmeetingdatetypes.mdtordernum')
       let filterTable = {
+        'pmseqnum': 'panelmeetings.pmseqnum',
         'pmscode': 'panelmeetings.pmscode',
         'pmpmtcode': 'panelmeetings.pmpmtcode',
         'pmddttm': 'panelmeetingdates.pmddttm',
