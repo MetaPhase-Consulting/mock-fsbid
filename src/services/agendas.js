@@ -386,7 +386,6 @@ const getPanels = async (filsCols) => {
         'pmseqnum': 'panelmeetings.pmseqnum',
         'pmscode': 'panelmeetings.pmscode',
         'pmpmtcode': 'panelmeetings.pmpmtcode',
-        'pmddttm': 'panelmeetingdates.pmddttm',
       };
       filsCols['filters'].map(fc => {
         return qb.where(filterTable[fc.name], fc.method, fc.value);
