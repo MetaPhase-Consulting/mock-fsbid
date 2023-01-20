@@ -15,6 +15,8 @@ const {
   AgendaItemStatuses,
   Organizations,
   PanelMeetingItemCategories,
+  PanelMeetingStatuses,
+  PanelMeetingTypes,
   RemarkCategories,
   Remarks,
   LegActionTypes,
@@ -65,12 +67,22 @@ const getCommuterPosts = CommuterPosts => async () => {
   }
 }
 
-const getSome = (model, pickProps) => async () => {
+const getSome = (model, pickProps, mapObj = null) => async () => {
   try {
     const data = await model.fetchAll()
-    const results = data.serialize().map(d => (
-      _.pick(d, pickProps)
-    ))
+    const results = data.serialize().map(d => {
+      let x = _.pick(d, pickProps);
+      if(mapObj) {
+        Object.keys(mapObj).forEach(k => {
+          if(x[k]){
+            x[mapObj[k]] = x[k];
+            delete x[k];
+          }
+        })
+      }
+      return x;
+    });
+
     return { "Data": results, return_code: 0 }
   } catch (Error) {
     console.error(Error)
@@ -141,6 +153,8 @@ const get_commuterposts = getCommuterPosts(CommuterPosts)
 const get_agenda_item_statuses = getAll(AgendaItemStatuses)
 const get_organizations = getAll(Organizations)
 const get_panel_categories = getSome(PanelMeetingItemCategories, ['miccode', 'micdesctext'])
+const get_panel_statuses = getSome(PanelMeetingStatuses, ['pmscode', 'pmsdesctext'])
+const get_panel_types = getSome(PanelMeetingTypes, ['pmpmtcode', 'pmtdesctext'], {pmpmtcode: 'pmtcode'})
 const get_remark_categories = getAll(RemarkCategories)
 const get_remarks = getRemarks(Remarks)
 const get_leg_action_types = getAll(LegActionTypes)
@@ -164,6 +178,8 @@ module.exports = {
   get_agenda_item_statuses,
   get_organizations,
   get_panel_categories,
+  get_panel_statuses,
+  get_panel_types,
   get_remark_categories,
   get_remarks,
   get_leg_action_types,
