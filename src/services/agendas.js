@@ -365,16 +365,36 @@ const getPanelDates = async (filsCols, query) => {
   }
 }
 
-const getPanels = async (filsCols, query) => {
+const getPanels = async (filsCols) => {
   try {
-    let panelMeetingsData = await PanelMeetings.fetchPage({
-      withRelated: ['pmpmtcode', 'pmscode', 'dates.mdtcode'],
-      pageSize: 25,
-      page: 1,
-      require: false,
-    });
-    panelMeetingsData = panelMeetingsData.serialize();
+      let panelMeetingsData = await PanelMeetings.query(qb => {
+      qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
+      qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
+      qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
+      qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
+      qb.select('panelmeetings.pmseqnum',
+                'panelmeetings.pmscode',
+                'panelmeetings.pmpmtcode',
+                'panelmeetings.pmvirtualind',
+                'panelmeetingstatuses.pmsdesctext',
+                'panelmeetingtypes.pmtdesctext',
+                'panelmeetingdates.mdtcode',
+                'panelmeetingdates.pmddttm',
+                'panelmeetingdatetypes.mdtdesctext',
+                'panelmeetingdatetypes.mdtordernum')
+      let filterTable = {
+        'pmseqnum': 'panelmeetings.pmseqnum',
+        'pmscode': 'panelmeetings.pmscode',
+        'pmpmtcode': 'panelmeetings.pmpmtcode',
+      };
+      filsCols['filters'].map(fc => {
+        return qb.where(filterTable[fc.name], fc.method, fc.value);
+      })
+    }).fetchAll({
+        withRelated: ['dates', 'dates.mdtcode'],
+      });
 
+    panelMeetingsData = panelMeetingsData.serialize();
     panelMeetingsData = panelMeetingsData.map(a => {
       let panelMeetingDatesData = a.dates.map(d => {
         return {
@@ -393,10 +413,10 @@ const getPanels = async (filsCols, query) => {
         'pmcreatedate': '2023-01-05T16:34:55',
         'pmupdateid': 105163,
         'pmupdatedate': '2023-01-05T16:34:55',
-        'pmpmscode': a.pmscode.pmscode,
-        'pmpmtcode': a.pmpmtcode.pmpmtcode,
-        'pmtdesctext': a.pmpmtcode.pmtdesctext,
-        'pmsdesctext': a.pmscode.pmsdesctext,
+        'pmpmscode': a.pmscode,
+        'pmpmtcode': a.pmpmtcode,
+        'pmtdesctext': a.pmtdesctext,
+        'pmsdesctext': a.pmsdesctext,
         'panelMeetingDates': panelMeetingDatesData,
       }
       });
