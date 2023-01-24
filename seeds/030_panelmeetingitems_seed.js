@@ -43,6 +43,7 @@ exports.seed = function(knex) {
                         pmicreatedate: createDate,
                         pmiupdateid: _.sample(aoCdoPerdets),
                         pmiupdatedate: updateDate,
+                        pmtcode: _.sample(['ML', 'ID']),
                       });
                     }
                   });

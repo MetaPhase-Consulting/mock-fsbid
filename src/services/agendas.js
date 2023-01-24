@@ -256,6 +256,7 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
           pmdmdtcode: pmdt.mdtcode,
           pmddttm: pmdt.pmddttm,
           micdesctext: _.find(pmicData, ['miccode', pmi.miccode])['micdesctext'],
+          pmtcode: pmi.pmtcode,
         }],
         agendaAssignment: _.get(agendaLegs, '[0].agendaLegAssignment') ? _.get(agendaLegs, '[0].agendaLegAssignment') : defaultEF,
         remarks: remarks.map(r => {
