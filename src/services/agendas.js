@@ -366,7 +366,11 @@ const getPanelDates = async (filsCols, query) => {
   }
 }
 
-const getPanels = async (filsCols) => {
+const getPanels = async (filsCols, query) => {
+  let numOfResults = query['rp.pageRows'];
+
+  numOfResults = Number.isInteger(parseInt(numOfResults)) ? numOfResults * 7 : 200;
+
   try {
       let panelMeetingsData = await PanelMeetings.query(qb => {
       qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
@@ -391,8 +395,10 @@ const getPanels = async (filsCols) => {
       filsCols['filters'].map(fc => {
         return qb.where(filterTable[fc.name], fc.method, fc.value);
       })
-    }).fetchAll({
+    }).fetchPage({
         withRelated: ['dates', 'dates.mdtcode'],
+        pageSize: numOfResults,
+        page: query['rp.pageNum'] || 1,
       });
 
     panelMeetingsData = panelMeetingsData.serialize();
