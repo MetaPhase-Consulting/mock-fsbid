@@ -23,10 +23,10 @@ exports.seed = function(knex) {
                       'default': randomIntInclusive(15, 20),
                     };
                     const pmddttm = _.find(MDTs, { 'pmseqnum': pmseqnum, 'mdtcode': 'MEET' })['pmddttm']
-                    let mic = _.sample(MICs);
                     const numOfPMIs = _.get(numPMIsLookup, pmseqnum) || numPMIsLookup['default'];
                     for(let k = 1; k <= numOfPMIs; k++) {
                       pmiseqnum+=1;
+                      let mic = _.sample(MICs);
                       let createDate = datefns.subDays(pmddttm, randomIntInclusive(5, 14));
                       let rangeleft = datefns.addMinutes(createDate, 3);
                       let rangeRight = datefns.subDays(pmddttm, 3);
