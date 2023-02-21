@@ -931,7 +931,14 @@ const v2_get_assignments = async (filsCols, query) => {
         }
       }).fetchPage({
         require: false,
-        withRelated: ['assignment', 'assignment.position', 'assignment.position.org'],
+        withRelated: [
+          'assignment',
+          'assignment.position',
+          'assignment.position.org',
+          'assignment.position.location',
+          'assignment.position.skill',
+          'assignment.position.skill2'
+        ],
         pageSize: query['rp.pageRows'] || 100,
         page: query['rp.pageNum'] || 1,
       })
@@ -966,7 +973,7 @@ const v2_get_assignments = async (filsCols, query) => {
     }
     let asgd_asg_empData = asgd_asgData.map(asgd_asg => {
       const asg = asgd_asg.assignment
-      const pos = { ...asg.position }  
+      const pos = { ...asg.position }
       const asgd_asg$ = _.omit(asgd_asg, ['assignment'])
       _.merge(asgd_asg$, asg)
       asgd_asg$['asgperdetseqnum'] = _.find(employeeData, ['per_seq_num', asgd_asg$.emp_seq_nbr])['perdet_seq_num'] || null
@@ -983,7 +990,19 @@ const v2_get_assignments = async (filsCols, query) => {
         poslanguage2code: "AE",
         poslanguage2desc: "ARABIC EGYPTIAN",
         posspeakproficiency2code: "2",
-        posreadproficiency2code: "2"
+        posreadproficiency2code: "2",
+        posskillcode: pos.skill.skl_code,
+        posskilldesc: pos.skill.skill_descr,
+        posskill2code: pos.skill2.skl_code,
+        posskill2desc: pos.skill2.skill_descr,
+        location: [
+          {
+            locgvtgeoloccd: pos.location.location_code,
+            loccity: pos.location.location_city,
+            locstate: pos.location.location_state,
+            loccountry: pos.location.location_country,
+          }
+        ]
       },]
       return asgd_asg$
     })
