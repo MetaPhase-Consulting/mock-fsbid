@@ -247,6 +247,7 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
         aiitemcreatorid: ai.aiitemcreatorid,
         aiupdateid: ai.aiupdateid,
         aisdesctext: aiStatus,
+        pmiofficialitemnum: pmi.pmiofficialitemnum,
         Panel: [{
           pmseqnum: pm.pmseqnum,
           pmpmscode: pms.pmscode,
