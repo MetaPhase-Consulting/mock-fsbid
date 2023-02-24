@@ -1,5 +1,6 @@
 const _ = require('lodash')
 const { randomIntInclusive } = require('./data/helpers')
+const datefns = require("date-fns");
 
 exports.seed = function(knex) {
   return knex.raw('TRUNCATE TABLE assignmentdetails CASCADE')
@@ -29,7 +30,7 @@ exports.seed = function(knex) {
                         asgdtodmonthsnum: ail['ailtodmonthsnum'],
                         asgdetadate: ail['ailetadate'],
                         asgdadjustmonthsnum: randomIntInclusive(0, 3),
-                        asgdetdteddate: position['ted'],
+                        asgdetdteddate: datefns.addYears(ail['ailetadate'], 3),
                         asgdsalaryreimburseind:  _.sample(yNnull),
                         asgdtravelreimburseind:  _.sample(yNnull),
                         asgdtrainingind:  _.sample(yNnull),
