@@ -954,7 +954,14 @@ const v2_get_assignments = async (filsCols, query) => {
         }
       }).fetchPage({
         require: false,
-        withRelated: ['assignment', 'assignment.position', 'assignment.position.org'],
+        withRelated: [
+          'assignment',
+          'assignment.position',
+          'assignment.position.org',
+          'assignment.position.location',
+          'assignment.position.skill',
+          'assignment.position.skill2'
+        ],
         pageSize: query['rp.pageRows'] || 100,
         page: query['rp.pageNum'] || 1,
       })
@@ -991,16 +998,16 @@ const v2_get_assignments = async (filsCols, query) => {
         poslanguage2desc: "ARABIC EGYPTIAN",
         posspeakproficiency2code: "2",
         posreadproficiency2code: "2",
-        posskillcode: pos.skill.skl_code,
-        posskilldesc: pos.skill.skill_descr,
-        posskill2code: pos.skill2.skl_code,
-        posskill2desc: pos.skill2.skill_descr,
+        posskillcode: _.get(pos, 'skill.skl_code'),
+        posskilldesc: _.get(pos, 'skill.skill_descr'),
+        posskill2code: _.get(pos, 'skill2.skl_code'),
+        posskill2desc: _.get(pos, 'skill2.skill_descr'),
         location: [
           {
-            locgvtgeoloccd: pos.location.location_code,
-            loccity: pos.location.location_city,
-            locstate: pos.location.location_state,
-            loccountry: pos.location.location_country,
+            locgvtgeoloccd: _.get(pos, 'location.location_code'),
+            loccity: _.get(pos, 'location.location_city'),
+            locstate: _.get(pos, 'location.location_state'),
+            loccountry: _.get(pos, 'location.location_country'),
           }
         ]
       },]
