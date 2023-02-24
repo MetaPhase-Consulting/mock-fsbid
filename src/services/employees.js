@@ -1005,9 +1005,17 @@ const v2_get_assignments = async (filsCols, query) => {
         location: [
           {
             locgvtgeoloccd: _.get(pos, 'location.location_code'),
+            loceffdt: "2023-03-01T00:00:00",
+            loceffstatus: 'A',
+            locgvtstcntrydescr: "New York",
             loccity: _.get(pos, 'location.location_city'),
             locstate: _.get(pos, 'location.location_state'),
+            loccounty: "New York",
             loccountry: _.get(pos, 'location.location_country'),
+            locgvtmsa: "8840",
+            locgvtcmsa: "97",
+            locgvtleopayarea: "8",
+            locgvtlocalityarea: "80",
           }
         ]
       },]
