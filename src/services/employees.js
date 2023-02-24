@@ -1000,8 +1000,6 @@ const v2_get_assignments = async (filsCols, query) => {
         posreadproficiency2code: "2",
         posskillcode: _.get(pos, 'skill.skl_code'),
         posskilldesc: _.get(pos, 'skill.skill_descr'),
-        posskill2code: _.get(pos, 'skill2.skl_code'),
-        posskill2desc: _.get(pos, 'skill2.skill_descr'),
         location: [
           {
             locgvtgeoloccd: _.get(pos, 'location.location_code'),
