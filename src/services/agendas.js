@@ -373,63 +373,94 @@ const getPanels = async (filsCols, query) => {
   numOfResults = Number.isInteger(parseInt(numOfResults)) ? numOfResults * 7 : 200;
 
   try {
+    if (query['rp.columns'] === 'ROWCOUNT') {
       let panelMeetingsData = await PanelMeetings.query(qb => {
-      qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
-      qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
-      qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
-      qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
-      qb.select('panelmeetings.pmseqnum',
-                'panelmeetings.pmscode',
-                'panelmeetings.pmpmtcode',
-                'panelmeetings.pmvirtualind',
-                'panelmeetingstatuses.pmsdesctext',
-                'panelmeetingtypes.pmtdesctext',
-                'panelmeetingdates.mdtcode',
-                'panelmeetingdates.pmddttm',
-                'panelmeetingdatetypes.mdtdesctext',
-                'panelmeetingdatetypes.mdtordernum')
-      let filterTable = {
-        'pmseqnum': 'panelmeetings.pmseqnum',
-        'pmscode': 'panelmeetings.pmscode',
-        'pmpmtcode': 'panelmeetings.pmpmtcode',
-      };
-      filsCols['filters'].map(fc => {
-        return qb.where(filterTable[fc.name], fc.method, fc.value);
-      })
-    }).fetchPage({
+        qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
+        qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
+        qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
+        qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
+        qb.select('panelmeetings.pmseqnum',
+          'panelmeetings.pmscode',
+          'panelmeetings.pmpmtcode',
+          'panelmeetings.pmvirtualind',
+          'panelmeetingstatuses.pmsdesctext',
+          'panelmeetingtypes.pmtdesctext',
+          'panelmeetingdates.mdtcode',
+          'panelmeetingdates.pmddttm',
+          'panelmeetingdatetypes.mdtdesctext',
+          'panelmeetingdatetypes.mdtordernum')
+        let filterTable = {
+          'pmseqnum': 'panelmeetings.pmseqnum',
+          'pmscode': 'panelmeetings.pmscode',
+          'pmpmtcode': 'panelmeetings.pmpmtcode',
+        };
+        filsCols['filters'].map(fc => {
+          return qb.where(filterTable[fc.name], fc.method, fc.value);
+        })
+      }).fetchAll({
+        withRelated: ['dates', 'dates.mdtcode'],
+      });
+      panelMeetingsData = panelMeetingsData.serialize();
+      return [{ count: parseInt(panelMeetingsData.length) }]
+    } else {
+      let panelMeetingsData = await PanelMeetings.query(qb => {
+        qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
+        qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
+        qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
+        qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
+        qb.select('panelmeetings.pmseqnum',
+          'panelmeetings.pmscode',
+          'panelmeetings.pmpmtcode',
+          'panelmeetings.pmvirtualind',
+          'panelmeetingstatuses.pmsdesctext',
+          'panelmeetingtypes.pmtdesctext',
+          'panelmeetingdates.mdtcode',
+          'panelmeetingdates.pmddttm',
+          'panelmeetingdatetypes.mdtdesctext',
+          'panelmeetingdatetypes.mdtordernum')
+        let filterTable = {
+          'pmseqnum': 'panelmeetings.pmseqnum',
+          'pmscode': 'panelmeetings.pmscode',
+          'pmpmtcode': 'panelmeetings.pmpmtcode',
+        };
+        filsCols['filters'].map(fc => {
+          return qb.where(filterTable[fc.name], fc.method, fc.value);
+        })
+      }).fetchPage({
         withRelated: ['dates', 'dates.mdtcode'],
         pageSize: numOfResults,
         page: query['rp.pageNum'] || 1,
       });
+      panelMeetingsData = panelMeetingsData.serialize();
+      panelMeetingsData = panelMeetingsData.map(a => {
+        let panelMeetingDatesData = a.dates.map(d => {
+          return {
+            'pmdpmseqnum': d.pmseqnum,
+            'pmdmdtcode': d.mdtcode.mdtcode,
+            'pmddttm': d.pmddttm,
+            'mdtcode': d.mdtcode.mdtcode,
+            'mdtdesctext': d.mdtcode.mdtdesctext,
+            'mdtordernum': d.mdtcode.mdtordernum,
+          }
+        });
 
-    panelMeetingsData = panelMeetingsData.serialize();
-    panelMeetingsData = panelMeetingsData.map(a => {
-      let panelMeetingDatesData = a.dates.map(d => {
         return {
-          'pmdpmseqnum': d.pmseqnum,
-          'pmdmdtcode': d.mdtcode.mdtcode,
-          'pmddttm': d.pmddttm,
-          'mdtcode': d.mdtcode.mdtcode,
-          'mdtdesctext': d.mdtcode.mdtdesctext,
-          'mdtordernum': d.mdtcode.mdtordernum,
-        }});
-
-      return {
-        'pmseqnum': a.pmseqnum,
-        'pmvirtualind': a.pmvirtualind,
-        'pmcreateid': 8,
-        'pmcreatedate': '2023-01-05T16:34:55',
-        'pmupdateid': 105163,
-        'pmupdatedate': '2023-01-05T16:34:55',
-        'pmpmscode': a.pmscode,
-        'pmpmtcode': a.pmpmtcode,
-        'pmtdesctext': a.pmtdesctext,
-        'pmsdesctext': a.pmsdesctext,
-        'panelMeetingDates': panelMeetingDatesData,
-      }
+          'pmseqnum': a.pmseqnum,
+          'pmvirtualind': a.pmvirtualind,
+          'pmcreateid': 8,
+          'pmcreatedate': '2023-01-05T16:34:55',
+          'pmupdateid': 105163,
+          'pmupdatedate': '2023-01-05T16:34:55',
+          'pmpmscode': a.pmscode,
+          'pmpmtcode': a.pmpmtcode,
+          'pmtdesctext': a.pmtdesctext,
+          'pmsdesctext': a.pmsdesctext,
+          'panelMeetingDates': panelMeetingDatesData,
+        }
       });
 
-    return panelMeetingsData;
+      return panelMeetingsData;
+    }
   } catch (Error) {
     console.error(Error)
     return null
