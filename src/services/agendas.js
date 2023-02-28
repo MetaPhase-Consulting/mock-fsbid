@@ -367,55 +367,53 @@ const getPanelDates = async (filsCols, query) => {
   }
 }
 
-const getPanelMeetings = (filsCols, qb) => {
-    qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
-    qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
-    qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
-    qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
-    qb.select('panelmeetings.pmseqnum',
-      'panelmeetings.pmscode',
-      'panelmeetings.pmpmtcode',
-      'panelmeetings.pmvirtualind',
-      'panelmeetingstatuses.pmsdesctext',
-      'panelmeetingtypes.pmtdesctext',
-      'panelmeetingdates.mdtcode',
-      'panelmeetingdates.pmddttm',
-      'panelmeetingdatetypes.mdtdesctext',
-      'panelmeetingdatetypes.mdtordernum')
-    let filterTable = {
-      'pmseqnum': 'panelmeetings.pmseqnum',
-      'pmscode': 'panelmeetings.pmscode',
-      'pmpmtcode': 'panelmeetings.pmpmtcode',
-    };
-    filsCols['filters'].map(fc => {
-      return qb.where(filterTable[fc.name], fc.method, fc.value);
-    })
-}
-
 const getPanels = async (filsCols, query) => {
   let numOfResults = query['rp.pageRows'];
 
   numOfResults = Number.isInteger(parseInt(numOfResults)) ? numOfResults * 7 : 200;
 
+  const panelMeetingsQuery = () => (
+    PanelMeetings.query(qb => {
+      qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
+      qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
+      qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
+      qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
+      qb.select('panelmeetings.pmseqnum',
+        'panelmeetings.pmscode',
+        'panelmeetings.pmpmtcode',
+        'panelmeetings.pmvirtualind',
+        'panelmeetingstatuses.pmsdesctext',
+        'panelmeetingtypes.pmtdesctext',
+        'panelmeetingdates.mdtcode',
+        'panelmeetingdates.pmddttm',
+        'panelmeetingdatetypes.mdtdesctext',
+        'panelmeetingdatetypes.mdtordernum')
+      let filterTable = {
+        'pmseqnum': 'panelmeetings.pmseqnum',
+        'pmscode': 'panelmeetings.pmscode',
+        'pmpmtcode': 'panelmeetings.pmpmtcode',
+      };
+      filsCols['filters'].map(fc => {
+        return qb.where(filterTable[fc.name], fc.method, fc.value);
+      })
+    })
+  )
+
   try {
     if (query['rp.columns'] === 'ROWCOUNT') {
-      let panelMeetingsData = await PanelMeetings.query(qb => {
-        getPanelMeetings(filsCols, qb)
-      }).fetchAll({
+      let data = await panelMeetingsQuery().fetchAll({
         withRelated: ['dates', 'dates.mdtcode'],
       });
-      panelMeetingsData = panelMeetingsData.serialize();
-      return [{ count: parseInt(panelMeetingsData.length) }]
+      data = data.serialize();
+      return [{ count: parseInt(data.length) }]
     } else {
-      let panelMeetingsData = await PanelMeetings.query(qb => {
-        getPanelMeetings(filsCols, qb)
-      }).fetchPage({
+      let data = await panelMeetingsQuery().fetchPage({
         withRelated: ['dates', 'dates.mdtcode'],
         pageSize: numOfResults,
         page: query['rp.pageNum'] || 1,
       });
-      panelMeetingsData = panelMeetingsData.serialize();
-      panelMeetingsData = panelMeetingsData.map(a => {
+      data = data.serialize();
+      data = data.map(a => {
         let panelMeetingDatesData = a.dates.map(d => {
           return {
             'pmdpmseqnum': d.pmseqnum,
@@ -442,7 +440,7 @@ const getPanels = async (filsCols, query) => {
         }
       });
 
-      return panelMeetingsData;
+      return data;
     }
   } catch (Error) {
     console.error(Error)
