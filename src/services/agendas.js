@@ -367,6 +367,31 @@ const getPanelDates = async (filsCols, query) => {
   }
 }
 
+const getPanelMeetings = (filsCols, qb) => {
+    qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
+    qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
+    qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
+    qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
+    qb.select('panelmeetings.pmseqnum',
+      'panelmeetings.pmscode',
+      'panelmeetings.pmpmtcode',
+      'panelmeetings.pmvirtualind',
+      'panelmeetingstatuses.pmsdesctext',
+      'panelmeetingtypes.pmtdesctext',
+      'panelmeetingdates.mdtcode',
+      'panelmeetingdates.pmddttm',
+      'panelmeetingdatetypes.mdtdesctext',
+      'panelmeetingdatetypes.mdtordernum')
+    let filterTable = {
+      'pmseqnum': 'panelmeetings.pmseqnum',
+      'pmscode': 'panelmeetings.pmscode',
+      'pmpmtcode': 'panelmeetings.pmpmtcode',
+    };
+    filsCols['filters'].map(fc => {
+      return qb.where(filterTable[fc.name], fc.method, fc.value);
+    })
+}
+
 const getPanels = async (filsCols, query) => {
   let numOfResults = query['rp.pageRows'];
 
@@ -375,28 +400,7 @@ const getPanels = async (filsCols, query) => {
   try {
     if (query['rp.columns'] === 'ROWCOUNT') {
       let panelMeetingsData = await PanelMeetings.query(qb => {
-        qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
-        qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
-        qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
-        qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
-        qb.select('panelmeetings.pmseqnum',
-          'panelmeetings.pmscode',
-          'panelmeetings.pmpmtcode',
-          'panelmeetings.pmvirtualind',
-          'panelmeetingstatuses.pmsdesctext',
-          'panelmeetingtypes.pmtdesctext',
-          'panelmeetingdates.mdtcode',
-          'panelmeetingdates.pmddttm',
-          'panelmeetingdatetypes.mdtdesctext',
-          'panelmeetingdatetypes.mdtordernum')
-        let filterTable = {
-          'pmseqnum': 'panelmeetings.pmseqnum',
-          'pmscode': 'panelmeetings.pmscode',
-          'pmpmtcode': 'panelmeetings.pmpmtcode',
-        };
-        filsCols['filters'].map(fc => {
-          return qb.where(filterTable[fc.name], fc.method, fc.value);
-        })
+        getPanelMeetings(filsCols, qb)
       }).fetchAll({
         withRelated: ['dates', 'dates.mdtcode'],
       });
@@ -404,28 +408,7 @@ const getPanels = async (filsCols, query) => {
       return [{ count: parseInt(panelMeetingsData.length) }]
     } else {
       let panelMeetingsData = await PanelMeetings.query(qb => {
-        qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
-        qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
-        qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
-        qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
-        qb.select('panelmeetings.pmseqnum',
-          'panelmeetings.pmscode',
-          'panelmeetings.pmpmtcode',
-          'panelmeetings.pmvirtualind',
-          'panelmeetingstatuses.pmsdesctext',
-          'panelmeetingtypes.pmtdesctext',
-          'panelmeetingdates.mdtcode',
-          'panelmeetingdates.pmddttm',
-          'panelmeetingdatetypes.mdtdesctext',
-          'panelmeetingdatetypes.mdtordernum')
-        let filterTable = {
-          'pmseqnum': 'panelmeetings.pmseqnum',
-          'pmscode': 'panelmeetings.pmscode',
-          'pmpmtcode': 'panelmeetings.pmpmtcode',
-        };
-        filsCols['filters'].map(fc => {
-          return qb.where(filterTable[fc.name], fc.method, fc.value);
-        })
+        getPanelMeetings(filsCols, qb)
       }).fetchPage({
         withRelated: ['dates', 'dates.mdtcode'],
         pageSize: numOfResults,
