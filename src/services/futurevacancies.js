@@ -106,8 +106,8 @@ const RELATED = [
 async function get_future_vacancies(query) {
   const data = await create_query(query).fetchPage({
     withRelated: RELATED,
-    pageSize: query["fv_request_params.page_size"] || 25,
-    page: query["fv_request_params.page_index"] || 1
+    pageSize: query["request_params.page_size"] || 25,
+    page: query["request_params.page_index"] || 1
   })
 
   return {
