@@ -259,13 +259,69 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
           pmtcode: _.get(pm, 'pmpmtcode.pmpmtcode'),
         }],
         agendaAssignment: _.get(agendaLegs, '[0].agendaLegAssignment') ? _.get(agendaLegs, '[0].agendaLegAssignment') : defaultEF,
-        remarks: remarks.map(r => {
-          return {
-            airaiseqnum: r.aiseqnum,
-            airrmrkseqnum: r.rmrkseqnum,
-            airremarktext: r.airremarktext
+        // remarks: remarks.map(r => {
+        //   return {
+        //     airaiseqnum: r.aiseqnum,
+        //     airrmrkseqnum: r.rmrkseqnum,
+        //     airremarktext: r.airremarktext
+        //   }
+        // }),
+        remarks: [
+          {
+                  "airaiseqnum": 651,
+                  "airrmrkseqnum": 48,
+                  "remarkInserts": [
+           {
+                      "airiinsertiontext": " 09/29/04",
+                      "airiaiseqnum": 651,
+                      "airirmrkseqnum": 48,
+                      "aiririseqnum": 12,
+                      "airicreateid": 5749,
+                      "airicreatedate": "2004-09-30T14:15:14",
+                      "airiupdateid": 5749,
+                      "airiupdatedate": "2004-10-12T13:09:25"
+                    }
+                  ],
+                  "remarkRefData": [
+                    {
+                      "rmrkseqnum": 48,
+                      "rmrkrccode": "P",
+                      "rmrkordernum": 11,
+                      "rmrkshortdesctext": "Senior cede",
+                      "rmrkmutuallyexclusiveind": "N",
+                      "rmrktext": "Senior Cede Granted on {date}",
+                      "rmrkactiveind": "Y"
+                    }
+                  ]
+          },
+          {
+            "airaiseqnum": 651,
+            "airrmrkseqnum": 48,
+            "remarkInserts": [
+     {
+                "airiinsertiontext": " 09/29/04",
+                "airiaiseqnum": 651,
+                "airirmrkseqnum": 48,
+                "aiririseqnum": 12,
+                "airicreateid": 5749,
+                "airicreatedate": "2004-09-30T14:15:14",
+                "airiupdateid": 5749,
+                "airiupdatedate": "2004-10-12T13:09:25"
+              }
+            ],
+            "remarkRefData": [
+              {
+                "rmrkseqnum": 48,
+                "rmrkrccode": "P",
+                "rmrkordernum": 11,
+                "rmrkshortdesctext": "Senior cede",
+                "rmrkmutuallyexclusiveind": "N",
+                "rmrktext": "Senior Cede Granted on {date}",
+                "rmrkactiveind": "Y"
+              }
+            ]
           }
-        }),
+        ],
         creators: [
           {
             "hruempseqnbr": null,
