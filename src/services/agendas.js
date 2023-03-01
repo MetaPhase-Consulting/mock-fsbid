@@ -259,13 +259,6 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
           pmtcode: _.get(pm, 'pmpmtcode.pmpmtcode'),
         }],
         agendaAssignment: _.get(agendaLegs, '[0].agendaLegAssignment') ? _.get(agendaLegs, '[0].agendaLegAssignment') : defaultEF,
-        // remarks: remarks.map(r => {
-        //   return {
-        //     airaiseqnum: r.aiseqnum,
-        //     airrmrkseqnum: r.rmrkseqnum,
-        //     airremarktext: r.airremarktext
-        //   }
-        // }),
         remarks: [
           {
                   "airaiseqnum": 651,
