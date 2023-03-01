@@ -307,6 +307,16 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
                 "airicreatedate": "2004-09-30T14:15:14",
                 "airiupdateid": 5749,
                 "airiupdatedate": "2004-10-12T13:09:25"
+              },
+              {
+                "airiinsertiontext": "5",
+                "airiaiseqnum": 651,
+                "airirmrkseqnum": 48,
+                "aiririseqnum": 12,
+                "airicreateid": 5749,
+                "airicreatedate": "2004-09-30T14:15:14",
+                "airiupdateid": 5749,
+                "airiupdatedate": "2004-10-12T13:09:25"
               }
             ],
             "remarkRefData": [
@@ -316,7 +326,7 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
                 "rmrkordernum": 11,
                 "rmrkshortdesctext": "Senior cede",
                 "rmrkmutuallyexclusiveind": "N",
-                "rmrktext": "Senior Cede Granted on {date}",
+                "rmrktext": "LWOP Committee approved on {date}, criterion {number}",
                 "rmrkactiveind": "Y"
               }
             ]
