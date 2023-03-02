@@ -460,7 +460,11 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
   filters = filters.map(f => {
     const f$ = f.split('|');
 
-    let name = mapFunc([f$[0].toLowerCase()])[0]
+    let name = f$[0].toLowerCase()
+    if (mapFunc){
+      name = mapFunc([f$[0].toLowerCase()])[0]
+    }
+
     return {
       name: name,
       method: queryFilterDict[f$[1].toUpperCase()],

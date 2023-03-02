@@ -29,7 +29,9 @@ const getAgendaItems = async (filsCols) => {
       qb.join('panelmeetingitems', 'agendaitems.pmiseqnum', 'panelmeetingitems.pmiseqnum')
       qb.join('agenda_item_statuses', 'agendaitems.aiscode', 'agenda_item_statuses.aiscode')
       filsCols['filters'].map(fc => {
-        return qb.where(fc.name, fc.method, fc.value);
+        if(['perdetseqnum', 'aiseqnum', 'pmseqnum'].includes(fc.name)){
+          return qb.where(fc.name, fc.method, fc.value);
+        }
       })
     }).fetchPage({
         withRelated: ['pmiseqnum', 'aiscode'],
@@ -102,6 +104,15 @@ const getAgendaItems = async (filsCols) => {
         qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
         qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
       }
+      let filterTable = {
+        'pmscode': 'panelmeetings.pmscode',
+        'pmpmtcode': 'panelmeetings.pmpmtcode',
+      };
+      filsCols['filters'].map(fc => {
+        if(['pmpmtcode', 'pmscode'].includes(fc.name)){
+          return qb.where(filterTable[fc.name], fc.method, fc.value);
+        }
+      })
     }).fetchAll({
       withRelated: ['pmscode', 'pmpmtcode'],
       require: false,

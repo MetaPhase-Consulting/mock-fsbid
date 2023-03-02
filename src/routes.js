@@ -716,8 +716,22 @@ var appRouter = function (app) {
 
   app.get('/v1/panels/:pmseqnum/agendas', async function(req, res) {
     try {
-      let pmseqnum = req.params.pmseqnum;
-      let panelAIs = await agendas.getAgendaItems(null, null, pmseqnum);
+      let reqQ = {...req.query};
+      if(req.params.pmseqnum) {
+        if(reqQ['rp.filter']){
+          if(Array.isArray(reqQ['rp.filter'])) {
+            reqQ['rp.filter'].push(`pmseqnum|EQ|${req.params.pmseqnum}|`);
+          } else {
+            reqQ['rp.filter'] = [reqQ['rp.filter'], `pmseqnum|EQ|${req.params.pmseqnum}|`];
+          }
+        }
+        else {
+          reqQ['rp.filter'] = `pmseqnum|EQ|${req.params.pmseqnum}|`;
+        }
+      }
+
+      const filsCols = common.convertTemplateFiltersCols(reqQ)
+      let panelAIs = await agendas.getAgendaItems(filsCols);
 
       res.status(200).send({
           Data: panelAIs,
