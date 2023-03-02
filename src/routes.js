@@ -567,15 +567,9 @@ var appRouter = function (app) {
 
   app.get('/v1/agendas', async function(req, res) { // singleton
     try {
-      const { query } = req; // aiseqnum|eq|226661|
-      const filter = _.get(query, "['rp.filter']", '').split('|')
-      const column = filter[0];
-      const value= filter[2]
-      const per = column === "aiperdetseqnum" ? value : null;
-      let ais = await agendas.getAgendaItems(null, per)
-      if (column && value) {
-        ais = ais.filter(f => `${f[column]}` === value);
-      }
+      const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.agendaNameMapping))
+      let ais = await agendas.getAgendaItems(filsCols)
+
       res.status(200).send({
         Data: ais,
         usl_id: 0,
