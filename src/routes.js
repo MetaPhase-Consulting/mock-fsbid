@@ -567,15 +567,9 @@ var appRouter = function (app) {
 
   app.get('/v1/agendas', async function(req, res) { // singleton
     try {
-      const { query } = req; // aiseqnum|eq|226661|
-      const filter = _.get(query, "['rp.filter']", '').split('|')
-      const column = filter[0];
-      const value= filter[2]
-      const per = column === "aiperdetseqnum" ? value : null;
-      let ais = await agendas.getAgendaItems(null, per)
-      if (column && value) {
-        ais = ais.filter(f => `${f[column]}` === value);
-      }
+      const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.agendaNameMapping))
+      let ais = await agendas.getAgendaItems(filsCols)
+
       res.status(200).send({
         Data: ais,
         usl_id: 0,
@@ -722,8 +716,22 @@ var appRouter = function (app) {
 
   app.get('/v1/panels/:pmseqnum/agendas', async function(req, res) {
     try {
-      let pmseqnum = req.params.pmseqnum;
-      let panelAIs = await agendas.getAgendaItems(null, null, pmseqnum);
+      let reqQ = {...req.query};
+      if(req.params.pmseqnum) {
+        if(reqQ['rp.filter']){
+          if(Array.isArray(reqQ['rp.filter'])) {
+            reqQ['rp.filter'].push(`pmseqnum|EQ|${req.params.pmseqnum}|`);
+          } else {
+            reqQ['rp.filter'] = [reqQ['rp.filter'], `pmseqnum|EQ|${req.params.pmseqnum}|`];
+          }
+        }
+        else {
+          reqQ['rp.filter'] = `pmseqnum|EQ|${req.params.pmseqnum}|`;
+        }
+      }
+
+      const filsCols = common.convertTemplateFiltersCols(reqQ)
+      let panelAIs = await agendas.getAgendaItems(filsCols);
 
       res.status(200).send({
           Data: panelAIs,

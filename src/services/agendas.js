@@ -23,24 +23,19 @@ const getAgendas = async (empData) => {
   }
 }
 
-const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
+const getAgendaItems = async (filsCols) => {
   try {
-// grab AIs with PMI
     let ai_pmiData = await AgendaItems.query(qb => {
       qb.join('panelmeetingitems', 'agendaitems.pmiseqnum', 'panelmeetingitems.pmiseqnum')
       qb.join('agenda_item_statuses', 'agendaitems.aiscode', 'agenda_item_statuses.aiscode')
-      if(ai_id) {
-        qb.where('aiseqnum', '=', ai_id);
-      }
-      if(perdet) {
-        qb.where('perdetseqnum', '=', perdet);
-      }
-      if(pmseqnum) {
-        qb.where('pmseqnum', '=', pmseqnum);
-      }
+      filsCols['filters'].map(fc => {
+        if(['perdetseqnum', 'aiseqnum', 'pmseqnum'].includes(fc.name)){
+          return qb.where(fc.name, fc.method, fc.value);
+        }
+      })
     }).fetchPage({
         withRelated: ['pmiseqnum', 'aiscode'],
-        pageSize: ai_id ? 1 : 50,
+        pageSize: 50,
         page: 1,
         require: false,
       })
@@ -109,6 +104,15 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
         qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
         qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
       }
+      let filterTable = {
+        'pmscode': 'panelmeetings.pmscode',
+        'pmpmtcode': 'panelmeetings.pmpmtcode',
+      };
+      filsCols['filters'].map(fc => {
+        if(['pmpmtcode', 'pmscode'].includes(fc.name)){
+          return qb.where(filterTable[fc.name], fc.method, fc.value);
+        }
+      })
     }).fetchAll({
       withRelated: ['pmscode', 'pmpmtcode'],
       require: false,
