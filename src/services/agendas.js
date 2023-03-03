@@ -23,24 +23,19 @@ const getAgendas = async (empData) => {
   }
 }
 
-const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
+const getAgendaItems = async (filsCols) => {
   try {
-// grab AIs with PMI
     let ai_pmiData = await AgendaItems.query(qb => {
       qb.join('panelmeetingitems', 'agendaitems.pmiseqnum', 'panelmeetingitems.pmiseqnum')
       qb.join('agenda_item_statuses', 'agendaitems.aiscode', 'agenda_item_statuses.aiscode')
-      if(ai_id) {
-        qb.where('aiseqnum', '=', ai_id);
-      }
-      if(perdet) {
-        qb.where('perdetseqnum', '=', perdet);
-      }
-      if(pmseqnum) {
-        qb.where('pmseqnum', '=', pmseqnum);
-      }
+      filsCols['filters'].map(fc => {
+        if(['perdetseqnum', 'aiseqnum', 'pmseqnum'].includes(fc.name)){
+          return qb.where(fc.name, fc.method, fc.value);
+        }
+      })
     }).fetchPage({
         withRelated: ['pmiseqnum', 'aiscode'],
-        pageSize: ai_id ? 1 : 50,
+        pageSize: 50,
         page: 1,
         require: false,
       })
@@ -109,6 +104,15 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
         qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
         qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
       }
+      let filterTable = {
+        'pmscode': 'panelmeetings.pmscode',
+        'pmpmtcode': 'panelmeetings.pmpmtcode',
+      };
+      filsCols['filters'].map(fc => {
+        if(['pmpmtcode', 'pmscode'].includes(fc.name)){
+          return qb.where(filterTable[fc.name], fc.method, fc.value);
+        }
+      })
     }).fetchAll({
       withRelated: ['pmscode', 'pmpmtcode'],
       require: false,
@@ -247,6 +251,7 @@ const getAgendaItems = async (ai_id, perdet, pmseqnum) => {
         aiitemcreatorid: ai.aiitemcreatorid,
         aiupdateid: ai.aiupdateid,
         aisdesctext: aiStatus,
+        pmiofficialitemnum: pmi.pmiofficialitemnum,
         Panel: [{
           pmseqnum: pm.pmseqnum,
           pmpmscode: pms.pmscode,
@@ -430,22 +435,22 @@ const getPanels = async (filsCols, query) => {
 
   numOfResults = Number.isInteger(parseInt(numOfResults)) ? numOfResults * 7 : 200;
 
-  try {
-      let panelMeetingsData = await PanelMeetings.query(qb => {
+  const panelMeetingsQuery = () => (
+    PanelMeetings.query(qb => {
       qb.join('panelmeetingstatuses', 'panelmeetings.pmscode', 'panelmeetingstatuses.pmscode')
       qb.join('panelmeetingtypes', 'panelmeetings.pmpmtcode', 'panelmeetingtypes.pmpmtcode')
       qb.join('panelmeetingdates', 'panelmeetings.pmseqnum', 'panelmeetingdates.pmseqnum')
       qb.join('panelmeetingdatetypes', 'panelmeetingdates.mdtcode', 'panelmeetingdatetypes.mdtcode')
       qb.select('panelmeetings.pmseqnum',
-                'panelmeetings.pmscode',
-                'panelmeetings.pmpmtcode',
-                'panelmeetings.pmvirtualind',
-                'panelmeetingstatuses.pmsdesctext',
-                'panelmeetingtypes.pmtdesctext',
-                'panelmeetingdates.mdtcode',
-                'panelmeetingdates.pmddttm',
-                'panelmeetingdatetypes.mdtdesctext',
-                'panelmeetingdatetypes.mdtordernum')
+        'panelmeetings.pmscode',
+        'panelmeetings.pmpmtcode',
+        'panelmeetings.pmvirtualind',
+        'panelmeetingstatuses.pmsdesctext',
+        'panelmeetingtypes.pmtdesctext',
+        'panelmeetingdates.mdtcode',
+        'panelmeetingdates.pmddttm',
+        'panelmeetingdatetypes.mdtdesctext',
+        'panelmeetingdatetypes.mdtordernum')
       let filterTable = {
         'pmseqnum': 'panelmeetings.pmseqnum',
         'pmscode': 'panelmeetings.pmscode',
@@ -454,40 +459,52 @@ const getPanels = async (filsCols, query) => {
       filsCols['filters'].map(fc => {
         return qb.where(filterTable[fc.name], fc.method, fc.value);
       })
-    }).fetchPage({
+    })
+  )
+
+  try {
+    if (query['rp.columns'] === 'ROWCOUNT') {
+      let data = await panelMeetingsQuery().fetchAll({
+        withRelated: ['dates', 'dates.mdtcode'],
+      });
+      data = data.serialize();
+      return [{ count: parseInt(data.length) }]
+    } else {
+      let data = await panelMeetingsQuery().fetchPage({
         withRelated: ['dates', 'dates.mdtcode'],
         pageSize: numOfResults,
         page: query['rp.pageNum'] || 1,
       });
+      data = data.serialize();
+      data = data.map(a => {
+        let panelMeetingDatesData = a.dates.map(d => {
+          return {
+            'pmdpmseqnum': d.pmseqnum,
+            'pmdmdtcode': d.mdtcode.mdtcode,
+            'pmddttm': d.pmddttm,
+            'mdtcode': d.mdtcode.mdtcode,
+            'mdtdesctext': d.mdtcode.mdtdesctext,
+            'mdtordernum': d.mdtcode.mdtordernum,
+          }
+        });
 
-    panelMeetingsData = panelMeetingsData.serialize();
-    panelMeetingsData = panelMeetingsData.map(a => {
-      let panelMeetingDatesData = a.dates.map(d => {
         return {
-          'pmdpmseqnum': d.pmseqnum,
-          'pmdmdtcode': d.mdtcode.mdtcode,
-          'pmddttm': d.pmddttm,
-          'mdtcode': d.mdtcode.mdtcode,
-          'mdtdesctext': d.mdtcode.mdtdesctext,
-          'mdtordernum': d.mdtcode.mdtordernum,
-        }});
-
-      return {
-        'pmseqnum': a.pmseqnum,
-        'pmvirtualind': a.pmvirtualind,
-        'pmcreateid': 8,
-        'pmcreatedate': '2023-01-05T16:34:55',
-        'pmupdateid': 105163,
-        'pmupdatedate': '2023-01-05T16:34:55',
-        'pmpmscode': a.pmscode,
-        'pmpmtcode': a.pmpmtcode,
-        'pmtdesctext': a.pmtdesctext,
-        'pmsdesctext': a.pmsdesctext,
-        'panelMeetingDates': panelMeetingDatesData,
-      }
+          'pmseqnum': a.pmseqnum,
+          'pmvirtualind': a.pmvirtualind,
+          'pmcreateid': 8,
+          'pmcreatedate': '2023-01-05T16:34:55',
+          'pmupdateid': 105163,
+          'pmupdatedate': '2023-01-05T16:34:55',
+          'pmpmscode': a.pmscode,
+          'pmpmtcode': a.pmpmtcode,
+          'pmtdesctext': a.pmtdesctext,
+          'pmsdesctext': a.pmsdesctext,
+          'panelMeetingDates': panelMeetingDatesData,
+        }
       });
 
-    return panelMeetingsData;
+      return data;
+    }
   } catch (Error) {
     console.error(Error)
     return null

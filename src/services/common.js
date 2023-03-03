@@ -348,6 +348,18 @@ const pmdNameMapping = (val, toWS=false) => {
   return _.get(colDictionary, val) || val
 }
 
+const agendaNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    'aiperdetseqnum': 'perdetseqnum',
+    'aiseqnum': 'aiseqnum',
+    'pmseqnum': 'pmseqnum',
+  };
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+  return _.get(colDictionary, val) || val
+}
+
 const asgNameMapping = (val, toWS=false) => {
   let colDictionary = {
     asgcreatedate: 'asg_create_date',
@@ -448,7 +460,11 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
   filters = filters.map(f => {
     const f$ = f.split('|');
 
-    let name = mapFunc([f$[0].toLowerCase()])[0]
+    let name = f$[0].toLowerCase()
+    if (mapFunc){
+      name = mapFunc([f$[0].toLowerCase()])[0]
+    }
+
     return {
       name: name,
       method: queryFilterDict[f$[1].toUpperCase()],
@@ -486,4 +502,4 @@ module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, 
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
   panelNameMapping, asgNameMapping, sepNameMapping, bidNameMapping,
-  asgdNameMapping, pmdNameMapping, groupArrayOfObjectsByKeyValue, }
+  asgdNameMapping, pmdNameMapping, agendaNameMapping, groupArrayOfObjectsByKeyValue, }
