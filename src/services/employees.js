@@ -753,6 +753,7 @@ const get_v3_persons_agenda_items = async query => {
     const getAgendas = await agendas.getAgendas(data)
 
     const mapData = Promise.all(data.map(async (emp) => {
+      const getCDO = await get_employee_by_perdet_seq_num(emp.manager_id)
         const {
           roles = [],
           manager = [],
@@ -801,13 +802,14 @@ const get_v3_persons_agenda_items = async query => {
             }
           ] : [],
           handshake: [],
-          cdo: [
-            {
-              echruid: 3,
-              ecperdetseqnum: 383517,
+          cdo: getCDO.length === 0
+            ? []
+            :
+            [{
+              echruid: getCDO[0].hru_id,
+              ecperdetseqnum: getCDO[0].perdet_seq_num,
               ecrlcd: "CDO"
-            }
-          ]
+            }]
         }
         return res
       }))
