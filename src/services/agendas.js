@@ -417,8 +417,14 @@ const getPanels = async (filsCols, query) => {
         page: query['rp.pageNum'] || 1,
       });
       data = data.serialize();
+      let panelMeetingDatesMdtCode = ''
+      let panelMeetingDatesdate = ''
       data = data.map(a => {
         let panelMeetingDatesData = a.dates.map(d => {
+          if(d.mdtcode.mdtcode === 'MEET') {
+            panelMeetingDatesMdtCode = d.mdtcode.mdtcode;
+            panelMeetingDatesdate = d.pmddttm;
+          }
           return {
             'pmdpmseqnum': d.pmseqnum,
             'pmdmdtcode': d.mdtcode.mdtcode,
@@ -428,23 +434,28 @@ const getPanels = async (filsCols, query) => {
             'mdtordernum': d.mdtcode.mdtordernum,
           }
         });
-
-        return {
-          'pmseqnum': a.pmseqnum,
-          'pmvirtualind': a.pmvirtualind,
-          'pmcreateid': 8,
-          'pmcreatedate': '2023-01-05T16:34:55',
-          'pmupdateid': 105163,
-          'pmupdatedate': '2023-01-05T16:34:55',
-          'pmpmscode': a.pmscode,
-          'pmpmtcode': a.pmpmtcode,
-          'pmtdesctext': a.pmtdesctext,
-          'pmsdesctext': a.pmsdesctext,
-          'panelMeetingDates': panelMeetingDatesData,
+        if(panelMeetingDatesMdtCode) {
+          return {
+            'pmseqnum': a.pmseqnum,
+            'pmvirtualind': a.pmvirtualind,
+            'pmcreateid': 8,
+            'pmcreatedate': '2023-01-05T16:34:55',
+            'pmupdateid': 105163,
+            'pmupdatedate': '2023-01-05T16:34:55',
+            'pmpmscode': a.pmscode,
+            'pmpmtcode': a.pmpmtcode,
+            'pmtdesctext': a.pmtdesctext,
+            'pmsdesctext': a.pmsdesctext,
+            'pmddttm': panelMeetingDatesdate,
+            'mdtcode': panelMeetingDatesMdtCode,
+            'panelMeetingDates': panelMeetingDatesData,
+          }
         }
       });
 
-      return data;
+      data = _.filter(data, function(o) { return o !== undefined; });
+
+      return data.length ? data : null;
     }
   } catch (Error) {
     console.error(Error)
