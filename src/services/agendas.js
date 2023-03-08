@@ -288,7 +288,14 @@ const getAgendaItems = async (filsCols) => {
                       "rmrkshortdesctext": "Senior cede",
                       "rmrkmutuallyexclusiveind": "N",
                       "rmrktext": "Senior Cede Granted on {date}",
-                      "rmrkactiveind": "Y"
+                      "rmrkactiveind": "Y",
+                      "RemarkInserts": [
+                        {
+                          "riseqnum": 12,
+                          "rirmrkseqnum": 48,
+                          "riinsertiontext": "{date}"
+                        }
+                      ]
                     }
                   ]
           },
@@ -300,7 +307,7 @@ const getAgendaItems = async (filsCols) => {
                 "airiinsertiontext": " 09/29/04",
                 "airiaiseqnum": 651,
                 "airirmrkseqnum": 48,
-                "aiririseqnum": 12,
+                "aiririseqnum": 193,
                 "airicreateid": 5749,
                 "airicreatedate": "2004-09-30T14:15:14",
                 "airiupdateid": 5749,
@@ -310,7 +317,7 @@ const getAgendaItems = async (filsCols) => {
                 "airiinsertiontext": "5",
                 "airiaiseqnum": 651,
                 "airirmrkseqnum": 48,
-                "aiririseqnum": 12,
+                "aiririseqnum": 192,
                 "airicreateid": 5749,
                 "airicreatedate": "2004-09-30T14:15:14",
                 "airiupdateid": 5749,
@@ -325,7 +332,19 @@ const getAgendaItems = async (filsCols) => {
                 "rmrkshortdesctext": "Senior cede",
                 "rmrkmutuallyexclusiveind": "N",
                 "rmrktext": "LWOP Committee approved on {date}, criterion {number}",
-                "rmrkactiveind": "Y"
+                "rmrkactiveind": "Y",
+                "RemarkInserts": [
+                  {
+                    "riseqnum": 192,
+                    "rirmrkseqnum": 48,
+                    "riinsertiontext": "{number}"
+                  },
+                  {
+                    "riseqnum": 193,
+                    "rirmrkseqnum": 48,
+                    "riinsertiontext": "{date}"
+                  }
+                ]
               }
             ]
           }
