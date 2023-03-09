@@ -801,7 +801,14 @@ const get_v3_persons_agenda_items = async query => {
             }
           ] : [],
           handshake: [],
-          cdos: [{ hruid: 1 }]
+          cdo: emp.manager
+            ?
+            [{
+              echruid: emp.manager.hru_id,
+              ecperdetseqnum: emp.manager.perdet_seq_num,
+              ecrlcd: "CDO"
+            }]
+            : []
         }
         return res
       }))
