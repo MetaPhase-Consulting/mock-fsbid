@@ -420,7 +420,7 @@ const getPanels = async (filsCols, query) => {
       data = data.serialize();
       let panelMeetingDatesMdtCode = ''
       let panelMeetingDatesdate = ''
-      data = data.map(a => {
+      data = data.flatMap(a => {
         let panelMeetingDatesData = a.dates.map(d => {
           if(d.mdtcode.mdtcode === 'MEET') {
             panelMeetingDatesMdtCode = d.mdtcode.mdtcode;
@@ -451,6 +451,8 @@ const getPanels = async (filsCols, query) => {
             'mdtcode': panelMeetingDatesMdtCode,
             'panelMeetingDates': panelMeetingDatesData,
           }
+        } else {
+          return [];
         }
       });
 
