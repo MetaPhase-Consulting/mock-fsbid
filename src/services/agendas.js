@@ -420,7 +420,7 @@ const getPanels = async (filsCols, query) => {
       data = data.serialize();
       let panelMeetingDatesMdtCode = ''
       let panelMeetingDatesdate = ''
-      data = data.flatMap(a => {
+      data = _.flatMap(data, function(a) {
         let panelMeetingDatesData = a.dates.map(d => {
           if(d.mdtcode.mdtcode === 'MEET') {
             panelMeetingDatesMdtCode = d.mdtcode.mdtcode;
