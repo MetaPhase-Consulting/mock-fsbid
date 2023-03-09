@@ -456,8 +456,6 @@ const getPanels = async (filsCols, query) => {
         }
       });
 
-      data = _.filter(data, function(o) { return o !== undefined; });
-
       return data.length ? data : null;
     }
   } catch (Error) {
