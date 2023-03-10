@@ -795,6 +795,22 @@ const get_v3_persons_agenda_items = async query => {
                   posnumtext: assignmentInfo.currentAssignment.currentPosition.pos_num_text,
                   posgradecode: assignmentInfo.currentAssignment.currentPosition.pos_grade_code,
                   postitledesc: assignmentInfo.currentAssignment.currentPosition.pos_title_desc,
+                  location: [
+                    {
+                      locgvtgeoloccd: emp.currentassignment.position.location.location_code,
+                      loceffdt: "1999-01-03T00:00:00",
+                      loceffstatus: "A",
+                      locgvtstcntrydescr: " ",
+                      loccity: emp.currentassignment.position.location.location_city,
+                      locstate: emp.currentassignment.position.location.location_state,
+                      loccounty: " ",
+                      loccountry: emp.currentassignment.position.location.location_country,
+                      locgvtmsa: "8840",
+                      locgvtcmsa: "97",
+                      locgvtleopayarea: "8",
+                      locgvtlocalityarea: "80"
+                    }
+                  ],
                 }
               ],
               latestAgendaItem: _.find(getAgendas, ['perdetseqnum', emp.perdet_seq_num]) || {},
