@@ -249,9 +249,9 @@ const getAgendaItems = async (filsCols) => {
         aiperdetseqnum: ai.perdetseqnum,
         aipmiseqnum: pmi.pmiseqnum,
         aiitemcreatorid: ai.aiitemcreatorid,
-        aicreatedate: "2022-08-09T11:07:02",
+        aicreatedate: ai.aicreatedate,
         aiupdateid: ai.aiupdateid,
-        aiupdatedate: "2022-10-29T23:07:02",
+        aiupdatedate: ai.aiupdatedate,
         aisdesctext: aiStatus,
         pmiofficialitemnum: pmi.pmiofficialitemnum,
         Panel: [{
