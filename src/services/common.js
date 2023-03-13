@@ -449,7 +449,9 @@ const bidNameMapping = (val, toWS=false) => {
 const convertTemplateFiltersCols = (query, mapFunc) => {
   const queryFilterDict = {
     EQ: "=",
-    IN: "="
+    IN: "=",
+    GTEQ: ">",
+    LTEQ: "<",
   }
 
   let columns = _.get(query, 'rp.columns') || []
