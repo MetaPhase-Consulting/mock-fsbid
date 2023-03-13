@@ -277,6 +277,13 @@ const getAgendaItems = async (filsCols) => {
                 "rmrkmutuallyexclusiveind": "N",
                 "rmrktext": "{BlankTextBox}",
                 "rmrkactiveind": "Y",
+                "RemarkInserts": [
+                  {
+                    "riseqnum": 12,
+                    "rirmrkseqnum": 48,
+                    "riinsertiontext": "{BlankTextBox}"
+                  }
+                ]
               }
             ]
           },
