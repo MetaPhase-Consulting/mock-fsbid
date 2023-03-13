@@ -1247,5 +1247,21 @@
         "riinsertiontext": "{date}"
       }
     ]
+  },
+  {
+    "rmrkseqnum": 1,
+    "rmrkrccode": "M",
+    "rmrkordernum": 20,
+    "rmrkshortdesctext": "BlankTextBox",
+    "rmrkmutuallyexclusiveind": "N",
+    "rmrktext": "{BlankTextBox}",
+    "rmrkactiveind": "N",
+    "RemarkInserts": [
+        {
+            "riseqnum": 88,
+            "rirmrkseqnum": 1,
+            "riinsertiontext": "{BlankTextBox}"
+        }
+    ]
   }
 ]

@@ -266,10 +266,25 @@ const getAgendaItems = async (filsCols) => {
         agendaAssignment: _.get(agendaLegs, '[0].agendaLegAssignment') ? _.get(agendaLegs, '[0].agendaLegAssignment') : defaultEF,
         remarks: [
           {
+            "airaiseqnum": 651,
+            "airrmrkseqnum": 48,
+            "remarkRefData": [
+              {
+                "rmrkseqnum": 48,
+                "rmrkrccode": "P",
+                "rmrkordernum": 11,
+                "rmrkshortdesctext": "BlankTextBox",
+                "rmrkmutuallyexclusiveind": "N",
+                "rmrktext": "{BlankTextBox}",
+                "rmrkactiveind": "Y",
+              }
+            ]
+          },
+          {
                   "airaiseqnum": 651,
                   "airrmrkseqnum": 48,
                   "remarkInserts": [
-           {
+                    {
                       "airiinsertiontext": " 09/29/04",
                       "airiaiseqnum": 651,
                       "airirmrkseqnum": 48,
