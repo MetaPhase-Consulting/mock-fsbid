@@ -429,33 +429,6 @@ var appRouter = function (app) {
     if (_.get(req.query, '["rp.columns"]', "").indexOf('ROWCOUNT') > -1) {
       persons = [{ rowcount: 1337 }]
     } else {
-      /* persons = Array.from(Array(25).keys()).map((p, i) => (
-        {
-          "tmperaicreateid": 383 + i,
-          "tmperaiscode": "A",
-          "tmpercdoid": null,
-          "tmpercurrentbureaucode": "310000" + i,
-          "tmpercurrentbureaudesc": "GTM",
-          "tmpercurrentlocationcode": "100000001" + i,
-          "tmpercurrentorgcode": "300000" + i,
-          "tmpercurrentorgdesc": "GTM/NGO",
-          "tmpercurrentted": "2022-08-24T00:00:00",
-          "tmperhsbureaucode": null,
-          "tmperhsbureaudesc": null,
-          "tmperhsind": null,
-          "tmperhslocationcode": null,
-          "tmperhsorgcode": null,
-          "tmperhsorgdesc": "RIGA",
-          "tmperpanelmeeting": 2357 + i,
-          "tmperpanelmeetingdate": "2020-09-24T13:55:00",
-          "tmperperdetseqnum": 389894 + i,
-          "tmperperfullname": "O'PALICK-MONOIK,HELIMA-KITRA NMN",
-          "tmperperscode": "A",
-          "tmperpertexternalid": "107168" + i,
-          "tmperseparationdate": null,
-          "rnum": i
-        }
-      )); */
       persons = await employees.get_v3_persons_agenda_items({ "request_params.page_size": 25, "request_params.page_index": 1 })
     }
 
