@@ -118,7 +118,7 @@
     "rmrkshortdesctext": "ML cede",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "ML cede granted on {date}",
-    "rmrkactiveind": "Y",
+    "rmrkactiveind": "N",
     "RemarkInserts": [
       {
         "riseqnum": 88,
@@ -134,7 +134,7 @@
     "rmrkshortdesctext": "EL Direct",
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "EL Directed",
-    "rmrkactiveind": "Y",
+    "rmrkactiveind": "N",
     "RemarkInserts": []
   },
   {
