@@ -7,7 +7,7 @@ updates:
     time: "10:00"
   open-pull-requests-limit: 10
   reviewers:
-  - mjoyce91
+  - elizabeth-jimenez
   ignore:
   - dependency-name: bookshelf
     versions:
