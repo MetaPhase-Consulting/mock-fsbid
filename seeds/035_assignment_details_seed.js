@@ -13,10 +13,18 @@ exports.seed = function(knex) {
                 .then(ASGs => {
                   const assignment_details = [];
                   const yNnull = ['Y', 'N', null];
+                  const counter = {};
                   AILs.forEach(ail => {
                     const employeeAssignments = _.filter(ASGs, ['emp_seq_nbr', ail.empseqnbr]);
                     if (employeeAssignments) {
+                      const empSeqNbr = ail?.empseqnbr;
                       const empAsg = _.sample(employeeAssignments);
+                      const asgSeqNum = empAsg.asg_seq_num
+                      if (empSeqNbr && asgSeqNum) {
+                        counter[empSeqNbr] ??= {};
+                        counter[empSeqNbr][asgSeqNum] ??= 0;   
+                        counter[empSeqNbr][asgSeqNum]++; 
+                      }
                       const position = _.find(Ps, ['pos_seq_num', empAsg['pos_seq_num']]);
                       assignment_details.push({
                         asgseqnum: empAsg['asg_seq_num'],
@@ -25,7 +33,7 @@ exports.seed = function(knex) {
                         todcode: ail['todcode'],
                         ailseqnum: ail['ailseqnum'],
                         orgcode: position['org_code'],
-                        asgdrevisionnum: null,
+                        asgdrevisionnum: counter?.[empSeqNbr]?.[asgSeqNum] || 1,
                         asgdtodothertext: ail['ailtodothertext'],
                         asgdtodmonthsnum: ail['ailtodmonthsnum'],
                         asgdetadate: ail['ailetadate'],
