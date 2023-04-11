@@ -426,13 +426,19 @@ var appRouter = function (app) {
   app.get('/v1/tm-persons', async function(req, res) {
     let rpF = req.query['rp.filter'];
     const rE = /perdet_seq_num\|EQ\|(\d+)\|/;
-    let paramPerdet = rpF.match(rE)[1];
+    const perdetMatch = rpF.match(rE);
+    let paramPerdet = perdetMatch ? perdetMatch[1] : null;
+
     let persons;
     // const persons = await employees.get_v3_persons_agenda_items(req.query)
     if (_.get(req.query, '["rp.columns"]', "").indexOf('ROWCOUNT') > -1) {
       persons = [{ rowcount: 1337 }]
     } else {
-      persons = await employees.get_v3_persons_agenda_items({ "request_params.page_size": 25, "request_params.page_index": 1, "perdet_seq_num": paramPerdet })
+      if(paramPerdet){
+        persons = await employees.get_v3_persons_agenda_items({ "request_params.page_size": 25, "request_params.page_index": 1, "perdet_seq_num": paramPerdet })
+      } else {
+        persons = await employees.get_v3_persons_agenda_items({ "request_params.page_size": 25, "request_params.page_index": 1})
+      }
     }
 
     res.status(200).send({
