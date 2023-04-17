@@ -389,6 +389,7 @@ const asgdNameMapping = (val, toWS=false) => {
     asgdetadate: 'asgdetadate',
     asgdetdteddate: 'asgdetdteddate',
     asgdlatcode: 'latcode',
+    asgdrevisionnum: 'asgdrevisionnum',
     asgdnotecommenttext: 'asgdnotecommenttext',
     asgdorgcode: 'orgcode',
     asgdpriorityind: 'asgdpriorityind',
@@ -466,7 +467,9 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
     if (mapFunc){
       name = mapFunc([f$[0].toLowerCase()])[0]
     }
-
+    if(f$[2] === 'MAX') {
+      f$[2] = 1
+    }
     return {
       name: name,
       method: queryFilterDict[f$[1].toUpperCase()],

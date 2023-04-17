@@ -1,5 +1,5 @@
 # Check out https://hub.docker.com/_/node to select a new base image
-FROM node:11-slim
+FROM node:19-slim
 
 # Installing Oracle instant client
 WORKDIR    /opt/oracle
