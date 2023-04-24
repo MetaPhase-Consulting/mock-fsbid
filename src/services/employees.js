@@ -350,6 +350,7 @@ const get_persons_filters = (params = {}) => {
     const filterArg = params['rp.filter'].split('|')
     const col = filterArg[0]
     const val = filterArg.slice(-2)[0]
+    if (col === 'perdetseqnum') q['employees.perdet_seq_num'] = val
     if (col === 'pertexternalid') q['employees.per_seq_num'] = val
     if (col === 'perpiifullname') q['employees.last_name'] = _.capitalize(val)
     // Update to be %like search on first, last, middle name
