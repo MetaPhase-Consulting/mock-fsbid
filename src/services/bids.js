@@ -167,7 +167,7 @@ async function v2_get_bids(filsCols, query) {
       let b$ = {
         ...b.position.position,
         'ubwhscode': 'HS',
-        'ubwbscd': 'A',
+        'ubwbscd': b['bs_cd'],
         'perdet_seq_num': b['perdet_seq_num'],
         'cp_id': b['cp_id']
       }
