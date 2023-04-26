@@ -433,6 +433,7 @@ const bidNameMapping = (val, toWS=false) => {
   let colDictionary = {
     cpposseqnum: 'pos_seq_num',
     ubwcpid: 'cp_id',
+    ubwbscd: 'bs_cd',
     posnumtext: 'position',
     posorgshortdesc: 'short_desc',
     postitledesc: 'pos_title_desc',
