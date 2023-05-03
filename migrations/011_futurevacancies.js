@@ -23,7 +23,7 @@ exports.up = function(knex) {
       table.string('position');
       table.string('ppos_capsule_descr_txt');
 
-      table.foreign('tod').references('tourofduties.code')
+      table.foreign('tod').references('tourofduties.todcode')
       table.foreign('lang1').references('languages.language_code')
       table.foreign('lang2').references('languages.language_code')
     });

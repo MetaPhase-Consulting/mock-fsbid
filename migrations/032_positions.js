@@ -25,7 +25,7 @@ exports.up = function(knex) {
 
       table.foreign('pos_location_code').references('locations.location_code')
       table.foreign('org_code').references('organizations.code')
-      table.foreign('tod').references('tourofduties.code')
+      table.foreign('tod').references('tourofduties.todcode')
       table.foreign('lang1').references('languages.language_code')
       table.foreign('lang2').references('languages.language_code')
       table.foreign('bureau').references('bureaus.bur')
@@ -117,7 +117,7 @@ exports.down = function(knex) {
 
       table.foreign('pos_location_code').references('locations.location_code')
       table.foreign('org_code').references('organizations.code')
-      table.foreign('tod').references('tourofduties.code')
+      table.foreign('tod').references('tourofduties.todcode')
       table.foreign('lang1').references('languages.language_code')
       table.foreign('lang2').references('languages.language_code')
       table.foreign('bureau').references('bureaus.bur')
@@ -147,7 +147,7 @@ exports.down = function(knex) {
 
       table.foreign('pos_location_code').references('locations.location_code')
       table.foreign('org_code').references('organizations.code')
-      table.foreign('tod').references('tourofduties.code')
+      table.foreign('tod').references('tourofduties.todcode')
       table.foreign('lang1').references('languages.language_code')
       table.foreign('lang2').references('languages.language_code')
       table.foreign('bureau').references('bureaus.bur')

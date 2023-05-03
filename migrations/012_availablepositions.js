@@ -30,7 +30,7 @@ exports.up = function(knex) {
       table.string("pos_skill_code");
 
       table.foreign('cycle_id').references('cycles.cycle_id')
-      table.foreign('tod').references('tourofduties.code')
+      table.foreign('tod').references('tourofduties.todcode')
       table.foreign('lang1').references('languages.language_code')
       table.foreign('lang2').references('languages.language_code')
     });

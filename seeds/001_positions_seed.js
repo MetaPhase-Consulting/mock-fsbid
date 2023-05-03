@@ -47,7 +47,7 @@ exports.seed = function(knex) {
         position.bt_differential_rate_num = findRandom(differentialrates)['pay_percent_num']
         position.bt_danger_pay_num = findRandom(dangerpays)['pay_percent_num']
         position.pos_job_category_desc = findRandom(jobcategories)['name']
-        position.tod = findRandom(tourofduties)['code']
+        position.tod = findRandom(tourofduties)['todcode']
 
         return position
 
