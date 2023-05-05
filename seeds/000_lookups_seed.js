@@ -11,6 +11,7 @@ const lookups = [
   'languages',
   'seasons',
   'tourofduties',
+  'toursofduty',
   'organizations',
   'locations',
   'roles',

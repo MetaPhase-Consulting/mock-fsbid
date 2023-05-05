@@ -5,6 +5,7 @@ const {
   DangerPays,
   DifferentialRates,
   TourOfDuties,
+  ToursOfDuty,
   Bureaus,
   Codes,
   Seasons,
@@ -144,6 +145,7 @@ const get_languages = getAll(Languages)
 const get_dangerpays = getAll(DangerPays)
 const get_differentialrates = getAll(DifferentialRates)
 const get_tourofduties = getAll(TourOfDuties)
+const get_toursofduty = getAll(ToursOfDuty)
 const get_bureaus = getAll(Bureaus)
 const get_codes = getAll(Codes)
 const get_locations = getLocations(Locations)
@@ -169,6 +171,7 @@ module.exports = {
   get_dangerpays,
   get_differentialrates,
   get_tourofduties,
+  get_toursofduty,
   get_bureaus,
   get_codes,
   get_locations,

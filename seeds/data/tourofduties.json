@@ -1,31 +1,11 @@
 [
   {
-    "code": "C",
-    "long_desc": "1 YEAR"
-  },
-  {
-    "code": "V",
-    "long_desc": "1 YEAR(2R&R)/HL/1 YEAR(2R&R)"
-  },
-  {
-    "code": "H",
-    "long_desc": "1 YR (1 R & R)"
-  },
-  {
-    "code": "O",
-    "long_desc": "1 YR (2 R & R)"
+    "code": "1",
+    "long_desc": "1 YR (3 R & R)"
   },
   {
     "code": "2",
     "long_desc": "1 YR(3R&R)/HL/1 YR(3R&R)"
-  },
-  {
-    "code": "T",
-    "long_desc": "10 MOS"
-  },
-  {
-    "code": "U",
-    "long_desc": "14MOS/HL/2 YEAR (R&R)"
   },
   {
     "code": "A",
@@ -36,48 +16,76 @@
     "long_desc": "18 MOS/HL/18 MOS"
   },
   {
-    "code": "N",
-    "long_desc": "2 YEAR (R&R)/HLRT/2 YEAR (R&R)"
+    "code": "C",
+    "long_desc": "1 YEAR"
   },
   {
     "code": "D",
     "long_desc": "2 YRS (1 R & R)"
   },
   {
+    "code": "E",
+    "long_desc": "2 YRS/TRANSFER"
+  },
+  {
     "code": "F",
     "long_desc": "2 YRS (2 R & R)"
   },
   {
-    "code": "R",
-    "long_desc": "2 YRS (3 R & R)"
-  },
-  {
-    "code": "Q",
-    "long_desc": "2 YRS (4 R & R)"
-  },
-  {
-    "code": "S",
-    "long_desc": "2 YRS/HLRT/2 YRS"
-  },
-  {
-    "code": "E",
-    "long_desc": "2 YRS/TRANSFER"
+    "code": "H",
+    "long_desc": "1 YR (1 R & R)"
   },
   {
     "code": "I",
     "long_desc": "3 YRS (2 R & R)"
   },
   {
-    "code": "P",
-    "long_desc": "3 YRS (3 R & R)"
-  },
-  {
     "code": "J",
     "long_desc": "3 YRS/TRANSFER"
   },
   {
+    "code": "N",
+    "long_desc": "2 YEAR (R&R)/HLRT/2 YEAR (R&R)"
+  },
+  {
+    "code": "O",
+    "long_desc": "1 YR (2 R & R)"
+  },
+  {
+    "code": "P",
+    "long_desc": "3 YRS (3 R & R)"
+  },
+  {
+    "code": "Q",
+    "long_desc": "2 YRS (4 R & R)"
+  },
+  {
+    "code": "R",
+    "long_desc": "2 YRS (3 R & R)"
+  },
+  {
+    "code": "S",
+    "long_desc": "2 YRS/HLRT/2 YRS"
+  },
+  {
+    "code": "T",
+    "long_desc": "10 MOS"
+  },
+  {
+    "code": "U",
+    "long_desc": "14MOS/HL/2 YEAR (R&R)"
+  },
+  {
+    "code": "V",
+    "long_desc": "1 YEAR(2R&R)/HL/1 YEAR(2R&R)"
+  },
+  {
     "code": "W",
     "long_desc": "4 YRS/TRANSFER"
+  },
+  {
+    "code": "X",
+    "long_desc": "OTHER"
   },
   {
     "code": "Y",
@@ -86,9 +94,5 @@
   {
     "code": "Z",
     "long_desc": "NOT APPLICABLE"
-  },
-  {
-    "code": "X",
-    "long_desc": "OTHER"
   }
 ]
