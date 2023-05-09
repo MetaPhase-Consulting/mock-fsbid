@@ -305,6 +305,7 @@ var appRouter = function (app) {
   app.get('/v1/posts/dangerpays', lookup(lookups.get_dangerpays))
   app.get('/v1/posts/differentialrates', lookup(lookups.get_differentialrates))
   app.get('/v1/posts/tourofduties', lookup(lookups.get_tourofduties))
+  app.get('/v1/references/tours-of-duty', lookup(lookups.get_toursofduty))
   app.get('/v1/fsbid/bureaus', lookup(lookups.get_bureaus))
   app.get('/v1/references/skills', lookup(lookups.get_codes))
   app.get('/v1/references/Locations', lookup(lookups.get_locations))

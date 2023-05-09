@@ -4,6 +4,7 @@ const Languages = require('./languages.js')
 const DangerPays = require('./dangerpays.js')
 const DifferentialRates = require('./differentialrates.js')
 const TourOfDuties = require('./tourofduties.js')
+const ToursOfDuty = require('./toursofduty.js')
 const Bureaus = require('./bureaus.js')
 const Codes = require('./codes.js')
 const Seasons = require('./seasons.js')
@@ -51,6 +52,7 @@ module.exports = {
   DangerPays,
   DifferentialRates,
   TourOfDuties,
+  ToursOfDuty,
   Bureaus,
   Codes,
   Employees,
