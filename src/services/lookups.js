@@ -54,7 +54,31 @@ const getLocations = Locations => async () => {
     return null
   }
 }
-
+const getGSALocations = Locations => async () => {
+  try {
+    const data = await Locations.fetchAll()
+    const results = data.serialize().map(d => {
+      return {
+        "locgvtgeoloccd": d.location_code,
+        "loceffdt": "",
+        "loceffstatus": "A",
+        "locgvtstcntrydescr": d.location_state,
+        "loccity": d.location_city,
+        "locstate": d.location_state?.slice(0, 2).toUpperCase(),
+        "loccounty": " ",
+        "loccountry": d.location_country,
+        "locgvtmsa": " ",
+        "locgvtcmsa": " ",
+        "locgvtleopayarea": "0",
+        "locgvtlocalityarea": " ",
+      }
+    })
+    return { "Data": results, return_code: 0 }
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
 const getCommuterPosts = CommuterPosts => async () => {
   try {
     const data = await CommuterPosts.fetchAll()
@@ -149,6 +173,7 @@ const get_toursofduty = getAll(ToursOfDuty)
 const get_bureaus = getAll(Bureaus)
 const get_codes = getAll(Codes)
 const get_locations = getLocations(Locations)
+const get_GSA_locations = getGSALocations(Locations)
 const get_postindicators = getAll(PostIndicators)
 const get_unaccompaniedstatuses = getAll(UnaccompaniedStatuses)
 const get_commuterposts = getCommuterPosts(CommuterPosts)
@@ -175,6 +200,7 @@ module.exports = {
   get_bureaus,
   get_codes,
   get_locations,
+  get_GSA_locations,
   get_postindicators,
   get_unaccompaniedstatuses,
   get_commuterposts,

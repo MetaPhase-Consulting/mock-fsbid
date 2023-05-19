@@ -309,6 +309,7 @@ var appRouter = function (app) {
   app.get('/v1/fsbid/bureaus', lookup(lookups.get_bureaus))
   app.get('/v1/references/skills', lookup(lookups.get_codes))
   app.get('/v1/references/Locations', lookup(lookups.get_locations))
+  app.get('/v1/references/gsa-locations', lookup(lookups.get_GSA_locations))
   app.get('/v1/references/travel-functions', lookup(lookups.get_travel_functions))
   app.get('/v1/agendas/references/statuses', lookup(lookups.get_agenda_item_statuses))
   app.get('/v1/agendas/references/remark-categories', lookup(lookups.get_remark_categories))
