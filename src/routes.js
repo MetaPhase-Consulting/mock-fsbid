@@ -309,7 +309,6 @@ var appRouter = function (app) {
   app.get('/v1/fsbid/bureaus', lookup(lookups.get_bureaus))
   app.get('/v1/references/skills', lookup(lookups.get_codes))
   app.get('/v1/references/Locations', lookup(lookups.get_locations))
-  app.get('/v1/references/gsa-locations', lookup(lookups.get_GSA_locations))
   app.get('/v1/references/travel-functions', lookup(lookups.get_travel_functions))
   app.get('/v1/agendas/references/statuses', lookup(lookups.get_agenda_item_statuses))
   app.get('/v1/agendas/references/remark-categories', lookup(lookups.get_remark_categories))
@@ -324,6 +323,17 @@ var appRouter = function (app) {
     const data = await postattributes.get_postattributes(req.query)
     res.status(200).send(data)
   })
+
+  app.get('/v1/references/gsa-locations', async function(req, res) {
+    const locations = await lookups.getGSALocations(req.query)
+
+    res.status(200).send({
+      Data: locations,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
+
 
   app.get('/v1/clients/Agents', async function(req, res) {
     const agents = await employees.get_agents(req.query)

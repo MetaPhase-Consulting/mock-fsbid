@@ -54,9 +54,30 @@ const getLocations = Locations => async () => {
     return null
   }
 }
-const getGSALocations = Locations => async () => {
+
+const mapGSALocQuery = q => {
+  const columns = {
+    'location_code': q?.['rp.locgvtgeoloccd'],
+    'location_state': q?.['rp.locstate'],
+    'location_state': q?.['rp.locgvtstcntrydescr'],
+    'location_city': q?.['rp.loccity'],
+    'location_country': q?.['rp.loccountry'],
+  }
+  for (let key in columns) {
+    if (!columns[key]) {
+      delete columns[key];
+    }
+  }
+  return columns;
+}
+
+const getGSALocations = async (query) => {
   try {
-    const data = await Locations.fetchAll()
+    const data = await Locations.where(mapGSALocQuery(query)).fetchPage({
+      pageSize: query['rp.pageRows'] || 10,
+      page: query['rp.pageNum'] || 1,
+    })
+
     const results = data.serialize().map(d => {
       return {
         "locgvtgeoloccd": d.location_code,
@@ -173,7 +194,6 @@ const get_toursofduty = getAll(ToursOfDuty)
 const get_bureaus = getAll(Bureaus)
 const get_codes = getAll(Codes)
 const get_locations = getLocations(Locations)
-const get_GSA_locations = getGSALocations(Locations)
 const get_postindicators = getAll(PostIndicators)
 const get_unaccompaniedstatuses = getAll(UnaccompaniedStatuses)
 const get_commuterposts = getCommuterPosts(CommuterPosts)
@@ -200,7 +220,7 @@ module.exports = {
   get_bureaus,
   get_codes,
   get_locations,
-  get_GSA_locations,
+  getGSALocations,
   get_postindicators,
   get_unaccompaniedstatuses,
   get_commuterposts,
