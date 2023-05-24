@@ -58,6 +58,12 @@ const getLocations = Locations => async () => {
 
 const getGSALocations = async (query) => {
   try {
+    if (query['rp.columns'] === 'ROWCOUNT') {
+      let data = await Locations.fetchAll();
+      data = data.serialize();
+      return [{ count: parseInt(data.length) }]
+    }
+
     const filsCols = common.convertTemplateFiltersCols(query, x => x.map(common.gsaNameMapping))
 
     let query$ = filsCols?.filters.reduce((result, currentFilter) => {
