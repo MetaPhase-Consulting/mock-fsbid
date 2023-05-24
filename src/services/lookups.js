@@ -27,6 +27,7 @@ const {
 
 const _ = require('lodash')
 
+const common = require('./common')
 // Call getAll on the provided model
 const getAll = model => async () => {
   try {
@@ -55,25 +56,16 @@ const getLocations = Locations => async () => {
   }
 }
 
-const mapGSALocQuery = q => {
-  const columns = {
-    'location_code': q?.['rp.locgvtgeoloccd'],
-    'location_state': q?.['rp.locstate'],
-    'location_state': q?.['rp.locgvtstcntrydescr'],
-    'location_city': q?.['rp.loccity'],
-    'location_country': q?.['rp.loccountry'],
-  }
-  for (let key in columns) {
-    if (!columns[key]) {
-      delete columns[key];
-    }
-  }
-  return columns;
-}
-
 const getGSALocations = async (query) => {
   try {
-    const data = await Locations.where(mapGSALocQuery(query)).fetchPage({
+    const filsCols = common.convertTemplateFiltersCols(query, x => x.map(common.gsaNameMapping))
+
+    let query$ = filsCols?.filters.reduce((result, currentFilter) => {
+      result[currentFilter?.name] = currentFilter?.value;
+      return result;
+    }, {});
+
+    const data = await Locations.where(query$).fetchPage({
       pageSize: query['rp.pageRows'] || 10,
       page: query['rp.pageNum'] || 1,
     })
