@@ -92,7 +92,7 @@ const getGSALocations = async (query) => {
         "locgvtlocalityarea": " ",
       }
     })
-    return { "Data": results, return_code: 0 }
+    return results;
   } catch (Error) {
     console.error(Error)
     return null
