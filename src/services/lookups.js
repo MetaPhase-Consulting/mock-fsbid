@@ -27,6 +27,7 @@ const {
 
 const _ = require('lodash')
 
+const common = require('./common')
 // Call getAll on the provided model
 const getAll = model => async () => {
   try {
@@ -55,6 +56,48 @@ const getLocations = Locations => async () => {
   }
 }
 
+const getGSALocations = async (query) => {
+  try {
+    if (query['rp.columns'] === 'ROWCOUNT') {
+      let data = await Locations.fetchAll();
+      data = data.serialize();
+      return [{ count: parseInt(data.length) }]
+    }
+
+    const filsCols = common.convertTemplateFiltersCols(query, x => x.map(common.gsaNameMapping))
+
+    let query$ = filsCols?.filters.reduce((result, currentFilter) => {
+      result[currentFilter?.name] = currentFilter?.value;
+      return result;
+    }, {});
+
+    const data = await Locations.where(query$).fetchPage({
+      pageSize: query['rp.pageRows'] || 10,
+      page: query['rp.pageNum'] || 1,
+    })
+
+    const results = data.serialize().map(d => {
+      return {
+        "locgvtgeoloccd": d.location_code,
+        "loceffdt": "",
+        "loceffstatus": "A",
+        "locgvtstcntrydescr": d.location_state,
+        "loccity": d.location_city,
+        "locstate": d.location_state?.slice(0, 2).toUpperCase(),
+        "loccounty": " ",
+        "loccountry": d.location_country,
+        "locgvtmsa": " ",
+        "locgvtcmsa": " ",
+        "locgvtleopayarea": "0",
+        "locgvtlocalityarea": " ",
+      }
+    })
+    return results;
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
 const getCommuterPosts = CommuterPosts => async () => {
   try {
     const data = await CommuterPosts.fetchAll()
@@ -175,6 +218,7 @@ module.exports = {
   get_bureaus,
   get_codes,
   get_locations,
+  getGSALocations,
   get_postindicators,
   get_unaccompaniedstatuses,
   get_commuterposts,

@@ -324,6 +324,17 @@ var appRouter = function (app) {
     res.status(200).send(data)
   })
 
+  app.get('/v1/references/gsa-locations', async function(req, res) {
+    const locations = await lookups.getGSALocations(req.query)
+
+    res.status(200).send({
+      Data: locations,
+      usl_id: 0,
+      return_code: 0
+    })
+  })
+
+
   app.get('/v1/clients/Agents', async function(req, res) {
     const agents = await employees.get_agents(req.query)
 

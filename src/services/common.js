@@ -377,6 +377,20 @@ const asgNameMapping = (val, toWS=false) => {
   return _.get(colDictionary, val) || val
 }
 
+const gsaNameMapping = (val, toWS=false) => {
+  let colDictionary = {
+    locgvtgeoloccd: 'location_code',
+    locstate: 'location_state',
+    locgvtstcntrydescr: 'location_state',
+    loccity: 'location_city',
+    loccountry: 'location_country'
+  };
+  if(toWS) {
+    colDictionary = _.invert(colDictionary);
+  }
+  return colDictionary?.[val] || val
+}
+
 const asgdNameMapping = (val, toWS=false) => {
   let colDictionary = {
     asgdadjustmonthsnum: 'asgdadjustmonthsnum',
@@ -455,7 +469,7 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
     GTEQ: ">",
     LTEQ: "<",
   }
-
+  
   let columns = _.get(query, 'rp.columns') || []
   let filters = _.get(query, 'rp.filter') || []
   if(typeof(columns) === 'string') columns = [columns]
@@ -465,8 +479,8 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
     const f$ = f.split('|');
 
     let name = f$[0].toLowerCase()
-    if (mapFunc){
-      name = mapFunc([f$[0].toLowerCase()])[0]
+    if (mapFunc) {
+      name = mapFunc([name])?.[0]
     }
     if(f$[2] === 'MAX') {
       f$[2] = 1
@@ -507,5 +521,5 @@ const groupArrayOfObjectsByKeyValue = (data, onKey) => {
 module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, isCDO,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
-  panelNameMapping, asgNameMapping, sepNameMapping, bidNameMapping,
+  panelNameMapping, asgNameMapping, gsaNameMapping, sepNameMapping, bidNameMapping,
   asgdNameMapping, pmdNameMapping, agendaNameMapping, groupArrayOfObjectsByKeyValue, }
