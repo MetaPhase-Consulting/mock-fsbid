@@ -469,11 +469,11 @@ const convertTemplateFiltersCols = (query, mapFunc) => {
     GTEQ: ">",
     LTEQ: "<",
   }
+  
   let columns = _.get(query, 'rp.columns') || []
   let filters = _.get(query, 'rp.filter') || []
   if(typeof(columns) === 'string') columns = [columns]
   if(typeof(filters) === 'string') filters = [filters]
-
 
   filters = filters.map(f => {
     const f$ = f.split('|');
