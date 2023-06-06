@@ -204,7 +204,6 @@ const getAgendaItems = async (filsCols) => {
           posspeakproficiency2code: "2",
           posreadproficiency2code: "2"
         };
-console.log(asgd);
         return {
           ailaiseqnum: l.aiseqnum,
           ailseqnum: l.ailseqnum,
