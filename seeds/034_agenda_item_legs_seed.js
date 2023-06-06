@@ -3,7 +3,7 @@ const datefns = require('date-fns');
 const { randomIntInclusive, readJson } = require('./data/helpers')
 const lats = readJson('./legactiontypes.json')
 const locations = readJson('./locations.json')
-const tods = readJson('./tourofduties.json')
+const tods = readJson('./toursofduty.json')
 const positions = readJson('./positions.json')
 
 exports.seed = function(knex) {
@@ -40,9 +40,9 @@ exports.seed = function(knex) {
                       posseqnum: _.find(positions, ['position', ap.position])['pos_seq_num'],
                       empseqnbr: empseqnbr,
                       perdetseqnum: perdetseqnum,
-                      todcode: tod.code,
-                      ailtodmonthsnum: todmonthsnum,
-                      ailtodothertext: tod.code === 'X' ? 'OTHER/SHORT/DESC' : null,
+                      todcode: tod.todcode,
+                      ailtodmonthsnum: tod.todcode === 'X' ? todmonthsnum : tod.todmonthsnum,
+                      ailtodothertext: tod.todcode === 'X' ? 'OTHER/SHORT/DESC' : null,
                       ailetadate: etadate,
                       ailetdtedsepdate: tedsepdate,
                       ailcitytext: location.location_city,
