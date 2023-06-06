@@ -42,7 +42,7 @@ exports.seed = function(knex) {
                       perdetseqnum: perdetseqnum,
                       todcode: tod.code,
                       ailtodmonthsnum: todmonthsnum,
-                      ailtodothertext: tod['long_desc'],
+                      ailtodothertext: tod.code === 'X' ? 'OTHER/SHORT/DESC' : null,
                       ailetadate: etadate,
                       ailetdtedsepdate: tedsepdate,
                       ailcitytext: location.location_city,

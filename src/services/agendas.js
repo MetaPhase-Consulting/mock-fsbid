@@ -1,11 +1,7 @@
 const _ = require('lodash')
 const { pmdNameMapping } = require('./common.js')
 const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, AgendaItemStatuses,
-  Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories, ToursOfDuty} = require('../models')
-const { readJson } = require('../../seeds/data/helpers')
-const tods = readJson('../../seeds/data/toursofduty.json')
-
-const getTods = (code) => tods.find(tod => tod.todcode === code);
+  Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories } = require('../models')
 
 const getAgendas = async (empData) => {
   try {
@@ -57,7 +53,7 @@ const getAgendaItems = async (filsCols) => {
         qb.where('aiseqnum', aiSeqNums)
       }
     }).fetchAll({
-      withRelated: ['cpid', 'latcode'],
+      withRelated: ['cpid', 'latcode', 'tod'],
     })
     ailData = ailData.serialize()
     const ailSeqNums = ailData.map(e => e.ailseqnum);
@@ -79,7 +75,9 @@ const getAgendaItems = async (filsCols) => {
       } else {
         qb.where('ailseqnum', ailSeqNums)
       }
-    }).fetchAll()
+    }).fetchAll(
+      {withRelated: ['tod'],}
+    )
     asgdData = asgdData.serialize()
     const asgSeqNums = asgdData.map(e => e.asgseqnum);
 
@@ -159,7 +157,9 @@ const getAgendaItems = async (filsCols) => {
           "asgdasgscode": "EF",
           "asgdetadate": "2021-10-06T00:00:00.000Z",
           "asgdetdteddate": "2023-05-01T00:00:00",
-          "asgdtoddesctext": "3 YRS (2 R & R)",
+          "asgdtodcode": "F",
+          "asgdtodothertext": null,
+          "asgdtodmonthsnum": 24,
           "position": [
             {
               "posseqnum": 7412,
@@ -204,17 +204,17 @@ const getAgendaItems = async (filsCols) => {
           posspeakproficiency2code: "2",
           posreadproficiency2code: "2"
         };
+console.log(asgd);
         return {
           ailaiseqnum: l.aiseqnum,
           ailseqnum: l.ailseqnum,
           aillatcode: lat.latcode,
           ailcpid: l.cpid,
-          ailtodcode: l.todcode,
+          ailtodcode: l.tod.todcode,
+          ailtodmonthsnum: l.tod.todcode === 'X' ? l.ailtodmonthsnum : l.tod.todmonthsnum,
+          ailtodothertext: l.ailtodothertext,
           ailposseqnum: l.posseqnum,
           ailperdetseqnum: l.perdetseqnum,
-          ailtodcode: l.todcode,
-          ailtodmonthsnum: l.todcode === 'X' ? l.ailtodmonthsnum : null,
-          ailtodothertext: l.todcode === 'X' ? 'OTHER/SHORT/DESC' : null,
           ailetadate: l.ailetadate,
           ailetdtedsepdate: l.ailetdtedsepdate,
           ailcitytext: l.ailcitytext,
@@ -223,10 +223,10 @@ const getAgendaItems = async (filsCols) => {
           ailasgdrevisionnum: l.asgdrevisionnum,
           latabbrdesctext: lat.latabbrdesctext,
           latdesctext: lat.latdesctext,
-          todcode: getTods(l.todcode).todcode,
-          toddesctext: getTods(l.todcode).toddesctext,
-          todmonthsnum: getTods(l.todcode).todmonthsnum,
-          todshortdesc: getTods(l.todcode).todshortdesc,
+          todcode: l.tod.todcode,
+          toddesctext: l.tod.toddesctext,
+          todmonthsnum: l.tod.todmonthsnum,
+          todshortdesc: l.tod.todshortdesc,
           agendaLegAssignment: [
             {
               asgposseqnum: as.pos_seq_num || 84903,
@@ -235,13 +235,13 @@ const getAgendaItems = async (filsCols) => {
               asgdasgscode: as.asgs_code || "EF",
               asgdetadate: asgd.asgdetadate || "2019-05-01T00:00:00",
               asgdetdteddate: asgd.asgdetdteddate || "2023-05-01T00:00:00",
-              asgdtodcode: asgd.todcode,
-              asgdtodothertext: asgd.todcode === 'X' ? 'OTHER/SHORT/DESC' : null,
-              asgdtodmonthsnum: asgd.todcode === 'X' ? asgd.asgdtodmonthsnum : null,
-              todcode: getTods(asgd.todcode).todcode,
-              toddesctext: getTods(asgd.todcode).toddesctext,
-              todmonthsnum: getTods(asgd.todcode).todmonthsnum,
-              todshortdesc: getTods(asgd.todcode).todshortdesc,
+              asgdtodcode: asgd.tod.todcode,
+              asgdtodothertext: asgd.asgdtodothertext,
+              asgdtodmonthsnum: asgd.tod.todcode === 'X' ? asgd.asgdtodmonthsnum : asgd.tod.todmonthsnum,
+              todcode: asgd.tod.todcode,
+              toddesctext: asgd.tod.toddesctext,
+              todmonthsnum: asgd.tod.todmonthsnum,
+              todshortdesc: asgd.tod.todshortdesc,
               position: [
                 position
               ]

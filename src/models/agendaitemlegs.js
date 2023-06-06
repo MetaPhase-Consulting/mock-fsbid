@@ -10,8 +10,8 @@ const AgendaItemLegs = bookshelf.model('AgendaItemLegs', {
   cpid() {
     return this.belongsTo('AvailablePositions', 'cp_id')
   },
-  todcode() {
-    return this.belongsTo('tourofduties', 'code')
+  tod() {
+    return this.belongsTo('ToursOfDuty', 'todcode')
   },
   latcode() {
     return this.belongsTo('LegActionTypes', 'latcode')
