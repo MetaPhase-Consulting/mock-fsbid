@@ -75,9 +75,9 @@ const getAgendaItems = async (filsCols) => {
       } else {
         qb.where('ailseqnum', ailSeqNums)
       }
-    }).fetchAll(
-      {withRelated: ['tod'],}
-    )
+    }).fetchAll({
+      withRelated: ['tod'],
+    })
     asgdData = asgdData.serialize()
     const asgSeqNums = asgdData.map(e => e.asgseqnum);
 
