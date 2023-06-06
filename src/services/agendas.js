@@ -1,7 +1,11 @@
 const _ = require('lodash')
 const { pmdNameMapping } = require('./common.js')
 const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, AgendaItemStatuses,
-  Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories } = require('../models')
+  Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories, ToursOfDuty} = require('../models')
+const { readJson } = require('../../seeds/data/helpers')
+const tods = readJson('../../seeds/data/toursofduty.json')
+
+const getTods = (code) => tods.find(tod => tod.todcode === code);
 
 const getAgendas = async (empData) => {
   try {
@@ -200,7 +204,6 @@ const getAgendaItems = async (filsCols) => {
           posspeakproficiency2code: "2",
           posreadproficiency2code: "2"
         };
- 
         return {
           ailaiseqnum: l.aiseqnum,
           ailseqnum: l.ailseqnum,
@@ -209,8 +212,9 @@ const getAgendaItems = async (filsCols) => {
           ailtodcode: l.todcode,
           ailposseqnum: l.posseqnum,
           ailperdetseqnum: l.perdetseqnum,
-          ailtodmonthsnum: l.ailtodmonthsnum,
-          ailtodothertext: l.ailtodothertext,
+          ailtodcode: l.todcode,
+          ailtodmonthsnum: l.todcode === 'X' ? l.ailtodmonthsnum : null,
+          ailtodothertext: l.todcode === 'X' ? 'OTHER/SHORT/DESC' : null,
           ailetadate: l.ailetadate,
           ailetdtedsepdate: l.ailetdtedsepdate,
           ailcitytext: l.ailcitytext,
@@ -219,6 +223,10 @@ const getAgendaItems = async (filsCols) => {
           ailasgdrevisionnum: l.asgdrevisionnum,
           latabbrdesctext: lat.latabbrdesctext,
           latdesctext: lat.latdesctext,
+          todcode: getTods(l.todcode).todcode,
+          toddesctext: getTods(l.todcode).toddesctext,
+          todmonthsnum: getTods(l.todcode).todmonthsnum,
+          todshortdesc: getTods(l.todcode).todshortdesc,
           agendaLegAssignment: [
             {
               asgposseqnum: as.pos_seq_num || 84903,
@@ -227,7 +235,13 @@ const getAgendaItems = async (filsCols) => {
               asgdasgscode: as.asgs_code || "EF",
               asgdetadate: asgd.asgdetadate || "2019-05-01T00:00:00",
               asgdetdteddate: asgd.asgdetdteddate || "2023-05-01T00:00:00",
-              asgdtoddesctext: asgd.asgdtodothertext || "2 YRS/HLRT/2 YRS",
+              asgdtodcode: asgd.todcode,
+              asgdtodothertext: asgd.todcode === 'X' ? 'OTHER/SHORT/DESC' : null,
+              asgdtodmonthsnum: asgd.todcode === 'X' ? asgd.asgdtodmonthsnum : null,
+              todcode: getTods(asgd.todcode).todcode,
+              toddesctext: getTods(asgd.todcode).toddesctext,
+              todmonthsnum: getTods(asgd.todcode).todmonthsnum,
+              todshortdesc: getTods(asgd.todcode).todshortdesc,
               position: [
                 position
               ]
