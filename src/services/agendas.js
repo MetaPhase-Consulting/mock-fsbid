@@ -53,7 +53,7 @@ const getAgendaItems = async (filsCols) => {
         qb.where('aiseqnum', aiSeqNums)
       }
     }).fetchAll({
-      withRelated: ['cpid', 'latcode'],
+      withRelated: ['cpid', 'latcode', 'tod'],
     })
     ailData = ailData.serialize()
     const ailSeqNums = ailData.map(e => e.ailseqnum);
@@ -75,7 +75,9 @@ const getAgendaItems = async (filsCols) => {
       } else {
         qb.where('ailseqnum', ailSeqNums)
       }
-    }).fetchAll()
+    }).fetchAll({
+      withRelated: ['tod'],
+    })
     asgdData = asgdData.serialize()
     const asgSeqNums = asgdData.map(e => e.asgseqnum);
 
@@ -155,7 +157,9 @@ const getAgendaItems = async (filsCols) => {
           "asgdasgscode": "EF",
           "asgdetadate": "2021-10-06T00:00:00.000Z",
           "asgdetdteddate": "2023-05-01T00:00:00",
-          "asgdtoddesctext": "3 YRS (2 R & R)",
+          "asgdtodcode": "F",
+          "asgdtodothertext": null,
+          "asgdtodmonthsnum": 24,
           "position": [
             {
               "posseqnum": 7412,
@@ -200,17 +204,16 @@ const getAgendaItems = async (filsCols) => {
           posspeakproficiency2code: "2",
           posreadproficiency2code: "2"
         };
- 
         return {
           ailaiseqnum: l.aiseqnum,
           ailseqnum: l.ailseqnum,
           aillatcode: lat.latcode,
           ailcpid: l.cpid,
           ailtodcode: l.todcode,
-          ailposseqnum: l.posseqnum,
-          ailperdetseqnum: l.perdetseqnum,
           ailtodmonthsnum: l.ailtodmonthsnum,
           ailtodothertext: l.ailtodothertext,
+          ailposseqnum: l.posseqnum,
+          ailperdetseqnum: l.perdetseqnum,
           ailetadate: l.ailetadate,
           ailetdtedsepdate: l.ailetdtedsepdate,
           ailcitytext: l.ailcitytext,
@@ -219,6 +222,10 @@ const getAgendaItems = async (filsCols) => {
           ailasgdrevisionnum: l.asgdrevisionnum,
           latabbrdesctext: lat.latabbrdesctext,
           latdesctext: lat.latdesctext,
+          todcode: l.tod.todcode,
+          toddesctext: l.tod.toddesctext,
+          todmonthsnum: l.tod.todmonthsnum,
+          todshortdesc: l.tod.todshortdesc,
           agendaLegAssignment: [
             {
               asgposseqnum: as.pos_seq_num || 84903,
@@ -227,7 +234,13 @@ const getAgendaItems = async (filsCols) => {
               asgdasgscode: as.asgs_code || "EF",
               asgdetadate: asgd.asgdetadate || "2019-05-01T00:00:00",
               asgdetdteddate: asgd.asgdetdteddate || "2023-05-01T00:00:00",
-              asgdtoddesctext: asgd.asgdtodothertext || "2 YRS/HLRT/2 YRS",
+              asgdtodcode: asgd.todcode,
+              asgdtodothertext: asgd.asgdtodothertext,
+              asgdtodmonthsnum: asgd.asgdtodmonthsnum,
+              todcode: asgd.tod.todcode,
+              toddesctext: asgd.tod.toddesctext,
+              todmonthsnum: asgd.tod.todmonthsnum,
+              todshortdesc: asgd.tod.todshortdesc,
               position: [
                 position
               ]

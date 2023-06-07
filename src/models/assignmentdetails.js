@@ -10,6 +10,9 @@ const AssignmentDetails = bookshelf.model('AssignmentDetails', {
   ailseqnum() {
     return this.belongsTo('agendaitemlegs', 'ailseqnum')
   },
+  tod() {
+    return this.belongsTo('ToursOfDuty', 'todcode')
+  },
 })
 
 module.exports = AssignmentDetails
