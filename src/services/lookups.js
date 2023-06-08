@@ -147,6 +147,19 @@ const getRemarks = Remarks => async () => {
   }
 }
 
+const getTods = ToursOfDuty => async () => {
+  try {
+    const tods = await ToursOfDuty.where({
+      todstatuscode: 'A'
+    }).fetchAll()
+
+    return { "Data": tods, return_code: 0 }
+  } catch (Error) {
+    console.error(Error)
+    return null
+  }
+}
+
 const getFrequentPositions = FrequentPositions => async () => {
   try {
     const data = await FrequentPositions.fetchAll({
@@ -188,7 +201,7 @@ const get_languages = getAll(Languages)
 const get_dangerpays = getAll(DangerPays)
 const get_differentialrates = getAll(DifferentialRates)
 const get_tourofduties = getAll(TourOfDuties)
-const get_toursofduty = getAll(ToursOfDuty)
+const get_toursofduty = getTods(ToursOfDuty)
 const get_bureaus = getAll(Bureaus)
 const get_codes = getAll(Codes)
 const get_locations = getLocations(Locations)
