@@ -365,44 +365,25 @@ var appRouter = function (app) {
     })
   })
 
-  app.get("/v1/clients/availablebidders/cdo", async function (req, res) {
-    if (!req.headers.jwtauthorization) {
+  app.get("/v1/clients/availablebidders/:bureauORcdo", async function (req, res) {
+    const isBureau = req.params?.bureauORcdo === 'bureau';
+
+    if (!req.headers?.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
+    } else if (!req.query?.is_asc) {
+      console.log('is_asc query param is required.');
+      res.status(500).send({ "Message": "An error has occurred." });
+    } else if (!isBureau && !_.includes(['NAME', 'STATUS', 'SKILL', 'GRADE', 'TED', 'POST', 'CDO', 'UPDATE'], req.query?.order_by?.toUpperCase())) {
+      console.log('order_by query value does not exist.');
+      res.status(500).send({ "Message": "An error has occurred." });
+    } else {
+      const bidders = await availableBidders.get_available_bidders(isBureau);
+      res.status(200).send({
+        Data: bidders,
+        usl_id: 0,
+        return_code: 0
+      })
     }
-    if (req && req.query) {
-      if (!req.query.is_asc) {
-        console.error('is_asc query param is required.')
-        res.status(500).send({ "Message": "An error has occurred." });
-      }
-      if (!_.includes(['NAME', 'STATUS', 'SKILL', 'GRADE', 'TED', 'POST', 'CDO', 'UPDATE'], req.query.order_by.toUpperCase())) {
-        console.error('order_by query value does not exist.')
-        res.status(500).send({ "Message": "An error has occurred." });
-      }
-    }
-    const bidders = await availableBidders.get_available_bidders(false);
-    res.status(200).send({
-      Data: bidders,
-      usl_id: 0,
-      return_code: 0
-    })
-  });
-  
-  app.get("/v1/clients/availablebidders/bureau", async function (req, res) {
-    if (!req.headers.jwtauthorization) {
-      res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
-    }
-    if (req && req.query) {
-      if (!req.query.is_asc) {
-        console.error('is_asc query param is required.')
-        res.status(500).send({ "Message": "An error has occurred." });
-      }
-    }
-    const bidders = await availableBidders.get_available_bidders(true);
-    res.status(200).send({
-      Data: bidders,
-      usl_id: 0,
-      return_code: 0
-    })
   });
 
   app.get('/v1/Persons', async function(req,res) {
