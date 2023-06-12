@@ -367,9 +367,13 @@ var appRouter = function (app) {
 
   app.get("/v1/clients/availablebidders/:bureauORcdo", async function (req, res) {
     const isBureau = req.params?.bureauORcdo === 'bureau';
+    const isCDO = req.params?.bureauORcdo === 'cdo';
 
     if (!req.headers?.jwtauthorization) {
       res.status(200).send({ Data: null, usl_id: 4000004, return_code: -1 })
+    } else if (!isBureau && !isCDO) {
+      console.log('invalid EP.');
+      res.status(500).send({ "Message": "An error has occurred." });
     } else if (!req.query?.is_asc) {
       console.log('is_asc query param is required.');
       res.status(500).send({ "Message": "An error has occurred." });
