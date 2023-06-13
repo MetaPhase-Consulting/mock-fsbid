@@ -139,20 +139,20 @@ async function get_vice_position_by_pos_seq_num(query) {
       })
   const results = data ? data.serialize() : []
 
-  const employee = results.assignments?.[0].employee || null
+  const employee = results.assignments?.[0].employee
   return {
-    "Data": [
+    "Data": results.assignments ? [
       {
         "pos_seq_num": pos_seq_num,
-        "asgd_etd_ted_date": results.assignments?.[0].etd_ted_date || null,
-        "emp_first_name": employee?.first_name || null,
-        "emp_last_name": employee?.last_name || null,
-        "emp_middle_name": employee?.middle_name || null,
-        "emp_prefix_name": employee?.prefix_name || null,
-        "emp_suffix_name": employee?.suffix_name || null,
-        "emp_full_name": employee ? `${employee?.last_name}, ${employee?.first_name}` : null,
+        "asgd_etd_ted_date": results.assignments?.[0].etd_ted_date,
+        "emp_first_name": employee?.first_name,
+        "emp_last_name": employee?.last_name,
+        "emp_middle_name": employee?.middle_name,
+        "emp_prefix_name": employee?.prefix_name,
+        "emp_suffix_name": employee?.suffix_name,
+        "emp_full_name": `${employee?.last_name}, ${employee?.first_name}`,
       }
-    ]
+    ] : []
   }
 }
 
