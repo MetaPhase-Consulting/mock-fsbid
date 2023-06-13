@@ -141,14 +141,18 @@ async function get_vice_position_by_pos_seq_num(query) {
 
   const employee = results.assignments?.[0].employee || null
   return {
-    "pos_seq_num": pos_seq_num,
-    "asgd_etd_ted_date": results.assignments?.[0].etd_ted_date || null,
-    "emp_first_name": employee?.first_name || null,
-    "emp_last_name": employee?.last_name || null,
-    "emp_middle_name": employee?.middle_name || null,
-    "emp_prefix_name": employee?.prefix_name || null,
-    "emp_suffix_name": employee?.suffix_name || null,
-    "emp_full_name": employee ? `${employee?.last_name}, ${employee?.first_name}` : null,
+    "Data": [
+      {
+        "pos_seq_num": pos_seq_num,
+        "asgd_etd_ted_date": results.assignments?.[0].etd_ted_date || null,
+        "emp_first_name": employee?.first_name || null,
+        "emp_last_name": employee?.last_name || null,
+        "emp_middle_name": employee?.middle_name || null,
+        "emp_prefix_name": employee?.prefix_name || null,
+        "emp_suffix_name": employee?.suffix_name || null,
+        "emp_full_name": employee ? `${employee?.last_name}, ${employee?.first_name}` : null,
+      }
+    ]
   }
 }
 
