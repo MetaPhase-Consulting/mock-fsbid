@@ -36,6 +36,9 @@ const Positions = bookshelf.model('Positions', {
   },
   commuterpost() {
     return this.hasMany('CommuterPosts').through('LocationsCommuterPosts', 'cpn_code', 'location_code', 'cpn_code', 'pos_location_code')
+  },
+  assignments() {
+    return this.hasMany('Assignments', 'pos_seq_num')
   }
 })
 

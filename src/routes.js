@@ -650,6 +650,15 @@ var appRouter = function (app) {
       res.status(500).send({ "Message": "An error has occurred." });
     }
   })
+
+  app.get('/v1/vice-positions', async function(req, res) {
+    try {
+      res.status(200).send(await positions.get_vice_position_by_pos_seq_num(req.query))
+    } catch (errMsg) {
+      console.error(errMsg)
+      res.status(500).send({ "Message": "An error has occurred." });
+    }
+  })
   
   app.get('/v1/publishablePositions/capsule', async function(req, res) {
     try {

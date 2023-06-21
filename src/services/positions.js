@@ -1,6 +1,6 @@
 const _ = require('lodash')
 
-const { Positions } = require('../models')
+const { Positions, Assignments } = require('../models')
 const { CapsuleDescription } = require('../models')
 const { formatLanguage } = require('./common')
 
@@ -128,6 +128,39 @@ async function get_position_by_pos_num(query) {
   }
 }
 
+async function get_vice_position_by_pos_seq_num(query) {
+  const filterArg = query['rp.filter'].split('|')
+  const pos_seq_num = filterArg[2]
+  const filterSeqNum = pos_seq_num.split(',')
+
+  const data = await Positions.query(qb => {
+    qb.where('pos_seq_num', 'IN', filterSeqNum); // for now, can only filter by pos_seq_num
+  }).fetchAll({
+    withRelated: ['assignments', 'assignments.employee'],
+    require: false,
+  })
+  const results = data ? data.serialize() : []
+
+  let viceData = [];
+  results.map(res => {
+    const employee = res.assignments?.[0].employee
+    viceData.push({
+      "pos_seq_num": res.pos_seq_num,
+      "asgd_etd_ted_date": res.assignments?.[0].etd_ted_date,
+      "emp_first_name": employee?.first_name,
+      "emp_last_name": employee?.last_name,
+      "emp_middle_name": employee?.middle_name,
+      "emp_prefix_name": employee?.prefix_name,
+      "emp_suffix_name": employee?.suffix_name,
+      "emp_full_name": `${employee?.last_name}, ${employee?.first_name}`,
+    })
+  })
+
+  return {
+    "Data": viceData
+  }
+}
+
 const formatCapsule = (data) => {
   if (data) {
     return [data].map(d => {
@@ -165,4 +198,4 @@ async function update_capsule_description(query) {
   return { Data: null, usl_id: 45066084, ReturnCode }
 }
 
-module.exports = { get_position_by_id, get_position_by_pos_num, get_publishable_position_capsule, update_capsule_description }
+module.exports = { get_position_by_id, get_position_by_pos_num, get_publishable_position_capsule, update_capsule_description, get_vice_position_by_pos_seq_num }
