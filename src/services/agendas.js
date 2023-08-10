@@ -174,7 +174,9 @@ const getAgendaItems = async (filsCols) => {
               "poslanguage2code": "AE",
               "poslanguage2desc": "ARABIC EGYPTIAN",
               "posspeakproficiency2code": "2",
-              "posreadproficiency2code": "2"
+              "posreadproficiency2code": "2",
+              "pospayplancode": "FA",
+              "pospayplandesc": "Fixed Amount"
  
             }
           ]
@@ -195,6 +197,8 @@ const getAgendaItems = async (filsCols) => {
           posnumtext: _.get(pos, 'position'),
           posgradecode: _.get(pos, 'pos_grade_code'),
           postitledesc: _.get(pos, 'pos_title_desc'),
+          pospayplancode: 'FA',
+          pospayplandesc: 'Fixed Amount',
           poslanguage1code: "HU",
           poslanguage1desc: "HUNGARIAN",
           posspeakproficiency1code: "3",
