@@ -29,7 +29,7 @@ const formatData = (data) => {
         "pos_staff_ptrn_skill_code": " ",
         "pos_staff_ptrn_skill_desc": " ",
         "pos_overseas_ind": "D",
-        "pos_pay_plan_code": "GS",
+        "pos_pay_plan_code": "FA",
         "pos_pay_plan_desc": "General Sc",
         "pos_status_code": "A",
         "pos_status_desc": "Approved",
@@ -61,7 +61,7 @@ const formatData = (data) => {
         "pos_effective_date": "2017-02-14T00:00:00",
         "pos_jobcode_code": "S04072",
         "pos_occ_series_code": "00301",
-        "rnum": 1
+        "rnum": 1,
       }
     })
   }
@@ -118,7 +118,9 @@ async function get_position_by_pos_num(query) {
     'poslanguage2code': 'AE',
     'poslanguage2desc': 'ARABIC EGYPTIAN',
     'posspeakproficiency2code': '2',
-    'posreadproficiency2code': '2'
+    'posreadproficiency2code': '2',
+    'pospayplancode': p.pos_pay_plan_code,
+    'pospayplandesc': p.pos_pay_plan_desc,
   }))
 
   return {
