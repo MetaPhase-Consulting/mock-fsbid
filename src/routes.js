@@ -739,7 +739,7 @@ var appRouter = function (app) {
       res.status(200).send(jsonLookup.fail);
     } else {
       res.status(500).send(
-        `ORA-06550: line 1, column 29:\nPLS-00302: component 'QRY_${req?.query?.procName}' must be declared\nORA-06550: line 1, column 7:\nPL/SQL: Statement ignored - `
+        `ORA-06550: line 1, column 29:\nPLS-00302: component 'procName' must be declared\nORA-06550: line 1, column 7:\nPL/SQL: Statement ignored - `
       )
     }
   })
