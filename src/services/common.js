@@ -1,7 +1,5 @@
 const _ = require('lodash');
 const jwt = require('jsonwebtoken');
-const PDFDocument = require("pdfkit");
-const getStream = require("get-stream");
 
 // Maps filter values to data values
 const FILTERS = {
@@ -519,27 +517,9 @@ const groupArrayOfObjectsByKeyValue = (data, onKey) => {
   return dataGrouped;
 }
 
-const getEmployeeProfile = async (req, res, redacted) => {
-  async function pdf() {
-    const doc = new PDFDocument()
-    const text = `Here is ${redacted ? 'a ' : 'an un-'}redacted client profile PDF for ${req.params.id}. Enjoy!\n`
-    doc.text(new Array(100).fill(null).map(() => text).join(''))
-    doc.end()
-    return await getStream.buffer(doc)
-  }
-  const pdfBuffer = await pdf()
-  const sleep = (t) =>  ({ then: (r) => setTimeout(r, t) })
-  await sleep(3000)
-  res.writeHead(200, {
-    'Content-Type': 'application/pdf',
-  });
-  const download = Buffer.from(pdfBuffer);
-  res.end(download)
-}
-
 
 module.exports = { addFilter, addFreeTextFilter, addOverseasFilter, addOrderBy, isCDO,
   convertPostBodyToGetQuery, formatLanguage, createPositionQuery,
   createTandemPositionQuery, formatCommuterPost, convertTemplateFiltersCols,
   panelNameMapping, asgNameMapping, gsaNameMapping, sepNameMapping, bidNameMapping,
-  asgdNameMapping, pmdNameMapping, agendaNameMapping, groupArrayOfObjectsByKeyValue, getEmployeeProfile, }
+  asgdNameMapping, pmdNameMapping, agendaNameMapping, groupArrayOfObjectsByKeyValue, }

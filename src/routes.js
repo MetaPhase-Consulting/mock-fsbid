@@ -12,6 +12,8 @@ const common = require('./services/common')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
+const PDFDocument = require('pdfkit');
+const getStream = require('get-stream')
 
 var appRouter = function (app) {
   app.get("/", function(req, res) {
@@ -52,11 +54,23 @@ var appRouter = function (app) {
   });
 
   app.get('/HR/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
-    common.getEmployeeProfile(req, res,false);
-  });
-
-  app.get('/HR/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
-    common.getEmployeeProfile(req, res,true);
+    async function pdf() {
+      const doc = new PDFDocument()
+      const text = `Here is a client profile PDF for ${req.params.id}. Enjoy!
+      
+      `
+      doc.text(new Array(100).fill(null).map(() => text).join(''))
+      doc.end()
+      return await getStream.buffer(doc)
+    }
+    const pdfBuffer = await pdf()
+    const sleep = (t) =>  ({ then: (r) => setTimeout(r, t) })
+    await sleep(3000)
+    res.writeHead(200, {
+      'Content-Type': 'application/pdf',
+    });
+    const download = Buffer.from(pdfBuffer);
+    res.end(download)
   });
 
   app.get("/v1/cyclePositions/bidders", async function (req, res) {
