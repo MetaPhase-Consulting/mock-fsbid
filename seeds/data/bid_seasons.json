@@ -1,0 +1,175 @@
+{
+  "success": {
+  "O_BIDSEASONS_MAXROWS": 2000,
+  "QRY_BIDSEASONS_REF": [
+    {
+      "bid_seasons_name": "Fall Cycle 2023",
+      "id": 96,
+      "bid_seasons_begin_date": "2023-09-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2025-11-30T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2025-11-30T21:12:12.854000Z",
+      "bid_season_excl_position": "Y",
+      "bid_seasons_future_vacancy": "Y",
+      "description": "This is a description for Fall Cycle 2023"
+    },
+    {
+      "bid_seasons_name": "Spring Cycle 2023",
+      "id": 95,
+      "bid_seasons_begin_date": "2023-03-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2025-05-31T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2025-05-31T21:12:12.854000Z",
+      "bid_season_excl_position": "Y",
+      "bid_seasons_future_vacancy": "Y",
+      "description": "This is a description for Spring Cycle 2023"
+    },
+    {
+      "bid_seasons_name": "Summer Cycle 2022",
+      "id": 94,
+      "bid_seasons_begin_date": "2022-09-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2024-11-30T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2024-11-30T21:12:12.854000Z",
+      "bid_season_excl_position": "Y",
+      "bid_seasons_future_vacancy": "Y",
+      "description": "This is a description for Fall Cycle 2022"
+    },
+    {
+      "bid_seasons_name": "Winter Cycle 2022",
+      "id": 93,
+      "bid_seasons_begin_date": "2022-03-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2024-05-31T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2024-05-31T21:12:12.854000Z",
+      "bid_season_excl_position": "Y",
+      "bid_seasons_future_vacancy": "Y",
+      "description": "This is a description for Spring Cycle 2022"
+    },
+    {
+      "bid_seasons_name": "Fall Cycle 2022",
+      "id": 92,
+      "bid_seasons_begin_date": "2022-09-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2024-11-30T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2024-11-30T21:12:12.854000Z",
+      "bid_season_excl_position": "Y",
+      "bid_seasons_future_vacancy": "Y",
+      "description": "This is a description for Fall Cycle 2022"
+    },
+    {
+      "bid_seasons_name": "Spring Cycle 2022",
+      "id": 91,
+      "bid_seasons_begin_date": "2022-03-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2024-05-31T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2024-05-31T21:12:12.854000Z",
+      "bid_season_excl_position": "Y",
+      "bid_seasons_future_vacancy": "Y",
+      "description": "This is a description for Spring Cycle 2022"
+    },
+    {
+      "bid_seasons_name": "Summer Cycle 2021",
+      "id": 90,
+      "bid_seasons_begin_date": "2021-09-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2023-11-30T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2023-11-30T21:12:12.854000Z",
+      "bid_season_excl_position": "Y",
+      "bid_seasons_future_vacancy": "Y",
+      "description": "This is a description for Fall Cycle 2021"
+    },
+    {
+      "bid_seasons_name": "Winter Cycle 2021",
+      "id": 89,
+      "bid_seasons_begin_date": "2021-03-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2023-05-31T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2023-05-31T21:12:12.854000Z",
+      "bid_season_excl_position": "Y",
+      "bid_seasons_future_vacancy": "Y",
+      "description": "This is a description for Spring Cycle 2021"
+    },
+    {
+      "bid_seasons_name": "Fall Cycle 2021",
+      "id": 88,
+      "bid_seasons_begin_date": "2021-09-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2023-11-30T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2023-11-30T21:12:12.854000Z",
+      "bid_season_excl_position": "Y",
+      "bid_seasons_future_vacancy": "Y",
+      "description": "This is a description for Fall Cycle 2021"
+    },
+    {
+      "bid_seasons_name": "Spring Cycle 2021",
+      "id": 87,
+      "bid_seasons_begin_date": "2021-03-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2023-05-31T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2023-05-31T21:12:12.854000Z",
+      "bid_season_excl_position": "Y",
+      "bid_seasons_future_vacancy": "Y",
+      "description": "This is a description for Spring Cycle 2021"
+    },
+    {
+      "bid_seasons_name": "Summer Cycle 2020",
+      "id": 86,
+      "bid_seasons_begin_date": "2020-09-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2022-11-30T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2022-11-30T21:12:12.854000Z",
+      "bid_season_excl_position": "N",
+      "bid_seasons_future_vacancy": "N",
+      "description": "This is a description for Fall Cycle 2020"
+    },
+    {
+      "bid_seasons_name": "Winter Cycle 2020",
+      "id": 85,
+      "bid_seasons_begin_date": "2020-03-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2022-11-30T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2022-11-30T21:12:12.854000Z",
+      "bid_season_excl_position": "N",
+      "bid_seasons_future_vacancy": "N",
+      "description": "This is a description for Spring Cycle 2020"
+    },
+    {
+      "bid_seasons_name": "Fall Cycle 2020",
+      "id": 84,
+      "bid_seasons_begin_date": "2020-09-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2022-11-30T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2022-11-30T21:12:12.854000Z",
+      "bid_season_excl_position": "N",
+      "bid_seasons_future_vacancy": "N",
+      "description": "This is a description for Fall Cycle 2020"
+    },
+    {
+      "bid_seasons_name": "Spring Cycle 2020",
+      "id": 83,
+      "bid_seasons_begin_date": "2020-03-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2022-11-30T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2022-11-30T21:12:12.854000Z",
+      "bid_season_excl_position": "N",
+      "bid_seasons_future_vacancy": "N",
+      "description": "This is a description for Spring Cycle 2020"
+    },
+    {
+      "bid_seasons_name": "Summer Cycle 2019",
+      "id": 82,
+      "bid_seasons_begin_date": "2019-09-01T21:12:12.854000Z",
+      "bid_seasons_end_date": "2021-11-30T21:12:12.854000Z",
+      "bid_seasons_panel_cutoff": "2021-11-30T21:12:12.854000Z",
+      "bid_season_excl_position": "N",
+      "bid_seasons_future_vacancy": "N",
+      "description": "This is a description for Fall Cycle 2019"
+    }
+],
+"O_RETURN_CODE": 0,
+"QRY_ACTION_DATA": [],
+"QRY_ERROR_DATA": []
+},
+"fail" : {
+  "O_BIDSEASONS_MAXROWS": 2000,
+  "QRY_MODBIDSEASONS_REF": [],
+  "QRY_LSTAPT_DD_REF": [],
+  "O_RETURN_CODE": -1,
+  "QRY_ACTION_DATA": [],
+  "QRY_ERROR_DATA": [
+    {
+      "MSG_TXT": "Invalid Search Criteria. At a minimum, two fields are required to perform a position search. Additionally, please note that the Cycle Name and Cycle Position Status fields are not valid selections for the Bid Seasons Positions search.",
+      "MSG_LVL": "E",
+      "MSG_ID": 0,
+      "MSG_KEY": null
+    }
+  ]
+}
+}
