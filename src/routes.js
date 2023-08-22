@@ -13,6 +13,7 @@ const lookups = require('./services/lookups')
 const common = require('./services/common')
 const publishablePositions = readJson('./publishable_positions.json')
 const bidSeasons = readJson('./bid_seasons.json')
+const searchPostAccessList = readJson('./search_post_access_list.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -731,6 +732,7 @@ var appRouter = function (app) {
   const procNameDictionary = {
     "qry_modPublishPos": publishablePositions,
     "prc_lst_bid_seasons": bidSeasons,
+    "prc_lst_org_access": searchPostAccessList,
   };
 
   app.get('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
