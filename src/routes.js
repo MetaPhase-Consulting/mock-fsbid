@@ -740,6 +740,12 @@ var appRouter = function (app) {
   app.get('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
     const jsonLookup = procNameDictionary[req?.query?.procName];
 
+    console.log('🐙🐙🐙🐙🐙🐙🐙🐙🐙🐙');
+    console.log(req);
+    console.log('🐙🐙🐙🐙🐙🐙🐙🐙🐙🐙');
+    console.log(req.query);
+    console.log('🐙🐙🐙🐙🐙🐙🐙🐙🐙🐙');
+
     res.status(200).send({
       Data: jsonLookup.success
     })
@@ -756,6 +762,40 @@ var appRouter = function (app) {
     // }
 
   })
+
+  app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
+    const jsonLookup = procNameDictionary[req?.query?.procName];
+
+    // console.log('🐙🐙🐙🐙🐙🐙🐙🐙🐙🐙');
+    // console.log(req);
+    console.log('🐙🐙🐙🐙🐙🐙🐙🐙🐙🐙');
+    console.log(req.query);
+    console.log('🐙🐙🐙🐙🐙🐙🐙🐙🐙🐙');
+    console.log(req.body);
+    // TEST request body in DEV
+    console.log('🐙🐙🐙🐙🐙🐙🐙🐙🐙🐙');
+    // console.log(req.body.procName);
+    // console.log('🐙🐙🐙🐙🐙🐙🐙🐙🐙🐙');
+
+    // res.status(200).send(
+    //   jsonLookup.success
+    // )
+
+    res.status(200).send(jsonLookup.success)
+
+    // if (jsonLookup) {
+    //   res.status(200).send(jsonLookup.success)
+    //   // randomly fail - add criteria for failing
+    //   // randomIntInclusive(0, 1) ? res.status(200).send(jsonLookup.success) :
+    //   // res.status(200).send(jsonLookup.fail);
+    // } else {
+    //   res.status(500).send(
+    //     `ORA-06550: line 1, column 29:\nPLS-00302: component 'procName' must be declared\nORA-06550: line 1, column 7:\nPL/SQL: Statement ignored - `
+    //   )
+    // }
+
+  })
+
 
 };
 
