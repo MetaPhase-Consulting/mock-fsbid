@@ -12,6 +12,9 @@ const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
 const common = require('./services/common')
 const publishablePositions = readJson('./publishable_positions.json')
+const bidSeasons = readJson('./bid_seasons.json')
+const searchPostAccessList = readJson('./search_post_access_list.json')
+const searchPostAccessFilters = readJson('./search_post_access_filters.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -715,21 +718,27 @@ var appRouter = function (app) {
   // For BackOffice lookup
   const procNameDictionary = {
     "qry_modPublishPos": publishablePositions,
+    "prc_lst_bid_seasons": bidSeasons,
+    "prc_lst_org_access": searchPostAccessList,
+    "prc_lst_bureau_org_tree": searchPostAccessFilters,
+    "prc_mod_org_access": searchPostAccessList,
   };
 
-  app.get('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
+  app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
     const jsonLookup = procNameDictionary[req?.query?.procName];
-    if (jsonLookup) {
-      // randomly fail - add criteria for failing
-      randomIntInclusive(0, 1) ? res.status(200).send(jsonLookup.success) :
-      res.status(200).send(jsonLookup.fail);
-    } else {
-      res.status(500).send(
-        `ORA-06550: line 1, column 29:\nPLS-00302: component 'procName' must be declared\nORA-06550: line 1, column 7:\nPL/SQL: Statement ignored - `
-      )
-    }
-  })
+    res.status(200).send(jsonLookup.success)
 
+    // if (jsonLookup) {
+    //   // randomly fail - add criteria for failing
+    //   randomIntInclusive(0, 1) ? res.status(200).send(jsonLookup.success) :
+    //   res.status(200).send(jsonLookup.fail);
+    // } else {
+    //   res.status(500).send(
+    //     `ORA-06550: line 1, column 29:\nPLS-00302: component 'procName' must be declared\nORA-06550: line 1, column 7:\nPL/SQL: Statement ignored - `
+    //   )
+    // }
+
+  })
 };
 
 module.exports = appRouter;

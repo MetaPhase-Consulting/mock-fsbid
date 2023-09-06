@@ -1,0 +1,491 @@
+{
+  "success": {
+  "PQRY_BUREAU_LEVEL_O": [
+    {
+      "Bureau": "200000",
+      "ORG_SHORT_DESC": "A"
+    },
+    {
+      "Bureau": "190000",
+      "ORG_SHORT_DESC": "AC"
+    },
+    {
+      "Bureau": "253000",
+      "ORG_SHORT_DESC": "CDP"
+    },
+    {
+      "Bureau": "080000",
+      "ORG_SHORT_DESC": "CGFS"
+    },
+    {
+      "Bureau": "230000",
+      "ORG_SHORT_DESC": "ECA"
+    },
+    {
+      "Bureau": "025000",
+      "ORG_SHORT_DESC": "ENR"
+    },
+    {
+      "Bureau": "120000",
+      "ORG_SHORT_DESC": "EUR"
+    },
+    {
+      "Bureau": "260000",
+      "ORG_SHORT_DESC": "FSI"
+    },
+    {
+      "Bureau": "100000",
+      "ORG_SHORT_DESC": "GPA"
+    },
+    {
+      "Bureau": "210000",
+      "ORG_SHORT_DESC": "GTM"
+    },
+    {
+      "Bureau": "070000",
+      "ORG_SHORT_DESC": "H"
+    },
+    {
+      "Bureau": "309144",
+      "ORG_SHORT_DESC": "IBWC"
+    },
+    {
+      "Bureau": "309207",
+      "ORG_SHORT_DESC": "IBWC"
+    },
+    {
+      "Bureau": "019000",
+      "ORG_SHORT_DESC": "INL"
+    },
+    {
+      "Bureau": "110000",
+      "ORG_SHORT_DESC": "WHA"
+    }
+  ],
+  "PQRY_ORG_LEVEL_O": [
+  {
+    "Org": "328272",
+    "Bureau": "120000",
+    "ORG_DESC": "(AID) ANKARA (328272)",
+    "COUNTRY_STATE_CODE": "TU0000000"
+  },
+  {
+    "Org": "347073",
+    "Bureau": "140000",
+    "ORG_DESC": "(AID) DHAHRA (347073)",
+    "COUNTRY_STATE_CODE": "SA0000000"
+  },
+  {
+    "Org": "527500",
+    "Bureau": "500000",
+    "ORG_DESC": "(UNMEE) (527500)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "526200",
+    "Bureau": "500000",
+    "ORG_DESC": "(UNMIBH) IO (526200)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "520800",
+    "Bureau": "500000",
+    "ORG_DESC": "(UNMOT) (520800)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "200000",
+    "Bureau": "200000",
+    "ORG_DESC": "A (200000)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "201000",
+    "Bureau": "200000",
+    "ORG_DESC": "A (201000)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "402806",
+    "Bureau": "400000",
+    "ORG_DESC": "A C D A (402806)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "402811",
+    "Bureau": "400000",
+    "ORG_DESC": "A.C.D.A. (402811)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "402812",
+    "Bureau": "400000",
+    "ORG_DESC": "A.C.D.A. (402812)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "402809",
+    "Bureau": "400000",
+    "ORG_DESC": "A.C.D.A. (402809)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "201060",
+    "Bureau": "200000",
+    "ORG_DESC": "A/DTSPO (201060)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "010141",
+    "Bureau": "010000",
+    "ORG_DESC": "W-GDP (010141)",
+    "COUNTRY_STATE_CODE": "110000000"
+  },
+  {
+    "Org": "357499",
+    "Bureau": "150000",
+    "ORG_DESC": "ZIMBABWE (357499)",
+    "COUNTRY_STATE_CODE": "CD0000000"
+  },
+  {
+    "Org": "327604",
+    "Bureau": "120000",
+    "ORG_DESC": "ZURICH (327604)",
+    "COUNTRY_STATE_CODE": "SZ0000000"
+  }
+  ],
+  "PQRY_PERSON_LEVEL_O": [
+  {
+  "PER_SEQ_NUM": 522124,
+  "ORG": "197260",
+  "PER_FULL_NAME": "AAMOLDEE,JAEHA-NAERKEEE NMN",
+  "ORG_SHORT_DESC": "ISN/NPP/CTR",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "AAMOLDEE,JAEHA-NAERKEEE NMN (ISN/NPP/CTR)"
+  },
+  {
+  "PER_SEQ_NUM": 585671,
+  "ORG": "146400",
+  "PER_FULL_NAME": "AANENSONEE,MENSAHEE NMN",
+  "ORG_SHORT_DESC": "SCA/PPD",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "AANENSONEE,MENSAHEE NMN (SCA/PPD)"
+  },
+  {
+  "PER_SEQ_NUM": 412860,
+  "ORG": "355501",
+  "PER_FULL_NAME": "ABANGEEE,JOETTAEE NMN",
+  "ORG_SHORT_DESC": "BAMAKO",
+  "SKL_CODE": "2010",
+  "PER_NAME_ORG": "ABANGEEE,JOETTAEE NMN (BAMAKO)"
+  },
+  {
+  "PER_SEQ_NUM": 429224,
+  "ORG": "324701",
+  "PER_FULL_NAME": "ABDELMAGID-NACKEE,HOTIMEE NMN",
+  "ORG_SHORT_DESC": "PODGORICA",
+  "SKL_CODE": "4400",
+  "PER_NAME_ORG": "ABDELMAGID-NACKEE,HOTIMEE NMN (PODGORICA)"
+  },
+  {
+  "PER_SEQ_NUM": 522826,
+  "ORG": "281595",
+  "PER_FULL_NAME": "ABDOURAHMAANEE,EDUARDOEE NMN",
+  "ORG_SHORT_DESC": "CA/PPT/WPC",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABDOURAHMAANEE,EDUARDOEE NMN (CA/PPT/WPC)"
+  },
+  {
+  "PER_SEQ_NUM": 522826,
+  "ORG": "281595",
+  "PER_FULL_NAME": "ABDOURAHMAANEE,EDUARDOEE NMN",
+  "ORG_SHORT_DESC": "CA/PPT/WPC",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABDOURAHMAANEE,EDUARDOEE NMN (CA/PPT/WPC)"
+  },
+  {
+  "PER_SEQ_NUM": 477081,
+  "ORG": "201152",
+  "PER_FULL_NAME": "ABILSEE,LIZZET-ANN AEE NMN",
+  "ORG_SHORT_DESC": "A/EX/ITS/BMS",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABILSEE,LIZZET-ANN AEE NMN (A/EX/ITS/BMS)"
+  },
+  {
+  "PER_SEQ_NUM": 531330,
+  "ORG": "018101",
+  "PER_FULL_NAME": "ABITONG-KASSAYEEE,NICTEEE NMN",
+  "ORG_SHORT_DESC": "DRL/ILA",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABITONG-KASSAYEEE,NICTEEE NMN (DRL/ILA)"
+  },
+  {
+  "PER_SEQ_NUM": 415980,
+  "ORG": "260510",
+  "PER_FULL_NAME": "ABLORHEE,KEUTEHEE NMN",
+  "ORG_SHORT_DESC": "FSI/SAIT/BT",
+  "SKL_CODE": "2884",
+  "PER_NAME_ORG": "ABLORHEE,KEUTEHEE NMN (FSI/SAIT/BT)"
+  },
+  {
+  "PER_SEQ_NUM": 416254,
+  "ORG": "166384",
+  "PER_FULL_NAME": "ABRENICA-SCHLENGOEE,RUBURT HEE NMN",
+  "ORG_SHORT_DESC": "USUN/RM",
+  "SKL_CODE": "5505",
+  "PER_NAME_ORG": "ABRENICA-SCHLENGOEE,RUBURT HEE NMN (USUN/RM)"
+  },
+  {
+  "PER_SEQ_NUM": 433092,
+  "ORG": "011810",
+  "PER_FULL_NAME": "ABTEW-LAXTEN EOEE,LANSANGEE NMN",
+  "ORG_SHORT_DESC": "J/TIP",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABTEW-LAXTEN EOEE,LANSANGEE NMN (J/TIP)"
+  },
+  {
+  "PER_SEQ_NUM": 403470,
+  "ORG": "019345",
+  "PER_FULL_NAME": "ABU AKEEL-TOLVEEE,OZORI-TROVOREE NMN",
+  "ORG_SHORT_DESC": "INL/EX/BS",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABU AKEEL-TOLVEEE,OZORI-TROVOREE NMN (INL/EX/BS)"
+  },
+  {
+  "PER_SEQ_NUM": 430043,
+  "ORG": "178300",
+  "PER_FULL_NAME": "ABU-BAKAR-LATTYEE,MAMADUEE NMN",
+  "ORG_SHORT_DESC": "DS/TIA/CC",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABU-BAKAR-LATTYEE,MAMADUEE NMN (DS/TIA/CC)"
+  },
+  {
+  "PER_SEQ_NUM": 410673,
+  "ORG": "213110",
+  "PER_FULL_NAME": "ACANEMIUEE,ARTIREE NMN",
+  "ORG_SHORT_DESC": "GTM/TAC/BEX",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ACANEMIUEE,ARTIREE NMN (GTM/TAC/BEX)"
+  },
+  {
+  "PER_SEQ_NUM": 592243,
+  "ORG": "011810",
+  "PER_FULL_NAME": "ZYLMINEE,ANN DEE NMN",
+  "ORG_SHORT_DESC": "J/TIP",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ZYLMINEE,ANN DEE NMN (J/TIP)"
+  }
+  ],
+  "PQRY_POSITION_LEVEL_O": [
+    {
+      "POS_SEQ_NUM": 7,
+      "ORG": "403530",
+      "POS_ORG_SHORT_DESC": "TRADE NEGOT",
+      "POS_NUM_TEXT": "00000005 (TRADE NEGOT)",
+      "POS_TITLE_DESC": "SPECIAL ASSISTANT (AFD)",
+      "POS_SKILL_CODE": "7074",
+      "POS_SKILL_DESC": "DETAIL"
+    },
+    {
+      "POS_SEQ_NUM": 14,
+      "ORG": "311201",
+      "POS_ORG_SHORT_DESC": "SAN JOSE",
+      "POS_NUM_TEXT": "00001005 (SAN JOSE)",
+      "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 15,
+      "ORG": "311801",
+      "POS_ORG_SHORT_DESC": "QUITO",
+      "POS_NUM_TEXT": "00001006 (QUITO)",
+      "POS_TITLE_DESC": "IT SPECIALIST (NETWORK/PLCYPLN",
+      "POS_SKILL_CODE": "9017",
+      "POS_SKILL_DESC": "OFFICE MANAGEMENT"
+    },
+    {
+      "POS_SEQ_NUM": 17,
+      "ORG": "312401",
+      "POS_ORG_SHORT_DESC": "PORT AU PRIN",
+      "POS_NUM_TEXT": "00001008 (PORT AU PRIN)",
+      "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 20,
+      "ORG": "312802",
+      "POS_ORG_SHORT_DESC": "CIU.JUAREZ",
+      "POS_NUM_TEXT": "00001011 (CIU.JUAREZ)",
+      "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 9198,
+      "ORG": "312804",
+      "POS_ORG_SHORT_DESC": "MATAMOROS",
+      "POS_NUM_TEXT": "00001012 (MATAMOROS)",
+      "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 21,
+      "ORG": "312808",
+      "POS_ORG_SHORT_DESC": "NOGALES",
+      "POS_NUM_TEXT": "00001013 (NOGALES)",
+      "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 22,
+      "ORG": "312812",
+      "POS_ORG_SHORT_DESC": "TIJUANA",
+      "POS_NUM_TEXT": "00001014 (TIJUANA)",
+      "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 188002,
+      "ORG": "011421",
+      "POS_ORG_SHORT_DESC": "R/PPR/P",
+      "POS_NUM_TEXT": "Y2304303 (R/PPR/P)",
+      "POS_TITLE_DESC": "GENERAL DEVELOPMENT OFFICER",
+      "POS_SKILL_CODE": "4400",
+      "POS_SKILL_DESC": "PUBLIC DIPLOMACY"
+    },
+    {
+      "POS_SEQ_NUM": 155040,
+      "ORG": "233100",
+      "POS_ORG_SHORT_DESC": "ECA/P/A",
+      "POS_NUM_TEXT": "Y2331000 (ECA/P/A)",
+      "POS_TITLE_DESC": "ENVIRONMENT ADVISOR",
+      "POS_SKILL_CODE": "4400",
+      "POS_SKILL_DESC": "PUBLIC DIPLOMACY"
+    },
+    {
+      "POS_SEQ_NUM": 186420,
+      "ORG": "248100",
+      "POS_ORG_SHORT_DESC": "OBO/CFSM/CM",
+      "POS_NUM_TEXT": "Y2481001 (OBO/CFSM/CM)",
+      "POS_TITLE_DESC": "MEDICAL SUPPORT ASSISTANT",
+      "POS_SKILL_CODE": "6218",
+      "POS_SKILL_DESC": "CONSTRUCTION ENGINEERING"
+    },
+    {
+      "POS_SEQ_NUM": 136439,
+      "ORG": "248240",
+      "POS_ORG_SHORT_DESC": "CFSM/FAC/FMG",
+      "POS_NUM_TEXT": "Y2482402 (CFSM/FAC/FMG)",
+      "POS_TITLE_DESC": "VISA SPECIALIST",
+      "POS_SKILL_CODE": "6217",
+      "POS_SKILL_DESC": "FACILITY MAINTENANCE"
+    },
+    {
+      "POS_SEQ_NUM": 154542,
+      "ORG": "260311",
+      "POS_ORG_SHORT_DESC": "FSI/SPAS/MTT",
+      "POS_NUM_TEXT": "Y2603112 (FSI/SPAS/MTT)",
+      "POS_TITLE_DESC": "INFO MGT TECH SPEC/PHONE",
+      "POS_SKILL_CODE": "2101",
+      "POS_SKILL_DESC": "FINANCIAL MANAGEMENT"
+    },
+    {
+      "POS_SEQ_NUM": 137578,
+      "ORG": "260331",
+      "POS_ORG_SHORT_DESC": "FSI/SPAS/OR",
+      "POS_NUM_TEXT": "Y2633101 (FSI/SPAS/OR)",
+      "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
+      "POS_SKILL_CODE": "6080",
+      "POS_SKILL_DESC": "INTERFUNCTIONAL OFFICER OPER"
+    },
+    {
+      "POS_SEQ_NUM": 160251,
+      "ORG": "284150",
+      "POS_ORG_SHORT_DESC": "OCS/ACS/EAP",
+      "POS_NUM_TEXT": "Y2841502 (OCS/ACS/EAP)",
+      "POS_TITLE_DESC": "INTERNATIONAL LABOR RELATIONS",
+      "POS_SKILL_CODE": "3001",
+      "POS_SKILL_DESC": "CONSULAR AFFAIRS"
+    }
+  ],
+  "PQRY_POST_ROLE_O": [
+    {
+      "SELECT_IND": "false",
+      "ROLE_CODE": "FSBid_Org_Bidders",
+      "ROLE_DESC": "FSBid Organization Bidders"
+    },
+    {
+      "SELECT_IND": "false",
+      "ROLE_CODE": "FSBid_Org_Capsule",
+      "ROLE_DESC": "FSBid Organization Capsule Positions (Post HRO/Mngt)"
+    }
+  ],
+  "PQRY_COUNTRY_O": [
+    {
+      "COUNTRY_STATE_CODE": "AF0000000",
+      "COUNTRY_STATE_DESC": "Afghanistan"
+    },
+    {
+      "COUNTRY_STATE_CODE": "CE0000000",
+      "COUNTRY_STATE_DESC": "Sri Lanka"
+    },
+    {
+      "COUNTRY_STATE_CODE": "SU0000000",
+      "COUNTRY_STATE_DESC": "Sudan"
+    },
+    {
+      "COUNTRY_STATE_CODE": "UG0000000",
+      "COUNTRY_STATE_DESC": "Uganda"
+    },
+    {
+      "COUNTRY_STATE_CODE": "UP0000000",
+      "COUNTRY_STATE_DESC": "Ukraine"
+    },
+    {
+      "COUNTRY_STATE_CODE": "AE0000000",
+      "COUNTRY_STATE_DESC": "United Arab Emirates"
+    },
+    {
+      "COUNTRY_STATE_CODE": "UY0000000",
+      "COUNTRY_STATE_DESC": "Uruguay"
+    },
+    {
+      "COUNTRY_STATE_CODE": "490000000",
+      "COUNTRY_STATE_DESC": "Utah"
+    },
+    {
+      "COUNTRY_STATE_CODE": "UZ0000000",
+      "COUNTRY_STATE_DESC": "Uzbekistan"
+    },
+    {
+      "COUNTRY_STATE_CODE": " 0000000",
+      "COUNTRY_STATE_DESC": null
+    }
+  ],
+  "PV_RETURN_CODE_O": 0,
+  "PQRY_ERROR_DATA_O": []
+  },
+  "fail" : {
+    "PV_RETURN_CODE_O": -1,
+    "PQRY_ERROR_DATA_O": [],
+    "O_PUBPOS_MAXROWS": 2000,
+    "QRY_MODPUBLISHPOS_REF": [],
+    "QRY_LSTAPT_DD_REF": [],
+    "O_RETURN_CODE": -1,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": [
+      {
+        "MSG_TXT": "Invalid Search Criteria. At a minimum, two fields are required to perform a position search. Additionally, please note that the Cycle Name and Cycle Position Status fields are not valid selections for the Publishable Positions search.",
+        "MSG_LVL": "E",
+        "MSG_ID": 0,
+        "MSG_KEY": null
+      }
+    ]
+  }
+
+}
