@@ -1,1952 +1,474 @@
 {
   "success": {
-      "PQRY_BUREAU_LEVEL_O": [
-        {
-          "Bureau": "200000",
-          "ORG_SHORT_DESC": "A"
-        },
-        {
-          "Bureau": "190000",
-          "ORG_SHORT_DESC": "AC"
-        },
-        {
-          "Bureau": "150000",
-          "ORG_SHORT_DESC": "AF"
-        },
-        {
-          "Bureau": "198000",
-          "ORG_SHORT_DESC": "AVC"
-        },
-        {
-          "Bureau": "088000",
-          "ORG_SHORT_DESC": "BP"
-        },
-        {
-          "Bureau": "280000",
-          "ORG_SHORT_DESC": "CA"
-        },
-        {
-          "Bureau": "253000",
-          "ORG_SHORT_DESC": "CDP"
-        },
-        {
-          "Bureau": "080000",
-          "ORG_SHORT_DESC": "CGFS"
-        },
-        {
-          "Bureau": "000001",
-          "ORG_SHORT_DESC": "CORP JC"
-        },
-        {
-          "Bureau": "013000",
-          "ORG_SHORT_DESC": "CSO"
-        },
-        {
-          "Bureau": "187323",
-          "ORG_SHORT_DESC": "CSO/OSD/RM"
-        },
-        {
-          "Bureau": "033000",
-          "ORG_SHORT_DESC": "CT"
-        },
-        {
-          "Bureau": "018000",
-          "ORG_SHORT_DESC": "DRL"
-        },
-        {
-          "Bureau": "170000",
-          "ORG_SHORT_DESC": "DS"
-        },
-        {
-          "Bureau": "130000",
-          "ORG_SHORT_DESC": "EAP"
-        },
-        {
-          "Bureau": "050000",
-          "ORG_SHORT_DESC": "EB"
-        },
-        {
-          "Bureau": "230000",
-          "ORG_SHORT_DESC": "ECA"
-        },
-        {
-          "Bureau": "025000",
-          "ORG_SHORT_DESC": "ENR"
-        },
-        {
-          "Bureau": "120000",
-          "ORG_SHORT_DESC": "EUR"
-        },
-        {
-          "Bureau": "260000",
-          "ORG_SHORT_DESC": "FSI"
-        },
-        {
-          "Bureau": "100000",
-          "ORG_SHORT_DESC": "GPA"
-        },
-        {
-          "Bureau": "210000",
-          "ORG_SHORT_DESC": "GTM"
-        },
-        {
-          "Bureau": "070000",
-          "ORG_SHORT_DESC": "H"
-        },
-        {
-          "Bureau": "309144",
-          "ORG_SHORT_DESC": "IBWC"
-        },
-        {
-          "Bureau": "309207",
-          "ORG_SHORT_DESC": "IBWC"
-        },
-        {
-          "Bureau": "019000",
-          "ORG_SHORT_DESC": "INL"
-        },
-        {
-          "Bureau": "060000",
-          "ORG_SHORT_DESC": "INR"
-        },
-        {
-          "Bureau": "000099",
-          "ORG_SHORT_DESC": "INT/DEPT/US"
-        },
-        {
-          "Bureau": "500000",
-          "ORG_SHORT_DESC": "INTL ORGS   "
-        },
-        {
-          "Bureau": "160000",
-          "ORG_SHORT_DESC": "IO"
-        },
-        {
-          "Bureau": "180000",
-          "ORG_SHORT_DESC": "IRM"
-        },
-        {
-          "Bureau": "197000",
-          "ORG_SHORT_DESC": "ISN"
-        },
-        {
-          "Bureau": "040000",
-          "ORG_SHORT_DESC": "L"
-        },
-        {
-          "Bureau": "016000",
-          "ORG_SHORT_DESC": "MED"
-        },
-        {
-          "Bureau": "140000",
-          "ORG_SHORT_DESC": "NEA"
-        },
-        {
-          "Bureau": "240000",
-          "ORG_SHORT_DESC": "OBO"
-        },
-        {
-          "Bureau": "020000",
-          "ORG_SHORT_DESC": "OES"
-        },
-        {
-          "Bureau": "094000",
-          "ORG_SHORT_DESC": "OIG"
-        },
-        {
-          "Bureau": "400000",
-          "ORG_SHORT_DESC": "OTH AGYS"
-        },
-        {
-          "Bureau": "014000",
-          "ORG_SHORT_DESC": "PM"
-        },
-        {
-          "Bureau": "030000",
-          "ORG_SHORT_DESC": "PRM"
-        },
-        {
-          "Bureau": "010000",
-          "ORG_SHORT_DESC": "S"
-        },
-        {
-          "Bureau": "010200",
-          "ORG_SHORT_DESC": "S/CPR"
-        },
-        {
-          "Bureau": "145000",
-          "ORG_SHORT_DESC": "SA"
-        },
-        {
-          "Bureau": "146000",
-          "ORG_SHORT_DESC": "SCA"
-        },
-        {
-          "Bureau": "195000",
-          "ORG_SHORT_DESC": "VCI"
-        },
-        {
-          "Bureau": "110000",
-          "ORG_SHORT_DESC": "WHA"
-        }
-      ],
-    "PQRY_ORG_LEVEL_O": [
-      {
-        "Org": "328272",
-        "Bureau": "120000",
-        "ORG_DESC": "(AID) ANKARA (328272)",
-        "COUNTRY_STATE_CODE": "TU0000000"
-      },
-      {
-        "Org": "320772",
-        "Bureau": "120000",
-        "ORG_DESC": "(AID) BAKU (320772)",
-        "COUNTRY_STATE_CODE": "AJ0000000"
-      },
-      {
-        "Org": "347073",
-        "Bureau": "140000",
-        "ORG_DESC": "(AID) DHAHRA (347073)",
-        "COUNTRY_STATE_CODE": "SA0000000"
-      },
-      {
-        "Org": "346472",
-        "Bureau": "140000",
-        "ORG_DESC": "(AID) DOHA (346472)",
-        "COUNTRY_STATE_CODE": "QA0000000"
-      },
-      {
-        "Org": "357372",
-        "Bureau": "150000",
-        "ORG_DESC": "(AID) JUBA (357372)",
-        "COUNTRY_STATE_CODE": "SU0000000"
-      },
-      {
-        "Org": "310472",
-        "Bureau": "110000",
-        "ORG_DESC": "(AID) LAPAZ (310472)",
-        "COUNTRY_STATE_CODE": "BL0000000"
-      },
-      {
-        "Org": "323072",
-        "Bureau": "120000",
-        "ORG_DESC": "(AID) NUUK (323072)",
-        "COUNTRY_STATE_CODE": "GL0000000"
-      },
-      {
-        "Org": "313772",
-        "Bureau": "110000",
-        "ORG_DESC": "(AID) PARAMA (313772)",
-        "COUNTRY_STATE_CODE": "NS0000000"
-      },
-      {
-        "Org": "514210",
-        "Bureau": "500000",
-        "ORG_DESC": "(CITIP) (514210)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "519500",
-        "Bureau": "500000",
-        "ORG_DESC": "(MINURSO) (519500)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "521530",
-        "Bureau": "500000",
-        "ORG_DESC": "(OES) (521530)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "310468",
-        "Bureau": "110000",
-        "ORG_DESC": "(SEOP) LAPAZ (310468)",
-        "COUNTRY_STATE_CODE": "BL0000000"
-      },
-      {
-        "Org": "527500",
-        "Bureau": "500000",
-        "ORG_DESC": "(UNMEE) (527500)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "526200",
-        "Bureau": "500000",
-        "ORG_DESC": "(UNMIBH) IO (526200)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "520800",
-        "Bureau": "500000",
-        "ORG_DESC": "(UNMOT) (520800)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "526100",
-        "Bureau": "500000",
-        "ORG_DESC": "(UNTAES) IO (526100)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "406200",
-        "Bureau": "400000",
-        "ORG_DESC": "(WHCCY) (406200)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "200000",
-        "Bureau": "200000",
-        "ORG_DESC": "A (200000)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "201000",
-        "Bureau": "200000",
-        "ORG_DESC": "A (201000)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402806",
-        "Bureau": "400000",
-        "ORG_DESC": "A C D A (402806)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "404030",
-        "Bureau": "400000",
-        "ORG_DESC": "A R B COMM (404030)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402814",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402814)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402815",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402815)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402816",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402816)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402817",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402817)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402801",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402801)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402802",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402802)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402803",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402803)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402804",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402804)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402805",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402805)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402813",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402813)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402811",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402811)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402812",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402812)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402809",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402809)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "402807",
-        "Bureau": "400000",
-        "ORG_DESC": "A.C.D.A. (402807)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "222133",
-        "Bureau": "200000",
-        "ORG_DESC": "A/AQM/IT/COM (222133)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "201010",
-        "Bureau": "200000",
-        "ORG_DESC": "A/CSM (201010)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "201060",
-        "Bureau": "200000",
-        "ORG_DESC": "A/DTSPO (201060)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "010141",
-        "Bureau": "010000",
-        "ORG_DESC": "W-GDP (010141)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "518210",
-        "Bureau": "500000",
-        "ORG_DESC": "WAA (518210)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "518200",
-        "Bureau": "500000",
-        "ORG_DESC": "WAA (518200)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "326401",
-        "Bureau": "120000",
-        "ORG_DESC": "WARSAW (326401)",
-        "COUNTRY_STATE_CODE": "PL0000000"
-      },
-      {
-        "Org": "326468",
-        "Bureau": "120000",
-        "ORG_DESC": "WARSAW (326468)",
-        "COUNTRY_STATE_CODE": "PL0000000"
-      },
-      {
-        "Org": "525100",
-        "Bureau": "500000",
-        "ORG_DESC": "WCPFC (525100)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "331301",
-        "Bureau": "130000",
-        "ORG_DESC": "WELLINGTON (331301)",
-        "COUNTRY_STATE_CODE": "NZ0000000"
-      },
-      {
-        "Org": "110100",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA (110100)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "110000",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA (110000)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "119900",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA (119900)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "111700",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/AND (111700)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "110400",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/BECC (110400)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "111100",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/BSC (111100)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "112200",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/CAN (112200)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "111500",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/CAR (111500)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "110900",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/CCA (110900)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "111600",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/CEN (111600)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "112100",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/EPSC (112100)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "110200",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/EX (110200)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "110293",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/EX/ELP (110293)",
-        "COUNTRY_STATE_CODE": "MX0000000"
-      },
-      {
-        "Org": "110282",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/EX/FRC (110282)",
-        "COUNTRY_STATE_CODE": "120000000"
-      },
-      {
-        "Org": "110295",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/EX/LAR (110295)",
-        "COUNTRY_STATE_CODE": "MX0000000"
-      },
-      {
-        "Org": "110257",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/EX/MATAM (110257)",
-        "COUNTRY_STATE_CODE": "MX0000000"
-      },
-      {
-        "Org": "110292",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/EX/NOG (110292)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "110110",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/HA (110110)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "111900",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/MEX (111900)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "119082",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/MRRF (119082)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "112300",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/PD (112300)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "110130",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/PPCP (110130)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "110120",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/RPP (110120)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "110600",
-        "Bureau": "110000",
-        "ORG_DESC": "WHA/USOAS (110600)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "406210",
-        "Bureau": "400000",
-        "ORG_DESC": "WHCCY (406210)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "406500",
-        "Bureau": "400000",
-        "ORG_DESC": "WHCIWA (406500)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "406510",
-        "Bureau": "400000",
-        "ORG_DESC": "WHCIWA (406510)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "405010",
-        "Bureau": "400000",
-        "ORG_DESC": "WHITE HSE (405010)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "405000",
-        "Bureau": "400000",
-        "ORG_DESC": "WHITE HSE (405000)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "508130",
-        "Bureau": "500000",
-        "ORG_DESC": "WHO (508130)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "508110",
-        "Bureau": "500000",
-        "ORG_DESC": "WHO (508110)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "324034",
-        "Bureau": "120000",
-        "ORG_DESC": "WIESBADEN (324034)",
-        "COUNTRY_STATE_CODE": "GM0000000"
-      },
-      {
-        "Org": "356701",
-        "Bureau": "150000",
-        "ORG_DESC": "WINDHOEK (356701)",
-        "COUNTRY_STATE_CODE": "WA0000000"
-      },
-      {
-        "Org": "316008",
-        "Bureau": "110000",
-        "ORG_DESC": "WINNIPEG (316008)",
-        "COUNTRY_STATE_CODE": "CA0000000"
-      },
-      {
-        "Org": "508230",
-        "Bureau": "500000",
-        "ORG_DESC": "WMO (508230)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "330506",
-        "Bureau": "130000",
-        "ORG_DESC": "WUHAN (330506)",
-        "COUNTRY_STATE_CODE": "CH0000000"
-      },
-      {
-        "Org": "222184",
-        "Bureau": "200000",
-        "ORG_DESC": "WW/RPSO/FL (222184)",
-        "COUNTRY_STATE_CODE": " 0000000"
-      },
-      {
-        "Org": "351020",
-        "Bureau": "150000",
-        "ORG_DESC": "YAOUNDE (351020)",
-        "COUNTRY_STATE_CODE": "CT0000000"
-      },
-      {
-        "Org": "351001",
-        "Bureau": "150000",
-        "ORG_DESC": "YAOUNDE (351001)",
-        "COUNTRY_STATE_CODE": "CM0000000"
-      },
-      {
-        "Org": "351068",
-        "Bureau": "150000",
-        "ORG_DESC": "YAOUNDE (351068)",
-        "COUNTRY_STATE_CODE": "CM0000000"
-      },
-      {
-        "Org": "347006",
-        "Bureau": "140000",
-        "ORG_DESC": "YAU JEDDAH (347006)",
-        "COUNTRY_STATE_CODE": "SA0000000"
-      },
-      {
-        "Org": "347007",
-        "Bureau": "140000",
-        "ORG_DESC": "YAU RIYADH (347007)",
-        "COUNTRY_STATE_CODE": "SA0000000"
-      },
-      {
-        "Org": "328405",
-        "Bureau": "120000",
-        "ORG_DESC": "YEKATERINBUR (328405)",
-        "COUNTRY_STATE_CODE": "RS0000000"
-      },
-      {
-        "Org": "320401",
-        "Bureau": "120000",
-        "ORG_DESC": "YEREVAN (320401)",
-        "COUNTRY_STATE_CODE": "AM0000000"
-      },
-      {
-        "Org": "330806",
-        "Bureau": "130000",
-        "ORG_DESC": "YOKOHAMA (330806)",
-        "COUNTRY_STATE_CODE": "JA0000000"
-      },
-      {
-        "Org": "330862",
-        "Bureau": "130000",
-        "ORG_DESC": "YOKOHAMA RLS (330862)",
-        "COUNTRY_STATE_CODE": "JA0000000"
-      },
-      {
-        "Org": "322701",
-        "Bureau": "120000",
-        "ORG_DESC": "ZAGREB (322701)",
-        "COUNTRY_STATE_CODE": "HR0000000"
-      },
-      {
-        "Org": "312844",
-        "Bureau": "110000",
-        "ORG_DESC": "ZAMORA DE HI (312844)",
-        "COUNTRY_STATE_CODE": "MX0000000"
-      },
-      {
-        "Org": "357602",
-        "Bureau": "150000",
-        "ORG_DESC": "ZANZIBAR (357602)",
-        "COUNTRY_STATE_CODE": "TZ0000000"
-      },
-      {
-        "Org": "352202",
-        "Bureau": "150000",
-        "ORG_DESC": "ZIGUINCHOR (352202)",
-        "COUNTRY_STATE_CODE": "CD0000000"
-      },
-      {
-        "Org": "357400",
-        "Bureau": "150000",
-        "ORG_DESC": "ZIMBABWE (357400)",
-        "COUNTRY_STATE_CODE": "110000000"
-      },
-      {
-        "Org": "357468",
-        "Bureau": "150000",
-        "ORG_DESC": "ZIMBABWE (357468)",
-        "COUNTRY_STATE_CODE": "ZI0000000"
-      },
-      {
-        "Org": "357499",
-        "Bureau": "150000",
-        "ORG_DESC": "ZIMBABWE (357499)",
-        "COUNTRY_STATE_CODE": "CD0000000"
-      },
-      {
-        "Org": "327604",
-        "Bureau": "120000",
-        "ORG_DESC": "ZURICH (327604)",
-        "COUNTRY_STATE_CODE": "SZ0000000"
-      }
-    ],
-  "PQRY_PERSON_LEVEL_O": [
+  "PQRY_BUREAU_LEVEL_O": [
     {
-      "PER_SEQ_NUM": 0,
-      "ORG": null,
-      "PER_FULL_NAME": "<Employees not in your bureau>",
-      "ORG_SHORT_DESC": null,
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "<Employees not in your bureau>"
+      "Bureau": "200000",
+      "ORG_SHORT_DESC": "A"
     },
     {
-      "PER_SEQ_NUM": 522124,
-      "ORG": "197260",
-      "PER_FULL_NAME": "AAMOLDEE,JAEHA-NAERKEEE NMN",
-      "ORG_SHORT_DESC": "ISN/NPP/CTR",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "AAMOLDEE,JAEHA-NAERKEEE NMN (ISN/NPP/CTR)"
+      "Bureau": "190000",
+      "ORG_SHORT_DESC": "AC"
     },
     {
-      "PER_SEQ_NUM": 443499,
-      "ORG": "322701",
-      "PER_FULL_NAME": "AANAM-NDUEE,RYSZERDEE NMN",
-      "ORG_SHORT_DESC": "ZAGREB",
-      "SKL_CODE": "9080",
-      "PER_NAME_ORG": "AANAM-NDUEE,RYSZERDEE NMN (ZAGREB)"
+      "Bureau": "253000",
+      "ORG_SHORT_DESC": "CDP"
     },
     {
-      "PER_SEQ_NUM": 585671,
-      "ORG": "146400",
-      "PER_FULL_NAME": "AANENSONEE,MENSAHEE NMN",
-      "ORG_SHORT_DESC": "SCA/PPD",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "AANENSONEE,MENSAHEE NMN (SCA/PPD)"
+      "Bureau": "080000",
+      "ORG_SHORT_DESC": "CGFS"
     },
     {
-      "PER_SEQ_NUM": 412860,
-      "ORG": "355501",
-      "PER_FULL_NAME": "ABANGEEE,JOETTAEE NMN",
-      "ORG_SHORT_DESC": "BAMAKO",
-      "SKL_CODE": "2010",
-      "PER_NAME_ORG": "ABANGEEE,JOETTAEE NMN (BAMAKO)"
+      "Bureau": "230000",
+      "ORG_SHORT_DESC": "ECA"
     },
     {
-      "PER_SEQ_NUM": 603969,
-      "ORG": "197260",
-      "PER_FULL_NAME": "ABAREEE,PINKI-JIVODEE NMN",
-      "ORG_SHORT_DESC": "ISN/NPP/CTR",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABAREEE,PINKI-JIVODEE NMN (ISN/NPP/CTR)"
+      "Bureau": "025000",
+      "ORG_SHORT_DESC": "ENR"
     },
     {
-      "PER_SEQ_NUM": 438098,
-      "ORG": "140200",
-      "PER_FULL_NAME": "ABBASFARDEE,CLOONA-LYUBOVEE NMN",
-      "ORG_SHORT_DESC": "NEA/EX",
-      "SKL_CODE": "5505",
-      "PER_NAME_ORG": "ABBASFARDEE,CLOONA-LYUBOVEE NMN (NEA/EX)"
+      "Bureau": "120000",
+      "ORG_SHORT_DESC": "EUR"
     },
     {
-      "PER_SEQ_NUM": 565432,
-      "ORG": "352801",
-      "PER_FULL_NAME": "ABBEEE,KROSTUANNIEE NMN",
-      "ORG_SHORT_DESC": "CONAKRY",
-      "SKL_CODE": "6115",
-      "PER_NAME_ORG": "ABBEEE,KROSTUANNIEE NMN (CONAKRY)"
+      "Bureau": "260000",
+      "ORG_SHORT_DESC": "FSI"
     },
     {
-      "PER_SEQ_NUM": 429224,
-      "ORG": "324701",
-      "PER_FULL_NAME": "ABDELMAGID-NACKEE,HOTIMEE NMN",
-      "ORG_SHORT_DESC": "PODGORICA",
-      "SKL_CODE": "4400",
-      "PER_NAME_ORG": "ABDELMAGID-NACKEE,HOTIMEE NMN (PODGORICA)"
+      "Bureau": "100000",
+      "ORG_SHORT_DESC": "GPA"
     },
     {
-      "PER_SEQ_NUM": 522826,
-      "ORG": "281595",
-      "PER_FULL_NAME": "ABDOURAHMAANEE,EDUARDOEE NMN",
-      "ORG_SHORT_DESC": "CA/PPT/WPC",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABDOURAHMAANEE,EDUARDOEE NMN (CA/PPT/WPC)"
+      "Bureau": "210000",
+      "ORG_SHORT_DESC": "GTM"
     },
     {
-      "PER_SEQ_NUM": 522826,
-      "ORG": "281595",
-      "PER_FULL_NAME": "ABDOURAHMAANEE,EDUARDOEE NMN",
-      "ORG_SHORT_DESC": "CA/PPT/WPC",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABDOURAHMAANEE,EDUARDOEE NMN (CA/PPT/WPC)"
+      "Bureau": "070000",
+      "ORG_SHORT_DESC": "H"
     },
     {
-      "PER_SEQ_NUM": 601776,
-      "ORG": "282340",
-      "PER_FULL_NAME": "ABDOURAHMAANEE,IINIEEE NMN",
-      "ORG_SHORT_DESC": "CA/VO/F/IE",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABDOURAHMAANEE,IINIEEE NMN (CA/VO/F/IE)"
+      "Bureau": "309144",
+      "ORG_SHORT_DESC": "IBWC"
     },
     {
-      "PER_SEQ_NUM": 405726,
-      "ORG": "019300",
-      "PER_FULL_NAME": "ABDOURAHMAANEE,OLINIOEE NMN",
-      "ORG_SHORT_DESC": "INL/EX",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABDOURAHMAANEE,OLINIOEE NMN (INL/EX)"
+      "Bureau": "309207",
+      "ORG_SHORT_DESC": "IBWC"
     },
     {
-      "PER_SEQ_NUM": 553853,
-      "ORG": "281578",
-      "PER_FULL_NAME": "ABDUL WALIEE,QINTEE-GARBOEE NMN",
-      "ORG_SHORT_DESC": "CA/PPT/HN",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABDUL WALIEE,QINTEE-GARBOEE NMN (CA/PPT/HN)"
+      "Bureau": "019000",
+      "ORG_SHORT_DESC": "INL"
     },
     {
-      "PER_SEQ_NUM": 582424,
-      "ORG": "172878",
-      "PER_FULL_NAME": "ABDULKADIR-BOHMANEE,ALBON MUXEE NMN",
-      "ORG_SHORT_DESC": "DS/FLD/HFO",
-      "SKL_CODE": "2501",
-      "PER_NAME_ORG": "ABDULKADIR-BOHMANEE,ALBON MUXEE NMN (DS/FLD/HFO)"
-    },
-    {
-      "PER_SEQ_NUM": 396405,
-      "ORG": "214004",
-      "PER_FULL_NAME": "ABELLO-NANAAKUEE,RASS IEE NMN",
-      "ORG_SHORT_DESC": "GTM/CDA/ML",
-      "SKL_CODE": "5505",
-      "PER_NAME_ORG": "ABELLO-NANAAKUEE,RASS IEE NMN (GTM/CDA/ML)"
-    },
-    {
-      "PER_SEQ_NUM": 511638,
-      "ORG": "042100",
-      "PER_FULL_NAME": "ABERAEE,ELBUN-CHEVEREE NMN",
-      "ORG_SHORT_DESC": "L/LEI",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABERAEE,ELBUN-CHEVEREE NMN (L/LEI)"
-    },
-    {
-      "PER_SEQ_NUM": 465018,
-      "ORG": "321801",
-      "PER_FULL_NAME": "ABERER-CARREONEE,HAFIZEE NMN",
-      "ORG_SHORT_DESC": "ATHENS",
-      "SKL_CODE": "5505",
-      "PER_NAME_ORG": "ABERER-CARREONEE,HAFIZEE NMN (ATHENS)"
-    },
-    {
-      "PER_SEQ_NUM": 439200,
-      "ORG": "321201",
-      "PER_FULL_NAME": "ABERER-CARREONEE,LOSHIONDOEE NMN",
-      "ORG_SHORT_DESC": "BRUSSELS",
-      "SKL_CODE": "2010",
-      "PER_NAME_ORG": "ABERER-CARREONEE,LOSHIONDOEE NMN (BRUSSELS)"
-    },
-    {
-      "PER_SEQ_NUM": 608702,
-      "ORG": "218000",
-      "PER_FULL_NAME": "ABERER-CARREONEE,MORAS-MIMMIEE NMN",
-      "ORG_SHORT_DESC": "GTM/RET",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABERER-CARREONEE,MORAS-MIMMIEE NMN (GTM/RET)"
-    },
-    {
-      "PER_SEQ_NUM": 504695,
-      "ORG": "354201",
-      "PER_FULL_NAME": "ABERER-CARREONEE,NKURUNZIZAEE NMN",
-      "ORG_SHORT_DESC": "NAIROBI",
-      "SKL_CODE": "2010",
-      "PER_NAME_ORG": "ABERER-CARREONEE,NKURUNZIZAEE NMN (NAIROBI)"
-    },
-    {
-      "PER_SEQ_NUM": 602690,
-      "ORG": "260910",
-      "PER_FULL_NAME": "ABIEZOZOHEE,RUKESHEE NMN",
-      "ORG_SHORT_DESC": "FSI/LT",
-      "SKL_CODE": "2550",
-      "PER_NAME_ORG": "ABIEZOZOHEE,RUKESHEE NMN (FSI/LT)"
-    },
-    {
-      "PER_SEQ_NUM": 477081,
-      "ORG": "201152",
-      "PER_FULL_NAME": "ABILSEE,LIZZET-ANN AEE NMN",
-      "ORG_SHORT_DESC": "A/EX/ITS/BMS",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABILSEE,LIZZET-ANN AEE NMN (A/EX/ITS/BMS)"
-    },
-    {
-      "PER_SEQ_NUM": 531330,
-      "ORG": "018101",
-      "PER_FULL_NAME": "ABITONG-KASSAYEEE,NICTEEE NMN",
-      "ORG_SHORT_DESC": "DRL/ILA",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABITONG-KASSAYEEE,NICTEEE NMN (DRL/ILA)"
-    },
-    {
-      "PER_SEQ_NUM": 415980,
-      "ORG": "260510",
-      "PER_FULL_NAME": "ABLORHEE,KEUTEHEE NMN",
-      "ORG_SHORT_DESC": "FSI/SAIT/BT",
-      "SKL_CODE": "2884",
-      "PER_NAME_ORG": "ABLORHEE,KEUTEHEE NMN (FSI/SAIT/BT)"
-    },
-    {
-      "PER_SEQ_NUM": 437103,
-      "ORG": "212930",
-      "PER_FULL_NAME": "ABLORHEE,NESHWIEE NMN",
-      "ORG_SHORT_DESC": "GTM/OE/PC",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABLORHEE,NESHWIEE NMN (GTM/OE/PC)"
-    },
-    {
-      "PER_SEQ_NUM": 415258,
-      "ORG": "197080",
-      "PER_FULL_NAME": "ABO FARHAEE,KAYDEE NMN",
-      "ORG_SHORT_DESC": "ISN/EX",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABO FARHAEE,KAYDEE NMN (ISN/EX)"
-    },
-    {
-      "PER_SEQ_NUM": 425597,
-      "ORG": "232110",
-      "PER_FULL_NAME": "ABO FARHAEE,MENDINIEE NMN",
-      "ORG_SHORT_DESC": "ECA/C/CU",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABO FARHAEE,MENDINIEE NMN (ECA/C/CU)"
-    },
-    {
-      "PER_SEQ_NUM": 411422,
-      "ORG": "331401",
-      "PER_FULL_NAME": "ABOKELUM-TONNESENEE,NICOLLE (NIKKI)EE NMN",
-      "ORG_SHORT_DESC": "MANILA",
-      "SKL_CODE": "2884",
-      "PER_NAME_ORG": "ABOKELUM-TONNESENEE,NICOLLE (NIKKI)EE NMN (MANILA)"
-    },
-    {
-      "PER_SEQ_NUM": 557651,
-      "ORG": "219910",
-      "PER_FULL_NAME": "ABOU NADEREE,ARROLEE NMN",
-      "ORG_SHORT_DESC": "FSFRC",
-      "SKL_CODE": "9040",
-      "PER_NAME_ORG": "ABOU NADEREE,ARROLEE NMN (FSFRC)"
-    },
-    {
-      "PER_SEQ_NUM": 566097,
-      "ORG": "014820",
-      "PER_FULL_NAME": "ABOUZAHR-YACESUNEE,QINTEE-GARBOEE NMN",
-      "ORG_SHORT_DESC": "PM/DTCP",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABOUZAHR-YACESUNEE,QINTEE-GARBOEE NMN (PM/DTCP)"
-    },
-    {
-      "PER_SEQ_NUM": 565233,
-      "ORG": "174440",
-      "PER_FULL_NAME": "ABRAMOVICHEE,ALBON MUXEE NMN",
-      "ORG_SHORT_DESC": "DS/CTO/EPS",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABRAMOVICHEE,ALBON MUXEE NMN (DS/CTO/EPS)"
-    },
-    {
-      "PER_SEQ_NUM": 443345,
-      "ORG": "061550",
-      "PER_FULL_NAME": "ABRAMSEE,SHELEY-JUNILIEE NMN",
-      "ORG_SHORT_DESC": "INR/OPN/NA",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABRAMSEE,SHELEY-JUNILIEE NMN (INR/OPN/NA)"
-    },
-    {
-      "PER_SEQ_NUM": 416254,
-      "ORG": "166384",
-      "PER_FULL_NAME": "ABRENICA-SCHLENGOEE,RUBURT HEE NMN",
-      "ORG_SHORT_DESC": "USUN/RM",
-      "SKL_CODE": "5505",
-      "PER_NAME_ORG": "ABRENICA-SCHLENGOEE,RUBURT HEE NMN (USUN/RM)"
-    },
-    {
-      "PER_SEQ_NUM": 433092,
-      "ORG": "011810",
-      "PER_FULL_NAME": "ABTEW-LAXTEN EOEE,LANSANGEE NMN",
-      "ORG_SHORT_DESC": "J/TIP",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABTEW-LAXTEN EOEE,LANSANGEE NMN (J/TIP)"
-    },
-    {
-      "PER_SEQ_NUM": 403470,
-      "ORG": "019345",
-      "PER_FULL_NAME": "ABU AKEEL-TOLVEEE,OZORI-TROVOREE NMN",
-      "ORG_SHORT_DESC": "INL/EX/BS",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABU AKEEL-TOLVEEE,OZORI-TROVOREE NMN (INL/EX/BS)"
-    },
-    {
-      "PER_SEQ_NUM": 430043,
-      "ORG": "178300",
-      "PER_FULL_NAME": "ABU-BAKAR-LATTYEE,MAMADUEE NMN",
-      "ORG_SHORT_DESC": "DS/TIA/CC",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABU-BAKAR-LATTYEE,MAMADUEE NMN (DS/TIA/CC)"
-    },
-    {
-      "PER_SEQ_NUM": 557271,
-      "ORG": "218000",
-      "PER_FULL_NAME": "ABUALROUBEE,DIARRA-SPARSHEE NMN",
-      "ORG_SHORT_DESC": "GTM/RET",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ABUALROUBEE,DIARRA-SPARSHEE NMN (GTM/RET)"
-    },
-    {
-      "PER_SEQ_NUM": 553489,
-      "ORG": "352401",
-      "PER_FULL_NAME": "ACANEMIUEE,ALBON MUXEE NMN",
-      "ORG_SHORT_DESC": "ACCRA",
-      "SKL_CODE": "5505",
-      "PER_NAME_ORG": "ACANEMIUEE,ALBON MUXEE NMN (ACCRA)"
-    },
-    {
-      "PER_SEQ_NUM": 410673,
-      "ORG": "213110",
-      "PER_FULL_NAME": "ACANEMIUEE,ARTIREE NMN",
-      "ORG_SHORT_DESC": "GTM/TAC/BEX",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ACANEMIUEE,ARTIREE NMN (GTM/TAC/BEX)"
-    },
-    {
-      "PER_SEQ_NUM": 397753,
-      "ORG": "080110",
-      "PER_FULL_NAME": "ZOUMMAREE,WINZULEE NMN",
-      "ORG_SHORT_DESC": "CGFS/GAO",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZOUMMAREE,WINZULEE NMN (CGFS/GAO)"
-    },
-    {
-      "PER_SEQ_NUM": 426243,
-      "ORG": "327667",
-      "PER_FULL_NAME": "ZOVERICKEE,TEREZ-BIRLEE NMN",
-      "ORG_SHORT_DESC": "GENEVA-USMIS",
-      "SKL_CODE": "6220",
-      "PER_NAME_ORG": "ZOVERICKEE,TEREZ-BIRLEE NMN (GENEVA-USMIS)"
-    },
-    {
-      "PER_SEQ_NUM": 434240,
-      "ORG": "282970",
-      "PER_FULL_NAME": "ZUBAIREE,SUKAVE-NAYE'EE NMN",
-      "ORG_SHORT_DESC": "CA/VO/DO/DL",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZUBAIREE,SUKAVE-NAYE'EE NMN (CA/VO/DO/DL)"
-    },
-    {
-      "PER_SEQ_NUM": 416910,
-      "ORG": "201450",
-      "PER_FULL_NAME": "ZUCO-PERCIANTEEE,MAHMUD-CHENUYEE NMN",
-      "ORG_SHORT_DESC": "OPE/AQM/WW",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZUCO-PERCIANTEEE,MAHMUD-CHENUYEE NMN (OPE/AQM/WW)"
-    },
-    {
-      "PER_SEQ_NUM": 576451,
-      "ORG": "281595",
-      "PER_FULL_NAME": "ZUEHSOW-BRESLUYEE,IDEISHAEE NMN",
-      "ORG_SHORT_DESC": "CA/PPT/WPC",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZUEHSOW-BRESLUYEE,IDEISHAEE NMN (CA/PPT/WPC)"
-    },
-    {
-      "PER_SEQ_NUM": 407740,
-      "ORG": "022100",
-      "PER_FULL_NAME": "ZUELOK-WORBYEE,ZEPHENEEEE NMN",
-      "ORG_SHORT_DESC": "OES/O/OPA",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZUELOK-WORBYEE,ZEPHENEEEE NMN (OES/O/OPA)"
-    },
-    {
-      "PER_SEQ_NUM": 444831,
-      "ORG": "012933",
-      "PER_FULL_NAME": "ZUIKEPNY-OSGIORRUEE,ASIRUEE NMN",
-      "ORG_SHORT_DESC": "OFM/OPS/ASB",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZUIKEPNY-OSGIORRUEE,ASIRUEE NMN (OFM/OPS/ASB)"
-    },
-    {
-      "PER_SEQ_NUM": 531429,
-      "ORG": "221511",
-      "PER_FULL_NAME": "ZUNKEVUCH-LOMOSHEE,WADIM-CULLOYEE NMN",
-      "ORG_SHORT_DESC": "A/GSM/SS/OS",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZUNKEVUCH-LOMOSHEE,WADIM-CULLOYEE NMN (A/GSM/SS/OS)"
-    },
-    {
-      "PER_SEQ_NUM": 443098,
-      "ORG": "211100",
-      "PER_FULL_NAME": "ZUPP-ALASADIEE,FEURDNANTEE NMN",
-      "ORG_SHORT_DESC": "GTM/OTA/CCP",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZUPP-ALASADIEE,FEURDNANTEE NMN (GTM/OTA/CCP)"
-    },
-    {
-      "PER_SEQ_NUM": 441928,
-      "ORG": "321802",
-      "PER_FULL_NAME": "ZURASKI-SUMMERSEE,KLINE-NAIRIEE NMN",
-      "ORG_SHORT_DESC": "THESSALONIKI",
-      "SKL_CODE": "5015",
-      "PER_NAME_ORG": "ZURASKI-SUMMERSEE,KLINE-NAIRIEE NMN (THESSALONIKI)"
-    },
-    {
-      "PER_SEQ_NUM": 488697,
-      "ORG": "313401",
-      "PER_FULL_NAME": "ZURVUCEE,HOONGOVILILENUEE NMN",
-      "ORG_SHORT_DESC": "ASUNCION",
-      "SKL_CODE": "5015",
-      "PER_NAME_ORG": "ZURVUCEE,HOONGOVILILENUEE NMN (ASUNCION)"
-    },
-    {
-      "PER_SEQ_NUM": 440393,
-      "ORG": "172481",
-      "PER_FULL_NAME": "ZVERFFEE,RUOFEIEE NMN",
-      "ORG_SHORT_DESC": "DS/FLD/LAFO",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZVERFFEE,RUOFEIEE NMN (DS/FLD/LAFO)"
-    },
-    {
-      "PER_SEQ_NUM": 512426,
-      "ORG": "219910",
-      "PER_FULL_NAME": "ZVIRO-MENDELSONEE,ZEYDON-NAIMAEE NMN",
-      "ORG_SHORT_DESC": "FSFRC",
-      "SKL_CODE": "7099",
-      "PER_NAME_ORG": "ZVIRO-MENDELSONEE,ZEYDON-NAIMAEE NMN (FSFRC)"
-    },
-    {
-      "PER_SEQ_NUM": 528390,
-      "ORG": "025310",
-      "PER_FULL_NAME": "ZWICKEE,SHO YEEE NMN",
-      "ORG_SHORT_DESC": "ENR/EDP/EWA",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZWICKEE,SHO YEEE NMN (ENR/EDP/EWA)"
-    },
-    {
-      "PER_SEQ_NUM": 587980,
-      "ORG": "174100",
-      "PER_FULL_NAME": "ZYLLA-HANNIFFYEE,OK SEONEE NMN",
-      "ORG_SHORT_DESC": "DS/EX/HRM",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZYLLA-HANNIFFYEE,OK SEONEE NMN (DS/EX/HRM)"
-    },
-    {
-      "PER_SEQ_NUM": 434759,
-      "ORG": "343203",
-      "PER_FULL_NAME": "ZYLLA-HANNIFFYEE,ZORONAEE NMN",
-      "ORG_SHORT_DESC": "ERBIL,  IRAQ",
-      "SKL_CODE": "3001",
-      "PER_NAME_ORG": "ZYLLA-HANNIFFYEE,ZORONAEE NMN (ERBIL,  IRAQ)"
-    },
-    {
-      "PER_SEQ_NUM": 592243,
-      "ORG": "011810",
-      "PER_FULL_NAME": "ZYLMINEE,ANN DEE NMN",
-      "ORG_SHORT_DESC": "J/TIP",
-      "SKL_CODE": null,
-      "PER_NAME_ORG": "ZYLMINEE,ANN DEE NMN (J/TIP)"
+      "Bureau": "110000",
+      "ORG_SHORT_DESC": "WHA"
     }
   ],
-"PQRY_POSITION_LEVEL_O": [
+  "PQRY_ORG_LEVEL_O": [
   {
-    "POS_SEQ_NUM": 7,
-    "ORG": "403530",
-    "POS_ORG_SHORT_DESC": "TRADE NEGOT",
-    "POS_NUM_TEXT": "00000005 (TRADE NEGOT)",
-    "POS_TITLE_DESC": "SPECIAL ASSISTANT (AFD)",
-    "POS_SKILL_CODE": "7074",
-    "POS_SKILL_DESC": "DETAIL"
+    "Org": "328272",
+    "Bureau": "120000",
+    "ORG_DESC": "(AID) ANKARA (328272)",
+    "COUNTRY_STATE_CODE": "TU0000000"
   },
   {
-    "POS_SEQ_NUM": 9,
-    "ORG": "412030",
-    "POS_ORG_SHORT_DESC": "USIA - OS",
-    "POS_NUM_TEXT": "00000007 (USIA - OS)",
-    "POS_TITLE_DESC": "SPECIAL ASSISTANT (AFD)",
-    "POS_SKILL_CODE": "7074",
-    "POS_SKILL_DESC": "DETAIL"
+    "Org": "347073",
+    "Bureau": "140000",
+    "ORG_DESC": "(AID) DHAHRA (347073)",
+    "COUNTRY_STATE_CODE": "SA0000000"
   },
   {
-    "POS_SEQ_NUM": 3,
-    "ORG": "400830",
-    "POS_ORG_SHORT_DESC": "DEFENSE",
-    "POS_NUM_TEXT": "00000008 (DEFENSE)",
-    "POS_TITLE_DESC": "SPECIAL ASSISTANT (AFD)",
-    "POS_SKILL_CODE": "7074",
-    "POS_SKILL_DESC": "DETAIL"
+    "Org": "527500",
+    "Bureau": "500000",
+    "ORG_DESC": "(UNMEE) (527500)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 8642,
-    "ORG": "412030",
-    "POS_ORG_SHORT_DESC": "USIA - OS",
-    "POS_NUM_TEXT": "00000009 (USIA - OS)",
-    "POS_TITLE_DESC": "PRJ MGT SPL (EDUCATION)",
-    "POS_SKILL_CODE": "7074",
-    "POS_SKILL_DESC": "DETAIL"
+    "Org": "526200",
+    "Bureau": "500000",
+    "ORG_DESC": "(UNMIBH) IO (526200)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 10414,
-    "ORG": "412030",
-    "POS_ORG_SHORT_DESC": "USIA - OS",
-    "POS_NUM_TEXT": "00000013 (USIA - OS)",
-    "POS_TITLE_DESC": "PRJ MGT SPL (EDUCATION)",
-    "POS_SKILL_CODE": "7074",
-    "POS_SKILL_DESC": "DETAIL"
+    "Org": "520800",
+    "Bureau": "500000",
+    "ORG_DESC": "(UNMOT) (520800)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 14116,
-    "ORG": "402730",
-    "POS_ORG_SHORT_DESC": "TREASURY DEP",
-    "POS_NUM_TEXT": "00000021 (TREASURY DEP)",
-    "POS_TITLE_DESC": "PRJ MGT SPL (EDUCATION)",
-    "POS_SKILL_CODE": "7074",
-    "POS_SKILL_DESC": "DETAIL"
+    "Org": "200000",
+    "Bureau": "200000",
+    "ORG_DESC": "A (200000)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 23679,
-    "ORG": "402730",
-    "POS_ORG_SHORT_DESC": "TREASURY DEP",
-    "POS_NUM_TEXT": "00000025 (TREASURY DEP)",
-    "POS_TITLE_DESC": "PRJ MGT SPL (EDUCATION)",
-    "POS_SKILL_CODE": "7074",
-    "POS_SKILL_DESC": "DETAIL"
+    "Org": "201000",
+    "Bureau": "200000",
+    "ORG_DESC": "A (201000)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 61813,
-    "ORG": "400130",
-    "POS_ORG_SHORT_DESC": "AID-OVSEAS",
-    "POS_NUM_TEXT": "00000041 (AID-OVSEAS)",
-    "POS_TITLE_DESC": "LANDSCAPE ARCHITECT",
-    "POS_SKILL_CODE": "7074",
-    "POS_SKILL_DESC": "DETAIL"
+    "Org": "402806",
+    "Bureau": "400000",
+    "ORG_DESC": "A C D A (402806)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 63027,
-    "ORG": "324051",
-    "POS_ORG_SHORT_DESC": "PM/POLAD/AFR",
-    "POS_NUM_TEXT": "00000042 (PM/POLAD/AFR)",
-    "POS_TITLE_DESC": "FOR AFFAIRS OFFICER- CONS",
-    "POS_SKILL_CODE": "6080",
-    "POS_SKILL_DESC": "INTERFUNCTIONAL OFFICER OPER"
+    "Org": "402811",
+    "Bureau": "400000",
+    "ORG_DESC": "A.C.D.A. (402811)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 65460,
-    "ORG": "324051",
-    "POS_ORG_SHORT_DESC": "PM/POLAD/AFR",
-    "POS_NUM_TEXT": "00000043 (PM/POLAD/AFR)",
-    "POS_TITLE_DESC": "CO-CLO",
-    "POS_SKILL_CODE": "6080",
-    "POS_SKILL_DESC": "INTERFUNCTIONAL OFFICER OPER"
+    "Org": "402812",
+    "Bureau": "400000",
+    "ORG_DESC": "A.C.D.A. (402812)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 67157,
-    "ORG": "366201",
-    "POS_ORG_SHORT_DESC": "ISLAMABAD",
-    "POS_NUM_TEXT": "00000046 (ISLAMABAD)",
-    "POS_TITLE_DESC": "REGIONAL HUMAN RESOURCES OFFIC",
-    "POS_SKILL_CODE": "7074",
-    "POS_SKILL_DESC": "DETAIL"
+    "Org": "402809",
+    "Bureau": "400000",
+    "ORG_DESC": "A.C.D.A. (402809)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 11,
-    "ORG": "310612",
-    "POS_ORG_SHORT_DESC": "SAO PAULO",
-    "POS_NUM_TEXT": "00001002 (SAO PAULO)",
-    "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    "Org": "201060",
+    "Bureau": "200000",
+    "ORG_DESC": "A/DTSPO (201060)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 12,
-    "ORG": "310701",
-    "POS_ORG_SHORT_DESC": "GEORGETOWN",
-    "POS_NUM_TEXT": "00001003 (GEORGETOWN)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    "Org": "010141",
+    "Bureau": "010000",
+    "ORG_DESC": "W-GDP (010141)",
+    "COUNTRY_STATE_CODE": "110000000"
   },
   {
-    "POS_SEQ_NUM": 13,
-    "ORG": "310801",
-    "POS_ORG_SHORT_DESC": "SANTIAGO",
-    "POS_NUM_TEXT": "00001004 (SANTIAGO)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    "Org": "357499",
+    "Bureau": "150000",
+    "ORG_DESC": "ZIMBABWE (357499)",
+    "COUNTRY_STATE_CODE": "CD0000000"
   },
   {
-    "POS_SEQ_NUM": 14,
-    "ORG": "311201",
-    "POS_ORG_SHORT_DESC": "SAN JOSE",
-    "POS_NUM_TEXT": "00001005 (SAN JOSE)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 15,
-    "ORG": "311801",
-    "POS_ORG_SHORT_DESC": "QUITO",
-    "POS_NUM_TEXT": "00001006 (QUITO)",
-    "POS_TITLE_DESC": "IT SPECIALIST (NETWORK/PLCYPLN",
-    "POS_SKILL_CODE": "9017",
-    "POS_SKILL_DESC": "OFFICE MANAGEMENT"
-  },
-  {
-    "POS_SEQ_NUM": 17,
-    "ORG": "312401",
-    "POS_ORG_SHORT_DESC": "PORT AU PRIN",
-    "POS_NUM_TEXT": "00001008 (PORT AU PRIN)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 18,
-    "ORG": "312601",
-    "POS_ORG_SHORT_DESC": "TEGUCIGALPA",
-    "POS_NUM_TEXT": "00001009 (TEGUCIGALPA)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 19,
-    "ORG": "312801",
-    "POS_ORG_SHORT_DESC": "MEXICO CITY",
-    "POS_NUM_TEXT": "00001010 (MEXICO CITY)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 20,
-    "ORG": "312802",
-    "POS_ORG_SHORT_DESC": "CIU.JUAREZ",
-    "POS_NUM_TEXT": "00001011 (CIU.JUAREZ)",
-    "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 9198,
-    "ORG": "312804",
-    "POS_ORG_SHORT_DESC": "MATAMOROS",
-    "POS_NUM_TEXT": "00001012 (MATAMOROS)",
-    "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 21,
-    "ORG": "312808",
-    "POS_ORG_SHORT_DESC": "NOGALES",
-    "POS_NUM_TEXT": "00001013 (NOGALES)",
-    "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 22,
-    "ORG": "312812",
-    "POS_ORG_SHORT_DESC": "TIJUANA",
-    "POS_NUM_TEXT": "00001014 (TIJUANA)",
-    "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 25,
-    "ORG": "313601",
-    "POS_ORG_SHORT_DESC": "LIMA",
-    "POS_NUM_TEXT": "00001017 (LIMA)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 26,
-    "ORG": "313801",
-    "POS_ORG_SHORT_DESC": "MONTEVIDEO",
-    "POS_NUM_TEXT": "00001018 (MONTEVIDEO)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 30,
-    "ORG": "320601",
-    "POS_ORG_SHORT_DESC": "VIENNA",
-    "POS_NUM_TEXT": "00001022 (VIENNA)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 24547,
-    "ORG": "321491",
-    "POS_ORG_SHORT_DESC": "HAMILTON",
-    "POS_NUM_TEXT": "00001025 (HAMILTON)",
-    "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 34,
-    "ORG": "321802",
-    "POS_ORG_SHORT_DESC": "THESSALONIKI",
-    "POS_NUM_TEXT": "00001027 (THESSALONIKI)",
-    "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 28939,
-    "ORG": "322501",
-    "POS_ORG_SHORT_DESC": "SOFIA",
-    "POS_NUM_TEXT": "00001029 (SOFIA)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 36224,
-    "ORG": "316001",
-    "POS_ORG_SHORT_DESC": "OTTAWA",
-    "POS_NUM_TEXT": "00001030 (OTTAWA)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 36271,
-    "ORG": "316002",
-    "POS_ORG_SHORT_DESC": "CALGARY",
-    "POS_NUM_TEXT": "00001031 (CALGARY)",
-    "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
-    "POS_SKILL_CODE": "0020",
-    "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
-  },
-  {
-    "POS_SEQ_NUM": 175960,
-    "ORG": "214400",
-    "POS_ORG_SHORT_DESC": "GTM/CDA/EL",
-    "POS_NUM_TEXT": "Y2144013 (GTM/CDA/EL)",
-    "POS_TITLE_DESC": "STUDENT TRAINEE (PRGM SPEC)",
-    "POS_SKILL_CODE": "4400",
-    "POS_SKILL_DESC": "PUBLIC DIPLOMACY"
-  },
-  {
-    "POS_SEQ_NUM": 166588,
-    "ORG": "220100",
-    "POS_ORG_SHORT_DESC": "A/OPR",
-    "POS_NUM_TEXT": "Y2210000 (A/OPR)",
-    "POS_TITLE_DESC": "DIGITAL PRODUCTION ASSISTANT",
-    "POS_SKILL_CODE": "6218",
-    "POS_SKILL_DESC": "CONSTRUCTION ENGINEERING"
-  },
-  {
-    "POS_SEQ_NUM": 188002,
-    "ORG": "011421",
-    "POS_ORG_SHORT_DESC": "R/PPR/P",
-    "POS_NUM_TEXT": "Y2304303 (R/PPR/P)",
-    "POS_TITLE_DESC": "GENERAL DEVELOPMENT OFFICER",
-    "POS_SKILL_CODE": "4400",
-    "POS_SKILL_DESC": "PUBLIC DIPLOMACY"
-  },
-  {
-    "POS_SEQ_NUM": 155040,
-    "ORG": "233100",
-    "POS_ORG_SHORT_DESC": "ECA/P/A",
-    "POS_NUM_TEXT": "Y2331000 (ECA/P/A)",
-    "POS_TITLE_DESC": "ENVIRONMENT ADVISOR",
-    "POS_SKILL_CODE": "4400",
-    "POS_SKILL_DESC": "PUBLIC DIPLOMACY"
-  },
-  {
-    "POS_SEQ_NUM": 186420,
-    "ORG": "248100",
-    "POS_ORG_SHORT_DESC": "OBO/CFSM/CM",
-    "POS_NUM_TEXT": "Y2481001 (OBO/CFSM/CM)",
-    "POS_TITLE_DESC": "MEDICAL SUPPORT ASSISTANT",
-    "POS_SKILL_CODE": "6218",
-    "POS_SKILL_DESC": "CONSTRUCTION ENGINEERING"
-  },
-  {
-    "POS_SEQ_NUM": 136439,
-    "ORG": "248240",
-    "POS_ORG_SHORT_DESC": "CFSM/FAC/FMG",
-    "POS_NUM_TEXT": "Y2482402 (CFSM/FAC/FMG)",
-    "POS_TITLE_DESC": "VISA SPECIALIST",
-    "POS_SKILL_CODE": "6217",
-    "POS_SKILL_DESC": "FACILITY MAINTENANCE"
-  },
-  {
-    "POS_SEQ_NUM": 154542,
-    "ORG": "260311",
-    "POS_ORG_SHORT_DESC": "FSI/SPAS/MTT",
-    "POS_NUM_TEXT": "Y2603112 (FSI/SPAS/MTT)",
-    "POS_TITLE_DESC": "INFO MGT TECH SPEC/PHONE",
-    "POS_SKILL_CODE": "2101",
-    "POS_SKILL_DESC": "FINANCIAL MANAGEMENT"
-  },
-  {
-    "POS_SEQ_NUM": 137578,
-    "ORG": "260331",
-    "POS_ORG_SHORT_DESC": "FSI/SPAS/OR",
-    "POS_NUM_TEXT": "Y2633101 (FSI/SPAS/OR)",
-    "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-    "POS_SKILL_CODE": "6080",
-    "POS_SKILL_DESC": "INTERFUNCTIONAL OFFICER OPER"
-  },
-  {
-    "POS_SEQ_NUM": 142646,
-    "ORG": "283200",
-    "POS_ORG_SHORT_DESC": "CA/C/SPPD",
-    "POS_NUM_TEXT": "Y2832000 (CA/C/SPPD)",
-    "POS_TITLE_DESC": "SHIFT SUPERVISOR",
-    "POS_SKILL_CODE": "2010",
-    "POS_SKILL_DESC": "MANAGEMENT OFFICER"
-  },
-  {
-    "POS_SEQ_NUM": 160251,
-    "ORG": "284150",
-    "POS_ORG_SHORT_DESC": "OCS/ACS/EAP",
-    "POS_NUM_TEXT": "Y2841502 (OCS/ACS/EAP)",
-    "POS_TITLE_DESC": "INTERNATIONAL LABOR RELATIONS",
-    "POS_SKILL_CODE": "3001",
-    "POS_SKILL_DESC": "CONSULAR AFFAIRS"
+    "Org": "327604",
+    "Bureau": "120000",
+    "ORG_DESC": "ZURICH (327604)",
+    "COUNTRY_STATE_CODE": "SZ0000000"
   }
-],
-"PQRY_POST_ROLE_O": [
+  ],
+  "PQRY_PERSON_LEVEL_O": [
   {
-    "SELECT_IND": "false",
-    "ROLE_CODE": "FSBid_Org_Bidders",
-    "ROLE_DESC": "FSBid Organization Bidders"
+  "PER_SEQ_NUM": 522124,
+  "ORG": "197260",
+  "PER_FULL_NAME": "AAMOLDEE,JAEHA-NAERKEEE NMN",
+  "ORG_SHORT_DESC": "ISN/NPP/CTR",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "AAMOLDEE,JAEHA-NAERKEEE NMN (ISN/NPP/CTR)"
   },
   {
-    "SELECT_IND": "false",
-    "ROLE_CODE": "FSBid_Org_Capsule",
-    "ROLE_DESC": "FSBid Organization Capsule Positions (Post HRO/Mngt)"
+  "PER_SEQ_NUM": 585671,
+  "ORG": "146400",
+  "PER_FULL_NAME": "AANENSONEE,MENSAHEE NMN",
+  "ORG_SHORT_DESC": "SCA/PPD",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "AANENSONEE,MENSAHEE NMN (SCA/PPD)"
+  },
+  {
+  "PER_SEQ_NUM": 412860,
+  "ORG": "355501",
+  "PER_FULL_NAME": "ABANGEEE,JOETTAEE NMN",
+  "ORG_SHORT_DESC": "BAMAKO",
+  "SKL_CODE": "2010",
+  "PER_NAME_ORG": "ABANGEEE,JOETTAEE NMN (BAMAKO)"
+  },
+  {
+  "PER_SEQ_NUM": 429224,
+  "ORG": "324701",
+  "PER_FULL_NAME": "ABDELMAGID-NACKEE,HOTIMEE NMN",
+  "ORG_SHORT_DESC": "PODGORICA",
+  "SKL_CODE": "4400",
+  "PER_NAME_ORG": "ABDELMAGID-NACKEE,HOTIMEE NMN (PODGORICA)"
+  },
+  {
+  "PER_SEQ_NUM": 522826,
+  "ORG": "281595",
+  "PER_FULL_NAME": "ABDOURAHMAANEE,EDUARDOEE NMN",
+  "ORG_SHORT_DESC": "CA/PPT/WPC",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABDOURAHMAANEE,EDUARDOEE NMN (CA/PPT/WPC)"
+  },
+  {
+  "PER_SEQ_NUM": 522826,
+  "ORG": "281595",
+  "PER_FULL_NAME": "ABDOURAHMAANEE,EDUARDOEE NMN",
+  "ORG_SHORT_DESC": "CA/PPT/WPC",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABDOURAHMAANEE,EDUARDOEE NMN (CA/PPT/WPC)"
+  },
+  {
+  "PER_SEQ_NUM": 477081,
+  "ORG": "201152",
+  "PER_FULL_NAME": "ABILSEE,LIZZET-ANN AEE NMN",
+  "ORG_SHORT_DESC": "A/EX/ITS/BMS",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABILSEE,LIZZET-ANN AEE NMN (A/EX/ITS/BMS)"
+  },
+  {
+  "PER_SEQ_NUM": 531330,
+  "ORG": "018101",
+  "PER_FULL_NAME": "ABITONG-KASSAYEEE,NICTEEE NMN",
+  "ORG_SHORT_DESC": "DRL/ILA",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABITONG-KASSAYEEE,NICTEEE NMN (DRL/ILA)"
+  },
+  {
+  "PER_SEQ_NUM": 415980,
+  "ORG": "260510",
+  "PER_FULL_NAME": "ABLORHEE,KEUTEHEE NMN",
+  "ORG_SHORT_DESC": "FSI/SAIT/BT",
+  "SKL_CODE": "2884",
+  "PER_NAME_ORG": "ABLORHEE,KEUTEHEE NMN (FSI/SAIT/BT)"
+  },
+  {
+  "PER_SEQ_NUM": 416254,
+  "ORG": "166384",
+  "PER_FULL_NAME": "ABRENICA-SCHLENGOEE,RUBURT HEE NMN",
+  "ORG_SHORT_DESC": "USUN/RM",
+  "SKL_CODE": "5505",
+  "PER_NAME_ORG": "ABRENICA-SCHLENGOEE,RUBURT HEE NMN (USUN/RM)"
+  },
+  {
+  "PER_SEQ_NUM": 433092,
+  "ORG": "011810",
+  "PER_FULL_NAME": "ABTEW-LAXTEN EOEE,LANSANGEE NMN",
+  "ORG_SHORT_DESC": "J/TIP",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABTEW-LAXTEN EOEE,LANSANGEE NMN (J/TIP)"
+  },
+  {
+  "PER_SEQ_NUM": 403470,
+  "ORG": "019345",
+  "PER_FULL_NAME": "ABU AKEEL-TOLVEEE,OZORI-TROVOREE NMN",
+  "ORG_SHORT_DESC": "INL/EX/BS",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABU AKEEL-TOLVEEE,OZORI-TROVOREE NMN (INL/EX/BS)"
+  },
+  {
+  "PER_SEQ_NUM": 430043,
+  "ORG": "178300",
+  "PER_FULL_NAME": "ABU-BAKAR-LATTYEE,MAMADUEE NMN",
+  "ORG_SHORT_DESC": "DS/TIA/CC",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ABU-BAKAR-LATTYEE,MAMADUEE NMN (DS/TIA/CC)"
+  },
+  {
+  "PER_SEQ_NUM": 410673,
+  "ORG": "213110",
+  "PER_FULL_NAME": "ACANEMIUEE,ARTIREE NMN",
+  "ORG_SHORT_DESC": "GTM/TAC/BEX",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ACANEMIUEE,ARTIREE NMN (GTM/TAC/BEX)"
+  },
+  {
+  "PER_SEQ_NUM": 592243,
+  "ORG": "011810",
+  "PER_FULL_NAME": "ZYLMINEE,ANN DEE NMN",
+  "ORG_SHORT_DESC": "J/TIP",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "ZYLMINEE,ANN DEE NMN (J/TIP)"
   }
-],
-"PQRY_COUNTRY_O": [
-  {
-    "COUNTRY_STATE_CODE": "AF0000000",
-    "COUNTRY_STATE_DESC": "Afghanistan"
-  },
-  {
-    "COUNTRY_STATE_CODE": "010000000",
-    "COUNTRY_STATE_DESC": "Alabama"
-  },
-  {
-    "COUNTRY_STATE_CODE": "AL0000000",
-    "COUNTRY_STATE_DESC": "Albania"
-  },
-  {
-    "COUNTRY_STATE_CODE": "AG0000000",
-    "COUNTRY_STATE_DESC": "Algeria"
-  },
-  {
-    "COUNTRY_STATE_CODE": "AO0000000",
-    "COUNTRY_STATE_DESC": "Angola"
-  },
-  {
-    "COUNTRY_STATE_CODE": "AR0000000",
-    "COUNTRY_STATE_DESC": "Argentina"
-  },
-  {
-    "COUNTRY_STATE_CODE": "040000000",
-    "COUNTRY_STATE_DESC": "Arizona"
-  },
-  {
-    "COUNTRY_STATE_CODE": "050000000",
-    "COUNTRY_STATE_DESC": "Arkansas"
-  },
-  {
-    "COUNTRY_STATE_CODE": "AM0000000",
-    "COUNTRY_STATE_DESC": "Armenia"
-  },
-  {
-    "COUNTRY_STATE_CODE": "NO0000000",
-    "COUNTRY_STATE_DESC": "Norway"
-  },
-  {
-    "COUNTRY_STATE_CODE": "MU0000000",
-    "COUNTRY_STATE_DESC": "Oman"
-  },
-  {
-    "COUNTRY_STATE_CODE": "PK0000000",
-    "COUNTRY_STATE_DESC": "Pakistan"
-  },
-  {
-    "COUNTRY_STATE_CODE": "PS0000000",
-    "COUNTRY_STATE_DESC": "Palau"
-  },
-  {
-    "COUNTRY_STATE_CODE": "PM0000000",
-    "COUNTRY_STATE_DESC": "Panama"
-  },
-  {
-    "COUNTRY_STATE_CODE": "PP0000000",
-    "COUNTRY_STATE_DESC": "Papua New Guinea"
-  },
-  {
-    "COUNTRY_STATE_CODE": "PA0000000",
-    "COUNTRY_STATE_DESC": "Paraguay"
-  },
-  {
-    "COUNTRY_STATE_CODE": "420000000",
-    "COUNTRY_STATE_DESC": "Pennsylvania"
-  },
-  {
-    "COUNTRY_STATE_CODE": "PE0000000",
-    "COUNTRY_STATE_DESC": "Peru"
-  },
-  {
-    "COUNTRY_STATE_CODE": "RP0000000",
-    "COUNTRY_STATE_DESC": "Philippines"
-  },
-  {
-    "COUNTRY_STATE_CODE": "PL0000000",
-    "COUNTRY_STATE_DESC": "Poland"
-  },
-  {
-    "COUNTRY_STATE_CODE": "PO0000000",
-    "COUNTRY_STATE_DESC": "Portugal"
-  },
-  {
-    "COUNTRY_STATE_CODE": "RQ0000000",
-    "COUNTRY_STATE_DESC": "Puerto Rico"
-  },
-  {
-    "COUNTRY_STATE_CODE": "QA0000000",
-    "COUNTRY_STATE_DESC": "Qatar"
-  },
-  {
-    "COUNTRY_STATE_CODE": "440000000",
-    "COUNTRY_STATE_DESC": "Rhode Island"
-  },
-  {
-    "COUNTRY_STATE_CODE": "RO0000000",
-    "COUNTRY_STATE_DESC": "Romania"
-  },
-  {
-    "COUNTRY_STATE_CODE": "RS0000000",
-    "COUNTRY_STATE_DESC": "Russia"
-  },
-  {
-    "COUNTRY_STATE_CODE": "RW0000000",
-    "COUNTRY_STATE_DESC": "Rwanda"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SH0000000",
-    "COUNTRY_STATE_DESC": "Saint Helena"
-  },
-  {
-    "COUNTRY_STATE_CODE": "WS0000000",
-    "COUNTRY_STATE_DESC": "Samoa"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SA0000000",
-    "COUNTRY_STATE_DESC": "Saudi Arabia"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SG0000000",
-    "COUNTRY_STATE_DESC": "Senegal"
-  },
-  {
-    "COUNTRY_STATE_CODE": "YI0000000",
-    "COUNTRY_STATE_DESC": "Serbia And Montenegro"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SL0000000",
-    "COUNTRY_STATE_DESC": "Sierra Leone"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SN0000000",
-    "COUNTRY_STATE_DESC": "Singapore"
-  },
-  {
-    "COUNTRY_STATE_CODE": "LO0000000",
-    "COUNTRY_STATE_DESC": "Slovakia"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SI0000000",
-    "COUNTRY_STATE_DESC": "Slovenia"
-  },
-  {
-    "COUNTRY_STATE_CODE": "BP0000000",
-    "COUNTRY_STATE_DESC": "Solomon Islands"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SO0000000",
-    "COUNTRY_STATE_DESC": "Somalia"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SF0000000",
-    "COUNTRY_STATE_DESC": "South Africa"
-  },
-  {
-    "COUNTRY_STATE_CODE": "450000000",
-    "COUNTRY_STATE_DESC": "South Carolina"
-  },
-  {
-    "COUNTRY_STATE_CODE": "OD0000000",
-    "COUNTRY_STATE_DESC": "South Sudan"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SP0000000",
-    "COUNTRY_STATE_DESC": "Spain"
-  },
-  {
-    "COUNTRY_STATE_CODE": "CE0000000",
-    "COUNTRY_STATE_DESC": "Sri Lanka"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SU0000000",
-    "COUNTRY_STATE_DESC": "Sudan"
-  },
-  {
-    "COUNTRY_STATE_CODE": "NS0000000",
-    "COUNTRY_STATE_DESC": "Suriname"
-  },
-  {
-    "COUNTRY_STATE_CODE": "WZ0000000",
-    "COUNTRY_STATE_DESC": "Swaziland"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SW0000000",
-    "COUNTRY_STATE_DESC": "Sweden"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SZ0000000",
-    "COUNTRY_STATE_DESC": "Switzerland"
-  },
-  {
-    "COUNTRY_STATE_CODE": "SY0000000",
-    "COUNTRY_STATE_DESC": "Syria"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TW0000000",
-    "COUNTRY_STATE_DESC": "Taiwan"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TI0000000",
-    "COUNTRY_STATE_DESC": "Tajikistan"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TZ0000000",
-    "COUNTRY_STATE_DESC": "Tanzania"
-  },
-  {
-    "COUNTRY_STATE_CODE": "480000000",
-    "COUNTRY_STATE_DESC": "Texas"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TH0000000",
-    "COUNTRY_STATE_DESC": "Thailand"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TO0000000",
-    "COUNTRY_STATE_DESC": "Togo"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TN0000000",
-    "COUNTRY_STATE_DESC": "Tonga"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TD0000000",
-    "COUNTRY_STATE_DESC": "Trinidad And Tobago"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TS0000000",
-    "COUNTRY_STATE_DESC": "Tunisia"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TU0000000",
-    "COUNTRY_STATE_DESC": "Turkey"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TX0000000",
-    "COUNTRY_STATE_DESC": "Turkmenistan"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TV0000000",
-    "COUNTRY_STATE_DESC": "Tuvalu"
-  },
-  {
-    "COUNTRY_STATE_CODE": "UG0000000",
-    "COUNTRY_STATE_DESC": "Uganda"
-  },
-  {
-    "COUNTRY_STATE_CODE": "UP0000000",
-    "COUNTRY_STATE_DESC": "Ukraine"
-  },
-  {
-    "COUNTRY_STATE_CODE": "AE0000000",
-    "COUNTRY_STATE_DESC": "United Arab Emirates"
-  },
-  {
-    "COUNTRY_STATE_CODE": "UK0000000",
-    "COUNTRY_STATE_DESC": "United Kingdom"
-  },
-  {
-    "COUNTRY_STATE_CODE": "UY0000000",
-    "COUNTRY_STATE_DESC": "Uruguay"
-  },
-  {
-    "COUNTRY_STATE_CODE": "490000000",
-    "COUNTRY_STATE_DESC": "Utah"
-  },
-  {
-    "COUNTRY_STATE_CODE": "UZ0000000",
-    "COUNTRY_STATE_DESC": "Uzbekistan"
-  },
-  {
-    "COUNTRY_STATE_CODE": "NH0000000",
-    "COUNTRY_STATE_DESC": "Vanuatu"
-  },
-  {
-    "COUNTRY_STATE_CODE": "VE0000000",
-    "COUNTRY_STATE_DESC": "Venezuela"
-  },
-  {
-    "COUNTRY_STATE_CODE": "500000000",
-    "COUNTRY_STATE_DESC": "Vermont"
-  },
-  {
-    "COUNTRY_STATE_CODE": "VM0000000",
-    "COUNTRY_STATE_DESC": "Vietnam"
-  },
-  {
-    "COUNTRY_STATE_CODE": "510000000",
-    "COUNTRY_STATE_DESC": "Virginia"
-  },
-  {
-    "COUNTRY_STATE_CODE": "530000000",
-    "COUNTRY_STATE_DESC": "Washington"
-  },
-  {
-    "COUNTRY_STATE_CODE": "YM0000000",
-    "COUNTRY_STATE_DESC": "Yemen"
-  },
-  {
-    "COUNTRY_STATE_CODE": "ZA0000000",
-    "COUNTRY_STATE_DESC": "Zambia"
-  },
-  {
-    "COUNTRY_STATE_CODE": "ZI0000000",
-    "COUNTRY_STATE_DESC": "Zimbabwe"
-  },
-  {
-    "COUNTRY_STATE_CODE": "TC0000000",
-    "COUNTRY_STATE_DESC": null
-  },
-  {
-    "COUNTRY_STATE_CODE": " 0000000",
-    "COUNTRY_STATE_DESC": null
-  }
-],
-"PV_RETURN_CODE_O": 0,
-"PQRY_ERROR_DATA_O": []
+  ],
+  "PQRY_POSITION_LEVEL_O": [
+    {
+      "POS_SEQ_NUM": 7,
+      "ORG": "403530",
+      "POS_ORG_SHORT_DESC": "TRADE NEGOT",
+      "POS_NUM_TEXT": "00000005 (TRADE NEGOT)",
+      "POS_TITLE_DESC": "SPECIAL ASSISTANT (AFD)",
+      "POS_SKILL_CODE": "7074",
+      "POS_SKILL_DESC": "DETAIL"
+    },
+    {
+      "POS_SEQ_NUM": 14,
+      "ORG": "311201",
+      "POS_ORG_SHORT_DESC": "SAN JOSE",
+      "POS_NUM_TEXT": "00001005 (SAN JOSE)",
+      "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 15,
+      "ORG": "311801",
+      "POS_ORG_SHORT_DESC": "QUITO",
+      "POS_NUM_TEXT": "00001006 (QUITO)",
+      "POS_TITLE_DESC": "IT SPECIALIST (NETWORK/PLCYPLN",
+      "POS_SKILL_CODE": "9017",
+      "POS_SKILL_DESC": "OFFICE MANAGEMENT"
+    },
+    {
+      "POS_SEQ_NUM": 17,
+      "ORG": "312401",
+      "POS_ORG_SHORT_DESC": "PORT AU PRIN",
+      "POS_NUM_TEXT": "00001008 (PORT AU PRIN)",
+      "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 20,
+      "ORG": "312802",
+      "POS_ORG_SHORT_DESC": "CIU.JUAREZ",
+      "POS_NUM_TEXT": "00001011 (CIU.JUAREZ)",
+      "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 9198,
+      "ORG": "312804",
+      "POS_ORG_SHORT_DESC": "MATAMOROS",
+      "POS_NUM_TEXT": "00001012 (MATAMOROS)",
+      "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 21,
+      "ORG": "312808",
+      "POS_ORG_SHORT_DESC": "NOGALES",
+      "POS_NUM_TEXT": "00001013 (NOGALES)",
+      "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 22,
+      "ORG": "312812",
+      "POS_ORG_SHORT_DESC": "TIJUANA",
+      "POS_NUM_TEXT": "00001014 (TIJUANA)",
+      "POS_TITLE_DESC": "JUNIOR FRAUD ANALYST",
+      "POS_SKILL_CODE": "0020",
+      "POS_SKILL_DESC": "EXECUTIVE (CAREER)"
+    },
+    {
+      "POS_SEQ_NUM": 188002,
+      "ORG": "011421",
+      "POS_ORG_SHORT_DESC": "R/PPR/P",
+      "POS_NUM_TEXT": "Y2304303 (R/PPR/P)",
+      "POS_TITLE_DESC": "GENERAL DEVELOPMENT OFFICER",
+      "POS_SKILL_CODE": "4400",
+      "POS_SKILL_DESC": "PUBLIC DIPLOMACY"
+    },
+    {
+      "POS_SEQ_NUM": 155040,
+      "ORG": "233100",
+      "POS_ORG_SHORT_DESC": "ECA/P/A",
+      "POS_NUM_TEXT": "Y2331000 (ECA/P/A)",
+      "POS_TITLE_DESC": "ENVIRONMENT ADVISOR",
+      "POS_SKILL_CODE": "4400",
+      "POS_SKILL_DESC": "PUBLIC DIPLOMACY"
+    },
+    {
+      "POS_SEQ_NUM": 186420,
+      "ORG": "248100",
+      "POS_ORG_SHORT_DESC": "OBO/CFSM/CM",
+      "POS_NUM_TEXT": "Y2481001 (OBO/CFSM/CM)",
+      "POS_TITLE_DESC": "MEDICAL SUPPORT ASSISTANT",
+      "POS_SKILL_CODE": "6218",
+      "POS_SKILL_DESC": "CONSTRUCTION ENGINEERING"
+    },
+    {
+      "POS_SEQ_NUM": 136439,
+      "ORG": "248240",
+      "POS_ORG_SHORT_DESC": "CFSM/FAC/FMG",
+      "POS_NUM_TEXT": "Y2482402 (CFSM/FAC/FMG)",
+      "POS_TITLE_DESC": "VISA SPECIALIST",
+      "POS_SKILL_CODE": "6217",
+      "POS_SKILL_DESC": "FACILITY MAINTENANCE"
+    },
+    {
+      "POS_SEQ_NUM": 154542,
+      "ORG": "260311",
+      "POS_ORG_SHORT_DESC": "FSI/SPAS/MTT",
+      "POS_NUM_TEXT": "Y2603112 (FSI/SPAS/MTT)",
+      "POS_TITLE_DESC": "INFO MGT TECH SPEC/PHONE",
+      "POS_SKILL_CODE": "2101",
+      "POS_SKILL_DESC": "FINANCIAL MANAGEMENT"
+    },
+    {
+      "POS_SEQ_NUM": 137578,
+      "ORG": "260331",
+      "POS_ORG_SHORT_DESC": "FSI/SPAS/OR",
+      "POS_NUM_TEXT": "Y2633101 (FSI/SPAS/OR)",
+      "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
+      "POS_SKILL_CODE": "6080",
+      "POS_SKILL_DESC": "INTERFUNCTIONAL OFFICER OPER"
+    },
+    {
+      "POS_SEQ_NUM": 160251,
+      "ORG": "284150",
+      "POS_ORG_SHORT_DESC": "OCS/ACS/EAP",
+      "POS_NUM_TEXT": "Y2841502 (OCS/ACS/EAP)",
+      "POS_TITLE_DESC": "INTERNATIONAL LABOR RELATIONS",
+      "POS_SKILL_CODE": "3001",
+      "POS_SKILL_DESC": "CONSULAR AFFAIRS"
+    }
+  ],
+  "PQRY_POST_ROLE_O": [
+    {
+      "SELECT_IND": "false",
+      "ROLE_CODE": "FSBid_Org_Bidders",
+      "ROLE_DESC": "FSBid Organization Bidders"
+    },
+    {
+      "SELECT_IND": "false",
+      "ROLE_CODE": "FSBid_Org_Capsule",
+      "ROLE_DESC": "FSBid Organization Capsule Positions (Post HRO/Mngt)"
+    }
+  ],
+  "PQRY_COUNTRY_O": [
+    {
+      "COUNTRY_STATE_CODE": "AF0000000",
+      "COUNTRY_STATE_DESC": "Afghanistan"
+    },
+    {
+      "COUNTRY_STATE_CODE": "CE0000000",
+      "COUNTRY_STATE_DESC": "Sri Lanka"
+    },
+    {
+      "COUNTRY_STATE_CODE": "SU0000000",
+      "COUNTRY_STATE_DESC": "Sudan"
+    },
+    {
+      "COUNTRY_STATE_CODE": "UG0000000",
+      "COUNTRY_STATE_DESC": "Uganda"
+    },
+    {
+      "COUNTRY_STATE_CODE": "UP0000000",
+      "COUNTRY_STATE_DESC": "Ukraine"
+    },
+    {
+      "COUNTRY_STATE_CODE": "AE0000000",
+      "COUNTRY_STATE_DESC": "United Arab Emirates"
+    },
+    {
+      "COUNTRY_STATE_CODE": "UY0000000",
+      "COUNTRY_STATE_DESC": "Uruguay"
+    },
+    {
+      "COUNTRY_STATE_CODE": "490000000",
+      "COUNTRY_STATE_DESC": "Utah"
+    },
+    {
+      "COUNTRY_STATE_CODE": "UZ0000000",
+      "COUNTRY_STATE_DESC": "Uzbekistan"
+    },
+    {
+      "COUNTRY_STATE_CODE": " 0000000",
+      "COUNTRY_STATE_DESC": null
+    }
+  ],
+  "PV_RETURN_CODE_O": 0,
+  "PQRY_ERROR_DATA_O": []
   },
   "fail" : {
     "PV_RETURN_CODE_O": -1,
