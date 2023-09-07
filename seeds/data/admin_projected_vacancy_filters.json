@@ -1,0 +1,935 @@
+{
+  "success": {
+  "PCUR_BUREAU_TAB_O": [
+    {
+      "BUREAU_ORG_CODE": "200000",
+      "BUREAU_SHORT_DESC": "A",
+      "BUREAU_LONG_DESC": "BUREAU OF ADMINISTRATION                          "
+    },
+    {
+      "BUREAU_ORG_CODE": "190000",
+      "BUREAU_SHORT_DESC": "AC",
+      "BUREAU_LONG_DESC": "BUREAU OF ARMS CONTROL, ASST SECRETARY"
+    },
+    {
+      "BUREAU_ORG_CODE": "150000",
+      "BUREAU_SHORT_DESC": "AF",
+      "BUREAU_LONG_DESC": "BUREAU OF AFRICAN AFFAIRS"
+    },
+    {
+      "BUREAU_ORG_CODE": "198000",
+      "BUREAU_SHORT_DESC": "AVC",
+      "BUREAU_LONG_DESC": "BUR OF ARMS CONTROL, VERIFICATION AND COMPLIANCE"
+    },
+    {
+      "BUREAU_ORG_CODE": "088000",
+      "BUREAU_SHORT_DESC": "BP",
+      "BUREAU_LONG_DESC": "BUREAU OF BUDGET AND PLANNING"
+    },
+    {
+      "BUREAU_ORG_CODE": "280000",
+      "BUREAU_SHORT_DESC": "CA",
+      "BUREAU_LONG_DESC": "BUREAU OF CONSULAR AFFAIRS                        "
+    },
+    {
+      "BUREAU_ORG_CODE": "253000",
+      "BUREAU_SHORT_DESC": "CDP",
+      "BUREAU_LONG_DESC": "BUREAU OF CYBERSPACEAND DIGITAL PLCY"
+    },
+    {
+      "BUREAU_ORG_CODE": "080000",
+      "BUREAU_SHORT_DESC": "CGFS",
+      "BUREAU_LONG_DESC": "BUREAU OF THE COMPTROLLER AND GLOBAL FINANCIAL SVS"
+    },
+    {
+      "BUREAU_ORG_CODE": "000001",
+      "BUREAU_SHORT_DESC": "CORP JC",
+      "BUREAU_LONG_DESC": "CORPORATE JOB CODES"
+    },
+    {
+      "BUREAU_ORG_CODE": "013000",
+      "BUREAU_SHORT_DESC": "CSO",
+      "BUREAU_LONG_DESC": "BUREAU OF CONFLICT AND STABILIZATION OPERATIONS"
+    },
+    {
+      "BUREAU_ORG_CODE": "187323",
+      "BUREAU_SHORT_DESC": "CSO/OSD/RM",
+      "BUREAU_LONG_DESC": "RELEASE MANAGEMENT BRANCH"
+    },
+    {
+      "BUREAU_ORG_CODE": "033000",
+      "BUREAU_SHORT_DESC": "CT",
+      "BUREAU_LONG_DESC": "BUR OF COUNTERR & COUNTERING VIOLENT EXTREMISM"
+    },
+    {
+      "BUREAU_ORG_CODE": "018000",
+      "BUREAU_SHORT_DESC": "DRL",
+      "BUREAU_LONG_DESC": "OFF OF THE ASST SEC BUR OF DEMO, H R,  AND LABOR"
+    },
+    {
+      "BUREAU_ORG_CODE": "170000",
+      "BUREAU_SHORT_DESC": "DS",
+      "BUREAU_LONG_DESC": "BUREAU OF DIPLOMATIC SECURITY                     "
+    },
+    {
+      "BUREAU_ORG_CODE": "130000",
+      "BUREAU_SHORT_DESC": "EAP",
+      "BUREAU_LONG_DESC": "BUREAU EAST ASIAN AND PACIFIC AFFAIRS             "
+    },
+    {
+      "BUREAU_ORG_CODE": "050000",
+      "BUREAU_SHORT_DESC": "EB",
+      "BUREAU_LONG_DESC": "BUREAU OF ECONOMIC & BUSINESS AFFAIRS"
+    },
+    {
+      "BUREAU_ORG_CODE": "230000",
+      "BUREAU_SHORT_DESC": "ECA",
+      "BUREAU_LONG_DESC": "OFFICE OF THE ASSISTANT SECRETARY"
+    },
+    {
+      "BUREAU_ORG_CODE": "025000",
+      "BUREAU_SHORT_DESC": "ENR",
+      "BUREAU_LONG_DESC": "BUREAU OF ENERGY RESOURCES"
+    },
+    {
+      "BUREAU_ORG_CODE": "120000",
+      "BUREAU_SHORT_DESC": "EUR",
+      "BUREAU_LONG_DESC": "BUR OF EUROPEAN AFF AND EURASIAN AFFAIRS"
+    },
+    {
+      "BUREAU_ORG_CODE": "260000",
+      "BUREAU_SHORT_DESC": "FSI",
+      "BUREAU_LONG_DESC": "FOREIGN SERVICE INSTITUTE"
+    },
+    {
+      "BUREAU_ORG_CODE": "100000",
+      "BUREAU_SHORT_DESC": "GPA",
+      "BUREAU_LONG_DESC": "BUREAU OF GLOBAL PUBLIC AFFAIRS"
+    },
+    {
+      "BUREAU_ORG_CODE": "210000",
+      "BUREAU_SHORT_DESC": "GTM",
+      "BUREAU_LONG_DESC": "DIRECTOR GENERAL OF THE FS AND DIRECTOR OF GT"
+    },
+    {
+      "BUREAU_ORG_CODE": "070000",
+      "BUREAU_SHORT_DESC": "H",
+      "BUREAU_LONG_DESC": "OFFICE OF LEGISLATIVE AFFAIRS                     "
+    },
+    {
+      "BUREAU_ORG_CODE": "309144",
+      "BUREAU_SHORT_DESC": "IBWC",
+      "BUREAU_LONG_DESC": "LEADERSHIP DEV PROGRAM, NON-LABOR"
+    },
+    {
+      "BUREAU_ORG_CODE": "309207",
+      "BUREAU_SHORT_DESC": "IBWC",
+      "BUREAU_LONG_DESC": "MASTER PLANNING DIVISION, LABOR"
+    },
+    {
+      "BUREAU_ORG_CODE": "019000",
+      "BUREAU_SHORT_DESC": "INL",
+      "BUREAU_LONG_DESC": "BUREAU FOR INTER NARC AND LAW ENFOR AFF"
+    },
+    {
+      "BUREAU_ORG_CODE": "060000",
+      "BUREAU_SHORT_DESC": "INR",
+      "BUREAU_LONG_DESC": "BUREAU OF INTELLIGENCE AND RESEARCH               "
+    },
+    {
+      "BUREAU_ORG_CODE": "000099",
+      "BUREAU_SHORT_DESC": "INT/DEPT/US",
+      "BUREAU_LONG_DESC": "INTRANSIT-DEPARTMENT/ U.S."
+    },
+    {
+      "BUREAU_ORG_CODE": "500000",
+      "BUREAU_SHORT_DESC": "INTL ORGS   ",
+      "BUREAU_LONG_DESC": "INTERNATIONAL ORGANIZATIONS                       "
+    },
+    {
+      "BUREAU_ORG_CODE": "160000",
+      "BUREAU_SHORT_DESC": "IO",
+      "BUREAU_LONG_DESC": "BUREAU OF INTERNATIONAL ORG. AFFAIRS              "
+    },
+    {
+      "BUREAU_ORG_CODE": "180000",
+      "BUREAU_SHORT_DESC": "IRM",
+      "BUREAU_LONG_DESC": "BUREAU OF INFORMATION RESOURCE MANAGEMENT"
+    },
+    {
+      "BUREAU_ORG_CODE": "197000",
+      "BUREAU_SHORT_DESC": "ISN",
+      "BUREAU_LONG_DESC": "BUREAU OF INTERNATIONAL SECURITY AND NP"
+    },
+    {
+      "BUREAU_ORG_CODE": "040000",
+      "BUREAU_SHORT_DESC": "L",
+      "BUREAU_LONG_DESC": "OFFICE OF THE LEGAL ADVISER                       "
+    },
+    {
+      "BUREAU_ORG_CODE": "016000",
+      "BUREAU_SHORT_DESC": "MED",
+      "BUREAU_LONG_DESC": "BUREAU OF MEDICAL SERVICES"
+    },
+    {
+      "BUREAU_ORG_CODE": "140000",
+      "BUREAU_SHORT_DESC": "NEA",
+      "BUREAU_LONG_DESC": "BUREAU NEAR EASTERN AFFAIRS                       "
+    },
+    {
+      "BUREAU_ORG_CODE": "240000",
+      "BUREAU_SHORT_DESC": "OBO",
+      "BUREAU_LONG_DESC": "BUREAU OF OVERSEAS BUILDINGS OPERATIONS"
+    },
+    {
+      "BUREAU_ORG_CODE": "020000",
+      "BUREAU_SHORT_DESC": "OES",
+      "BUREAU_LONG_DESC": "ASST SEC, OCEANS & INT L ENVIR & SCI AFFS         "
+    },
+    {
+      "BUREAU_ORG_CODE": "094000",
+      "BUREAU_SHORT_DESC": "OIG",
+      "BUREAU_LONG_DESC": "OFFICE OF THE INSPECTOR GENERAL"
+    },
+    {
+      "BUREAU_ORG_CODE": "400000",
+      "BUREAU_SHORT_DESC": "OTH AGYS",
+      "BUREAU_LONG_DESC": "OTHER US AGENCIES        OTHER US AGENCIES        "
+    },
+    {
+      "BUREAU_ORG_CODE": "014000",
+      "BUREAU_SHORT_DESC": "PM",
+      "BUREAU_LONG_DESC": "BUREAU OF POLITICAL-MILITARY AFFAIRS"
+    },
+    {
+      "BUREAU_ORG_CODE": "030000",
+      "BUREAU_SHORT_DESC": "PRM",
+      "BUREAU_LONG_DESC": "BUREAU OF POPULATION, REFUGEES, AND MIGRATION     "
+    },
+    {
+      "BUREAU_ORG_CODE": "010000",
+      "BUREAU_SHORT_DESC": "S",
+      "BUREAU_LONG_DESC": "OFFICE OF THE SECRETARY                           "
+    },
+    {
+      "BUREAU_ORG_CODE": "010200",
+      "BUREAU_SHORT_DESC": "S/CPR",
+      "BUREAU_LONG_DESC": "OFFICE OF THE CHIEF OF PROTOCOL                   "
+    },
+    {
+      "BUREAU_ORG_CODE": "145000",
+      "BUREAU_SHORT_DESC": "SA",
+      "BUREAU_LONG_DESC": "BUREAU OF SOUTH ASIAN AFFAIRS                     "
+    },
+    {
+      "BUREAU_ORG_CODE": "146000",
+      "BUREAU_SHORT_DESC": "SCA",
+      "BUREAU_LONG_DESC": "BUREAU OF SOUTH AND CENTRAL ASIAN AFFAIRS"
+    },
+    {
+      "BUREAU_ORG_CODE": "195000",
+      "BUREAU_SHORT_DESC": "VCI",
+      "BUREAU_LONG_DESC": "BUREAU OF VERIF,COMPLIANCE, AND IMPLEMENTATION"
+    },
+    {
+      "BUREAU_ORG_CODE": "110000",
+      "BUREAU_SHORT_DESC": "WHA",
+      "BUREAU_LONG_DESC": "BUREAU OF WESTERN HEMISPHERE AFFAIRS"
+    }
+  ],
+  "PCUR_ORG_TAB_O": [
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(AID) ANKARA",
+      "ORG_LONG_DESC": "(AID) ANKARA",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(AID) BAKU",
+      "ORG_LONG_DESC": "(AID) BAKU",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(AID) DHAHRA",
+      "ORG_LONG_DESC": "(AID) DHAHRA",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(AID) DOHA",
+      "ORG_LONG_DESC": "(AID) DOHA",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(AID) JUBA",
+      "ORG_LONG_DESC": "(AID) JUBA",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(AID) LAPAZ",
+      "ORG_LONG_DESC": "(AID) LAPAZ",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(AID) NUUK",
+      "ORG_LONG_DESC": "(AID) NUUK",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(AID) PARAMA",
+      "ORG_LONG_DESC": "(AID) PARAMA",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(CITIP)",
+      "ORG_LONG_DESC": "(CITIP)",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(MINURSO)",
+      "ORG_LONG_DESC": "(MINURSO)",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(OES)",
+      "ORG_LONG_DESC": "(OES)",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "(SEOP) LAPAZ",
+      "ORG_LONG_DESC": "(SEOP) LAPAZ",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "A/LM/ADV",
+      "ORG_LONG_DESC": "A/LM/ADV",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "A/LM/AQM",
+      "ORG_LONG_DESC": "A/LM/AQM",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    },
+    {
+      "ORG_CODE": null,
+      "ORG_SHORT_DESC": "A/LM/AQM/AE",
+      "ORG_LONG_DESC": "A/LM/AQM/AE",
+      "ORG_PARENT_ORG_CODE": null,
+      "ORG_BUREAU_ORG_CODE": null,
+      "COUNTRY_STATE_CODE": null
+    }
+  ],
+  "PCUR_PAY_PLAN_TAB_O": [
+    {
+      "PPL_CODE": "ES",
+      "PPL_LONG_DESC": "Senior Executive Schedule -SES",
+      "PPL_SHORT_DESC": "ES",
+      "PPL_EFFECTIVE_DATE": "2023-01-01T00:00:00"
+    },
+    {
+      "PPL_CODE": "F*",
+      "PPL_LONG_DESC": "Foreign Service Pay Plan",
+      "PPL_SHORT_DESC": "F*",
+      "PPL_EFFECTIVE_DATE": "1960-01-01T00:00:00"
+    },
+    {
+      "PPL_CODE": "FE",
+      "PPL_LONG_DESC": "Senior Foreign Service (SFS)",
+      "PPL_SHORT_DESC": "SFS",
+      "PPL_EFFECTIVE_DATE": "2023-01-01T00:00:00"
+    },
+    {
+      "PPL_CODE": "FO",
+      "PPL_LONG_DESC": "Foreign Service Officers",
+      "PPL_SHORT_DESC": "FO",
+      "PPL_EFFECTIVE_DATE": "2023-01-01T00:00:00"
+    },
+    {
+      "PPL_CODE": "FP",
+      "PPL_LONG_DESC": "Foreign Service Personnel",
+      "PPL_SHORT_DESC": "FP",
+      "PPL_EFFECTIVE_DATE": "2023-01-01T00:00:00"
+    },
+    {
+      "PPL_CODE": "GS",
+      "PPL_LONG_DESC": "General Schedule",
+      "PPL_SHORT_DESC": "General Sc",
+      "PPL_EFFECTIVE_DATE": "2023-01-01T00:00:00"
+    }
+  ],
+  "PCUR_GRADE_TAB_O": [
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "00",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    },
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "01",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    },
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "02",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    },
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "03",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    },
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "04",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    },
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "05",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    },
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "06",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    },
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "07",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    },
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "MC",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    },
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "OC",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    },
+    {
+      "GRD_PAY_PLAN_CODE": null,
+      "GRD_GRADE_CODE": "OM",
+      "GRD_LONG_DESC": null,
+      "GRD_SHORT_DESC": null,
+      "GRD_EFFECTIVE_DATE": null
+    }
+  ],
+  "PCUR_BSN_TAB_O": [
+    {
+      "BSN_ID": 29,
+      "BSN_DESCR_TEXT": "Summer 2024",
+      "SNT_SEQ_NUM": 1,
+      "BSN_START_DATE": "2024-05-01T00:00:00",
+      "BSN_END_DATE": "2024-10-31T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2019-05-23T08:55:45",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2019-05-23T08:55:45",
+      "BSN_PANEL_CUTOFF_DATE": "2023-07-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 31,
+      "BSN_DESCR_TEXT": "Summer 2025",
+      "SNT_SEQ_NUM": 1,
+      "BSN_START_DATE": "2025-05-01T00:00:00",
+      "BSN_END_DATE": "2025-10-31T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2019-05-23T09:01:41",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2019-05-23T09:01:41",
+      "BSN_PANEL_CUTOFF_DATE": "2024-07-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 33,
+      "BSN_DESCR_TEXT": "Summer 2026",
+      "SNT_SEQ_NUM": 1,
+      "BSN_START_DATE": "2026-05-01T00:00:00",
+      "BSN_END_DATE": "2026-10-31T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2019-05-23T09:06:03",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2019-05-23T09:06:03",
+      "BSN_PANEL_CUTOFF_DATE": "2025-07-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 35,
+      "BSN_DESCR_TEXT": "Summer 2027",
+      "SNT_SEQ_NUM": 1,
+      "BSN_START_DATE": "2027-05-01T00:00:00",
+      "BSN_END_DATE": "2027-10-31T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2023-02-15T08:00:23",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2023-02-15T08:06:54",
+      "BSN_PANEL_CUTOFF_DATE": "2026-06-15T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 36,
+      "BSN_DESCR_TEXT": "Summer 2028",
+      "SNT_SEQ_NUM": 1,
+      "BSN_START_DATE": "2028-05-01T00:00:00",
+      "BSN_END_DATE": "2028-10-31T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2023-02-15T08:12:29",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2023-02-15T08:12:29",
+      "BSN_PANEL_CUTOFF_DATE": "2027-06-15T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 37,
+      "BSN_DESCR_TEXT": "Summer 2029",
+      "SNT_SEQ_NUM": 1,
+      "BSN_START_DATE": "2029-05-01T00:00:00",
+      "BSN_END_DATE": "2029-10-31T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2023-02-15T08:14:28",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2023-02-15T08:14:28",
+      "BSN_PANEL_CUTOFF_DATE": "2028-06-15T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 38,
+      "BSN_DESCR_TEXT": "Summer 2030",
+      "SNT_SEQ_NUM": 1,
+      "BSN_START_DATE": "2030-05-01T00:00:00",
+      "BSN_END_DATE": "2030-10-31T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2023-02-15T08:15:29",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2023-02-15T08:15:29",
+      "BSN_PANEL_CUTOFF_DATE": "2029-06-15T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 39,
+      "BSN_DESCR_TEXT": "Summer 2031",
+      "SNT_SEQ_NUM": 1,
+      "BSN_START_DATE": "2031-05-01T00:00:00",
+      "BSN_END_DATE": "2031-10-31T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2023-02-15T08:18:12",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2023-02-15T08:18:12",
+      "BSN_PANEL_CUTOFF_DATE": "2030-06-15T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 30,
+      "BSN_DESCR_TEXT": "Winter 2024/2025",
+      "SNT_SEQ_NUM": 2,
+      "BSN_START_DATE": "2024-11-01T00:00:00",
+      "BSN_END_DATE": "2025-04-30T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2019-05-23T08:58:35",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2019-10-04T10:47:10",
+      "BSN_PANEL_CUTOFF_DATE": "2024-01-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 32,
+      "BSN_DESCR_TEXT": "Winter 2025/2026",
+      "SNT_SEQ_NUM": 2,
+      "BSN_START_DATE": "2025-11-01T00:00:00",
+      "BSN_END_DATE": "2026-04-30T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2019-05-23T09:04:57",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2019-10-04T10:48:32",
+      "BSN_PANEL_CUTOFF_DATE": "2025-01-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 34,
+      "BSN_DESCR_TEXT": "Winter 2026/2027",
+      "SNT_SEQ_NUM": 2,
+      "BSN_START_DATE": "2026-11-01T00:00:00",
+      "BSN_END_DATE": "2027-04-30T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2019-05-23T09:10:43",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2019-10-04T10:50:13",
+      "BSN_PANEL_CUTOFF_DATE": "2026-01-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 40,
+      "BSN_DESCR_TEXT": "Winter 2027/2028",
+      "SNT_SEQ_NUM": 2,
+      "BSN_START_DATE": "2027-11-01T00:00:00",
+      "BSN_END_DATE": "2028-04-30T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2023-02-15T08:22:01",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2023-02-15T08:23:08",
+      "BSN_PANEL_CUTOFF_DATE": "2027-01-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 41,
+      "BSN_DESCR_TEXT": "Winter 2028/2029",
+      "SNT_SEQ_NUM": 2,
+      "BSN_START_DATE": "2028-11-01T00:00:00",
+      "BSN_END_DATE": "2029-04-30T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2023-02-15T08:26:27",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2023-02-15T08:26:27",
+      "BSN_PANEL_CUTOFF_DATE": "2028-01-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 44,
+      "BSN_DESCR_TEXT": "Winter 2029/2030",
+      "SNT_SEQ_NUM": 2,
+      "BSN_START_DATE": "2029-11-01T00:00:00",
+      "BSN_END_DATE": "2030-04-30T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2023-02-15T08:42:43",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2023-02-15T08:42:43",
+      "BSN_PANEL_CUTOFF_DATE": "2029-01-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 42,
+      "BSN_DESCR_TEXT": "Winter 2030/2031",
+      "SNT_SEQ_NUM": 2,
+      "BSN_START_DATE": "2030-11-01T00:00:00",
+      "BSN_END_DATE": "2031-04-30T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2023-02-15T08:37:33",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2023-02-15T08:39:22",
+      "BSN_PANEL_CUTOFF_DATE": "2030-01-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    },
+    {
+      "BSN_ID": 43,
+      "BSN_DESCR_TEXT": "Winter 2031/2032",
+      "SNT_SEQ_NUM": 2,
+      "BSN_START_DATE": "2031-11-01T00:00:00",
+      "BSN_END_DATE": "2032-04-30T00:00:00",
+      "BSN_CREATE_ID": 417,
+      "BSN_CREATE_DATE": "2023-02-15T08:38:40",
+      "BSN_UPDATE_ID": 417,
+      "BSN_UPDATE_DATE": "2023-02-15T08:38:40",
+      "BSN_PANEL_CUTOFF_DATE": "2031-01-31T00:00:00",
+      "BSN_FUTURE_VACANCY_IND": "Y"
+    }
+  ],
+  "PCUR_SKILL_TAB_O": [
+    {
+      "SKL_CODE": "0010",
+      "SKL_DESC": "Executive (Pas)",
+      "SKL_TYPE": "01",
+      "SKL_USE": "B",
+      "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+      "SKL_EFFECTIVE_STATUS": "A"
+    },
+    {
+      "SKL_CODE": "0020",
+      "SKL_DESC": "Executive (Career)",
+      "SKL_TYPE": "01",
+      "SKL_USE": "B",
+      "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+      "SKL_EFFECTIVE_STATUS": "A"
+    },
+    {
+      "SKL_CODE": "0060",
+      "SKL_DESC": "Multifunctional",
+      "SKL_TYPE": "01",
+      "SKL_USE": "B",
+      "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+      "SKL_EFFECTIVE_STATUS": "A"
+    },
+    {
+      "SKL_CODE": "2010",
+      "SKL_DESC": "Management Officer",
+      "SKL_TYPE": "03",
+      "SKL_USE": "B",
+      "SKL_EFFECTIVE_DATE": "2002-04-01T00:00:00",
+      "SKL_EFFECTIVE_STATUS": "A"
+    },
+    {
+      "SKL_CODE": "2050",
+      "SKL_DESC": "Inspection (Functional)",
+      "SKL_TYPE": "03",
+      "SKL_USE": "P",
+      "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+      "SKL_EFFECTIVE_STATUS": "A"
+    },
+    {
+      "SKL_CODE": "2080",
+      "SKL_DESC": "Administrative Support",
+      "SKL_TYPE": "03",
+      "SKL_USE": "P",
+      "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+      "SKL_EFFECTIVE_STATUS": "A"
+    },
+    {
+      "SKL_CODE": "9040",
+      "SKL_DESC": "Support",
+      "SKL_TYPE": "26",
+      "SKL_USE": "B",
+      "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+      "SKL_EFFECTIVE_STATUS": "A"
+    }
+  ],
+  "PCUR_LANGUAGE_TAB_O": [
+    {
+      "LANG_CODE": "AB",
+      "LANG_LONG_DESC": "Albanian",
+      "LANG_SHORT_DESC": "Albanian",
+      "LANG_EFFECTIVE_DATE": "1984-05-04T00:00:00"
+    },
+    {
+      "LANG_CODE": "AC",
+      "LANG_LONG_DESC": "Amharic",
+      "LANG_SHORT_DESC": "Amharic",
+      "LANG_EFFECTIVE_DATE": "1984-05-04T00:00:00"
+    },
+    {
+      "LANG_CODE": "AD",
+      "LANG_LONG_DESC": "Arabic-Modern",
+      "LANG_SHORT_DESC": "Arabic-Mod",
+      "LANG_EFFECTIVE_DATE": "1987-11-16T00:00:00"
+    },
+    {
+      "LANG_CODE": "RE",
+      "LANG_LONG_DESC": "Armenian-East",
+      "LANG_SHORT_DESC": "Armenian-E",
+      "LANG_EFFECTIVE_DATE": "1987-11-16T00:00:00"
+    },
+    {
+      "LANG_CODE": "DU",
+      "LANG_LONG_DESC": "Dutch",
+      "LANG_SHORT_DESC": "Dutch",
+      "LANG_EFFECTIVE_DATE": "1994-02-02T00:00:00"
+    },
+    {
+      "LANG_CODE": "PL",
+      "LANG_LONG_DESC": "Polish",
+      "LANG_SHORT_DESC": "Polish",
+      "LANG_EFFECTIVE_DATE": "1984-05-04T00:00:00"
+    },
+    {
+      "LANG_CODE": "TE",
+      "LANG_LONG_DESC": "Telugu",
+      "LANG_SHORT_DESC": "Telugu",
+      "LANG_EFFECTIVE_DATE": "1984-05-04T00:00:00"
+    }
+  ],
+  "PCUR_FVS_TAB_O": [
+    {
+      "FVS_CODE": "A",
+      "FVS_DESCR_TXT": "Active",
+      "FVS_CREATE_ID": 2,
+      "FVS_CREATE_DATE": "2011-04-19T10:33:44",
+      "FVS_UPDATE_ID": 2,
+      "FVS_UPDATE_DATE": "2011-04-19T10:33:47"
+    },
+    {
+      "FVS_CODE": "X",
+      "FVS_DESCR_TXT": "Excluded",
+      "FVS_CREATE_ID": 2,
+      "FVS_CREATE_DATE": "2013-04-05T20:37:59",
+      "FVS_UPDATE_ID": 2,
+      "FVS_UPDATE_DATE": "2013-04-05T20:37:59"
+    },
+    {
+      "FVS_CODE": "E",
+      "FVS_DESCR_TXT": "Expired",
+      "FVS_CREATE_ID": 2,
+      "FVS_CREATE_DATE": "2011-04-19T10:33:44",
+      "FVS_UPDATE_ID": 2,
+      "FVS_UPDATE_DATE": "2011-04-19T10:33:47"
+    },
+    {
+      "FVS_CODE": "I",
+      "FVS_DESCR_TXT": "Inactive",
+      "FVS_CREATE_ID": 2,
+      "FVS_CREATE_DATE": "2011-04-19T10:33:44",
+      "FVS_UPDATE_ID": 2,
+      "FVS_UPDATE_DATE": "2011-04-19T10:33:47"
+    },
+    {
+      "FVS_CODE": "P",
+      "FVS_DESCR_TXT": "Proposed",
+      "FVS_CREATE_ID": 2,
+      "FVS_CREATE_DATE": "2011-04-19T10:33:44",
+      "FVS_UPDATE_ID": 2,
+      "FVS_UPDATE_DATE": "2011-04-19T10:33:47"
+    }
+  ],
+  "PCUR_FVO_TAB_O": [
+    {
+      "FVO_CODE": "N",
+      "FVO_DESCR_TXT": "New",
+      "FVO_CREATE_ID": 2,
+      "FVO_CREATE_DATE": "2011-04-19T10:30:58",
+      "FVO_UPDATE_ID": 2,
+      "FVO_UPDATE_DATE": "2011-04-19T10:31:01"
+    },
+    {
+      "FVO_CODE": "O",
+      "FVO_DESCR_TXT": "Override TED",
+      "FVO_CREATE_ID": 2,
+      "FVO_CREATE_DATE": "2011-04-19T10:30:58",
+      "FVO_UPDATE_ID": 2,
+      "FVO_UPDATE_DATE": "2011-04-19T10:31:01"
+    },
+    {
+      "FVO_CODE": "P",
+      "FVO_DESCR_TXT": "Proposed",
+      "FVO_CREATE_ID": 2,
+      "FVO_CREATE_DATE": "2011-04-19T10:30:58",
+      "FVO_UPDATE_ID": 2,
+      "FVO_UPDATE_DATE": "2011-04-19T10:31:01"
+    },
+    {
+      "FVO_CODE": "V",
+      "FVO_DESCR_TXT": "Vacant",
+      "FVO_CREATE_ID": 2,
+      "FVO_CREATE_DATE": "2011-04-19T10:30:58",
+      "FVO_UPDATE_ID": 2,
+      "FVO_UPDATE_DATE": "2011-04-19T10:31:01"
+    }
+  ],
+  "PCUR_CUST_TP_TAB_O": [
+    {
+      "DISABLE_IND": "N",
+      "ACTIONS_IND": "U",
+      "TP_CODE": "EL",
+      "TP_DESCR_TXT": "Entry Level Positions",
+      "TP_ORGANIZATION_IND": "N",
+      "TP_POSITION_IND": "Y",
+      "TP_CYCLE_IND": "N",
+      "TP_POC_IND": "N",
+      "TP_CYCLE_POSITION_IND": "N",
+      "TP_EMPLOYEE_IND": "N",
+      "TP_BID_SEASON_IND": "N",
+      "TP_AGENDA_ITEM_IND": "N",
+      "TP_SYSTEM_PROPOSED_IND": "N",
+      "TP_SYSTEM_PROCEDURE": null,
+      "TP_FV_EXCLUDE_IND": "Y",
+      "TP_CREATE_ID": 33,
+      "TP_CREATE_DATE": "2020-05-05T00:00:00",
+      "TP_UPDATE_ID": 2,
+      "TP_UPDATE_DATE": "2012-04-11T13:56:55"
+    },
+    {
+      "DISABLE_IND": "N",
+      "ACTIONS_IND": "U",
+      "TP_CODE": "MC",
+      "TP_DESCR_TXT": "Mid Level Cedes",
+      "TP_ORGANIZATION_IND": "N",
+      "TP_POSITION_IND": "Y",
+      "TP_CYCLE_IND": "N",
+      "TP_POC_IND": "N",
+      "TP_CYCLE_POSITION_IND": "N",
+      "TP_EMPLOYEE_IND": "N",
+      "TP_BID_SEASON_IND": "N",
+      "TP_AGENDA_ITEM_IND": "N",
+      "TP_SYSTEM_PROPOSED_IND": "N",
+      "TP_SYSTEM_PROCEDURE": null,
+      "TP_FV_EXCLUDE_IND": "Y",
+      "TP_CREATE_ID": 33,
+      "TP_CREATE_DATE": "2020-05-17T00:00:00",
+      "TP_UPDATE_ID": 2,
+      "TP_UPDATE_DATE": "2012-04-13T09:44:55"
+    },
+    {
+      "DISABLE_IND": "N",
+      "ACTIONS_IND": null,
+      "TP_CODE": "CPP",
+      "TP_DESCR_TXT": "Consultative POC",
+      "TP_ORGANIZATION_IND": null,
+      "TP_POSITION_IND": null,
+      "TP_CYCLE_IND": null,
+      "TP_POC_IND": null,
+      "TP_CYCLE_POSITION_IND": null,
+      "TP_EMPLOYEE_IND": null,
+      "TP_BID_SEASON_IND": null,
+      "TP_AGENDA_ITEM_IND": null,
+      "TP_SYSTEM_PROPOSED_IND": null,
+      "TP_SYSTEM_PROCEDURE": null,
+      "TP_FV_EXCLUDE_IND": null,
+      "TP_CREATE_ID": null,
+      "TP_CREATE_DATE": null,
+      "TP_UPDATE_ID": null,
+      "TP_UPDATE_DATE": null
+    }
+  ],
+  "PV_RETURN_CODE_O": 0,
+  "PQRY_ERROR_DATA_O": []
+  }
+}

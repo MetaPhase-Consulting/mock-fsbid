@@ -15,6 +15,8 @@ const publishablePositions = readJson('./publishable_positions.json')
 const bidSeasons = readJson('./bid_seasons.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
+const adminProjectedVacancyFilters = readJson('./admin_projected_vacancy_filters.json')
+const adminProjectedVacancyList = readJson('./admin_projected_vacancy_list.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -722,6 +724,8 @@ var appRouter = function (app) {
     "prc_lst_org_access": searchPostAccessList,
     "prc_lst_bureau_org_tree": searchPostAccessFilters,
     "prc_mod_org_access": searchPostAccessList,
+    "PRC_FV_ADMIN_SEARCH": adminProjectedVacancyFilters,
+    "prc_lst_future_vacancies": adminProjectedVacancyList,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
