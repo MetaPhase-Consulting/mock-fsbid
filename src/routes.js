@@ -722,6 +722,7 @@ var appRouter = function (app) {
     "prc_lst_org_access": searchPostAccessList,
     "prc_lst_bureau_org_tree": searchPostAccessFilters,
     "prc_mod_org_access": searchPostAccessList,
+    "prc_add_org_access": searchPostAccessList,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
