@@ -7,7 +7,11 @@
     "rmrkmutuallyexclusiveind": "Y",
     "rmrktext": "Extension in Stretch",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 111,
@@ -17,7 +21,11 @@
     "rmrkmutuallyexclusiveind": "Y",
     "rmrktext": "Down Stretch letter on file",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 337,
@@ -27,7 +35,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "No Repayment Issues",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 6,
@@ -37,7 +49,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Repayment Issues Being Addressed",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 146,
@@ -47,7 +63,11 @@
     "rmrkmutuallyexclusiveind": "Y",
     "rmrktext": "Tandem:  No issues",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 92,
@@ -57,7 +77,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Recommended for tenure",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 75,
@@ -67,7 +91,11 @@
     "rmrkmutuallyexclusiveind": "Y",
     "rmrktext": "Language Requirement Waived by DCM Committee",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 102,
@@ -83,7 +111,11 @@
         "rirmrkseqnum": 102,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 135,
@@ -93,7 +125,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Requests R&R repayment determination",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 183,
@@ -109,7 +145,11 @@
         "rirmrkseqnum": 183,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 292,
@@ -125,7 +165,11 @@
         "rirmrkseqnum": 292,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 46,
@@ -135,7 +179,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "EL Directed",
     "rmrkactiveind": "N",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 249,
@@ -151,7 +199,11 @@
         "rirmrkseqnum": 249,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 258,
@@ -161,7 +213,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "R&R Repayment Determination Requested",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 39,
@@ -171,7 +227,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Curtailment to allow for training",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 112,
@@ -181,7 +241,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Via bridge TBD",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 224,
@@ -191,7 +255,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Employee opts for detail to training",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 117,
@@ -201,7 +269,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Key Position",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 285,
@@ -211,7 +283,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Program Direction",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 323,
@@ -221,7 +297,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "COM OMS",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 68,
@@ -237,7 +317,11 @@
         "rirmrkseqnum": 68,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 77,
@@ -247,7 +331,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "HDS Post",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 320,
@@ -257,7 +345,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "UV, All Concur",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 120,
@@ -267,7 +359,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CDO to Discuss",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 198,
@@ -283,7 +379,11 @@
         "rirmrkseqnum": 198,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 291,
@@ -293,7 +393,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Reassignment at post",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 151,
@@ -303,7 +407,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Timely",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 155,
@@ -313,7 +421,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Move to Summer cycle",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 188,
@@ -323,7 +435,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "BOP",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 342,
@@ -333,7 +449,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Cohen Rule",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 94,
@@ -343,7 +463,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Move to Summer Cycle",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 197,
@@ -353,7 +477,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CAT 4",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 165,
@@ -363,7 +491,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Responded to VOL cable",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 210,
@@ -373,7 +505,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Cohen Rule",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 326,
@@ -383,7 +519,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Opts for SND",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 195,
@@ -393,7 +533,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Declines SND",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 160,
@@ -403,7 +547,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Continues SND eligibility",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 182,
@@ -413,7 +561,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Requests SND Repayment Determination",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 149,
@@ -423,7 +575,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "2nd Tour",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 254,
@@ -439,7 +595,11 @@
         "rirmrkseqnum": 254,
         "riinsertiontext": "{year}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 294,
@@ -449,7 +609,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "SND Post",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 225,
@@ -470,7 +634,11 @@
         "rirmrkseqnum": 225,
         "riinsertiontext": "{number}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 316,
@@ -486,7 +654,11 @@
         "rirmrkseqnum": 316,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 2,
@@ -502,7 +674,11 @@
         "rirmrkseqnum": 2,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 231,
@@ -518,7 +694,11 @@
         "rirmrkseqnum": 231,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 139,
@@ -528,7 +708,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Requests Home Leave repayment determination",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 311,
@@ -538,7 +722,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "No SND Repayment Required",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 20,
@@ -548,7 +736,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Not eligible for SND",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 21,
@@ -564,7 +756,11 @@
         "rirmrkseqnum": 21,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 219,
@@ -574,7 +770,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Returning CS LNA",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 100,
@@ -584,7 +784,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Schedule C LNA - No reemployment rights",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 27,
@@ -594,7 +798,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Schedule C resigning",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 129,
@@ -610,7 +818,11 @@
         "rirmrkseqnum": 129,
         "riinsertiontext": "{bureau}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 49,
@@ -626,7 +838,11 @@
         "rirmrkseqnum": 49,
         "riinsertiontext": "{bureau}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 276,
@@ -636,7 +852,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CS LNA - Developmental Assignment",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 8,
@@ -646,7 +866,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CS LNA - Expertise Assignment",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 308,
@@ -662,7 +886,11 @@
         "rirmrkseqnum": 308,
         "riinsertiontext": "{program}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 70,
@@ -672,7 +900,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Extension per 2006 State 121681",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 203,
@@ -682,7 +914,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Via Consultations and/or Training",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 349,
@@ -698,7 +934,11 @@
         "rirmrkseqnum": 349,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 5,
@@ -708,7 +948,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Via Training",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 266,
@@ -718,7 +962,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Via leave",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 34,
@@ -728,7 +976,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "LNA - No reemployment rights",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 272,
@@ -749,7 +1001,11 @@
         "rirmrkseqnum": 272,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 295,
@@ -759,7 +1015,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Home Leave repayment required",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 343,
@@ -800,7 +1060,11 @@
         "rirmrkseqnum": 343,
         "riinsertiontext": "{date2}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 194,
@@ -821,7 +1085,11 @@
         "rirmrkseqnum": 194,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 40,
@@ -837,7 +1105,11 @@
         "rirmrkseqnum": 40,
         "riinsertiontext": "{agency}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 103,
@@ -847,7 +1119,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "USERRA",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 24,
@@ -857,7 +1133,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Separation travel denied",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 63,
@@ -867,7 +1147,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "R&R Repayment Required",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 274,
@@ -877,7 +1161,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Separation travel approved",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 237,
@@ -898,7 +1186,11 @@
         "rirmrkseqnum": 237,
         "riinsertiontext": "{state}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 35,
@@ -914,7 +1206,11 @@
         "rirmrkseqnum": 35,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 310,
@@ -930,7 +1226,11 @@
         "rirmrkseqnum": 310,
         "riinsertiontext": "{year}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 88,
@@ -946,7 +1246,11 @@
         "rirmrkseqnum": 88,
         "riinsertiontext": "{#}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 319,
@@ -962,7 +1266,11 @@
         "rirmrkseqnum": 319,
         "riinsertiontext": "{#}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 332,
@@ -972,7 +1280,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Position Reprogrammed",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 11,
@@ -982,7 +1294,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "RLP Assignment",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 299,
@@ -998,7 +1314,11 @@
         "rirmrkseqnum": 299,
         "riinsertiontext": "{M,M Year}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 263,
@@ -1014,7 +1334,11 @@
         "rirmrkseqnum": 263,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 87,
@@ -1030,7 +1354,11 @@
         "rirmrkseqnum": 87,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 42,
@@ -1040,7 +1368,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Extension per links cable",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 7,
@@ -1056,7 +1388,11 @@
         "rirmrkseqnum": 7,
         "riinsertiontext": "{cable#}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 18,
@@ -1072,7 +1408,11 @@
         "rirmrkseqnum": 18,
         "riinsertiontext": "{action} {date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 150,
@@ -1082,7 +1422,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "R&R Repayment Issue Exists",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 265,
@@ -1092,7 +1436,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "No R&R Repayment Issue",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 3,
@@ -1102,7 +1450,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "FICA",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 29,
@@ -1112,7 +1464,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CA EL LDP",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 338,
@@ -1122,7 +1478,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "CA LNA",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 30,
@@ -1132,7 +1492,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "R&R Repayment Not Required",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 156,
@@ -1142,7 +1506,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Home Leave Repayment Not Required",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 186,
@@ -1152,7 +1520,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "R&R Repayment Not Required",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 261,
@@ -1162,7 +1534,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "SND Repayment required",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 116,
@@ -1172,7 +1548,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "SND Repayment Issues Being Addressed",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 54,
@@ -1188,7 +1568,11 @@
         "rirmrkseqnum": 54,
         "riinsertiontext": "{Country}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 32,
@@ -1198,7 +1582,11 @@
     "rmrkmutuallyexclusiveind": "N",
     "rmrktext": "Service Need: R&R Repayment Not Required",
     "rmrkactiveind": "Y",
-    "RemarkInserts": []
+    "RemarkInserts": [],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 264,
@@ -1214,7 +1602,11 @@
         "rirmrkseqnum": 264,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 289,
@@ -1230,7 +1622,11 @@
         "rirmrkseqnum": 289,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 189,
@@ -1246,7 +1642,11 @@
         "rirmrkseqnum": 189,
         "riinsertiontext": "{date}"
       }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   },
   {
     "rmrkseqnum": 1,
@@ -1262,6 +1662,10 @@
             "rirmrkseqnum": 1,
             "riinsertiontext": "{BlankTextBox}"
         }
-    ]
+    ],
+    "rmrkupdatedate": "2011-03-30T17:07:59",
+    "rmrkcreatedate": "2011-03-30T17:07:59",
+    "rmrkcreateid": 2,
+    "rmrkupdateid": 2
   }
 ]
