@@ -15,6 +15,7 @@ const publishablePositions = readJson('./publishable_positions.json')
 const bidSeasons = readJson('./bid_seasons.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
+const listBidSeasons = readJson('./manage_bid_seasons.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -723,6 +724,8 @@ var appRouter = function (app) {
     "prc_lst_bureau_org_tree": searchPostAccessFilters,
     "prc_mod_org_access": searchPostAccessList,
     "prc_add_org_access": searchPostAccessList,
+    "prc_lst_bid_season": listBidSeasons,
+    "prc_iud_bid_season": listBidSeasons,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
