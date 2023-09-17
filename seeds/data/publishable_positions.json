@@ -5,7 +5,7 @@
     {
       "POS_SEQ_NUM": 42319,
       "PUBS_CD": "P",
-      "PPOS_CAPSULE_DESCR_TXT": "Real data have been MASKED!",
+      "PPOS_CAPSULE_DESCR_TXT": "This is a Position's Details",
       "PPOS_LAST_UPDT_USER_ID": 53286,
       "PPOS_LAST_UPDT_TMSMP_DT": "20220803110138",
       "PPOS_CAPSULE_MODIFY_DT": "20220803110138",
@@ -21,7 +21,7 @@
       "ORGS_SHORT_DESC": "DS/DC/FRDCD",
       "BUR_SHORT_DESC": "EUR",
       "POSLTEXT": null,
-      "SKL_DESC_POS": "OFFICE MANAGEMENT",
+      "SKL_DESC_POS": "",
       "LANG_DESCR_TXT": null,
       "LR_DESCR_TXT": " ",
       "PPOS_AUDIT_EXCLUSION_IND": "N"

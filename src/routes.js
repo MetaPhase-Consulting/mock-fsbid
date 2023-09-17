@@ -12,10 +12,11 @@ const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
 const common = require('./services/common')
 const publishablePositions = readJson('./publishable_positions.json')
+const publishablePositionFilters = readJson('./publishable_positions_filters.json')
+const publishablePositionEdit = readJson('./publishable_positions_filters.json')
 const bidSeasons = readJson('./bid_seasons.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
-const publishablePositionFilters = readJson('./publishable_positions_filters.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -719,11 +720,12 @@ var appRouter = function (app) {
   // For BackOffice lookup
   const procNameDictionary = {
     "qry_modPublishPos": publishablePositions,
+    "qry_lstfsbidSearch": publishablePositionFilters,
+    "act_modCapsulePos": publishablePositionEdit,
     "prc_lst_bid_seasons": bidSeasons,
     "prc_lst_org_access": searchPostAccessList,
     "prc_lst_bureau_org_tree": searchPostAccessFilters,
     "prc_mod_org_access": searchPostAccessList,
-    "qry_lstfsbidSearch": publishablePositionFilters,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
