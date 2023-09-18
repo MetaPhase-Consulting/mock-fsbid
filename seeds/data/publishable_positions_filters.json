@@ -1,0 +1,937 @@
+{
+  "success": {
+    "O_LSTBUREAU_DD_IND": 0,
+    "O_LSTSKILLCODES_DD_IND": 0,
+    "QRY_LSTJOBCATEGORY_DD_REF": [
+      {
+        "JC_ID": "17",
+        "JC_NM_TXT": "Construction Engineers",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "8",
+        "JC_NM_TXT": "Consular",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "2",
+        "JC_NM_TXT": "DCM-PO",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "5",
+        "JC_NM_TXT": "Diplomatic Courier",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "10",
+        "JC_NM_TXT": "Economic",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "15",
+        "JC_NM_TXT": "Environment Sci & Technology",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "18",
+        "JC_NM_TXT": "Facility Manager",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "16",
+        "JC_NM_TXT": "Financial Management",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "12",
+        "JC_NM_TXT": "General Services",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "7",
+        "JC_NM_TXT": "Human Resources",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "14",
+        "JC_NM_TXT": "IT Manager",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "9",
+        "JC_NM_TXT": "Info Mgt Specialist",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "3",
+        "JC_NM_TXT": "Info Mgt Tech Spec",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "JC_ID": "19",
+        "JC_NM_TXT": "Interfunctional",
+        "JC_STS_IND": "1",
+        "JC_CREATE_TMSMP_DT": "2023-08-08T14:18:52",
+        "JC_CREATE_USER_ID": 5,
+        "JC_LAST_UPDT_TMSMP_DT": "2023-08-08T15:11:16",
+        "JC_LAST_UPDT_USER_ID": 5
+      }
+    ],
+    "QRY_LSTPUBSTATUS_DD_REF": [
+      {
+        "PUBS_CD": "N",
+        "PUBS_DESCR_TXT": "Not Publishable",
+        "PUBS_CREATE_TMSMP_DT": "2003-03-31T00:00:00",
+        "PUBS_CREATE_USER_ID": 5,
+        "PUBS_LAST_UPDT_TMSMP_DT": "2003-03-31T00:00:00",
+        "PUBS_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "PUBS_CD": "P",
+        "PUBS_DESCR_TXT": "Publishable",
+        "PUBS_CREATE_TMSMP_DT": "2003-03-31T00:00:00",
+        "PUBS_CREATE_USER_ID": 5,
+        "PUBS_LAST_UPDT_TMSMP_DT": "2003-03-31T00:00:00",
+        "PUBS_LAST_UPDT_USER_ID": 5
+      },
+      {
+        "PUBS_CD": "V",
+        "PUBS_DESCR_TXT": "Vet",
+        "PUBS_CREATE_TMSMP_DT": "2003-03-31T00:00:00",
+        "PUBS_CREATE_USER_ID": 5,
+        "PUBS_LAST_UPDT_TMSMP_DT": "2003-03-31T00:00:00",
+        "PUBS_LAST_UPDT_USER_ID": 5
+      }
+    ],
+    "QRY_LSTASSIGNCYCLE_DD_REF": [
+      {
+        "CYCLE_ID": "4",
+        "CYCLE_NM_TXT": "ELGEN 05 SUMMER",
+        "CC_CD": "J",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "10",
+        "CYCLE_NM_TXT": "Details -Trng 2005",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "8",
+        "CYCLE_NM_TXT": "ELGEN 05-06 WINTER",
+        "CC_CD": "J",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "13",
+        "CYCLE_NM_TXT": "ELGEN 07-08 WINTER CYCLE",
+        "CC_CD": "J",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "16",
+        "CYCLE_NM_TXT": "Now and Winter 2007/2008",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "20",
+        "CYCLE_NM_TXT": "EL SPEC WINTER 07-08",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "6",
+        "CYCLE_NM_TXT": "DCM/PO 2008",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "17",
+        "CYCLE_NM_TXT": "Now and Summer 2008",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "18",
+        "CYCLE_NM_TXT": "Iraq 2008",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "2",
+        "CYCLE_NM_TXT": "ELSPEC Winter 2009/2010",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "7",
+        "CYCLE_NM_TXT": "Now & Winter 2009/2010",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "11",
+        "CYCLE_NM_TXT": "Afghan/Iraq/Pakistan 2010",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "1",
+        "CYCLE_NM_TXT": "Now & Winter 2011/2012",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "5",
+        "CYCLE_NM_TXT": "Now & Summer 2017",
+        "CC_CD": "O",
+        "CS_CD": "C"
+      },
+      {
+        "CYCLE_ID": "15",
+        "CYCLE_NM_TXT": "Details/Training 2024",
+        "CC_CD": "O",
+        "CS_CD": "P"
+      }
+    ],
+    "QRY_LSTCYCLEPOSSTATUS_DD_REF": [
+      {
+        "CPS_CD": "EA",
+        "CPS_DESCR_TXT": "Exclusive Available"
+      },
+      {
+        "CPS_CD": "EC",
+        "CPS_DESCR_TXT": "Exclusive Closed"
+      },
+      {
+        "CPS_CD": "FP",
+        "CPS_DESCR_TXT": "Filled - Panel"
+      },
+      {
+        "CPS_CD": "HS",
+        "CPS_DESCR_TXT": "Handshake"
+      },
+      {
+        "CPS_CD": "MC",
+        "CPS_DESCR_TXT": "Manually Closed"
+      },
+      {
+        "CPS_CD": "MF",
+        "CPS_DESCR_TXT": "Manually Filled"
+      },
+      {
+        "CPS_CD": "MT",
+        "CPS_DESCR_TXT": "Manually Filled - TDY"
+      },
+      {
+        "CPS_CD": "OP",
+        "CPS_DESCR_TXT": "Open"
+      },
+      {
+        "CPS_CD": "PP",
+        "CPS_DESCR_TXT": "Proposed - Panel"
+      },
+      {
+        "CPS_CD": "PA",
+        "CPS_DESCR_TXT": "Publishable Available"
+      },
+      {
+        "CPS_CD": "PC",
+        "CPS_DESCR_TXT": "Publishable Closed"
+      }
+    ],
+    "QRY_LSTGRADES_DD_REF": [
+      {
+        "GRD_CD": "00",
+        "GRD_DESCR_TXT": "00"
+      },
+      {
+        "GRD_CD": "01",
+        "GRD_DESCR_TXT": "01"
+      },
+      {
+        "GRD_CD": "02",
+        "GRD_DESCR_TXT": "02"
+      },
+      {
+        "GRD_CD": "03",
+        "GRD_DESCR_TXT": "03"
+      },
+      {
+        "GRD_CD": "04",
+        "GRD_DESCR_TXT": "04"
+      },
+      {
+        "GRD_CD": "05",
+        "GRD_DESCR_TXT": "05"
+      },
+      {
+        "GRD_CD": "06",
+        "GRD_DESCR_TXT": "06"
+      },
+      {
+        "GRD_CD": "07",
+        "GRD_DESCR_TXT": "07"
+      },
+      {
+        "GRD_CD": "MC",
+        "GRD_DESCR_TXT": "MC"
+      },
+      {
+        "GRD_CD": "OC",
+        "GRD_DESCR_TXT": "OC"
+      },
+      {
+        "GRD_CD": "OM",
+        "GRD_DESCR_TXT": "OM"
+      }
+    ],
+    "QRY_LSTSKILLCODES_DD_REF": [
+      {
+        "SKL_CODE": "1519",
+        "SKL_DESC": "EXECUTIVE (PAS)",
+        "SKL_TYPE": 15,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "1372",
+        "SKL_DESC": "EXECUTIVE (CAREER)",
+        "SKL_TYPE": 42,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "1832",
+        "SKL_DESC": "MULTIFUNCTIONAL",
+        "SKL_TYPE": 44,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "1924",
+        "SKL_DESC": "MANAGEMENT OFFICER",
+        "SKL_TYPE": 16,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "2002-04-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "2055",
+        "SKL_DESC": "INSPECTION (FUNCTIONAL)",
+        "SKL_TYPE": 29,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "1406",
+        "SKL_DESC": "SECURITY ENGINEERING",
+        "SKL_TYPE": 21,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "1812",
+        "SKL_DESC": "SECURITY ENGINEERING-TECHNICA",
+        "SKL_TYPE": 49,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1999-06-29T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "1974",
+        "SKL_DESC": "DIPLOMATIC COURIER",
+        "SKL_TYPE": 1,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "2059",
+        "SKL_DESC": "POLITICAL-MILITARY AFFAIRS",
+        "SKL_TYPE": 48,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "1311",
+        "SKL_DESC": "LABOR AFFAIRS",
+        "SKL_TYPE": 10,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1999-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "1878",
+        "SKL_DESC": "INTELLIGENCE RESEARCH",
+        "SKL_TYPE": 18,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "1619",
+        "SKL_DESC": "ENVIRONMENT SCI & TECHNOLOGY",
+        "SKL_TYPE": 40,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1999-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "2053",
+        "SKL_DESC": "CONGRESSIONAL RELATIONS",
+        "SKL_TYPE": 9,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "1551",
+        "SKL_DESC": "TRAINING",
+        "SKL_TYPE": 45,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1999-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      },
+      {
+        "SKL_CODE": "2078",
+        "SKL_DESC": "SUPPORT",
+        "SKL_TYPE": 20,
+        "SKL_USE": "B",
+        "SKL_EFFECTIVE_DATE": "1960-01-01T00:00:00",
+        "SKL_EFFECTIVE_STATUS": "A"
+      }
+    ],
+    "QRY_LSTPOSITIONSTATUS_DD_REF": [
+      {
+        "PS_CD": "A",
+        "PS_DESCR_TXT": "Approved"
+      },
+      {
+        "PS_CD": "B",
+        "PS_DESCR_TXT": "Frozen"
+      },
+      {
+        "PS_CD": "C",
+        "PS_DESCR_TXT": "Proposed"
+      }
+    ],
+    "QRY_LSTBUREAUS_DD_REF": [
+      {
+        "ORGS_SHORT_DESC": "A/DTSPO"
+      },
+      {
+        "ORGS_SHORT_DESC": "S/NKP"
+      },
+      {
+        "ORGS_SHORT_DESC": "S/OCR"
+      },
+      {
+        "ORGS_SHORT_DESC": "S/ODI"
+      },
+      {
+        "ORGS_SHORT_DESC": "S/OF"
+      },
+      {
+        "ORGS_SHORT_DESC": "S/P"
+      },
+      {
+        "ORGS_SHORT_DESC": "SAN SALVADOR"
+      },
+      {
+        "ORGS_SHORT_DESC": "SANAA"
+      },
+      {
+        "ORGS_SHORT_DESC": "SANTIAGO"
+      },
+      {
+        "ORGS_SHORT_DESC": "SANTO DOM."
+      },
+      {
+        "ORGS_SHORT_DESC": "SAO PAULO"
+      },
+      {
+        "ORGS_SHORT_DESC": "SAO PAULO"
+      },
+      {
+        "ORGS_SHORT_DESC": "WHA/HA"
+      },
+      {
+        "ORGS_SHORT_DESC": "WHA/MEX"
+      },
+      {
+        "ORGS_SHORT_DESC": "ZIMBABWE"
+      }
+    ],
+    "QRY_LSTBUREAUSKILLS_DD_REF": [
+      {
+        "'X'": "x"
+      }
+    ],
+    "QRY_LSTORGS_DD_REF": [
+      {
+        "ORG_CODE": "1136"
+      },
+      {
+        "ORG_CODE": "1243"
+      },
+      {
+        "ORG_CODE": "1845"
+      },
+      {
+        "ORG_CODE": "1926"
+      },
+      {
+        "ORG_CODE": "1757"
+      },
+      {
+        "ORG_CODE": "1198"
+      },
+      {
+        "ORG_CODE": "1641"
+      },
+      {
+        "ORG_CODE": "1370"
+      },
+      {
+        "ORG_CODE": "1316"
+      },
+      {
+        "ORG_CODE": "1713"
+      },
+      {
+        "ORG_CODE": "1534"
+      },
+      {
+        "ORG_CODE": "1910"
+      },
+      {
+        "ORG_CODE": "1730"
+      },
+      {
+        "ORG_CODE": "2044"
+      },
+      {
+        "ORG_CODE": "2018"
+      }
+    ],
+    "QRY_LSTORGSHORT_DD_REF": [
+      {
+        "ORG_CODE": "1136",
+        "ORGS_SHORT_DESC": "A/DTSPO",
+        "ORGLIST": "1243"
+      },
+      {
+        "ORG_CODE": "1243",
+        "ORGS_SHORT_DESC": "S/NKP",
+        "ORGLIST": "1136"
+      },
+      {
+        "ORG_CODE": "1845",
+        "ORGS_SHORT_DESC": "S/OCR",
+        "ORGLIST": "1243"
+      },
+      {
+        "ORG_CODE": "1926",
+        "ORGS_SHORT_DESC": "S/ODI",
+        "ORGLIST": "1926"
+      },
+      {
+        "ORG_CODE": "1757",
+        "ORGS_SHORT_DESC": "S/OF",
+        "ORGLIST": "1243"
+      },
+      {
+        "ORG_CODE": "1198",
+        "ORGS_SHORT_DESC": "S/P",
+        "ORGLIST": "1926"
+      },
+      {
+        "ORG_CODE": "1641",
+        "ORGS_SHORT_DESC": "SAN SALVADOR",
+        "ORGLIST": "1757,1641,1370"
+      },
+      {
+        "ORG_CODE": "1370",
+        "ORGS_SHORT_DESC": "SANAA",
+        "ORGLIST": "1370,1641,1316"
+      },
+      {
+        "ORG_CODE": "1316",
+        "ORGS_SHORT_DESC": "SANTIAGO",
+        "ORGLIST": "1370"
+      },
+      {
+        "ORG_CODE": "1713",
+        "ORGS_SHORT_DESC": "SANTO DOM.",
+        "ORGLIST": "1370"
+      },
+      {
+        "ORG_CODE": "1534",
+        "ORGS_SHORT_DESC": "SAO PAULO",
+        "ORGLIST": "1370,1641,1316"
+      },
+      {
+        "ORG_CODE": "1910",
+        "ORGS_SHORT_DESC": "SAO PAULO",
+        "ORGLIST": "1370,1641,1316"
+      },
+      {
+        "ORG_CODE": "1730",
+        "ORGS_SHORT_DESC": "WHA/HA",
+        "ORGLIST": "2044"
+      },
+      {
+        "ORG_CODE": "2044",
+        "ORGS_SHORT_DESC": "WHA/MEX",
+        "ORGLIST": "1730"
+      },
+      {
+        "ORG_CODE": "2018",
+        "ORGS_SHORT_DESC": "ZIMBABWE",
+        "ORGLIST": "1370,1641,1316"
+      }
+    ],
+    "QRY_LSTPMS_DD_REF": [
+      {
+        "PMS_CODE": "A",
+        "PMS_DESC_TEXT": "Addendum",
+        "PMS_CREATE_ID": 2,
+        "PMS_CREATE_DATE": "1900-01-04T00:00:00",
+        "PMS_UPDATE_ID": 2,
+        "PMS_UPDATE_DATE": "1900-01-04T00:00:00"
+      },
+      {
+        "PMS_CODE": "I",
+        "PMS_DESC_TEXT": "Initiated",
+        "PMS_CREATE_ID": 5,
+        "PMS_CREATE_DATE": "1900-01-04T00:00:00",
+        "PMS_UPDATE_ID": 5,
+        "PMS_UPDATE_DATE": "1900-01-04T00:00:00"
+      },
+      {
+        "PMS_CODE": "O",
+        "PMS_DESC_TEXT": "Official Preliminary",
+        "PMS_CREATE_ID": 5,
+        "PMS_CREATE_DATE": "1900-01-04T00:00:00",
+        "PMS_UPDATE_ID": 5,
+        "PMS_UPDATE_DATE": "1900-01-04T00:00:00"
+      },
+      {
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PMS_CREATE_ID": 5,
+        "PMS_CREATE_DATE": "1900-01-04T00:00:00",
+        "PMS_UPDATE_ID": 5,
+        "PMS_UPDATE_DATE": "1900-01-04T00:00:00"
+      }
+    ],
+    "QRY_LSTPMT_DD_REF": [
+      {
+        "PMT_CODE": "ID",
+        "PMT_DESC_TEXT": "Interdivisional",
+        "PMT_CREATE_ID": 5,
+        "PMT_CREATE_DATE": "2020-03-18T09:24:47",
+        "PMT_UPDATE_ID": 5,
+        "PMT_UPDATE_DATE": "2020-03-18T09:24:47"
+      },
+      {
+        "PMT_CODE": "ML",
+        "PMT_DESC_TEXT": "Mid-Level",
+        "PMT_CREATE_ID": 5,
+        "PMT_CREATE_DATE": "2020-03-18T09:24:59",
+        "PMT_UPDATE_ID": 5,
+        "PMT_UPDATE_DATE": "2020-03-18T09:24:59"
+      }
+    ],
+    "QRY_LSTPNLMEETS_REF": [
+      {
+        "PM_SEQ_NUM": 1999,
+        "PM_DATE": "01/07/2014 13:55:00 ",
+        "MDT_CODE": "MEET",
+        "PMT_CODE": "ID",
+        "PMT_DESC_TEXT": "Interdivisional",
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PM_VIRTUAL_IND": "N",
+        "PM_TMSMP": "20140107135500"
+      },
+      {
+        "PM_SEQ_NUM": 1899,
+        "PM_DATE": "01/09/2014 13:55:00 ",
+        "MDT_CODE": "MEET",
+        "PMT_CODE": "ML",
+        "PMT_DESC_TEXT": "Mid-Level",
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PM_VIRTUAL_IND": "N",
+        "PM_TMSMP": "20140109135500"
+      },
+      {
+        "PM_SEQ_NUM": 2009,
+        "PM_DATE": "01/14/2014 13:55:00 ",
+        "MDT_CODE": "MEET",
+        "PMT_CODE": "ID",
+        "PMT_DESC_TEXT": "Interdivisional",
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PM_VIRTUAL_IND": "N",
+        "PM_TMSMP": "20140114135500"
+      },
+      {
+        "PM_SEQ_NUM": 1970,
+        "PM_DATE": "01/16/2014 13:55:00 ",
+        "MDT_CODE": "MEET",
+        "PMT_CODE": "ML",
+        "PMT_DESC_TEXT": "Mid-Level",
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PM_VIRTUAL_IND": "N",
+        "PM_TMSMP": "20140116135500"
+      },
+      {
+        "PM_SEQ_NUM": 1980,
+        "PM_DATE": "01/21/2014 13:55:00 ",
+        "MDT_CODE": "MEET",
+        "PMT_CODE": "ID",
+        "PMT_DESC_TEXT": "Interdivisional",
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PM_VIRTUAL_IND": "N",
+        "PM_TMSMP": "20140121135500"
+      },
+      {
+        "PM_SEQ_NUM": 1990,
+        "PM_DATE": "01/23/2014 13:55:00 ",
+        "MDT_CODE": "MEET",
+        "PMT_CODE": "ML",
+        "PMT_DESC_TEXT": "Mid-Level",
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PM_VIRTUAL_IND": "N",
+        "PM_TMSMP": "20140123135500"
+      },
+      {
+        "PM_SEQ_NUM": 2014,
+        "PM_DATE": "01/28/2014 13:55:00 ",
+        "MDT_CODE": "MEET",
+        "PMT_CODE": "ID",
+        "PMT_DESC_TEXT": "Interdivisional",
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PM_VIRTUAL_IND": "N",
+        "PM_TMSMP": "20140128135500"
+      },
+      {
+        "PM_SEQ_NUM": 7777,
+        "PM_DATE": "01/30/2014 13:55:00 ",
+        "MDT_CODE": "MEET",
+        "PMT_CODE": "ML",
+        "PMT_DESC_TEXT": "Mid-Level",
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PM_VIRTUAL_IND": "N",
+        "PM_TMSMP": "20140130135500"
+      },
+      {
+        "PM_SEQ_NUM": 6666,
+        "PM_DATE": "02/20/2014 13:55:00 ",
+        "MDT_CODE": "MEET",
+        "PMT_CODE": "ML",
+        "PMT_DESC_TEXT": "Mid-Level",
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PM_VIRTUAL_IND": "N",
+        "PM_TMSMP": "20140220135500"
+      },
+      {
+        "PM_SEQ_NUM": 5555,
+        "PM_DATE": "10/30/2023 00:00:00 ",
+        "MDT_CODE": "MEET",
+        "PMT_CODE": "ID",
+        "PMT_DESC_TEXT": "Interdivisional",
+        "PMS_CODE": "O",
+        "PMS_DESC_TEXT": "Official Preliminary",
+        "PM_VIRTUAL_IND": "N",
+        "PM_TMSMP": "20231030000000"
+      }
+    ],
+    "QRY_LSTMIC_DD_REF": [
+      {
+        "MIC_CODE": "B",
+        "MIC_DESC_TEXT": "Position Challenge",
+        "MIC_VIRTUAL_ALLOWED_IND": "N",
+        "MIC_ORDER_NUM": 2
+      },
+      {
+        "MIC_CODE": "R",
+        "MIC_DESC_TEXT": "Employee Challenge",
+        "MIC_VIRTUAL_ALLOWED_IND": "N",
+        "MIC_ORDER_NUM": 4
+      },
+      {
+        "MIC_CODE": "I",
+        "MIC_DESC_TEXT": "Volunteer Cable",
+        "MIC_VIRTUAL_ALLOWED_IND": "N",
+        "MIC_ORDER_NUM": 6
+      },
+      {
+        "MIC_CODE": "C",
+        "MIC_DESC_TEXT": "Addendum",
+        "MIC_VIRTUAL_ALLOWED_IND": "N",
+        "MIC_ORDER_NUM": 8
+      },
+      {
+        "MIC_CODE": "K",
+        "MIC_DESC_TEXT": "Addendum (Volunteer Cable)",
+        "MIC_VIRTUAL_ALLOWED_IND": "N",
+        "MIC_ORDER_NUM": 10
+      }
+    ],
+    "QRY_LSTAIS_DD_REF": [
+      {
+        "AIS_CODE": "J",
+        "AIS_DESC_TEXT": "Approved",
+        "AIS_ABBR_DESC_TEXT": "APP",
+        "AIS_ORDER_NUM": 10
+      },
+      {
+        "AIS_CODE": "A",
+        "AIS_DESC_TEXT": "Deferred",
+        "AIS_ABBR_DESC_TEXT": "DEF",
+        "AIS_ORDER_NUM": 20
+      },
+      {
+        "AIS_CODE": "N",
+        "AIS_DESC_TEXT": "Deferred - Proposed Position",
+        "AIS_ABBR_DESC_TEXT": "DPP",
+        "AIS_ORDER_NUM": 30
+      },
+      {
+        "AIS_CODE": "K",
+        "AIS_DESC_TEXT": "PIP",
+        "AIS_ABBR_DESC_TEXT": "PIP",
+        "AIS_ORDER_NUM": 40
+      },
+      {
+        "AIS_CODE": "Y",
+        "AIS_DESC_TEXT": "Withdrawn",
+        "AIS_ABBR_DESC_TEXT": "WTD",
+        "AIS_ORDER_NUM": 50
+      }
+    ],
+    "QRY_LSTLAT_DD_REF": [
+      {
+        "LAT_CODE": "E",
+        "LAT_ABBR_DESC_TEXT": "Correction",
+        "LAT_DESC_TEXT": "Assignment Correction",
+        "LAT_ORDER_NUM": 5
+      },
+      {
+        "LAT_CODE": "Q",
+        "LAT_ABBR_DESC_TEXT": "Appoint",
+        "LAT_DESC_TEXT": "Appoint and Assign",
+        "LAT_ORDER_NUM": 10
+      },
+      {
+        "LAT_CODE": "U",
+        "LAT_ABBR_DESC_TEXT": "Break",
+        "LAT_DESC_TEXT": "Break",
+        "LAT_ORDER_NUM": 15
+      },
+      {
+        "LAT_CODE": "A",
+        "LAT_ABBR_DESC_TEXT": "Terminate",
+        "LAT_DESC_TEXT": "Termination",
+        "LAT_ORDER_NUM": 20
+      },
+      {
+        "LAT_CODE": "L",
+        "LAT_ABBR_DESC_TEXT": "Separation",
+        "LAT_DESC_TEXT": "Separation TBD",
+        "LAT_ORDER_NUM": 25
+      }
+    ],
+    "QRY_LSTPOCBUREAUS_DD_REF": [
+      {
+        "'X'": "x"
+      }
+    ],
+    "QRY_LSTUSERPARMS_DD_REF": [],
+    "O_RETURN_CODE": 0,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": []
+  },
+  "fail" : {
+    "PV_RETURN_CODE_O": -1,
+    "PQRY_ERROR_DATA_O": [],
+    "QRY_ERROR_DATA": [
+      {
+        "MSG_TXT": "Invalid Search Criteria. At a minimum, two fields are required to perform a position search. Additionally, please note that the Cycle Name and Cycle Position Status fields are not valid selections for the Publishable Positions search.",
+        "MSG_LVL": "E",
+        "MSG_ID": 0,
+        "MSG_KEY": null
+      }
+    ]
+  }
+}
