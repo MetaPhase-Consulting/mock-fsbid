@@ -680,5 +680,20 @@
     ],
     "PV_RETURN_CODE_O": 0,
     "PQRY_ERROR_DATA_O": []
+  },
+  "fail" : {
+    "O_PUBPOS_MAXROWS": 2000,
+    "QRY_MODPUBLISHPOS_REF": [],
+    "QRY_LSTAPT_DD_REF": [],
+    "O_RETURN_CODE": -1,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": [
+      {
+        "MSG_TXT": "Invalid Search Criteria. At a minimum, two fields are required to perform a position search. Additionally, please note that the Cycle Name and Cycle Position Status fields are not valid selections for the Publishable Positions search.",
+        "MSG_LVL": "E",
+        "MSG_ID": 0,
+        "MSG_KEY": null
+      }
+    ]
   }
 }
