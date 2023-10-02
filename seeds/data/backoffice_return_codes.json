@@ -35,7 +35,19 @@
   },
   "prc_iud_bid_season": {
     "success": {
-      
+      "PV_RETURN_CODE_O": 0,
+      "PQRY_ERROR_DATA_O": []
+    },
+    "fail": {
+      "PV_RETURN_CODE_O": -1,
+      "PQRY_ERROR_DATA_O": [
+        {
+          "MSG_TXT": "71086190:Data error encountered during processing of transaction: Contact Help Desk",
+          "MSG_LVL": "E",
+          "MSG_ID": 0,
+          "MSG_KEY": null
+        }
+      ]
     }
   }
 }

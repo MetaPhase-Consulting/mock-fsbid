@@ -14,7 +14,6 @@ const common = require('./services/common')
 const publishablePositions = readJson('./publishable_positions.json')
 const publishablePositionFilters = readJson('./publishable_positions_filters.json')
 const publishablePositionEdit = readJson('./publishable_positions_filters.json')
-const bidSeasons = readJson('./bid_seasons.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
 const listBidSeasons = readJson('./manage_bid_seasons.json')
@@ -724,13 +723,12 @@ var appRouter = function (app) {
     "qry_modPublishPos": publishablePositions,
     "qry_lstfsbidSearch": publishablePositionFilters,
     "act_modCapsulePos": publishablePositionEdit,
-    "prc_lst_bid_seasons": bidSeasons,
-    "prc_lst_org_access": searchPostAccessList,
-    "prc_lst_bureau_org_tree": searchPostAccessFilters,
-    "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access,
-    "prc_add_org_access": backOfficeReturnCodes.prc_add_org_access,
-    "prc_lst_bid_season": listBidSeasons,
-    "prc_iud_bid_season": listBidSeasons,
+    "prc_lst_org_access": searchPostAccessList, // list search post access page
+    "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
+    "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
+    "prc_add_org_access": backOfficeReturnCodes.prc_add_org_access, // manage post access - grant access
+    "prc_lst_bid_seasons": listBidSeasons, // list bid seasons
+    "prc_iud_bid_season": backOfficeReturnCodes.prc_iud_bid_season // create/update bid season,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
