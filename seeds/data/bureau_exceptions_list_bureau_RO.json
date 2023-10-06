@@ -1,0 +1,199 @@
+{
+  "success": {
+    "O_EMP_FULL_NAME": "Payne, Nathanial",
+    "QRY_LSTBUREAUS_REF": [
+      {
+        "ORG_CODE": "200000",
+        "ORGS_SHORT_DESC": "A"
+      },
+      {
+        "ORG_CODE": "190000",
+        "ORGS_SHORT_DESC": "AC"
+      },
+      {
+        "ORG_CODE": "150000",
+        "ORGS_SHORT_DESC": "AF"
+      },
+      {
+        "ORG_CODE": "198000",
+        "ORGS_SHORT_DESC": "AVC"
+      },
+      {
+        "ORG_CODE": "088000",
+        "ORGS_SHORT_DESC": "BP"
+      },
+      {
+        "ORG_CODE": "280000",
+        "ORGS_SHORT_DESC": "CA"
+      },
+      {
+        "ORG_CODE": "253000",
+        "ORGS_SHORT_DESC": "CDP"
+      },
+      {
+        "ORG_CODE": "080000",
+        "ORGS_SHORT_DESC": "CGFS"
+      },
+      {
+        "ORG_CODE": "000001",
+        "ORGS_SHORT_DESC": "CORP JC"
+      },
+      {
+        "ORG_CODE": "013000",
+        "ORGS_SHORT_DESC": "CSO"
+      },
+      {
+        "ORG_CODE": "187323",
+        "ORGS_SHORT_DESC": "CSO/OSD/RM"
+      },
+      {
+        "ORG_CODE": "033000",
+        "ORGS_SHORT_DESC": "CT"
+      },
+      {
+        "ORG_CODE": "018000",
+        "ORGS_SHORT_DESC": "DRL"
+      },
+      {
+        "ORG_CODE": "170000",
+        "ORGS_SHORT_DESC": "DS"
+      },
+      {
+        "ORG_CODE": "130000",
+        "ORGS_SHORT_DESC": "EAP"
+      },
+      {
+        "ORG_CODE": "050000",
+        "ORGS_SHORT_DESC": "EB"
+      },
+      {
+        "ORG_CODE": "230000",
+        "ORGS_SHORT_DESC": "ECA"
+      },
+      {
+        "ORG_CODE": "025000",
+        "ORGS_SHORT_DESC": "ENR"
+      },
+      {
+        "ORG_CODE": "120000",
+        "ORGS_SHORT_DESC": "EUR"
+      },
+      {
+        "ORG_CODE": "260000",
+        "ORGS_SHORT_DESC": "FSI"
+      },
+      {
+        "ORG_CODE": "100000",
+        "ORGS_SHORT_DESC": "GPA"
+      },
+      {
+        "ORG_CODE": "210000",
+        "ORGS_SHORT_DESC": "GTM"
+      },
+      {
+        "ORG_CODE": "070000",
+        "ORGS_SHORT_DESC": "H"
+      },
+      {
+        "ORG_CODE": "309144",
+        "ORGS_SHORT_DESC": "IBWC"
+      },
+      {
+        "ORG_CODE": "309207",
+        "ORGS_SHORT_DESC": "IBWC"
+      },
+      {
+        "ORG_CODE": "019000",
+        "ORGS_SHORT_DESC": "INL"
+      },
+      {
+        "ORG_CODE": "060000",
+        "ORGS_SHORT_DESC": "INR"
+      },
+      {
+        "ORG_CODE": "000099",
+        "ORGS_SHORT_DESC": "INT/DEPT/US"
+      },
+      {
+        "ORG_CODE": "500000",
+        "ORGS_SHORT_DESC": "INTL ORGS   "
+      },
+      {
+        "ORG_CODE": "160000",
+        "ORGS_SHORT_DESC": "IO"
+      },
+      {
+        "ORG_CODE": "180000",
+        "ORGS_SHORT_DESC": "IRM"
+      },
+      {
+        "ORG_CODE": "197000",
+        "ORGS_SHORT_DESC": "ISN"
+      },
+      {
+        "ORG_CODE": "040000",
+        "ORGS_SHORT_DESC": "L"
+      },
+      {
+        "ORG_CODE": "016000",
+        "ORGS_SHORT_DESC": "MED"
+      },
+      {
+        "ORG_CODE": "140000",
+        "ORGS_SHORT_DESC": "NEA"
+      },
+      {
+        "ORG_CODE": "240000",
+        "ORGS_SHORT_DESC": "OBO"
+      },
+      {
+        "ORG_CODE": "020000",
+        "ORGS_SHORT_DESC": "OES"
+      },
+      {
+        "ORG_CODE": "094000",
+        "ORGS_SHORT_DESC": "OIG"
+      },
+      {
+        "ORG_CODE": "400000",
+        "ORGS_SHORT_DESC": "OTH AGYS"
+      },
+      {
+        "ORG_CODE": "014000",
+        "ORGS_SHORT_DESC": "PM"
+      },
+      {
+        "ORG_CODE": "030000",
+        "ORGS_SHORT_DESC": "PRM"
+      },
+      {
+        "ORG_CODE": "010000",
+        "ORGS_SHORT_DESC": "S"
+      },
+      {
+        "ORG_CODE": "010200",
+        "ORGS_SHORT_DESC": "S/CPR"
+      },
+      {
+        "ORG_CODE": "145000",
+        "ORGS_SHORT_DESC": "SA"
+      },
+      {
+        "ORG_CODE": "146000",
+        "ORGS_SHORT_DESC": "SCA"
+      },
+      {
+        "ORG_CODE": "195000",
+        "ORGS_SHORT_DESC": "VCI"
+      },
+      {
+        "ORG_CODE": "110000",
+        "ORGS_SHORT_DESC": "WHA"
+      }
+    ],
+    "O_RETURN_CODE": 0,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": []
+  },
+  "fail" : 'could not get a fail'
+}

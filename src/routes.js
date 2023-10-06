@@ -19,6 +19,7 @@ const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
 const bureauExceptionsList = readJson('./bureau_exceptions_list.json')
 const bureauExceptionsListEditView = readJson('./bureau_exceptions_list_edit_view.json')
+const bureauExceptionsListBureauRO = readJson('./bureau_exceptions_list_bureau_RO.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -730,6 +731,7 @@ var appRouter = function (app) {
     "prc_mod_org_access": searchPostAccessList,
     "qry_lstbureauex": bureauExceptionsList,
     "qry_getbureauex": bureauExceptionsListEditView,
+    "qry_addbureauex": bureauExceptionsListBureauRO,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
