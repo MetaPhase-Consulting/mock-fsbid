@@ -18,6 +18,7 @@ const bidSeasons = readJson('./bid_seasons.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
 const bureauExceptionsList = readJson('./bureau_exceptions_list.json')
+const bureauExceptionsListEditView = readJson('./bureau_exceptions_list_edit_view.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -728,6 +729,7 @@ var appRouter = function (app) {
     "prc_lst_bureau_org_tree": searchPostAccessFilters,
     "prc_mod_org_access": searchPostAccessList,
     "qry_lstbureauex": bureauExceptionsList,
+    "qry_getbureauex": bureauExceptionsListEditView,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
