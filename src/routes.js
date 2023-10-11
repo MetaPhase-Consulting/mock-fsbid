@@ -19,6 +19,9 @@ const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
 const positionClassifications = readJson('./position_classifications.json')
 const edit = readJson('./edit.json')
+const jobCategories = readJson('./job_categories.json')
+const jobCategorySkills = readJson('./job_category_skills.json')
+const jobCategoryEdit = readJson('./job_category_edit.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -730,11 +733,14 @@ var appRouter = function (app) {
     "prc_mod_org_access": searchPostAccessList,
     "qry_modPosClasses": positionClassifications,
     "act_modPosClasses": edit,
+    "qry_lstJobCats": jobCategories,
+    "qry_getJobCat": jobCategorySkills,
+    "act_modJobCat": jobCategoryEdit,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
     const jsonLookup = procNameDictionary[req?.query?.procName];
-    res.status(200).send(jsonLookup.success)
+    res.status(200).send(jsonLookup.success);
 
     // if (jsonLookup) {
     //   // randomly fail - add criteria for failing
