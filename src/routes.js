@@ -731,7 +731,7 @@ var appRouter = function (app) {
     "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
     "prc_add_org_access": backOfficeReturnCodes.prc_add_org_access, // manage post access - grant access
     "prc_lst_bid_seasons": listBidSeasons, // list bid seasons
-    "prc_iud_bid_season": backOfficeReturnCodes.prc_iud_bid_season // create/update bid season,
+    "prc_iud_bid_season": backOfficeReturnCodes.prc_iud_bid_season, // create/update bid season
     "qry_lstJobCats": jobCategories,
     "qry_getJobCat": jobCategorySkills,
     "act_modJobCat": jobCategoryEdit,
