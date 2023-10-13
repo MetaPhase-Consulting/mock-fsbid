@@ -1,0 +1,189 @@
+{
+  "success": {
+    "QRY_LSTJOBCATS_REF": [
+      {
+        "JC_ID": "17",
+        "JC_NM_TXT": "Construction Engineers",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "2",
+        "JC_NM_TXT": "Consular",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "29",
+        "JC_NM_TXT": "DCM-PO",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "3",
+        "JC_NM_TXT": "Diplomatic Courier",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "4",
+        "JC_NM_TXT": "Economic",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "37",
+        "JC_NM_TXT": "Environment Sci & Technology",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "18",
+        "JC_NM_TXT": "Facility Manager",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "6",
+        "JC_NM_TXT": "Financial Management",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "7",
+        "JC_NM_TXT": "General Services",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "8",
+        "JC_NM_TXT": "Human Resources",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "21",
+        "JC_NM_TXT": "IT Manager",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "19",
+        "JC_NM_TXT": "Info Mgt Specialist",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "20",
+        "JC_NM_TXT": "Info Mgt Tech Spec",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "10",
+        "JC_NM_TXT": "Interfunctional",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "36",
+        "JC_NM_TXT": "Labor Affairs",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "1",
+        "JC_NM_TXT": "Management",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "30",
+        "JC_NM_TXT": "Medical - Medical Provider",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "31",
+        "JC_NM_TXT": "Medical - Psychiatry",
+        "JC_STS_IND": "Inactive"
+      },
+      {
+        "JC_ID": "32",
+        "JC_NM_TXT": "Medical - RMLS",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "11",
+        "JC_NM_TXT": "Medical - RMO",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "33",
+        "JC_NM_TXT": "Medical - RMOP",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "28",
+        "JC_NM_TXT": "Narcotics Control",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "12",
+        "JC_NM_TXT": "OMS",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "38",
+        "JC_NM_TXT": "OMS - Executive Assistant",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "13",
+        "JC_NM_TXT": "Political",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "35",
+        "JC_NM_TXT": "Political Military",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "14",
+        "JC_NM_TXT": "Public Diplomacy",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "27",
+        "JC_NM_TXT": "Public Diplomacy-Eng. Lang. Programs",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "26",
+        "JC_NM_TXT": "Public Diplomacy-Information Resource",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "25",
+        "JC_NM_TXT": "Refugee Affairs",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "15",
+        "JC_NM_TXT": "Rotational",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "23",
+        "JC_NM_TXT": "Security Engineers",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "24",
+        "JC_NM_TXT": "Security Technicians",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "22",
+        "JC_NM_TXT": "Special Agent",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "34",
+        "JC_NM_TXT": "Threat Analysis",
+        "JC_STS_IND": "Active"
+      },
+      {
+        "JC_ID": "40",
+        "JC_NM_TXT": "test1234585",
+        "JC_STS_IND": "Active"
+      }
+    ],
+    "O_RETURN_CODE": 0,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": []
+  }
+}
