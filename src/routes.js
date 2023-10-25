@@ -14,11 +14,12 @@ const common = require('./services/common')
 const publishablePositions = readJson('./publishable_positions.json')
 const publishablePositionFilters = readJson('./publishable_positions_filters.json')
 const publishablePositionEdit = readJson('./publishable_positions_filters.json')
-const bidSeasons = readJson('./bid_seasons.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
 const positionClassifications = readJson('./position_classifications.json')
 const edit = readJson('./edit.json')
+const listBidSeasons = readJson('./manage_bid_seasons.json')
+const backOfficeReturnCodes = readJson('./backoffice_return_codes.json')
 const jobCategories = readJson('./job_categories.json')
 const jobCategorySkills = readJson('./job_category_skills.json')
 const jobCategoryEdit = readJson('./job_category_edit.json')
@@ -27,7 +28,7 @@ const jwt = require('jsonwebtoken');
 const _ = require('lodash');
 
 var appRouter = function (app) {
-  app.get("/", function(req, res) {
+  app.get("/", function (req, res) {
     res.status(200).send("Welcome to our restful API!");
   });
 
@@ -65,11 +66,11 @@ var appRouter = function (app) {
   });
 
   app.get('/HR/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
-    common.getEmployeeProfile(req, res,false);
+    common.getEmployeeProfile(req, res, false);
   });
 
   app.get('/HR/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
-    common.getEmployeeProfile(req, res,true);
+    common.getEmployeeProfile(req, res, true);
   });
 
   app.get("/v1/cyclePositions/bidders", async function (req, res) {
@@ -106,7 +107,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.post('/v1/bids', async function(req, res) {
+  app.post('/v1/bids', async function (req, res) {
     try {
       res.status(200).send(await bidding.add_bid(req.query))
     } catch (err) {
@@ -116,7 +117,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.put('/v1/bids', async function(req, res) {
+  app.put('/v1/bids', async function (req, res) {
     let isCDO = false;
     if (common.isCDO(req)) { isCDO = true; }
     try {
@@ -128,7 +129,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.patch('/v1/bids/handshake', async function(req, res) {
+  app.patch('/v1/bids/handshake', async function (req, res) {
     if (!req.query.perdet_seq_num || !req.query.cp_id) {
       res.status(200).send({ Data: null, usl_id: 4000003, return_code: -2 })
     };
@@ -151,29 +152,29 @@ var appRouter = function (app) {
     }
   });
 
-  app.delete('/v1/bids', async function(req, res) {
+  app.delete('/v1/bids', async function (req, res) {
     res.status(200).send(await bidding.remove_bid(req.query))
   });
 
-  app.get('/v1/futureVacancies', async function(req, res) {
+  app.get('/v1/futureVacancies', async function (req, res) {
     res.status(200).send(await futureVacancies.get_future_vacancies(req.query))
   });
 
-  app.post('/v2/futureVacancies', async function(req, res) {
+  app.post('/v2/futureVacancies', async function (req, res) {
     const body$ = common.convertPostBodyToGetQuery(req.body)
     res.status(200).send(await futureVacancies.get_future_vacancies(body$))
   });
 
-  app.get('/v1/futureVacancies/count', async function(req, res) {
+  app.get('/v1/futureVacancies/count', async function (req, res) {
     res.status(200).send(await futureVacancies.get_future_vacancies_count(req.query))
   });
 
-  app.post('/v2/futureVacancies/count', async function(req, res) {
+  app.post('/v2/futureVacancies/count', async function (req, res) {
     const body$ = common.convertPostBodyToGetQuery(req.body)
     res.status(200).send(await futureVacancies.get_future_vacancies_count(body$))
   });
 
-  app.get('/v1/cyclePositions/available', async function(req, res) {
+  app.get('/v1/cyclePositions/available', async function (req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query))
     } catch (errMsg) {
@@ -182,7 +183,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.post('/v2/cyclePositions/available', async function(req, res) {
+  app.post('/v2/cyclePositions/available', async function (req, res) {
     try {
       const body$ = common.convertPostBodyToGetQuery(req.body)
       res.status(200).send(await availablePositions.get_available_positions(body$))
@@ -192,34 +193,34 @@ var appRouter = function (app) {
     }
   });
 
-  app.get('/v1/cyclePositions/availableCount', async function(req, res) {
+  app.get('/v1/cyclePositions/availableCount', async function (req, res) {
     res.status(200).send(await availablePositions.get_available_positions_count(req.query))
   });
 
-  app.post('/v2/cyclePositions/availableCount', async function(req, res) {
+  app.post('/v2/cyclePositions/availableCount', async function (req, res) {
     const body$ = common.convertPostBodyToGetQuery(req.body)
     res.status(200).send(await availablePositions.get_available_positions_count(body$))
   });
 
-  app.get('/v1/cyclePositions/availableTandem', async function(req, res) {
+  app.get('/v1/cyclePositions/availableTandem', async function (req, res) {
     res.status(200).send(await availablePositions.get_available_positions_tandem(req.query))
   });
 
-  app.get('/v1/futureVacancies/tandem', async function(req, res) {
+  app.get('/v1/futureVacancies/tandem', async function (req, res) {
     res.status(200).send(await futureVacancies.get_future_vacancies_tandem(req.query))
   });
 
-  app.post('/v2/cyclepositions/availableTandem', async function(req, res) {
+  app.post('/v2/cyclepositions/availableTandem', async function (req, res) {
     const body$ = common.convertPostBodyToGetQuery(req.body)
     res.status(200).send(await availablePositions.get_available_positions_tandem(body$))
   });
 
-  app.post('/v2/futureVacancies/tandem', async function(req, res) {
+  app.post('/v2/futureVacancies/tandem', async function (req, res) {
     const body$ = common.convertPostBodyToGetQuery(req.body)
     res.status(200).send(await futureVacancies.get_future_vacancies_tandem(body$))
   });
 
-  app.get('/v1/Employees/userInfo', async function(req, res) {
+  app.get('/v1/Employees/userInfo', async function (req, res) {
     const employee = await employees.get_employee_by_ad_id(req.query)
     let employee$ = employee;
     if (Array.isArray(employee$)) {
@@ -238,9 +239,9 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v1/fsbid/bureauPermissions', async function(req, res) {
+  app.get('/v1/fsbid/bureauPermissions', async function (req, res) {
     try {
-      const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
+      const decoded = jwt.decode(req.headers.jwtauthorization, { complete: true });
       const found = _.get(decoded, 'payload.unique_name', '');
       const data = await employees.get_employee_bureaus_by_query({ ad_id: found });
       res.status(200).send({
@@ -254,9 +255,9 @@ var appRouter = function (app) {
     }
   });
 
-  app.get('/v1/Organizations/Permissions', async function(req, res) {
+  app.get('/v1/Organizations/Permissions', async function (req, res) {
     try {
-      const decoded = jwt.decode(req.headers.jwtauthorization, {complete: true});
+      const decoded = jwt.decode(req.headers.jwtauthorization, { complete: true });
       const found = _.get(decoded, 'payload.unique_name', '');
       const data = await employees.get_employee_organizations_by_query({ ad_id: found });
       res.status(200).send({
@@ -270,7 +271,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.get('/v1/Assignments', async function(req, res) {
+  app.get('/v1/Assignments', async function (req, res) {
     const data = await employees.get_assignments(req.query)
     res.status(200).send({
       Data: data,
@@ -279,7 +280,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v2/assignments', async function(req, res) {
+  app.get('/v2/assignments', async function (req, res) {
     try {
       const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.asgNameMapping).map(common.asgdNameMapping))
       const asg_pos = await employees.v2_get_assignments(filsCols, req.query)
@@ -317,13 +318,13 @@ var appRouter = function (app) {
   app.get('/v1/panels/references/statuses', lookup(lookups.get_panel_statuses))
   app.get('/v1/panels/references/types', lookup(lookups.get_panel_types))
   app.get('/v1/positions/classifications', lookup(lookups.get_frequent_positions))
-  app.get('/v1/posts/attributes', async function(req, res) {
+  app.get('/v1/posts/attributes', async function (req, res) {
     // TODO - add all post attributes tables by query param
     const data = await postattributes.get_postattributes(req.query)
     res.status(200).send(data)
   })
 
-  app.get('/v1/references/gsa-locations', async function(req, res) {
+  app.get('/v1/references/gsa-locations', async function (req, res) {
     const locations = await lookups.getGSALocations(req.query)
 
     res.status(200).send({
@@ -334,7 +335,7 @@ var appRouter = function (app) {
   })
 
 
-  app.get('/v1/clients/Agents', async function(req, res) {
+  app.get('/v1/clients/Agents', async function (req, res) {
     const agents = await employees.get_agents(req.query)
 
     res.status(200).send({
@@ -344,7 +345,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v1/fsbid/CDOClients', async function(req, res) {
+  app.get('/v1/fsbid/CDOClients', async function (req, res) {
     const clients = await employees.get_clients(req.query)
 
     res.status(200).send({
@@ -354,7 +355,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v2/clients', async function(req, res) {
+  app.get('/v2/clients', async function (req, res) {
     const clients = await employees.get_v2_clients(req.query)
 
     res.status(200).send({
@@ -389,7 +390,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.get('/v1/Persons', async function(req,res) {
+  app.get('/v1/Persons', async function (req, res) {
     const persons = await employees.get_persons(req.query)
 
     res.status(200).send({
@@ -399,7 +400,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v3/Persons', async function(req,res) {
+  app.get('/v3/Persons', async function (req, res) {
     const persons = await employees.get_v3_persons(req.query)
 
     res.status(200).send({
@@ -409,7 +410,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v3/Persons/agendaItems', async function(req,res) {
+  app.get('/v3/Persons/agendaItems', async function (req, res) {
     const persons = await employees.get_v3_persons_agenda_items(req.query)
 
     res.status(200).send({
@@ -419,7 +420,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v1/tm-persons', async function(req, res) {
+  app.get('/v1/tm-persons', async function (req, res) {
     let persons;
     // const persons = await employees.get_v3_persons_agenda_items(req.query)
     if (_.get(req.query, '["rp.columns"]', "").indexOf('ROWCOUNT') > -1) {
@@ -435,7 +436,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v1/cyclePositions', async function(req, res) {
+  app.get('/v1/cyclePositions', async function (req, res) {
     try {
       res.status(200).send(await availablePositions.get_available_positions(req.query, true))
     } catch (errMsg) {
@@ -444,7 +445,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v1/Positions', async function(req, res) {
+  app.get('/v1/Positions', async function (req, res) {
     try {
       res.status(200).send(await positions.get_position_by_id(req.query))
     } catch (errMsg) {
@@ -453,7 +454,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.post('/v2/cyclePositions', async function(req, res) {
+  app.post('/v2/cyclePositions', async function (req, res) {
     try {
       const body$ = common.convertPostBodyToGetQuery(req.body)
       res.status(200).send(await availablePositions.get_available_positions(body$, true))
@@ -463,21 +464,21 @@ var appRouter = function (app) {
     }
   });
 
-  app.get('/v2/SECREF/user', async function(req, res) {
+  app.get('/v2/SECREF/user', async function (req, res) {
     const user = await employees.get_user(req.query)
     try {
       res.status(200).send({
-      Data: user,
-      usl_id: 0,
-      return_code: 0
-    })
+        Data: user,
+        usl_id: 0,
+        return_code: 0
+      })
     } catch (errMsg) {
       console.error(errMsg)
       res.status(500).send({ "Message": "An error has occurred." });
     }
   })
 
-  app.get('/v1/fsbid/bidderTrackingPrograms', async function(req, res) {
+  app.get('/v1/fsbid/bidderTrackingPrograms', async function (req, res) {
     const classifications = await employees.get_classifications(req.query)
     res.status(200).send({
       Data: classifications,
@@ -486,7 +487,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v1/TrackingPrograms', async function(req, res) {
+  app.get('/v1/TrackingPrograms', async function (req, res) {
     const classifications = await employees.get_classifications(req.query)
     res.status(200).send({
       Data: classifications,
@@ -495,7 +496,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.get('/v1/TrackingPrograms/Bidders', async function(req, res) {
+  app.get('/v1/TrackingPrograms/Bidders', async function (req, res) {
     const classifications = await employees.get_classifications(req.query)
     res.status(200).send({
       Data: classifications,
@@ -504,7 +505,7 @@ var appRouter = function (app) {
     })
   })
 
-  app.post('/v1/TrackingPrograms/Bidders', async function(req, res) {
+  app.post('/v1/TrackingPrograms/Bidders', async function (req, res) {
     try {
       classifications = await employees.add_classification(req.query)
       res.status(200).send({
@@ -519,7 +520,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.delete('/v1/TrackingPrograms/Bidders', async function(req, res) {
+  app.delete('/v1/TrackingPrograms/Bidders', async function (req, res) {
     try {
       classifications = await employees.remove_classification(req.query)
       res.status(200).send({
@@ -534,7 +535,7 @@ var appRouter = function (app) {
     }
   });
 
-  app.get('/v1/agendas', async function(req, res) { // singleton
+  app.get('/v1/agendas', async function (req, res) { // singleton
     try {
       const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.agendaNameMapping))
       let ais = await agendas.getAgendaItems(filsCols)
@@ -551,7 +552,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v1/tm-persons/reference/current-organizations', async function(req, res) {
+  app.get('/v1/tm-persons/reference/current-organizations', async function (req, res) {
     try {
       const Data = await employees.get_agenda_organizations({ isCurrent: true });
       console.log(Data)
@@ -566,7 +567,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v1/tm-persons/reference/handshake-organizations', async function(req, res) {
+  app.get('/v1/tm-persons/reference/handshake-organizations', async function (req, res) {
     try {
       const Data = await employees.get_agenda_organizations({ isCurrent: false });
       console.log(Data)
@@ -581,7 +582,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v1/tm-persons/reference/current-bureaus', async function(req, res) {
+  app.get('/v1/tm-persons/reference/current-bureaus', async function (req, res) {
     try {
       const Data = await employees.get_agenda_bureaus({ isCurrent: true });
       console.log(Data)
@@ -596,7 +597,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v1/tm-persons/reference/handshake-bureaus', async function(req, res) {
+  app.get('/v1/tm-persons/reference/handshake-bureaus', async function (req, res) {
     try {
       const Data = await employees.get_agenda_bureaus({ isCurrent: false });
       console.log(Data)
@@ -611,22 +612,22 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v1/panels/references/dates', async function(req, res) {
+  app.get('/v1/panels/references/dates', async function (req, res) {
     try {
-    const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.panelNameMapping))
-    let pmdt = await agendas.getPanelDates(filsCols, req.query)
+      const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.panelNameMapping))
+      let pmdt = await agendas.getPanelDates(filsCols, req.query)
 
-    res.status(200).send({
-      Data: pmdt,
-      usl_id: 0,
-      return_code: 0
-    })
+      res.status(200).send({
+        Data: pmdt,
+        usl_id: 0,
+        return_code: 0
+      })
     } catch {
       console.error('An error has occurred')
     }
   })
 
-  app.get('/v2/separations', async function(req, res) {
+  app.get('/v2/separations', async function (req, res) {
     try {
       const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.sepNameMapping))
       const sep = await employees.get_separations(filsCols, req.query)
@@ -641,7 +642,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v2/positions', async function(req, res) {
+  app.get('/v2/positions', async function (req, res) {
     try {
       res.status(200).send(await positions.get_position_by_pos_num(req.query))
     } catch (errMsg) {
@@ -650,7 +651,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v1/vice-positions', async function(req, res) {
+  app.get('/v1/vice-positions', async function (req, res) {
     try {
       res.status(200).send(await positions.get_vice_position_by_pos_seq_num(req.query))
     } catch (errMsg) {
@@ -658,25 +659,25 @@ var appRouter = function (app) {
       res.status(500).send({ "Message": "An error has occurred." });
     }
   })
-  
-  app.get('/v1/publishablePositions/capsule', async function(req, res) {
+
+  app.get('/v1/publishablePositions/capsule', async function (req, res) {
     try {
       res.status(200).send(await positions.get_publishable_position_capsule(req.query))
     } catch (errMsg) {
       console.error(errMsg)
       res.status(500).send({ "Message": "An error has occurred." });
     }
-  }) 
-  
-   app.patch('/v1/publishablePositions/capsule', async function(req, res) {
+  })
+
+  app.patch('/v1/publishablePositions/capsule', async function (req, res) {
     const { query } = req
     if (!(query.pos_seq_num && query.capsule_descr_txt && query.update_id && query.update_date)) {
       res.status(200).send({ Data: null, usl_id: 4000003, return_code: -2 })
     };
     return res.status(200).send(await positions.update_capsule_description(query))
   });
-       
-  app.get('/v1/panels', async function(req, res) {
+
+  app.get('/v1/panels', async function (req, res) {
     try {
       const filsCols = common.convertTemplateFiltersCols(req.query, x => x.map(common.panelNameMapping))
       let panels = await agendas.getPanels(filsCols, req.query);
@@ -692,12 +693,12 @@ var appRouter = function (app) {
     }
   })
 
-  app.get('/v1/panels/:pmseqnum/agendas', async function(req, res) {
+  app.get('/v1/panels/:pmseqnum/agendas', async function (req, res) {
     try {
-      let reqQ = {...req.query};
-      if(req.params.pmseqnum) {
-        if(reqQ['rp.filter']){
-          if(Array.isArray(reqQ['rp.filter'])) {
+      let reqQ = { ...req.query };
+      if (req.params.pmseqnum) {
+        if (reqQ['rp.filter']) {
+          if (Array.isArray(reqQ['rp.filter'])) {
             reqQ['rp.filter'].push(`pmseqnum|EQ|${req.params.pmseqnum}|`);
           } else {
             reqQ['rp.filter'] = [reqQ['rp.filter'], `pmseqnum|EQ|${req.params.pmseqnum}|`];
@@ -712,9 +713,9 @@ var appRouter = function (app) {
       let panelAIs = await agendas.getAgendaItems(filsCols);
 
       res.status(200).send({
-          Data: panelAIs,
-          usl_id: 0,
-          return_code: 0
+        Data: panelAIs,
+        usl_id: 0,
+        return_code: 0
       })
     } catch (errMsg) {
       console.error(errMsg)
@@ -727,18 +728,20 @@ var appRouter = function (app) {
     "qry_modPublishPos": publishablePositions,
     "qry_lstfsbidSearch": publishablePositionFilters,
     "act_modCapsulePos": publishablePositionEdit,
-    "prc_lst_bid_seasons": bidSeasons,
-    "prc_lst_org_access": searchPostAccessList,
-    "prc_lst_bureau_org_tree": searchPostAccessFilters,
-    "prc_mod_org_access": searchPostAccessList,
     "qry_modPosClasses": positionClassifications,
     "act_modPosClasses": edit,
+    "prc_lst_org_access": searchPostAccessList, // list search post access page
+    "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
+    "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
+    "prc_add_org_access": backOfficeReturnCodes.prc_add_org_access, // manage post access - grant access
+    "prc_lst_bid_seasons": listBidSeasons, // list bid seasons
+    "prc_iud_bid_season": backOfficeReturnCodes.prc_iud_bid_season, // create/update bid season
     "qry_lstJobCats": jobCategories,
     "qry_getJobCat": jobCategorySkills,
     "act_modJobCat": jobCategoryEdit,
   };
 
-  app.post('/v1/backoffice/BackOfficeCRUD', async function(req, res) {
+  app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
     const jsonLookup = procNameDictionary[req?.query?.procName];
     res.status(200).send(jsonLookup.success);
 

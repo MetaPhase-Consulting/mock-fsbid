@@ -63,98 +63,358 @@
     }
   ],
   "PQRY_ORG_LEVEL_O": [
-  {
-    "Org": "328272",
-    "Bureau": "120000",
-    "ORG_DESC": "(AID) ANKARA (328272)",
-    "COUNTRY_STATE_CODE": "TU0000000"
-  },
-  {
-    "Org": "347073",
-    "Bureau": "140000",
-    "ORG_DESC": "(AID) DHAHRA (347073)",
-    "COUNTRY_STATE_CODE": "SA0000000"
-  },
-  {
-    "Org": "527500",
-    "Bureau": "500000",
-    "ORG_DESC": "(UNMEE) (527500)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "526200",
-    "Bureau": "500000",
-    "ORG_DESC": "(UNMIBH) IO (526200)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "520800",
-    "Bureau": "500000",
-    "ORG_DESC": "(UNMOT) (520800)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "200000",
-    "Bureau": "200000",
-    "ORG_DESC": "A (200000)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "201000",
-    "Bureau": "200000",
-    "ORG_DESC": "A (201000)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "402806",
-    "Bureau": "400000",
-    "ORG_DESC": "A C D A (402806)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "402811",
-    "Bureau": "400000",
-    "ORG_DESC": "A.C.D.A. (402811)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "402812",
-    "Bureau": "400000",
-    "ORG_DESC": "A.C.D.A. (402812)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "402809",
-    "Bureau": "400000",
-    "ORG_DESC": "A.C.D.A. (402809)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "201060",
-    "Bureau": "200000",
-    "ORG_DESC": "A/DTSPO (201060)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "010141",
-    "Bureau": "010000",
-    "ORG_DESC": "W-GDP (010141)",
-    "COUNTRY_STATE_CODE": "110000000"
-  },
-  {
-    "Org": "357499",
-    "Bureau": "150000",
-    "ORG_DESC": "ZIMBABWE (357499)",
-    "COUNTRY_STATE_CODE": "CD0000000"
-  },
-  {
-    "Org": "327604",
-    "Bureau": "120000",
-    "ORG_DESC": "ZURICH (327604)",
-    "COUNTRY_STATE_CODE": "SZ0000000"
-  }
+    {
+      "Org": "328272",
+      "Bureau": "120000",
+      "ORG_DESC": "(AID) ANKARA",
+      "COUNTRY_STATE_CODE": "TU0000000"
+    },
+    {
+      "Org": "320772",
+      "Bureau": "120000",
+      "ORG_DESC": "(AID) BAKU",
+      "COUNTRY_STATE_CODE": "AJ0000000"
+    },
+    {
+      "Org": "347073",
+      "Bureau": "140000",
+      "ORG_DESC": "(AID) DHAHRA",
+      "COUNTRY_STATE_CODE": "SA0000000"
+    },
+    {
+      "Org": "346472",
+      "Bureau": "140000",
+      "ORG_DESC": "(AID) DOHA",
+      "COUNTRY_STATE_CODE": "QA0000000"
+    },
+    {
+      "Org": "357372",
+      "Bureau": "150000",
+      "ORG_DESC": "(AID) JUBA",
+      "COUNTRY_STATE_CODE": "SU0000000"
+    },
+    {
+      "Org": "310472",
+      "Bureau": "110000",
+      "ORG_DESC": "(AID) LAPAZ",
+      "COUNTRY_STATE_CODE": "BL0000000"
+    },
+    {
+      "Org": "323072",
+      "Bureau": "120000",
+      "ORG_DESC": "(AID) NUUK",
+      "COUNTRY_STATE_CODE": "GL0000000"
+    },
+    {
+      "Org": "313772",
+      "Bureau": "110000",
+      "ORG_DESC": "(AID) PARAMA",
+      "COUNTRY_STATE_CODE": "NS0000000"
+    },
+    {
+      "Org": "514210",
+      "Bureau": "500000",
+      "ORG_DESC": "(CITIP)",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "519500",
+      "Bureau": "500000",
+      "ORG_DESC": "(MINURSO)",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "521530",
+      "Bureau": "500000",
+      "ORG_DESC": "(OES)",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "310468",
+      "Bureau": "110000",
+      "ORG_DESC": "(SEOP) LAPAZ",
+      "COUNTRY_STATE_CODE": "BL0000000"
+    },
+    {
+      "Org": "527500",
+      "Bureau": "500000",
+      "ORG_DESC": "(UNMEE)",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "526200",
+      "Bureau": "500000",
+      "ORG_DESC": "(UNMIBH) IO",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "520800",
+      "Bureau": "500000",
+      "ORG_DESC": "(UNMOT)",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "526100",
+      "Bureau": "500000",
+      "ORG_DESC": "(UNTAES) IO",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "406200",
+      "Bureau": "400000",
+      "ORG_DESC": "(WHCCY)",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "200000",
+      "Bureau": "200000",
+      "ORG_DESC": "A",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "201000",
+      "Bureau": "200000",
+      "ORG_DESC": "A",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "402806",
+      "Bureau": "400000",
+      "ORG_DESC": "A C D A",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "404030",
+      "Bureau": "400000",
+      "ORG_DESC": "A R B COMM",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "402814",
+      "Bureau": "400000",
+      "ORG_DESC": "A.C.D.A.",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "402815",
+      "Bureau": "400000",
+      "ORG_DESC": "A.C.D.A.",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "402816",
+      "Bureau": "400000",
+      "ORG_DESC": "A.C.D.A.",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "402817",
+      "Bureau": "400000",
+      "ORG_DESC": "A.C.D.A.",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "402801",
+      "Bureau": "400000",
+      "ORG_DESC": "A.C.D.A.",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "402802",
+      "Bureau": "400000",
+      "ORG_DESC": "A.C.D.A.",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "402803",
+      "Bureau": "400000",
+      "ORG_DESC": "A.C.D.A.",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "402804",
+      "Bureau": "400000",
+      "ORG_DESC": "A.C.D.A.",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "402805",
+      "Bureau": "400000",
+      "ORG_DESC": "A.C.D.A.",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "405010",
+      "Bureau": "400000",
+      "ORG_DESC": "WHITE HSE",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "405000",
+      "Bureau": "400000",
+      "ORG_DESC": "WHITE HSE",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "508130",
+      "Bureau": "500000",
+      "ORG_DESC": "WHO",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "508110",
+      "Bureau": "500000",
+      "ORG_DESC": "WHO",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "324034",
+      "Bureau": "120000",
+      "ORG_DESC": "WIESBADEN",
+      "COUNTRY_STATE_CODE": "GM0000000"
+    },
+    {
+      "Org": "356701",
+      "Bureau": "150000",
+      "ORG_DESC": "WINDHOEK",
+      "COUNTRY_STATE_CODE": "WA0000000"
+    },
+    {
+      "Org": "316008",
+      "Bureau": "110000",
+      "ORG_DESC": "WINNIPEG",
+      "COUNTRY_STATE_CODE": "CA0000000"
+    },
+    {
+      "Org": "508230",
+      "Bureau": "500000",
+      "ORG_DESC": "WMO",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "330506",
+      "Bureau": "130000",
+      "ORG_DESC": "WUHAN",
+      "COUNTRY_STATE_CODE": "CH0000000"
+    },
+    {
+      "Org": "222184",
+      "Bureau": "200000",
+      "ORG_DESC": "WW/RPSO/FL",
+      "COUNTRY_STATE_CODE": " 0000000"
+    },
+    {
+      "Org": "351020",
+      "Bureau": "150000",
+      "ORG_DESC": "YAOUNDE",
+      "COUNTRY_STATE_CODE": "CT0000000"
+    },
+    {
+      "Org": "351001",
+      "Bureau": "150000",
+      "ORG_DESC": "YAOUNDE",
+      "COUNTRY_STATE_CODE": "CM0000000"
+    },
+    {
+      "Org": "351068",
+      "Bureau": "150000",
+      "ORG_DESC": "YAOUNDE",
+      "COUNTRY_STATE_CODE": "CM0000000"
+    },
+    {
+      "Org": "347006",
+      "Bureau": "140000",
+      "ORG_DESC": "YAU JEDDAH",
+      "COUNTRY_STATE_CODE": "SA0000000"
+    },
+    {
+      "Org": "347007",
+      "Bureau": "140000",
+      "ORG_DESC": "YAU RIYADH",
+      "COUNTRY_STATE_CODE": "SA0000000"
+    },
+    {
+      "Org": "328405",
+      "Bureau": "120000",
+      "ORG_DESC": "YEKATERINBUR",
+      "COUNTRY_STATE_CODE": "RS0000000"
+    },
+    {
+      "Org": "320401",
+      "Bureau": "120000",
+      "ORG_DESC": "YEREVAN",
+      "COUNTRY_STATE_CODE": "AM0000000"
+    },
+    {
+      "Org": "330806",
+      "Bureau": "130000",
+      "ORG_DESC": "YOKOHAMA",
+      "COUNTRY_STATE_CODE": "JA0000000"
+    },
+    {
+      "Org": "330862",
+      "Bureau": "130000",
+      "ORG_DESC": "YOKOHAMA RLS",
+      "COUNTRY_STATE_CODE": "JA0000000"
+    },
+    {
+      "Org": "322701",
+      "Bureau": "120000",
+      "ORG_DESC": "ZAGREB",
+      "COUNTRY_STATE_CODE": "HR0000000"
+    },
+    {
+      "Org": "312844",
+      "Bureau": "110000",
+      "ORG_DESC": "ZAMORA DE HI",
+      "COUNTRY_STATE_CODE": "MX0000000"
+    },
+    {
+      "Org": "357602",
+      "Bureau": "150000",
+      "ORG_DESC": "ZANZIBAR",
+      "COUNTRY_STATE_CODE": "TZ0000000"
+    },
+    {
+      "Org": "352202",
+      "Bureau": "150000",
+      "ORG_DESC": "ZIGUINCHOR",
+      "COUNTRY_STATE_CODE": "CD0000000"
+    },
+    {
+      "Org": "357400",
+      "Bureau": "150000",
+      "ORG_DESC": "ZIMBABWE",
+      "COUNTRY_STATE_CODE": "110000000"
+    },
+    {
+      "Org": "357468",
+      "Bureau": "150000",
+      "ORG_DESC": "ZIMBABWE",
+      "COUNTRY_STATE_CODE": "ZI0000000"
+    },
+    {
+      "Org": "357499",
+      "Bureau": "150000",
+      "ORG_DESC": "ZIMBABWE",
+      "COUNTRY_STATE_CODE": "CD0000000"
+    },
+    {
+      "Org": "327604",
+      "Bureau": "120000",
+      "ORG_DESC": "ZURICH",
+      "COUNTRY_STATE_CODE": "SZ0000000"
+    }
   ],
   "PQRY_PERSON_LEVEL_O": [
+  {
+  "PER_SEQ_NUM": 522124,
+  "ORG": "197260",
+  "PER_FULL_NAME": "AAMOLDEE,JAEHA-NAERKEEE NMN",
+  "ORG_SHORT_DESC": "ISN/NPP/CTR",
+  "SKL_CODE": null,
+  "PER_NAME_ORG": "AAMOLDEE,JAEHA-NAERKEEE NMN (ISN/NPP/CTR)"
+  },
   {
   "PER_SEQ_NUM": 522124,
   "ORG": "197260",
@@ -184,7 +444,7 @@
   "ORG": "324701",
   "PER_FULL_NAME": "ABDELMAGID-NACKEE,HOTIMEE NMN",
   "ORG_SHORT_DESC": "PODGORICA",
-  "SKL_CODE": "4400",
+  "SKL_CODE": "2201",
   "PER_NAME_ORG": "ABDELMAGID-NACKEE,HOTIMEE NMN (PODGORICA)"
   },
   {
@@ -391,7 +651,7 @@
       "POS_ORG_SHORT_DESC": "FSI/SPAS/MTT",
       "POS_NUM_TEXT": "Y2603112 (FSI/SPAS/MTT)",
       "POS_TITLE_DESC": "INFO MGT TECH SPEC/PHONE",
-      "POS_SKILL_CODE": "2101",
+      "POS_SKILL_CODE": "2201",
       "POS_SKILL_DESC": "FINANCIAL MANAGEMENT"
     },
     {
@@ -400,7 +660,7 @@
       "POS_ORG_SHORT_DESC": "FSI/SPAS/OR",
       "POS_NUM_TEXT": "Y2633101 (FSI/SPAS/OR)",
       "POS_TITLE_DESC": "SEN. EDUCATION SPECIALIST",
-      "POS_SKILL_CODE": "6080",
+      "POS_SKILL_CODE": "2010",
       "POS_SKILL_DESC": "INTERFUNCTIONAL OFFICER OPER"
     },
     {
