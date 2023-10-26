@@ -63,11 +63,11 @@ var appRouter = function (app) {
       }));
   });
 
-  app.get('/HR/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
+  app.get('/v1/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
     common.getEmployeeProfile(req, res,false);
   });
 
-  app.get('/HR/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
+  app.get('/v1/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
     common.getEmployeeProfile(req, res,true);
   });
 
