@@ -549,7 +549,6 @@ const getPanels = async (filsCols, query) => {
             panelMeetingDatesdate = d.pmddttm;
           }
           return {
-            'pmdpmseqnum': d.pmseqnum,
             'pmdupdatedate': '2023-10-20T12:28:24',
             'pmdupdateid': 12345,
             'pmdcreatedate': '2023-10-20T12:28:24',
