@@ -16,6 +16,9 @@ const publishablePositionFilters = readJson('./publishable_positions_filters.jso
 const publishablePositionEdit = readJson('./publishable_positions_filters.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
+const bureauExceptionsList = readJson('./bureau_exceptions_list.json')
+const bureauExceptionsListEditView = readJson('./bureau_exceptions_list_edit_view.json')
+const bureauExceptionsListBureauRO = readJson('./bureau_exceptions_list_bureau_RO.json')
 const listBidSeasons = readJson('./manage_bid_seasons.json')
 const backOfficeReturnCodes = readJson('./backoffice_return_codes.json')
 const jobCategories = readJson('./job_categories.json')
@@ -726,6 +729,9 @@ var appRouter = function (app) {
     "qry_modPublishPos": publishablePositions,
     "qry_lstfsbidSearch": publishablePositionFilters,
     "act_modCapsulePos": publishablePositionEdit,
+    "qry_lstbureauex": bureauExceptionsList,
+    "qry_getbureauex": bureauExceptionsListEditView,
+    "qry_addbureauex": bureauExceptionsListBureauRO,
     "prc_lst_org_access": searchPostAccessList, // list search post access page
     "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
     "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
