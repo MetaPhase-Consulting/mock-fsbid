@@ -724,6 +724,68 @@ var appRouter = function (app) {
     }
   })
 
+  app.post('/v1/panels/meeting', async function(req, res) {
+    console.log('creating pm')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred creating pm')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.put('/v1/panels/meeting/:pmseqnum', async function(req, res) {
+    console.log('editing pm')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred editing pm')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.post('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
+    console.log('creating pmd')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred creating pmd')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.put('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
+    console.log('editing pmd')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred editing pmd')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  });
+
+
+
   // For BackOffice lookup
   const procNameDictionary = {
     "qry_modPublishPos": publishablePositions,
