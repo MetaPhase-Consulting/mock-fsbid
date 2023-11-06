@@ -741,6 +741,7 @@ var appRouter = function (app) {
 
   app.put('/v1/panels/meeting/:pmseqnum', async function(req, res) {
     console.log('editing pm')
+    console.log(req.body)
     try {
       res.status(200).send({
         Data: {},
@@ -771,6 +772,7 @@ var appRouter = function (app) {
 
   app.put('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
     console.log('editing pmd')
+    console.log(req.body)
     try {
       res.status(200).send({
         Data: {},
