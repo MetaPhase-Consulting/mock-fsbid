@@ -18,6 +18,9 @@ const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
 const positionClassifications = readJson('./position_classifications.json')
 const edit = readJson('./edit.json')
+const bureauExceptionsList = readJson('./bureau_exceptions_list.json')
+const bureauExceptionsListEditView = readJson('./bureau_exceptions_list_edit_view.json')
+const bureauExceptionsListBureauRO = readJson('./bureau_exceptions_list_bureau_RO.json')
 const listBidSeasons = readJson('./manage_bid_seasons.json')
 const backOfficeReturnCodes = readJson('./backoffice_return_codes.json')
 const jobCategories = readJson('./job_categories.json')
@@ -65,12 +68,12 @@ var appRouter = function (app) {
       }));
   });
 
-  app.get('/HR/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
-    common.getEmployeeProfile(req, res, false);
+  app.get('/v1/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
+    common.getEmployeeProfile(req, res,false);
   });
 
-  app.get('/HR/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
-    common.getEmployeeProfile(req, res, true);
+  app.get('/v1/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
+    common.getEmployeeProfile(req, res,true);
   });
 
   app.get("/v1/cyclePositions/bidders", async function (req, res) {
@@ -730,6 +733,9 @@ var appRouter = function (app) {
     "act_modCapsulePos": publishablePositionEdit,
     "qry_modPosClasses": positionClassifications,
     "act_modPosClasses": edit,
+    "qry_lstbureauex": bureauExceptionsList,
+    "qry_getbureauex": bureauExceptionsListEditView,
+    "qry_addbureauex": bureauExceptionsListBureauRO,
     "prc_lst_org_access": searchPostAccessList, // list search post access page
     "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
     "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
