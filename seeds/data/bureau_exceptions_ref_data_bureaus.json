@@ -1,0 +1,246 @@
+{
+  "success": {
+    "O_EMP_FULL_NAME": "Onsurezee, Aliyi-Heyunee  ",
+    "QRY_LSTBUREAUS_REF": [
+      {
+        "ORG_CODE": "200000",
+        "ORGS_SHORT_DESC": "A",
+        "ORGS_LONG_DESC": "BUREAU OF ADMINISTRATION                          "
+      },
+      {
+        "ORG_CODE": "190000",
+        "ORGS_SHORT_DESC": "AC",
+        "ORGS_LONG_DESC": "BUREAU OF ARMS CONTROL, ASST SECRETARY"
+      },
+      {
+        "ORG_CODE": "150000",
+        "ORGS_SHORT_DESC": "AF",
+        "ORGS_LONG_DESC": "BUREAU OF AFRICAN AFFAIRS"
+      },
+      {
+        "ORG_CODE": "198000",
+        "ORGS_SHORT_DESC": "AVC",
+        "ORGS_LONG_DESC": "BUR OF ARMS CONTROL, VERIFICATION AND COMPLIANCE"
+      },
+      {
+        "ORG_CODE": "088000",
+        "ORGS_SHORT_DESC": "BP",
+        "ORGS_LONG_DESC": "BUREAU OF BUDGET AND PLANNING"
+      },
+      {
+        "ORG_CODE": "280000",
+        "ORGS_SHORT_DESC": "CA",
+        "ORGS_LONG_DESC": "BUREAU OF CONSULAR AFFAIRS                        "
+      },
+      {
+        "ORG_CODE": "253000",
+        "ORGS_SHORT_DESC": "CDP",
+        "ORGS_LONG_DESC": "BUREAU OF CYBERSPACEAND DIGITAL PLCY"
+      },
+      {
+        "ORG_CODE": "080000",
+        "ORGS_SHORT_DESC": "CGFS",
+        "ORGS_LONG_DESC": "BUREAU OF THE COMPTROLLER AND GLOBAL FINANCIAL SVS"
+      },
+      {
+        "ORG_CODE": "000001",
+        "ORGS_SHORT_DESC": "CORP JC",
+        "ORGS_LONG_DESC": "CORPORATE JOB CODES"
+      },
+      {
+        "ORG_CODE": "013000",
+        "ORGS_SHORT_DESC": "CSO",
+        "ORGS_LONG_DESC": "BUREAU OF CONFLICT AND STABILIZATION OPERATIONS"
+      },
+      {
+        "ORG_CODE": "187323",
+        "ORGS_SHORT_DESC": "CSO/OSD/RM",
+        "ORGS_LONG_DESC": "RELEASE MANAGEMENT BRANCH"
+      },
+      {
+        "ORG_CODE": "033000",
+        "ORGS_SHORT_DESC": "CT",
+        "ORGS_LONG_DESC": "BUR OF COUNTERR & COUNTERING VIOLENT EXTREMISM"
+      },
+      {
+        "ORG_CODE": "018000",
+        "ORGS_SHORT_DESC": "DRL",
+        "ORGS_LONG_DESC": "OFF OF THE ASST SEC BUR OF DEMO, H R,  AND LABOR"
+      },
+      {
+        "ORG_CODE": "170000",
+        "ORGS_SHORT_DESC": "DS",
+        "ORGS_LONG_DESC": "BUREAU OF DIPLOMATIC SECURITY                     "
+      },
+      {
+        "ORG_CODE": "130000",
+        "ORGS_SHORT_DESC": "EAP",
+        "ORGS_LONG_DESC": "BUREAU EAST ASIAN AND PACIFIC AFFAIRS             "
+      },
+      {
+        "ORG_CODE": "050000",
+        "ORGS_SHORT_DESC": "EB",
+        "ORGS_LONG_DESC": "BUREAU OF ECONOMIC & BUSINESS AFFAIRS"
+      },
+      {
+        "ORG_CODE": "230000",
+        "ORGS_SHORT_DESC": "ECA",
+        "ORGS_LONG_DESC": "OFFICE OF THE ASSISTANT SECRETARY"
+      },
+      {
+        "ORG_CODE": "025000",
+        "ORGS_SHORT_DESC": "ENR",
+        "ORGS_LONG_DESC": "BUREAU OF ENERGY RESOURCES"
+      },
+      {
+        "ORG_CODE": "120000",
+        "ORGS_SHORT_DESC": "EUR",
+        "ORGS_LONG_DESC": "BUR OF EUROPEAN AFF AND EURASIAN AFFAIRS"
+      },
+      {
+        "ORG_CODE": "260000",
+        "ORGS_SHORT_DESC": "FSI",
+        "ORGS_LONG_DESC": "FOREIGN SERVICE INSTITUTE"
+      },
+      {
+        "ORG_CODE": "100000",
+        "ORGS_SHORT_DESC": "GPA",
+        "ORGS_LONG_DESC": "BUREAU OF GLOBAL PUBLIC AFFAIRS"
+      },
+      {
+        "ORG_CODE": "210000",
+        "ORGS_SHORT_DESC": "GTM",
+        "ORGS_LONG_DESC": "DIRECTOR GENERAL OF THE FS AND DIRECTOR OF GT"
+      },
+      {
+        "ORG_CODE": "070000",
+        "ORGS_SHORT_DESC": "H",
+        "ORGS_LONG_DESC": "OFFICE OF LEGISLATIVE AFFAIRS                     "
+      },
+      {
+        "ORG_CODE": "309144",
+        "ORGS_SHORT_DESC": "IBWC",
+        "ORGS_LONG_DESC": "LEADERSHIP DEV PROGRAM, NON-LABOR"
+      },
+      {
+        "ORG_CODE": "309207",
+        "ORGS_SHORT_DESC": "IBWC",
+        "ORGS_LONG_DESC": "MASTER PLANNING DIVISION, LABOR"
+      },
+      {
+        "ORG_CODE": "019000",
+        "ORGS_SHORT_DESC": "INL",
+        "ORGS_LONG_DESC": "BUREAU FOR INTER NARC AND LAW ENFOR AFF"
+      },
+      {
+        "ORG_CODE": "060000",
+        "ORGS_SHORT_DESC": "INR",
+        "ORGS_LONG_DESC": "BUREAU OF INTELLIGENCE AND RESEARCH               "
+      },
+      {
+        "ORG_CODE": "000099",
+        "ORGS_SHORT_DESC": "INT/DEPT/US",
+        "ORGS_LONG_DESC": "INTRANSIT-DEPARTMENT/ U.S."
+      },
+      {
+        "ORG_CODE": "500000",
+        "ORGS_SHORT_DESC": "INTL ORGS   ",
+        "ORGS_LONG_DESC": "INTERNATIONAL ORGANIZATIONS                       "
+      },
+      {
+        "ORG_CODE": "160000",
+        "ORGS_SHORT_DESC": "IO",
+        "ORGS_LONG_DESC": "BUREAU OF INTERNATIONAL ORG. AFFAIRS              "
+      },
+      {
+        "ORG_CODE": "180000",
+        "ORGS_SHORT_DESC": "IRM",
+        "ORGS_LONG_DESC": "BUREAU OF INFORMATION RESOURCE MANAGEMENT"
+      },
+      {
+        "ORG_CODE": "197000",
+        "ORGS_SHORT_DESC": "ISN",
+        "ORGS_LONG_DESC": "BUREAU OF INTERNATIONAL SECURITY AND NP"
+      },
+      {
+        "ORG_CODE": "040000",
+        "ORGS_SHORT_DESC": "L",
+        "ORGS_LONG_DESC": "OFFICE OF THE LEGAL ADVISER                       "
+      },
+      {
+        "ORG_CODE": "016000",
+        "ORGS_SHORT_DESC": "MED",
+        "ORGS_LONG_DESC": "BUREAU OF MEDICAL SERVICES"
+      },
+      {
+        "ORG_CODE": "140000",
+        "ORGS_SHORT_DESC": "NEA",
+        "ORGS_LONG_DESC": "BUREAU NEAR EASTERN AFFAIRS                       "
+      },
+      {
+        "ORG_CODE": "240000",
+        "ORGS_SHORT_DESC": "OBO",
+        "ORGS_LONG_DESC": "BUREAU OF OVERSEAS BUILDINGS OPERATIONS"
+      },
+      {
+        "ORG_CODE": "020000",
+        "ORGS_SHORT_DESC": "OES",
+        "ORGS_LONG_DESC": "ASST SEC, OCEANS & INT L ENVIR & SCI AFFS         "
+      },
+      {
+        "ORG_CODE": "094000",
+        "ORGS_SHORT_DESC": "OIG",
+        "ORGS_LONG_DESC": "OFFICE OF THE INSPECTOR GENERAL"
+      },
+      {
+        "ORG_CODE": "400000",
+        "ORGS_SHORT_DESC": "OTH AGYS",
+        "ORGS_LONG_DESC": "OTHER US AGENCIES        OTHER US AGENCIES        "
+      },
+      {
+        "ORG_CODE": "014000",
+        "ORGS_SHORT_DESC": "PM",
+        "ORGS_LONG_DESC": "BUREAU OF POLITICAL-MILITARY AFFAIRS"
+      },
+      {
+        "ORG_CODE": "030000",
+        "ORGS_SHORT_DESC": "PRM",
+        "ORGS_LONG_DESC": "BUREAU OF POPULATION, REFUGEES, AND MIGRATION     "
+      },
+      {
+        "ORG_CODE": "010000",
+        "ORGS_SHORT_DESC": "S",
+        "ORGS_LONG_DESC": "OFFICE OF THE SECRETARY                           "
+      },
+      {
+        "ORG_CODE": "010200",
+        "ORGS_SHORT_DESC": "S/CPR",
+        "ORGS_LONG_DESC": "OFFICE OF THE CHIEF OF PROTOCOL                   "
+      },
+      {
+        "ORG_CODE": "145000",
+        "ORGS_SHORT_DESC": "SA",
+        "ORGS_LONG_DESC": "BUREAU OF SOUTH ASIAN AFFAIRS                     "
+      },
+      {
+        "ORG_CODE": "146000",
+        "ORGS_SHORT_DESC": "SCA",
+        "ORGS_LONG_DESC": "BUREAU OF SOUTH AND CENTRAL ASIAN AFFAIRS"
+      },
+      {
+        "ORG_CODE": "195000",
+        "ORGS_SHORT_DESC": "VCI",
+        "ORGS_LONG_DESC": "BUREAU OF VERIF,COMPLIANCE, AND IMPLEMENTATION"
+      },
+      {
+        "ORG_CODE": "110000",
+        "ORGS_SHORT_DESC": "WHA",
+        "ORGS_LONG_DESC": "BUREAU OF WESTERN HEMISPHERE AFFAIRS"
+      }
+    ],
+    "O_RETURN_CODE": 0,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": []
+  },
+  "fail" : "could not get a fail"
+}
