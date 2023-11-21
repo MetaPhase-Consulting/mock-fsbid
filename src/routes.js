@@ -24,6 +24,7 @@ const backOfficeReturnCodes = readJson('./backoffice_return_codes.json')
 const jobCategories = readJson('./job_categories.json')
 const jobCategorySkills = readJson('./job_category_skills.json')
 const jobCategoryEdit = readJson('./job_category_edit.json')
+const backofficeGeneric = readJson('./backoffice_generic.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -732,6 +733,9 @@ var appRouter = function (app) {
     "qry_lstbureauex": bureauExceptions,
     "qry_getbureauex": userBureauExceptionsAndMetaData,
     "qry_addbureauex": bureauExceptionsRefDataBureaus,
+    "act_addbureauex": backofficeGeneric,
+    "act_modbureauex": backofficeGeneric,
+    "act_delbureauex": backofficeGeneric,
     "prc_lst_org_access": searchPostAccessList, // list search post access page
     "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
     "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
