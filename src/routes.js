@@ -26,6 +26,8 @@ const backOfficeReturnCodes = readJson('./backoffice_return_codes.json')
 const jobCategories = readJson('./job_categories.json')
 const jobCategorySkills = readJson('./job_category_skills.json')
 const jobCategoryEdit = readJson('./job_category_edit.json')
+const postPanel = readJson('./post_panel.json')
+const panelMeeting = readJson('./panel_meeting.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
 
 const jwt = require('jsonwebtoken');
@@ -813,6 +815,13 @@ var appRouter = function (app) {
     "qry_lstJobCats": jobCategories,
     "qry_getJobCat": jobCategorySkills,
     "act_modJobCat": jobCategoryEdit,
+    "qry_getPnlMeet": panelMeeting,
+    "act_modPnlMeet": jobCategoryEdit,
+    "qry_modPostPnl": postPanel,
+    "act_modPostPnl": jobCategoryEdit,
+    "act_runoffpre": jobCategoryEdit,
+    "act_runoffaddendum": jobCategoryEdit,
+    "act_runpostpnl": jobCategoryEdit,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
