@@ -7,7 +7,6 @@ const lookups = require('./lookups');
 
 // Mapping of provided sort fields to matching query fields
 const SORT_MAPPING = {
-  per_grade_code: 'employees.grade_code',
   per_skill_code: 'codes.skl_code',
   per_last_name: 'employees.last_name',
   per_first_name: 'employees.first_name',
@@ -128,8 +127,8 @@ const getLanguage = (language) => {
     "empl_language_code": language._pivot_language_code,
     "empl_language": language.language_long_desc,
     "empl_high_test_date": "2003-05-28T00:00:00-04:00",
-    "empl_high_speaking": "2+",
-    "empl_high_reading": "2",
+    "empl_high_speaking": "2",
+    "empl_high_reading": "2+",
   }
 }
 
@@ -181,7 +180,7 @@ const get_clients = async query => {
           per_grade_code: emp.grade_code,
           per_middle_name: emp.middle_name,
           ...personSkills(emp.skills),
-          per_pay_plan_code: "",
+          per_pay_plan_code: ['FP', 'O', 'P'][Math.ceil(Math.random() * 2)],
           per_tenure_code: "",
           ...assignmentInfo,
           classifications: classifications.length === 1 ? classifications[0] : classifications,
@@ -251,6 +250,7 @@ const get_v2_clients = async query => {
           assignment: assignments$.length === 1 ? assignments$[0] : assignments$
         }
       }
+      console.log('EMP', emp);
       const res =  {
         rnum: index + 1,
         hru_id: manager.hru_id,
@@ -264,7 +264,7 @@ const get_v2_clients = async query => {
           per_grade_code: emp.grade_code,
           per_middle_name: emp.middle_name,
           ...personSkills(emp.skills),
-          per_pay_plan_code: "",
+          per_pay_plan_code: ['FP', 'O', 'P'][Math.ceil(Math.random() * 2)],
           per_tenure_code: "",
           ...assignmentInfo,
           classifications: classifications.length === 1 ? classifications[0] : classifications,
@@ -696,6 +696,7 @@ const get_persons = async query => {
           ...personSkills(emp.skills),
           per_pay_plan_code: emp.per_pay_plan_code || '',
           per_grade_code: emp.grade_code || ' ',
+          per_pay_plan_code: emp.pay_plan || '',
           per_tenure_code: emp.tenure_code || '',
           pers_code: emp.pers_code || '',
           per_create_id: emp.per_create_id || '',
