@@ -16,6 +16,9 @@ const publishablePositionFilters = readJson('./publishable_positions_filters.jso
 const publishablePositionEdit = readJson('./publishable_positions_filters.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
+const bureauExceptions = readJson('./bureau_exceptions.json')
+const userBureauExceptionsAndMetaData = readJson('./user_bureau_exceptions_and_metadata.json')
+const bureauExceptionsRefDataBureaus = readJson('./bureau_exceptions_ref_data_bureaus.json')
 const listBidSeasons = readJson('./manage_bid_seasons.json')
 const backOfficeReturnCodes = readJson('./backoffice_return_codes.json')
 const jobCategories = readJson('./job_categories.json')
@@ -23,6 +26,7 @@ const jobCategorySkills = readJson('./job_category_skills.json')
 const jobCategoryEdit = readJson('./job_category_edit.json')
 const postPanel = readJson('./post_panel.json')
 const panelMeeting = readJson('./panel_meeting.json')
+const backofficeGeneric = readJson('./backoffice_generic.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -65,11 +69,11 @@ var appRouter = function (app) {
       }));
   });
 
-  app.get('/HR/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
+  app.get('/v1/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
     common.getEmployeeProfile(req, res,false);
   });
 
-  app.get('/HR/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
+  app.get('/v1/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
     common.getEmployeeProfile(req, res,true);
   });
 
@@ -723,11 +727,81 @@ var appRouter = function (app) {
     }
   })
 
+  app.post('/v1/panels/meeting', async function(req, res) {
+    console.log('creating pm')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred creating pm')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.put('/v1/panels/meeting/:pmseqnum', async function(req, res) {
+    console.log('editing pm')
+    console.log(req.body)
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred editing pm')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.post('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
+    console.log('creating pmd')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred creating pmd')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.put('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
+    console.log('editing pmd')
+    console.log(req.body)
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred editing pmd')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  });
+
+
+
   // For BackOffice lookup
   const procNameDictionary = {
     "qry_modPublishPos": publishablePositions,
     "qry_lstfsbidSearch": publishablePositionFilters,
     "act_modCapsulePos": publishablePositionEdit,
+    "qry_lstbureauex": bureauExceptions,
+    "qry_getbureauex": userBureauExceptionsAndMetaData,
+    "qry_addbureauex": bureauExceptionsRefDataBureaus,
+    "act_addbureauex": backofficeGeneric,
+    "act_modbureauex": backofficeGeneric,
+    "act_delbureauex": backofficeGeneric,
     "prc_lst_org_access": searchPostAccessList, // list search post access page
     "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
     "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
