@@ -791,6 +791,37 @@ var appRouter = function (app) {
     }
   });
 
+  app.post('/v1/panels/meetingItem', async function(req, res) {
+    console.log('creating pmi')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred creating pmi')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.put('/v1/panels/meetingItem/:pmiseqnum', async function(req, res) {
+    console.log('editing pmi')
+    console.log(req.body)
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred editing pmi')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
 
 
   // For BackOffice lookup
