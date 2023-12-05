@@ -793,6 +793,7 @@ var appRouter = function (app) {
 
   app.post('/v1/panels/meetingItem', async function(req, res) {
     console.log('creating pmi')
+    console.log(req.body)
     try {
       res.status(200).send({
         Data: {},
