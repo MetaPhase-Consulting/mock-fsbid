@@ -176,8 +176,11 @@ const getAgendaItems = async (filsCols) => {
               "posspeakproficiency2code": "2",
               "posreadproficiency2code": "2",
               "pospayplancode": "FA",
-              "pospayplandesc": "Fixed Amount"
- 
+              "pospayplandesc": "Fixed Amount",
+              "posskillcode": "3001",
+              "posskilldesc": "CONSULAR AFFAIRS",
+              "posstaffptrnskillcode": "7090",
+              "posstaffptrnskilldesc": "LEAVE WITHOUT PAY",
             }
           ]
         }
