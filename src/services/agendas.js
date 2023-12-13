@@ -176,8 +176,11 @@ const getAgendaItems = async (filsCols) => {
               "posspeakproficiency2code": "2",
               "posreadproficiency2code": "2",
               "pospayplancode": "FA",
-              "pospayplandesc": "Fixed Amount"
- 
+              "pospayplandesc": "Fixed Amount",
+              "posskillcode": "3001",
+              "posskilldesc": "CONSULAR AFFAIRS",
+              "posstaffptrnskillcode": "7090",
+              "posstaffptrnskilldesc": "LEAVE WITHOUT PAY",
             }
           ]
         }
@@ -203,6 +206,10 @@ const getAgendaItems = async (filsCols) => {
           poslanguage1desc: "HUNGARIAN",
           posspeakproficiency1code: "3",
           posreadproficiency1code: "3",
+          posskillcode: "3001",
+          posskilldesc: "CONSULAR AFFAIRS",
+          posstaffptrnskillcode: "7090",
+          posstaffptrnskilldesc: "LEAVE WITHOUT PAY",
           poslanguage2code: "AE",
           poslanguage2desc: "ARABIC EGYPTIAN",
           posspeakproficiency2code: "2",
@@ -275,10 +282,17 @@ const getAgendaItems = async (filsCols) => {
         aisdesctext: aiStatus,
         pmiofficialitemnum: pmi.pmiofficialitemnum,
         Panel: [{
-          pmseqnum: pm.pmseqnum,
+          pmiofficialitemnum: pmi.pmiofficialitemnum,
+          pmicreateid: pmi.pmicreateid,
+          pmicreatedate: pmi.pmicreatedate,
+          pmiupdateid: pmi.pmiupdateid,
+          pmiupdatedate: pmi.pmiupdatedate,
+          pmipmseqnum: pm.pmseqnum,
           pmpmscode: pms.pmscode,
           pmiseqnum: pmi.pmiseqnum,
           pmimiccode: pmi.miccode,
+          pmiaddendumind: pmi.pmiaddendumind,
+          pmilabeltext: pmi.pmilabeltext,
           pmsdesctext: pms.pmsdesctext,
           pmdmdtcode: pmdt.mdtcode,
           pmddttm: pmdt.pmddttm,

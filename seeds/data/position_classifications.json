@@ -1,0 +1,284 @@
+{
+  "success": {
+    "O_POSCLASS_MAXROWS": 2000,
+    "QRY_PCT_REF": [
+      {
+        "PCT_CODE": "15",
+        "PCT_DESC_TEXT": "15-20% Differential Post",
+        "PCT_SHORT_DESC_TEXT": "15-20% "
+      },
+      {
+        "PCT_CODE": "CN",
+        "PCT_DESC_TEXT": "Critical Need Position",
+        "PCT_SHORT_DESC_TEXT": "CN"
+      },
+      {
+        "PCT_CODE": "DC",
+        "PCT_DESC_TEXT": "Deputy Chief of Mission",
+        "PCT_SHORT_DESC_TEXT": "DCM"
+      },
+      {
+        "PCT_CODE": "FI",
+        "PCT_DESC_TEXT": "FICA Position",
+        "PCT_SHORT_DESC_TEXT": "FICA"
+      },
+      {
+        "PCT_CODE": "HD",
+        "PCT_DESC_TEXT": "Historic. Diff. to Staff Post",
+        "PCT_SHORT_DESC_TEXT": "HDS Post"
+      },
+      {
+        "PCT_CODE": "IT",
+        "PCT_DESC_TEXT": "Iraq Tax Position",
+        "PCT_SHORT_DESC_TEXT": "Iraqtax"
+      },
+      {
+        "PCT_CODE": "KY",
+        "PCT_DESC_TEXT": "Key Position",
+        "PCT_SHORT_DESC_TEXT": "KEY"
+      },
+      {
+        "PCT_CODE": "MC",
+        "PCT_DESC_TEXT": "ML cede",
+        "PCT_SHORT_DESC_TEXT": "ML-C"
+      },
+      {
+        "PCT_CODE": "PD",
+        "PCT_DESC_TEXT": "Program Direction",
+        "PCT_SHORT_DESC_TEXT": "PrgDir"
+      },
+      {
+        "PCT_CODE": "SC",
+        "PCT_DESC_TEXT": "SL cede",
+        "PCT_SHORT_DESC_TEXT": "SL-C"
+      },
+      {
+        "PCT_CODE": "SN",
+        "PCT_DESC_TEXT": "Service Need Differential Post",
+        "PCT_SHORT_DESC_TEXT": "SND post"
+      },
+      {
+        "PCT_CODE": "SO",
+        "PCT_DESC_TEXT": "Exclude from shootouts",
+        "PCT_SHORT_DESC_TEXT": "x S/O"
+      },
+      {
+        "PCT_CODE": "XR",
+        "PCT_DESC_TEXT": "Exclude from recap report",
+        "PCT_SHORT_DESC_TEXT": "x-Recap"
+      }
+    ],
+    "QRY_MODPOSCLASSES_REF": [
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "15",
+        "PCT_DESC_TEXT": "15-20% Differential Post",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "1",
+        "PCT_CODE": "CN",
+        "PCT_DESC_TEXT": "Critical Need Position",
+        "POSC_USERID": 57675,
+        "POSC_TMSMP_ID": "20230808152401"
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "1",
+        "PCT_CODE": "DC",
+        "PCT_DESC_TEXT": "Deputy Chief of Mission",
+        "POSC_USERID": 57675,
+        "POSC_TMSMP_ID": "20230808152401"
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "FI",
+        "PCT_DESC_TEXT": "FICA Position",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "HD",
+        "PCT_DESC_TEXT": "Historic. Diff. to Staff Post",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "IT",
+        "PCT_DESC_TEXT": "Iraq Tax Position",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "KY",
+        "PCT_DESC_TEXT": "Key Position",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "MC",
+        "PCT_DESC_TEXT": "ML cede",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "PD",
+        "PCT_DESC_TEXT": "Program Direction",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "SC",
+        "PCT_DESC_TEXT": "SL cede",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "SN",
+        "PCT_DESC_TEXT": "Service Need Differential Post",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "SO",
+        "PCT_DESC_TEXT": "Exclude from shootouts",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      },
+      {
+        "POS_SEQ_NUM": 193201,
+        "BUR_SHORT_DESC": "AF",
+        "ORG_CODE": "353001",
+        "POS_NUM_TXT": "10012012",
+        "POS_TITLE_TXT": "ECON/PUBLIC DIPLOMACY",
+        "ORG_SHORT_DESC": "ABIDJAN",
+        "POS_SKILL_DESC": "POLITICAL AFFAIRS",
+        "POS_GRADE_CODE": "03",
+        "INC_IND": "0",
+        "PCT_CODE": "XR",
+        "PCT_DESC_TEXT": "Exclude from recap report",
+        "POSC_USERID": 0,
+        "POSC_TMSMP_ID": null
+      }
+    ],
+    "O_RETURN_CODE": 0,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": []
+  },
+  "fail": {
+    "O_RETURN_CODE": -1,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": [
+      {
+        "MSG_TXT": "71079501:Timestamp Error trying to modify/delete record: Retrieve record(s) and try again",
+        "MSG_LVL": "E",
+        "MSG_ID": 0,
+        "MSG_KEY": null
+      }
+    ]
+  }
+}

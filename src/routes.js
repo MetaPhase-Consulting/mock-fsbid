@@ -16,6 +16,8 @@ const publishablePositionFilters = readJson('./publishable_positions_filters.jso
 const publishablePositionEdit = readJson('./publishable_positions_filters.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
+const positionClassifications = readJson('./position_classifications.json')
+const edit = readJson('./edit.json')
 const bureauExceptions = readJson('./bureau_exceptions.json')
 const userBureauExceptionsAndMetaData = readJson('./user_bureau_exceptions_and_metadata.json')
 const bureauExceptionsRefDataBureaus = readJson('./bureau_exceptions_ref_data_bureaus.json')
@@ -24,6 +26,8 @@ const backOfficeReturnCodes = readJson('./backoffice_return_codes.json')
 const jobCategories = readJson('./job_categories.json')
 const jobCategorySkills = readJson('./job_category_skills.json')
 const jobCategoryEdit = readJson('./job_category_edit.json')
+const postPanel = readJson('./post_panel.json')
+const panelMeeting = readJson('./panel_meeting.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
 const biddingTools = readJson('./bidding_tools.json')
 const biddingTool = readJson('./bidding_tool.json')
@@ -789,6 +793,38 @@ var appRouter = function (app) {
     }
   });
 
+  app.post('/v1/panels/meetingItem', async function(req, res) {
+    console.log('creating pmi')
+    console.log(req.body)
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred creating pmi')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.put('/v1/panels/meetingItem/:pmiseqnum', async function(req, res) {
+    console.log('editing pmi')
+    console.log(req.body)
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred editing pmi')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
 
 
   // For BackOffice lookup
@@ -796,6 +832,8 @@ var appRouter = function (app) {
     "qry_modPublishPos": publishablePositions,
     "qry_lstfsbidSearch": publishablePositionFilters,
     "act_modCapsulePos": publishablePositionEdit,
+    "qry_modPosClasses": positionClassifications,
+    "act_modPosClasses": edit,
     "qry_lstbureauex": bureauExceptions,
     "qry_getbureauex": userBureauExceptionsAndMetaData,
     "qry_addbureauex": bureauExceptionsRefDataBureaus,
@@ -815,6 +853,13 @@ var appRouter = function (app) {
     "act_addbiddingtool": jobCategoryEdit,
     "act_modbiddingtool": jobCategoryEdit,
     "act_delbiddingtool": jobCategoryEdit,
+    "qry_getPnlMeet": panelMeeting,
+    "act_modPnlMeet": jobCategoryEdit,
+    "qry_modPostPnl": postPanel,
+    "act_modPostPnl": jobCategoryEdit,
+    "act_runoffpre": jobCategoryEdit,
+    "act_runoffaddendum": jobCategoryEdit,
+    "act_runpostpnl": jobCategoryEdit,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {

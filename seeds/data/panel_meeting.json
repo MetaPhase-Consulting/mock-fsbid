@@ -1,0 +1,133 @@
+{
+  "success": {
+    "O_PM_SEQ_NUM": 720,
+    "O_PM_VIRTUAL_IND": "N",
+    "O_PM_UPDATE_ID": 2381,
+    "O_PM_UPDATE_DATE": "20050105163412",
+    "O_PMT_CODE": "ID",
+    "O_PMT_DESC_TEXT": "Interdivisional",
+    "O_PMS_CODE": "C",
+    "O_PMS_DESC_TEXT": "Closed",
+    "O_AGENDA_ITEM_COUNT": 28,
+    "QRY_LSTPMD_REF": [
+      {
+        "PMD_UPDATE_ID": 2381,
+        "PMD_UPDATE_DATE": "20050105163412",
+        "MDT_CODE": "MEET",
+        "MDT_DESC_TEXT": "Panel Meeting Date",
+        "MDT_INCLUDE_TIME_IND": "Y",
+        "MDT_USER_INPUT_IND": "Y",
+        "PMD_DTTM": "09/23/2004 00:00:00 ",
+        "MDT_ORDER_NUM": 1
+      },
+      {
+        "PMD_UPDATE_ID": 2381,
+        "PMD_UPDATE_DATE": "20050105163412",
+        "MDT_CODE": "CUT",
+        "MDT_DESC_TEXT": "Official Preliminary Cutoff",
+        "MDT_INCLUDE_TIME_IND": "Y",
+        "MDT_USER_INPUT_IND": "Y",
+        "PMD_DTTM": "09/17/2004 00:00:00 ",
+        "MDT_ORDER_NUM": 2
+      },
+      {
+        "PMD_UPDATE_ID": 2381,
+        "PMD_UPDATE_DATE": "20050105163412",
+        "MDT_CODE": "ADD",
+        "MDT_DESC_TEXT": "Addendum Cutoff",
+        "MDT_INCLUDE_TIME_IND": "Y",
+        "MDT_USER_INPUT_IND": "Y",
+        "PMD_DTTM": "09/20/2004 17:00:00 ",
+        "MDT_ORDER_NUM": 3
+      },
+      {
+        "PMD_UPDATE_ID": 2381,
+        "PMD_UPDATE_DATE": "20050105163412",
+        "MDT_CODE": "OFF",
+        "MDT_DESC_TEXT": "Official Preliminary Run Time",
+        "MDT_INCLUDE_TIME_IND": "Y",
+        "MDT_USER_INPUT_IND": "N",
+        "PMD_DTTM": "09/21/2004 14:10:08 ",
+        "MDT_ORDER_NUM": 4
+      },
+      {
+        "PMD_UPDATE_ID": null,
+        "PMD_UPDATE_DATE": null,
+        "MDT_CODE": "OFFA",
+        "MDT_DESC_TEXT": "Official Addendum Run Time",
+        "MDT_INCLUDE_TIME_IND": "Y",
+        "MDT_USER_INPUT_IND": "N",
+        "PMD_DTTM": null,
+        "MDT_ORDER_NUM": 5
+      },
+      {
+        "PMD_UPDATE_ID": null,
+        "PMD_UPDATE_DATE": null,
+        "MDT_CODE": "POSS",
+        "MDT_DESC_TEXT": " Post Panel Started",
+        "MDT_INCLUDE_TIME_IND": "Y",
+        "MDT_USER_INPUT_IND": "N",
+        "PMD_DTTM": null,
+        "MDT_ORDER_NUM": 6
+      },
+      {
+        "PMD_UPDATE_ID": 2381,
+        "PMD_UPDATE_DATE": "20050105163412",
+        "MDT_CODE": "POST",
+        "MDT_DESC_TEXT": " Post Panel Run Time",
+        "MDT_INCLUDE_TIME_IND": "Y",
+        "MDT_USER_INPUT_IND": "N",
+        "PMD_DTTM": "09/23/2004 17:33:26 ",
+        "MDT_ORDER_NUM": 6
+      },
+      {
+        "PMD_UPDATE_ID": null,
+        "PMD_UPDATE_DATE": null,
+        "MDT_CODE": "COMP",
+        "MDT_DESC_TEXT": "Agenda Completed Time",
+        "MDT_INCLUDE_TIME_IND": "Y",
+        "MDT_USER_INPUT_IND": "N",
+        "PMD_DTTM": null,
+        "MDT_ORDER_NUM": 7
+      }
+    ],
+    "QRY_LSTPMS_REF": [
+      {
+        "PMS_CODE": "C",
+        "PMS_DESC_TEXT": "Closed",
+        "PMS_CREATE_ID": 5,
+        "PMS_CREATE_DATE": "2004-03-18T00:00:00",
+        "PMS_UPDATE_ID": 5,
+        "PMS_UPDATE_DATE": "2004-03-18T00:00:00"
+      },
+      {
+        "PMS_CODE": "P",
+        "PMS_DESC_TEXT": "Post Panel",
+        "PMS_CREATE_ID": 5,
+        "PMS_CREATE_DATE": "2004-03-18T00:00:00",
+        "PMS_UPDATE_ID": 5,
+        "PMS_UPDATE_DATE": "2004-03-18T00:00:00"
+      }
+    ],
+    "O_RETURN_CODE": 0,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": []
+  },
+  "fail": {
+    "PV_RETURN_CODE_O": -1,
+    "PQRY_ERROR_DATA_O": [],
+    "O_PUBPOS_MAXROWS": 2000,
+    "QRY_MODPUBLISHPOS_REF": [],
+    "QRY_LSTAPT_DD_REF": [],
+    "O_RETURN_CODE": -1,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": [
+      {
+        "MSG_TXT": "Invalid Search Criteria. At a minimum, two fields are required to perform a position search. Additionally, please note that the Cycle Name and Cycle Position Status fields are not valid selections for the Publishable Positions search.",
+        "MSG_LVL": "E",
+        "MSG_ID": 0,
+        "MSG_KEY": null
+      }
+    ]
+  }
+}
