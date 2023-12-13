@@ -1,0 +1,254 @@
+{
+  "success": {
+    "O_DSC_CD": "IV1000000",
+    "O_US_CODE": 1,
+    "O_BTS_CODE": "A",
+    "O_QT_CODE": "F",
+    "O_HT_CODE": "1",
+    "O_TOD_CODE": "F",
+    "O_BT_QUARTERS_REMARK_TEXT": "null",
+    "O_BT_SCHOOL_YEAR_TEXT": "August – June. Consult the Office of Overseas Schools",
+    "O_BT_GRADE_EDUCATION_TEXT": "DOS assisted school, grades PK-12. Higher away-from-post allowance grades 7-12. Middle States Association accredited. Consult Office Overseas Schools",
+    "O_BT_INSIDE_EFM_EMPLOYMENT_FLG": "Y",
+    "O_BT_OUTSIDE_EFM_EMP_FLG": "N",
+    "O_BT_EFM_EMPLOYMENT_TXT": "De Facto RWA***. See FAMER on the FLO Website",
+    "O_BT_COST_OF_LIVING_ADJUST_NUM": 25,
+    "O_BT_DIFFERENTIAL_RATE_NUM": 25,
+    "O_BT_APO_OR_FPO_FLG": "N",
+    "O_BT_REST_RELAXATION_PNT_TEXT": "Paris          ",
+    "O_BT_DANGER_PAY_NUM": 0,
+    "O_BT_FOREIGN_MADE_PROV_FLG": "N",
+    "O_BT_CONSUMABLE_ALLOWANCE_FLG": "N",
+    "O_BT_SPEC_SHIP_ALLOW_TEXT": "null",
+    "O_BT_REMARKS_TEXT": "DCM TOD: 3YR/3RR. The Foreign Affairs Counter Threat (FACT) course, OT611 is REQUIRED for all personnel and adult EFMs assigned to this post.",
+    "O_BT_MOST_DIFF_TO_STAFF_FLG": "Y",
+    "O_BT_SERVICE_NEEDS_DIFF_FLG": "Y",
+    "O_BT_CLIMATE_ZONE_NUM": 1,
+    "O_EHCP_CODE": "B",
+    "O_BT_MEDICAL_REMARKS_TEXT": "Very high malaria risk exists. MED strongly recommends that chemoprophylaxis (malaria meds) be taken during entire duration of tour.",
+    "O_BT_UPDATE_ID": 417,
+    "O_BT_UPDATE_DATE": "20220304141009",
+    "QRY_LSTLOCATIONS_REF": [
+      {
+        "POS_LOCATION_CODE": "IV1000000",
+        "GSA_STATE_COUNTRY": "ABIDJAN, COTE D'IVOIRE",
+        "DSV_NM": "CIV"
+      }
+    ],
+    "QRY_LSTSTATUS_REF": [
+      {
+        "BTS_CODE": "A",
+        "BTS_DESC_TEXT": "Active"
+      },
+      {
+        "BTS_CODE": "I",
+        "BTS_DESC_TEXT": "Suspended Operations"
+      }
+    ],
+    "QRY_LSTTODS_REF": [
+      {
+        "TOD_CODE": "C",
+        "TOD_DESC_TEXT": "1 YEAR"
+      },
+      {
+        "TOD_CODE": "V",
+        "TOD_DESC_TEXT": "1 YEAR(2R&R)/HL/1 YEAR(2R&R)"
+      },
+      {
+        "TOD_CODE": "H",
+        "TOD_DESC_TEXT": "1 YR (1 R & R)"
+      },
+      {
+        "TOD_CODE": "O",
+        "TOD_DESC_TEXT": "1 YR (2 R & R)"
+      },
+      {
+        "TOD_CODE": "1",
+        "TOD_DESC_TEXT": "1 YR (3 R & R)"
+      },
+      {
+        "TOD_CODE": "2",
+        "TOD_DESC_TEXT": "1 YR(3R&R)/HL/1 YR(3R&R)"
+      },
+      {
+        "TOD_CODE": "T",
+        "TOD_DESC_TEXT": "10 MOS "
+      },
+      {
+        "TOD_CODE": "U",
+        "TOD_DESC_TEXT": "14MOS/HL/2 YEAR (R&R) "
+      },
+      {
+        "TOD_CODE": "A",
+        "TOD_DESC_TEXT": "18 MOS"
+      },
+      {
+        "TOD_CODE": "B",
+        "TOD_DESC_TEXT": "18 MOS/HL/18 MOS"
+      },
+      {
+        "TOD_CODE": "N",
+        "TOD_DESC_TEXT": "2 YEAR (R&R)/HLRT/2 YEAR (R&R)"
+      },
+      {
+        "TOD_CODE": "4",
+        "TOD_DESC_TEXT": "2 YR (6 R & R)"
+      },
+      {
+        "TOD_CODE": "D",
+        "TOD_DESC_TEXT": "2 YRS (1 R & R)"
+      },
+      {
+        "TOD_CODE": "F",
+        "TOD_DESC_TEXT": "2 YRS (2 R & R)"
+      },
+      {
+        "TOD_CODE": "R",
+        "TOD_DESC_TEXT": "2 YRS (3 R & R)"
+      },
+      {
+        "TOD_CODE": "Q",
+        "TOD_DESC_TEXT": "2 YRS (4 R & R) "
+      },
+      {
+        "TOD_CODE": "S",
+        "TOD_DESC_TEXT": "2 YRS/HLRT/2 YRS"
+      },
+      {
+        "TOD_CODE": "E",
+        "TOD_DESC_TEXT": "2 YRS/TRANSFER"
+      },
+      {
+        "TOD_CODE": "5",
+        "TOD_DESC_TEXT": "3 YRS (1 R & R)"
+      },
+      {
+        "TOD_CODE": "I",
+        "TOD_DESC_TEXT": "3 YRS (2 R & R)"
+      },
+      {
+        "TOD_CODE": "P",
+        "TOD_DESC_TEXT": "3 YRS (3 R & R)"
+      },
+      {
+        "TOD_CODE": "3",
+        "TOD_DESC_TEXT": "3 YRS (4 R & R)"
+      },
+      {
+        "TOD_CODE": "J",
+        "TOD_DESC_TEXT": "3 YRS/TRANSFER"
+      },
+      {
+        "TOD_CODE": "W",
+        "TOD_DESC_TEXT": "4 YRS/TRANSFER"
+      },
+      {
+        "TOD_CODE": "Y",
+        "TOD_DESC_TEXT": "INDEFINITE"
+      },
+      {
+        "TOD_CODE": "Z",
+        "TOD_DESC_TEXT": "NOT APPLICABLE"
+      },
+      {
+        "TOD_CODE": "X",
+        "TOD_DESC_TEXT": "OTHER"
+      }
+    ],
+    "QRY_LSTUNACCOMPSTATUS_REF": [
+      {
+        "US_CODE": 11,
+        "US_DESC_TEXT": "Adult EFMs (if employed)"
+      },
+      {
+        "US_CODE": 9,
+        "US_DESC_TEXT": "Adults and Children under 5"
+      },
+      {
+        "US_CODE": 6,
+        "US_DESC_TEXT": "Adults only"
+      },
+      {
+        "US_CODE": 10,
+        "US_DESC_TEXT": "Children under 12 only"
+      },
+      {
+        "US_CODE": 1,
+        "US_DESC_TEXT": "Fully Accompanied"
+      },
+      {
+        "US_CODE": 2,
+        "US_DESC_TEXT": "No family members"
+      },
+      {
+        "US_CODE": 3,
+        "US_DESC_TEXT": "No grades 9-12"
+      },
+      {
+        "US_CODE": 5,
+        "US_DESC_TEXT": "No infants"
+      },
+      {
+        "US_CODE": 7,
+        "US_DESC_TEXT": "No one under age 21"
+      },
+      {
+        "US_CODE": 4,
+        "US_DESC_TEXT": "No under 18 year olds"
+      },
+      {
+        "US_CODE": 8,
+        "US_DESC_TEXT": "UNK"
+      }
+    ],
+    "QRY_LSTHOUSINGTYPE_REF": [
+      {
+        "HT_CODE": "1",
+        "HT_DESC_TEXT": "Government owned/leased"
+      },
+      {
+        "HT_CODE": "2",
+        "HT_DESC_TEXT": "Government owned/leased or LQA"
+      },
+      {
+        "HT_CODE": "3",
+        "HT_DESC_TEXT": "Living Quarters Allowance"
+      },
+      {
+        "HT_CODE": "4",
+        "HT_DESC_TEXT": "Other"
+      }
+    ],
+    "QRY_LSTQUARTERSTYPE_REF": [
+      {
+        "QT_CODE": "F",
+        "QT_DESC_TEXT": "Furnished"
+      },
+      {
+        "QT_CODE": "U",
+        "QT_DESC_TEXT": "Unfurnished"
+      },
+      {
+        "QT_CODE": "K",
+        "QT_DESC_TEXT": "Unknown"
+      }
+    ],
+    "QRY_LSTEHCP_REF": [
+      {
+        "EHCP_CODE": "A",
+        "EHCP_SHORT_DESC_TEXT": "No Issues"
+      },
+      {
+        "EHCP_CODE": "B",
+        "EHCP_SHORT_DESC_TEXT": "US EFMs to consult"
+      },
+      {
+        "EHCP_CODE": "C",
+        "EHCP_SHORT_DESC_TEXT": "Non-US EFMs to consult"
+      }
+    ],
+    "O_RETURN_CODE": 0,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": []
+  }
+}
