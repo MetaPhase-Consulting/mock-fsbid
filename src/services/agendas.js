@@ -224,6 +224,7 @@ const getAgendaItems = async (filsCols) => {
           ailcountrystatetext: l.ailcountrystatetext,
           ailasgseqnum: l.asgseqnum,
           ailasgdrevisionnum: l.asgdrevisionnum,
+          ailupdatedate: "2019-05-01T00:00:00",
           latabbrdesctext: lat.latabbrdesctext,
           latdesctext: lat.latdesctext,
           todcode: l.tod.todcode,
