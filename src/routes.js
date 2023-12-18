@@ -558,6 +558,67 @@ var appRouter = function (app) {
     }
   })
 
+  app.post('/v1/agendas', async function(req, res) {
+    console.log('creating ai')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred creating ai')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.put('/v1/agendas/:aiseqnum', async function(req, res) {
+    console.log('editing ai')
+    console.log(req.body)
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred editing ai')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.post('/v1/agendas/:aiseqnum/legs', async function(req, res) {
+    console.log('creating ail')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred creating ail')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.delete('/v1/agendas/:aiseqnum/legs/:ailseqnum', async function(req, res) {
+    console.log('deleting ail')
+    console.log(req.query)
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred deleting ail')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
   app.get('/v1/tm-persons/reference/current-organizations', async function (req, res) {
     try {
       const Data = await employees.get_agenda_organizations({ isCurrent: true });
