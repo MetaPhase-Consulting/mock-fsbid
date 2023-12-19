@@ -31,6 +31,7 @@ const panelMeeting = readJson('./panel_meeting.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
 const biddingTools = readJson('./bidding_tools.json')
 const biddingTool = readJson('./bidding_tool.json')
+const biddingToolCreateData = readJson('./bidding_tool_add.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -850,6 +851,7 @@ var appRouter = function (app) {
     "qry_getJobCat": jobCategorySkills,
     "act_modJobCat": jobCategoryEdit,
     "qry_lstbiddingtool": biddingTools,
+    "qry_addBiddingTool": biddingToolCreateData,
     "act_addbiddingtool": jobCategoryEdit,
     "act_modbiddingtool": jobCategoryEdit,
     "act_delbiddingtool": jobCategoryEdit,
