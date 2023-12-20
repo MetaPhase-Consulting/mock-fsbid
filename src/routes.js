@@ -851,6 +851,7 @@ var appRouter = function (app) {
     "qry_getJobCat": jobCategorySkills,
     "act_modJobCat": jobCategoryEdit,
     "qry_lstbiddingtool": biddingTools,
+    "qry_getbiddingtool": biddingTool,
     "qry_addBiddingTool": biddingToolCreateData,
     "act_addbiddingtool": jobCategoryEdit,
     "act_modbiddingtool": jobCategoryEdit,
@@ -868,13 +869,7 @@ var appRouter = function (app) {
     const procedure = req?.query?.procName;
     const jsonLookup = procNameDictionary[procedure];
 
-    // Workaround logic to handle two different payloads from qry_lstbiddingtool
-    const hasParams = req?.rawHeaders[13];
-    if (procedure === 'qry_lstbiddingtool' && hasParams > 46) {
-      res.status(200).send(biddingTool.success);
-    } else {
-      res.status(200).send(jsonLookup.success);
-    }
+    res.status(200).send(jsonLookup.success);
 
     // if (jsonLookup) {
     //   // randomly fail - add criteria for failing
