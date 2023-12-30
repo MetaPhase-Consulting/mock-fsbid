@@ -32,6 +32,7 @@ const FILTERS = {
     value: 'Y',
   },
   "htf_ind": { field: "acp_hard_to_fill_ind" },
+  "deto_rwa": { field: "deto_rwa" },
 }
 
 const CYCLE_POSITION_FILTERS = {
@@ -67,6 +68,7 @@ const TANDEM_ONE_FILTERS = {
   },
   "cpn_codes": { field: "locations_commuterposts.cpn_code" },
   "htf_ind": { field: "acp_hard_to_fill_ind" },
+  "deto_rwa": { field: "deto_rwa" },
 }
 
 const TANDEM_TWO_FILTERS = {
@@ -97,6 +99,7 @@ const TANDEM_TWO_FILTERS = {
   },
   "cpn_codes2": { field: "locations_commuterposts.cpn_code" },
   "htf_ind": { field: "acp_hard_to_fill_ind" },
+  "deto_rwa": { field: "deto_rwa" },
 }
 
 // Get field for the provided filter.

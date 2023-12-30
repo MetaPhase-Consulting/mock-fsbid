@@ -24,6 +24,7 @@ exports.seed = function(knex) {
             bt_inside_efm_employment_flg: _.sample(flags),
             bt_outside_efm_employment_flg: _.sample(flags),
             assignee: Math.random() < .7 ? _.sample(employees).last_name : 'Vacant',
+            deto_rwa: _.sample([true, false]),
           })
         })
       });
