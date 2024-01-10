@@ -1,0 +1,219 @@
+{
+  "success": {
+    "O_CYCLE_ID": 189,
+    "O_CYCLE_NM_TXT": "Details/Training 2024",
+    "O_CS_CD": "P",
+    "O_CC_CD": "O",
+    "O_CYCLE_EXCLUSIVE_POS_FLG": "N",
+    "O_CYCLE_POST_VIEWABLE_IND": "N",
+    "O_CYCLE_LAST_UPDT_USER_ID": 417,
+    "O_CYCLE_LAST_UPDT_TMSMP_DT": "20230327094308",
+    "QRY_LSTCYCLEDATE_REF": [
+      {
+        "CDT_CD": "CYCLE",
+        "CD_BGN_DT": "05/01/2023",
+        "CD_END_DT": "10/31/2023",
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "Y",
+        "CDT_DESCR_TXT": "Cycle Boundary Dates",
+        "CDT_SORT_ORDER_NUM": 1
+      },
+      {
+        "CDT_CD": "6MOLANG",
+        "CD_BGN_DT": "05/01/2023",
+        "CD_END_DT": "10/31/2023",
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "Y",
+        "CDT_DESCR_TXT": "6 Month Language Dates",
+        "CDT_SORT_ORDER_NUM": 2
+      },
+      {
+        "CDT_CD": "12MOLANG",
+        "CD_BGN_DT": "05/01/2024",
+        "CD_END_DT": "10/31/2024",
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "Y",
+        "CDT_DESCR_TXT": "12 Month Language Dates",
+        "CDT_SORT_ORDER_NUM": 3
+      },
+      {
+        "CDT_CD": "24MOLANG",
+        "CD_BGN_DT": "05/01/2025",
+        "CD_END_DT": "10/31/2025",
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "Y",
+        "CDT_DESCR_TXT": "24 Month Language Dates",
+        "CDT_SORT_ORDER_NUM": 4
+      },
+      {
+        "CDT_CD": "BURPOS",
+        "CD_BGN_DT": "03/27/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Bureau Position Review Date",
+        "CDT_SORT_ORDER_NUM": 5
+      },
+      {
+        "CDT_CD": "BIDSTART",
+        "CD_BGN_DT": "05/22/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Bidding Start Date",
+        "CDT_SORT_ORDER_NUM": 6
+      },
+      {
+        "CDT_CD": "BIDDUE",
+        "CD_BGN_DT": "06/20/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Bid Due Date",
+        "CDT_SORT_ORDER_NUM": 7
+      },
+      {
+        "CDT_CD": "BURPREBD",
+        "CD_BGN_DT": "05/22/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Bureau Pre-Season Bid Review Date",
+        "CDT_SORT_ORDER_NUM": 8
+      },
+      {
+        "CDT_CD": "BUREARLY",
+        "CD_BGN_DT": "05/22/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Bureau Early Season Bid Review Date",
+        "CDT_SORT_ORDER_NUM": 9
+      },
+      {
+        "CDT_CD": "BURBID",
+        "CD_BGN_DT": "05/22/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Bureau Bid Review Date",
+        "CDT_SORT_ORDER_NUM": 10
+      },
+      {
+        "CDT_CD": "BIDAUDIT",
+        "CD_BGN_DT": "07/05/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Bid Audit Date",
+        "CDT_SORT_ORDER_NUM": 11
+      },
+      {
+        "CDT_CD": "BIDBOOK",
+        "CD_BGN_DT": "07/05/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Bid Book Review Date",
+        "CDT_SORT_ORDER_NUM": 12
+      },
+      {
+        "CDT_CD": "BIDCOUNT",
+        "CD_BGN_DT": "07/05/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Bid Count Review Date",
+        "CDT_SORT_ORDER_NUM": 13
+      },
+      {
+        "CDT_CD": "BIDHTF",
+        "CD_BGN_DT": "07/05/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "HTF Review Date",
+        "CDT_SORT_ORDER_NUM": 14
+      },
+      {
+        "CDT_CD": "BIDORG",
+        "CD_BGN_DT": "07/05/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Organization Count Review Date",
+        "CDT_SORT_ORDER_NUM": 15
+      },
+      {
+        "CDT_CD": "BIDMDS",
+        "CD_BGN_DT": "07/05/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "MDS Review Date",
+        "CDT_SORT_ORDER_NUM": 16
+      },
+      {
+        "CDT_CD": "PANLASG",
+        "CD_BGN_DT": "06/21/2023",
+        "CD_END_DT": null,
+        "CD_LAST_UPDT_TMSMP_DT": "20230327094308",
+        "CD_LAST_UPDT_USER_ID": 417,
+        "CDT_END_DT_REQR_FLG": "N",
+        "CDT_DESCR_TXT": "Assigned Bidder Date",
+        "CDT_SORT_ORDER_NUM": 17
+      }
+    ],
+    "QRY_LSTCYCLESTATUS_REF": [
+      {
+        "CS_CD": "A",
+        "CS_DESCR_TXT": "Active"
+      },
+      {
+        "CS_CD": "C",
+        "CS_DESCR_TXT": "Closed"
+      },
+      {
+        "CS_CD": "M",
+        "CS_DESCR_TXT": "Merge"
+      },
+      {
+        "CS_CD": "P",
+        "CS_DESCR_TXT": "Proposed"
+      }
+    ],
+    "QRY_LSTCYCLECATEGORY_REF": [
+      {
+        "CC_CD": "A",
+        "CC_DESCR_TXT": "A100 Class"
+      },
+      {
+        "CC_CD": "O",
+        "CC_DESCR_TXT": "Other"
+      },
+      {
+        "CC_CD": "J",
+        "CC_DESCR_TXT": "Untenured Junior Officer"
+      }
+    ],
+    "O_RETURN_CODE": 0,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": []
+  }
+}

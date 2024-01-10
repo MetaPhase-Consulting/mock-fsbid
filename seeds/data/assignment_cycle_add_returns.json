@@ -1,0 +1,34 @@
+{
+  "success": {
+    "O_CYCLE_ID": 190,
+    "O_RETURN_CODE": 0,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": []
+  },
+  "fail1": {
+    "O_CYCLE_ID": 191,
+    "O_RETURN_CODE": -2,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": [
+      {
+        "MSG_TXT": "71161286:Fatal DB Error: Contact System Administrator",
+        "MSG_LVL": "F",
+        "MSG_ID": 0,
+        "MSG_KEY": null
+      }
+    ]
+  },
+  "fail2": {
+    "O_CYCLE_ID": null,
+    "O_RETURN_CODE": -1,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": [
+      {
+        "MSG_TXT": "71161290:Data error encountered during processing of transaction: Contact Help Desk",
+        "MSG_LVL": "E",
+        "MSG_ID": 0,
+        "MSG_KEY": null
+      }
+    ]
+  }
+}
