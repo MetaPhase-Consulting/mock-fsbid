@@ -281,6 +281,7 @@ const getAgendaItems = async (filsCols) => {
         aiupdateid: ai.aiupdateid,
         aiupdatedate: ai.aiupdatedate,
         aisdesctext: aiStatus,
+        aiaiscode: ai?.aiscode?.aiscode,
         pmiofficialitemnum: pmi.pmiofficialitemnum,
         Panel: [{
           pmiofficialitemnum: pmi.pmiofficialitemnum,
