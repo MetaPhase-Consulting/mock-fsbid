@@ -305,7 +305,7 @@ const getAgendaItems = async (filsCols) => {
         person: [
           {
             "perpiiseqnum": 10503,
-            "perpiifullname": "PAPORSEE,ANEET-EROLYSEE NMN",
+            "perpiifullname": ["PAPORSEE,ANEET-EROLYSEE NMN", "Townpost, Jenny"][randomIntInclusive(0, 1)],
             "perpiilastname": "PAPORSEE",
             "perpiifirstname": "ANEET-EROLYSEE",
             "perpiimiddlename": "NMN",
@@ -331,9 +331,9 @@ const getAgendaItems = async (filsCols) => {
             "perdetemplrcd#": 0,
             "perdetminactemplrcd#ind": "Y",
             "perdetorgcode": "260910",
-            "perdetskillcode": "3020",
-            "perdetskill2code": "3001",
-            "perdetskill3code": null,
+            "perdetskillcode": ["5025", "5030", "6217", "2112"][randomIntInclusive(0, 3)],
+            "perdetskill2code": ["2345", "2335", "2880", "2881"][randomIntInclusive(0, 3)],
+            "perdetskill3code": ["2882", "6090", null][randomIntInclusive(0, 2)],
             "perdetpayplancode": "FO",
             "perdetgradecode": ["01", "02", "03", "04", "05", "06", "07", "08"][randomIntInclusive(0, 7)],
             "perdettenurecode": "01",
