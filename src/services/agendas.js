@@ -1,5 +1,6 @@
 const _ = require('lodash')
 const { pmdNameMapping } = require('./common.js')
+const { randomIntInclusive } = require('../../seeds/data/helpers')
 const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, AgendaItemStatuses,
   Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories } = require('../models')
 
@@ -334,7 +335,7 @@ const getAgendaItems = async (filsCols) => {
             "perdetskill2code": "3001",
             "perdetskill3code": null,
             "perdetpayplancode": "FO",
-            "perdetgradecode": "01",
+            "perdetgradecode": ["01", "02", "03", "04", "05", "06", "07", "08"][randomIntInclusive(0, 7)],
             "perdettenurecode": "01",
             "perdetcreateid": "IDB",
             "perdetcreatedate": "2013-09-20T23:07:26",
@@ -384,7 +385,7 @@ const getAgendaItems = async (filsCols) => {
                 "plhighlangscoreind": "Y",
                 "plperseqnum": 10503
               }
-            ],
+            ].slice(0, randomIntInclusive(0, 4)),
             "org": [
               {
                 "orgmvorgbureauorgcode": "210000",
@@ -410,10 +411,10 @@ const getAgendaItems = async (filsCols) => {
                     "neulastnm": null,
                     "neufirstnm": null,
                     "neumiddlenm": null,
-                    "perpiifirstname": "TEREZ-BIRLEE",
-                    "perpiilastname": "MAYFIELD BARBEEEE",
+                    "perpiifirstname": ["TEREZ-BIRLEE", "Leah", "Gwynne"][randomIntInclusive(0, 2)],
+                    "perpiilastname": ["MAYFIELD BARBEEEE", "Shadtrach", "Gaw"][randomIntInclusive(0, 2)],
                     "perpiiseqnum": 71447,
-                    "perpiimiddlename": "NMN",
+                    "perpiimiddlename": ["NMN", "Loïca", "Mélodie"][randomIntInclusive(0, 2)],
                     "perpiisuffixname": " ",
                     "perdetseqnum": 414387,
                     "persdesc": "Active"
