@@ -305,7 +305,7 @@ const getAgendaItems = async (filsCols) => {
         person: [
           {
             "perpiiseqnum": 10503,
-            "perpiifullname": ["PAPORSEE,ANEET-EROLYSEE NMN", "Townpost, Jenny"][randomIntInclusive(0, 1)],
+            "perpiifullname": "PAPORSEE,ANEET-EROLYSEE NMN",
             "perpiilastname": "PAPORSEE",
             "perpiifirstname": "ANEET-EROLYSEE",
             "perpiimiddlename": "NMN",
