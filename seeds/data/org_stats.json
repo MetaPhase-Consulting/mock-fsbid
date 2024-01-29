@@ -1,0 +1,178 @@
+{
+    "success": {
+      "QRY_LSTBUREAUSTATS_REF": [
+        {
+          "BUREAU_CODE": "170000",
+          "BUR_SHORT_DESC": "BBG",
+          "BUR_TTL_POS_QTY": 0,
+          "BUR_FILLED_POS_QTY": 0,
+          "BUR_TTL_POS_OVRS_QTY": 0,
+          "BUR_FILLED_POS_OVRS_QTY": 0,
+          "BUR_TTL_POS_DMSTC_QTY": 0,
+          "BUR_FILLED_POS_DMSTC_QTY": 0,
+          "ORG_COUNT": 0,
+          "BUR_TTL_BIDS_QTY": 0,
+          "BUR_TTL_BIDDERS_QTY": 0
+        },
+        {
+          "BUREAU_CODE": "180000",
+          "BUR_SHORT_DESC": "BTS",
+          "BUR_TTL_POS_QTY": 0,
+          "BUR_FILLED_POS_QTY": 0,
+          "BUR_TTL_POS_OVRS_QTY": 0,
+          "BUR_FILLED_POS_OVRS_QTY": 0,
+          "BUR_TTL_POS_DMSTC_QTY": 0,
+          "BUR_FILLED_POS_DMSTC_QTY": 0,
+          "ORG_COUNT": 0,
+          "BUR_TTL_BIDS_QTY": 0,
+          "BUR_TTL_BIDDERS_QTY": 0
+        },
+        {
+          "BUREAU_CODE": "190000",
+          "BUR_SHORT_DESC": "CF",
+          "BUR_TTL_POS_QTY": 0,
+          "BUR_FILLED_POS_QTY": 0,
+          "BUR_TTL_POS_OVRS_QTY": 0,
+          "BUR_FILLED_POS_OVRS_QTY": 0,
+          "BUR_TTL_POS_DMSTC_QTY": 0,
+          "BUR_FILLED_POS_DMSTC_QTY": 0,
+          "ORG_COUNT": 0,
+          "BUR_TTL_BIDS_QTY": 0,
+          "BUR_TTL_BIDDERS_QTY": 0
+        },
+        {
+          "BUREAU_CODE": "200000",
+          "BUR_SHORT_DESC": "CGFS",
+          "BUR_TTL_POS_QTY": 0,
+          "BUR_FILLED_POS_QTY": 0,
+          "BUR_TTL_POS_OVRS_QTY": 0,
+          "BUR_FILLED_POS_OVRS_QTY": 0,
+          "BUR_TTL_POS_DMSTC_QTY": 0,
+          "BUR_FILLED_POS_DMSTC_QTY": 0,
+          "ORG_COUNT": 0,
+          "BUR_TTL_BIDS_QTY": 0,
+          "BUR_TTL_BIDDERS_QTY": 0
+        },
+        {
+          "BUREAU_CODE": "210000",
+          "BUR_SHORT_DESC": "CIO",
+          "BUR_TTL_POS_QTY": 0,
+          "BUR_FILLED_POS_QTY": 0,
+          "BUR_TTL_POS_OVRS_QTY": 0,
+          "BUR_FILLED_POS_OVRS_QTY": 0,
+          "BUR_TTL_POS_DMSTC_QTY": 0,
+          "BUR_FILLED_POS_DMSTC_QTY": 0,
+          "ORG_COUNT": 0,
+          "BUR_TTL_BIDS_QTY": 0,
+          "BUR_TTL_BIDDERS_QTY": 0
+        }
+      ],
+      "QRY_LSTORGSTATS_REF": [
+        {     
+          "CYCLE_NM_TXT": "Now & Summer 2023",
+          "BUREAU_CODE": "150000",
+          "BUR_SHORT_DESC": "AF",
+          "ORG_CODE": "353001",
+          "ORGS_SHORT_DESC": "ABIDJAN",
+          "ORG_TTL_POS_QTY": 6,
+          "ORG_FILLED_POS_QTY": 4,
+          "ORG_FILLED_POS_PCT": 67,
+          "ORG_TTL_POS_OVRS_QTY": 6,
+          "ORG_FILLED_POS_OVRS_QTY": 4,
+          "ORG_FILLED_POS_OVRS_PCT": 67,
+          "ORG_TTL_POS_DMSTC_QTY": 0,
+          "ORG_FILLED_POS_DMSTC_QTY": 0,
+          "ORG_FILLED_POS_DMSTC_PCT": 0,
+          "ORG_TTL_BIDS_QTY": 0,
+          "ORG_TTL_BIDDERS_QTY": 0
+        },
+        {
+          "CYCLE_NM_TXT": "Now & Summer 2023",
+          "BUREAU_CODE": "150000",
+          "BUR_SHORT_DESC": "AF",
+          "ORG_CODE": "353002",
+          "ORGS_SHORT_DESC": "ACCRA",
+          "ORG_TTL_POS_QTY": 6,
+          "ORG_FILLED_POS_QTY": 4,
+          "ORG_FILLED_POS_PCT": 67,
+          "ORG_TTL_POS_OVRS_QTY": 6,
+          "ORG_FILLED_POS_OVRS_QTY": 4,
+          "ORG_FILLED_POS_OVRS_PCT": 67,
+          "ORG_TTL_POS_DMSTC_QTY": 0,
+          "ORG_FILLED_POS_DMSTC_QTY": 0,
+          "ORG_FILLED_POS_DMSTC_PCT": 0,
+          "ORG_TTL_BIDS_QTY": 0,
+          "ORG_TTL_BIDDERS_QTY": 0
+        },
+        {
+          "CYCLE_NM_TXT": "Now & Summer 2023",
+          "BUREAU_CODE": "150000",
+          "BUR_SHORT_DESC": "AF",
+          "ORG_CODE": "353003",
+          "ORGS_SHORT_DESC": "ADDIS ABABA",
+          "ORG_TTL_POS_QTY": 6,
+          "ORG_FILLED_POS_QTY": 4,
+          "ORG_FILLED_POS_PCT": 67,
+          "ORG_TTL_POS_OVRS_QTY": 6,
+          "ORG_FILLED_POS_OVRS_QTY": 4,
+          "ORG_FILLED_POS_OVRS_PCT": 67,
+          "ORG_TTL_POS_DMSTC_QTY": 0,
+          "ORG_FILLED_POS_DMSTC_QTY": 0,
+          "ORG_FILLED_POS_DMSTC_PCT": 0,
+          "ORG_TTL_BIDS_QTY": 0,
+          "ORG_TTL_BIDDERS_QTY": 0
+        },
+        {
+          "CYCLE_NM_TXT": "Now & Summer 2023",
+          "BUREAU_CODE": "150000",
+          "BUR_SHORT_DESC": "AF",
+          "ORG_CODE": "353004",
+          "ORGS_SHORT_DESC": "ASMARA",
+          "ORG_TTL_POS_QTY": 6,
+          "ORG_FILLED_POS_QTY": 4,
+          "ORG_FILLED_POS_PCT": 67,
+          "ORG_TTL_POS_OVRS_QTY": 6,
+          "ORG_FILLED_POS_OVRS_QTY": 4,
+          "ORG_FILLED_POS_OVRS_PCT": 67,
+          "ORG_TTL_POS_DMSTC_QTY": 0,
+          "ORG_FILLED_POS_DMSTC_QTY": 0,
+          "ORG_FILLED_POS_DMSTC_PCT": 0,
+          "ORG_TTL_BIDS_QTY": 0,
+          "ORG_TTL_BIDDERS_QTY": 0
+        },
+        {
+          "CYCLE_NM_TXT": "Now & Summer 2023",
+          "BUREAU_CODE": "150000",
+          "BUR_SHORT_DESC": "AF",
+          "ORG_CODE": "353005",
+          "ORGS_SHORT_DESC": "BAMAKO",
+          "ORG_TTL_POS_QTY": 6,
+          "ORG_FILLED_POS_QTY": 4,
+          "ORG_FILLED_POS_PCT": 67,
+          "ORG_TTL_POS_OVRS_QTY": 6,
+          "ORG_FILLED_POS_OVRS_QTY": 4,
+          "ORG_FILLED_POS_OVRS_PCT": 67,
+          "ORG_TTL_POS_DMSTC_QTY": 0,
+          "ORG_FILLED_POS_DMSTC_QTY": 0,
+          "ORG_FILLED_POS_DMSTC_PCT": 0,
+          "ORG_TTL_BIDS_QTY": 0,
+          "ORG_TTL_BIDDERS_QTY": 0
+        }
+      ],
+      "O_RETURN_CODE": 0,
+      "QRY_ACTION_DATA": [],
+      "QRY_ERROR_DATA": []
+    },
+    "fail" : {
+      "O_RETURN_CODE": -1,
+      "QRY_ACTION_DATA": [],
+      "QRY_ERROR_DATA": [
+        {
+          "MSG_TXT": "Invalid Search Criteria. At a minimum, two fields are required to perform a position search. Additionally.",
+          "MSG_LVL": "E",
+          "MSG_ID": 0,
+          "MSG_KEY": null
+        }
+      ]
+    }
+}
