@@ -19,6 +19,7 @@ const searchPostAccessFilters = readJson('./search_post_access_filters.json')
 const positionClassifications = readJson('./position_classifications.json')
 const edit = readJson('./edit.json')
 const bureauExceptions = readJson('./bureau_exceptions.json')
+const orgStats = readJson('./org_stats.json')
 const userBureauExceptionsAndMetaData = readJson('./user_bureau_exceptions_and_metadata.json')
 const bureauExceptionsRefDataBureaus = readJson('./bureau_exceptions_ref_data_bureaus.json')
 const listBidSeasons = readJson('./manage_bid_seasons.json')
@@ -894,6 +895,7 @@ var appRouter = function (app) {
     "qry_modPosClasses": positionClassifications,
     "act_modPosClasses": edit,
     "qry_lstbureauex": bureauExceptions,
+    "qry_lstorgstats": orgStats,
     "qry_getbureauex": userBureauExceptionsAndMetaData,
     "qry_addbureauex": bureauExceptionsRefDataBureaus,
     "act_addbureauex": backofficeGeneric,
