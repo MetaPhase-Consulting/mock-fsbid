@@ -32,6 +32,7 @@ const panelMeeting = readJson('./panel_meeting.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
 const asgDetailRefData = readJson('./asg_detail_ref_data.json')
 const asgSepUserExampleData = readJson('./asg_sep_user_example_data.json')
+const saveAsg = readJson('./asg_save_data.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -921,6 +922,9 @@ var appRouter = function (app) {
     "act_runpostpnl": jobCategoryEdit,
     "qry_getAsgDtl": asgDetailRefData,
     "qry_lstAsgsSeps": asgSepUserExampleData,  
+    "act_modasgdtl": saveAsg,
+    // TO DO: "qry_addAsg": ,  
+
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
