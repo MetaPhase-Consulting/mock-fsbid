@@ -9,3 +9,6 @@ npm-debug.log
 # Code coverage reports
 .nyc_output
 coverage
+
+# Data
+seeds/data

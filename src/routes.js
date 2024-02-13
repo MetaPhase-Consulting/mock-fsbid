@@ -12,7 +12,7 @@ const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
 const common = require('./services/common')
 
-// const publishablePositions = readJson('./backoffice/publishable_positions.json')
+const publishablePositions = readJson('./backoffice/publishable_positions.json')
 // const publishablePositionFilters = readJson('./backoffice/publishable_positions_filters.json')
 // const publishablePositionEdit = readJson('./backoffice/publishable_positions_filters.json')
 // const searchPostAccessList = readJson('./backoffice/search_post_access_list.json')
@@ -890,7 +890,7 @@ var appRouter = function (app) {
 
   // For BackOffice lookup
   const procNameDictionary = {
-    // "qry_modPublishPos": publishablePositions,
+    "qry_modPublishPos": publishablePositions,
     // "qry_lstfsbidSearch": publishablePositionFilters,
     // "act_modCapsulePos": publishablePositionEdit,
     // "qry_modPosClasses": positionClassifications,
