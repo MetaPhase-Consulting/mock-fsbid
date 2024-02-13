@@ -1,0 +1,149 @@
+{
+  "success": {
+    "QRY_LSTBUREAUEXCEPTIONS_REF": [
+      {
+        "HRU_ID": 30439,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Fernandez, Ahmad Nmn ",
+        "PV_ID": 10501666,
+        "PARM_VALUES": "200000",
+        "BUREAU_NAME_LIST": "A"
+      },
+      {
+        "HRU_ID": 11247,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Townsend-Babi, Sal-Tore nmN ",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": 11168,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Dickerson, Thelma Jones NMN",
+        "PV_ID": 10625112,
+        "PARM_VALUES": "200000,190000",
+        "BUREAU_NAME_LIST": "A, AC"
+      },
+      {
+        "HRU_ID": 10797,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Payne,    nmn Nathanial ",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": 24962,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "nmnCraig, nmnMolNmnlie Nmn",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": 25839,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Dickson, Len",
+        "PV_ID": 10676007,
+        "PARM_VALUES": "240000",
+        "BUREAU_NAME_LIST": "OBO"
+      },
+      {
+        "HRU_ID": 11115,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Ewing, Eric",
+        "PV_ID": 10087755,
+        "PARM_VALUES": "187323,033000",
+        "BUREAU_NAME_LIST": "CSO/OSD/RM, CT"
+      },
+      {
+        "HRU_ID": 30601,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Davis, Dewey",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": 19576,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Herrera, Zane",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": 21982,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Pacheco, Reynaldo",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": 11445,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Moyer, Nolan",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": 29299,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Phillips, Geraldine",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": 11883,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Becker, Faustino",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": 20535,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Mullins, Houston",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": 20011,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": "Underwood, Arline",
+        "PV_ID": -1,
+        "PARM_VALUES": " ",
+        "BUREAU_NAME_LIST": " "
+      },
+      {
+        "HRU_ID": null,
+        "EMP_SEQ_NBR": null,
+        "EMP_FULL_NAME": null,
+        "PV_ID": null,
+        "PARM_VALUES": null,
+        "BUREAU_NAME_LIST": null
+      }
+    ],
+    "O_RETURN_CODE": 0,
+    "QRY_ACTION_DATA": [],
+    "QRY_ERROR_DATA": []
+  },
+  "fail" : {
+    "O_RETURN_CODE": -1,
+    "PQRY_ERROR_DATA_O": [],
+    "QRY_ERROR_DATA": [
+      {
+        "MSG_TXT": "Invalid Search Criteria. At a minimum, two fields are required to perform a position search. Additionally, please note that the Cycle Name and Cycle Position Status fields are not valid selections for the Publishable Positions search.",
+        "MSG_LVL": "E",
+        "MSG_ID": 0,
+        "MSG_KEY": null
+      }
+    ]
+  }
+}
