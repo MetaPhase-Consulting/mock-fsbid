@@ -890,34 +890,34 @@ var appRouter = function (app) {
 
   // For BackOffice lookup
   const procNameDictionary = {
-    "qry_modPublishPos": publishablePositions,
-    "qry_lstfsbidSearch": publishablePositionFilters,
-    "act_modCapsulePos": publishablePositionEdit,
-    "qry_modPosClasses": positionClassifications,
-    "act_modPosClasses": edit,
-    "qry_lstbureauex": bureauExceptions,
-    "qry_lstorgstats": orgStats,
-    "qry_getbureauex": userBureauExceptionsAndMetaData,
-    "qry_addbureauex": bureauExceptionsRefDataBureaus,
-    "act_addbureauex": backofficeGeneric,
-    "act_modbureauex": backofficeGeneric,
-    "act_delbureauex": backofficeGeneric,
-    "prc_lst_org_access": searchPostAccessList, // list search post access page
-    "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
-    "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
-    "prc_add_org_access": backOfficeReturnCodes.prc_add_org_access, // manage post access - grant access
-    "prc_lst_bid_seasons": listBidSeasons, // list bid seasons
-    "prc_iud_bid_season": backOfficeReturnCodes.prc_iud_bid_season, // create/update bid season
-    "qry_lstJobCats": jobCategories,
-    "qry_getJobCat": jobCategorySkills,
-    "act_modJobCat": jobCategoryEdit,
-    "qry_getPnlMeet": panelMeeting,
-    "act_modPnlMeet": jobCategoryEdit,
-    "qry_modPostPnl": postPanel,
-    "act_modPostPnl": jobCategoryEdit,
-    "act_runoffpre": jobCategoryEdit,
-    "act_runoffaddendum": jobCategoryEdit,
-    "act_runpostpnl": jobCategoryEdit,
+    // "qry_modPublishPos": publishablePositions,
+    // "qry_lstfsbidSearch": publishablePositionFilters,
+    // "act_modCapsulePos": publishablePositionEdit,
+    // "qry_modPosClasses": positionClassifications,
+    // "act_modPosClasses": edit,
+    // "qry_lstbureauex": bureauExceptions,
+    // "qry_lstorgstats": orgStats,
+    // "qry_getbureauex": userBureauExceptionsAndMetaData,
+    // "qry_addbureauex": bureauExceptionsRefDataBureaus,
+    // "act_addbureauex": backofficeGeneric,
+    // "act_modbureauex": backofficeGeneric,
+    // "act_delbureauex": backofficeGeneric,
+    // "prc_lst_org_access": searchPostAccessList, // list search post access page
+    // "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
+    // "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
+    // "prc_add_org_access": backOfficeReturnCodes.prc_add_org_access, // manage post access - grant access
+    // "prc_lst_bid_seasons": listBidSeasons, // list bid seasons
+    // "prc_iud_bid_season": backOfficeReturnCodes.prc_iud_bid_season, // create/update bid season
+    // "qry_lstJobCats": jobCategories,
+    // "qry_getJobCat": jobCategorySkills,
+    // "act_modJobCat": jobCategoryEdit,
+    // "qry_getPnlMeet": panelMeeting,
+    // "act_modPnlMeet": jobCategoryEdit,
+    // "qry_modPostPnl": postPanel,
+    // "act_modPostPnl": jobCategoryEdit,
+    // "act_runoffpre": jobCategoryEdit,
+    // "act_runoffaddendum": jobCategoryEdit,
+    // "act_runpostpnl": jobCategoryEdit,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
