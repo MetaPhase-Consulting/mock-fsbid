@@ -12,3 +12,5 @@ coverage
 
 # Data
 seeds/data
+seeds/data/
+seeds/data/**
