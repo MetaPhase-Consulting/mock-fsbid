@@ -1,4 +1,4 @@
-const { readJson, randomIntInclusive } = require('../seeds/data/helpers')
+const { readJson } = require('../seeds/data/helpers')
 
 const { PRIVATE_KEY } = require('./constants')
 const bidding = require('./services/bids')
@@ -11,15 +11,16 @@ const positions = require('./services/positions')
 const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
 const common = require('./services/common')
-const publishablePositions = readJson('./publishable_positions.json')
-const publishablePositionFilters = readJson('./publishable_positions_filters.json')
-const publishablePositionEdit = readJson('./publishable_positions_filters.json')
-const searchPostAccessList = readJson('./search_post_access_list.json')
-const searchPostAccessFilters = readJson('./search_post_access_filters.json')
-const positionClassifications = readJson('./position_classifications.json')
-const edit = readJson('./edit.json')
-const bureauExceptions = readJson('./bureau_exceptions.json')
-const orgStats = readJson('./org_stats.json')
+
+const publishablePositions = readJson('./backoffice/publishable_positions.json')
+const publishablePositionFilters = readJson('./backoffice/publishable_positions_filters.json')
+const publishablePositionEdit = readJson('./backoffice/publishable_positions_filters.json')
+const searchPostAccessList = readJson('./backoffice/search_post_access_list.json')
+const searchPostAccessFilters = readJson('./backoffice/search_post_access_filters.json')
+const positionClassifications = readJson('./backoffice/position_classifications.json')
+const edit = readJson('./backoffice/edit.json')
+const bureauExceptions = readJson('./backoffice/bureau_exceptions.json')
+const orgStats = readJson('./backoffice/org_stats.json')
 const userBureauExceptionsAndMetaData = readJson('./user_bureau_exceptions_and_metadata.json')
 const bureauExceptionsRefDataBureaus = readJson('./bureau_exceptions_ref_data_bureaus.json')
 const listBidSeasons = readJson('./manage_bid_seasons.json')
@@ -889,20 +890,20 @@ var appRouter = function (app) {
 
   // For BackOffice lookup
   const procNameDictionary = {
-    "qry_modPublishPos": publishablePositions,
-    "qry_lstfsbidSearch": publishablePositionFilters,
-    "act_modCapsulePos": publishablePositionEdit,
-    "qry_modPosClasses": positionClassifications,
-    "act_modPosClasses": edit,
-    "qry_lstbureauex": bureauExceptions,
-    "qry_lstorgstats": orgStats,
+        "qry_modPublishPos": publishablePositions,
+        "qry_lstfsbidSearch": publishablePositionFilters,
+        "act_modCapsulePos": publishablePositionEdit,
+        "qry_modPosClasses": positionClassifications,
+        "act_modPosClasses": edit,
+        "qry_lstbureauex": bureauExceptions,
+        "qry_lstorgstats": orgStats,
     "qry_getbureauex": userBureauExceptionsAndMetaData,
     "qry_addbureauex": bureauExceptionsRefDataBureaus,
     "act_addbureauex": backofficeGeneric,
     "act_modbureauex": backofficeGeneric,
     "act_delbureauex": backofficeGeneric,
-    "prc_lst_org_access": searchPostAccessList, // list search post access page
-    "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
+        "prc_lst_org_access": searchPostAccessList, // list search post access page
+        "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
     "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
     "prc_add_org_access": backOfficeReturnCodes.prc_add_org_access, // manage post access - grant access
     "prc_lst_bid_seasons": listBidSeasons, // list bid seasons
@@ -922,17 +923,6 @@ var appRouter = function (app) {
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
     const jsonLookup = procNameDictionary[req?.query?.procName];
     res.status(200).send(jsonLookup.success);
-
-    // if (jsonLookup) {
-    //   // randomly fail - add criteria for failing
-    //   randomIntInclusive(0, 1) ? res.status(200).send(jsonLookup.success) :
-    //   res.status(200).send(jsonLookup.fail);
-    // } else {
-    //   res.status(500).send(
-    //     `ORA-06550: line 1, column 29:\nPLS-00302: component 'procName' must be declared\nORA-06550: line 1, column 7:\nPL/SQL: Statement ignored - `
-    //   )
-    // }
-
   })
 };
 
