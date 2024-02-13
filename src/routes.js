@@ -21,16 +21,16 @@ const positionClassifications = readJson('./backoffice/position_classifications.
 const edit = readJson('./backoffice/edit.json')
 const bureauExceptions = readJson('./backoffice/bureau_exceptions.json')
 const orgStats = readJson('./backoffice/org_stats.json')
-const userBureauExceptionsAndMetaData = readJson('./user_bureau_exceptions_and_metadata.json')
-const bureauExceptionsRefDataBureaus = readJson('./bureau_exceptions_ref_data_bureaus.json')
-const listBidSeasons = readJson('./manage_bid_seasons.json')
-const backOfficeReturnCodes = readJson('./backoffice_return_codes.json')
-const jobCategories = readJson('./job_categories.json')
-const jobCategorySkills = readJson('./job_category_skills.json')
-const jobCategoryEdit = readJson('./job_category_edit.json')
-const postPanel = readJson('./post_panel.json')
-const panelMeeting = readJson('./panel_meeting.json')
-const backofficeGeneric = readJson('./backoffice_generic.json')
+const userBureauExceptionsAndMetaData = readJson('./backoffice/user_bureau_exceptions_and_metadata.json')
+const bureauExceptionsRefDataBureaus = readJson('./backoffice/bureau_exceptions_ref_data_bureaus.json')
+const listBidSeasons = readJson('./backoffice/manage_bid_seasons.json')
+const backOfficeReturnCodes = readJson('./backoffice/backoffice_return_codes.json')
+const jobCategories = readJson('./backoffice/job_categories.json')
+const jobCategorySkills = readJson('./backoffice/job_category_skills.json')
+const jobCategoryEdit = readJson('./backoffice/job_category_edit.json')
+const postPanel = readJson('./backoffice/post_panel.json')
+const panelMeeting = readJson('./backoffice/panel_meeting.json')
+const backofficeGeneric = readJson('./backoffice/backoffice_generic.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -890,20 +890,20 @@ var appRouter = function (app) {
 
   // For BackOffice lookup
   const procNameDictionary = {
-        "qry_modPublishPos": publishablePositions,
-        "qry_lstfsbidSearch": publishablePositionFilters,
-        "act_modCapsulePos": publishablePositionEdit,
-        "qry_modPosClasses": positionClassifications,
-        "act_modPosClasses": edit,
-        "qry_lstbureauex": bureauExceptions,
-        "qry_lstorgstats": orgStats,
+    "qry_modPublishPos": publishablePositions,
+    "qry_lstfsbidSearch": publishablePositionFilters,
+    "act_modCapsulePos": publishablePositionEdit,
+    "qry_modPosClasses": positionClassifications,
+    "act_modPosClasses": edit,
+    "qry_lstbureauex": bureauExceptions,
+    "qry_lstorgstats": orgStats,
     "qry_getbureauex": userBureauExceptionsAndMetaData,
     "qry_addbureauex": bureauExceptionsRefDataBureaus,
     "act_addbureauex": backofficeGeneric,
     "act_modbureauex": backofficeGeneric,
     "act_delbureauex": backofficeGeneric,
-        "prc_lst_org_access": searchPostAccessList, // list search post access page
-        "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
+    "prc_lst_org_access": searchPostAccessList, // list search post access page
+    "prc_lst_bureau_org_tree": searchPostAccessFilters, // get search post access filters
     "prc_mod_org_access": backOfficeReturnCodes.prc_mod_org_access, // search post access - remove access
     "prc_add_org_access": backOfficeReturnCodes.prc_add_org_access, // manage post access - grant access
     "prc_lst_bid_seasons": listBidSeasons, // list bid seasons
