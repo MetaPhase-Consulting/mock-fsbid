@@ -1,0 +1,3 @@
+exclude_patterns:
+- "./seeds/data/backoffice/"
+- "./seeds/data/backoffice/**"
