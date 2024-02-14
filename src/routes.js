@@ -31,6 +31,7 @@ const postPanel = readJson('./post_panel.json')
 const panelMeeting = readJson('./panel_meeting.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
 const manageELfilters = readJson('./manage_el_filters.json')
+const manageELpositions = readJson('./manage_el_positions.json')
 
 
 const jwt = require('jsonwebtoken');
@@ -920,6 +921,7 @@ var appRouter = function (app) {
     "act_runoffaddendum": jobCategoryEdit,
     "act_runpostpnl": jobCategoryEdit,
     "prc_tracking_detail_pos_search": manageELfilters,
+    "prc_lst_tracking_details_grid": manageELpositions,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
