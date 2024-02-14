@@ -1,0 +1,399 @@
+[
+  {
+    "location_code": "MX1150000",
+    "location_city": "Ripley",
+    "location_state": "Oklahoma",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 3
+  },
+  {
+    "location_code": "MX5300000",
+    "location_city": "Edgewater",
+    "location_state": "Missouri",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 2
+  },
+  {
+    "location_code": "MX6000000",
+    "location_city": "Lithium",
+    "location_state": "Virgin Islands",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 1
+  },
+  {
+    "location_code": "MX7200000",
+    "location_city": "Kennedyville",
+    "location_state": "Colorado",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 1
+  },
+  {
+    "location_code": "MZ5000000",
+    "location_city": "Lynn",
+    "location_state": "Massachusetts",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 1
+  },
+  {
+    "location_code": "NI0140000",
+    "location_city": "Foxworth",
+    "location_state": "Tennessee",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 1
+  },
+  {
+    "location_code": "NI5000000",
+    "location_city": "Gorham",
+    "location_state": "Marshall Islands",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 10
+  },
+  {
+    "location_code": "NL8000000",
+    "location_city": "Tyhee",
+    "location_state": "Georgia",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 1
+  },
+  {
+    "location_code": "NO6000000",
+    "location_city": "Crown",
+    "location_state": "Illinois",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 1
+  },
+  {
+    "location_code": "NT3000000",
+    "location_city": "Cumberland",
+    "location_state": "Iowa",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 4
+  },
+  {
+    "location_code": "NU7000000",
+    "location_city": "Elizaville",
+    "location_state": "Hawaii",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 2
+  },
+  {
+    "location_code": "OD0010000",
+    "location_city": "Cedarville",
+    "location_state": "California",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 3
+  },
+  {
+    "location_code": "PA1000000",
+    "location_city": "Courtland",
+    "location_state": "Maryland",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 4
+  },
+  {
+    "location_code": "PE5000000",
+    "location_city": "Garnet",
+    "location_state": "Arkansas",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 5
+  },
+  {
+    "location_code": "PK4000000",
+    "location_city": "Kenvil",
+    "location_state": "Connecticut",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 6
+  },
+  {
+    "location_code": "PM8050000",
+    "location_city": "Inkerman",
+    "location_state": "Montana",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 1
+  },
+  {
+    "location_code": "PO5000000",
+    "location_city": "Cecilia",
+    "location_state": "Ohio",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 7
+  },
+  {
+    "location_code": "PP5000000",
+    "location_city": "Enetai",
+    "location_state": "Guam",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 7
+  },
+  {
+    "location_code": "RS5000000",
+    "location_city": "Winesburg",
+    "location_state": "Virginia",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 8
+  },
+  {
+    "location_code": "RS8900000",
+    "location_city": "Saranap",
+    "location_state": "Maine",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 9
+  },
+  {
+    "location_code": "RS9800000",
+    "location_city": "Lowgap",
+    "location_state": "District Of Columbia",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 10
+  },
+  {
+    "location_code": "SA2000000",
+    "location_city": "Sehili",
+    "location_state": "Idaho",
+    "location_country": "USA",
+    "is_domestic": 1,
+    "us_code": 11
+  },
+  {
+    "location_code": "SA7000000",
+    "location_city": "Faywood",
+    "location_state": "Wisconsin",
+    "location_country": "USA",
+    "is_domestic": 1
+  },
+  {
+    "location_code": "SL2000000",
+    "location_city": "Elliston",
+    "location_state": "New Hampshire",
+    "location_country": "USA",
+    "is_domestic": 1
+  },
+  {
+    "location_code": "SN1000000",
+    "location_city": "Barronett",
+    "location_state": "Kentucky",
+    "location_country": "USA",
+    "is_domestic": 1
+  },
+  {
+    "location_code": "SU4000000",
+    "location_city": "Darbydale",
+    "location_state": "Arizona",
+    "location_country": "USA",
+    "is_domestic": 1
+  },
+  {
+    "location_code": "SZ2300000",
+    "location_city": "Coinjock",
+    "location_state": "Florida",
+    "location_country": "USA",
+    "is_domestic": 1
+  },
+  {
+    "location_code": "TC1000000",
+    "location_city": "Elrama",
+    "location_state": "Alabama",
+    "location_country": "USA",
+    "is_domestic": 1
+  },
+  {
+    "location_code": "TD5500000",
+    "location_city": "Baden",
+    "location_state": "",
+    "location_country": "Hong Kong",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "TH2000000",
+    "location_city": "Hackneyville",
+    "location_state": "",
+    "location_country": "Comoros",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "TI4000000",
+    "location_city": "Coalmont",
+    "location_state": "",
+    "location_country": "Yemen",
+    "is_domestic": 0,
+    "us_code": 3
+  },
+  {
+    "location_code": "TS8000000",
+    "location_city": "Gambrills",
+    "location_state": "",
+    "location_country": "Somalia",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "TU1000000",
+    "location_city": "Leola",
+    "location_state": "",
+    "location_country": "Belarus",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "TU1500000",
+    "location_city": "Albany",
+    "location_state": "",
+    "location_country": "Saint Kitts and Nevis",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "TX1000000",
+    "location_city": "Caroleen",
+    "location_state": "",
+    "location_country": "Sweden",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "TZ2000000",
+    "location_city": "Sunwest",
+    "location_state": "",
+    "location_country": "New Zealand",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "UG5000000",
+    "location_city": "Brenton",
+    "location_state": "",
+    "location_country": "French Guiana",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "UP3000000",
+    "location_city": "Coral",
+    "location_state": "",
+    "location_country": "Russian Federation",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "UV7000000",
+    "location_city": "Eastvale",
+    "location_state": "",
+    "location_country": "Kiribati",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "VE3000000",
+    "location_city": "Greensburg",
+    "location_state": "",
+    "location_country": "Guadeloupe",
+    "is_domestic": 0,
+    "us_code": 7
+  },
+  {
+    "location_code": "VM3000000",
+    "location_city": "Bascom",
+    "location_state": "",
+    "location_country": "Viet Nam",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "YI2000000",
+    "location_city": "Stockwell",
+    "location_state": "",
+    "location_country": "Mozambique",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "ZI8000000",
+    "location_city": "Spelter",
+    "location_state": "",
+    "location_country": "Macau",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "010000101",
+    "location_city": "Bynum",
+    "location_state": "",
+    "location_country": "Denmark",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "012130101",
+    "location_city": "Tioga",
+    "location_state": "",
+    "location_country": "Dominican Republic",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "040330023",
+    "location_city": "Floriston",
+    "location_state": "",
+    "location_country": "Ireland",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "040530019",
+    "location_city": "Klondike",
+    "location_state": "",
+    "location_country": "Saudi Arabia",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "051907051",
+    "location_city": "Winfred",
+    "location_state": "",
+    "location_country": "Azerbaijan",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "060000037",
+    "location_city": "Sunnyside",
+    "location_state": "",
+    "location_country": "Antarctica",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "060000059",
+    "location_city": "Belgreen",
+    "location_state": "",
+    "location_country": "Botswana",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "060000073",
+    "location_city": "Bridgetown",
+    "location_state": "",
+    "location_country": "Western Sahara",
+    "is_domestic": 0,
+    "us_code": 9
+  },
+  {
+    "location_code": "060000075",
+    "location_city": "Blairstown",
+    "location_state": "",
+    "location_country": "Pitcairn",
+    "is_domestic": 0
+  },
+  {
+    "location_code": "060340001",
+    "location_city": "Conestoga",
+    "location_state": "",
+    "location_country": "Bouvet Island",
+    "is_domestic": 0,
+    "us_code": 5
+  }
+]

@@ -1,0 +1,236 @@
+[
+  {
+    "bur": "200000",
+    "bureau_short_desc": "A",
+    "bureau_long_desc": "BUREAU OF ADMINISTRATION",
+    "isregional": 0
+  },
+  {
+    "bur": "150000",
+    "bureau_short_desc": "AF",
+    "bureau_long_desc": "BUREAU OF AFRICAN AFFAIRS",
+    "isregional": 1
+  },
+  {
+    "bur": "198000",
+    "bureau_short_desc": "AVC",
+    "bureau_long_desc": "BUR OF ARMS CONTROL, VERIFICATION AND COMPLIANCE",
+    "isregional": 0
+  },
+  {
+    "bur": "088000",
+    "bureau_short_desc": "BP",
+    "bureau_long_desc": "BUREAU OF BUDGET AND PLANNING",
+    "isregional": 0
+  },
+  {
+    "bur": "280000",
+    "bureau_short_desc": "CA",
+    "bureau_long_desc": "BUREAU OF CONSULAR AFFAIRS",
+    "isregional": 0
+  },
+  {
+    "bur": "080000",
+    "bureau_short_desc": "CGFS",
+    "bureau_long_desc": "BUREAU OF THE COMPTROLLER AND GLOBAL FINANCIAL SVS",
+    "isregional": 0
+  },
+  {
+    "bur": "013000",
+    "bureau_short_desc": "CSO",
+    "bureau_long_desc": "BUREAU OF CONFLICT AND STABILIZATION OPERATIONS",
+    "isregional": 0
+  },
+  {
+    "bur": "033000",
+    "bureau_short_desc": "CT",
+    "bureau_long_desc": "BUR OF COUNTERR & COUNTERING VOILENT EXTREMISM",
+    "isregional": 0
+  },
+  {
+    "bur": "210000",
+    "bureau_short_desc": "DGHR",
+    "bureau_long_desc": "DIR GEN OF THE FOR SER & DIR OF HUMAN RESOURCES",
+    "isregional": 0
+  },
+  {
+    "bur": "018000",
+    "bureau_short_desc": "DRL",
+    "bureau_long_desc": "OFF OF THE ASST SEC BUR OF DEMO, H R,  AND LABOR",
+    "isregional": 0
+  },
+  {
+    "bur": "170000",
+    "bureau_short_desc": "DS",
+    "bureau_long_desc": "BUREAU OF DIPLOMATIC SECURITY",
+    "isregional": 0
+  },
+  {
+    "bur": "130000",
+    "bureau_short_desc": "EAP",
+    "bureau_long_desc": "BUREAU EAST ASIAN AND PACIFIC AFFAIRS",
+    "isregional": 1
+  },
+  {
+    "bur": "050000",
+    "bureau_short_desc": "EB",
+    "bureau_long_desc": "BUREAU OF ECONOMIC & BUSINESS AFFAIRS",
+    "isregional": 0
+  },
+  {
+    "bur": "230000",
+    "bureau_short_desc": "ECA",
+    "bureau_long_desc": "OFFICE OF THE ASSISTANT SECRETARY",
+    "isregional": 0
+  },
+  {
+    "bur": "025000",
+    "bureau_short_desc": "ENR",
+    "bureau_long_desc": "BUREAU OF ENERGY RESOURCES",
+    "isregional": 0
+  },
+  {
+    "bur": "120000",
+    "bureau_short_desc": "EUR",
+    "bureau_long_desc": "BUR OF EUROPEAN AFF AND EURASIAN AFFAIRS",
+    "isregional": 1
+  },
+  {
+    "bur": "260000",
+    "bureau_short_desc": "FSI",
+    "bureau_long_desc": "FOREIGN SERVICE INSTITUTE",
+    "isregional": 0
+  },
+  {
+    "bur": "070000",
+    "bureau_short_desc": "H",
+    "bureau_long_desc": "OFFICE OF LEGISLATIVE AFFAIRS",
+    "isregional": 0
+  },
+  {
+    "bur": "250000",
+    "bureau_short_desc": "IIP",
+    "bureau_long_desc": "COORDINATOR OF INTERNATIONAL INFORMATION PROGRAM",
+    "isregional": 0
+  },
+  {
+    "bur": "019000",
+    "bureau_short_desc": "INL",
+    "bureau_long_desc": "BUREAU FOR INTER NARC AND LAW ENFOR AFF",
+    "isregional": 0
+  },
+  {
+    "bur": "060000",
+    "bureau_short_desc": "INR",
+    "bureau_long_desc": "BUREAU OF INTELLIGENCE AND RESEARCH",
+    "isregional": 0
+  },
+  {
+    "bur": "500000",
+    "bureau_short_desc": "INTL ORGS",
+    "bureau_long_desc": "INTERNATIONAL ORGANIZATIONS",
+    "isregional": 0
+  },
+  {
+    "bur": "160000",
+    "bureau_short_desc": "IO",
+    "bureau_long_desc": "BUREAU OF INTERNATIONAL ORG. AFFAIRS",
+    "isregional": 1
+  },
+  {
+    "bur": "180000",
+    "bureau_short_desc": "IRM",
+    "bureau_long_desc": "BUREAU OF INFORMATION RESOURCE MANAGEMENT",
+    "isregional": 0
+  },
+  {
+    "bur": "197000",
+    "bureau_short_desc": "ISN",
+    "bureau_long_desc": "BUREAU OF INTERNATIONAL SECURITY AND NP",
+    "isregional": 0
+  },
+  {
+    "bur": "040000",
+    "bureau_short_desc": "L",
+    "bureau_long_desc": "OFFICE OF THE LEGAL ADVISER",
+    "isregional": 0
+  },
+  {
+    "bur": "240000",
+    "bureau_short_desc": "M/OBO",
+    "bureau_long_desc": "BUREAU OF OVERSEAS BUILDINGS OPERATIONS",
+    "isregional": 0
+  },
+  {
+    "bur": "016000",
+    "bureau_short_desc": "MED",
+    "bureau_long_desc": "BUREAU OF MEDICAL SERVICES",
+    "isregional": 0
+  },
+  {
+    "bur": "140000",
+    "bureau_short_desc": "NEA",
+    "bureau_long_desc": "BUREAU OF NEAR EASTERN AFFAIRS",
+    "isregional": 1
+  },
+  {
+    "bur": "020000",
+    "bureau_short_desc": "OES",
+    "bureau_long_desc": "ASST SEC, OCEANS & INT L ENVIR & SCI AFFS",
+    "isregional": 0
+  },
+  {
+    "bur": "094000",
+    "bureau_short_desc": "OIG",
+    "bureau_long_desc": "OFFICE OF THE INSPECTOR GENERAL",
+    "isregional": 0
+  },
+  {
+    "bur": "400000",
+    "bureau_short_desc": "OTH AGYS",
+    "bureau_long_desc": "OTHER US AGENCIES        OTHER US AGENCIES",
+    "isregional": 0
+  },
+  {
+    "bur": "100000",
+    "bureau_short_desc": "PA",
+    "bureau_long_desc": "BUREAU OF PUBLIC AFFAIRS",
+    "isregional": 0
+  },
+  {
+    "bur": "014000",
+    "bureau_short_desc": "PM",
+    "bureau_long_desc": "BUREAU OF POLITICAL-MILITARY AFFAIRS",
+    "isregional": 0
+  },
+  {
+    "bur": "030000",
+    "bureau_short_desc": "PRM",
+    "bureau_long_desc": "BUREAU OF POPULATION, REFUGEES, AND MIGRATION",
+    "isregional": 0
+  },
+  {
+    "bur": "010000",
+    "bureau_short_desc": "S",
+    "bureau_long_desc": "OFFICE OF THE SECRETARY",
+    "isregional": 0
+  },
+  {
+    "bur": "010200",
+    "bureau_short_desc": "S/CPR",
+    "bureau_long_desc": "OFFICE OF THE CHIEF OF PROTOCOL",
+    "isregional": 0
+  },
+  {
+    "bur": "146000",
+    "bureau_short_desc": "SCA",
+    "bureau_long_desc": "BUREAU OF SOUTH AND CENTRAL ASIAN AFFAIRS",
+    "isregional": 1
+  },
+  {
+    "bur": "110000",
+    "bureau_short_desc": "WHA",
+    "bureau_long_desc": "BUREAU OF WESTERN HEMISPHERIC AFFAIRS",
+    "isregional": 1
+  }  
+]

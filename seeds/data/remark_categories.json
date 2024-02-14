@@ -1,0 +1,66 @@
+[
+  {
+    "rccode": "A",
+    "rcdesctext": "Training"
+  },
+  {
+    "rccode": "D",
+    "rcdesctext": "PSP Remarks"
+  },
+  {
+    "rccode": "O",
+    "rcdesctext": "Post"
+  },
+  {
+    "rccode": "G",
+    "rcdesctext": "Civil Service"
+  },
+  {
+    "rccode": "E",
+    "rcdesctext": "Extension"
+  },
+  {
+    "rccode": "L",
+    "rcdesctext": "Language"
+  },
+  {
+    "rccode": "M",
+    "rcdesctext": "Miscellaneous"
+  },
+  {
+    "rccode": "P",
+    "rcdesctext": "Position"
+  },
+  {
+    "rccode": "S",
+    "rcdesctext": "Stretch"
+  },
+  {
+    "rccode": "T",
+    "rcdesctext": "Timing"
+  },
+  {
+    "rccode": "I",
+    "rcdesctext": "Tandems"
+  },
+  {
+    "rccode": "C",
+    "rcdesctext": "Curtailment"
+  },
+  {
+    "rccode": "R",
+    "rcdesctext": "Separation"
+  },
+  {
+    "rccode": "B",
+    "rcdesctext": "Bid List"
+  },
+  {
+    "rccode": "N",
+    "rcdesctext": "Service Need Differential"
+  },
+  {
+    "rccode": "W",
+    "rcdesctext": "LWOP"
+  }
+]

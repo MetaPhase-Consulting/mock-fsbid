@@ -1,0 +1,22 @@
+[
+  {
+    "pmscode": "A",
+    "pmsdesctext": "Addendum"
+  },
+  {
+    "pmscode": "C",
+    "pmsdesctext": "Closed"
+  },
+  {
+    "pmscode": "I",
+    "pmsdesctext": "Initiated"
+  },
+  {
+    "pmscode": "O",
+    "pmsdesctext": "Official Preliminary"
+  },
+  {
+    "pmscode": "P",
+    "pmsdesctext": "Post Panel"
+  }
+]

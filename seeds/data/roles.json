@@ -1,0 +1,66 @@
+[
+  {
+    "code": "CDO3",
+    "description": "CDO 3rd Tour"
+  },
+  {
+    "code": "CDO",
+    "description": "Career Development Officer"
+  },
+  {
+    "code": "fsofficer",
+    "description": "Foreign Service Officer"
+  },
+  {
+    "code": "AOAdmin",
+    "description": "AO Administrator"
+  },
+  {
+    "code": "FSBid_Org_Bidders",
+    "description": "FSBid Permission to seed bidders by Post"
+  },
+  {
+    "code": "FSBid_Org_Capsule",
+    "description": "FSBid Permission to change capsule by Post"
+  },
+  {
+    "code": "BMTSOD",
+    "description": "BMTS OD"
+  },
+  {
+    "code": "EMP",
+    "description": "Employee"
+  },
+  {
+    "code": "EPPartial",
+    "description": "Access top non-sensitive EP Data"
+  },
+  {
+    "code": "ACRS HR Manager",
+    "description": "ACRS Manager"
+  },
+  {
+    "code": "Bureau",
+    "description": "Bureau"
+  },
+  {
+    "code": "BEXAssessor",
+    "description": "BEX Assessor"
+  },
+  {
+    "code": "ELCDO",
+    "description": "EL Career Development Officer"
+  },
+  {
+    "code": "FSBidCycleAdministrator",
+    "description": "FSBid Cycle Admin"
+  },
+  {
+    "code": "AO",
+    "description": "AO Administrator"
+  },
+  {
+    "code": "developer",
+    "description": "Developer"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "tfcd": "1",
+    "tfdescr": "Post to Post without Home Leave (Direct Transfer)                     ",
+    "tfshortnm": "PostToPostNoHL "
+  },
+  {
+    "tfcd": "2",
+    "tfdescr": "Post to Post with Home Leave                                          ",
+    "tfshortnm": "PostToPostHL   "
+  },
+  {
+    "tfcd": "3",
+    "tfdescr": "Post to U.S. with Home Leave                                          ",
+    "tfshortnm": "PostToUSHL     "
+  },
+  {
+    "tfcd": "4",
+    "tfdescr": "Post to U.S. without Home Leave (Direct Transfer to U.S.)             ",
+    "tfshortnm": "PostToUSNoHL   "
+  },
+  {
+    "tfcd": "5",
+    "tfdescr": "Separation from the Service                                           ",
+    "tfshortnm": "Separation     "
+  },
+  {
+    "tfcd": "6",
+    "tfdescr": "U.S. to Post                                                          ",
+    "tfshortnm": "USToPost       "
+  },
+  {
+    "tfcd": "7",
+    "tfdescr": "Initial Appointment to Post from U.S.                                 ",
+    "tfshortnm": "ApptToPost     "
+  },
+  {
+    "tfcd": "8",
+    "tfdescr": "Initial Appointment to U.S.",
+    "tfshortnm": "ApptToUS"
+  },
+  {
+    "tfcd": "9",
+    "tfdescr": "Initial Appointment from Overseas",
+    "tfshortnm": "ApptFrmOverseas"
+  },
+  {
+    "tfcd": "10",
+    "tfdescr": "Intra U.S. (Transfer from one U.S. Location to Another U.S. Location) ",
+    "tfshortnm": "IntraUS        "
+  },
+  {
+    "tfcd": "11",
+    "tfdescr": "Round Trip Home Leave                                                 ",
+    "tfshortnm": "HLRT           "
+  },
+  {
+    "tfcd": "12",
+    "tfdescr": "Advance Travel of Dependents                                          ",
+    "tfshortnm": "AdvTravlDepndnt"
+  },
+  {
+    "tfcd": "13",
+    "tfdescr": "Remains of Deceased Dependents                                        ",
+    "tfshortnm": "RemainsDepndnt "
+  },
+  {
+    "tfcd": "14",
+    "tfdescr": "SMA Travel                                                            ",
+    "tfshortnm": "SMATravel      "
+  }
+]
