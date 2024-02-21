@@ -35,6 +35,9 @@ const jobCategorySkills = readJson('./job_category_skills.json')
 const jobCategoryEdit = readJson('./job_category_edit.json')
 const postPanel = readJson('./post_panel.json')
 const panelMeeting = readJson('./panel_meeting.json')
+const listAssignmentCycles = readJson('./assignment_cycles_get.json')
+const getAssignmentCycle = readJson('./assignment_cycle_get.json')
+const addAssignmentCycle = readJson('./assignment_cycle_add_returns.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
 const biddingTools = readJson('./bidding_tools.json')
 const biddingTool = readJson('./bidding_tool.json')
@@ -941,6 +944,9 @@ var appRouter = function (app) {
     "act_runoffpre": jobCategoryEdit,
     "act_runoffaddendum": jobCategoryEdit,
     "act_runpostpnl": jobCategoryEdit,
+    "qry_lstassigncycles": listAssignmentCycles,
+    "qry_getassigncycle": getAssignmentCycle,
+    "act_addassigncycle": addAssignmentCycle,
     "prc_tracking_detail_pos_search": manageELfilters,
     "prc_lst_tracking_details_grid": manageELpositions,
   };
