@@ -34,6 +34,8 @@ const backofficeGeneric = readJson('./backoffice_generic.json')
 const biddingTools = readJson('./bidding_tools.json')
 const biddingTool = readJson('./bidding_tool.json')
 const biddingToolCreateData = readJson('./bidding_tool_add.json')
+const manageELfilters = readJson('./manage_el_filters.json')
+const manageELpositions = readJson('./manage_el_positions.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -927,6 +929,8 @@ var appRouter = function (app) {
     "act_runoffpre": jobCategoryEdit,
     "act_runoffaddendum": jobCategoryEdit,
     "act_runpostpnl": jobCategoryEdit,
+    "prc_tracking_detail_pos_search": manageELfilters,
+    "prc_lst_tracking_details_grid": manageELpositions,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
