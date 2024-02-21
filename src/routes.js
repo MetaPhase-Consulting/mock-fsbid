@@ -19,6 +19,8 @@ const searchPostAccessFilters = readJson('./search_post_access_filters.json')
 const adminProjectedVacancyFilters = readJson('./admin_projected_vacancy_filters.json')
 const adminProjectedVacancyList = readJson('./admin_projected_vacancy_list.json')
 const adminProjectedVacancyDropdowns = readJson('./admin_projected_vacancy_dropdowns.json')
+const adminProjectedVacancyLangOffsets = readJson('./admin_projected_vacancy_lang_offsets.json')
+const adminProjectedVacancyMetadata = readJson('./admin_projected_vacancy_metadata.json')
 const positionClassifications = readJson('./position_classifications.json')
 const edit = readJson('./edit.json')
 const bureauExceptions = readJson('./bureau_exceptions.json')
@@ -896,7 +898,10 @@ var appRouter = function (app) {
     "PRC_FV_ADMIN_SEARCH": adminProjectedVacancyFilters,
     "prc_lst_fv_admin": adminProjectedVacancyList,
     "PRC_LST_POS_PLO_CRITERIA": adminProjectedVacancyDropdowns,
-    "PRC_IUD_FUTURE_VACANCY": adminProjectedVacancyList,
+    "prc_lst_pos_lang_results": adminProjectedVacancyLangOffsets,
+    "PRC_S_FUTURE_VACANCY": adminProjectedVacancyMetadata,
+    "PRC_IUD_FUTURE_VACANCY": edit,
+    "PRC_IUD_POSITION_PLO": edit,
     "qry_lstfsbidSearch": publishablePositionFilters,
     "act_modCapsulePos": publishablePositionEdit,
     "qry_modPosClasses": positionClassifications,
