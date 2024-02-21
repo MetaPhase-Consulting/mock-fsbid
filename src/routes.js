@@ -30,6 +30,9 @@ const jobCategorySkills = readJson('./job_category_skills.json')
 const jobCategoryEdit = readJson('./job_category_edit.json')
 const postPanel = readJson('./post_panel.json')
 const panelMeeting = readJson('./panel_meeting.json')
+const listAssignmentCycles = readJson('./assignment_cycles_get.json')
+const getAssignmentCycle = readJson('./assignment_cycle_get.json')
+const addAssignmentCycle = readJson('./assignment_cycle_add_returns.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
 
 const jwt = require('jsonwebtoken');
