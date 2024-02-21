@@ -1,4 +1,4 @@
-const { readJson, randomIntInclusive } = require('../seeds/data/helpers')
+const { readJson } = require('../seeds/data/helpers')
 
 const { PRIVATE_KEY } = require('./constants')
 const bidding = require('./services/bids')
@@ -11,11 +11,17 @@ const positions = require('./services/positions')
 const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
 const common = require('./services/common')
+
 const publishablePositions = readJson('./publishable_positions.json')
 const publishablePositionFilters = readJson('./publishable_positions_filters.json')
 const publishablePositionEdit = readJson('./publishable_positions_filters.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
+const adminProjectedVacancyFilters = readJson('./admin_projected_vacancy_filters.json')
+const adminProjectedVacancyList = readJson('./admin_projected_vacancy_list.json')
+const adminProjectedVacancyDropdowns = readJson('./admin_projected_vacancy_dropdowns.json')
+const adminProjectedVacancyLangOffsets = readJson('./admin_projected_vacancy_lang_offsets.json')
+const adminProjectedVacancyMetadata = readJson('./admin_projected_vacancy_metadata.json')
 const positionClassifications = readJson('./position_classifications.json')
 const edit = readJson('./edit.json')
 const bureauExceptions = readJson('./bureau_exceptions.json')
@@ -34,6 +40,11 @@ const asgDetailRefData = readJson('./asg_detail_ref_data.json')
 const asgSepUserExampleData = readJson('./asg_sep_user_example_data.json')
 const saveAsg = readJson('./asg_save_data.json')
 const addAsg = readJson('./asg_save_data.json')
+const biddingTools = readJson('./bidding_tools.json')
+const biddingTool = readJson('./bidding_tool.json')
+const biddingToolCreateData = readJson('./bidding_tool_add.json')
+const manageELfilters = readJson('./manage_el_filters.json')
+const manageELpositions = readJson('./manage_el_positions.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -77,11 +88,11 @@ var appRouter = function (app) {
   });
 
   app.get('/v1/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
-    common.getEmployeeProfile(req, res,false);
+    common.getEmployeeProfile(req, res, false);
   });
 
   app.get('/v1/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
-    common.getEmployeeProfile(req, res,true);
+    common.getEmployeeProfile(req, res, true);
   });
 
   app.get("/v1/cyclePositions/bidders", async function (req, res) {
@@ -795,7 +806,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.post('/v1/panels/meeting', async function(req, res) {
+  app.post('/v1/panels/meeting', async function (req, res) {
     console.log('creating pm')
     try {
       res.status(200).send({
@@ -810,7 +821,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.put('/v1/panels/meeting/:pmseqnum', async function(req, res) {
+  app.put('/v1/panels/meeting/:pmseqnum', async function (req, res) {
     console.log('editing pm')
     console.log(req.body)
     try {
@@ -826,7 +837,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.post('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
+  app.post('/v1/panels/meeting/:pmseqnum/dates', async function (req, res) {
     console.log('creating pmd')
     try {
       res.status(200).send({
@@ -841,7 +852,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.put('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
+  app.put('/v1/panels/meeting/:pmseqnum/dates', async function (req, res) {
     console.log('editing pmd')
     console.log(req.body)
     try {
@@ -894,6 +905,13 @@ var appRouter = function (app) {
   // For BackOffice lookup
   const procNameDictionary = {
     "qry_modPublishPos": publishablePositions,
+    "PRC_FV_ADMIN_SEARCH": adminProjectedVacancyFilters,
+    "prc_lst_fv_admin": adminProjectedVacancyList,
+    "PRC_LST_POS_PLO_CRITERIA": adminProjectedVacancyDropdowns,
+    "prc_lst_pos_lang_results": adminProjectedVacancyLangOffsets,
+    "PRC_S_FUTURE_VACANCY": adminProjectedVacancyMetadata,
+    "PRC_IUD_FUTURE_VACANCY": edit,
+    "PRC_IUD_POSITION_PLO": edit,
     "qry_lstfsbidSearch": publishablePositionFilters,
     "act_modCapsulePos": publishablePositionEdit,
     "qry_modPosClasses": positionClassifications,
@@ -914,6 +932,12 @@ var appRouter = function (app) {
     "qry_lstJobCats": jobCategories,
     "qry_getJobCat": jobCategorySkills,
     "act_modJobCat": jobCategoryEdit,
+    "qry_lstbiddingtool": biddingTools,
+    "qry_getbiddingtool": biddingTool,
+    "qry_addBiddingTool": biddingToolCreateData,
+    "act_addbiddingtool": jobCategoryEdit,
+    "act_modbiddingtool": jobCategoryEdit,
+    "act_delbiddingtool": jobCategoryEdit,
     "qry_getPnlMeet": panelMeeting,
     "act_modPnlMeet": jobCategoryEdit,
     "qry_modPostPnl": postPanel,
@@ -925,23 +949,15 @@ var appRouter = function (app) {
     "qry_lstAsgsSeps": asgSepUserExampleData,  
     "act_modasgdtl": saveAsg,
     "qry_addAsg": saveAsg,  
-
+    "prc_tracking_detail_pos_search": manageELfilters,
+    "prc_lst_tracking_details_grid": manageELpositions,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
-    const jsonLookup = procNameDictionary[req?.query?.procName];
+    const procedure = req?.query?.procName;
+    const jsonLookup = procNameDictionary[procedure];
+
     res.status(200).send(jsonLookup.success);
-
-    // if (jsonLookup) {
-    //   // randomly fail - add criteria for failing
-    //   randomIntInclusive(0, 1) ? res.status(200).send(jsonLookup.success) :
-    //   res.status(200).send(jsonLookup.fail);
-    // } else {
-    //   res.status(500).send(
-    //     `ORA-06550: line 1, column 29:\nPLS-00302: component 'procName' must be declared\nORA-06550: line 1, column 7:\nPL/SQL: Statement ignored - `
-    //   )
-    // }
-
   })
 };
 
