@@ -264,7 +264,7 @@ const get_v2_clients = async query => {
           per_grade_code: emp.grade_code,
           per_middle_name: emp.middle_name,
           ...personSkills(emp.skills),
-          per_pay_plan_code: "",
+          per_pay_plan_code: ['FP', 'O', 'P'][Math.ceil(Math.random() * 2)],
           per_tenure_code: "",
           ...assignmentInfo,
           classifications: classifications.length === 1 ? classifications[0] : classifications,
