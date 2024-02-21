@@ -31,9 +31,11 @@ const jobCategoryEdit = readJson('./job_category_edit.json')
 const postPanel = readJson('./post_panel.json')
 const panelMeeting = readJson('./panel_meeting.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
+const biddingTools = readJson('./bidding_tools.json')
+const biddingTool = readJson('./bidding_tool.json')
+const biddingToolCreateData = readJson('./bidding_tool_add.json')
 const manageELfilters = readJson('./manage_el_filters.json')
 const manageELpositions = readJson('./manage_el_positions.json')
-
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -77,11 +79,11 @@ var appRouter = function (app) {
   });
 
   app.get('/v1/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
-    common.getEmployeeProfile(req, res,false);
+    common.getEmployeeProfile(req, res, false);
   });
 
   app.get('/v1/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
-    common.getEmployeeProfile(req, res,true);
+    common.getEmployeeProfile(req, res, true);
   });
 
   app.get("/v1/cyclePositions/bidders", async function (req, res) {
@@ -795,7 +797,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.post('/v1/panels/meeting', async function(req, res) {
+  app.post('/v1/panels/meeting', async function (req, res) {
     console.log('creating pm')
     try {
       res.status(200).send({
@@ -810,7 +812,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.put('/v1/panels/meeting/:pmseqnum', async function(req, res) {
+  app.put('/v1/panels/meeting/:pmseqnum', async function (req, res) {
     console.log('editing pm')
     console.log(req.body)
     try {
@@ -826,7 +828,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.post('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
+  app.post('/v1/panels/meeting/:pmseqnum/dates', async function (req, res) {
     console.log('creating pmd')
     try {
       res.status(200).send({
@@ -841,7 +843,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.put('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
+  app.put('/v1/panels/meeting/:pmseqnum/dates', async function (req, res) {
     console.log('editing pmd')
     console.log(req.body)
     try {
@@ -914,6 +916,12 @@ var appRouter = function (app) {
     "qry_lstJobCats": jobCategories,
     "qry_getJobCat": jobCategorySkills,
     "act_modJobCat": jobCategoryEdit,
+    "qry_lstbiddingtool": biddingTools,
+    "qry_getbiddingtool": biddingTool,
+    "qry_addBiddingTool": biddingToolCreateData,
+    "act_addbiddingtool": jobCategoryEdit,
+    "act_modbiddingtool": jobCategoryEdit,
+    "act_delbiddingtool": jobCategoryEdit,
     "qry_getPnlMeet": panelMeeting,
     "act_modPnlMeet": jobCategoryEdit,
     "qry_modPostPnl": postPanel,
@@ -926,7 +934,9 @@ var appRouter = function (app) {
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
-    const jsonLookup = procNameDictionary[req?.query?.procName];
+    const procedure = req?.query?.procName;
+    const jsonLookup = procNameDictionary[procedure];
+
     res.status(200).send(jsonLookup.success);
   })
 };
