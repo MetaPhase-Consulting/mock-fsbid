@@ -26,6 +26,7 @@ exports.seed = function(knex) {
             bt_inside_efm_employment_flg: _.sample(flags),
             bt_outside_efm_employment_flg: _.sample(flags),
             acp_hard_to_fill_ind: _.sample(["Y", "N"]),
+            deto_rwa: _.sample([true, false]),
           })
         })
       });
