@@ -1,4 +1,4 @@
-const { readJson, randomIntInclusive } = require('../seeds/data/helpers')
+const { readJson } = require('../seeds/data/helpers')
 
 const { PRIVATE_KEY } = require('./constants')
 const bidding = require('./services/bids')
@@ -11,6 +11,7 @@ const positions = require('./services/positions')
 const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
 const common = require('./services/common')
+
 const publishablePositions = readJson('./publishable_positions.json')
 const publishablePositionFilters = readJson('./publishable_positions_filters.json')
 const publishablePositionEdit = readJson('./publishable_positions_filters.json')
@@ -19,6 +20,7 @@ const searchPostAccessFilters = readJson('./search_post_access_filters.json')
 const positionClassifications = readJson('./position_classifications.json')
 const edit = readJson('./edit.json')
 const bureauExceptions = readJson('./bureau_exceptions.json')
+const orgStats = readJson('./org_stats.json')
 const userBureauExceptionsAndMetaData = readJson('./user_bureau_exceptions_and_metadata.json')
 const bureauExceptionsRefDataBureaus = readJson('./bureau_exceptions_ref_data_bureaus.json')
 const listBidSeasons = readJson('./manage_bid_seasons.json')
@@ -561,6 +563,67 @@ var appRouter = function (app) {
     }
   })
 
+  app.post('/v1/agendas', async function(req, res) {
+    console.log('creating ai')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred creating ai')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.put('/v1/agendas/:aiseqnum', async function(req, res) {
+    console.log('editing ai')
+    console.log(req.body)
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred editing ai')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.post('/v1/agendas/:aiseqnum/legs', async function(req, res) {
+    console.log('creating ail')
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred creating ail')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
+
+  app.delete('/v1/agendas/:aiseqnum/legs/:ailseqnum', async function(req, res) {
+    console.log('deleting ail')
+    console.log(req.query)
+    try {
+      res.status(200).send({
+        Data: {},
+        usl_id: 0,
+        return_code: 0,
+      })
+    } catch (err) {
+      console.error('Error occurred deleting ail')
+      console.error(`${err}`)
+      res.status(200).send({ Data: null, return_code: -1 })
+    }
+  })
   app.get('/v1/tm-persons/reference/current-organizations', async function (req, res) {
     try {
       const Data = await employees.get_agenda_organizations({ isCurrent: true });
@@ -836,6 +899,7 @@ var appRouter = function (app) {
     "qry_modPosClasses": positionClassifications,
     "act_modPosClasses": edit,
     "qry_lstbureauex": bureauExceptions,
+    "qry_lstorgstats": orgStats,
     "qry_getbureauex": userBureauExceptionsAndMetaData,
     "qry_addbureauex": bureauExceptionsRefDataBureaus,
     "act_addbureauex": backofficeGeneric,
@@ -870,17 +934,6 @@ var appRouter = function (app) {
     const jsonLookup = procNameDictionary[procedure];
 
     res.status(200).send(jsonLookup.success);
-
-    // if (jsonLookup) {
-    //   // randomly fail - add criteria for failing
-    //   randomIntInclusive(0, 1) ? res.status(200).send(jsonLookup.success) :
-    //   res.status(200).send(jsonLookup.fail);
-    // } else {
-    //   res.status(500).send(
-    //     `ORA-06550: line 1, column 29:\nPLS-00302: component 'procName' must be declared\nORA-06550: line 1, column 7:\nPL/SQL: Statement ignored - `
-    //   )
-    // }
-
   })
 };
 

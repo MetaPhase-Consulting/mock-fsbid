@@ -1,5 +1,6 @@
 const _ = require('lodash')
 const { pmdNameMapping } = require('./common.js')
+const { randomIntInclusive } = require('../../seeds/data/helpers')
 const { AgendaItems, AgendaItemLegs, Assignments, AssignmentDetails, AgendaItemRemarks, AgendaItemStatuses,
   Bureaus, PanelMeetings, PanelMeetingDates, PanelMeetingItemCategories } = require('../models')
 
@@ -231,6 +232,7 @@ const getAgendaItems = async (filsCols) => {
           ailcountrystatetext: l.ailcountrystatetext,
           ailasgseqnum: l.asgseqnum,
           ailasgdrevisionnum: l.asgdrevisionnum,
+          ailupdatedate: "2019-05-01T00:00:00",
           latabbrdesctext: lat.latabbrdesctext,
           latdesctext: lat.latdesctext,
           todcode: l.tod.todcode,
@@ -280,6 +282,7 @@ const getAgendaItems = async (filsCols) => {
         aiupdateid: ai.aiupdateid,
         aiupdatedate: ai.aiupdatedate,
         aisdesctext: aiStatus,
+        aiaiscode: ai?.aiscode?.aiscode,
         pmiofficialitemnum: pmi.pmiofficialitemnum,
         Panel: [{
           pmiofficialitemnum: pmi.pmiofficialitemnum,
@@ -299,6 +302,128 @@ const getAgendaItems = async (filsCols) => {
           micdesctext: _.find(pmicData, ['miccode', pmi.miccode])['micdesctext'],
           pmtcode: _.get(pm, 'pmpmtcode.pmpmtcode'),
         }],
+        person: [
+          {
+            "perpiiseqnum": 10503,
+            "perpiifullname": "PAPORSEE,ANEET-EROLYSEE NMN",
+            "perpiilastname": "PAPORSEE",
+            "perpiifirstname": "ANEET-EROLYSEE",
+            "perpiimiddlename": "NMN",
+            "perpiisuffixname": null,
+            "perpiiprefixname": "MISS",
+            "perpiimiddleinitialname": "S",
+            "perpiiretirementcode": "P",
+            "perpiiconcurrentapptsflg": "N",
+            "perpiibirthdate": "1972-07-08T00:00:00",
+            "perpiicreateid": "IDB",
+            "perpiicreatedate": "2006-09-20T20:52:19",
+            "perpiiupdateid": "IDB",
+            "perpiiupdatedate": "2013-08-13T11:24:35",
+            "pertperseqnum": 10503,
+            "pertexttcode": "G",
+            "pertexternalid": "117792",
+            "pertcreateid": "IDB",
+            "pertcreatedate": "2013-09-20T23:07:26",
+            "pertupdateid": "IDB",
+            "pertupdatedate": "2015-10-18T11:33:33",
+            "pertcurrentind": "Y",
+            "perdetseqnum": 400024,
+            "perdetemplrcd#": 0,
+            "perdetminactemplrcd#ind": "Y",
+            "perdetorgcode": "260910",
+            "perdetskillcode": ["5025", "5030", "6217", "2112"][randomIntInclusive(0, 3)],
+            "perdetskill2code": ["2345", "2335", "2880", "2881"][randomIntInclusive(0, 3)],
+            "perdetskill3code": ["2882", "6090", null][randomIntInclusive(0, 2)],
+            "perdetpayplancode": "FO",
+            "perdetgradecode": ["01", "02", "03", "04", "05", "06", "07", "08"][randomIntInclusive(0, 7)],
+            "perdettenurecode": "01",
+            "perdetcreateid": "IDB",
+            "perdetcreatedate": "2013-09-20T23:07:26",
+            "perdetupdateid": "IDB",
+            "perdetupdatedate": "2022-08-02T00:22:13",
+            "perdetperscode": "A",
+            "perscode": "A",
+            "persdesc": "Active",
+            "perscreateid": "IDB",
+            "perscreatedate": "2006-09-20T20:44:37",
+            "persupdateid": "IDB",
+            "persupdatedate": "2006-09-20T20:44:37",
+            "languages": [
+              {
+                "pllangcode": "CC",
+                "pllangdescr": "CHINESE-CANTON",
+                "pllpcodereadcode": "0",
+                "pllpcodespeakcode": "2",
+                "pltestdate": "2000-04-18T00:00:00",
+                "plhighlangscoreind": "Y",
+                "plperseqnum": 10503
+              },
+              {
+                "pllangcode": "JA",
+                "pllangdescr": "JAPANESE",
+                "pllpcodereadcode": "3",
+                "pllpcodespeakcode": "3",
+                "pltestdate": "2013-08-09T00:00:00",
+                "plhighlangscoreind": "Y",
+                "plperseqnum": 10503
+              },
+              {
+                "pllangcode": "QB",
+                "pllangdescr": "SPANISH",
+                "pllpcodereadcode": "3",
+                "pllpcodespeakcode": "3",
+                "pltestdate": "2016-06-23T00:00:00",
+                "plhighlangscoreind": "Y",
+                "plperseqnum": 10503
+              },
+              {
+                "pllangcode": "RQ",
+                "pllangdescr": "ROMANIAN",
+                "pllpcodereadcode": "3",
+                "pllpcodespeakcode": "3",
+                "pltestdate": "2023-02-16T00:00:00",
+                "plhighlangscoreind": "Y",
+                "plperseqnum": 10503
+              }
+            ].slice(0, randomIntInclusive(0, 4)),
+            "org": [
+              {
+                "orgmvorgbureauorgcode": "210000",
+                "orgmvorgparentorgcode": "214000",
+                "orgmvorgcode": "214004",
+                "orgmvgmdescrshort": "GTM/CDA/ML",
+                "orgmvdescr50": "MID-LEVEL DIVISION",
+                "orgmvdeptid": "214004",
+                "orgmveffstatus": "A"
+              }
+            ],
+            "cdo": [
+              {
+                "echruid": 14171,
+                "ecperdetseqnum": 400024,
+                "ecrlcd": "CDO",
+                "user": [
+                  {
+                    "hruempseqnbr": 71447,
+                    "hruneuid": null,
+                    "hruid": 14171,
+                    "neuid": null,
+                    "neulastnm": null,
+                    "neufirstnm": null,
+                    "neumiddlenm": null,
+                    "perpiifirstname": ["TEREZ-BIRLEE", "Leah", "Gwynne"][randomIntInclusive(0, 2)],
+                    "perpiilastname": ["MAYFIELD BARBEEEE", "Shadtrach", "Gaw"][randomIntInclusive(0, 2)],
+                    "perpiiseqnum": 71447,
+                    "perpiimiddlename": ["NMN", "Loïca", "Mélodie"][randomIntInclusive(0, 2)],
+                    "perpiisuffixname": " ",
+                    "perdetseqnum": 414387,
+                    "persdesc": "Active"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
         agendaAssignment: _.get(agendaLegs, '[0].agendaLegAssignment') ? _.get(agendaLegs, '[0].agendaLegAssignment') : defaultEF,
         remarks: [
           {
