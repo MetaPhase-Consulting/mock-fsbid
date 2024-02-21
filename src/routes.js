@@ -1,4 +1,4 @@
-const { readJson, randomIntInclusive } = require('../seeds/data/helpers')
+const { readJson } = require('../seeds/data/helpers')
 
 const { PRIVATE_KEY } = require('./constants')
 const bidding = require('./services/bids')
@@ -11,6 +11,7 @@ const positions = require('./services/positions')
 const postattributes = require('./services/postattributes')
 const lookups = require('./services/lookups')
 const common = require('./services/common')
+
 const publishablePositions = readJson('./publishable_positions.json')
 const publishablePositionFilters = readJson('./publishable_positions_filters.json')
 const publishablePositionEdit = readJson('./publishable_positions_filters.json')
@@ -922,17 +923,6 @@ var appRouter = function (app) {
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
     const jsonLookup = procNameDictionary[req?.query?.procName];
     res.status(200).send(jsonLookup.success);
-
-    // if (jsonLookup) {
-    //   // randomly fail - add criteria for failing
-    //   randomIntInclusive(0, 1) ? res.status(200).send(jsonLookup.success) :
-    //   res.status(200).send(jsonLookup.fail);
-    // } else {
-    //   res.status(500).send(
-    //     `ORA-06550: line 1, column 29:\nPLS-00302: component 'procName' must be declared\nORA-06550: line 1, column 7:\nPL/SQL: Statement ignored - `
-    //   )
-    // }
-
   })
 };
 

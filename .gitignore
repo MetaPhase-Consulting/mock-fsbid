@@ -7,3 +7,4 @@ coverage/
 cwallet.sso
 sqlnet.ora
 tnsnames.ora
+seeds/data
