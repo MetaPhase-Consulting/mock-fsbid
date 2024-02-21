@@ -17,6 +17,11 @@ const publishablePositionFilters = readJson('./publishable_positions_filters.jso
 const publishablePositionEdit = readJson('./publishable_positions_filters.json')
 const searchPostAccessList = readJson('./search_post_access_list.json')
 const searchPostAccessFilters = readJson('./search_post_access_filters.json')
+const adminProjectedVacancyFilters = readJson('./admin_projected_vacancy_filters.json')
+const adminProjectedVacancyList = readJson('./admin_projected_vacancy_list.json')
+const adminProjectedVacancyDropdowns = readJson('./admin_projected_vacancy_dropdowns.json')
+const adminProjectedVacancyLangOffsets = readJson('./admin_projected_vacancy_lang_offsets.json')
+const adminProjectedVacancyMetadata = readJson('./admin_projected_vacancy_metadata.json')
 const positionClassifications = readJson('./position_classifications.json')
 const edit = readJson('./edit.json')
 const bureauExceptions = readJson('./bureau_exceptions.json')
@@ -34,6 +39,11 @@ const listAssignmentCycles = readJson('./assignment_cycles_get.json')
 const getAssignmentCycle = readJson('./assignment_cycle_get.json')
 const addAssignmentCycle = readJson('./assignment_cycle_add_returns.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
+const biddingTools = readJson('./bidding_tools.json')
+const biddingTool = readJson('./bidding_tool.json')
+const biddingToolCreateData = readJson('./bidding_tool_add.json')
+const manageELfilters = readJson('./manage_el_filters.json')
+const manageELpositions = readJson('./manage_el_positions.json')
 
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
@@ -77,11 +87,11 @@ var appRouter = function (app) {
   });
 
   app.get('/v1/Employees/:id/EmployeeProfileReportByCDO', async function (req, res) {
-    common.getEmployeeProfile(req, res,false);
+    common.getEmployeeProfile(req, res, false);
   });
 
   app.get('/v1/Employees/:id/PrintEmployeeProfileReport', async function (req, res) {
-    common.getEmployeeProfile(req, res,true);
+    common.getEmployeeProfile(req, res, true);
   });
 
   app.get("/v1/cyclePositions/bidders", async function (req, res) {
@@ -795,7 +805,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.post('/v1/panels/meeting', async function(req, res) {
+  app.post('/v1/panels/meeting', async function (req, res) {
     console.log('creating pm')
     try {
       res.status(200).send({
@@ -810,7 +820,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.put('/v1/panels/meeting/:pmseqnum', async function(req, res) {
+  app.put('/v1/panels/meeting/:pmseqnum', async function (req, res) {
     console.log('editing pm')
     console.log(req.body)
     try {
@@ -826,7 +836,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.post('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
+  app.post('/v1/panels/meeting/:pmseqnum/dates', async function (req, res) {
     console.log('creating pmd')
     try {
       res.status(200).send({
@@ -841,7 +851,7 @@ var appRouter = function (app) {
     }
   })
 
-  app.put('/v1/panels/meeting/:pmseqnum/dates', async function(req, res) {
+  app.put('/v1/panels/meeting/:pmseqnum/dates', async function (req, res) {
     console.log('editing pmd')
     console.log(req.body)
     try {
@@ -894,6 +904,13 @@ var appRouter = function (app) {
   // For BackOffice lookup
   const procNameDictionary = {
     "qry_modPublishPos": publishablePositions,
+    "PRC_FV_ADMIN_SEARCH": adminProjectedVacancyFilters,
+    "prc_lst_fv_admin": adminProjectedVacancyList,
+    "PRC_LST_POS_PLO_CRITERIA": adminProjectedVacancyDropdowns,
+    "prc_lst_pos_lang_results": adminProjectedVacancyLangOffsets,
+    "PRC_S_FUTURE_VACANCY": adminProjectedVacancyMetadata,
+    "PRC_IUD_FUTURE_VACANCY": edit,
+    "PRC_IUD_POSITION_PLO": edit,
     "qry_lstfsbidSearch": publishablePositionFilters,
     "act_modCapsulePos": publishablePositionEdit,
     "qry_modPosClasses": positionClassifications,
@@ -914,6 +931,12 @@ var appRouter = function (app) {
     "qry_lstJobCats": jobCategories,
     "qry_getJobCat": jobCategorySkills,
     "act_modJobCat": jobCategoryEdit,
+    "qry_lstbiddingtool": biddingTools,
+    "qry_getbiddingtool": biddingTool,
+    "qry_addBiddingTool": biddingToolCreateData,
+    "act_addbiddingtool": jobCategoryEdit,
+    "act_modbiddingtool": jobCategoryEdit,
+    "act_delbiddingtool": jobCategoryEdit,
     "qry_getPnlMeet": panelMeeting,
     "act_modPnlMeet": jobCategoryEdit,
     "qry_modPostPnl": postPanel,
@@ -924,10 +947,14 @@ var appRouter = function (app) {
     "qry_lstassigncycles": listAssignmentCycles,
     "qry_getassigncycle": getAssignmentCycle,
     "act_addassigncycle": addAssignmentCycle,
+    "prc_tracking_detail_pos_search": manageELfilters,
+    "prc_lst_tracking_details_grid": manageELpositions,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
-    const jsonLookup = procNameDictionary[req?.query?.procName];
+    const procedure = req?.query?.procName;
+    const jsonLookup = procNameDictionary[procedure];
+
     res.status(200).send(jsonLookup.success);
   })
 };
