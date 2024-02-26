@@ -35,6 +35,9 @@ const jobCategorySkills = readJson('./job_category_skills.json')
 const jobCategoryEdit = readJson('./job_category_edit.json')
 const postPanel = readJson('./post_panel.json')
 const panelMeeting = readJson('./panel_meeting.json')
+const listAssignmentCycles = readJson('./assignment_cycles_get.json')
+const getAssignmentCycle = readJson('./assignment_cycle_get.json')
+const addAssignmentCycle = readJson('./assignment_cycle_add_returns.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
 const asgDetailRefData = readJson('./asg_detail_ref_data.json')
 const asgSepUserExampleData = readJson('./asg_sep_user_example_data.json')
@@ -949,6 +952,9 @@ var appRouter = function (app) {
     "qry_lstAsgsSeps": asgSepUserExampleData,  
     "act_modasgdtl": saveAsg,
     "qry_addAsg": saveAsg,  
+    "qry_lstassigncycles": listAssignmentCycles,
+    "qry_getassigncycle": getAssignmentCycle,
+    "act_addassigncycle": addAssignmentCycle,
     "prc_tracking_detail_pos_search": manageELfilters,
     "prc_lst_tracking_details_grid": manageELpositions,
   };
