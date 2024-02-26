@@ -39,6 +39,10 @@ const listAssignmentCycles = readJson('./assignment_cycles_get.json')
 const getAssignmentCycle = readJson('./assignment_cycle_get.json')
 const addAssignmentCycle = readJson('./assignment_cycle_add_returns.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
+const asgDetailRefData = readJson('./asg_detail_ref_data.json')
+const asgSepUserExampleData = readJson('./asg_sep_user_example_data.json')
+const saveAsg = readJson('./asg_save_data.json')
+const addAsg = readJson('./asg_save_data.json')
 const biddingTools = readJson('./bidding_tools.json')
 const biddingTool = readJson('./bidding_tool.json')
 const biddingToolCreateData = readJson('./bidding_tool_add.json')
@@ -944,6 +948,10 @@ var appRouter = function (app) {
     "act_runoffpre": jobCategoryEdit,
     "act_runoffaddendum": jobCategoryEdit,
     "act_runpostpnl": jobCategoryEdit,
+    "qry_getAsgDtl": asgDetailRefData,
+    "qry_lstAsgsSeps": asgSepUserExampleData,  
+    "act_modasgdtl": saveAsg,
+    "qry_addAsg": saveAsg,  
     "qry_lstassigncycles": listAssignmentCycles,
     "qry_getassigncycle": getAssignmentCycle,
     "act_addassigncycle": addAssignmentCycle,
