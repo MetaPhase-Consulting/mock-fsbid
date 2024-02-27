@@ -923,6 +923,7 @@ var appRouter = function (app) {
     "qry_lstassigncycles": listAssignmentCycles,
     "qry_getassigncycle": getAssignmentCycle,
     "act_addassigncycle": addAssignmentCycle,
+    "act_modAssignCycle": addAssignmentCycle,
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
