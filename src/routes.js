@@ -955,12 +955,9 @@ var appRouter = function (app) {
     "qry_lstassigncycles": listAssignmentCycles,
     "qry_getassigncycle": getAssignmentCycle,
     "act_addassigncycle": addAssignmentCycle,
-<<<<<<< HEAD
     "act_modAssignCycle": addAssignmentCycle,
-=======
     "prc_tracking_detail_pos_search": manageELfilters,
     "prc_lst_tracking_details_grid": manageELpositions,
->>>>>>> 563ef21892fa0343ab8d54cdb907dc1ef322911e
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
