@@ -955,6 +955,7 @@ var appRouter = function (app) {
     "qry_getassigncycle": getAssignmentCycle,
     "act_addassigncycle": backOfficeReturnCodes.act_addassigncycle,
     "act_modAssignCycle": backOfficeReturnCodes.act_addassigncycle,
+    "act_delassigncycle": backOfficeReturnCodes.act_addassigncycle,
     "act_modpostassigncycle": backOfficeReturnCodes.act_modpostassigncycle,
     "prc_tracking_detail_pos_search": manageELfilters,
     "prc_lst_tracking_details_grid": manageELpositions,
