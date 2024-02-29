@@ -37,7 +37,6 @@ const postPanel = readJson('./post_panel.json')
 const panelMeeting = readJson('./panel_meeting.json')
 const listAssignmentCycles = readJson('./assignment_cycles_get.json')
 const getAssignmentCycle = readJson('./assignment_cycle_get.json')
-const addAssignmentCycle = readJson('./assignment_cycle_add_returns.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
 const asgDetailRefData = readJson('./asg_detail_ref_data.json')
 const asgSepUserExampleData = readJson('./asg_sep_user_example_data.json')
@@ -954,7 +953,10 @@ var appRouter = function (app) {
     "qry_addAsg": saveAsg,  
     "qry_lstassigncycles": listAssignmentCycles,
     "qry_getassigncycle": getAssignmentCycle,
-    "act_addassigncycle": addAssignmentCycle,
+    "act_addassigncycle": backOfficeReturnCodes.act_addassigncycle,
+    "act_modAssignCycle": backOfficeReturnCodes.act_addassigncycle,
+    "act_delassigncycle": backOfficeReturnCodes.act_addassigncycle,
+    "act_modpostassigncycle": backOfficeReturnCodes.act_modpostassigncycle,
     "prc_tracking_detail_pos_search": manageELfilters,
     "prc_lst_tracking_details_grid": manageELpositions,
   };
