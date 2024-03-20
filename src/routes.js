@@ -64,6 +64,10 @@ var appRouter = function (app) {
       return
     }
     const username = req.get('tmusrname')
+    if (!username) {
+      res.status(403).send('No username')
+      return
+    }
     const [employee] = await employees.get_employee_by_username(username)
     if (!employee) {
       res.status(403).send(`No user with username ${username} was found`)
