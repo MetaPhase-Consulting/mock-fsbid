@@ -967,6 +967,7 @@ var appRouter = function (app) {
     "qry_getcyclejob": cycleJobCategories,
     "qry_lstjobcats": cycleJobCategoriesStatuses,
     "qry_modCyclePos": getCyclePositions,
+    "act_modcyclejob": edit
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
