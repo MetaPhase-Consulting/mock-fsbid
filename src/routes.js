@@ -38,6 +38,7 @@ const panelMeeting = readJson('./panel_meeting.json')
 const listAssignmentCycles = readJson('./assignment_cycles_get.json')
 const getAssignmentCycle = readJson('./assignment_cycle_get.json')
 const backofficeGeneric = readJson('./backoffice_generic.json')
+const backofficeGenericFail = readJson('./backoffice_generic_fail.json')
 const asgDetailRefData = readJson('./asg_detail_ref_data.json')
 const asgSepUserExampleData = readJson('./asg_sep_user_example_data.json')
 const saveAsg = readJson('./asg_save_data.json')
@@ -911,6 +912,7 @@ var appRouter = function (app) {
 
   // For BackOffice lookup
   const procNameDictionary = {
+    "fail_me": backofficeGenericFail,
     "qry_modPublishPos": publishablePositions,
     "PRC_FV_ADMIN_SEARCH": adminProjectedVacancyFilters,
     "prc_lst_fv_admin": adminProjectedVacancyList,
