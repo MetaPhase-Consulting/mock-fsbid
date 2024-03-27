@@ -48,6 +48,9 @@ const biddingTool = readJson('./bidding_tool.json')
 const biddingToolCreateData = readJson('./bidding_tool_add.json')
 const manageELfilters = readJson('./manage_el_filters.json')
 const manageELpositions = readJson('./manage_el_positions.json')
+const cycleCategories = readJson('./cycle_categories.json')
+const cycleJobCategories = readJson('./cycle_job_categories.json')
+const cycleJobCategoriesStatuses = readJson('./cycle_job_categories_statuses.json')
 const getCyclePositions = readJson('./cycle_positions_get.json')
 
 const jwt = require('jsonwebtoken');
@@ -967,7 +970,11 @@ var appRouter = function (app) {
     "act_modpostassigncycle": backOfficeReturnCodes.act_modpostassigncycle,
     "prc_tracking_detail_pos_search": manageELfilters,
     "prc_lst_tracking_details_grid": manageELpositions,
+    "qry_lstcyclejobs": cycleCategories,
+    "qry_getcyclejob": cycleJobCategories,
+    "qry_lstjobcats": cycleJobCategoriesStatuses,
     "qry_modCyclePos": getCyclePositions,
+    "act_modcyclejob": edit
   };
 
   app.post('/v1/backoffice/BackOfficeCRUD', async function (req, res) {
